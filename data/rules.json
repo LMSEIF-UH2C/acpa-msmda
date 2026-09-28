@@ -1,0 +1,61 @@
+[
+  {
+    "id": "R001",
+    "label": "Mobilité réduite",
+    "when": {"mobility": "reduced"},
+    "effects": {
+      "prefer_tags": ["seated", "supported", "low_impact"],
+      "exclude_tags": ["dynamic"],
+      "max_intensity": 2
+    },
+    "explanation": "Privilégier des tâches stables, à faible impact et facilement adaptables."
+  },
+  {
+    "id": "R002",
+    "label": "Besoin élevé de soutien de l'équilibre",
+    "when": {"balance_support": "high"},
+    "effects": {
+      "prefer_tags": ["supported", "balance_stable", "seated"],
+      "exclude_tags": ["dynamic"],
+      "max_intensity": 2
+    },
+    "explanation": "Privilégier des tâches avec appui ou position stable."
+  },
+  {
+    "id": "R003",
+    "label": "Tolérance cardio faible",
+    "when": {"cardio_tolerance": "low"},
+    "effects": {
+      "prefer_tags": ["low_impact", "simple"],
+      "max_intensity": 1
+    },
+    "explanation": "Limiter l'intensité du PoC et privilégier des tâches simples à faible sollicitation."
+  },
+  {
+    "id": "R004",
+    "label": "Aucun matériel disponible",
+    "when": {"equipment": "none"},
+    "effects": {
+      "allowed_equipment": ["none"]
+    },
+    "explanation": "Ne proposer que les activités ne nécessitant pas de matériel."
+  },
+  {
+    "id": "R005",
+    "label": "Contexte extérieur",
+    "when": {"environment": "outdoor"},
+    "effects": {
+      "prefer_tags": ["walking"]
+    },
+    "explanation": "Valoriser les activités simples utilisant l'espace extérieur."
+  },
+  {
+    "id": "R006",
+    "label": "Objectif coordination",
+    "when": {"objective": "coordination"},
+    "effects": {
+      "prefer_tags": ["coordination"]
+    },
+    "explanation": "Favoriser les tâches correspondant à l'objectif de coordination."
+  }
+]

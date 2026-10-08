@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "Cite the exact tagged release and commit of this software."
+message: "Cite the exact public commit, or a tagged release when available."
 type: software
 title: "ACPA/MSMDA: Heuristic EPS Technology Recommendation Engine"
 authors:

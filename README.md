@@ -67,7 +67,7 @@ Both versions are development artifacts. A version number or archival DOI does n
 
 **Archived release:** [v0.1.1 on Zenodo](https://doi.org/10.5281/zenodo.23244629) (version-specific DOI: `10.5281/zenodo.23244629`).
 
-Suggested software citation: Moudettir, Y. (2026). *ACPA/MSMDA: Heuristic EPS Technology Recommendation Engine* (Version 0.1.1) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.23244629
+Suggested software citation: Moudettir, Y., Lotfi, S., & Ouhrir, S. (2026). *ACPA/MSMDA: Heuristic EPS Technology Recommendation Engine* (Version v0.1.1) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.23244629
 
 
 The selected release files are offered under the accompanying MIT License.

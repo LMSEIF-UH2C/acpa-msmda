@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "Cite the exact tagged release and commit of this software."
+type: software
+title: "ACPA/MSMDA: Heuristic EPS Technology Recommendation Engine"
+authors:
+  - family-names: "Moudettir"
+    given-names: "Youness"
+repository-code: "https://github.com/LMSEIF-UH2C/acpa-msmda"
+license: "MIT"
+version: "0.1.0"
+abstract: >-
+  Rule-based French/Arabic/English pedagogical context analysis,
+  contextual weighting of 18 criteria and relative ranking of fictional
+  EPS technology profiles. Heuristic development release with synthetic
+  data; no empirical validation or operational recommendations.

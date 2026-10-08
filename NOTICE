@@ -1,5 +1,17 @@
-Patent notice
+ACPA/MSMDA — heuristic recommendation engine (development release)
 
-The MIT License in LICENSE does not contain an express patent-license grant. OMPIC patent application No. 74877 (filed 23 April 2026) is separate from the software-license terms in this repository.
+Copyright (c) 2026 Youness Moudettir.
 
-This notice does not modify LICENSE or determine whether any rights may arise under applicable law. No patent grant or patent status should be inferred solely from publication of this repository.
+The released code implements a deterministic, illustrative 18-criterion
+contextual weighting and relative-ranking pipeline. It uses synthetic data
+and is not an empirically validated recommendation system.
+
+The published source code is a defined subset of the wider ACPA/MSMDA
+development project. Separate private components, original research data,
+student records and local state are not included.
+
+The MIT License covers the included copyrightable software files. It does
+not contain an express patent grant. Patent-related rights associated with
+the broader project are distinct and are not characterized here.
+
+Related industrial-property filing: OMPIC patent application No. 74877 (23 April 2026). Filing does not indicate grant. This notice does not change the MIT License or determine rights under applicable law.

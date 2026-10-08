@@ -1,31 +1,59 @@
-# ACPA/MSMDA
+# ACPA/MSMDA — Heuristic EPS Technology Recommendation Engine
 
-Context-aware selection of educational technology tools for physical education.
+**Public source release v0.1.0 (heuristic development implementation).**
 
-ACPA/MSMDA is intended to support physical education teachers in selecting technological teaching tools according to their teaching context.
+This is a **working source-code release of the current ACPA/MSMDA heuristic
+engine**, not merely a viewer of fictional data. The code performs the
+following computational operations:
 
-## Current contents and scope
+1. Normalize and tokenize pedagogical text in French, Arabic or English.
+2. Identify a limited, deterministic set of context expressions.
+3. Adjust and normalize weights across **18 EPS technology criteria**.
+4. Compute weighted composite scores, apply an illustrative safety penalty,
+   and rank tools by their scores.
+5. Report context flags, all 18 weights, criterion names, relative scores
+   and a machine-readable demonstration-only status.
 
-This repository currently provides project documentation, the MIT License and a patent-related NOTICE. No runnable ACPA/MSMDA implementation is published here. Selected non-critical components, potentially including natural-language preprocessing and a user interface, may be released in the future; no release date or functionality is guaranteed.
+## Reproduce locally
 
-## Earlier demonstration code
+Requires **Python 3.11 or 3.12**. The engine has **no third-party runtime
+dependencies** and uses a **five-item synthetic catalogue**.
 
-Git history retains an earlier Streamlit demonstration, a rule-based exercise recommendation engine, synthetic demonstration data and tests. These files were removed from the main branch in commit `3eff134b48beef4b67d02654aed692cd618b99fe`.
+```bash
+python run_engine.py --language fr --query "basketball sans connexion budget limité"
+python run_engine.py --language en --query "large class with low budget"
+python run_engine.py --language ar --query "كرة السلة بدون انترنت"
+python -m unittest discover -s tests -v
+```
 
-That demonstration recommends physical exercises and is distinct from the ACPA/MSMDA project for selecting educational technology tools. It should not be treated as a released or validated implementation of ACPA/MSMDA.
+## What this version does not establish
 
-## Related patent application
+- The NLP is **rule-based**, not a trained, benchmarked language model.
+- Contextual boosts and scores are **illustrative** and not calibrated against
+  an expert-labeled or representative evaluation dataset.
+- Catalogue tools and their 18 values are **fictional**; rankings are **not
+  empirical recommendations** or product comparisons.
+- Relative scores depend on catalogue membership; 100 does **not** mean
+  perfect suitability.
+- There is no demonstrated educational efficacy, generalization, fairness,
+  or readiness for operational decisions about pupils.
+- This release does not include the separate private sync, persistence,
+  monitoring or web application modules.
 
-ACPA/MSMDA is associated with OMPIC patent application No. 74877, filed on 23 April 2026. The existence of an application does not indicate that a patent has been granted.
+## Privacy and security
 
-## License
+The command-line program runs locally, makes no network requests and does
+not persist input. Use fictional contexts only; do not enter student or other
+personal data. This code is an illustrative research-development artifact,
+not an authorized production system.
 
-See [LICENSE](LICENSE) for the MIT License applicable to software released under that license in this repository, and [NOTICE](NOTICE) for information on the separate patent application.
+## Associated industrial-property application
 
-Associated scientific publications and research datasets are outside the scope of this repository's software license.
+The broader ACPA/MSMDA project is associated with OMPIC patent application No. 74877, filed on 23 April 2026. Filing does not imply a granted patent. This repository's MIT software copyright license does not include an express patent grant. See `NOTICE`.
 
-## Maintainer
+## License and citation
 
-Youness Moudettir  
-LMSEIF, ENS Casablanca  
-Université Hassan II de Casablanca
+The selected release files are offered under the accompanying MIT License.
+See `NOTICE` for scope and the distinction from any industrial-property
+rights associated with the wider project. See `CITATION.cff` for software
+citation metadata. For reproducibility, cite the exact public commit SHA or a tagged release when available.

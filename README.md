@@ -2,6 +2,8 @@
 
 **Public source version v0.1.1 (heuristic development implementation; citation and documentation update).**
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23244629.svg)](https://doi.org/10.5281/zenodo.23244629)
+
 This is a **working source-code release of the current ACPA/MSMDA heuristic
 engine**, not merely a viewer of fictional data. The code performs the
 following computational operations:
@@ -63,7 +65,12 @@ Both versions are development artifacts. A version number or archival DOI does n
 
 ## License and citation
 
+**Archived release:** [v0.1.1 on Zenodo](https://doi.org/10.5281/zenodo.23244629) (version-specific DOI: `10.5281/zenodo.23244629`).
+
+Suggested software citation: Moudettir, Y. (2026). *ACPA/MSMDA: Heuristic EPS Technology Recommendation Engine* (Version 0.1.1) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.23244629
+
+
 The selected release files are offered under the accompanying MIT License.
 See `NOTICE` for scope and the distinction from any industrial-property
 rights associated with the wider project. See `CITATION.cff` for software
-citation metadata. For reproducibility, cite the specific tagged release and its version-specific Zenodo DOI once assigned; until then, cite the exact GitHub release URL or commit SHA.
+citation metadata. For reproducibility, cite the archived v0.1.1 release DOI above. Later versions should be cited using their own version-specific identifiers.

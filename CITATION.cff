@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "Cite the exact public commit, or a tagged release when available."
+message: "Please cite the version-specific Zenodo DOI when available, or the corresponding tagged GitHub release."
 type: software
 title: "ACPA/MSMDA: Heuristic EPS Technology Recommendation Engine"
 authors:
@@ -7,7 +7,14 @@ authors:
     given-names: "Youness"
 repository-code: "https://github.com/LMSEIF-UH2C/acpa-msmda"
 license: "MIT"
-version: "0.1.0"
+date-released: 2026-10-08
+keywords:
+  - physical education
+  - educational technology
+  - context-aware recommendation
+  - heuristic ranking
+  - synthetic data
+version: "0.1.1"
 abstract: >-
   Rule-based French/Arabic/English pedagogical context analysis,
   contextual weighting of 18 criteria and relative ranking of fictional

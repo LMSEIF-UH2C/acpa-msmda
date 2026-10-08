@@ -1,6 +1,6 @@
 # ACPA/MSMDA — Heuristic EPS Technology Recommendation Engine
 
-**Public source release v0.1.0 (heuristic development implementation).**
+**Public source version v0.1.1 (heuristic development implementation; citation and documentation update).**
 
 This is a **working source-code release of the current ACPA/MSMDA heuristic
 engine**, not merely a viewer of fictional data. The code performs the
@@ -54,9 +54,16 @@ not an authorized production system.
 
 The broader ACPA/MSMDA project is associated with OMPIC patent application No. 74877, filed on 23 April 2026. Filing does not imply a granted patent. This repository's MIT software copyright license does not include an express patent grant. See `NOTICE`.
 
+## Release history and reproducibility
+
+- **v0.1.0 (8 October 2026):** initial public release of the working heuristic engine with synthetic examples.
+- **v0.1.1 (8 October 2026):** updated machine-readable software citation metadata and release documentation for scholarly archiving. The ranking algorithm, context rules, synthetic catalogue and runtime behavior are unchanged from v0.1.0.
+
+Both versions are development artifacts. A version number or archival DOI does not imply empirical validation, educational efficacy or production readiness.
+
 ## License and citation
 
 The selected release files are offered under the accompanying MIT License.
 See `NOTICE` for scope and the distinction from any industrial-property
 rights associated with the wider project. See `CITATION.cff` for software
-citation metadata. For reproducibility, cite the exact public commit SHA or a tagged release when available.
+citation metadata. For reproducibility, cite the specific tagged release and its version-specific Zenodo DOI once assigned; until then, cite the exact GitHub release URL or commit SHA.

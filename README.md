@@ -23,10 +23,10 @@ dependencies** and uses a **five-item synthetic catalogue**.
 python run_engine.py --language fr --query "basketball sans connexion budget limité"
 python run_engine.py --language en --query "large class with low budget"
 python run_engine.py --language ar --query "كرة السلة بدون انترنت"
-python -m unittest discover -s tests -v
+python -m compileall -q src run_engine.py
 ```
 
-## What this version does not establish
+The automated integration and packaging tests are maintained in the private\ndevelopment repository and are not included in this 11-file source release.\n\n## What this version does not establish
 
 - The NLP is **rule-based**, not a trained, benchmarked language model.
 - Contextual boosts and scores are **illustrative** and not calibrated against

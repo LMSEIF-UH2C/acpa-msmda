@@ -1,4 +1,6 @@
-# Référentiel UX — ACPA/MSMDA
+# Référentiel interne UX — ACPA/MSMDA
+
+> **Document de cadrage interne uniquement.** Les références Nielsen, Bastien–Scapin, ISO et WCAG servent à concevoir, examiner et améliorer le produit. Elles ne constituent ni un label, ni une certification, ni une promesse de conformité, et ne doivent pas être utilisées comme arguments marketing ou affichées dans l'interface. L'expérience utilisateur doit démontrer la qualité du produit par les tâches accomplies, la clarté et la fluidité.
 
 ## Objectif
 Faire d'ACPA/MSMDA un exemple de clarté, de contrôle utilisateur et d'utilisabilité en situation réelle d'EPS. Ce document guide les arbitrages, sans revendiquer une conformité ou validation obtenue.

@@ -219,20 +219,40 @@
       "activities": [
         "gymnastique",
         "athletisme",
-        "saut",
-        "technique"
+        "technique",
+        "saut"
       ],
       "uses": [
         "video",
         "analyse",
         "angles",
-        "mesure"
+        "mesure",
+        "ralenti",
+        "annotation"
       ],
       "requirement": "ordinateur",
       "source_url": "https://www.kinovea.org/features",
       "caution": "Captation d'images d'élèves à éviter sans cadre autorisé.",
-      "evidence_status": "OFFICIAL_SOURCE_FEATURES_ONLY",
-      "criteria_scores": null
+      "evidence_status": "FEATURES_VERIFIED_ON_OFFICIAL_SITE",
+      "criteria_scores": null,
+      "platforms": [
+        "Windows"
+      ],
+      "features": [
+        "Lecture au ralenti",
+        "Annotations vidéo",
+        "Mesures d'angles et de distances",
+        "Export CSV de mesures"
+      ],
+      "pricing": "À vérifier",
+      "offline": "À confirmer pour les usages ciblés",
+      "feature_evidence": [
+        {
+          "url": "https://www.kinovea.org/features",
+          "checked_on": "2026-11-21",
+          "scope": "Fonctionnalités uniquement"
+        }
+      ]
     },
     {
       "id": "candidate-018",
@@ -396,19 +416,39 @@
       "category": "Capteurs et tests",
       "activities": [
         "athletisme",
-        "physique",
-        "mesure"
+        "mesure",
+        "physique"
       ],
       "uses": [
         "capteurs",
         "mesure",
-        "acceleration"
+        "acceleration",
+        "export"
       ],
       "requirement": "smartphone",
       "source_url": "https://phyphox.org/",
       "caution": "Précision et protocole de mesure à vérifier selon le capteur.",
-      "evidence_status": "OFFICIAL_SOURCE_FEATURES_ONLY",
-      "criteria_scores": null
+      "evidence_status": "FEATURES_VERIFIED_ON_OFFICIAL_SITE",
+      "criteria_scores": null,
+      "platforms": [
+        "Android",
+        "iOS"
+      ],
+      "features": [
+        "Exploitation des capteurs du smartphone",
+        "Export des mesures",
+        "Contrôle à distance par navigateur",
+        "Expériences personnalisées"
+      ],
+      "pricing": "Gratuit selon l'éditeur",
+      "offline": "À confirmer pour les usages ciblés",
+      "feature_evidence": [
+        {
+          "url": "https://phyphox.org/",
+          "checked_on": "2026-11-21",
+          "scope": "Fonctionnalités uniquement"
+        }
+      ]
     },
     {
       "id": "chronojump",
@@ -623,13 +663,33 @@
       "uses": [
         "ressources",
         "quiz",
-        "autonomie"
+        "interactif",
+        "video"
       ],
       "requirement": "internet",
       "source_url": "https://h5p.org/",
       "caution": "Nécessite un environnement de diffusion adapté.",
-      "evidence_status": "OFFICIAL_SOURCE_FEATURES_ONLY",
-      "criteria_scores": null
+      "evidence_status": "FEATURES_VERIFIED_ON_OFFICIAL_SITE",
+      "criteria_scores": null,
+      "platforms": [
+        "Navigateur web",
+        "LMS compatible"
+      ],
+      "features": [
+        "Contenus interactifs",
+        "Vidéos et présentations interactives",
+        "Intégration LMS",
+        "Contenus adaptés aux écrans mobiles"
+      ],
+      "pricing": "Technologie ouverte ; hébergement/services variables",
+      "offline": "Non confirmé",
+      "feature_evidence": [
+        {
+          "url": "https://h5p.org/",
+          "checked_on": "2026-11-21",
+          "scope": "Fonctionnalités uniquement"
+        }
+      ]
     },
     {
       "id": "genially",
@@ -1701,5 +1761,6 @@
       "criteria_scores": null
     }
   ],
-  "source_links_added": 84
+  "source_links_added": 84,
+  "feature_verified_count": 3
 }

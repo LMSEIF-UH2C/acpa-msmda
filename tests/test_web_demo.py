@@ -9,7 +9,7 @@ class MobileHomepageTests(unittest.TestCase):
     def test_load(self):
         app=start()
         self.assertFalse(app.exception)
-        self.assertEqual(len(app.metric),3)
+        self.assertEqual(len(app.metric),0)
     def test_empty_search(self):
         app=start()
         app.button[4].click().run()

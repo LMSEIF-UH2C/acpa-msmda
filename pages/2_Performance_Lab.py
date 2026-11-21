@@ -4,6 +4,7 @@ from __future__ import annotations
 import csv
 import io
 import json
+import math
 from pathlib import Path
 
 import streamlit as st
@@ -25,11 +26,11 @@ if test_id:
     st.write("**Mesure :** " + t["measure"] + " (" + t["unit"] + ")")
     st.info(t["protocol_note"])
     with st.form("measurement"):
-        value = st.number_input("Résultat mesuré (" + t["unit"] + ")", min_value=0.0, value=0.0, step=0.1)
+        value = st.number_input("Résultat mesuré (" + t["unit"] + ")", min_value=None if t.get("signed") else 0.0, value=0.0, step=0.1)
         submitted = st.form_submit_button("Calculer / enregistrer localement", type="primary")
     if submitted:
-        if value <= 0:
-            st.error("Saisissez une valeur positive.")
+        if not math.isfinite(value) or (value <= 0 and not t.get("signed")):
+            st.error("Saisissez une valeur valide" + ("." if t.get("signed") else " strictement positive."))
         else:
             record = {"test_id":test_id,"test":t["name"],"value":value,"unit":t["unit"]}
             st.session_state["performance_last_record"] = record
@@ -63,17 +64,16 @@ if draw:
     lines = [line.strip().replace(",", ".") for line in raw_values.splitlines() if line.strip()]
     try:
         values = [float(line) for line in lines]
-        if not 2 <= len(values) <= 60 or any(not __import__("math").isfinite(v) or v < 0 for v in values):
+        if not 2 <= len(values) <= 60 or any(not math.isfinite(v) or (v < 0 and not chosen.get("signed")) for v in values):
             raise ValueError
     except ValueError:
-        st.error("Saisissez entre 2 et 60 valeurs numériques positives ou nulles, une par ligne.")
+        st.error("Saisissez entre 2 et 60 valeurs numériques, une par ligne" + ("." if chosen.get("signed") else ", positives ou nulles."))
     else:
         st.session_state["performance_chart"] = {"test_id":chart_test, "values":values, "direction":direction}
 chart = st.session_state.get("performance_chart")
 if chart:
     chosen = next(t for t in tests if t["id"] == chart["test_id"])
     st.write("**" + chosen["name"] + "** — " + chosen["unit"])
-    points = [{"Mesure":str(i+1), chosen["unit"]:v} for i,v in enumerate(chart["values"])]
     st.caption("Évolution des mesures successives")
     minimum=min(chart["values"])
     maximum=max(chart["values"])

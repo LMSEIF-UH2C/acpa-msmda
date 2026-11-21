@@ -69,6 +69,12 @@ class SearchPageTests(unittest.TestCase):
         app.toggle[0].set_value(True).run()
         self.assertTrue(any(e.label.startswith("Testmoz") for e in app.expander))
 
+    def test_hidden_fiches_are_explained(self):
+        app = start(SEARCH_PAGE)
+        self.assertTrue(any("en cours de documentation" in c.value for c in app.caption))
+        app.text_input[0].set_value("Testmoz").run()
+        self.assertTrue(any("Activez l'interrupteur" in i.value for i in app.info))
+
     def test_max_length(self):
         self.assertEqual(start(SEARCH_PAGE).text_area[0].proto.max_chars, 1000)
 

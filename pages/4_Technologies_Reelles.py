@@ -60,6 +60,10 @@ with left:
 with right:
     name = st.text_input("Nom de l'outil", placeholder="Ex. Kinovea")
 include_pending = st.toggle("Inclure les fiches en cours de documentation", value=False)
+pending_count = sum(t.get("evidence_status") not in DOCUMENTED for t in catalogue)
+if not include_pending:
+    st.caption(f"Seules les fiches dont les fonctions ont été vérifiées sur le site de l'éditeur sont affichées. "
+               f"{pending_count} autres outils sont en cours de documentation : activez l'interrupteur pour les voir.")
 
 filtered = [
     t for t in catalogue
@@ -68,7 +72,8 @@ filtered = [
     and (include_pending or t.get("evidence_status") in DOCUMENTED)
 ]
 if not filtered:
-    st.info("Aucune fiche ne correspond à ces filtres.")
+    st.info("Aucune fiche ne correspond à ces filtres."
+            + ("" if include_pending else " Activez l'interrupteur pour inclure les fiches en cours de documentation."))
 pages = max(1, (len(filtered) + PAGE_SIZE - 1) // PAGE_SIZE)
 page = st.number_input("Page", min_value=1, max_value=pages, value=1, step=1) if pages > 1 else 1
 for tool in filtered[(page - 1) * PAGE_SIZE:page * PAGE_SIZE]:

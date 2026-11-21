@@ -40,7 +40,7 @@ if test_id:
             st.session_state["performance_last_record"] = record
     record = st.session_state.get("performance_last_record")
     if record and record["test_id"] == test_id:
-        st.success("Mesure enregistrée pour cette session.")
+        st.success("Mesure prise en compte. Exportez-la pour la conserver.")
         st.metric("Résultat", f'{record["value"]:g} {record["unit"]}')
         if test_id == "cooper":
             distance = record["value"]
@@ -57,7 +57,7 @@ if test_id:
 
 st.divider()
 st.subheader("Visualiser une progression")
-st.caption("Mesures successives d'une même épreuve, dans la même unité. Elles sont effacées à la fermeture de la page.")
+st.caption("Mesures successives d'une même épreuve, dans la même unité. L'application ne les sauvegarde pas : elles disparaissent si vous rechargez ou fermez la page ; exportez-les pour les garder.")
 with st.form("progression_chart"):
     chart_test = st.selectbox("Épreuve à représenter", [t["id"] for t in tests], format_func=lambda i: next(t["name"] for t in tests if t["id"] == i))
     raw_values = st.text_area("Mesures successives (une valeur par ligne)", placeholder="1200\\n1300\\n1450", height=115, max_chars=3000)

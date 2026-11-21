@@ -32,10 +32,6 @@ catalogue=load_real_tools()
 categories=sorted({t["category"] for t in catalogue})
 st.title("ACPA / MSMDA")
 st.caption("Votre espace pour préparer, organiser et enrichir vos séances d'EPS.")
-a,b,c=st.columns(3)
-a.metric("Outils",len(catalogue))
-b.metric("Catégories",len(categories))
-c.metric("Fiches détaillées",sum(t.get("evidence_status")=="FEATURES_VERIFIED_ON_OFFICIAL_SITE" for t in catalogue))
 
 st.subheader("Que souhaitez-vous faire ?")
 left,right=st.columns(2)
@@ -76,7 +72,7 @@ st.subheader("Explorer le catalogue")
 category=st.selectbox("Famille d'outils",["Toutes"]+categories)
 name=st.text_input("Nom de l'application",placeholder="Rechercher parmi les outils")
 filtered=[t for t in catalogue if (category=="Toutes" or t["category"]==category) and name.casefold() in t["name"].casefold()]
-st.caption(f"{len(filtered)} outil(s) trouvé(s).")
+st.caption("Explorez les fiches et consultez les informations disponibles pour chaque outil.")
 page_size=12
 max_pages=max(1,(len(filtered)+page_size-1)//page_size)
 page=st.number_input("Page",min_value=1,max_value=max_pages,value=1,step=1) if max_pages>1 else 1

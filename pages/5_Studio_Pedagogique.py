@@ -59,7 +59,13 @@ for i,(phase,default) in enumerate(zip(phase_names,defaults)):
             st.caption("Aucune proposition avec les informations disponibles. Un support non numérique peut convenir.")
 st.subheader("Répartition du temps de séance")
 st.caption("Visualisation calculée à partir des durées que vous avez saisies.")
-st.bar_chart([{"Phase":r["Phase"],"Minutes":r["Durée (min)"]} for r in rows],x="Phase",y="Minutes")
+total_minutes=sum(r["Durée (min)"] for r in rows)
+for phase_row in rows:
+    minutes=phase_row["Durée (min)"]
+    st.write(f"**{phase_row['Phase']}** — {minutes} min")
+    st.progress(minutes / total_minutes if total_minutes else 0.0)
+if not total_minutes:
+    st.caption("Renseignez les durées pour afficher leur répartition.")
 validation=validate_scenario(rows,duration)
 issues=scenario_checks(rows,objectives)
 with st.expander(f"Vérification du scénario — {len(issues)} point(s) à compléter"):

@@ -1,33 +1,29 @@
-"""Catalogue d'outils réels et présélection transparente par contexte."""
+"""Catalogue complet des technologies EPS, avec niveau de vérification visible."""
 from __future__ import annotations
 import sys
 from pathlib import Path
 import streamlit as st
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/"src"))
-from acpa_msmda.real_catalog import load_real_tools, match_real_tools
-
-st.set_page_config(page_title="ACPA/MSMDA | Technologies réelles",page_icon="🔎",layout="wide")
-st.title("Technologies réelles pour l'EPS")
-st.caption("Catalogue initial sourcé, extensible et sans notes fictives.")
-st.warning("Présélection descriptive : ce module ne détermine pas encore la meilleure technologie au sens des 18 critères ACPA/MSMDA. Aucun score de produit réel n'a été inventé.")
-query=st.text_area("Décrivez votre situation pédagogique (sans données personnelles)",value="Endurance, suivi de course, classe nombreuse, budget limité",max_chars=1000)
-try:
-    result=match_real_tools(query) if query.strip() else {"matches":[],"context_flags":[]}
-    matches=result["matches"]
-    st.write(f"**{len(matches)} outil(s) associé(s) à des termes de votre contexte**")
-    if result["context_flags"]:
-        st.caption("Contraintes détectées : "+", ".join(result["context_flags"]))
-    if not matches:
-        st.info("Aucune correspondance descriptive. Consultez le catalogue complet ou reformulez les objectifs.")
-    for tool in matches:
-        with st.expander(tool["name"]+" · "+tool["category"],expanded=len(matches)<=3):
-            st.write("**Correspondances :** "+", ".join(tool["matched_terms"]))
-            st.write("**Conditions à examiner :** "+tool["requirement"])
-            for caution in tool["cautions"]:
-                st.caption("• "+caution)
-            st.link_button("Consulter la source officielle",tool["source_url"])
-    with st.expander("Voir tout le catalogue"):
-        st.dataframe([{"Application":t["name"],"Catégorie":t["category"],"Usage":", ".join(t["uses"]),"Statut":"Fonctions documentées, critères non notés"} for t in load_real_tools()],hide_index=True,use_container_width=True)
-except (ValueError,KeyError,OSError) as error:
-    st.error("Impossible de charger le catalogue : "+str(error))
+from acpa_msmda.real_catalog import load_real_tools,match_real_tools
+st.set_page_config(page_title="ACPA/MSMDA | Catalogue",page_icon="🔎",layout="wide")
+st.title("Catalogue technologique EPS")
+st.caption("Références réelles classées par usage ; vérification documentaire progressive.")
+catalogue=load_real_tools()
+st.metric("Références répertoriées",len(catalogue))
+category=st.selectbox("Catégorie",["Toutes"]+sorted({t["category"] for t in catalogue}))
+search=st.text_input("Nom de l'application")
+filtered=[t for t in catalogue if (category=="Toutes" or t["category"]==category) and search.casefold() in t["name"].casefold()]
+st.dataframe([{"Application":t["name"],"Catégorie":t["category"],"Documentation":"Source disponible" if t.get("source_url") else "À vérifier"} for t in filtered],hide_index=True,use_container_width=True)
+st.divider()
+st.subheader("Présélection contextuelle")
+query=st.text_area("Objectif pédagogique et contraintes (sans données personnelles)",value="Endurance, suivi de course, budget limité",max_chars=1000)
+if query.strip():
+    result=match_real_tools(query)
+    st.caption("Correspondance descriptive sur les fiches documentées uniquement, sans notation ACPA/MSMDA.")
+    for t in result["matches"]:
+        with st.expander(t["name"]):
+            st.write("Correspondances : "+", ".join(t["matched_terms"]))
+            for caution in t["cautions"]:st.caption(caution)
+            if t.get("source_url"):st.link_button("Source officielle renseignée",t["source_url"])
+    if not result["matches"]:st.info("Aucune fiche documentée correspondante ; explorer les catégories pour découvrir d'autres références.")

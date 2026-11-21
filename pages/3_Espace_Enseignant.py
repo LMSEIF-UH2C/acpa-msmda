@@ -1,76 +1,70 @@
-"""Espace enseignant EPS : préparation de séance sans données d'élèves."""
+"""Organiser les ateliers : groupes, rotations et temps de séance."""
 from __future__ import annotations
 
 import csv
 import io
 import sys
 from pathlib import Path
-from datetime import date
 
 import streamlit as st
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
-from acpa_msmda.scenario_engine import safe_cell
-from acpa_msmda.ui import PLANNER, PRIVACY_NOTE, configure_page
+from acpa_msmda import session_context as ctx  # noqa: E402
+from acpa_msmda.scenario_engine import safe_cell  # noqa: E402
+from acpa_msmda.ui import PLANNER, PRIVACY_NOTE, SEARCH, configure_page  # noqa: E402
 
+S = st.session_state
 configure_page(PLANNER)
 st.title(PLANNER.title)
 st.caption(PLANNER.summary + " " + PRIVACY_NOTE)
-with st.form("session_plan"):
-    a,b=st.columns(2)
-    with a:
-        aps=st.selectbox("Activité physique et sportive",["Endurance","Athlétisme","Gymnastique","Basketball","Football","Volleyball","Badminton","Autre"])
-        niveau=st.selectbox("Niveau",["Primaire","Collège","Lycée","Supérieur"])
-        effectif=st.number_input("Effectif",min_value=1,max_value=60,value=35)
-        duree=st.number_input("Durée de séance (minutes)",min_value=20,max_value=180,value=55,step=5)
-    with b:
-        espace=st.selectbox("Espace disponible",["Terrain extérieur","Gymnase","Piste","Salle polyvalente","Autre"])
-        materiel=st.text_input("Matériel disponible (sans informations personnelles)",value="Plots, chronomètre")
-        connexion=st.selectbox("Connectivité",["Aucune","Instable","Stable"])
-        appareils=st.selectbox("Appareils disponibles",["Aucun","Téléphone enseignant","Téléphones partagés","Téléphones individuels"])
-    objectif=st.text_area("Objectif d'apprentissage",value="Améliorer la participation motrice et suivre les progrès.",max_chars=500)
-    n_ateliers=st.slider("Nombre d'ateliers",min_value=1,max_value=8,value=4)
-    submitted=st.form_submit_button("Organiser la séance",type="primary")
-if submitted and n_ateliers > effectif:
-    st.session_state.pop("eps_plan", None)
-    st.error("Le nombre d'ateliers ne peut pas dépasser l'effectif : des groupes seraient vides.")
-    submitted = False
-if submitted:
-    accueil=max(3,round(duree*.10))
-    bilan=max(4,round(duree*.10))
-    retour=max(3,round(duree*.10))
-    pratique=duree-accueil-bilan-retour
-    groupes=[effectif//n_ateliers+(1 if i<effectif%n_ateliers else 0) for i in range(n_ateliers)]
-    temps_rotation=pratique/n_ateliers
-    phases=[
-        ("Accueil et consignes",accueil),
-        ("Ateliers et rotations",pratique),
-        ("Retour au calme",retour),
-        ("Bilan et traces",bilan),
-    ]
-    st.session_state["eps_plan"]={"aps":aps,"niveau":niveau,"effectif":effectif,"duree":duree,"espace":espace,"materiel":materiel,"connexion":connexion,"appareils":appareils,"objectif":objectif,"ateliers":n_ateliers,"groupes":groupes,"rotation":temps_rotation,"phases":phases}
-plan=st.session_state.get("eps_plan")
-if plan:
-    st.subheader("Plan proposé")
-    st.write(f"**{plan['aps']}** · {plan['niveau']} · {plan['effectif']} élèves · {plan['duree']} min")
-    st.write("**Objectif :** "+plan["objectif"])
-    st.dataframe([{"Phase":name,"Durée (min)":minutes} for name,minutes in plan["phases"]],hide_index=True,use_container_width=True)
-    st.write("**Répartition indicative des groupes :** "+", ".join(str(n) for n in plan["groupes"])+" élèves")
-    st.write(f"**Temps brut par atelier :** {plan['rotation']:.1f} min, transitions comprises ; à ajuster selon le terrain.")
-    if plan["connexion"]!="Stable":
-        st.warning("Connexion limitée : privilégier chronomètres, supports téléchargés et saisie locale seulement si l'outil garantit réellement sa conservation.")
-    if plan["appareils"]=="Aucun":
-        st.info("Aucun smartphone nécessaire : privilégier des consignes imprimées, des ateliers autonomes et l'observation directe.")
-    elif plan["aps"]=="Endurance":
-        st.info("Technologies à examiner : chronomètre et suivi d'activité ; vérifier confidentialité, âge des élèves et accès réel aux appareils avant de choisir.")
-    elif plan["aps"]=="Gymnastique":
-        st.info("Technologies à examiner : analyse vidéo et parcours de ressources ; demander l'autorisation nécessaire avant tout enregistrement d'élèves.")
-    else:
-        st.info("Pour choisir un outil de mesure ou d'observation, ouvrez « Trouver une technologie ».")
-    output=io.StringIO()
-    writer=csv.writer(output)
-    writer.writerow(["APS","Niveau","Effectif","Durée","Objectif","Phase","Minutes"])
-    for name,minutes in plan["phases"]:
-        writer.writerow([plan["aps"],plan["niveau"],plan["effectif"],plan["duree"],safe_cell(plan["objectif"]),name,minutes])
-    st.download_button("Exporter le plan (CSV)",output.getvalue().encode("utf-8-sig"),file_name="acpa_plan_seance.csv",mime="text/csv")
-    st.caption("Répartition indicative : environ 10 % du temps pour l'accueil, le retour au calme et le bilan. À adapter à votre terrain.")
+
+ctx.render_context(st, S, fields=("activity", "level", "class_size", "duration", "connectivity",
+                                  "devices", "space", "equipment", "objectives"))
+workshops = st.slider("Nombre d'ateliers", min_value=1, max_value=8, **ctx.bind(S, "workshops", 4))
+
+
+def build_plan(class_size: int, duration: int, workshops: int) -> dict:
+    welcome = max(3, round(duration * .10))
+    review = max(4, round(duration * .10))
+    cool_down = max(3, round(duration * .10))
+    practice = duration - welcome - review - cool_down
+    groups = [class_size // workshops + (1 if i < class_size % workshops else 0) for i in range(workshops)]
+    return {"groups": groups, "rotation": practice / workshops,
+            "phases": [("Accueil et consignes", welcome), ("Ateliers et rotations", practice),
+                       ("Retour au calme", cool_down), ("Bilan et traces", review)]}
+
+
+class_size = int(ctx.get(S, "class_size"))
+duration = int(ctx.get(S, "duration"))
+if workshops > class_size:
+    st.error(f"{workshops} ateliers pour {class_size} élèves : certains groupes seraient vides. "
+             "Réduisez le nombre d'ateliers.")
+    st.stop()
+
+plan = build_plan(class_size, duration, workshops)
+st.subheader("Organisation proposée")
+st.dataframe([{"Phase": name, "Durée (min)": minutes} for name, minutes in plan["phases"]],
+             hide_index=True, use_container_width=True)
+st.write("**Groupes :** " + ", ".join(str(n) for n in plan["groups"]) + " élèves")
+st.write(f"**Temps par atelier :** {plan['rotation']:.1f} min, transitions comprises.")
+
+if ctx.get(S, "connectivity") != "Disponible":
+    st.info("Connexion limitée sur le lieu de pratique : préférez les chronomètres, les supports "
+            "téléchargés à l'avance et les fiches papier.")
+if ctx.get(S, "devices") == "Aucun":
+    st.info("Sans appareil : consignes imprimées, ateliers autonomes et observation directe.")
+if st.button(SEARCH.title + " pour cette séance", icon=SEARCH.icon):
+    ctx.put(S, "search_context", ctx.search_query(S))
+    ctx.put(S, "search_query", ctx.search_query(S))
+    st.switch_page(SEARCH.path)
+
+output = io.StringIO()
+writer = csv.writer(output)
+writer.writerow(["APS", "Niveau", "Effectif", "Durée", "Objectifs", "Phase", "Minutes"])
+for name, minutes in plan["phases"]:
+    writer.writerow([ctx.get(S, "activity"), ctx.get(S, "level"), class_size, duration,
+                     safe_cell(ctx.get(S, "objectives") or ""), name, minutes])
+st.download_button("Exporter l'organisation (CSV)", output.getvalue().encode("utf-8-sig"),
+                   file_name="organisation_seance_eps.csv", mime="text/csv")
+st.caption("Répartition indicative : environ 10 % du temps pour l'accueil, le retour au calme et le bilan. "
+           "À adapter à votre terrain.")

@@ -8,29 +8,34 @@ import streamlit as st
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
+from acpa_msmda import session_context as ctx  # noqa: E402
 from acpa_msmda.real_catalog import load_real_tools, match_real_tools  # noqa: E402
 from acpa_msmda.ui import PRIVACY_NOTE, SEARCH, configure_page  # noqa: E402
 
 DOCUMENTED = ("OFFICIAL_SOURCE_FEATURES_ONLY", "FEATURES_VERIFIED_ON_OFFICIAL_SITE")
 PAGE_SIZE = 12
 
+S = st.session_state
 configure_page(SEARCH)
 st.title(SEARCH.title)
 st.caption(SEARCH.summary)
 
 st.subheader("Suggestions pour votre séance")
+if st.button("Partir de ma séance : " + ctx.summary(S), icon=":material/assignment:"):
+    ctx.put(S, "search_context", ctx.search_query(S))
+    ctx.put(S, "search_query", ctx.search_query(S))
 context = st.text_area("Activité, objectif et contraintes",
                        placeholder="Ex. endurance, 35 élèves, sans connexion, budget limité",
-                       max_chars=1000, height=95, key="search_context")
+                       max_chars=1000, height=95, **ctx.bind(S, "search_context", ""))
 st.caption(PRIVACY_NOTE)
 if st.button("Voir les suggestions", type="primary", use_container_width=True):
     if context.strip():
-        st.session_state["search_query"] = context.strip()
+        ctx.put(S, "search_query", context.strip())
     else:
-        st.session_state.pop("search_query", None)
+        ctx.put(S, "search_query", None)
         st.warning("Décrivez votre activité ou vos contraintes pour obtenir des suggestions.")
 
-query = st.session_state.get("search_query")
+query = ctx.store(S).get("search_query")
 if query:
     result = match_real_tools(query)
     if not result["matches"]:

@@ -32,8 +32,9 @@ class SprintOneTests(unittest.TestCase):
         template = load_templates()[0]
         state = {}
         apply_template(template, state)
-        self.assertEqual(state["duration"], template["duration"])
-        self.assertEqual(state["minutes_0"], template["phases"][0]["minutes"])
+        data = state["acpa_store"]  # magasin partagé entre les pages (sprint 3)
+        self.assertEqual(data["duration"], template["duration"])
+        self.assertEqual(data["minutes_0"], template["phases"][0]["minutes"])
 
     def test_signed_test_metadata(self):
         tests = json.loads((ROOT / "data" / "performance_tests.json").read_text(encoding="utf-8"))["tests"]
@@ -58,9 +59,13 @@ class SprintOneTests(unittest.TestCase):
         self.assertEqual(rows[3][2], "'" + chr(9) + "+CMD")
 
     def test_studio_widget_defaults_not_conflicting(self):
-        source = (ROOT / "pages" / "5_Studio_Pedagogique.py").read_text(encoding="utf-8")
-        self.assertIn("st.session_state.setdefault", source)
-        self.assertNotIn('value=default,key=f"minutes_{i}"', source)
+        # Vérifie le comportement réel (sprint 3) plutôt que le texte du code :
+        # charger un modèle ne doit produire ni exception ni avertissement Streamlit.
+        app = AppTest.from_file(str(ROOT / "pages" / "5_Studio_Pedagogique.py"), default_timeout=30).run()
+        app.selectbox(key="studio_template").select_index(1).run()
+        next(b for b in app.button if b.label == "Charger le modèle").click().run()
+        self.assertFalse(app.exception)
+        self.assertFalse([w.value for w in app.warning if "Session State API" in w.value])
 
 
 if __name__ == "__main__":

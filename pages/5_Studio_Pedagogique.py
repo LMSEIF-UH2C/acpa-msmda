@@ -1,92 +1,99 @@
-"""Studio pédagogique : scénario de séance, supports et export."""
+"""Concevoir une séance : phases, activités, supports et export."""
 from __future__ import annotations
+
 import sys
 from pathlib import Path
-import streamlit as st
-ROOT=Path(__file__).resolve().parents[1]
-sys.path.insert(0,str(ROOT/"src"))
-from acpa_msmda.scenario_engine import PHASES,recommend_phase_tools,validate_scenario,export_scenario_csv
-from acpa_msmda.scenario_templates import load_templates,apply_template,scenario_checks
-from acpa_msmda.ui import PRIVACY_NOTE, STUDIO, configure_page
 
+import streamlit as st
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "src"))
+from acpa_msmda import session_context as ctx  # noqa: E402
+from acpa_msmda.scenario_engine import export_scenario_csv, recommend_phase_tools, validate_scenario  # noqa: E402
+from acpa_msmda.scenario_templates import apply_template, load_templates, scenario_checks  # noqa: E402
+from acpa_msmda.ui import PRIVACY_NOTE, STUDIO, configure_page  # noqa: E402
+
+PHASE_NAMES = ("Diagnostic", "Mise en activité", "Apprentissage", "Régulation", "Évaluation")
+PHASE_MINUTES = (5, 10, 30, 10, 5)
+SUPPORTS = ("Vidéo", "Audio", "Quiz", "QR code", "Fiche numérique", "Démonstration", "Capteurs", "Analyse vidéo")
+MODALITIES = ("Présentiel", "Hybride", "À distance", "Classe inversée", "Autonomie accompagnée")
+
+S = st.session_state
 configure_page(STUDIO)
 st.title(STUDIO.title)
 st.caption(STUDIO.summary + " " + PRIVACY_NOTE)
-templates=load_templates()
-selected=st.selectbox("Modèle de scénario",["Séance vierge"]+[t["title"] for t in templates])
-if st.button("Charger le modèle",disabled=selected=="Séance vierge"):
-    template=next(t for t in templates if t["title"]==selected)
-    apply_template(template,st.session_state)
-    st.rerun()
 
-DEFAULTS = {
-    "activity": "Endurance",
-    "duration": 60,
-    "objectives": "Gérer son allure et analyser sa performance.",
-    "prerequisites": "Connaître les consignes de sécurité",
-    "constraints": "Terrain, chronomètre, un smartphone enseignant",
-}
-for i, minutes in enumerate((5, 10, 30, 10, 5)):
-    DEFAULTS[f"minutes_{i}"] = minutes
-for key, default in DEFAULTS.items():
-    st.session_state.setdefault(key, default)
+templates = load_templates()
+left, right = st.columns([3, 1], vertical_alignment="bottom")
+with left:
+    selected = st.selectbox("Partir d'un modèle", ["Séance vierge"] + [t["title"] for t in templates],
+                            key="studio_template")
+with right:
+    if st.button("Charger le modèle", disabled=selected == "Séance vierge", use_container_width=True):
+        apply_template(next(t for t in templates if t["title"] == selected), S)
+        st.rerun()
 
-a,b,c=st.columns(3)
-with a:
-    activity=st.text_input("Activité physique ou sportive",max_chars=100,key="activity")
-    level=st.selectbox("Niveau",["Primaire","Collège","Lycée","Supérieur","Formation d'enseignants"],key="level")
-with b:
-    modality=st.selectbox("Modalité",["Présentiel","Hybride","À distance","Classe inversée","Autonomie accompagnée"])
-    duration=int(st.number_input("Durée totale (minutes)",min_value=15,max_value=240,step=5,key="duration"))
-with c:
-    class_size=int(st.number_input("Effectif",min_value=1,max_value=150,value=30))
-    connectivity=st.selectbox("Connectivité",["Aucune","Limitée","Disponible"])
-objectives=st.text_area("Compétences et objectifs",max_chars=800,key="objectives")
-prerequisites=st.text_input("Prérequis",max_chars=300,key="prerequisites")
-constraints=st.text_input("Matériel et contraintes",max_chars=400,key="constraints")
-st.subheader("Scénario de séance")
+ctx.render_context(st, S, fields=("activity", "level", "class_size", "duration", "connectivity",
+                                  "devices", "equipment", "objectives"))
+modality = st.selectbox("Modalité", MODALITIES, **ctx.bind(S, "modality", "Présentiel"))
+prerequisites = st.text_input("Prérequis", max_chars=300, **ctx.bind(S, "prerequisites", ""))
+
+st.subheader("Déroulement")
 st.caption("Adaptez les activités, supports, critères de réussite et durées.")
-phase_names=["Diagnostic","Mise en activité","Apprentissage","Régulation","Évaluation"]
-defaults=[5,10,30,10,5]
-rows=[]
-for i,(phase,default) in enumerate(zip(phase_names,defaults)):
-    with st.expander(f"{i+1}. {phase}",expanded=i==2):
-        col1,col2=st.columns([3,1])
+connectivity = ctx.get(S, "connectivity")
+rows = []
+for i, (phase, default_minutes) in enumerate(zip(PHASE_NAMES, PHASE_MINUTES)):
+    minutes_now = ctx.store(S).get(f"minutes_{i}", default_minutes)
+    with st.expander(f"{i + 1}. {phase} · {minutes_now} min", expanded=i == 2):
+        col1, col2 = st.columns([3, 1])
         with col1:
-            action=st.text_area("Activité, consignes et rôle des élèves",key=f"action_{i}",max_chars=600)
-            supports=st.multiselect("Supports multimédias",["Vidéo","Audio","Quiz","QR code","Fiche numérique","Démonstration","Capteurs","Analyse vidéo"],key=f"supports_{i}")
-            evaluation=st.text_input("Critères de réussite et feedback",key=f"evaluation_{i}",max_chars=300)
+            action = st.text_area("Activité, consignes et rôle des élèves", max_chars=600,
+                                  **ctx.bind(S, f"action_{i}", ""))
+            supports = st.multiselect("Supports", SUPPORTS, **ctx.bind(S, f"supports_{i}", []))
+            evaluation = st.text_input("Critères de réussite et retour aux élèves", max_chars=300,
+                                       **ctx.bind(S, f"evaluation_{i}", ""))
         with col2:
-            minutes=int(st.number_input("Durée (min)",min_value=0,max_value=240,key=f"minutes_{i}"))
-        rows.append({"Phase":phase,"Durée (min)":minutes,"Activité / consignes":action,"Supports":", ".join(supports),"Évaluation / feedback":evaluation})
-        st.markdown("**Technologies à explorer pour cette phase**")
-        suggestions=recommend_phase_tools(phase,connectivity=connectivity,limit=5)
+            minutes = int(st.number_input("Durée (min)", min_value=0, max_value=240,
+                                          **ctx.bind(S, f"minutes_{i}", default_minutes)))
+        rows.append({"Phase": phase, "Durée (min)": minutes, "Activité / consignes": action,
+                     "Supports": ", ".join(supports), "Évaluation / feedback": evaluation})
+        suggestions = recommend_phase_tools(phase, connectivity=connectivity, limit=5)
         if suggestions:
+            st.markdown("**Outils à explorer pour cette phase**")
             for tool in suggestions:
-                label=tool["name"]+" · "+tool["category"]
-                if not tool["documented"]:label+=" · à confirmer"
+                label = tool["name"] + " · " + tool["category"]
+                if not tool["documented"]:
+                    label += " · à confirmer"
                 st.markdown(f"- [{label}]({tool['source_url']})")
-                if tool["notes"]:st.caption(" ; ".join(tool["notes"]))
+                if tool["notes"]:
+                    st.caption(" ; ".join(tool["notes"]))
         else:
-            st.caption("Aucune proposition avec les informations disponibles. Un support non numérique peut convenir.")
-st.subheader("Répartition du temps de séance")
-st.caption("Visualisation calculée à partir des durées que vous avez saisies.")
-total_minutes=sum(r["Durée (min)"] for r in rows)
-for phase_row in rows:
-    minutes=phase_row["Durée (min)"]
-    st.write(f"**{phase_row['Phase']}** — {minutes} min")
-    st.progress(minutes / total_minutes if total_minutes else 0.0)
-if not total_minutes:
-    st.caption("Renseignez les durées pour afficher leur répartition.")
-validation=validate_scenario(rows,duration)
-issues=scenario_checks(rows,objectives)
-with st.expander(f"Vérification du scénario — {len(issues)} point(s) à compléter"):
-    if issues:
-        for issue in issues:st.write("• "+issue)
-    else:st.success("Objectifs, activités et critères de réussite sont renseignés.")
+            st.caption("Aucun outil documenté pour cette phase. Un support non numérique peut convenir.")
+
+duration = int(ctx.get(S, "duration"))
+st.subheader("Répartition du temps")
+total_minutes = sum(r["Durée (min)"] for r in rows)
+for row in rows:
+    st.write(f"**{row['Phase']}** · {row['Durée (min)']} min")
+    st.progress(row["Durée (min)"] / total_minutes if total_minutes else 0.0)
+validation = validate_scenario(rows, duration)
 if validation["balanced"]:
-    st.success(f"Durée totale respectée : {duration} min.")
+    st.success(f"Les phases occupent exactement la durée prévue : {duration} min.")
 else:
-    st.warning(f"Durée des phases : {validation['used_minutes']} min sur {duration} min. Écart : {validation['difference_minutes']:+d} min.")
-metadata={"APS":activity,"Niveau":level,"Modalité":modality,"Effectif":class_size,"Connectivité":connectivity,"Objectifs":objectives,"Prérequis":prerequisites,"Contraintes":constraints}
-st.download_button("Exporter mon scénario (CSV)",export_scenario_csv(metadata,rows),"scenario_pedagogique_eps.csv","text/csv")
+    st.warning(f"Les phases totalisent {validation['used_minutes']} min pour une séance de {duration} min "
+               f"(écart : {validation['difference_minutes']:+d} min).")
+issues = scenario_checks(rows, ctx.get(S, "objectives") or "")
+with st.expander(f"Points à compléter : {len(issues)}"):
+    if issues:
+        for issue in issues:
+            st.write("• " + issue)
+    else:
+        st.write("Objectifs, activités et critères de réussite sont renseignés.")
+
+metadata = {"APS": ctx.get(S, "activity"), "Niveau": ctx.get(S, "level"), "Modalité": modality,
+            "Effectif": ctx.get(S, "class_size"), "Durée (min)": duration,
+            "Connexion": ctx.CONNECTIVITY_LABELS[connectivity],
+            "Appareils": ctx.get(S, "devices"), "Objectifs": ctx.get(S, "objectives"),
+            "Prérequis": prerequisites, "Matériel et contraintes": ctx.get(S, "equipment")}
+st.download_button("Exporter le scénario (CSV)", export_scenario_csv(metadata, rows),
+                   "scenario_seance_eps.csv", "text/csv")

@@ -7,8 +7,11 @@ widgets (``st.session_state[STORE_KEY]``) et recopiées dans chaque widget à
 l'affichage. L'enseignant saisit son contexte une fois ; tous les modules le
 relisent avec les mêmes libellés et les mêmes listes de choix.
 
-Les valeurs ne quittent pas la session du navigateur : rien n'est écrit sur
-disque ni envoyé à un service tiers par ce module.
+Les données sont conservées dans l'état de session Streamlit, qui réside sur le
+serveur de l'application et communique avec le navigateur à chaque interaction.
+Ce module ne les enregistre pas volontairement dans une base de données ou un
+fichier, et ne les transmet à aucun service tiers. Elles sont perdues à la fin
+de la session (rechargement ou fermeture de la page).
 """
 from __future__ import annotations
 

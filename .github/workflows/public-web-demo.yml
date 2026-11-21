@@ -19,5 +19,7 @@ jobs:
         run: python -m compileall -q app.py src tests
       - name: Verify published engine
         run: python run_engine.py --language fr --query "basketball sans connexion"
+      - name: Check that context tests catch a broken persistence
+        run: python scripts/mutation_check.py
       - name: Smoke-test web interface
         run: python -m unittest discover -s tests -v

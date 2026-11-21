@@ -1,0 +1,178 @@
+{
+  "schema_version": "1.0",
+  "purpose": "TEACHER_FACING_PROTOCOL_REGISTRY",
+  "status": "INITIAL_DRAFT_PROTOCOLS_TO_CONFIRM",
+  "tests": [
+    {
+      "id": "leger20",
+      "name": "Navette Léger 20 m",
+      "source": "Circulaire 2358/25",
+      "domain": "Endurance",
+      "measure": "Palier atteint",
+      "unit": "palier",
+      "protocol_note": "Protocole et table palier-vitesse à préciser avant estimation de VMA ou VO₂max."
+    },
+    {
+      "id": "sprint30",
+      "name": "Sprint 30 m",
+      "source": "Circulaire 2358/25",
+      "domain": "Vitesse",
+      "measure": "Temps",
+      "unit": "s",
+      "protocol_note": "Départ, chronométrage et nombre d'essais à standardiser."
+    },
+    {
+      "id": "saut_horizontal",
+      "name": "Saut horizontal",
+      "source": "Circulaire 2358/25",
+      "domain": "Puissance",
+      "measure": "Distance",
+      "unit": "cm",
+      "protocol_note": "Vérifier la modalité d'élan décrite dans le protocole institutionnel."
+    },
+    {
+      "id": "sargent",
+      "name": "Saut vertical Sargent",
+      "source": "Circulaire 2358/25",
+      "domain": "Détente",
+      "measure": "Hauteur de saut",
+      "unit": "cm",
+      "protocol_note": "Différence entre marque bras levés et marque au saut."
+    },
+    {
+      "id": "medecine_ball",
+      "name": "Lancer médecine-ball 3 kg",
+      "source": "Circulaire 2358/25",
+      "domain": "Force",
+      "measure": "Distance",
+      "unit": "m",
+      "protocol_note": "Position assise dos au mur."
+    },
+    {
+      "id": "souplesse_assise",
+      "name": "Souplesse assise",
+      "source": "Circulaire 2358/25",
+      "domain": "Mobilité",
+      "measure": "Distance doigts-pieds",
+      "unit": "cm",
+      "protocol_note": "Conserver la convention des signes du protocole."
+    },
+    {
+      "id": "souplesse_debout",
+      "name": "Souplesse debout",
+      "source": "Circulaire 2358/25",
+      "domain": "Mobilité",
+      "measure": "Distance doigts-sol",
+      "unit": "cm",
+      "protocol_note": "Conserver la convention des signes du protocole."
+    },
+    {
+      "id": "flamingo",
+      "name": "Équilibre flamingo",
+      "source": "Circulaire 2358/25",
+      "domain": "Équilibre",
+      "measure": "Performance",
+      "unit": "nombre",
+      "protocol_note": "Mode de décompte à préciser avant comparaison."
+    },
+    {
+      "id": "taille",
+      "name": "Taille",
+      "source": "Circulaire 2358/25",
+      "domain": "Anthropométrie",
+      "measure": "Taille",
+      "unit": "cm",
+      "protocol_note": "Mesure de taille ; ne pas afficher de jugement corporel."
+    },
+    {
+      "id": "poids",
+      "name": "Poids",
+      "source": "Circulaire 2358/25",
+      "domain": "Anthropométrie",
+      "measure": "Masse",
+      "unit": "kg",
+      "protocol_note": "Mesure sensible ; aucune donnée nominative dans la démo."
+    },
+    {
+      "id": "fc_repos",
+      "name": "Fréquence cardiaque de repos",
+      "source": "Circulaire 2358/25",
+      "domain": "Physiologie",
+      "measure": "Fréquence cardiaque",
+      "unit": "bpm",
+      "protocol_note": "Mesure standardisée au repos."
+    },
+    {
+      "id": "ruffier",
+      "name": "Ruffier-Dickson",
+      "source": "Thèse — étude 5",
+      "domain": "Physiologie",
+      "measure": "Indice",
+      "unit": "points",
+      "protocol_note": "Requiert trois fréquences cardiaques selon le protocole."
+    },
+    {
+      "id": "shirado",
+      "name": "Shirado",
+      "source": "Thèse — étude 5",
+      "domain": "Endurance musculaire",
+      "measure": "Durée",
+      "unit": "s",
+      "protocol_note": "Protocole de maintien à préciser."
+    },
+    {
+      "id": "schober",
+      "name": "Schober",
+      "source": "Thèse — étude 5",
+      "domain": "Mobilité",
+      "measure": "Variation de distance",
+      "unit": "cm",
+      "protocol_note": "Repères anatomiques selon protocole."
+    },
+    {
+      "id": "killy",
+      "name": "Killy",
+      "source": "Thèse — étude 6",
+      "domain": "Endurance musculaire",
+      "measure": "Durée",
+      "unit": "s",
+      "protocol_note": "Maintien isométrique."
+    },
+    {
+      "id": "emep",
+      "name": "Échelle de motivation en EPS (EMEP)",
+      "source": "Thèse — étude 5",
+      "domain": "Psychométrie",
+      "measure": "Sous-échelles",
+      "unit": "score",
+      "protocol_note": "Respecter droits d'utilisation, version linguistique et cotation autorisée."
+    },
+    {
+      "id": "altpe",
+      "name": "ALT-PE",
+      "source": "Thèse — étude 6",
+      "domain": "Observation pédagogique",
+      "measure": "Temps d'engagement",
+      "unit": "%",
+      "protocol_note": "Codage d'observation selon protocole ALT-PE."
+    },
+    {
+      "id": "cooper",
+      "name": "Cooper 12 minutes",
+      "source": "Complément",
+      "domain": "Endurance",
+      "measure": "Distance",
+      "unit": "m",
+      "protocol_note": "Vitesse moyenne calculable ; VO₂max seulement estimée."
+    },
+    {
+      "id": "cmj",
+      "name": "Countermovement Jump (CMJ)",
+      "source": "Complément",
+      "domain": "Détente",
+      "measure": "Hauteur",
+      "unit": "cm",
+      "protocol_note": "Mesure par dispositif ou saisie manuelle ; pas de hauteur calculée à partir d'une vidéo non étalonnée."
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "dataset_type": "REAL_PRODUCTS_FACTUAL_REGISTER_NOT_SCORED",
+  "review_date": "2026-11-21",
+  "evaluation_status": "FEATURES_VERIFIED_NO_18_CRITERIA_EXPERT_RATINGS",
+  "tools": [
+    {
+      "id": "kinovea",
+      "name": "Kinovea",
+      "category": "Analyse vidéo du mouvement",
+      "platform": "Ordinateur",
+      "cost": "Gratuit, open source",
+      "features": [
+        "Ralenti et annotation vidéo",
+        "Comparaison de deux vidéos",
+        "Mesures de mouvements"
+      ],
+      "url": "https://www.kinovea.org/",
+      "evidence": "https://www.kinovea.org/",
+      "note": "Compatibilité exacte avec le matériel scolaire à vérifier."
+    },
+    {
+      "id": "phyphox",
+      "name": "phyphox",
+      "category": "Capteurs et mesures",
+      "platform": "iOS et Android",
+      "cost": "Gratuit",
+      "features": [
+        "Accès aux capteurs du téléphone",
+        "Export de données",
+        "Contrôle à distance depuis un navigateur"
+      ],
+      "url": "https://phyphox.org/",
+      "evidence": "https://phyphox.org/",
+      "note": "Capteurs disponibles selon le modèle de téléphone ; usage pédagogique à tester."
+    },
+    {
+      "id": "lince",
+      "name": "LINCE PLUS",
+      "category": "Observation systématique",
+      "platform": "Logiciel et solutions mobiles associées",
+      "cost": "Logiciel libre selon l'éditeur",
+      "features": [
+        "Codage vidéo",
+        "Analyse des observations",
+        "Export des résultats"
+      ],
+      "url": "https://lince-plus.com/",
+      "evidence": "https://lince-plus.com/",
+      "note": "Vérifier les exigences techniques et les modalités de collaboration."
+    },
+    {
+      "id": "obs",
+      "name": "OBS Studio",
+      "category": "Enregistrement pédagogique",
+      "platform": "Windows, macOS et Linux",
+      "cost": "Gratuit, open source",
+      "features": [
+        "Capture et enregistrement vidéo",
+        "Sources multiples",
+        "Enregistrement local"
+      ],
+      "url": "https://obsproject.com/",
+      "evidence": "https://obsproject.com/",
+      "note": "Ce n'est pas un outil spécialisé de mesure biomécanique."
+    },
+    {
+      "id": "onform",
+      "name": "Onform",
+      "category": "Retour vidéo et coaching",
+      "platform": "Applications mobiles",
+      "cost": "Essai gratuit puis abonnement selon l'offre",
+      "features": [
+        "Ralenti image par image",
+        "Annotations vidéo",
+        "Partage de retours"
+      ],
+      "url": "https://onform.com/",
+      "evidence": "https://onform.com/",
+      "note": "Vérifier les tarifs, les conditions de traitement des vidéos et les autorisations avant tout usage scolaire."
+    }
+  ]
+}

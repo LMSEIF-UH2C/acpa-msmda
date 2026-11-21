@@ -1,67 +1,58 @@
-"""Studio pédagogique : conception de scénarios EPS et ressources multimédias."""
+"""Studio pédagogique : scénario de séance, supports et export."""
 from __future__ import annotations
-import csv
-import io
 import sys
 from pathlib import Path
 import streamlit as st
-
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/"src"))
-from acpa_msmda.real_catalog import load_real_tools
+from acpa_msmda.scenario_engine import PHASES,recommend_phase_tools,validate_scenario,export_scenario_csv
 
 st.set_page_config(page_title="ACPA/MSMDA | Studio pédagogique",page_icon="📚",layout="wide")
 st.title("Studio pédagogique")
-st.caption("Construisez votre scénario de séance et repérez les ressources adaptées à chaque phase.")
-st.info("Modèle de travail modifiable par l'enseignant : les propositions ne remplacent pas les choix pédagogiques.")
-st.warning("N'indiquez pas de noms ni d'informations personnelles d'élèves.")
-
-c1,c2,c3=st.columns(3)
-with c1:
+st.caption("Concevez vos séances et choisissez les supports adaptés à chaque phase.")
+st.warning("Ne renseignez aucune donnée personnelle d'élève.")
+a,b,c=st.columns(3)
+with a:
     activity=st.text_input("Activité physique ou sportive",value="Endurance",max_chars=100)
     level=st.selectbox("Niveau",["Primaire","Collège","Lycée","Supérieur","Formation d'enseignants"])
-with c2:
+with b:
     modality=st.selectbox("Modalité",["Présentiel","Hybride","À distance","Classe inversée","Autonomie accompagnée"])
-    duration=st.number_input("Durée totale (minutes)",min_value=15,max_value=240,value=60,step=5)
-with c3:
-    class_size=st.number_input("Effectif",min_value=1,max_value=150,value=30)
+    duration=int(st.number_input("Durée totale (minutes)",min_value=15,max_value=240,value=60,step=5))
+with c:
+    class_size=int(st.number_input("Effectif",min_value=1,max_value=150,value=30))
     connectivity=st.selectbox("Connectivité",["Aucune","Limitée","Disponible"])
-objectives=st.text_area("Compétences et objectifs visés",value="Gérer son allure et interpréter les informations de sa performance.",max_chars=800)
+objectives=st.text_area("Compétences et objectifs",value="Gérer son allure et analyser sa performance.",max_chars=800)
 prerequisites=st.text_input("Prérequis",value="Connaître les consignes de sécurité",max_chars=300)
 constraints=st.text_input("Matériel et contraintes",value="Terrain, chronomètre, un smartphone enseignant",max_chars=400)
-st.subheader("Déroulement du scénario")
-st.caption("Modifiez les phases, leurs durées et les modalités de travail. La durée totale est contrôlée.")
-phases=["Accueil et diagnostic","Mise en activité","Situation d'apprentissage","Feedback et régulation","Bilan et évaluation"]
+st.subheader("Scénario de séance")
+st.caption("Adaptez les activités, supports, critères de réussite et durées.")
+phase_names=["Diagnostic","Mise en activité","Apprentissage","Régulation","Évaluation"]
 defaults=[5,10,30,10,5]
 rows=[]
-for i,(phase,default) in enumerate(zip(phases,defaults)):
+for i,(phase,default) in enumerate(zip(phase_names,defaults)):
     with st.expander(f"{i+1}. {phase}",expanded=i==2):
-        a,b=st.columns([3,1])
-        with a:
-            action=st.text_input("Activité et consignes",value="",key=f"act_{i}",max_chars=600,placeholder="Décrire ce que font l'enseignant et les élèves")
-            media=st.multiselect("Supports possibles",["Aucun","Vidéo","Fiche numérique","Quiz","QR code","Audio","Démonstration","Capteurs","Analyse vidéo"],default=["Aucun"],key=f"media_{i}")
-            assessment=st.text_input("Critères de réussite / feedback",value="",key=f"assess_{i}",max_chars=300)
-        with b:
-            minutes=st.number_input("Minutes",min_value=0,max_value=240,value=default,key=f"mins_{i}")
-        rows.append({"Phase":phase,"Durée (min)":minutes,"Activité / consignes":action,"Supports":", ".join(media),"Évaluation / feedback":assessment})
-used=sum(r["Durée (min)"] for r in rows)
-if used!=duration:
-    st.warning(f"Durée prévue : {used} min pour {duration} min disponibles. Ajustez les phases ({used-duration:+d} min).")
+        col1,col2=st.columns([3,1])
+        with col1:
+            action=st.text_area("Activité, consignes et rôle des élèves",key=f"action_{i}",max_chars=600)
+            supports=st.multiselect("Supports multimédias",["Vidéo","Audio","Quiz","QR code","Fiche numérique","Démonstration","Capteurs","Analyse vidéo"],key=f"supports_{i}")
+            evaluation=st.text_input("Critères de réussite et feedback",key=f"evaluation_{i}",max_chars=300)
+        with col2:
+            minutes=int(st.number_input("Durée (min)",min_value=0,max_value=240,value=default,key=f"minutes_{i}"))
+        rows.append({"Phase":phase,"Durée (min)":minutes,"Activité / consignes":action,"Supports":", ".join(supports),"Évaluation / feedback":evaluation})
+        st.markdown("**Technologies à explorer pour cette phase**")
+        suggestions=recommend_phase_tools(phase,connectivity=connectivity,limit=5)
+        if suggestions:
+            for tool in suggestions:
+                label=tool["name"]+" · "+tool["category"]
+                if not tool["documented"]:label+=" · à confirmer"
+                st.markdown(f"- [{label}]({tool['source_url']})")
+                if tool["notes"]:st.caption(" ; ".join(tool["notes"]))
+        else:
+            st.caption("Aucune proposition avec les informations disponibles. Un support non numérique peut convenir.")
+validation=validate_scenario(rows,duration)
+if validation["balanced"]:
+    st.success(f"Durée totale respectée : {duration} min.")
 else:
-    st.success(f"Scénario équilibré sur {duration} minutes.")
-st.subheader("Ressources technologiques à explorer")
-catalogue=load_real_tools()
-categories=sorted({t["category"] for t in catalogue})
-chosen=st.multiselect("Familles d'outils",categories,default=[c for c in categories if c in ("Ressources et apprentissage","Analyse vidéo et mouvement")])
-suggestions=[t for t in catalogue if t["category"] in chosen]
-st.dataframe([{"Outil":t["name"],"Catégorie":t["category"],"Site éditeur":t.get("source_url") or "À compléter"} for t in suggestions],hide_index=True,use_container_width=True)
-st.caption("Ces outils sont proposés par famille d'usage, sans présumer de leur adéquation, de leur prix ou de leur conformité.")
-output=io.StringIO()
-writer=csv.writer(output)
-writer.writerow(["APS",activity,"Niveau",level,"Modalité",modality,"Effectif",class_size])
-writer.writerow(["Objectifs",objectives])
-writer.writerow(["Prérequis",prerequisites])
-writer.writerow(["Contraintes",constraints,"Connectivité",connectivity])
-writer.writerow(list(rows[0].keys()))
-for row in rows:writer.writerow(list(row.values()))
-st.download_button("Exporter le scénario (CSV)",data=output.getvalue().encode("utf-8-sig"),file_name="scenario_pedagogique_eps.csv",mime="text/csv")
+    st.warning(f"Durée des phases : {validation['used_minutes']} min sur {duration} min. Écart : {validation['difference_minutes']:+d} min.")
+metadata={"APS":activity,"Niveau":level,"Modalité":modality,"Effectif":class_size,"Connectivité":connectivity,"Objectifs":objectives,"Prérequis":prerequisites,"Contraintes":constraints}
+st.download_button("Exporter mon scénario (CSV)",export_scenario_csv(metadata,rows),"scenario_pedagogique_eps.csv","text/csv")

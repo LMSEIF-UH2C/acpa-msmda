@@ -19,19 +19,31 @@ if st.button("Charger le modèle",disabled=selected=="Séance vierge"):
     apply_template(template,st.session_state)
     st.rerun()
 
+DEFAULTS = {
+    "activity": "Endurance",
+    "duration": 60,
+    "objectives": "Gérer son allure et analyser sa performance.",
+    "prerequisites": "Connaître les consignes de sécurité",
+    "constraints": "Terrain, chronomètre, un smartphone enseignant",
+}
+for i, minutes in enumerate((5, 10, 30, 10, 5)):
+    DEFAULTS[f"minutes_{i}"] = minutes
+for key, default in DEFAULTS.items():
+    st.session_state.setdefault(key, default)
+
 a,b,c=st.columns(3)
 with a:
-    activity=st.text_input("Activité physique ou sportive",value="Endurance",max_chars=100,key="activity")
+    activity=st.text_input("Activité physique ou sportive",max_chars=100,key="activity")
     level=st.selectbox("Niveau",["Primaire","Collège","Lycée","Supérieur","Formation d'enseignants"],key="level")
 with b:
     modality=st.selectbox("Modalité",["Présentiel","Hybride","À distance","Classe inversée","Autonomie accompagnée"])
-    duration=int(st.number_input("Durée totale (minutes)",min_value=15,max_value=240,value=60,step=5,key="duration"))
+    duration=int(st.number_input("Durée totale (minutes)",min_value=15,max_value=240,step=5,key="duration"))
 with c:
     class_size=int(st.number_input("Effectif",min_value=1,max_value=150,value=30))
     connectivity=st.selectbox("Connectivité",["Aucune","Limitée","Disponible"])
-objectives=st.text_area("Compétences et objectifs",value="Gérer son allure et analyser sa performance.",max_chars=800,key="objectives")
-prerequisites=st.text_input("Prérequis",value="Connaître les consignes de sécurité",max_chars=300,key="prerequisites")
-constraints=st.text_input("Matériel et contraintes",value="Terrain, chronomètre, un smartphone enseignant",max_chars=400,key="constraints")
+objectives=st.text_area("Compétences et objectifs",max_chars=800,key="objectives")
+prerequisites=st.text_input("Prérequis",max_chars=300,key="prerequisites")
+constraints=st.text_input("Matériel et contraintes",max_chars=400,key="constraints")
 st.subheader("Scénario de séance")
 st.caption("Adaptez les activités, supports, critères de réussite et durées.")
 phase_names=["Diagnostic","Mise en activité","Apprentissage","Régulation","Évaluation"]
@@ -45,7 +57,7 @@ for i,(phase,default) in enumerate(zip(phase_names,defaults)):
             supports=st.multiselect("Supports multimédias",["Vidéo","Audio","Quiz","QR code","Fiche numérique","Démonstration","Capteurs","Analyse vidéo"],key=f"supports_{i}")
             evaluation=st.text_input("Critères de réussite et feedback",key=f"evaluation_{i}",max_chars=300)
         with col2:
-            minutes=int(st.number_input("Durée (min)",min_value=0,max_value=240,value=default,key=f"minutes_{i}"))
+            minutes=int(st.number_input("Durée (min)",min_value=0,max_value=240,key=f"minutes_{i}"))
         rows.append({"Phase":phase,"Durée (min)":minutes,"Activité / consignes":action,"Supports":", ".join(supports),"Évaluation / feedback":evaluation})
         st.markdown("**Technologies à explorer pour cette phase**")
         suggestions=recommend_phase_tools(phase,connectivity=connectivity,limit=5)

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1",
   "dataset_type": "REAL_TOOLS_UNSCORED",
-  "notice": "Références réelles : seules les fiches avec source sont documentées ; les autres restent à vérifier. Aucun score ACPA/MSMDA attribué.",
+  "notice": "Répertoire de technologies : liens éditeurs ajoutés progressivement ; une URL officielle n'est pas une évaluation ni une validation des fonctionnalités.",
   "total": 134,
   "tools": [
     {
@@ -51,9 +51,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://flow.polar.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -63,9 +63,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://coros.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -75,9 +75,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.suunto.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -87,9 +87,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.adidas.com/us/apps/running",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -99,9 +99,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.nike.com/nrc-app",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -111,9 +111,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://runkeeper.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -123,9 +123,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.mapmyrun.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -147,9 +147,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.komoot.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -159,9 +159,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.alltrails.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -195,9 +195,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.trainingpeaks.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -241,9 +241,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://onform.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -253,9 +253,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.dartfish.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -265,9 +265,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.hudl.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -301,9 +301,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://swing.vision/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -361,9 +361,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.homecourt.ai/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -385,9 +385,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://coachnow.io/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -437,9 +437,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.myjumpapp.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -473,9 +473,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://valdperformance.com/forcedecks/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -497,9 +497,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.outputsports.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -521,9 +521,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://gymaware.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -557,9 +557,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.freelap.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -680,9 +680,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://classroom.google.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -692,9 +692,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.microsoft.com/en-us/education/products/teams",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -704,9 +704,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.instructure.com/canvas",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -728,9 +728,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://nearpod.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -752,9 +752,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://edpuzzle.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -764,9 +764,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://kahoot.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -800,9 +800,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://wordwall.net/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -812,9 +812,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://learningapps.org/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -824,9 +824,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://wakelet.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -836,9 +836,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://padlet.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -848,9 +848,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://bookcreator.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -860,9 +860,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.canva.com/education/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -891,9 +891,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://forms.office.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -903,9 +903,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.typeform.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -915,9 +915,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.surveymonkey.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -927,9 +927,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.jotform.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -939,9 +939,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.socrative.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -951,9 +951,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.mentimeter.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -963,9 +963,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.plickers.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -987,9 +987,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://quizlet.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -999,9 +999,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.kobotoolbox.org/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -1011,9 +1011,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://getodk.org/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -1023,9 +1023,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.limesurvey.org/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -1035,9 +1035,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.qualtrics.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -1047,9 +1047,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.teamsnap.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -1059,9 +1059,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.spond.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -1071,9 +1071,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://heja.io/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -1083,9 +1083,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.sporteasy.net/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -1107,9 +1107,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://teamlinkt.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -1167,9 +1167,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.trainheroic.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -1215,9 +1215,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://maps.google.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -1227,9 +1227,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://earth.google.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -1251,9 +1251,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.esri.com/en-us/arcgis/products/arcgis-field-maps/overview",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -1263,9 +1263,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.esri.com/en-us/arcgis/products/arcgis-survey123/overview",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -1287,9 +1287,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.openstreetmap.org/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -1299,9 +1299,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://organicmaps.app/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -1311,9 +1311,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://osmand.net/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -1323,9 +1323,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.geocaching.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -1335,9 +1335,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.capcut.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -1347,9 +1347,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://inshot.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -1359,9 +1359,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.apple.com/imovie/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -1371,9 +1371,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.blackmagicdesign.com/products/davinciresolve",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -1383,9 +1383,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://clipchamp.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -1395,9 +1395,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.adobe.com/express/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -1407,9 +1407,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.loom.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -1431,9 +1431,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://obsproject.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -1443,9 +1443,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://vimeo.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -1467,9 +1467,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.apple.com/ios/health/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -1479,9 +1479,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.samsung.com/apps/samsung-health/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -1491,9 +1491,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.fitbit.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -1503,9 +1503,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.whoop.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -1515,9 +1515,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://ouraring.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -1527,9 +1527,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.zwift.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -1539,9 +1539,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://rouvy.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -1551,9 +1551,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.kinomap.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -1563,9 +1563,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.trainerroad.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -1575,9 +1575,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.onepeloton.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -1599,9 +1599,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.microsoft.com/en-us/ai/seeing-ai",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -1611,9 +1611,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://support.google.com/accessibility/android/answer/9031274",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -1635,9 +1635,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://translate.google.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -1647,9 +1647,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.deepl.com/translator",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -1659,9 +1659,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.microsoft.com/en-us/translator/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -1671,9 +1671,9 @@
       "activities": [],
       "uses": [],
       "requirement": "à vérifier",
-      "source_url": null,
-      "caution": "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.",
-      "evidence_status": "PENDING_SOURCE_VERIFICATION",
+      "source_url": "https://www.bemyeyes.com/",
+      "caution": "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.",
+      "evidence_status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
       "criteria_scores": null
     },
     {
@@ -1700,5 +1700,6 @@
       "evidence_status": "PENDING_SOURCE_VERIFICATION",
       "criteria_scores": null
     }
-  ]
+  ],
+  "source_links_added": 84
 }

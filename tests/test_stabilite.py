@@ -1,4 +1,4 @@
-"""Sprint 1: page smoke tests and CSV safety regression tests."""
+"""Stabilité : ouverture des pages, modèles, mesures signées et sécurité des exports CSV."""
 import csv
 import io
 import json
@@ -21,7 +21,7 @@ PAGES = (
 )
 
 
-class SprintOneTests(unittest.TestCase):
+class StabiliteTests(unittest.TestCase):
     def test_all_pages_open(self):
         for filename in PAGES:
             with self.subTest(filename=filename):

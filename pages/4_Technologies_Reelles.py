@@ -10,7 +10,9 @@ st.set_page_config(page_title="ACPA/MSMDA | Catalogue",page_icon="🔎",layout="
 st.title("Catalogue technologique EPS")
 st.caption("Découvrez les outils pour préparer, animer et évaluer vos séances EPS.")
 catalogue=load_real_tools()
-st.metric("Références répertoriées",len(catalogue))
+a,b=st.columns(2)
+a.metric("Références répertoriées",len(catalogue))
+b.metric("Fonctionnalités vérifiées",sum(t.get("evidence_status")=="FEATURES_VERIFIED_ON_OFFICIAL_SITE" for t in catalogue))
 category=st.selectbox("Catégorie",["Toutes"]+sorted({t["category"] for t in catalogue}))
 search=st.text_input("Nom de l'application")
 filtered=[t for t in catalogue if (category=="Toutes" or t["category"]==category) and search.casefold() in t["name"].casefold()]

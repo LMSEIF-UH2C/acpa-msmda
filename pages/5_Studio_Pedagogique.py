@@ -57,6 +57,9 @@ for i,(phase,default) in enumerate(zip(phase_names,defaults)):
                 if tool["notes"]:st.caption(" ; ".join(tool["notes"]))
         else:
             st.caption("Aucune proposition avec les informations disponibles. Un support non numérique peut convenir.")
+st.subheader("Répartition du temps de séance")
+st.caption("Visualisation calculée à partir des durées que vous avez saisies.")
+st.bar_chart([{"Phase":r["Phase"],"Minutes":r["Durée (min)"]} for r in rows],x="Phase",y="Minutes")
 validation=validate_scenario(rows,duration)
 issues=scenario_checks(rows,objectives)
 with st.expander(f"Vérification du scénario — {len(issues)} point(s) à compléter"):

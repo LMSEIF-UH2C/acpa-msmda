@@ -55,7 +55,8 @@
       "domain": "Mobilité",
       "measure": "Distance doigts-pieds",
       "unit": "cm",
-      "protocol_note": "Conserver la convention des signes du protocole."
+      "protocol_note": "Conserver la convention des signes du protocole.",
+      "signed": true
     },
     {
       "id": "souplesse_debout",
@@ -64,7 +65,8 @@
       "domain": "Mobilité",
       "measure": "Distance doigts-sol",
       "unit": "cm",
-      "protocol_note": "Conserver la convention des signes du protocole."
+      "protocol_note": "Conserver la convention des signes du protocole.",
+      "signed": true
     },
     {
       "id": "flamingo",

@@ -43,9 +43,11 @@ class PublicWebDemoTests(unittest.TestCase):
     def test_language_change_hides_previous_result(self):
         app = start()
         app.button[0].click().run()
-        self.assertEqual(len(app.get("dataframe")), 1)
+        self.assertEqual(app.session_state["acpa_result"][0], "fr")
         app.selectbox[0].set_value("en").run()
-        self.assertEqual(len(app.get("dataframe")), 0)
+        self.assertFalse(app.exception)
+        self.assertEqual(app.session_state["acpa_result"][0], "fr")
+        self.assertEqual(len(app.get("subheader")), 0)
 
     def test_input_length_limit(self):
         app = start()

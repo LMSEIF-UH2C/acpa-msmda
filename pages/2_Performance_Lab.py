@@ -52,6 +52,50 @@ if test_id:
         writer.writeheader()
         writer.writerow(record)
         st.download_button("Exporter la mesure (CSV)", output.getvalue().encode("utf-8-sig"), "acpa_mesure.csv", "text/csv")
+
+st.divider()
+st.subheader("Visualiser une progression")
+st.caption("Comparez des mesures anonymes d'une même épreuve, avec une unité identique. Les données ne sont pas conservées après la session.")
+with st.form("progression_chart"):
+    chart_test = st.selectbox("Épreuve à représenter", [t["id"] for t in tests], format_func=lambda i: next(t["name"] for t in tests if t["id"] == i))
+    raw_values = st.text_area("Mesures successives (une valeur par ligne)", placeholder="1200\\n1300\\n1450", height=115, max_chars=3000)
+    direction = st.radio("Interprétation de la mesure", ["Valeur élevée favorable", "Valeur faible favorable", "Sans interprétation"], index=2)
+    draw = st.form_submit_button("Générer le graphique", type="primary")
+if draw:
+    chosen = next(t for t in tests if t["id"] == chart_test)
+    lines = [line.strip().replace(",", ".") for line in raw_values.splitlines() if line.strip()]
+    try:
+        values = [float(line) for line in lines]
+        if not 2 <= len(values) <= 60 or any(not __import__("math").isfinite(v) or v < 0 for v in values):
+            raise ValueError
+    except ValueError:
+        st.error("Saisissez entre 2 et 60 valeurs numériques positives ou nulles, une par ligne.")
+    else:
+        st.session_state["performance_chart"] = {"test_id":chart_test, "values":values, "direction":direction}
+chart = st.session_state.get("performance_chart")
+if chart:
+    chosen = next(t for t in tests if t["id"] == chart["test_id"])
+    st.write("**" + chosen["name"] + "** — " + chosen["unit"])
+    points = [{"Mesure":str(i+1), chosen["unit"]:v} for i,v in enumerate(chart["values"])]
+    st.line_chart(points, x="Mesure", y=chosen["unit"])
+    first,last=chart["values"][0],chart["values"][-1]
+    delta=last-first
+    st.metric("Variation entre première et dernière mesure", f"{delta:+g} {chosen['unit']}")
+    if chart["direction"]=="Sans interprétation":
+        st.caption("Variation descriptive uniquement ; aucune conclusion sur la performance.")
+    else:
+        favorable=(delta>0) if chart["direction"]=="Valeur élevée favorable" else (delta<0)
+        if delta==0:st.info("Valeur inchangée entre les deux mesures.")
+        elif favorable:st.success("Évolution favorable selon le sens de mesure choisi.")
+        else:st.info("Évolution défavorable selon le sens de mesure choisi.")
+    output=io.StringIO()
+    writer=csv.DictWriter(output,fieldnames=["Mesure","Valeur","Unité","Épreuve"])
+    writer.writeheader()
+    for i,v in enumerate(chart["values"],1):
+        writer.writerow({"Mesure":i,"Valeur":v,"Unité":chosen["unit"],"Épreuve":chosen["name"]})
+    st.download_button("Exporter les données du graphique (CSV)",output.getvalue().encode("utf-8-sig"),"progression_eps.csv","text/csv",key="export_progression")
+    st.caption("Le graphique représente des mesures successives saisies manuellement, sans identification d'élèves ni normes de référence.")
+
 with st.expander("Catalogue complet des épreuves"):
     st.dataframe([{"Test":t["name"],"Domaine":t["domain"],"Source":t["source"],"Unité":t["unit"]} for t in tests],hide_index=True,use_container_width=True)
 st.caption("Les formules, normes, interprétations et barèmes non documentés ne sont pas simulés. Les mesures restent dans la session du navigateur jusqu'à fermeture ou réinitialisation.")

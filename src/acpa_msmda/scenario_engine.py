@@ -49,7 +49,7 @@ def safe_cell(value):
     """
     if not isinstance(value, str):
         return value
-    candidate = re.sub(r"^[\\s\\uFEFF\\u200B]*", "", value)
+    candidate = re.sub(r"^[\s\uFEFF\u200B]*", "", value)
     if candidate.startswith(("=", "+", "-", "@")):
         return "'" + value
     return value

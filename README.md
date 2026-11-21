@@ -74,3 +74,19 @@ The selected release files are offered under the accompanying MIT License.
 See `NOTICE` for scope and the distinction from any industrial-property
 rights associated with the wider project. See `CITATION.cff` for software
 citation metadata. For reproducibility, cite the archived v0.1.1 release DOI above. Later versions should be cited using their own version-specific identifiers.
+
+
+## Optional browser application (research demonstrator)
+
+The public engine can now be explored through a trilingual Streamlit interface:
+
+```bash
+python -m pip install -r requirements.txt
+streamlit run app.py
+```
+
+This UI displays rule-detected context features, the 18 criterion weights,
+the relative ranking of five **fictional** tool profiles, and a JSON export.
+It does not add production validation, a real tool catalogue or personal-data
+processing authorization. See [DEPLOYMENT.md](DEPLOYMENT.md) for optional public
+hosting instructions and explicit safety limits.

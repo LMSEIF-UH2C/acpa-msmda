@@ -77,7 +77,14 @@ if chart:
     chosen = next(t for t in tests if t["id"] == chart["test_id"])
     st.write("**" + chosen["name"] + "** — " + chosen["unit"])
     points = [{"Mesure":str(i+1), chosen["unit"]:v} for i,v in enumerate(chart["values"])]
-    st.line_chart(points, x="Mesure", y=chosen["unit"])
+    st.caption("Évolution des mesures successives")
+    minimum=min(chart["values"])
+    maximum=max(chart["values"])
+    for i, value in enumerate(chart["values"], 1):
+        st.write(f"**Mesure {i}** — {value:g} {chosen['unit']}")
+        st.progress((value - minimum) / (maximum - minimum) if maximum > minimum else 1.0)
+    if maximum == minimum:
+        st.caption("Toutes les mesures ont la même valeur.")
     first,last=chart["values"][0],chart["values"][-1]
     delta=last-first
     st.metric("Variation entre première et dernière mesure", f"{delta:+g} {chosen['unit']}")

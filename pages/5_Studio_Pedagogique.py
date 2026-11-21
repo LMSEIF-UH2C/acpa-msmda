@@ -6,6 +6,7 @@ import streamlit as st
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/"src"))
 from acpa_msmda.scenario_engine import PHASES,recommend_phase_tools,validate_scenario,export_scenario_csv
+from acpa_msmda.scenario_templates import load_templates,apply_template,scenario_checks
 
 st.set_page_config(page_title="ACPA/MSMDA | Studio pédagogique",page_icon="📚",layout="wide")
 st.title("Studio pédagogique")
@@ -13,17 +14,17 @@ st.caption("Concevez vos séances et choisissez les supports adaptés à chaque 
 st.warning("Ne renseignez aucune donnée personnelle d'élève.")
 a,b,c=st.columns(3)
 with a:
-    activity=st.text_input("Activité physique ou sportive",value="Endurance",max_chars=100)
+    activity=st.text_input("Activité physique ou sportive",value="Endurance",max_chars=100,key="activity")
     level=st.selectbox("Niveau",["Primaire","Collège","Lycée","Supérieur","Formation d'enseignants"])
 with b:
     modality=st.selectbox("Modalité",["Présentiel","Hybride","À distance","Classe inversée","Autonomie accompagnée"])
-    duration=int(st.number_input("Durée totale (minutes)",min_value=15,max_value=240,value=60,step=5))
+    duration=int(st.number_input("Durée totale (minutes)",min_value=15,max_value=240,value=60,step=5,key="duration"))
 with c:
     class_size=int(st.number_input("Effectif",min_value=1,max_value=150,value=30))
     connectivity=st.selectbox("Connectivité",["Aucune","Limitée","Disponible"])
-objectives=st.text_area("Compétences et objectifs",value="Gérer son allure et analyser sa performance.",max_chars=800)
-prerequisites=st.text_input("Prérequis",value="Connaître les consignes de sécurité",max_chars=300)
-constraints=st.text_input("Matériel et contraintes",value="Terrain, chronomètre, un smartphone enseignant",max_chars=400)
+objectives=st.text_area("Compétences et objectifs",value="Gérer son allure et analyser sa performance.",max_chars=800,key="objectives")
+prerequisites=st.text_input("Prérequis",value="Connaître les consignes de sécurité",max_chars=300,key="prerequisites")
+constraints=st.text_input("Matériel et contraintes",value="Terrain, chronomètre, un smartphone enseignant",max_chars=400,key="constraints")
 st.subheader("Scénario de séance")
 st.caption("Adaptez les activités, supports, critères de réussite et durées.")
 phase_names=["Diagnostic","Mise en activité","Apprentissage","Régulation","Évaluation"]
@@ -50,6 +51,11 @@ for i,(phase,default) in enumerate(zip(phase_names,defaults)):
         else:
             st.caption("Aucune proposition avec les informations disponibles. Un support non numérique peut convenir.")
 validation=validate_scenario(rows,duration)
+issues=scenario_checks(rows,objectives)
+with st.expander(f"Vérification du scénario — {len(issues)} point(s) à compléter"):
+    if issues:
+        for issue in issues:st.write("• "+issue)
+    else:st.success("Objectifs, activités et critères de réussite sont renseignés.")
 if validation["balanced"]:
     st.success(f"Durée totale respectée : {duration} min.")
 else:

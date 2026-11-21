@@ -8,7 +8,7 @@ ROOT=Path(__file__).resolve().parent
 sys.path.insert(0,str(ROOT/"src"))
 from acpa_msmda.real_catalog import load_real_tools,match_real_tools
 
-st.set_page_config(page_title="ACPA/MSMDA | EPS",page_icon="🏃",layout="centered",initial_sidebar_state="collapsed")
+st.set_page_config(page_title="ACPA/MSMDA | EPS",page_icon=":material/directions_run:",layout="centered",initial_sidebar_state="collapsed")
 def home():
     st.markdown("""
     <style>
@@ -18,7 +18,7 @@ def home():
     div[data-testid="stMetric"] {padding:.6rem .4rem;border:1px solid rgba(128,128,128,.22);border-radius:12px;text-align:center}
     div[data-testid="stMetricLabel"] {font-size:.73rem}
     div[data-testid="stMetricValue"] {font-size:1.4rem}
-    div[data-testid="stButton"] button {min-height:3.4rem;border-radius:12px;white-space:normal}
+    div[data-testid="stButton"] button {min-height:3rem;border-radius:10px;white-space:normal;text-align:left;justify-content:flex-start;padding-inline:1rem;font-weight:550}
     div[data-testid="stExpander"] {border-radius:12px}
     div[data-testid="stAlert"] {padding:.6rem .75rem}
     @media(max-width:640px){
@@ -34,21 +34,21 @@ def home():
     st.title("ACPA / MSMDA")
     st.caption("Votre espace pour préparer, organiser et enrichir vos séances d'EPS.")
 
-    st.subheader("Que souhaitez-vous faire ?")
+    st.subheader("Votre espace de travail")
     left,right=st.columns(2)
     with left:
-        if st.button("🔎 Trouver un outil",use_container_width=True):
+        if st.button("Explorer les technologies",icon=":material/search:",use_container_width=True):
             st.session_state["home_view"]="search"
             st.rerun()
-        if st.button("📊 Évaluer",use_container_width=True):
+        if st.button("Mesurer et analyser",icon=":material/monitoring:",use_container_width=True):
             st.switch_page("pages/2_Performance_Lab.py")
     with right:
-        if st.button("📚 Créer un scénario",use_container_width=True):
+        if st.button("Concevoir une séance",icon=":material/edit_note:",use_container_width=True):
             st.switch_page("pages/5_Studio_Pedagogique.py")
-        if st.button("📋 Organiser une séance",use_container_width=True):
+        if st.button("Organiser mes séances",icon=":material/event_note:",use_container_width=True):
             st.switch_page("pages/3_Espace_Enseignant.py")
 
-    st.subheader("Trouver une technologie")
+    st.subheader("Décrivez votre besoin")
     context=st.text_area("Décrivez votre activité, vos objectifs et contraintes",placeholder="Ex. Endurance, 35 élèves, sans connexion, budget limité",max_chars=1000,height=95,key="home_context")
     search_now=st.button("Voir les suggestions",type="primary",use_container_width=True)
     if search_now and not context.strip():
@@ -69,7 +69,7 @@ def home():
                 if t.get("source_url"):st.link_button("Consulter l'éditeur",t["source_url"])
         if len(result["matches"])>8:st.caption(f"{len(result['matches'])-8} autres correspondances : affinez votre recherche.")
 
-    st.subheader("Explorer le catalogue")
+    st.subheader("Répertoire des technologies")
     category=st.selectbox("Famille d'outils",["Toutes"]+categories)
     name=st.text_input("Nom de l'application",placeholder="Rechercher parmi les outils")
     filtered=[t for t in catalogue if (category=="Toutes" or t["category"]==category) and name.casefold() in t["name"].casefold()]
@@ -92,10 +92,10 @@ def home():
 
 
 pages = st.navigation([
-    st.Page(home, title="Accueil", icon="🏠", default=True),
-    st.Page("pages/2_Performance_Lab.py", title="Évaluer", icon="📊"),
-    st.Page("pages/3_Espace_Enseignant.py", title="Organiser une séance", icon="📋"),
-    st.Page("pages/4_Technologies_Reelles.py", title="Technologies", icon="🔎"),
-    st.Page("pages/5_Studio_Pedagogique.py", title="Créer un scénario", icon="📚"),
+    st.Page(home, title="Accueil", icon=":material/home:", default=True),
+    st.Page("pages/2_Performance_Lab.py", title="Évaluer", icon=":material/monitoring:"),
+    st.Page("pages/3_Espace_Enseignant.py", title="Organiser une séance", icon=":material/event_note:"),
+    st.Page("pages/4_Technologies_Reelles.py", title="Technologies", icon=":material/search:"),
+    st.Page("pages/5_Studio_Pedagogique.py", title="Créer un scénario", icon=":material/edit_note:"),
 ], position="sidebar")
 pages.run()

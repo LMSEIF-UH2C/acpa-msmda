@@ -24,6 +24,12 @@ class MobileHomepageTests(unittest.TestCase):
         app=start()
         app.text_input[0].set_value("Kinovea").run()
         self.assertFalse(app.exception)
+    def test_navigation_targets_registered(self):
+        source=APP.read_text(encoding="utf-8")
+        self.assertIn("st.navigation(",source)
+        for page in ("2_Performance_Lab.py","3_Espace_Enseignant.py","4_Technologies_Reelles.py","5_Studio_Pedagogique.py"):
+            self.assertTrue((APP.parent/"pages"/page).is_file())
+            self.assertIn(page,source)
     def test_max_length(self):
         app=start()
         self.assertEqual(app.text_area[0].proto.max_chars,1000)

@@ -1,0 +1,215 @@
+{
+  "schema_version": "1.0",
+  "dataset_type": "REAL_TOOLS_UNSCORED",
+  "notice": "Présélection par pertinence descriptive, pas un classement ACPA/MSMDA validé. Sources à revérifier avant déploiement.",
+  "tools": [
+    {
+      "id": "strava",
+      "name": "Strava",
+      "category": "Tracking et endurance",
+      "activities": [
+        "endurance",
+        "course",
+        "athletisme"
+      ],
+      "uses": [
+        "gps",
+        "suivi",
+        "distance"
+      ],
+      "requirement": "smartphone",
+      "source_url": "https://support.strava.com/en-us/articles/15402044-what-features-are-included-in-a-strava-subscription",
+      "caution": "Localisation et données d'activité : vérifier les réglages de confidentialité et l'adéquation à l'âge des élèves.",
+      "evidence_status": "OFFICIAL_SOURCE_FEATURES_ONLY",
+      "criteria_scores": null
+    },
+    {
+      "id": "kinovea",
+      "name": "Kinovea",
+      "category": "Analyse vidéo",
+      "activities": [
+        "gymnastique",
+        "athletisme",
+        "saut",
+        "technique"
+      ],
+      "uses": [
+        "video",
+        "analyse",
+        "angles",
+        "mesure"
+      ],
+      "requirement": "ordinateur",
+      "source_url": "https://www.kinovea.org/features",
+      "caution": "Captation d'images d'élèves à éviter sans cadre autorisé.",
+      "evidence_status": "OFFICIAL_SOURCE_FEATURES_ONLY",
+      "criteria_scores": null
+    },
+    {
+      "id": "symbaloo",
+      "name": "Symbaloo",
+      "category": "Ressources pédagogiques",
+      "activities": [
+        "gymnastique",
+        "endurance",
+        "basketball",
+        "football",
+        "volleyball",
+        "badminton"
+      ],
+      "uses": [
+        "ressources",
+        "parcours",
+        "autonomie"
+      ],
+      "requirement": "internet",
+      "source_url": "https://en.help.symbaloo.com/portal/en/kb/articles/what-is-symbaloo",
+      "caution": "Disponibilité et modalités des fonctionnalités à revérifier ; ressources web accessibles avec connexion.",
+      "evidence_status": "OFFICIAL_SOURCE_FEATURES_ONLY",
+      "criteria_scores": null
+    },
+    {
+      "id": "phyphox",
+      "name": "phyphox",
+      "category": "Capteurs et mesures",
+      "activities": [
+        "athletisme",
+        "physique",
+        "mesure"
+      ],
+      "uses": [
+        "capteurs",
+        "mesure",
+        "acceleration"
+      ],
+      "requirement": "smartphone",
+      "source_url": "https://phyphox.org/",
+      "caution": "Précision et protocole de mesure à vérifier selon le capteur.",
+      "evidence_status": "OFFICIAL_SOURCE_FEATURES_ONLY",
+      "criteria_scores": null
+    },
+    {
+      "id": "h5p",
+      "name": "H5P",
+      "category": "Ressources interactives",
+      "activities": [
+        "gymnastique",
+        "endurance",
+        "basketball",
+        "football",
+        "volleyball"
+      ],
+      "uses": [
+        "ressources",
+        "quiz",
+        "autonomie"
+      ],
+      "requirement": "internet",
+      "source_url": "https://h5p.org/",
+      "caution": "Nécessite un environnement de diffusion adapté.",
+      "evidence_status": "OFFICIAL_SOURCE_FEATURES_ONLY",
+      "criteria_scores": null
+    },
+    {
+      "id": "garmin-connect",
+      "name": "Garmin Connect",
+      "category": "Tracking et endurance",
+      "activities": [
+        "endurance",
+        "course",
+        "athletisme"
+      ],
+      "uses": [
+        "gps",
+        "suivi",
+        "distance"
+      ],
+      "requirement": "materiel",
+      "source_url": "https://www.garmin.com/en-US/software/connect/",
+      "caution": "Compatibilité avec équipement Garmin et confidentialité à vérifier.",
+      "evidence_status": "OFFICIAL_SOURCE_FEATURES_ONLY",
+      "criteria_scores": null
+    },
+    {
+      "id": "chronojump",
+      "name": "Chronojump",
+      "category": "Tests et mesure",
+      "activities": [
+        "saut",
+        "athletisme",
+        "force"
+      ],
+      "uses": [
+        "mesure",
+        "saut",
+        "tests"
+      ],
+      "requirement": "materiel",
+      "source_url": "https://chronojump.org/",
+      "caution": "Matériel et procédure de mesure à confirmer.",
+      "evidence_status": "OFFICIAL_SOURCE_FEATURES_ONLY",
+      "criteria_scores": null
+    },
+    {
+      "id": "genially",
+      "name": "Genially",
+      "category": "Ressources pédagogiques",
+      "activities": [
+        "gymnastique",
+        "endurance",
+        "basketball",
+        "football"
+      ],
+      "uses": [
+        "ressources",
+        "parcours",
+        "autonomie"
+      ],
+      "requirement": "internet",
+      "source_url": "https://genially.com/",
+      "caution": "Dépend de la connectivité et du type de ressource.",
+      "evidence_status": "OFFICIAL_SOURCE_FEATURES_ONLY",
+      "criteria_scores": null
+    },
+    {
+      "id": "google-forms",
+      "name": "Google Forms",
+      "category": "Évaluation et questionnaires",
+      "activities": [
+        "evaluation",
+        "motivation",
+        "questionnaire"
+      ],
+      "uses": [
+        "questionnaire",
+        "evaluation"
+      ],
+      "requirement": "internet",
+      "source_url": "https://www.google.com/forms/about/",
+      "caution": "Ne pas collecter de données nominatives ou sensibles dans un compte non autorisé.",
+      "evidence_status": "OFFICIAL_SOURCE_FEATURES_ONLY",
+      "criteria_scores": null
+    },
+    {
+      "id": "moodle",
+      "name": "Moodle",
+      "category": "Plateforme pédagogique",
+      "activities": [
+        "endurance",
+        "gymnastique",
+        "basketball",
+        "football"
+      ],
+      "uses": [
+        "ressources",
+        "parcours",
+        "evaluation"
+      ],
+      "requirement": "internet",
+      "source_url": "https://moodle.org/",
+      "caution": "Nécessite une instance configurée et une politique de gestion des données.",
+      "evidence_status": "OFFICIAL_SOURCE_FEATURES_ONLY",
+      "criteria_scores": null
+    }
+  ]
+}

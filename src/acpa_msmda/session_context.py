@@ -109,7 +109,7 @@ def render_context(st: Any, session: MutableMapping,
                    fields: Sequence[str] = ("activity", "level", "class_size", "duration",
                                             "connectivity", "devices", "space", "equipment",
                                             "objectives"),
-                   expanded: bool = True) -> None:
+                   expanded: bool = False) -> None:
     """Affiche les champs du contexte, identiques d'une page à l'autre."""
     widgets: dict[str, Callable[[], Any]] = {
         "activity": lambda: st.selectbox("Activité physique ou sportive", APS, **bind(session, "activity")),
@@ -130,10 +130,12 @@ def render_context(st: Any, session: MutableMapping,
     }
     with st.expander("Votre séance : " + summary(session), expanded=expanded):
         short = [f for f in fields if f not in ("equipment", "objectives")]
-        left, right = st.columns(2)
-        for index, field in enumerate(short):
-            with (left if index % 2 == 0 else right):
-                widgets[field]()
+        # Une rangée par paire de champs : sur téléphone, les colonnes s'empilent
+        # rangée par rangée et l'ordre de lecture reste celui de la liste.
+        for start in range(0, len(short), 2):
+            for column, field in zip(st.columns(2), short[start:start + 2]):
+                with column:
+                    widgets[field]()
         for field in fields:
             if field in ("equipment", "objectives"):
                 widgets[field]()

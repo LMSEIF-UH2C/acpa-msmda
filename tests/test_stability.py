@@ -21,7 +21,7 @@ PAGES = (
 )
 
 
-class StabiliteTests(unittest.TestCase):
+class StabilityTests(unittest.TestCase):
     def test_all_pages_open(self):
         for filename in PAGES:
             with self.subTest(filename=filename):

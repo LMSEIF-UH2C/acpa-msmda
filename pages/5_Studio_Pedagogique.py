@@ -12,10 +12,17 @@ st.set_page_config(page_title="ACPA/MSMDA | Studio pédagogique",page_icon="📚
 st.title("Studio pédagogique")
 st.caption("Concevez vos séances et choisissez les supports adaptés à chaque phase.")
 st.warning("Ne renseignez aucune donnée personnelle d'élève.")
+templates=load_templates()
+selected=st.selectbox("Modèle de scénario",["Séance vierge"]+[t["title"] for t in templates])
+if st.button("Charger le modèle",disabled=selected=="Séance vierge"):
+    template=next(t for t in templates if t["title"]==selected)
+    apply_template(template,st.session_state)
+    st.rerun()
+
 a,b,c=st.columns(3)
 with a:
     activity=st.text_input("Activité physique ou sportive",value="Endurance",max_chars=100,key="activity")
-    level=st.selectbox("Niveau",["Primaire","Collège","Lycée","Supérieur","Formation d'enseignants"])
+    level=st.selectbox("Niveau",["Primaire","Collège","Lycée","Supérieur","Formation d'enseignants"],key="level")
 with b:
     modality=st.selectbox("Modalité",["Présentiel","Hybride","À distance","Classe inversée","Autonomie accompagnée"])
     duration=int(st.number_input("Durée totale (minutes)",min_value=15,max_value=240,value=60,step=5,key="duration"))

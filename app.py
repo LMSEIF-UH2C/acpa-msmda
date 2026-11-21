@@ -17,7 +17,7 @@ documented=[t for t in catalogue if t.get("source_url")]
 a,b,c=st.columns(3)
 a.metric("Références du catalogue",len(catalogue))
 b.metric("Liens éditeurs",len(documented))
-c.metric("Catégories",len({t["category"] for t in catalogue}))
+c.metric("Fiches vérifiées",sum(t.get("evidence_status")=="FEATURES_VERIFIED_ON_OFFICIAL_SITE" for t in catalogue))
 context=st.text_area("Votre contexte pédagogique",value="Endurance, suivi de course, classe nombreuse, budget limité",max_chars=1000)
 if context.strip():
     result=match_real_tools(context)

@@ -2,6 +2,7 @@
 from __future__ import annotations
 import csv
 import io
+import re
 from .real_catalog import load_real_tools
 
 PHASES=(
@@ -48,7 +49,7 @@ def safe_cell(value):
     """
     if not isinstance(value, str):
         return value
-    candidate = value.lstrip(" \\t\\r\\n\\v\\f\\ufeff\\u200b")
+    candidate = re.sub(r"^[\\s\\uFEFF\\u200B]*", "", value)
     if candidate.startswith(("=", "+", "-", "@")):
         return "'" + value
     return value

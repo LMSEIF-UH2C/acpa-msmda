@@ -3,9 +3,14 @@ from __future__ import annotations
 
 import csv
 import io
+import sys
+from pathlib import Path
 from datetime import date
 
 import streamlit as st
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
+from acpa_msmda.scenario_engine import safe_cell
 
 st.set_page_config(page_title="ACPA/MSMDA | Espace enseignant",page_icon="📋",layout="wide")
 st.title("Espace enseignant — Planifier une séance EPS")
@@ -26,6 +31,10 @@ with st.form("session_plan"):
     objectif=st.text_area("Objectif d'apprentissage",value="Améliorer la participation motrice et suivre les progrès.",max_chars=500)
     n_ateliers=st.slider("Nombre d'ateliers",min_value=1,max_value=8,value=4)
     submitted=st.form_submit_button("Construire la séance",type="primary")
+if submitted and n_ateliers > effectif:
+    st.session_state.pop("eps_plan", None)
+    st.error("Le nombre d'ateliers ne peut pas dépasser l'effectif : des groupes seraient vides.")
+    submitted = False
 if submitted:
     accueil=max(3,round(duree*.10))
     bilan=max(4,round(duree*.10))
@@ -62,6 +71,6 @@ if plan:
     writer=csv.writer(output)
     writer.writerow(["APS","Niveau","Effectif","Durée","Objectif","Phase","Minutes"])
     for name,minutes in plan["phases"]:
-        writer.writerow([plan["aps"],plan["niveau"],plan["effectif"],plan["duree"],plan["objectif"],name,minutes])
+        writer.writerow([plan["aps"],plan["niveau"],plan["effectif"],plan["duree"],safe_cell(plan["objectif"]),name,minutes])
     st.download_button("Exporter le plan (CSV)",output.getvalue().encode("utf-8-sig"),file_name="acpa_plan_seance.csv",mime="text/csv")
     st.caption("Proposition calculée selon une répartition indicative du temps, à adapter par l'enseignant ; ne constitue pas une optimisation scientifiquement démontrée.")

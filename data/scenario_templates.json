@@ -1,0 +1,236 @@
+{
+  "schema_version": "1.0",
+  "description": "Modèles de départ modifiables ; exemples pratiques, non prescriptions.",
+  "templates": [
+    {
+      "id": "endurance_allure",
+      "title": "Endurance — gérer son allure",
+      "activity": "Endurance",
+      "level": "Collège",
+      "duration": 60,
+      "objectives": "Maintenir une allure adaptée à une durée définie et décrire ses sensations d'effort.",
+      "prerequisites": "Respecter les règles de sécurité et connaître le parcours.",
+      "constraints": "Parcours balisé, chronomètre, points d'eau.",
+      "phases": [
+        {
+          "phase": "Diagnostic",
+          "minutes": 5,
+          "activity": "Recueillir les représentations de l'allure et rappeler les consignes.",
+          "success": "L'élève identifie une allure soutenable.",
+          "media": [
+            "Quiz"
+          ]
+        },
+        {
+          "phase": "Mise en activité",
+          "minutes": 10,
+          "activity": "Échauffement progressif et repérage du parcours.",
+          "success": "L'élève suit le parcours en sécurité.",
+          "media": [
+            "Démonstration"
+          ]
+        },
+        {
+          "phase": "Apprentissage",
+          "minutes": 30,
+          "activity": "Réaliser des fractions de course à allure choisie avec récupération et ajustements.",
+          "success": "L'élève compare allure prévue et allure réalisée.",
+          "media": [
+            "Fiche numérique",
+            "Capteurs"
+          ]
+        },
+        {
+          "phase": "Régulation",
+          "minutes": 10,
+          "activity": "Comparer les temps de passage et proposer un ajustement.",
+          "success": "L'élève justifie un ajustement concret.",
+          "media": [
+            "Fiche numérique"
+          ]
+        },
+        {
+          "phase": "Évaluation",
+          "minutes": 5,
+          "activity": "Bilan oral ou écrit des stratégies utilisées.",
+          "success": "L'élève formule un objectif de progression.",
+          "media": [
+            "Quiz"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gymnastique_enchainement",
+      "title": "Gymnastique — construire un enchaînement",
+      "activity": "Gymnastique",
+      "level": "Collège",
+      "duration": 60,
+      "objectives": "Réaliser un enchaînement maîtrisé et observer des critères techniques simples.",
+      "prerequisites": "Maîtriser les règles de parade et d'installation des tapis.",
+      "constraints": "Tapis, espaces sécurisés ; vidéo facultative.",
+      "phases": [
+        {
+          "phase": "Diagnostic",
+          "minutes": 5,
+          "activity": "Identifier les éléments connus et rappeler les règles de sécurité.",
+          "success": "Les règles de sécurité sont reformulées.",
+          "media": [
+            "Démonstration"
+          ]
+        },
+        {
+          "phase": "Mise en activité",
+          "minutes": 10,
+          "activity": "Mobilité et préparation spécifique.",
+          "success": "L'élève réalise les mouvements préparatoires.",
+          "media": [
+            "Démonstration"
+          ]
+        },
+        {
+          "phase": "Apprentissage",
+          "minutes": 30,
+          "activity": "Ateliers de composition, répétition et observation par critères.",
+          "success": "L'enchaînement respecte les critères annoncés.",
+          "media": [
+            "Vidéo",
+            "Analyse vidéo"
+          ]
+        },
+        {
+          "phase": "Régulation",
+          "minutes": 10,
+          "activity": "Retour d'observation et nouvel essai.",
+          "success": "Une correction ciblée est visible.",
+          "media": [
+            "Analyse vidéo"
+          ]
+        },
+        {
+          "phase": "Évaluation",
+          "minutes": 5,
+          "activity": "Autoévaluation et perspective de progression.",
+          "success": "L'élève identifie un point fort et un axe d'amélioration.",
+          "media": [
+            "Fiche numérique"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "basketball_cooperation",
+      "title": "Basketball — coopérer pour progresser",
+      "activity": "Basketball",
+      "level": "Lycée",
+      "duration": 60,
+      "objectives": "Créer et exploiter des espaces de jeu grâce à la coopération.",
+      "prerequisites": "Règles élémentaires de déplacement, passe et sécurité.",
+      "constraints": "Ballons, chasubles, terrain et plots.",
+      "phases": [
+        {
+          "phase": "Diagnostic",
+          "minutes": 5,
+          "activity": "Observer une situation de conservation simple.",
+          "success": "L'équipe repère une difficulté de circulation du ballon.",
+          "media": [
+            "Aucun"
+          ]
+        },
+        {
+          "phase": "Mise en activité",
+          "minutes": 10,
+          "activity": "Jeux de passes et démarquage progressifs.",
+          "success": "L'élève se rend disponible pour recevoir.",
+          "media": [
+            "Démonstration"
+          ]
+        },
+        {
+          "phase": "Apprentissage",
+          "minutes": 30,
+          "activity": "Jeux réduits avec consignes de circulation et rôles d'observateurs.",
+          "success": "L'équipe crée des solutions de passe identifiables.",
+          "media": [
+            "Vidéo"
+          ]
+        },
+        {
+          "phase": "Régulation",
+          "minutes": 10,
+          "activity": "Feedback collectif sur les déplacements et nouvelle situation.",
+          "success": "Les élèves ajustent leurs placements.",
+          "media": [
+            "Analyse vidéo"
+          ]
+        },
+        {
+          "phase": "Évaluation",
+          "minutes": 5,
+          "activity": "Bilan sur la coopération et les décisions prises.",
+          "success": "L'élève explique une décision pertinente.",
+          "media": [
+            "Fiche numérique"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "distance_activite",
+      "title": "À distance — activité physique autonome",
+      "activity": "Activité physique autonome",
+      "level": "Lycée",
+      "duration": 45,
+      "objectives": "Planifier une activité physique réalisable en sécurité et décrire sa réalisation.",
+      "prerequisites": "Disposer d'un espace adapté et connaître les consignes de sécurité.",
+      "constraints": "Connexion et équipement variables ; alternatives sans application.",
+      "phases": [
+        {
+          "phase": "Diagnostic",
+          "minutes": 5,
+          "activity": "Identifier l'espace disponible et les contraintes.",
+          "success": "L'activité choisie est adaptée à l'environnement.",
+          "media": [
+            "Fiche numérique"
+          ]
+        },
+        {
+          "phase": "Mise en activité",
+          "minutes": 10,
+          "activity": "Échauffement autonome guidé.",
+          "success": "L'échauffement est réalisé progressivement.",
+          "media": [
+            "Vidéo"
+          ]
+        },
+        {
+          "phase": "Apprentissage",
+          "minutes": 20,
+          "activity": "Réaliser une activité adaptée avec pauses possibles.",
+          "success": "L'élève suit une progression personnelle réaliste.",
+          "media": [
+            "Audio"
+          ]
+        },
+        {
+          "phase": "Régulation",
+          "minutes": 5,
+          "activity": "Noter sensations et ajuster l'intensité.",
+          "success": "L'élève identifie un signe de fatigue et adapte l'effort.",
+          "media": [
+            "Fiche numérique"
+          ]
+        },
+        {
+          "phase": "Évaluation",
+          "minutes": 5,
+          "activity": "Bilan bref sans données de localisation.",
+          "success": "L'élève décrit son activité et une amélioration possible.",
+          "media": [
+            "Quiz"
+          ]
+        }
+      ]
+    }
+  ]
+}

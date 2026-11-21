@@ -7,11 +7,11 @@ ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/"src"))
 from acpa_msmda.scenario_engine import PHASES,recommend_phase_tools,validate_scenario,export_scenario_csv
 from acpa_msmda.scenario_templates import load_templates,apply_template,scenario_checks
+from acpa_msmda.ui import PRIVACY_NOTE, STUDIO, configure_page
 
-st.set_page_config(page_title="ACPA/MSMDA | Studio pédagogique",page_icon="📚",layout="wide")
-st.title("Studio pédagogique")
-st.caption("Concevez vos séances et choisissez les supports adaptés à chaque phase.")
-st.warning("Ne renseignez aucune donnée personnelle d'élève.")
+configure_page(STUDIO)
+st.title(STUDIO.title)
+st.caption(STUDIO.summary + " " + PRIVACY_NOTE)
 templates=load_templates()
 selected=st.selectbox("Modèle de scénario",["Séance vierge"]+[t["title"] for t in templates])
 if st.button("Charger le modèle",disabled=selected=="Séance vierge"):

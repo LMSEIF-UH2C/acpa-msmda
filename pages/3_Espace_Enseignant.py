@@ -11,11 +11,11 @@ import streamlit as st
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from acpa_msmda.scenario_engine import safe_cell
+from acpa_msmda.ui import PLANNER, PRIVACY_NOTE, configure_page
 
-st.set_page_config(page_title="ACPA/MSMDA | Espace enseignant",page_icon="📋",layout="wide")
-st.title("Espace enseignant — Planifier une séance EPS")
-st.caption("Prototype opérationnel de planification ; recommandations organisationnelles explicites, non issues d'un modèle validé.")
-st.info("Ne renseignez pas de noms d'élèves. Ce formulaire n'enregistre pas les données de manière durable.")
+configure_page(PLANNER)
+st.title(PLANNER.title)
+st.caption(PLANNER.summary + " " + PRIVACY_NOTE)
 with st.form("session_plan"):
     a,b=st.columns(2)
     with a:
@@ -30,7 +30,7 @@ with st.form("session_plan"):
         appareils=st.selectbox("Appareils disponibles",["Aucun","Téléphone enseignant","Téléphones partagés","Téléphones individuels"])
     objectif=st.text_area("Objectif d'apprentissage",value="Améliorer la participation motrice et suivre les progrès.",max_chars=500)
     n_ateliers=st.slider("Nombre d'ateliers",min_value=1,max_value=8,value=4)
-    submitted=st.form_submit_button("Construire la séance",type="primary")
+    submitted=st.form_submit_button("Organiser la séance",type="primary")
 if submitted and n_ateliers > effectif:
     st.session_state.pop("eps_plan", None)
     st.error("Le nombre d'ateliers ne peut pas dépasser l'effectif : des groupes seraient vides.")
@@ -66,11 +66,11 @@ if plan:
     elif plan["aps"]=="Gymnastique":
         st.info("Technologies à examiner : analyse vidéo et parcours de ressources ; demander l'autorisation nécessaire avant tout enregistrement d'élèves.")
     else:
-        st.info("Comparer les outils de mesure, d'observation et d'organisation avec le moteur ACPA/MSMDA ; aucun score réel n'est calculé ici.")
+        st.info("Pour choisir un outil de mesure ou d'observation, ouvrez « Trouver une technologie ».")
     output=io.StringIO()
     writer=csv.writer(output)
     writer.writerow(["APS","Niveau","Effectif","Durée","Objectif","Phase","Minutes"])
     for name,minutes in plan["phases"]:
         writer.writerow([plan["aps"],plan["niveau"],plan["effectif"],plan["duree"],safe_cell(plan["objectif"]),name,minutes])
     st.download_button("Exporter le plan (CSV)",output.getvalue().encode("utf-8-sig"),file_name="acpa_plan_seance.csv",mime="text/csv")
-    st.caption("Proposition calculée selon une répartition indicative du temps, à adapter par l'enseignant ; ne constitue pas une optimisation scientifiquement démontrée.")
+    st.caption("Répartition indicative : environ 10 % du temps pour l'accueil, le retour au calme et le bilan. À adapter à votre terrain.")

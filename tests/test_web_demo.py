@@ -1,42 +1,77 @@
-"""Mobile-first public interface smoke tests."""
+"""Accueil et recherche de technologies : parcours réels exécutés avec AppTest."""
 import unittest
 from pathlib import Path
+
 from streamlit.testing.v1 import AppTest
-APP=Path(__file__).resolve().parents[1]/"app.py"
-def start():
-    return AppTest.from_file(str(APP),default_timeout=30).run()
-class MobileHomepageTests(unittest.TestCase):
-    def test_load(self):
-        app=start()
+
+ROOT = Path(__file__).resolve().parents[1]
+APP = ROOT / "app.py"
+SEARCH_PAGE = ROOT / "pages" / "4_Technologies_Reelles.py"
+
+
+def start(path=APP):
+    return AppTest.from_file(str(path), default_timeout=30).run()
+
+
+def button(app, label):
+    return next(b for b in app.button if b.label == label)
+
+
+class HomeTests(unittest.TestCase):
+    def test_load_without_counters(self):
+        app = start()
         self.assertFalse(app.exception)
-        self.assertEqual(len(app.metric),0)
-    def test_empty_search(self):
-        app=start()
-        app.button[4].click().run()
+        self.assertEqual(len(app.metric), 0)
+
+    def test_four_task_buttons(self):
+        import sys
+        sys.path.insert(0, str(ROOT / "src"))
+        from acpa_msmda.ui import TASKS
+        labels = [b.label for b in start().button]
+        for module in TASKS:
+            self.assertIn(module.title, labels)
+
+    def test_navigation_targets_exist(self):
+        import sys
+        sys.path.insert(0, str(ROOT / "src"))
+        from acpa_msmda.ui import MODULES
+        for module in MODULES:
+            if module.path:
+                self.assertTrue((ROOT / module.path).is_file(), module.path)
+
+
+class SearchPageTests(unittest.TestCase):
+    def test_empty_search_warns(self):
+        app = start(SEARCH_PAGE)
+        button(app, "Voir les suggestions").click().run()
         self.assertFalse(app.exception)
-        self.assertGreaterEqual(len(app.warning),1)
-    def test_context_search(self):
-        app=start()
+        self.assertGreaterEqual(len(app.warning), 1)
+
+    def test_context_search_shows_documented_tools(self):
+        app = start(SEARCH_PAGE)
         app.text_area[0].set_value("endurance course").run()
-        app.button[4].click().run()
+        button(app, "Voir les suggestions").click().run()
         self.assertFalse(app.exception)
-    def test_catalogue_filter(self):
-        app=start()
+        titles = [e.label for e in app.expander]
+        self.assertTrue(any(t.startswith("Strava") for t in titles))
+
+    def test_results_survive_rerun(self):
+        app = start(SEARCH_PAGE)
+        app.text_area[0].set_value("endurance course").run()
+        button(app, "Voir les suggestions").click().run()
         app.text_input[0].set_value("Kinovea").run()
-        self.assertFalse(app.exception)
-    def test_navigation_targets_registered(self):
-        source=APP.read_text(encoding="utf-8")
-        self.assertIn("st.navigation(",source)
-        for page in ("2_Performance_Lab.py","3_Espace_Enseignant.py","4_Technologies_Reelles.py","5_Studio_Pedagogique.py"):
-            self.assertTrue((APP.parent/"pages"/page).is_file())
-            self.assertIn(page,source)
-    def test_professional_navigation(self):
-        source=APP.read_text(encoding="utf-8")
-        self.assertIn(":material/search:",source)
-        self.assertIn(":material/monitoring:",source)
-        self.assertNotIn("🔎",source)
-        self.assertNotIn("📚",source)
+        self.assertTrue(any(e.label.startswith("Strava") for e in app.expander))
+
+    def test_catalogue_hides_pending_fiches_by_default(self):
+        app = start(SEARCH_PAGE)
+        app.text_input[0].set_value("Testmoz").run()
+        self.assertFalse(any(e.label.startswith("Testmoz") for e in app.expander))
+        app.toggle[0].set_value(True).run()
+        self.assertTrue(any(e.label.startswith("Testmoz") for e in app.expander))
+
     def test_max_length(self):
-        app=start()
-        self.assertEqual(app.text_area[0].proto.max_chars,1000)
-if __name__=="__main__":unittest.main()
+        self.assertEqual(start(SEARCH_PAGE).text_area[0].proto.max_chars, 1000)
+
+
+if __name__ == "__main__":
+    unittest.main()

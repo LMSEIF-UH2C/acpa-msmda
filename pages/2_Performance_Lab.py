@@ -7,16 +7,20 @@ import json
 import math
 from pathlib import Path
 
+import sys
+
 import streamlit as st
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
+from acpa_msmda.ui import LAB, PRIVACY_NOTE, configure_page  # noqa: E402
 
 REGISTRY = Path(__file__).resolve().parents[1] / "data" / "performance_tests.json"
 data = json.loads(REGISTRY.read_text(encoding="utf-8"))
 tests = data["tests"]
 
-st.set_page_config(page_title="ACPA/MSMDA | Performance Lab", page_icon="⏱️", layout="wide")
-st.title("Performance Lab")
-st.caption("Choisissez une épreuve, saisissez une mesure et visualisez une progression.")
-st.warning("Version pilote. Protocoles à confirmer avant utilisation institutionnelle. N'enregistrez aucun nom, identifiant d'élève ni donnée de santé personnelle.")
+configure_page(LAB)
+st.title(LAB.title)
+st.caption(LAB.summary + " " + PRIVACY_NOTE)
 domain = st.selectbox("Domaine", ["Tous"] + sorted({t["domain"] for t in tests}))
 selected = [t for t in tests if (domain == "Tous" or t["domain"] == domain)]
 test_id = st.selectbox("Choisir une épreuve", [t["id"] for t in selected], format_func=lambda i: next(t["name"] for t in selected if t["id"] == i)) if selected else None
@@ -24,10 +28,10 @@ if test_id:
     t = next(t for t in selected if t["id"] == test_id)
     st.subheader(t["name"])
     st.write("**Mesure :** " + t["measure"] + " (" + t["unit"] + ")")
-    st.info(t["protocol_note"])
+    st.caption("Protocole : " + t["protocol_note"])
     with st.form("measurement"):
         value = st.number_input("Résultat mesuré (" + t["unit"] + ")", min_value=None if t.get("signed") else 0.0, value=0.0, step=0.1)
-        submitted = st.form_submit_button("Calculer / enregistrer localement", type="primary")
+        submitted = st.form_submit_button("Enregistrer la mesure", type="primary")
     if submitted:
         if not math.isfinite(value) or (value <= 0 and not t.get("signed")):
             st.error("Saisissez une valeur valide" + ("." if t.get("signed") else " strictement positive."))
@@ -36,7 +40,7 @@ if test_id:
             st.session_state["performance_last_record"] = record
     record = st.session_state.get("performance_last_record")
     if record and record["test_id"] == test_id:
-        st.success("Mesure saisie pour cette session (aucun enregistrement serveur volontaire).")
+        st.success("Mesure enregistrée pour cette session.")
         st.metric("Résultat", f'{record["value"]:g} {record["unit"]}')
         if test_id == "cooper":
             distance = record["value"]
@@ -53,7 +57,7 @@ if test_id:
 
 st.divider()
 st.subheader("Visualiser une progression")
-st.caption("Comparez des mesures anonymes d'une même épreuve, avec une unité identique. Les données ne sont pas conservées après la session.")
+st.caption("Mesures successives d'une même épreuve, dans la même unité. Elles sont effacées à la fermeture de la page.")
 with st.form("progression_chart"):
     chart_test = st.selectbox("Épreuve à représenter", [t["id"] for t in tests], format_func=lambda i: next(t["name"] for t in tests if t["id"] == i))
     raw_values = st.text_area("Mesures successives (une valeur par ligne)", placeholder="1200\\n1300\\n1450", height=115, max_chars=3000)
@@ -102,4 +106,4 @@ if chart:
 
 with st.expander("Catalogue complet des épreuves"):
     st.dataframe([{"Test":t["name"],"Domaine":t["domain"],"Unité":t["unit"]} for t in tests],hide_index=True,use_container_width=True)
-st.caption("Les formules, normes, interprétations et barèmes non documentés ne sont pas simulés. Les mesures restent dans la session du navigateur jusqu'à fermeture ou réinitialisation.")
+st.caption("Seuls les calculs dont la formule est documentée sont affichés ; aucun barème n'est appliqué.")

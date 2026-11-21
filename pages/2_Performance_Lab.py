@@ -14,17 +14,14 @@ tests = data["tests"]
 
 st.set_page_config(page_title="ACPA/MSMDA | Performance Lab", page_icon="⏱️", layout="wide")
 st.title("Performance Lab")
-st.caption("ACPA/MSMDA 2.0 · Référentiel institutionnel, protocoles de thèse et tests complémentaires")
+st.caption("Choisissez une épreuve, saisissez une mesure et visualisez une progression.")
 st.warning("Version pilote. Protocoles à confirmer avant utilisation institutionnelle. N'enregistrez aucun nom, identifiant d'élève ni donnée de santé personnelle.")
-source = st.selectbox("Collection", ["Toutes", "Circulaire 2358/25", "Thèse", "Complément"])
 domain = st.selectbox("Domaine", ["Tous"] + sorted({t["domain"] for t in tests}))
-selected = [t for t in tests if (source == "Toutes" or source in t["source"]) and (domain == "Tous" or t["domain"] == domain)]
-st.metric("Tests et mesures disponibles", len(selected))
+selected = [t for t in tests if (domain == "Tous" or t["domain"] == domain)]
 test_id = st.selectbox("Choisir une épreuve", [t["id"] for t in selected], format_func=lambda i: next(t["name"] for t in selected if t["id"] == i)) if selected else None
 if test_id:
     t = next(t for t in selected if t["id"] == test_id)
     st.subheader(t["name"])
-    st.write("**Origine :** " + t["source"])
     st.write("**Mesure :** " + t["measure"] + " (" + t["unit"] + ")")
     st.info(t["protocol_note"])
     with st.form("measurement"):
@@ -34,7 +31,7 @@ if test_id:
         if value <= 0:
             st.error("Saisissez une valeur positive.")
         else:
-            record = {"test_id":test_id,"test":t["name"],"value":value,"unit":t["unit"],"source":t["source"]}
+            record = {"test_id":test_id,"test":t["name"],"value":value,"unit":t["unit"]}
             st.session_state["performance_last_record"] = record
     record = st.session_state.get("performance_last_record")
     if record and record["test_id"] == test_id:
@@ -104,5 +101,5 @@ if chart:
     st.caption("Le graphique représente des mesures successives saisies manuellement, sans identification d'élèves ni normes de référence.")
 
 with st.expander("Catalogue complet des épreuves"):
-    st.dataframe([{"Test":t["name"],"Domaine":t["domain"],"Source":t["source"],"Unité":t["unit"]} for t in tests],hide_index=True,use_container_width=True)
+    st.dataframe([{"Test":t["name"],"Domaine":t["domain"],"Unité":t["unit"]} for t in tests],hide_index=True,use_container_width=True)
 st.caption("Les formules, normes, interprétations et barèmes non documentés ne sont pas simulés. Les mesures restent dans la session du navigateur jusqu'à fermeture ou réinitialisation.")

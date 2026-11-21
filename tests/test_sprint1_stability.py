@@ -41,18 +41,21 @@ class SprintOneTests(unittest.TestCase):
         self.assertEqual(signed, {"souplesse_assise", "souplesse_debout"})
 
     def test_csv_formula_protection(self):
-        for prefix in ("=", "+", "-", "@", " =SUM(1,2)", "\\t=1+1", "\\r@SUM(1)", "\\ufeff+1"):
+        risky = ("=", "+", "-", "@", " =SUM(1,2)", chr(9) + "=1+1",
+                 chr(13) + "@SUM(1)", chr(0xfeff) + "+1")
+        for prefix in risky:
             with self.subTest(prefix=repr(prefix)):
                 self.assertTrue(safe_cell(prefix).startswith("'"))
         self.assertEqual(safe_cell("Endurance"), "Endurance")
         self.assertEqual(safe_cell(-4.0), -4.0)
         csv_bytes = export_scenario_csv(
             {"Objectifs": "  =1+1"},
-            [{"Phase": "Diagnostic", "Durée (min)": 5, "Activité / consignes": "\\t+CMD"}],
+            [{"Phase": "Diagnostic", "Durée (min)": 5,
+              "Activité / consignes": chr(9) + "+CMD"}],
         )
         rows = list(csv.reader(io.StringIO(csv_bytes.decode("utf-8-sig"))))
         self.assertEqual(rows[0][1], "'  =1+1")
-        self.assertEqual(rows[3][2], "'\\t+CMD")
+        self.assertEqual(rows[3][2], "'" + chr(9) + "+CMD")
 
     def test_studio_widget_defaults_not_conflicting(self):
         source = (ROOT / "pages" / "5_Studio_Pedagogique.py").read_text(encoding="utf-8")

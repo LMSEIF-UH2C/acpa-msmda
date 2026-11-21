@@ -17,7 +17,7 @@ def match_real_tools(context,path=DEFAULT_PATH):
     words=set(normalize_text(context).split())
     matches=[]
     for t in load_real_tools(path):
-        if t.get("evidence_status")!="OFFICIAL_SOURCE_FEATURES_ONLY":continue
+        if t.get("evidence_status") not in ("OFFICIAL_SOURCE_FEATURES_ONLY","FEATURES_VERIFIED_ON_OFFICIAL_SITE"):continue
         matched=[term for term in t.get("activities",[])+t.get("uses",[]) if normalize_text(term) in words]
         if not matched:continue
         cautions=[t.get("caution","")]

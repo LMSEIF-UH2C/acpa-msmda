@@ -1,4 +1,4 @@
-"""Sprint 3 : le contexte de séance saisi une fois est repris par tous les modules."""
+"""Contexte de séance partagé : le contexte de séance saisi une fois est repris par tous les modules."""
 import sys
 import unittest
 from pathlib import Path

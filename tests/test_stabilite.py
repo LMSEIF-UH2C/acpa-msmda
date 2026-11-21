@@ -32,7 +32,7 @@ class StabiliteTests(unittest.TestCase):
         template = load_templates()[0]
         state = {}
         apply_template(template, state)
-        data = state["acpa_store"]  # magasin partagé entre les pages (sprint 3)
+        data = state["acpa_store"]  # magasin partagé entre les pages
         self.assertEqual(data["duration"], template["duration"])
         self.assertEqual(data["minutes_0"], template["phases"][0]["minutes"])
 
@@ -59,7 +59,7 @@ class StabiliteTests(unittest.TestCase):
         self.assertEqual(rows[3][2], "'" + chr(9) + "+CMD")
 
     def test_studio_widget_defaults_not_conflicting(self):
-        # Vérifie le comportement réel (sprint 3) plutôt que le texte du code :
+        # Vérifie le comportement réel plutôt que le texte du code :
         # charger un modèle ne doit produire ni exception ni avertissement Streamlit.
         app = AppTest.from_file(str(ROOT / "pages" / "5_Studio_Pedagogique.py"), default_timeout=30).run()
         app.selectbox(key="studio_template").select_index(1).run()

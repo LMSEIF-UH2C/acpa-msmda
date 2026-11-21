@@ -11,7 +11,7 @@ class PublicWebDemoTests(unittest.TestCase):
     def test_loads_and_computes_synthetic_ranking(self):
         app = AppTest.from_file(str(APP), default_timeout=20).run()
         self.assertFalse(app.exception)
-        app.form_submit_button[0].click().run()
+        app.button[0].click().run()
         self.assertFalse(app.exception)
 
         language, result = app.session_state["acpa_result"]

@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 from acpa_msmda import feedback  # noqa: E402
 from acpa_msmda import session_context as ctx  # noqa: E402
-from acpa_msmda.real_catalog import load_real_tools, match_real_tools  # noqa: E402
+from acpa_msmda.real_catalog import load_real_tools, match_pending_tools, match_real_tools  # noqa: E402
 from acpa_msmda.ui import PRIVACY_NOTE, SEARCH, configure_page  # noqa: E402
 
 DOCUMENTED = ("OFFICIAL_SOURCE_FEATURES_ONLY", "FEATURES_VERIFIED_ON_OFFICIAL_SITE")
@@ -63,6 +63,17 @@ if query:
                 st.link_button("Site de l'éditeur", tool["source_url"])
     if len(result["matches"]) > 8:
         st.caption(f"{len(result['matches']) - 8} autres outils correspondent : précisez votre recherche.")
+    scores = {k: feedback.score(v) for k, v in feedback.tallies().items()}
+    leads = match_pending_tools(query, votes=scores)
+    if leads:
+        st.markdown("**Autres pistes à vérifier**")
+        st.caption("Applications réelles repérées dans les magasins ; leurs fonctions n'ont pas encore été "
+                   "vérifiées. Celles jugées utiles par d'autres enseignants apparaissent en premier.")
+        for tool in leads:
+            with st.expander(f"{tool['name']} · {tool['category']}"):
+                st.write("Correspond à : " + ", ".join(tool["matched_terms"]))
+                if tool.get("source_url"):
+                    st.link_button("Voir l'application", tool["source_url"])
 
 st.divider()
 st.subheader("Catalogue")

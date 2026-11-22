@@ -88,22 +88,36 @@ h3{font-size:1.12rem!important;font-weight:650!important}
   border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:.22rem .65rem;margin-bottom:.35rem}
 @keyframes glow{from{background-position:0% 40%}to{background-position:100% 60%}}
 
-/* Cartes de l'accueil : toute la carte est cliquable */
-div[class*="st-key-task_"]{position:relative;background:var(--card);border:1px solid var(--line);
-  border-radius:var(--radius);padding:1rem 1rem .85rem;box-shadow:var(--shadow);
+/* Cartes de l'accueil. Structure : la carte contient deux blocs frères, le pictogramme et le bloc
+   texte (titre + description). Disposés en ligne et centrés verticalement, le pictogramme est aligné
+   sur l'ensemble du texte, quelle que soit la longueur de la description. Toute la carte est cliquable. */
+div[class*="st-key-task_"]{position:relative;z-index:0;display:flex!important;flex-direction:row!important;
+  align-items:center;gap:.75rem;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:1rem 2.6rem .95rem calc(1rem - 1px);box-shadow:var(--shadow);
   transition:transform .18s ease,box-shadow .18s ease}
+div[class*="st-key-task_"]>div:first-child{flex:0 0 auto;width:auto!important;position:static!important}
+div[class*="st-key-tasktext_"]{flex:1 1 auto;min-width:0;gap:.2rem!important}
+/* Le lien de page reçoit de Streamlit des marges négatives de -6 px en haut et en bas : il dépassait
+   du bloc texte, que la carte centrait alors sur une hauteur fausse. */
+div[class*="st-key-tasktext_"]>div{margin:0!important}
+div[class*="st-key-task_"] *:not(a){position:static}
 div[class*="st-key-task_"]:hover{transform:translateY(-2px);box-shadow:0 2px 4px rgba(11,21,51,.06),0 16px 34px rgba(27,68,245,.14)}
 div[class*="st-key-task_"]:active{transform:scale(.985)}
-div[class*="st-key-task_"] a[data-testid="stPageLink-NavLink"]{padding:0;background:none!important;gap:.8rem}
-div[class*="st-key-task_"] a[data-testid="stPageLink-NavLink"]::after{content:"";position:absolute;inset:0;border-radius:var(--radius)}
-div[class*="st-key-task_"] a[data-testid="stPageLink-NavLink"]>span:last-child{padding-left:.75rem}
-div[class*="st-key-task_"] a[data-testid="stPageLink-NavLink"] p{font-size:1.06rem;font-weight:680;color:var(--ink)}
-div[class*="st-key-task_"] [data-testid="stIconMaterial"]{box-sizing:content-box!important;width:1.4rem!important;height:1.4rem!important;padding:.6rem;flex:0 0 auto;display:inline-flex!important;align-items:center;justify-content:center;line-height:1!important;overflow:visible!important;
+div[class*="st-key-task_"] a[data-testid="stPageLink-NavLink"]{padding:0;margin:0;background:none!important;min-height:0}
+div[class*="st-key-task_"] a[data-testid="stPageLink-NavLink"]::after{content:"";position:absolute;inset:0;z-index:2;border-radius:var(--radius)}
+div[class*="st-key-task_"] a[data-testid="stPageLink-NavLink"] p{font-size:1.06rem;font-weight:680;color:var(--ink);margin:0}
+/* Streamlit donne aux textes Markdown une marge basse négative (-16 px) qui fausse la hauteur des
+   éléments : remise à zéro pour que le centrage porte sur le vrai bloc de texte. */
+div[class*="st-key-task_"] [data-testid="stMarkdownContainer"],div[class*="st-key-task_"] [data-testid="stCaptionContainer"]{margin:0!important}
+div[class*="st-key-task_"]>div:first-child p{margin:0;line-height:0}
+div[class*="st-key-task_"]>div:first-child span[role="img"]{box-sizing:content-box!important;
+  width:1.4rem!important;height:1.4rem!important;padding:.6rem;display:inline-flex!important;align-items:center;
+  justify-content:center;line-height:1!important;overflow:visible!important;vertical-align:middle;
   border-radius:14px;color:#fff!important;font-size:1.35rem!important;
   background:linear-gradient(135deg,#0F33D8 0%,var(--blue) 50%,#1A66D6 100%);
   box-shadow:0 6px 14px rgba(27,68,245,.28)}
-div[class*="st-key-task_"] [data-testid="stCaptionContainer"]{padding-left:2.95rem;padding-right:1.6rem;margin-top:-.7rem}
-div[class*="st-key-task_"] [data-testid="stCaptionContainer"] p{font-size:.92rem;line-height:1.35}
+div[class*="st-key-task_"] [data-testid="stCaptionContainer"]{padding:0;margin:0}
+div[class*="st-key-task_"] [data-testid="stCaptionContainer"] p{font-size:.92rem;line-height:1.35;margin:0}
 div[class*="st-key-task_"]::after{content:"chevron_right";font-family:"Material Symbols Rounded";position:absolute;
   right:1rem;top:1.25rem;font-size:1.4rem;color:#9AA6C4}
 

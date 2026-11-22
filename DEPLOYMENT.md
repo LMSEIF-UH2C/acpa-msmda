@@ -52,3 +52,13 @@ pour la machine locale, sans mécanisme d'authentification distant.
 
 Documentation officielle :
 https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/deploy
+
+## Avis des enseignants sur les fiches
+
+Chaque fiche du catalogue propose « Utile en séance » et « Pas utile ». Les avis sont anonymes
+(fiche, avis, date) et ajoutés au fichier `data/feedback/votes.jsonl`, ou au chemin indiqué par la
+variable d'environnement `ACPA_FEEDBACK_PATH`. Les fiches jugées utiles remontent dans le catalogue.
+
+- Installation sur un poste ou un serveur d'établissement : les avis sont conservés tant que le fichier l'est.
+- Streamlit Community Cloud : le disque n'est pas permanent, les avis sont perdus à chaque redémarrage
+  de l'application. Pour les conserver, il faudra brancher un stockage externe (base de données).

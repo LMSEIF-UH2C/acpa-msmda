@@ -8,6 +8,7 @@ import streamlit as st
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
+from acpa_msmda import feedback  # noqa: E402
 from acpa_msmda import session_context as ctx  # noqa: E402
 from acpa_msmda.real_catalog import load_real_tools, match_real_tools  # noqa: E402
 from acpa_msmda.ui import PRIVACY_NOTE, SEARCH, configure_page  # noqa: E402
@@ -16,6 +17,13 @@ DOCUMENTED = ("OFFICIAL_SOURCE_FEATURES_ONLY", "FEATURES_VERIFIED_ON_OFFICIAL_SI
 PAGE_SIZE = 12
 
 S = st.session_state
+
+
+def _vote(tool_id: str, useful: bool) -> None:
+    """Enregistre l'avis donné sur une fiche (un avis par fiche et par session, modifiable)."""
+    feedback.apply_vote(ctx.store(S).setdefault("votes", {}), tool_id, useful)
+
+
 configure_page(SEARCH)
 st.title(SEARCH.title)
 st.caption(SEARCH.summary)
@@ -70,12 +78,15 @@ if not include_pending:
     st.caption(f"Seules les fiches dont les fonctions ont été vérifiées sur le site de l'éditeur sont affichées. "
                f"{pending_count} autres outils sont en cours de documentation : activez l'interrupteur pour les voir.")
 
+opinions = feedback.tallies()
 filtered = [
     t for t in catalogue
     if (category == "Toutes" or t["category"] == category)
     and name.casefold() in t["name"].casefold()
     and (include_pending or t.get("evidence_status") in DOCUMENTED)
 ]
+# Les fiches jugées utiles par les enseignants remontent ; l'ordre initial départage les autres.
+filtered.sort(key=lambda t: -feedback.score(opinions.get(t["id"])))
 if not filtered:
     st.info("Aucune fiche ne correspond à ces filtres."
             + ("" if include_pending else " Activez l'interrupteur pour inclure les fiches en cours de documentation."))
@@ -98,4 +109,15 @@ for tool in filtered[(page - 1) * PAGE_SIZE:page * PAGE_SIZE]:
             st.caption(tool["caution"])
         if tool.get("source_url"):
             st.link_button("Site de l'éditeur", tool["source_url"])
+        st.caption(feedback.label(opinions.get(tool["id"])))
+        mine = ctx.store(S).get("votes", {}).get(tool["id"])
+        yes, no = st.columns(2)
+        yes.button("Utile en séance", key=f"yes_{tool['id']}", icon=":material/thumb_up:",
+                   type="primary" if mine is True else "secondary", use_container_width=True,
+                   on_click=_vote, args=(tool["id"], True))
+        no.button("Pas utile", key=f"no_{tool['id']}", icon=":material/thumb_down:",
+                  type="primary" if mine is False else "secondary", use_container_width=True,
+                  on_click=_vote, args=(tool["id"], False))
+st.caption("Vos avis sont anonymes : seuls la fiche, l'avis et la date sont enregistrés. "
+           "Ils font remonter les outils utiles pour tous les enseignants.")
 st.caption("Vérifiez les conditions d'utilisation et l'âge minimal requis avant tout usage avec des élèves.")

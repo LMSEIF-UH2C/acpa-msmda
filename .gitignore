@@ -5,3 +5,6 @@ __pycache__/
 # Environnements locaux
 .venv/
 venv/
+
+# Avis des enseignants (données locales)
+data/feedback/

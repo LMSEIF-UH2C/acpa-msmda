@@ -164,7 +164,9 @@ input,textarea,[data-baseweb="select"] div{font-size:16px!important}
   height:100%;background:none!important;text-align:center
 }
 .st-key-tabbar a[data-testid="stPageLink-NavLink"] > span{
-  display:flex!important;align-items:center!important;justify-content:center!important;
+  display:flex!important;flex-direction:column!important;
+  align-items:center!important;justify-content:center!important;
+  gap:.25rem!important;width:100%!important;
   margin:0!important;padding:0!important;line-height:1!important
 }
 .st-key-tabbar a[data-testid="stPageLink-NavLink"] p{

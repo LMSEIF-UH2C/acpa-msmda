@@ -30,6 +30,10 @@ LABELS = {
 # Note du type d'outil, pas de l'application elle-même : l'affichage le précise.
 TYPE_LEVEL = {"C8"}
 
+# Libellés montrés aux enseignants (sans numéros de critères ni vocabulaire de méthode).
+PUBLIC_LABELS = {**LABELS, "C8": "Type d'outil efficace pour les apprentissages",
+                 "C13": "Adapté aux programmes d'EPS", "C14": "Coût", "C15": "Utilisable avec une classe"}
+
 NEUTRAL = 5.0
 SHRINK = 0.30
 SAFETY_BETA = 0.15

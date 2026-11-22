@@ -68,18 +68,28 @@ class SearchPageTests(unittest.TestCase):
         app.text_input[0].set_value("Kinovea").run()
         self.assertTrue(any(e.label.startswith("Strava") for e in app.expander))
 
-    def test_catalogue_hides_pending_fiches_by_default(self):
+    def test_catalogue_shows_every_fiche_and_marks_pending_ones(self):
         app = start(SEARCH_PAGE)
         app.text_input[0].set_value("Testmoz").run()
-        self.assertFalse(any(e.label.startswith("Testmoz") for e in app.expander))
-        app.toggle[0].set_value(True).run()
         self.assertTrue(any(e.label.startswith("Testmoz") for e in app.expander))
-
-    def test_hidden_fiches_are_explained(self):
-        app = start(SEARCH_PAGE)
-        self.assertTrue(any("en cours de documentation" in c.value for c in app.caption))
-        app.text_input[0].set_value("Testmoz").run()
+        self.assertTrue(any("fonctionnalités non vérifiées" in c.value for c in app.caption))
+        app.toggle[0].set_value(False).run()  # l'enseignant peut se limiter aux fiches vérifiées
+        self.assertFalse(any(e.label.startswith("Testmoz") for e in app.expander))
         self.assertTrue(any("Activez l'interrupteur" in i.value for i in app.info))
+
+    def test_recommendations_cover_the_whole_catalogue(self):
+        app = start(SEARCH_PAGE)
+        app.text_area[0].input("basket tactique et score").run()
+        next(b for b in app.button if b.label == "Voir les suggestions").click().run()
+        self.assertFalse(app.exception)
+        labels = [e.label for e in app.expander]
+        self.assertTrue(any(label.endswith("À vérifier") for label in labels))
+        self.assertTrue(any("applications correspondent" in m.value for m in app.markdown))
+        more = next(b for b in app.button if b.label.startswith("Afficher"))
+        before = sum(label.endswith(("À vérifier", "Fonctions vérifiées")) for label in labels)
+        more.click().run()
+        after = sum(e.label.endswith(("À vérifier", "Fonctions vérifiées")) for e in app.expander)
+        self.assertEqual(after, before + 10)
 
     def test_max_length(self):
         self.assertEqual(start(SEARCH_PAGE).text_area[0].proto.max_chars, 1000)

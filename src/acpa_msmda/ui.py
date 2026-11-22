@@ -157,10 +157,25 @@ input,textarea,[data-baseweb="select"] div{font-size:16px!important}
   box-shadow:0 10px 30px rgba(11,21,51,.14)}
 .st-key-tabbar [data-testid="stHorizontalBlock"]{gap:0!important;flex-wrap:nowrap!important}
 .st-key-tabbar [data-testid="stColumn"]{min-width:0!important;flex:1 1 0!important;width:auto!important}
-.st-key-tabbar a[data-testid="stPageLink-NavLink"]{flex-direction:column;justify-content:center;gap:.1rem;
-  padding:.35rem .1rem;border-radius:18px;min-height:3rem;background:none!important}
-.st-key-tabbar a[data-testid="stPageLink-NavLink"] p{font-size:.7rem;font-weight:600;color:#5E6A88;white-space:nowrap}
-.st-key-tabbar [data-testid="stIconMaterial"]{color:#5E6A88!important;font-size:1.35rem!important}
+.st-key-tabbar a[data-testid="stPageLink-NavLink"]{
+  display:flex!important;flex-direction:column!important;align-items:center!important;
+  justify-content:center!important;gap:.22rem!important;
+  padding:.45rem .05rem!important;border-radius:18px;min-height:3.7rem;
+  height:100%;background:none!important;text-align:center
+}
+.st-key-tabbar a[data-testid="stPageLink-NavLink"] > span{
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  margin:0!important;padding:0!important;line-height:1!important
+}
+.st-key-tabbar a[data-testid="stPageLink-NavLink"] p{
+  font-size:.7rem!important;line-height:1.15!important;font-weight:600;
+  color:#5E6A88;white-space:nowrap;margin:0!important;text-align:center!important
+}
+.st-key-tabbar [data-testid="stIconMaterial"]{
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  color:#5E6A88!important;font-size:1.35rem!important;line-height:1!important;
+  width:1.5rem;height:1.5rem;margin:0!important;vertical-align:middle!important
+}
 .st-key-tabbar [class*="st-key-tab_active"] a[data-testid="stPageLink-NavLink"]{background:rgba(27,68,245,.10)!important}
 .st-key-tabbar [class*="st-key-tab_active"] p,.st-key-tabbar [class*="st-key-tab_active"] [data-testid="stIconMaterial"]{color:var(--blue)!important}
 [data-testid="stSidebar"],[data-testid="stExpandSidebarButton"],[data-testid="stSidebarCollapsedControl"]{display:none!important}

@@ -104,6 +104,7 @@ def recommend(context, votes=None, path=DEFAULT_PATH):
             cautions.append("Coût du matériel à vérifier.")
         found.append({**t, "matched_terms": sorted(hits | set(documented)), "verified": verified,
                       "score": score, "cautions": cautions})
-    found.sort(key=lambda t: (-t["score"], t["name"].casefold()))
+    # Needs covered come first; at equal coverage, verified features come before pending ones.
+    found.sort(key=lambda t: (-len(t["matched_terms"]), not t["verified"], -t["score"], t["name"].casefold()))
     return {"context_flags": list(analysis.flags), "wanted": sorted(wanted), "matches": found,
             "method": "keyword_matching_full_catalogue", "ranking_validated": False}

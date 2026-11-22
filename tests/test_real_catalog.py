@@ -47,3 +47,11 @@ class RealCatalogueTests(unittest.TestCase):
         self.assertEqual(match_pending_tools("zzzzxyz"),[])
 if __name__=="__main__":
     unittest.main()
+
+
+def test_recommend_puts_verified_first_at_equal_coverage():
+    matches = recommend("course d'endurance, 35 élèves, sans connexion")["matches"]
+    for before, after in zip(matches, matches[1:]):
+        if len(before["matched_terms"]) == len(after["matched_terms"]):
+            assert before["verified"] or not after["verified"]
+    assert [t["name"] for t in matches[:2]] == ["Garmin Connect", "Strava"]

@@ -19,8 +19,12 @@ def home():
     for row in (TASKS[:2], TASKS[2:]):
         for column, module in zip(st.columns(2), row):
             with column, st.container(key=f"task_{module.key}"):
-                st.page_link(module.path, label=module.title, icon=module.icon, use_container_width=True)
-                st.caption(module.summary)
+                # Deux blocs côte à côte : le pictogramme, puis le texte (titre + description).
+                # La carte les aligne au centre : le pictogramme est centré sur tout le texte.
+                st.markdown(module.icon)
+                with st.container(key=f"tasktext_{module.key}"):
+                    st.page_link(module.path, label=module.title, use_container_width=True)
+                    st.caption(module.summary)
     st.caption(PRIVACY_NOTE)
 
 

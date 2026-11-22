@@ -54,9 +54,6 @@ class RecommendFunctionTests(unittest.TestCase):
         test_recommend_uses_criteria_scores_and_relevance()
 
 
-    unittest.main()
-
-
 def test_recommend_puts_verified_first_at_equal_coverage():
     matches = recommend("course d'endurance, 35 élèves, sans connexion")["matches"]
     for before, after in zip(matches, matches[1:]):
@@ -84,3 +81,4 @@ def test_recommend_uses_criteria_scores_and_relevance():
 
 
 if __name__=="__main__":
+    unittest.main()

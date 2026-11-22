@@ -99,6 +99,7 @@ div[class*="st-key-task_"] a[data-testid="stPageLink-NavLink"]::after{content:""
 div[class*="st-key-task_"] a[data-testid="stPageLink-NavLink"]>span:last-child{padding-left:.75rem}
 div[class*="st-key-task_"] a[data-testid="stPageLink-NavLink"] p{font-size:1.06rem;font-weight:680;color:var(--ink)}
 div[class*="st-key-task_"] [data-testid="stIconMaterial"]{box-sizing:content-box!important;width:1.4rem!important;height:1.4rem!important;padding:.6rem;flex:0 0 auto;display:inline-flex!important;align-items:center;justify-content:center;line-height:1!important;overflow:visible!important;
+  position:absolute!important;left:1rem;top:50%;transform:translateY(-50%);
   border-radius:14px;color:#fff!important;font-size:1.35rem!important;
   background:linear-gradient(135deg,#0F33D8 0%,var(--blue) 50%,#1A66D6 100%);
   box-shadow:0 6px 14px rgba(27,68,245,.28)}

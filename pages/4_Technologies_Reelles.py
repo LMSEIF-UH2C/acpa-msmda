@@ -50,8 +50,17 @@ query = ctx.store(S).get("search_query")
 if query:
     result = match_real_tools(query)
     if not result["matches"]:
-        st.info("Aucun outil documenté ne correspond. Parcourez le catalogue ci-dessous : "
-                "une solution sans application peut aussi convenir.")
+        st.info(
+            "Voici des pistes pour votre contexte. Les fiches vérifiées ne couvrent pas encore "
+            "toutes les activités et contraintes : consultez les applications à vérifier "
+            "ci-dessous, ou adaptez une solution pédagogique sans application."
+        )
+        st.markdown("**Alternatives directement utilisables en séance**")
+        st.markdown(
+            "- Observation entre pairs avec une grille simple de critères.\n"
+            "- Chronométrage et relevé des performances sur papier.\n"
+            "- Organisation d'ateliers tournants et comparaison des progrès."
+        )
     for tool in result["matches"][:8]:
         with st.expander(f"{tool['name']} · {tool['category']}"):
             st.write("Correspond à : " + ", ".join(tool["matched_terms"]))

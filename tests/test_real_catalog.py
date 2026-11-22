@@ -46,7 +46,14 @@ class RealCatalogueTests(unittest.TestCase):
         last=leads[-1]["id"]
         self.assertEqual(match_pending_tools("chronométrage vitesse",votes={last:3})[0]["id"],last)
         self.assertEqual(match_pending_tools("zzzzxyz"),[])
-if __name__=="__main__":
+class RecommendFunctionTests(unittest.TestCase):
+    def test_recommend_puts_verified_first_at_equal_coverage(self):
+        test_recommend_puts_verified_first_at_equal_coverage()
+
+    def test_recommend_uses_criteria_scores_and_relevance(self):
+        test_recommend_uses_criteria_scores_and_relevance()
+
+
     unittest.main()
 
 
@@ -74,3 +81,6 @@ def test_recommend_uses_criteria_scores_and_relevance():
             sa=a["criteria_total"] if a["criteria_total"] is not None else 50.0
             sb=b["criteria_total"] if b["criteria_total"] is not None else 50.0
             assert sa>=sb
+
+
+if __name__=="__main__":

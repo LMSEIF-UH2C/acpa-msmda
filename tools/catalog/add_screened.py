@@ -29,6 +29,13 @@ USAGE_CATEGORY = {
     "Gestion de groupes ou ateliers": "Gestion et planification",
     "Analyse vidéo": "Analyse vidéo et mouvement",
     "Évaluation": "Questionnaires et évaluation",
+    # Libellés de la relecture avec critères corrigés (exercice malgré la mention de minceur, orientation)
+    "Orientation et parcours GPS": "Cartographie et parcours",
+    "Apprentissage et pratique d’exercices": "Activité physique et entraînement",
+    "Mesure et suivi de performance": "Capteurs et tests",
+    "Planification et suivi des exercices": "Gestion et planification",
+    "Chronométrage des entraînements": "Course et chronométrage",
+    "Organisation de pratique sportive": "Gestion et planification",
 }
 ORIGIN = {
     "ios": "App Store, présélection automatique sur la description (critères EPS)",

@@ -11,7 +11,7 @@ sys.path.insert(0, str(ROOT / "src"))
 from acpa_msmda import session_context as ctx  # noqa: E402
 from acpa_msmda.scenario_engine import export_scenario_csv, recommend_phase_tools, validate_scenario  # noqa: E402
 from acpa_msmda.scenario_templates import apply_template, load_templates, scenario_checks  # noqa: E402
-from acpa_msmda.ui import PRIVACY_NOTE, STUDIO, configure_page  # noqa: E402
+from acpa_msmda.ui import PRIVACY_NOTE, STUDIO, configure_page, page_header  # noqa: E402
 
 PHASE_NAMES = ("Diagnostic", "Mise en activité", "Apprentissage", "Régulation", "Évaluation")
 PHASE_MINUTES = (5, 10, 30, 10, 5)
@@ -20,8 +20,7 @@ MODALITIES = ("Présentiel", "Hybride", "À distance", "Classe inversée", "Auto
 
 S = st.session_state
 configure_page(STUDIO)
-st.title(STUDIO.title)
-st.caption(STUDIO.summary + " " + PRIVACY_NOTE)
+page_header(STUDIO, PRIVACY_NOTE)
 
 templates = load_templates()
 left, right = st.columns([3, 1], vertical_alignment="bottom")
@@ -49,7 +48,7 @@ for i, (phase, default_minutes) in enumerate(zip(PHASE_NAMES, PHASE_MINUTES)):
         with col1:
             action = st.text_area("Activité, consignes et rôle des élèves", max_chars=600,
                                   **ctx.bind(S, f"action_{i}", ""))
-            supports = st.multiselect("Supports", SUPPORTS, **ctx.bind(S, f"supports_{i}", []))
+            supports = st.multiselect("Supports", SUPPORTS, placeholder="Choisir un ou plusieurs supports", **ctx.bind(S, f"supports_{i}", []))
             evaluation = st.text_input("Critères de réussite et retour aux élèves", max_chars=300,
                                        **ctx.bind(S, f"evaluation_{i}", ""))
         with col2:

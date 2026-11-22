@@ -14,15 +14,14 @@ sys.path.insert(0, str(ROOT / "src"))
 from acpa_msmda import session_context as ctx  # noqa: E402
 from acpa_msmda.measurements import (comparison, cooper_speed_kmh, fr, parse_series, pupil_codes,  # noqa: E402
                                      report_html, series_csv, series_indicators)
-from acpa_msmda.ui import LAB, PRIVACY_NOTE, configure_page  # noqa: E402
+from acpa_msmda.ui import LAB, PRIVACY_NOTE, configure_page, page_header  # noqa: E402
 
 TESTS = json.loads((ROOT / "data" / "performance_tests.json").read_text(encoding="utf-8"))["tests"]
 DIRECTIONS = {"Non précisé": None, "Valeur plus élevée": True, "Valeur plus faible": False}
 
 S = st.session_state
 configure_page(LAB)
-st.title(LAB.title)
-st.caption(LAB.summary + " " + PRIVACY_NOTE)
+page_header(LAB, PRIVACY_NOTE)
 ctx.render_context(st, S, fields=("activity", "level", "class_size"), expanded=False)
 
 domain = st.selectbox("Domaine", ["Tous"] + sorted({t["domain"] for t in TESTS}), **ctx.bind(S, "lab_domain", "Tous"))

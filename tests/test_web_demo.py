@@ -27,10 +27,15 @@ class HomeTests(unittest.TestCase):
         import sys
         sys.path.insert(0, str(ROOT / "src"))
         from acpa_msmda.ui import TASKS
+        from acpa_msmda.ui import MODULES
         links = [(e.proto.label, e.proto.page) for e in start().get("page_link")]
-        self.assertEqual([label for label, _ in links], [m.title for m in TASKS])
-        for (_, page), module in zip(links, TASKS):
+        cards = [link for link in links if link[0] in {m.title for m in TASKS}]
+        self.assertEqual([label for label, _ in cards], [m.title for m in TASKS])
+        for (_, page), module in zip(cards, TASKS):
             self.assertTrue(Path(module.path).stem.endswith(page), page)
+        # Barre d'onglets : un onglet par module, avec son libellé court
+        self.assertEqual([label for label, _ in links if label not in {m.title for m in TASKS}],
+                         [m.short for m in MODULES])
 
     def test_navigation_targets_exist(self):
         import sys

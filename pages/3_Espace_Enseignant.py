@@ -11,12 +11,11 @@ import streamlit as st
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from acpa_msmda import session_context as ctx  # noqa: E402
 from acpa_msmda.scenario_engine import safe_cell  # noqa: E402
-from acpa_msmda.ui import PLANNER, PRIVACY_NOTE, SEARCH, configure_page  # noqa: E402
+from acpa_msmda.ui import PLANNER, PRIVACY_NOTE, SEARCH, configure_page, page_header  # noqa: E402
 
 S = st.session_state
 configure_page(PLANNER)
-st.title(PLANNER.title)
-st.caption(PLANNER.summary + " " + PRIVACY_NOTE)
+page_header(PLANNER, PRIVACY_NOTE)
 
 ctx.render_context(st, S, fields=("activity", "level", "class_size", "duration", "connectivity",
                                   "devices", "space", "equipment", "objectives"))

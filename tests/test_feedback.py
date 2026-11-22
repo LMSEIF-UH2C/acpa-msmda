@@ -68,8 +68,12 @@ class FeedbackStoreTest(unittest.TestCase):
         self.assertEqual(feedback.tallies()[last]["useful"], 1)
         at.button(key=f"yes_{last}").click().run()  # deuxième clic : pas de double vote
         self.assertEqual(feedback.tallies()[last]["useful"], 1)
-        first_card = next(b for b in at.button if str(b.key).startswith("yes_"))
-        self.assertEqual(first_card.key, f"yes_{last}")  # la fiche jugée utile remonte en tête
+        before = [b.key for b in at.button if str(b.key).startswith("yes_")]
+        self.assertEqual(before[-1], f"yes_{last}")  # pas de saut de la fiche pendant la visite
+        fresh = AppTest.from_file(str(ROOT / "pages" / "4_Technologies_Reelles.py"), default_timeout=60).run()
+        fresh.toggle[0].set_value(True).run()
+        first_card = next(b for b in fresh.button if str(b.key).startswith("yes_"))
+        self.assertEqual(first_card.key, f"yes_{last}")  # à la visite suivante, la fiche jugée utile est en tête
         self.assertTrue(any("1 utile en séance" in c.value for c in at.caption))
 
 

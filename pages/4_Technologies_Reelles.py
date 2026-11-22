@@ -11,7 +11,7 @@ sys.path.insert(0, str(ROOT / "src"))
 from acpa_msmda import feedback  # noqa: E402
 from acpa_msmda import session_context as ctx  # noqa: E402
 from acpa_msmda.real_catalog import load_real_tools, match_pending_tools, match_real_tools  # noqa: E402
-from acpa_msmda.ui import PRIVACY_NOTE, SEARCH, configure_page  # noqa: E402
+from acpa_msmda.ui import PRIVACY_NOTE, SEARCH, configure_page, page_header  # noqa: E402
 
 DOCUMENTED = ("OFFICIAL_SOURCE_FEATURES_ONLY", "FEATURES_VERIFIED_ON_OFFICIAL_SITE")
 PAGE_SIZE = 12
@@ -21,12 +21,15 @@ S = st.session_state
 
 def _vote(tool_id: str, useful: bool) -> None:
     """Enregistre l'avis donné sur une fiche (un avis par fiche et par session, modifiable)."""
-    feedback.apply_vote(ctx.store(S).setdefault("votes", {}), tool_id, useful)
+    if feedback.apply_vote(ctx.store(S).setdefault("votes", {}), tool_id, useful):
+        ctx.put(S, "vote_flash", "Merci, votre avis est enregistré.")
 
 
 configure_page(SEARCH)
-st.title(SEARCH.title)
-st.caption(SEARCH.summary)
+flash = ctx.store(S).pop("vote_flash", None)
+if flash:
+    st.toast(flash, icon=":material/thumb_up:")
+page_header(SEARCH)
 
 st.subheader("Suggestions pour votre séance")
 if st.button("Partir de ma séance : " + ctx.summary(S), icon=":material/assignment:"):
@@ -96,8 +99,10 @@ filtered = [
     and name.casefold() in t["name"].casefold()
     and (include_pending or t.get("evidence_status") in DOCUMENTED)
 ]
-# Les fiches jugées utiles par les enseignants remontent ; l'ordre initial départage les autres.
-filtered.sort(key=lambda t: -feedback.score(opinions.get(t["id"])))
+# Les fiches jugées utiles par les enseignants remontent. L'ordre est figé pour la visite en cours :
+# une fiche ne change pas de place sous le doigt de l'enseignant qui vient de voter.
+ranking = ctx.store(S).setdefault("ranking", {k: feedback.score(v) for k, v in opinions.items()})
+filtered.sort(key=lambda t: -ranking.get(t["id"], 0))
 if not filtered:
     st.info("Aucune fiche ne correspond à ces filtres."
             + ("" if include_pending else " Activez l'interrupteur pour inclure les fiches en cours de documentation."))

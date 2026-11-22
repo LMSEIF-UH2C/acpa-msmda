@@ -3,7 +3,7 @@ import sys
 import unittest
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/"src"))
-from acpa_msmda.real_catalog import load_real_tools,match_pending_tools,match_real_tools
+from acpa_msmda.real_catalog import load_real_tools,match_pending_tools,match_real_tools,recommend
 
 class RealCatalogueTests(unittest.TestCase):
     def test_no_real_scores(self):
@@ -18,6 +18,20 @@ class RealCatalogueTests(unittest.TestCase):
     def test_no_false_match(self):
         result=match_real_tools("zzzzxyz")
         self.assertEqual(result["matches"],[])
+    def test_recommend_uses_whole_catalogue_and_flags_status(self):
+        result=recommend("basket tactique et score")
+        self.assertGreater(len(result["matches"]),50)
+        self.assertTrue(any(not t["verified"] for t in result["matches"]))
+        self.assertTrue(all({"basketball","tactique","score"}&set(t["matched_terms"]) for t in result["matches"]))
+        scores=[t["score"] for t in result["matches"]]
+        self.assertEqual(scores,sorted(scores,reverse=True))
+        self.assertEqual(recommend("zzzzxyz")["matches"],[])
+    def test_recommend_offline_and_votes(self):
+        offline=recommend("course endurance sans connexion")["matches"]
+        self.assertFalse(any(t["requirement"]=="internet" for t in offline))
+        base=recommend("badminton")["matches"]
+        last=base[-1]["id"]
+        self.assertLess(recommend("badminton",votes={last:3})["matches"].index(next(t for t in recommend("badminton",votes={last:3})["matches"] if t["id"]==last)),len(base)-1)
     def test_no_internet_tool_when_offline(self):
         online=match_real_tools("gymnastique ressources")["matches"]
         self.assertTrue(any(t["requirement"]=="internet" for t in online))

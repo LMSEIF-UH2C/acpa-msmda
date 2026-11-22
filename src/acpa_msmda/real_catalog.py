@@ -69,3 +69,41 @@ def match_pending_tools(context,votes=None,limit=8,path=DEFAULT_PATH):
     votes=votes or {}
     found.sort(key=lambda t:(-votes.get(t["id"],0),-len(t["matched_terms"]),t["name"].casefold()))
     return found[:limit]
+
+
+VERIFIED = ("OFFICIAL_SOURCE_FEATURES_ONLY", "FEATURES_VERIFIED_ON_OFFICIAL_SITE")
+
+
+def recommend(context, votes=None, path=DEFAULT_PATH):
+    """Recommandations parmi toutes les applications retenues dans le catalogue.
+
+    Chaque fiche est comparée à la demande par les mots-clés EPS de son nom et de sa description
+    officielle. Le classement favorise, dans l'ordre : le nombre de besoins couverts, leur présence
+    dans le nom de l'application, les fonctions vérifiées, l'usage hors connexion annoncé quand il est
+    demandé, puis les avis des enseignants. Chaque résultat indique si ses fonctions sont vérifiées.
+    """
+    from .keywords import keywords_in
+    if not isinstance(context, str) or not context.strip(): raise ValueError("Contexte requis")
+    analysis = analyze_context(ContextRequest(context, "fr"))
+    offline = "connectivite_faible" in analysis.flags
+    wanted = set(keywords_in(context))
+    words = set(normalize_text(context).split())
+    votes = votes or {}
+    found = []
+    for t in load_real_tools(path):
+        if offline and t.get("requirement") == "internet": continue
+        hits = wanted & set(t.get("keywords", []))
+        documented = sorted({term for term in t.get("activities", []) + t.get("uses", []) if normalize_text(term) in words})
+        if not hits and not documented: continue
+        verified = t.get("evidence_status") in VERIFIED
+        title_hits = wanted & set(t.get("title_keywords", []))
+        score = (4 * len(hits | set(documented)) + 2 * len(title_hits) + (3 if verified else 0)
+                 + (1 if offline and t.get("offline_hint") else 0) + max(-3, min(3, votes.get(t["id"], 0))))
+        cautions = [t.get("caution", "")]
+        if analysis.flags and "budget_serre" in analysis.flags and t.get("requirement") == "materiel":
+            cautions.append("Coût du matériel à vérifier.")
+        found.append({**t, "matched_terms": sorted(hits | set(documented)), "verified": verified,
+                      "score": score, "cautions": cautions})
+    found.sort(key=lambda t: (-t["score"], t["name"].casefold()))
+    return {"context_flags": list(analysis.flags), "wanted": sorted(wanted), "matches": found,
+            "method": "keyword_matching_full_catalogue", "ranking_validated": False}

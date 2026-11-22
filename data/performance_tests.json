@@ -107,7 +107,7 @@
     {
       "id": "ruffier",
       "name": "Ruffier-Dickson",
-      "source": "Thèse — étude 5",
+      "source": "Protocole de terrain",
       "domain": "Physiologie",
       "measure": "Indice",
       "unit": "points",
@@ -116,7 +116,7 @@
     {
       "id": "shirado",
       "name": "Shirado",
-      "source": "Thèse — étude 5",
+      "source": "Protocole de terrain",
       "domain": "Endurance musculaire",
       "measure": "Durée",
       "unit": "s",
@@ -125,7 +125,7 @@
     {
       "id": "schober",
       "name": "Schober",
-      "source": "Thèse — étude 5",
+      "source": "Protocole de terrain",
       "domain": "Mobilité",
       "measure": "Variation de distance",
       "unit": "cm",
@@ -134,7 +134,7 @@
     {
       "id": "killy",
       "name": "Killy",
-      "source": "Thèse — étude 6",
+      "source": "Protocole de terrain",
       "domain": "Endurance musculaire",
       "measure": "Durée",
       "unit": "s",
@@ -143,7 +143,7 @@
     {
       "id": "emep",
       "name": "Échelle de motivation en EPS (EMEP)",
-      "source": "Thèse — étude 5",
+      "source": "Protocole de terrain",
       "domain": "Psychométrie",
       "measure": "Sous-échelles",
       "unit": "score",
@@ -152,7 +152,7 @@
     {
       "id": "altpe",
       "name": "ALT-PE",
-      "source": "Thèse — étude 6",
+      "source": "Protocole de terrain",
       "domain": "Observation pédagogique",
       "measure": "Temps d'engagement",
       "unit": "%",

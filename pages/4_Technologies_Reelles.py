@@ -11,6 +11,7 @@ sys.path.insert(0, str(ROOT / "src"))
 from acpa_msmda import feedback  # noqa: E402
 from acpa_msmda import session_context as ctx  # noqa: E402
 from acpa_msmda.real_catalog import load_real_tools, recommend  # noqa: E402
+from acpa_msmda import scoring  # noqa: E402
 from acpa_msmda.ui import PRIVACY_NOTE, SEARCH, configure_page, page_header  # noqa: E402
 
 DOCUMENTED = ("OFFICIAL_SOURCE_FEATURES_ONLY", "FEATURES_VERIFIED_ON_OFFICIAL_SITE")
@@ -36,6 +37,28 @@ def _vote_buttons(tool: dict, prefix: str) -> None:
     no.button("Pas utile", key=f"{prefix}no_{tool['id']}", icon=":material/thumb_down:",
               type="primary" if mine is False else "secondary", use_container_width=True,
               on_click=_vote, args=(tool["id"], False))
+
+
+def _evaluation(tool: dict) -> None:
+    """Score sur 18 critères, points forts et points faibles, ou mention d'évaluation à venir."""
+    rated = tool.get("criteria_scores")
+    if not rated:
+        st.caption("Évaluation sur 18 critères à venir.")
+        return
+    noted = scoring.documented(rated)
+    st.markdown(f"**Évaluation : {tool['criteria_total']:.0f}/100** · {len(noted)} critères renseignés "
+                f"sur {len(scoring.applicable(rated))}")
+    st.progress(min(1.0, tool["criteria_total"] / 100))
+
+    def _names(codes):
+        return ", ".join(scoring.LABELS[c] + (" (type d'outil)" if c in scoring.TYPE_LEVEL else "")
+                         for c in codes)
+    if scoring.strengths(rated):
+        st.write("Points forts : " + _names(scoring.strengths(rated)))
+    if scoring.weaknesses(rated):
+        st.write("Points faibles : " + _names(scoring.weaknesses(rated)))
+    st.caption("Notes établies d'après la description de l'éditeur. Les critères non renseignés "
+               "comptent pour une note neutre.")
 
 
 def _show_more() -> None:
@@ -82,20 +105,25 @@ if query:
         )
     else:
         verified = sum(t["verified"] for t in matches)
-        st.markdown(f"**{len(matches)} applications correspondent** · {verified} à fonctions vérifiées")
-        st.caption("Classées selon les besoins couverts, les fonctions vérifiées et les avis des enseignants. "
-                   "Les fiches « À vérifier » sont des applications réelles dont les fonctions n'ont pas "
-                   "encore été contrôlées.")
+        rated = sum(t["criteria_total"] is not None for t in matches)
+        st.markdown(f"**{len(matches)} applications correspondent** · {verified} à fonctions vérifiées "
+                    f"· {rated} évaluées")
+        st.caption("Classées selon les besoins couverts, les fonctions vérifiées, l'évaluation sur 18 critères "
+                   "adaptée à vos contraintes et les avis des enseignants. Les fiches « À vérifier » sont des "
+                   "applications réelles dont les fonctions n'ont pas encore été contrôlées.")
         shown = ctx.store(S).get("rec_shown", REC_STEP)
         opinions = feedback.tallies()
         for tool in matches[:shown]:
             status = "Fonctions vérifiées" if tool["verified"] else "À vérifier"
-            with st.expander(f"{tool['name']} · {status}"):
+            total = tool["criteria_total"]
+            label = f"{tool['name']} · {status}" + (f" · {total:.0f}/100" if total is not None else "")
+            with st.expander(label):
                 if tool["verified"]:
                     st.badge(status, icon=":material/verified:", color="green")
                 else:
                     st.badge(status, icon=":material/pending:", color="orange")
                 st.write("Correspond à : " + ", ".join(tool["matched_terms"]))
+                _evaluation(tool)
                 st.caption(tool["category"])
                 if tool.get("features"):
                     st.write("Fonctions : " + ", ".join(tool["features"][:4]))

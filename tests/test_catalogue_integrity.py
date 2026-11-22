@@ -10,8 +10,18 @@ class CatalogueIntegrityTests(unittest.TestCase):
         self.assertGreaterEqual(len(items),200)
         self.assertEqual(len(items),len({t["id"] for t in items}))
         self.assertEqual(len(items),len({t["name"].casefold() for t in items}))
-    def test_no_unverified_scoring(self):
-        self.assertTrue(all(t.get("criteria_scores") is None for t in load_real_tools()))
+    def test_criteria_scores_are_well_formed(self):
+        codes=[f"C{i}" for i in range(1,19)]
+        rated=[t["criteria_scores"] for t in load_real_tools() if t.get("criteria_scores")]
+        self.assertGreaterEqual(len(rated),100)
+        for scores in rated:
+            self.assertEqual(set(scores),set(codes)|{"risque"})
+            for c in codes:
+                v=scores[c]
+                self.assertTrue(v in ("NR","SO") or (isinstance(v,(int,float)) and 0<=v<=10),(c,v))
+            self.assertIn(scores["risque"],(0,0.5,1))
+            if scores["C13"]=="SO":
+                self.assertEqual((scores["C9"],scores["C10"]),("SO","SO"))
     def test_recommendations_are_documented(self):
         for query in ("video analyse","endurance course","gymnastique video"):
             for t in match_real_tools(query)["matches"]:

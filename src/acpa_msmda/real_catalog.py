@@ -81,7 +81,13 @@ def recommend(context, votes=None, path=DEFAULT_PATH):
     officielle. Le classement favorise, dans l'ordre : le nombre de besoins couverts, leur présence
     dans le nom de l'application, les fonctions vérifiées, l'usage hors connexion annoncé quand il est
     demandé, puis les avis des enseignants. Chaque résultat indique si ses fonctions sont vérifiées.
+
+    Les fiches évaluées sur les 18 critères reçoivent un score sur 100, pondéré selon les contraintes
+    de la demande (voir scoring.py). À besoins couverts et statut de vérification égaux, les fiches
+    sont classées par ce score ; une fiche non encore évaluée compte pour la note neutre de 50. Une
+    fiche évaluée hors programme d'EPS n'est pas recommandée.
     """
+    from .scoring import relevant, score as criteria_score
     from .keywords import keywords_in
     if not isinstance(context, str) or not context.strip(): raise ValueError("Contexte requis")
     analysis = analyze_context(ContextRequest(context, "fr"))
@@ -90,8 +96,11 @@ def recommend(context, votes=None, path=DEFAULT_PATH):
     words = set(normalize_text(context).split())
     votes = votes or {}
     found = []
+    weights = analysis.weights.values
     for t in load_real_tools(path):
         if offline and t.get("requirement") == "internet": continue
+        rated = t.get("criteria_scores")
+        if rated and (not relevant(rated) or (offline and rated.get("C6") == 1.0)): continue
         hits = wanted & set(t.get("keywords", []))
         documented = sorted({term for term in t.get("activities", []) + t.get("uses", []) if normalize_text(term) in words})
         if not hits and not documented: continue
@@ -103,8 +112,12 @@ def recommend(context, votes=None, path=DEFAULT_PATH):
         if analysis.flags and "budget_serre" in analysis.flags and t.get("requirement") == "materiel":
             cautions.append("Coût du matériel à vérifier.")
         found.append({**t, "matched_terms": sorted(hits | set(documented)), "verified": verified,
-                      "score": score, "cautions": cautions})
-    # Needs covered come first; at equal coverage, verified features come before pending ones.
-    found.sort(key=lambda t: (-len(t["matched_terms"]), not t["verified"], -t["score"], t["name"].casefold()))
+                      "score": score, "cautions": cautions,
+                      "criteria_total": criteria_score(rated, weights) if rated else None})
+    # Besoins couverts d'abord ; à couverture égale, fonctions vérifiées, puis score sur 18 critères.
+    # Une fiche non encore évaluée compte pour la note neutre (50), comme une fiche sans critère documenté.
+    found.sort(key=lambda t: (-len(t["matched_terms"]), not t["verified"],
+                              -(t["criteria_total"] if t["criteria_total"] is not None else 50.0),
+                              -t["score"], t["name"].casefold()))
     return {"context_flags": list(analysis.flags), "wanted": sorted(wanted), "matches": found,
             "method": "keyword_matching_full_catalogue", "ranking_validated": False}

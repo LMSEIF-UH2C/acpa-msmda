@@ -6,11 +6,18 @@ sys.path.insert(0,str(Path(__file__).resolve().parents[1]/"src"))
 from acpa_msmda.real_catalog import load_real_tools,match_pending_tools,match_real_tools,recommend
 
 class RealCatalogueTests(unittest.TestCase):
-    def test_scores_only_where_rated(self):
+    def test_every_entry_scored_with_its_method(self):
         tools=load_real_tools()
         self.assertGreaterEqual(len(tools),10)
-        verified={t["id"] for t in tools if t["evidence_status"] in ("OFFICIAL_SOURCE_FEATURES_ONLY","FEATURES_VERIFIED_ON_OFFICIAL_SITE")}
-        self.assertTrue(all(t["criteria_scores"] is None for t in tools if t["id"] in verified))
+        methods={t.get("criteria_method") for t in tools}
+        self.assertEqual(methods,{"double_notation","fonctions_verifiees","estimation"})
+        kept={"C1","C3","C4","C13","C14","C15","C17"}
+        for t in tools:
+            self.assertTrue(t["criteria_scores"])
+            if t["criteria_method"]=="estimation":
+                for c,v in t["criteria_scores"].items():
+                    if c not in kept and c!="risque":
+                        self.assertIn(v,("NR","SO"),(t["id"],c))
     def test_endurance_match(self):
         result=match_real_tools("endurance suivi course")
         self.assertIn("strava",{t["id"] for t in result["matches"]})

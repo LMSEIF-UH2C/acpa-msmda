@@ -85,8 +85,13 @@ def strengths(scores: Mapping, limit: int = 3) -> list[str]:
     return [c for _, c in ranked[:limit]]
 
 
+# C1 à 4 signifie « capteur utilisé, précision non indiquée » : ce n'est pas un point faible affiché.
+NOT_A_WEAKNESS = {"C1"}
+
+
 def weaknesses(scores: Mapping, limit: int = 2) -> list[str]:
     """Critères notés au plus 4."""
-    ranked = sorted(((v, c) for c in CODES if (v := _value(scores.get(c))) is not None and v <= 4),
+    ranked = sorted(((v, c) for c in CODES if c not in NOT_A_WEAKNESS
+                     and (v := _value(scores.get(c))) is not None and v <= 4),
                     key=lambda x: (x[0], CODES.index(x[1])))
     return [c for _, c in ranked[:limit]]

@@ -17,6 +17,11 @@ from acpa_msmda.ui import PRIVACY_NOTE, SEARCH, configure_page, page_header  # n
 DOCUMENTED = ("OFFICIAL_SOURCE_FEATURES_ONLY", "FEATURES_VERIFIED_ON_OFFICIAL_SITE")
 PAGE_SIZE = 12
 REC_STEP = 10
+SOURCES = {
+    "double_notation": "Notes établies d'après la description de l'éditeur, par deux évaluations indépendantes.",
+    "fonctions_verifiees": "Notes établies d'après les fonctions vérifiées sur le site de l'éditeur.",
+    "estimation": "Estimation automatique d'après la description de l'éditeur, sur sept critères au plus.",
+}
 
 S = st.session_state
 
@@ -57,8 +62,8 @@ def _evaluation(tool: dict) -> None:
         st.write("Points forts : " + _names(scoring.strengths(rated)))
     if scoring.weaknesses(rated):
         st.write("Points faibles : " + _names(scoring.weaknesses(rated)))
-    st.caption("Notes établies d'après la description de l'éditeur. Les critères non renseignés "
-               "comptent pour une note neutre.")
+    st.caption(SOURCES.get(tool.get("criteria_method"), SOURCES["estimation"])
+               + " Les critères non renseignés comptent pour une note neutre.")
 
 
 def _show_more() -> None:
@@ -105,9 +110,9 @@ if query:
         )
     else:
         verified = sum(t["verified"] for t in matches)
-        rated = sum(t["criteria_total"] is not None for t in matches)
+        rated = sum(t.get("criteria_method") in ("double_notation", "fonctions_verifiees") for t in matches)
         st.markdown(f"**{len(matches)} applications correspondent** · {verified} à fonctions vérifiées "
-                    f"· {rated} évaluées")
+                    f"· {rated} évaluées en détail")
         st.caption("Classées selon les besoins couverts, les fonctions vérifiées, l'évaluation sur 18 critères "
                    "adaptée à vos contraintes et les avis des enseignants. Les fiches « À vérifier » sont des "
                    "applications réelles dont les fonctions n'ont pas encore été contrôlées.")

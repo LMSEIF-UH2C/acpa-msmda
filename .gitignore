@@ -1,0 +1,7 @@
+# Fichiers générés par Python : ne jamais versionner
+__pycache__/
+*.py[cod]
+
+# Environnements locaux
+.venv/
+venv/

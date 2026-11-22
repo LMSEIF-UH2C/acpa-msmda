@@ -46,8 +46,8 @@ PRIVACY_NOTE = "N'indiquez ni nom ni identifiant d'élève."
 _CSS = """
 <style>
 :root{
-  --blue:#1B44F5; --blue-2:#3D6BFF; --sky:#22B8F0; --violet:#6D4AFF;
-  --ink:#0B1533; --muted:#56647F; --line:#E3E8F6; --card:#FFFFFF; --bg:#F5F7FF;
+  --blue:#1552F8; --blue-2:#3D6BFF; --sky:#22B8F0; --violet:#6D4AFF;
+  --ink:#142348; --muted:#56647F; --line:#E3E8F6; --card:#FFFFFF; --bg:#F5F7FF;
   --radius:18px; --shadow:0 1px 2px rgba(11,21,51,.05),0 8px 24px rgba(27,68,245,.08);
   --font:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
 }
@@ -57,8 +57,11 @@ h1,h2,h3,h4,p,li,label,input,textarea,[data-baseweb="select"] div,[data-baseweb=
   radial-gradient(1200px 520px at 15% -10%,rgba(61,107,255,.16),transparent 60%),
   radial-gradient(900px 480px at 110% 0%,rgba(34,184,240,.14),transparent 55%),var(--bg)}
 [data-testid="stHeader"]{background:transparent;height:0}
-[data-testid="stToolbar"],[data-testid="stDecoration"],[data-testid="stAppDeployButton"],
-[data-testid="stStatusWidget"],#MainMenu,footer{display:none!important}
+[data-testid="stToolbar"],[data-testid="stDecoration"],[data-testid="stAppDeployButton"],#MainMenu,footer{display:none!important}
+p,li,label{line-height:1.55}
+/* Focus clavier toujours visible */
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,[role="tab"]:focus-visible,summary:focus-visible{
+  outline:3px solid #83A8FF!important;outline-offset:2px!important}
 .block-container,[data-testid="stMainBlockContainer"]{max-width:880px;padding-top:calc(1rem + env(safe-area-inset-top));
   padding-bottom:calc(7rem + env(safe-area-inset-bottom))}
 h1,h2,h3{color:var(--ink);letter-spacing:-.02em}
@@ -70,14 +73,16 @@ h3{font-size:1.12rem!important;font-weight:650!important}
 /* En-tête de page : bandeau lumineux */
 .st-key-hero{position:relative;overflow:hidden;border-radius:26px;padding:1.4rem 1.35rem 1.25rem;
   margin:.25rem 0 1.1rem;color:#fff;
-  background:radial-gradient(420px 220px at 90% -20%,rgba(255,255,255,.35),transparent 60%),
-             linear-gradient(130deg,#1430E0 0%,var(--blue) 35%,var(--blue-2) 65%,var(--sky) 100%);
+  background:radial-gradient(420px 220px at 95% -25%,rgba(34,184,240,.55),transparent 62%),
+             radial-gradient(360px 200px at 88% -10%,rgba(255,255,255,.28),transparent 60%),
+             linear-gradient(130deg,#0F33D8 0%,var(--blue) 45%,#1A66D6 100%);
   background-size:160% 160%;animation:glow 14s ease-in-out infinite alternate;
   box-shadow:0 14px 34px rgba(27,68,245,.28)}
 .st-key-hero h1{color:#fff!important;font-size:clamp(1.55rem,6.4vw,2.2rem)!important;font-weight:750!important;
   line-height:1.15;padding:0!important;margin:0}
 .st-key-hero [data-testid="stCaptionContainer"],.st-key-hero [data-testid="stCaptionContainer"] p{
-  color:rgba(255,255,255,.88)!important;font-size:.98rem}
+  color:#fff!important;font-size:.98rem}
+.st-key-hero .tagline{color:#fff;font-size:clamp(1.05rem,3.6vw,1.25rem);font-weight:560;letter-spacing:-.02em;margin:.15rem 0 .35rem}
 .st-key-hero .eyebrow{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.12em;
   text-transform:uppercase;color:rgba(255,255,255,.85);background:rgba(255,255,255,.16);
   border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:.22rem .65rem;margin-bottom:.35rem}
@@ -95,7 +100,7 @@ div[class*="st-key-task_"] a[data-testid="stPageLink-NavLink"]>span:last-child{p
 div[class*="st-key-task_"] a[data-testid="stPageLink-NavLink"] p{font-size:1.06rem;font-weight:680;color:var(--ink)}
 div[class*="st-key-task_"] [data-testid="stIconMaterial"]{box-sizing:content-box!important;width:1.4rem!important;height:1.4rem!important;padding:.6rem;flex:0 0 auto;display:inline-flex!important;align-items:center;justify-content:center;line-height:1!important;overflow:visible!important;
   border-radius:14px;color:#fff!important;font-size:1.35rem!important;
-  background:linear-gradient(135deg,var(--blue) 0%,var(--blue-2) 55%,var(--sky) 100%);
+  background:linear-gradient(135deg,#0F33D8 0%,var(--blue) 50%,#1A66D6 100%);
   box-shadow:0 6px 14px rgba(27,68,245,.28)}
 div[class*="st-key-task_"] [data-testid="stCaptionContainer"]{padding-left:2.95rem;padding-right:1.6rem;margin-top:-.7rem}
 div[class*="st-key-task_"] [data-testid="stCaptionContainer"] p{font-size:.92rem;line-height:1.35}
@@ -104,13 +109,13 @@ div[class*="st-key-task_"]::after{content:"chevron_right";font-family:"Material 
 
 /* Boutons : pilule bleue pour l'action principale, blanche arrondie pour les autres */
 [data-testid="stBaseButton-primary"],[data-testid="stBaseButton-secondary"],
-[data-testid="stDownloadButton"] button,[data-testid="stBaseButton-link"]{min-height:3rem;border-radius:999px!important;
+[data-testid="stDownloadButton"] button,[data-testid="stBaseButton-link"],[data-testid="stLinkButton"] a{min-height:3rem;border-radius:999px!important;
   font-weight:620!important;transition:transform .12s ease,box-shadow .18s ease,background .18s ease}
 [data-testid="stBaseButton-primary"]{border:0!important;color:#fff!important;
-  background:linear-gradient(120deg,var(--blue) 0%,var(--blue-2) 60%,var(--sky) 130%)!important;
+  background:linear-gradient(120deg,#0F33D8 0%,var(--blue) 55%,#2A5EF5 100%)!important;
   box-shadow:0 8px 20px rgba(27,68,245,.30)}
 [data-testid="stBaseButton-primary"]:hover{box-shadow:0 10px 26px rgba(27,68,245,.38)}
-[data-testid="stBaseButton-secondary"],[data-testid="stDownloadButton"] button{background:#fff!important;
+[data-testid="stBaseButton-secondary"],[data-testid="stDownloadButton"] button,[data-testid="stLinkButton"] a{background:#fff!important;
   color:var(--blue)!important;border:1px solid var(--line)!important;box-shadow:0 2px 8px rgba(11,21,51,.06)}
 [data-testid="stBaseButton-secondary"]:hover,[data-testid="stDownloadButton"] button:hover{border-color:var(--blue-2)!important}
 [data-testid="stBaseButton-primary"]:active,[data-testid="stBaseButton-secondary"]:active,
@@ -182,13 +187,15 @@ def configure_page(module: Module) -> None:
 
 
 def page_header(module: Module, note: str | None = None, title: str | None = None,
-                eyebrow: str = APP_NAME) -> None:
+                eyebrow: str = APP_NAME, tagline: str | None = None) -> None:
     """Bandeau d'en-tête lumineux : nom de l'application, titre du module et sa description."""
     import streamlit as st
 
     with st.container(key="hero"):
         st.markdown(f'<span class="eyebrow">{eyebrow}</span>', unsafe_allow_html=True)
         st.title(title or module.title)
+        if tagline:
+            st.markdown(f'<p class="tagline">{tagline}</p>', unsafe_allow_html=True)
         st.caption(module.summary + (" " + note if note else ""))
 
 

@@ -2,7 +2,7 @@ name: Public web demo
 
 on:
   push:
-    branches: [main, feat/streamlit-web-demo]
+    branches: [main, feat/streamlit-web-demo, "release/**", "design/**"]
   pull_request:
 
 jobs:

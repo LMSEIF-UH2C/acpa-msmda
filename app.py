@@ -13,8 +13,9 @@ from acpa_msmda.ui import APP_NAME, HOME, MODULES, PRIVACY_NOTE, TASKS, configur
 
 def home():
     configure_page(HOME)
-    page_header(HOME, title=APP_NAME, eyebrow="EPS · collège et lycée")
+    page_header(HOME, title=APP_NAME, eyebrow="EPS · collège et lycée", tagline="De l’idée à la séance.")
     st.subheader("Que voulez-vous faire ?")
+    st.caption("Choisissez un parcours pour commencer.")
     for row in (TASKS[:2], TASKS[2:]):
         for column, module in zip(st.columns(2), row):
             with column, st.container(key=f"task_{module.key}"):

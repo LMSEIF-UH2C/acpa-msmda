@@ -1,7 +1,7 @@
 name: Tests ACPA MSMDA
 on:
   push:
-    branches: [main, feat/performance-lab-mvp]
+    branches: [main, feat/performance-lab-mvp, "release/**", "design/**"]
   pull_request:
     branches: [main]
 jobs:

@@ -3,6 +3,10 @@ enableCORS = true
 enableXsrfProtection = true
 maxUploadSize = 1
 
+[client]
+toolbarMode = "minimal"
+showSidebarNavigation = true
+
 [browser]
 gatherUsageStats = false
 

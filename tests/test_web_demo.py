@@ -23,13 +23,14 @@ class HomeTests(unittest.TestCase):
         self.assertFalse(app.exception)
         self.assertEqual(len(app.metric), 0)
 
-    def test_four_task_buttons(self):
+    def test_four_task_links(self):
         import sys
         sys.path.insert(0, str(ROOT / "src"))
         from acpa_msmda.ui import TASKS
-        labels = [b.label for b in start().button]
-        for module in TASKS:
-            self.assertIn(module.title, labels)
+        links = [(e.proto.label, e.proto.page) for e in start().get("page_link")]
+        self.assertEqual([label for label, _ in links], [m.title for m in TASKS])
+        for (_, page), module in zip(links, TASKS):
+            self.assertTrue(Path(module.path).stem.endswith(page), page)
 
     def test_navigation_targets_exist(self):
         import sys

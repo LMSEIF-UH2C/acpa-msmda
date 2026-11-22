@@ -16,20 +16,17 @@ def home():
     st.title(APP_NAME)
     st.caption(HOME.summary)
     st.subheader("Que voulez-vous faire ?")
-    for row in (TASKS[:2], TASKS[2:]):
-        columns = st.columns(2)
-        for column, module in zip(columns, row):
-            with column:
-                if st.button(module.title, icon=module.icon, key=f"go_{module.key}",
-                             use_container_width=True):
-                    st.switch_page(module.path)
-                st.caption(module.summary)
+    # Liste sobre de quatre accès : lien pleine largeur avec pictogramme, puis une ligne d'explication.
+    for module in TASKS:
+        with st.container(key=f"task_{module.key}"):
+            st.page_link(module.path, label=module.title, icon=module.icon, use_container_width=True)
+            st.caption(module.summary)
     st.caption(PRIVACY_NOTE)
 
 
 pages = st.navigation(
     [st.Page(home, title=HOME.title, icon=HOME.icon, default=True)]
     + [st.Page(m.path, title=m.title, icon=m.icon) for m in MODULES if m.path],
-    position="sidebar",
+    position="top",
 )
 pages.run()

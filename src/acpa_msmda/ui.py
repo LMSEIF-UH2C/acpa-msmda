@@ -48,6 +48,14 @@ h2, h3 {letter-spacing:-.01em}
 div[data-testid="stButton"] button, div[data-testid="stDownloadButton"] button,
 div[data-testid="stFormSubmitButton"] button {min-height:2.75rem;border-radius:8px}
 div[data-testid="stExpander"] details {border-radius:8px}
+/* Accès de l'accueil : lignes sobres plutôt que grands boutons encadrés */
+div[class*="st-key-task_"] {border-bottom:1px solid #E3E8EC;padding:.35rem 0 .5rem}
+div[class*="st-key-task_"] a[data-testid="stPageLink-NavLink"] {padding:.35rem 0;border-radius:0}
+div[class*="st-key-task_"] a[data-testid="stPageLink-NavLink"] p {font-size:1.08rem;font-weight:600;color:#1F2933}
+div[class*="st-key-task_"] a[data-testid="stPageLink-NavLink"]:hover p {color:#2F6F8F}
+div[class*="st-key-task_"] div[data-testid="stCaptionContainer"] {margin-top:-.6rem;padding-left:2rem}
+/* Éléments propres à l'outil de développement, inutiles pour l'enseignant */
+#MainMenu, footer, [data-testid="stDecoration"] {visibility:hidden;height:0}
 @media (max-width:640px){
   .block-container {padding-left:.9rem;padding-right:.9rem}
 }

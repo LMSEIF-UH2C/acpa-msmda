@@ -83,12 +83,12 @@ class SearchPageTests(unittest.TestCase):
         next(b for b in app.button if b.label == "Voir les suggestions").click().run()
         self.assertFalse(app.exception)
         labels = [e.label for e in app.expander]
-        self.assertTrue(any(label.endswith("À vérifier") for label in labels))
+        self.assertTrue(any("· À vérifier" in label for label in labels))
         self.assertTrue(any("applications correspondent" in m.value for m in app.markdown))
         more = next(b for b in app.button if b.label.startswith("Afficher"))
-        before = sum(label.endswith(("À vérifier", "Fonctions vérifiées")) for label in labels)
+        before = sum("/100" in label for label in labels)
         more.click().run()
-        after = sum(e.label.endswith(("À vérifier", "Fonctions vérifiées")) for e in app.expander)
+        after = sum("/100" in e.label for e in app.expander)
         self.assertEqual(after, before + 10)
 
     def test_max_length(self):

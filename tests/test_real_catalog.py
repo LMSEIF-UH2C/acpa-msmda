@@ -6,10 +6,18 @@ sys.path.insert(0,str(Path(__file__).resolve().parents[1]/"src"))
 from acpa_msmda.real_catalog import load_real_tools,match_pending_tools,match_real_tools,recommend
 
 class RealCatalogueTests(unittest.TestCase):
-    def test_no_real_scores(self):
+    def test_every_entry_scored_with_its_method(self):
         tools=load_real_tools()
         self.assertGreaterEqual(len(tools),10)
-        self.assertTrue(all(t["criteria_scores"] is None for t in tools))
+        methods={t.get("criteria_method") for t in tools}
+        self.assertEqual(methods,{"double_notation","fonctions_verifiees","estimation"})
+        kept={"C1","C3","C4","C13","C14","C15","C17"}
+        for t in tools:
+            self.assertTrue(t["criteria_scores"])
+            if t["criteria_method"]=="estimation":
+                for c,v in t["criteria_scores"].items():
+                    if c not in kept and c!="risque":
+                        self.assertIn(v,("NR","SO"),(t["id"],c))
     def test_endurance_match(self):
         result=match_real_tools("endurance suivi course")
         self.assertIn("strava",{t["id"] for t in result["matches"]})
@@ -23,8 +31,8 @@ class RealCatalogueTests(unittest.TestCase):
         self.assertGreater(len(result["matches"]),50)
         self.assertTrue(any(not t["verified"] for t in result["matches"]))
         self.assertTrue(all({"basketball","tactique","score"}&set(t["matched_terms"]) for t in result["matches"]))
-        scores=[t["score"] for t in result["matches"]]
-        self.assertEqual(scores,sorted(scores,reverse=True))
+        covered=[len(t["matched_terms"]) for t in result["matches"]]
+        self.assertEqual(covered,sorted(covered,reverse=True))
         self.assertEqual(recommend("zzzzxyz")["matches"],[])
     def test_recommend_offline_and_votes(self):
         offline=recommend("course endurance sans connexion")["matches"]
@@ -45,8 +53,12 @@ class RealCatalogueTests(unittest.TestCase):
         last=leads[-1]["id"]
         self.assertEqual(match_pending_tools("chronométrage vitesse",votes={last:3})[0]["id"],last)
         self.assertEqual(match_pending_tools("zzzzxyz"),[])
-if __name__=="__main__":
-    unittest.main()
+class RecommendFunctionTests(unittest.TestCase):
+    def test_recommend_puts_verified_first_at_equal_coverage(self):
+        test_recommend_puts_verified_first_at_equal_coverage()
+
+    def test_recommend_uses_criteria_scores_and_relevance(self):
+        test_recommend_uses_criteria_scores_and_relevance()
 
 
 def test_recommend_puts_verified_first_at_equal_coverage():
@@ -55,3 +67,25 @@ def test_recommend_puts_verified_first_at_equal_coverage():
         if len(before["matched_terms"]) == len(after["matched_terms"]):
             assert before["verified"] or not after["verified"]
     assert [t["name"] for t in matches[:2]] == ["Garmin Connect", "Strava"]
+
+
+def test_recommend_uses_criteria_scores_and_relevance():
+    from acpa_msmda.scoring import relevant
+    tools={t["id"]:t for t in load_real_tools()}
+    result=recommend("volley score")
+    rated=[t for t in result["matches"] if t["criteria_total"] is not None]
+    assert rated and all(relevant(t["criteria_scores"]) for t in rated)
+    off=[t for t in tools.values() if t.get("criteria_scores") and not relevant(t["criteria_scores"])]
+    ids={t["id"] for t in recommend("score basket volley course yoga golf randonnée")["matches"]}
+    assert off and not ids.intersection(t["id"] for t in off)
+    # À besoins et statut égaux, un meilleur score passe devant.
+    m=result["matches"]
+    for a,b in zip(m,m[1:]):
+        if len(a["matched_terms"])==len(b["matched_terms"]) and a["verified"]==b["verified"]:
+            sa=a["criteria_total"] if a["criteria_total"] is not None else 50.0
+            sb=b["criteria_total"] if b["criteria_total"] is not None else 50.0
+            assert sa>=sb
+
+
+if __name__=="__main__":
+    unittest.main()

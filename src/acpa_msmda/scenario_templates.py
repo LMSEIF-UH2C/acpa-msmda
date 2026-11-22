@@ -13,17 +13,20 @@ def load_templates(path=DEFAULT_TEMPLATES):
         if sum(p["minutes"] for p in t["phases"])!=t["duration"]:raise ValueError("Durée du modèle incohérente")
     return entries
 def apply_template(template,session):
-    session["activity"]=template["activity"]
-    session["level"]=template["level"]
-    session["duration"]=template["duration"]
-    session["objectives"]=template["objectives"]
-    session["prerequisites"]=template["prerequisites"]
-    session["constraints"]=template["constraints"]
+    """Charge un modèle dans le contexte partagé et dans le scénario de la session."""
+    from .session_context import store
+    data=store(session)
+    data["activity"]=template["activity"]
+    data["level"]=template["level"]
+    data["duration"]=template["duration"]
+    data["objectives"]=template["objectives"]
+    data["prerequisites"]=template["prerequisites"]
+    data["equipment"]=template["constraints"]
     for i,phase in enumerate(template["phases"]):
-        session[f"action_{i}"]=phase["activity"]
-        session[f"minutes_{i}"]=phase["minutes"]
-        session[f"evaluation_{i}"]=phase["success"]
-        session[f"supports_{i}"]=[v for v in phase["media"] if v!="Aucun"]
+        data[f"action_{i}"]=phase["activity"]
+        data[f"minutes_{i}"]=phase["minutes"]
+        data[f"evaluation_{i}"]=phase["success"]
+        data[f"supports_{i}"]=[v for v in phase["media"] if v!="Aucun"]
 def scenario_checks(rows,objectives):
     issues=[]
     if not objectives.strip():issues.append("Précisez les objectifs de la séance.")

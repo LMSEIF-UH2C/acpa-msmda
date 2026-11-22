@@ -9,9 +9,10 @@ class TemplateTests(unittest.TestCase):
     def test_apply_template(self):
         state={}
         apply_template(load_templates()[0],state)
-        self.assertEqual(state["duration"],60)
-        self.assertEqual(state["minutes_2"],30)
-        self.assertTrue(state["evaluation_2"])
+        data=state["acpa_store"]
+        self.assertEqual(data["duration"],60)
+        self.assertEqual(data["minutes_2"],30)
+        self.assertTrue(data["evaluation_2"])
     def test_checks(self):
         rows=[{"Phase":"Diagnostic","Durée (min)":5,"Activité / consignes":"","Évaluation / feedback":""}]
         self.assertEqual(len(scenario_checks(rows,"")),3)

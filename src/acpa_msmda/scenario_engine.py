@@ -40,11 +40,24 @@ def validate_scenario(rows,total_minutes):
         raise ValueError("Durée de phase invalide")
     used=sum(r["Durée (min)"] for r in rows)
     return {"used_minutes":used,"available_minutes":total_minutes,"difference_minutes":used-total_minutes,"balanced":used==total_minutes}
+def safe_cell(value):
+    """Prevent spreadsheet formula execution when exported CSV is opened.
+
+    Prefix text with an apostrophe if the first non-space/control character
+    could be interpreted as a spreadsheet formula. Numeric cells stay numeric.
+    """
+    if not isinstance(value, str):
+        return value
+    candidate = value.lstrip().lstrip(chr(0xfeff) + chr(0x200b)).lstrip()
+    if candidate.startswith(("=", "+", "-", "@")):
+        return "'" + value
+    return value
+
 def export_scenario_csv(metadata,rows):
     stream=io.StringIO()
     writer=csv.writer(stream)
-    for key,value in metadata.items():writer.writerow([key,value])
+    for key,value in metadata.items():writer.writerow([safe_cell(key),safe_cell(value)])
     writer.writerow([])
     writer.writerow(["Phase","Durée (min)","Activité / consignes","Supports","Évaluation / feedback"])
-    for row in rows:writer.writerow([row.get(k,"") for k in ("Phase","Durée (min)","Activité / consignes","Supports","Évaluation / feedback")])
+    for row in rows:writer.writerow([safe_cell(row.get(k,"")) for k in ("Phase","Durée (min)","Activité / consignes","Supports","Évaluation / feedback")])
     return stream.getvalue().encode("utf-8-sig")

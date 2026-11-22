@@ -2,7 +2,7 @@ name: Public web demo
 
 on:
   push:
-    branches: [main, feat/streamlit-web-demo]
+    branches: [main, feat/streamlit-web-demo, "release/**", "design/**"]
   pull_request:
 
 jobs:
@@ -12,12 +12,14 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.12'
       - name: Install web app dependency
         run: python -m pip install -r requirements.txt
       - name: Check Python syntax
         run: python -m compileall -q app.py src tests
       - name: Verify published engine
         run: python run_engine.py --language fr --query "basketball sans connexion"
+      - name: Check that context tests catch a broken persistence
+        run: python scripts/mutation_check.py
       - name: Smoke-test web interface
         run: python -m unittest discover -s tests -v

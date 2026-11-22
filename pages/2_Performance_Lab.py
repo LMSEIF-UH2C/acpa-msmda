@@ -1,105 +1,162 @@
-"""ACPA/MSMDA Performance Lab — prototype de terrain sans données personnelles."""
+"""Mesurer et analyser : séries de mesures d'une classe, bilan et exports."""
 from __future__ import annotations
 
-import csv
-import io
 import json
+import sys
+import uuid
+from datetime import date
 from pathlib import Path
 
 import streamlit as st
 
-REGISTRY = Path(__file__).resolve().parents[1] / "data" / "performance_tests.json"
-data = json.loads(REGISTRY.read_text(encoding="utf-8"))
-tests = data["tests"]
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "src"))
+from acpa_msmda import session_context as ctx  # noqa: E402
+from acpa_msmda.measurements import (comparison, cooper_speed_kmh, fr, parse_series, pupil_codes,  # noqa: E402
+                                     report_html, series_csv, series_indicators)
+from acpa_msmda.ui import LAB, PRIVACY_NOTE, configure_page, page_header  # noqa: E402
 
-st.set_page_config(page_title="ACPA/MSMDA | Performance Lab", page_icon="⏱️", layout="wide")
-st.title("Performance Lab")
-st.caption("Choisissez une épreuve, saisissez une mesure et visualisez une progression.")
-st.warning("Version pilote. Protocoles à confirmer avant utilisation institutionnelle. N'enregistrez aucun nom, identifiant d'élève ni donnée de santé personnelle.")
-domain = st.selectbox("Domaine", ["Tous"] + sorted({t["domain"] for t in tests}))
-selected = [t for t in tests if (domain == "Tous" or t["domain"] == domain)]
-test_id = st.selectbox("Choisir une épreuve", [t["id"] for t in selected], format_func=lambda i: next(t["name"] for t in selected if t["id"] == i)) if selected else None
-if test_id:
-    t = next(t for t in selected if t["id"] == test_id)
-    st.subheader(t["name"])
-    st.write("**Mesure :** " + t["measure"] + " (" + t["unit"] + ")")
-    st.info(t["protocol_note"])
-    with st.form("measurement"):
-        value = st.number_input("Résultat mesuré (" + t["unit"] + ")", min_value=0.0, value=0.0, step=0.1)
-        submitted = st.form_submit_button("Calculer / enregistrer localement", type="primary")
-    if submitted:
-        if value <= 0:
-            st.error("Saisissez une valeur positive.")
+TESTS = json.loads((ROOT / "data" / "performance_tests.json").read_text(encoding="utf-8"))["tests"]
+DIRECTIONS = {"Non précisé": None, "Valeur plus élevée": True, "Valeur plus faible": False}
+
+S = st.session_state
+configure_page(LAB)
+page_header(LAB, PRIVACY_NOTE)
+ctx.render_context(st, S, fields=("activity", "level", "class_size"), expanded=False)
+
+domain = st.selectbox("Domaine", ["Tous"] + sorted({t["domain"] for t in TESTS}), **ctx.bind(S, "lab_domain", "Tous"))
+choices = [t for t in TESTS if domain == "Tous" or t["domain"] == domain]
+names = {t["id"]: t["name"] for t in TESTS}
+if ctx.store(S).get("lab_test") not in {t["id"] for t in choices}:
+    ctx.put(S, "lab_test", choices[0]["id"])
+test_id = st.selectbox("Épreuve", [t["id"] for t in choices], format_func=names.get, **ctx.bind(S, "lab_test"))
+test = next(t for t in TESTS if t["id"] == test_id)
+signed = bool(test.get("signed"))
+st.caption(f"Mesure : {test['measure']} ({test['unit']}). Protocole : {test['protocol_note']}")
+
+all_series = ctx.store(S).setdefault("series", [])
+class_size = int(ctx.get(S, "class_size"))
+codes = pupil_codes(class_size)
+
+entry, report = st.tabs(["Saisir une série", "Bilan"])
+
+with entry:
+    st.caption(f"Codes élèves {codes[0]} à {codes[-1]}, dans l'ordre de votre liste de classe. "
+               "Gardez la correspondance code et élève en dehors de l'application.")
+    left, right = st.columns(2)
+    with left:
+        label = st.text_input("Nom de la série", max_chars=60, **ctx.bind(S, "series_label", "Séance 1"))
+    with right:
+        when = st.date_input("Date", format="DD/MM/YYYY", **ctx.bind(S, "series_date", date.today()))
+    raw = st.text_area(f"Résultats en {test['unit']}, une valeur par ligne",
+                       placeholder="12,5\n13,1\nabs\n11,8", height=180, max_chars=6000,
+                       help="Ligne vide ou « abs » : élève absent. Virgule ou point acceptés."
+                            + (" Valeurs négatives acceptées pour cette épreuve." if signed else ""),
+                       **ctx.bind(S, "series_text", ""))
+    if st.button("Enregistrer la série", type="primary", use_container_width=True):
+        parsed = parse_series(raw, class_size, signed=signed)
+        if parsed.errors:
+            for message in parsed.errors:
+                st.error(message)
         else:
-            record = {"test_id":test_id,"test":t["name"],"value":value,"unit":t["unit"]}
-            st.session_state["performance_last_record"] = record
-    record = st.session_state.get("performance_last_record")
-    if record and record["test_id"] == test_id:
-        st.success("Mesure saisie pour cette session (aucun enregistrement serveur volontaire).")
-        st.metric("Résultat", f'{record["value"]:g} {record["unit"]}')
+            all_series.append({"id": uuid.uuid4().hex[:8], "test_id": test_id, "test_name": test["name"],
+                               "unit": test["unit"], "label": label.strip() or "Série",
+                               "date": when.isoformat(), "codes": codes, "values": parsed.values})
+            ctx.put(S, "series_text", "")
+            ctx.put(S, "lab_flash", f"Série « {label} » enregistrée : "
+                                   f"{sum(v is not None for v in parsed.values)} / {class_size} élèves mesurés. "
+                                   "Ouvrez l'onglet Bilan.")
+            st.rerun()
+    flash = ctx.store(S).pop("lab_flash", None)
+    if flash:
+        st.success(flash)
+
+with report:
+    mine = sorted((s for s in all_series if s["test_id"] == test_id), key=lambda s: s["date"])
+    if not mine:
+        st.info("Aucune série enregistrée pour cette épreuve. Saisissez une série dans l'onglet précédent.")
+    else:
+        titles = {s["id"]: f"{s['label']} ({date.fromisoformat(s['date']).strftime('%d/%m/%Y')})" for s in mine}
+        ids = [s["id"] for s in mine]
+        last_id = st.selectbox("Série à analyser", ids, index=len(ids) - 1, format_func=titles.get)
+        last = next(s for s in mine if s["id"] == last_id)
+        sections = [(titles[last_id], series_indicators(last["values"], last["unit"]))]
+
+        first = None
+        direction = None
+        if len(mine) > 1:
+            others = [i for i in ids if i != last_id]
+            first_id = st.selectbox("Comparer avec", others, index=0, format_func=titles.get)
+            first = next(s for s in mine if s["id"] == first_id)
+            direction = DIRECTIONS[st.radio("Pour cette épreuve, le meilleur résultat est la", list(DIRECTIONS),
+                                            horizontal=True, **ctx.bind(S, f"direction_{test_id}", "Non précisé"))]
+
+        def aligned(serie):
+            values = dict(zip(serie["codes"], serie["values"]))
+            return [values.get(code) for code in union]
+
+        union = sorted(set(last["codes"]) | (set(first["codes"]) if first else set()))
+        deltas = None
+        if first:
+            indicators, deltas = comparison(aligned(first), aligned(last), direction, last["unit"])
+            sections.append((f"Évolution : {titles[first['id']]} puis {titles[last_id]}", indicators))
+
+        for heading, indicators in sections:
+            st.subheader(heading)
+            for ind in indicators:
+                st.markdown(f"**{ind.label}** · {ind.value}")
+                if ind.ratio is not None:
+                    st.progress(ind.ratio)
+                st.caption(ind.basis)
+
+        header = ["Élève"] + ([titles[first["id"]]] if first else []) + [titles[last_id]]
+        if first:
+            header.append("Variation")
         if test_id == "cooper":
-            distance = record["value"]
-            st.metric("Vitesse moyenne sur 12 min", f"{distance / 200:.2f} km/h")
-            st.caption("Cette vitesse moyenne n'est pas une VMA mesurée.")
-            if distance > 504.9:
-                st.metric("VO₂max estimée (formule de Cooper)", f"{(distance - 504.9) / 44.73:.1f} mL/kg/min")
-                st.caption("Estimation indirecte ; ne remplace pas une mesure physiologique.")
-        output = io.StringIO()
-        writer = csv.DictWriter(output, fieldnames=list(record))
-        writer.writeheader()
-        writer.writerow(record)
-        st.download_button("Exporter la mesure (CSV)", output.getvalue().encode("utf-8-sig"), "acpa_mesure.csv", "text/csv")
+            header.append("Vitesse moyenne (km/h)")
+        table = []
+        last_values = aligned(last)
+        first_values = aligned(first) if first else None
+        for i, code in enumerate(union):
+            row = [code]
+            if first:
+                row.append("" if first_values[i] is None else fr(first_values[i]))
+            row.append("abs" if last_values[i] is None else fr(last_values[i]))
+            if first:
+                row.append("" if deltas[i] is None else fr(round(deltas[i], 3), sign=True))
+            if test_id == "cooper":
+                row.append("" if last_values[i] is None else fr(cooper_speed_kmh(last_values[i]), 2))
+            table.append(row)
+        st.subheader("Détail par élève")
+        st.dataframe([dict(zip(header, row)) for row in table], hide_index=True, use_container_width=True)
 
-st.divider()
-st.subheader("Visualiser une progression")
-st.caption("Comparez des mesures anonymes d'une même épreuve, avec une unité identique. Les données ne sont pas conservées après la session.")
-with st.form("progression_chart"):
-    chart_test = st.selectbox("Épreuve à représenter", [t["id"] for t in tests], format_func=lambda i: next(t["name"] for t in tests if t["id"] == i))
-    raw_values = st.text_area("Mesures successives (une valeur par ligne)", placeholder="1200\\n1300\\n1450", height=115, max_chars=3000)
-    direction = st.radio("Interprétation de la mesure", ["Valeur élevée favorable", "Valeur faible favorable", "Sans interprétation"], index=2)
-    draw = st.form_submit_button("Générer le graphique", type="primary")
-if draw:
-    chosen = next(t for t in tests if t["id"] == chart_test)
-    lines = [line.strip().replace(",", ".") for line in raw_values.splitlines() if line.strip()]
-    try:
-        values = [float(line) for line in lines]
-        if not 2 <= len(values) <= 60 or any(not __import__("math").isfinite(v) or v < 0 for v in values):
-            raise ValueError
-    except ValueError:
-        st.error("Saisissez entre 2 et 60 valeurs numériques positives ou nulles, une par ligne.")
-    else:
-        st.session_state["performance_chart"] = {"test_id":chart_test, "values":values, "direction":direction}
-chart = st.session_state.get("performance_chart")
-if chart:
-    chosen = next(t for t in tests if t["id"] == chart["test_id"])
-    st.write("**" + chosen["name"] + "** — " + chosen["unit"])
-    points = [{"Mesure":str(i+1), chosen["unit"]:v} for i,v in enumerate(chart["values"])]
-    st.caption("Évolution des mesures successives")
-    minimum=min(chart["values"])
-    maximum=max(chart["values"])
-    for i, value in enumerate(chart["values"], 1):
-        st.write(f"**Mesure {i}** — {value:g} {chosen['unit']}")
-        st.progress((value - minimum) / (maximum - minimum) if maximum > minimum else 1.0)
-    if maximum == minimum:
-        st.caption("Toutes les mesures ont la même valeur.")
-    first,last=chart["values"][0],chart["values"][-1]
-    delta=last-first
-    st.metric("Variation entre première et dernière mesure", f"{delta:+g} {chosen['unit']}")
-    if chart["direction"]=="Sans interprétation":
-        st.caption("Variation descriptive uniquement ; aucune conclusion sur la performance.")
-    else:
-        favorable=(delta>0) if chart["direction"]=="Valeur élevée favorable" else (delta<0)
-        if delta==0:st.info("Valeur inchangée entre les deux mesures.")
-        elif favorable:st.success("Évolution favorable selon le sens de mesure choisi.")
-        else:st.info("Évolution défavorable selon le sens de mesure choisi.")
-    output=io.StringIO()
-    writer=csv.DictWriter(output,fieldnames=["Mesure","Valeur","Unité","Épreuve"])
-    writer.writeheader()
-    for i,v in enumerate(chart["values"],1):
-        writer.writerow({"Mesure":i,"Valeur":v,"Unité":chosen["unit"],"Épreuve":chosen["name"]})
-    st.download_button("Exporter les données du graphique (CSV)",output.getvalue().encode("utf-8-sig"),"progression_eps.csv","text/csv",key="export_progression")
-    st.caption("Le graphique représente des mesures successives saisies manuellement, sans identification d'élèves ni normes de référence.")
+        notes = ["Indicateurs descriptifs calculés uniquement à partir des valeurs saisies ; aucune norme ni aucun barème n'est appliqué.",
+                 "Une variation entre deux séries ne suffit pas à établir un progrès : conditions de mesure, "
+                 "protocole et erreur de mesure doivent être comparables."]
+        if test_id == "cooper":
+            notes.append("Vitesse moyenne = distance (m) / 200. Ce n'est pas une VMA mesurée.")
+        for note in notes:
+            st.caption(note)
 
-with st.expander("Catalogue complet des épreuves"):
-    st.dataframe([{"Test":t["name"],"Domaine":t["domain"],"Unité":t["unit"]} for t in tests],hide_index=True,use_container_width=True)
-st.caption("Les formules, normes, interprétations et barèmes non documentés ne sont pas simulés. Les mesures restent dans la session du navigateur jusqu'à fermeture ou réinitialisation.")
+        st.subheader("Exporter")
+        context_line = ctx.summary(S) + f" · Épreuve : {test['name']} ({test['unit']})"
+        c1, c2 = st.columns(2)
+        with c1:
+            st.download_button("Bilan imprimable (HTML)",
+                               report_html(f"Bilan · {test['name']}", context_line, sections, header, table, notes),
+                               f"bilan_{test_id}.html", "text/html", use_container_width=True,
+                               help="S'ouvre dans le navigateur ; « Imprimer » permet de l'enregistrer en PDF.")
+        with c2:
+            st.download_button("Données (CSV)", series_csv(mine), f"mesures_{test_id}.csv", "text/csv",
+                               use_container_width=True)
+
+        with st.expander("Gérer les séries"):
+            for serie in mine:
+                col_a, col_b = st.columns([3, 1])
+                col_a.write(titles[serie["id"]])
+                if col_b.button("Supprimer", key=f"del_{serie['id']}"):
+                    all_series.remove(serie)
+                    st.rerun()
+
+st.caption("L'application ne sauvegarde pas les séries : elles disparaissent au rechargement ou à la fermeture "
+           "de la page. Exportez-les pour les conserver.")

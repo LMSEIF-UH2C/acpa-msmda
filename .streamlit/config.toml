@@ -3,5 +3,16 @@ enableCORS = true
 enableXsrfProtection = true
 maxUploadSize = 1
 
+[client]
+toolbarMode = "minimal"
+showSidebarNavigation = true
+
 [browser]
 gatherUsageStats = false
+
+[theme]
+base = "light"
+primaryColor = "#1552F8"
+textColor = "#142348"
+backgroundColor = "#F5F7FF"
+secondaryBackgroundColor = "#EEF2FD"

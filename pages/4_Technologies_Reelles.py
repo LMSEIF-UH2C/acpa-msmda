@@ -17,11 +17,6 @@ from acpa_msmda.ui import PRIVACY_NOTE, SEARCH, configure_page, page_header  # n
 DOCUMENTED = ("OFFICIAL_SOURCE_FEATURES_ONLY", "FEATURES_VERIFIED_ON_OFFICIAL_SITE")
 PAGE_SIZE = 12
 REC_STEP = 10
-SOURCES = {
-    "double_notation": "Notes établies d'après la description de l'éditeur, par deux évaluations indépendantes.",
-    "fonctions_verifiees": "Notes établies d'après les fonctions vérifiées sur le site de l'éditeur.",
-    "estimation": "Estimation automatique d'après la description de l'éditeur, sur sept critères au plus.",
-}
 
 S = st.session_state
 
@@ -45,25 +40,18 @@ def _vote_buttons(tool: dict, prefix: str) -> None:
 
 
 def _evaluation(tool: dict) -> None:
-    """Score sur 18 critères, points forts et points faibles, ou mention d'évaluation à venir."""
+    """Score de l'application pour la demande, points forts et points de vigilance."""
     rated = tool.get("criteria_scores")
-    if not rated:
-        st.caption("Évaluation sur 18 critères à venir.")
+    if not rated or tool.get("criteria_total") is None:
         return
-    noted = scoring.documented(rated)
-    st.markdown(f"**Évaluation : {tool['criteria_total']:.0f}/100** · {len(noted)} critères renseignés "
-                f"sur {len(scoring.applicable(rated))}")
+    st.markdown(f"**Score : {tool['criteria_total']:.0f}/100**")
     st.progress(min(1.0, tool["criteria_total"] / 100))
-
-    def _names(codes):
-        return ", ".join(scoring.LABELS[c] + (" (type d'outil)" if c in scoring.TYPE_LEVEL else "")
-                         for c in codes)
-    if scoring.strengths(rated):
-        st.write("Points forts : " + _names(scoring.strengths(rated)))
-    if scoring.weaknesses(rated):
-        st.write("Points faibles : " + _names(scoring.weaknesses(rated)))
-    st.caption(SOURCES.get(tool.get("criteria_method"), SOURCES["estimation"])
-               + " Les critères non renseignés comptent pour une note neutre.")
+    strong, weak = scoring.strengths(rated), scoring.weaknesses(rated)
+    if strong:
+        st.write("Points forts : " + ", ".join(scoring.PUBLIC_LABELS[c] for c in strong))
+    if weak:
+        st.write("Points de vigilance : " + ", ".join(scoring.PUBLIC_LABELS[c] for c in weak))
+    st.caption("D'après les informations publiées par l'éditeur.")
 
 
 def _show_more() -> None:
@@ -110,12 +98,9 @@ if query:
         )
     else:
         verified = sum(t["verified"] for t in matches)
-        rated = sum(t.get("criteria_method") in ("double_notation", "fonctions_verifiees") for t in matches)
-        st.markdown(f"**{len(matches)} applications correspondent** · {verified} à fonctions vérifiées "
-                    f"· {rated} évaluées en détail")
-        st.caption("Classées selon les besoins couverts, les fonctions vérifiées, l'évaluation sur 18 critères "
-                   "adaptée à vos contraintes et les avis des enseignants. Les fiches « À vérifier » sont des "
-                   "applications réelles dont les fonctions n'ont pas encore été contrôlées.")
+        st.markdown(f"**{len(matches)} applications correspondent** · {verified} à fonctions vérifiées")
+        st.caption("Classées selon vos besoins, vos contraintes et les avis des enseignants. Les fiches "
+                   "« À vérifier » sont des applications réelles dont les fonctions n'ont pas encore été contrôlées.")
         shown = ctx.store(S).get("rec_shown", REC_STEP)
         opinions = feedback.tallies()
         for tool in matches[:shown]:

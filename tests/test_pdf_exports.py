@@ -30,8 +30,19 @@ class Exports(unittest.TestCase):
             self.assertTrue(pdf.startswith(b"%PDF"), lang)
             self.assertIn(b"DejaVu", pdf)
 
+    def test_long_scenario_rows(self):
+        for lang, sentence in (("fr", "Observer la posture et ajuster la vitesse. "),
+                               ("en", "Observe posture and adjust speed. "),
+                               ("ar", "لاحظ وضعية الجسم واضبط السرعة 10 km/h. ")):
+            i18n.use(lang)
+            rows = [dict(ROWS[0], **{"Activité / consignes": sentence * 120})]
+            pdf = scenario_pdf({i18n.t("Effectif"): 30}, rows,
+                               {"balanced": True, "available_minutes": 10}, [])
+            self.assertTrue(pdf.startswith(b"%PDF"), lang)
+            self.assertGreater(pdf.count(b"/Type /Page\n"), 1, lang)
+
     def test_organisation(self):
-        for lang in ("fr", "ar"):
+        for lang in ("fr", "en", "ar"):
             i18n.use(lang)
             pdf = organisation_pdf({i18n.t("Effectif"): 30}, [("Accueil et consignes", 5), ("Ateliers et rotations", 45)],
                                    [8, 8, 7, 7], 11.2, [])

@@ -2,7 +2,7 @@
 from __future__ import annotations
 import json
 from pathlib import Path
-from .context_engine import normalize_text,analyze_context
+from .context_engine import normalize_text,analyze_context,detect_language
 from .contracts import ContextRequest
 DEFAULT_PATH=Path(__file__).resolve().parents[2]/"data"/"real_tools_catalog.json"
 def load_real_tools(path=DEFAULT_PATH):
@@ -13,7 +13,7 @@ def load_real_tools(path=DEFAULT_PATH):
     return items
 def match_real_tools(context,path=DEFAULT_PATH):
     if not isinstance(context,str) or not context.strip():raise ValueError("Contexte requis")
-    analysis=analyze_context(ContextRequest(context,"fr"))
+    analysis=analyze_context(ContextRequest(context,detect_language(context)))
     words=set(normalize_text(context).split())
     matches=[]
     for t in load_real_tools(path):
@@ -54,7 +54,7 @@ FR_EN={
 def match_pending_tools(context,votes=None,limit=8,path=DEFAULT_PATH):
     """Pistes parmi les fiches non encore documentées, signalées comme telles à l'enseignant."""
     if not isinstance(context,str) or not context.strip():raise ValueError("Contexte requis")
-    analysis=analyze_context(ContextRequest(context,"fr"))
+    analysis=analyze_context(ContextRequest(context,detect_language(context)))
     words=set(normalize_text(context).split())
     terms=set(words)
     for w in words:terms.update(FR_EN.get(w,()))
@@ -91,7 +91,7 @@ def recommend(context, votes=None, path=DEFAULT_PATH):
     from .keywords import keywords_in
     from .store_info import cautions as store_cautions, works_offline
     if not isinstance(context, str) or not context.strip(): raise ValueError("Contexte requis")
-    analysis = analyze_context(ContextRequest(context, "fr"))
+    analysis = analyze_context(ContextRequest(context, detect_language(context)))
     offline = "connectivite_faible" in analysis.flags
     wanted = set(keywords_in(context))
     words = set(normalize_text(context).split())

@@ -7,7 +7,7 @@ class PublicPerformanceTaxonomyTests(unittest.TestCase):
         page=(ROOT/"pages"/"2_Performance_Lab.py").read_text(encoding="utf-8")
         for forbidden in ("Circulaire 2358/25","Thèse","Collection","**Origine :**","protocoles de thèse"):
             self.assertNotIn(forbidden,page)
-        self.assertIn('st.selectbox("Domaine"',page)
+        self.assertIn('st.selectbox(t("Domaine")',page)
     def test_sources_retained_in_internal_registry(self):
         import json
         tests=json.loads((ROOT/"data"/"performance_tests.json").read_text(encoding="utf-8"))["tests"]

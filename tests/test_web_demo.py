@@ -9,8 +9,11 @@ APP = ROOT / "app.py"
 SEARCH_PAGE = ROOT / "pages" / "4_Technologies_Reelles.py"
 
 
-def start(path=APP):
-    return AppTest.from_file(str(path), default_timeout=30).run()
+def start(path=APP, lang="fr"):
+    app = AppTest.from_file(str(path), default_timeout=30)
+    if lang:
+        app.session_state["lang"] = lang
+    return app.run()
 
 
 def button(app, label):

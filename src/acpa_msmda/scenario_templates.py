@@ -2,6 +2,7 @@
 from __future__ import annotations
 import json
 from pathlib import Path
+from .i18n import t
 DEFAULT_TEMPLATES=Path(__file__).resolve().parents[2]/"data"/"scenario_templates.json"
 EXPECTED=("Diagnostic","Mise en activité","Apprentissage","Régulation","Évaluation")
 def load_templates(path=DEFAULT_TEMPLATES):
@@ -19,18 +20,18 @@ def apply_template(template,session):
     data["activity"]=template["activity"]
     data["level"]=template["level"]
     data["duration"]=template["duration"]
-    data["objectives"]=template["objectives"]
-    data["prerequisites"]=template["prerequisites"]
-    data["equipment"]=template["constraints"]
+    data["objectives"]=t(template["objectives"])
+    data["prerequisites"]=t(template["prerequisites"])
+    data["equipment"]=t(template["constraints"])
     for i,phase in enumerate(template["phases"]):
-        data[f"action_{i}"]=phase["activity"]
+        data[f"action_{i}"]=t(phase["activity"])
         data[f"minutes_{i}"]=phase["minutes"]
-        data[f"evaluation_{i}"]=phase["success"]
+        data[f"evaluation_{i}"]=t(phase["success"])
         data[f"supports_{i}"]=[v for v in phase["media"] if v!="Aucun"]
 def scenario_checks(rows,objectives):
     issues=[]
-    if not objectives.strip():issues.append("Précisez les objectifs de la séance.")
+    if not objectives.strip():issues.append(t("Précisez les objectifs de la séance."))
     for r in rows:
-        if r["Durée (min)"]>0 and not r["Activité / consignes"].strip():issues.append(f"{r['Phase']} : activité à préciser.")
-        if r["Durée (min)"]>0 and not r["Évaluation / feedback"].strip():issues.append(f"{r['Phase']} : critère de réussite à préciser.")
+        if r["Durée (min)"]>0 and not r["Activité / consignes"].strip():issues.append(t("{phase} : activité à préciser.",phase=t(r["Phase"])))
+        if r["Durée (min)"]>0 and not r["Évaluation / feedback"].strip():issues.append(t("{phase} : critère de réussite à préciser.",phase=t(r["Phase"])))
     return issues

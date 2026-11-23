@@ -53,10 +53,11 @@ VOCABULARY: dict[str, tuple[str, ...]] = {
     "video": ("video", "videos", "ralenti", "slow motion", "slow mo", "replay", "frame by frame"),
     "analyse": ("analyse", "analyser", "analysis", "analytics", "statistiques", "statistics", "stats"),
     "tactique": ("tactique", "tactic", "tactics", "playbook", "tactical board", "strategy board", "whiteboard"),
-    "score": ("score", "scores", "scoreboard", "scorekeeper", "score keeper", "marque", "tableau de marque"),
+    "score": ("score", "scores", "scoreboard", "scorekeeper", "score keeper", "keep score", "marque",
+              "tableau de marque", "compter les points", "marquer les points"),
     "tournoi": ("tournoi", "tournament", "bracket", "league", "championnat", "fixtures"),
     "equipes": ("equipes", "equipe", "groupes", "groupe", "team generator", "team picker", "random teams",
-                "team maker", "split teams"),
+                "team maker", "split teams", "make teams", "teams", "groups"),
     "ateliers": ("ateliers", "atelier", "rotations", "circuit training"),
     "evaluation": ("evaluation", "evaluer", "notation", "gradebook", "grading", "grade book",
                    "assessment", "rubric", "bareme", "quiz"),
@@ -70,8 +71,75 @@ VOCABULARY: dict[str, tuple[str, ...]] = {
     "inclusion": ("inclusion", "inclusive", "adapte", "adaptive", "handicap", "disability", "accessibilite"),
 }
 
+# Libellés affichés à l'enseignant pour chaque mot-clé canonique (traduits par i18n.t).
+LABELS = {
+    "chronometrage": "chronométrage", "frequence cardiaque": "fréquence cardiaque", "athletisme": "athlétisme",
+    "corde a sauter": "corde à sauter", "echauffement": "échauffement", "velo": "vélo",
+    "randonnee": "randonnée", "video": "vidéo", "equipes": "équipes", "evaluation": "évaluation",
+    "entrainement": "entraînement",
+}
+
+
+def label(key: str) -> str:
+    """Libellé du mot-clé dans la langue de l'interface."""
+    from .i18n import t
+
+    return t(LABELS.get(key, key))
+
+
+# Formes arabes (et quelques formes courtes françaises) des mêmes mots-clés, pour les demandes saisies
+# en arabe. Normalisées comme le reste : article, hamza et tâ marbûta ne gênent pas la comparaison.
+_ARABIC_FORMS: dict[str, tuple[str, ...]] = {
+    'course': ('جري', 'الجري', 'عدو', 'ركض'),
+    'endurance': ('تحمل', 'التحمل', 'المداومة', 'مداومة', 'جري المداومة'),
+    'vitesse': ('سرعة', 'السرعة', 'عدو سريع'),
+    'chronometrage': ('ميقاتية', 'توقيت', 'التوقيت', 'كرونومتر', 'مؤقت'),
+    'intervalles': ('الجري المتقطع', 'تمارين متقطعة', 'فترات'),
+    'marche': ('مشي', 'المشي', 'عداد الخطوات'),
+    'frequence cardiaque': ('نبض القلب', 'معدل ضربات القلب', 'النبض', 'pulsations', 'fc'),
+    'natation': ('سباحة', 'السباحة', 'مسبح'),
+    'football': ('كرة القدم', 'foot'),
+    'basketball': ('كرة السلة',),
+    'volleyball': ('الكرة الطائرة', 'كرة الطائرة'),
+    'handball': ('كرة اليد',),
+    'rugby': ('الرغبي', 'رغبي'),
+    'tennis': ('التنس', 'كرة المضرب'),
+    'badminton': ('الريشة الطائرة',),
+    'tennis de table': ('كرة الطاولة', 'تنس الطاولة'),
+    'athletisme': ('العاب القوى', 'ألعاب القوى', 'رمي الجلة', 'رمي الرمح', 'الحواجز', 'التتابع'),
+    'saut': ('قفز', 'القفز', 'الوثب', 'وثب', 'القفز الطويل', 'القفز العالي'),
+    'corde a sauter': ('حبل القفز', 'نط الحبل'),
+    'gymnastique': ('جمباز', 'الجمباز', 'الجمباز الأرضي', 'الأكروسبور'),
+    'yoga': ('يوغا', 'اليوغا'),
+    'musculation': ('تقوية العضلات', 'رفع الأثقال', 'كمال الأجسام'),
+    'renforcement': ('التقوية العضلية', 'تقوية عضلية', 'تمارين التقوية'),
+    'souplesse': ('مرونة', 'المرونة', 'تمدد', 'الإطالة'),
+    'echauffement': ('إحماء', 'الإحماء', 'تسخين', 'التسخين'),
+    'danse': ('رقص', 'الرقص', 'التعبير الجسدي'),
+    'sports de combat': ('رياضات النزال', 'الملاكمة', 'الجيدو', 'الكراطي', 'المصارعة', 'التايكواندو'),
+    'velo': ('دراجة', 'الدراجة', 'ركوب الدراجات'),
+    'orientation': ('السباق التوجيهي', 'التوجيه', 'بوصلة', 'خريطة'),
+    'randonnee': ('المشي الجبلي', 'التنزه', 'مشي في الطبيعة'),
+    'escalade': ('تسلق', 'التسلق'),
+    'video': ('فيديو', 'الفيديو', 'تصوير', 'العرض البطيء'),
+    'analyse': ('تحليل', 'التحليل', 'إحصائيات'),
+    'tactique': ('تكتيك', 'التكتيك', 'خطة اللعب', 'سبورة تكتيكية'),
+    'score': ('النتيجة', 'تسجيل النقاط', 'لوحة النتائج'),
+    'tournoi': ('دوري', 'الدوري', 'بطولة', 'البطولة'),
+    'equipes': ('فرق', 'الفرق', 'تكوين الفرق', 'مجموعات', 'أفواج'),
+    'ateliers': ('ورشات', 'الورشات', 'ورشة'),
+    'evaluation': ('تقويم', 'التقويم', 'تقييم', 'التقييم', 'تنقيط', 'اختبار'),
+    'planification': ('تخطيط', 'التخطيط', 'جذاذة', 'تحضير الحصة'),
+    'entrainement': ('تدريب', 'التدريب', 'تمارين'),
+    'mesure': ('قياس', 'القياس', 'تتبع', 'التتبع', 'التقدم'),
+    'respiration': ('تنفس', 'التنفس', 'استرخاء', 'الرجوع إلى الهدوء'),
+    'inclusion': ('إدماج', 'الإدماج', 'إعاقة', 'ذوي الاحتياجات الخاصة', 'التربية الدامجة'),
+}
+VOCABULARY = {key: forms + _ARABIC_FORMS.get(key, ()) for key, forms in VOCABULARY.items()}
+
 OFFLINE_FORMS = ("offline", "no internet", "without internet", "works without", "sans connexion",
-                 "hors ligne", "hors connexion", "no connection", "no wifi")
+                 "hors ligne", "hors connexion", "no connection", "no wifi", "بدون انترنت", "بدون اتصال",
+                 "دون انترنت", "دون اتصال", "بلا انترنت", "لا يوجد انترنت", "غير متصل")
 
 _FORMS = sorted(((normalize_text(form), key) for key, forms in VOCABULARY.items() for form in forms),
                 key=lambda pair: -len(pair[0]))

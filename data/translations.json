@@ -35,6 +35,10 @@
   "ar": "النشاط",
   "en": "Activity"
  },
+ "Activité / consignes": {
+  "ar": "النشاط والتعليمات",
+  "en": "Activity / instructions"
+ },
  "Activité et bien-être": {
   "ar": "النشاط والرفاه",
   "en": "Activity and well-being"
@@ -67,13 +71,25 @@
   "ar": "ملائم لبرامج التربية البدنية",
   "en": "Suited to the PE curriculum"
  },
+ "Adéquation à la demande": {
+  "ar": "الملاءمة للطلب",
+  "en": "Fit with the request"
+ },
  "Afficher {n} de plus ({rest} restantes)": {
   "ar": "عرض {n} أخرى ({rest} متبقية)",
   "en": "Show {n} more ({rest} left)"
  },
+ "Affiner": {
+  "ar": "تدقيق",
+  "en": "Refine"
+ },
  "Aide et support": {
   "ar": "المساعدة والدعم",
   "en": "Help and support"
+ },
+ "Ajouter à la demande": {
+  "ar": "إضافة إلى الطلب",
+  "en": "Add to the request"
  },
  "Alternatives directement utilisables en séance": {
   "ar": "بدائل قابلة للاستعمال مباشرة في الحصة",
@@ -123,13 +139,25 @@
   "ar": "تطبيق بمشتريات داخلية؛ أسعار متغيرة",
   "en": "App with in-app purchases; prices vary"
  },
+ "Appliquer": {
+  "ar": "تطبيق",
+  "en": "Apply"
+ },
  "Apprentissage": {
   "ar": "التعلم",
   "en": "Learning"
  },
+ "Arrêter la dictée": {
+  "ar": "إيقاف الإملاء",
+  "en": "Stop dictation"
+ },
  "Assistants IA et recherche": {
   "ar": "المساعدات الذكية والبحث",
   "en": "AI assistants and research"
+ },
+ "Atelier": {
+  "ar": "الورشة",
+  "en": "Workshop"
  },
  "Ateliers": {
   "ar": "الورشات",
@@ -371,6 +399,10 @@
   "ar": "اتصال غير مستقر",
   "en": "Unstable connection"
  },
+ "Connexion lente": {
+  "ar": "اتصال بطيء",
+  "en": "Slow connection"
+ },
  "Connexion limitée sur le lieu de pratique : préférez les chronomètres, les supports téléchargés à l'avance et les fiches papier.": {
   "ar": "اتصال محدود في مكان الممارسة: فضّل الميقاتيات والوسائط المحملة مسبقًا والبطاقات الورقية.",
   "en": "Limited connection at the venue: prefer stopwatches, materials downloaded in advance and paper sheets."
@@ -439,9 +471,17 @@
   "ar": "التاريخ",
   "en": "Date"
  },
+ "Date : ": {
+  "ar": "التاريخ: ",
+  "en": "Date: "
+ },
  "De l’idée à la séance.": {
   "ar": "من الفكرة إلى الحصة.",
   "en": "From idea to lesson."
+ },
+ "Demande : ": {
+  "ar": "الطلب: ",
+  "en": "Request: "
  },
  "Des outils adaptés à votre activité et à vos contraintes.": {
   "ar": "أدوات ملائمة لنشاطك وإكراهاتك.",
@@ -454,6 +494,26 @@
  "Diagnostic": {
   "ar": "التشخيص",
   "en": "Diagnosis"
+ },
+ "Dicter en arabe": {
+  "ar": "إملاء بالعربية",
+  "en": "Dictate in Arabic"
+ },
+ "Dicter en français": {
+  "ar": "إملاء بالفرنسية",
+  "en": "Dictate in French"
+ },
+ "Dicter ma demande": {
+  "ar": "إملاء طلبي صوتيًا",
+  "en": "Dictate my request"
+ },
+ "Dictée interrompue : réessayez.": {
+  "ar": "توقف الإملاء: أعد المحاولة.",
+  "en": "Dictation stopped: try again."
+ },
+ "Dictée non disponible sur ce navigateur.": {
+  "ar": "الإملاء الصوتي غير متاح في هذا المتصفح.",
+  "en": "Dictation is not available in this browser."
  },
  "Différence entre marque bras levés et marque au saut.": {
   "ar": "الفرق بين العلامة بالذراعين المرفوعتين وعلامة القفز.",
@@ -478,6 +538,10 @@
  "Distance doigts-sol": {
   "ar": "المسافة بين الأصابع والأرض",
   "en": "Fingertip-to-floor distance"
+ },
+ "Document de préparation : à adapter à votre classe et à votre terrain.": {
+  "ar": "وثيقة تحضير: تُكيَّف حسب قسمك وظروف الممارسة.",
+  "en": "Planning document: adapt it to your class and setting."
  },
  "Domaine": {
   "ar": "المجال",
@@ -542,6 +606,10 @@
  "Efficacité pour l'apprentissage moteur": {
   "ar": "الفعالية في التعلم الحركي",
   "en": "Effectiveness for motor learning"
+ },
+ "En ligne": {
+  "ar": "متصل",
+  "en": "Online"
  },
  "Endurance": {
   "ar": "التحمل",
@@ -627,6 +695,10 @@
   "ar": "سهولة الاستعمال",
   "en": "Ease of use"
  },
+ "Facilité de mise en œuvre": {
+  "ar": "سهولة التنفيذ",
+  "en": "Ease of use in class"
+ },
  "Famille d'outils": {
   "ar": "فئة الأدوات",
   "en": "Tool family"
@@ -691,6 +763,10 @@
   "ar": "وظائف معلنة من طرف الناشر، يجب تجريبها قبل الحصة؛ تحقق من شروط الاستعمال مع التلاميذ.",
   "en": "Features stated by the publisher, to try before the lesson; check the terms of use with pupils."
  },
+ "Fonctions annoncées par les éditeurs : à essayer avant la séance. Vérifiez les conditions d’utilisation et l’âge minimal requis avant tout usage avec des élèves.": {
+  "ar": "وظائف معلنة من طرف الناشرين: يجب تجريبها قبل الحصة. تحقق من شروط الاستعمال والسن الأدنى المطلوب قبل أي استعمال مع التلاميذ.",
+  "en": "Features announced by publishers: try them before the lesson. Check the terms of use and minimum age before any use with pupils."
+ },
  "Fonctions non vérifiées en séance.": {
   "ar": "وظائف لم يتم التحقق منها في الحصة.",
   "en": "Features not checked in class."
@@ -739,6 +815,10 @@
   "ar": "المجموعات:",
   "en": "Groups:"
  },
+ "Groupes par atelier": {
+  "ar": "المجموعات حسب الورشات",
+  "en": "Groups per workshop"
+ },
  "Groupes, rotations et temps de séance.": {
   "ar": "المجموعات والتناوب وزمن الحصة.",
   "en": "Groups, rotations and lesson time."
@@ -774,6 +854,10 @@
  "Hauteur de saut": {
   "ar": "ارتفاع القفز",
   "en": "Jump height"
+ },
+ "Hors connexion": {
+  "ar": "غير متصل",
+  "en": "Offline"
  },
  "Hors connexion : ": {
   "ar": "دون اتصال: ",
@@ -814,6 +898,10 @@
  "Intégration LMS": {
   "ar": "الإدماج في منصة تعلم",
   "en": "LMS integration"
+ },
+ "Intérêt pédagogique": {
+  "ar": "القيمة البيداغوجية",
+  "en": "Teaching value"
  },
  "Jeux actifs et ludification": {
   "ar": "الألعاب النشيطة والتلعيب",
@@ -1039,6 +1127,10 @@
   "ar": "قياس الزوايا والمسافات",
   "en": "Angle and distance measurement"
  },
+ "Micro refusé : autorisez-le dans les réglages du navigateur.": {
+  "ar": "تم رفض الميكروفون: اسمح به في إعدادات المتصفح.",
+  "en": "Microphone blocked: allow it in the browser settings."
+ },
  "Minuteur d'intervalles": {
   "ar": "مؤقت الفترات",
   "en": "Interval timer"
@@ -1135,6 +1227,10 @@
   "ar": "تدوين الأحاسيس وتعديل الشدة.",
   "en": "Note how it feels and adjust intensity."
  },
+ "Nouvelle recherche": {
+  "ar": "بحث جديد",
+  "en": "New search"
+ },
  "Nécessite un environnement de diffusion adapté.": {
   "ar": "يتطلب بيئة عرض ملائمة.",
   "en": "Requires a suitable display setup."
@@ -1162,6 +1258,14 @@
  "Observer une situation de conservation simple.": {
   "ar": "ملاحظة وضعية احتفاظ بسيطة بالكرة.",
   "en": "Observe a simple ball-keeping situation."
+ },
+ "Organisation (PDF)": {
+  "ar": "التنظيم (PDF)",
+  "en": "Organisation (PDF)"
+ },
+ "Organisation de la séance en ateliers": {
+  "ar": "تنظيم الحصة في ورشات",
+  "en": "Lesson organised in workshops"
  },
  "Organisation et bureautique": {
   "ar": "التنظيم والمكتبيات",
@@ -1194,6 +1298,10 @@
  "Parcours balisé, chronomètre, points d'eau.": {
   "ar": "مسار محدد بعلامات، ميقاتية، نقاط ماء.",
   "en": "Marked course, stopwatch, water points."
+ },
+ "Parlez, puis touchez « Arrêter ».": {
+  "ar": "تكلم، ثم اضغط «إيقاف».",
+  "en": "Speak, then tap \"Stop\"."
  },
  "Partir d'un modèle": {
   "ar": "الانطلاق من نموذج",
@@ -1363,6 +1471,18 @@
   "ar": "العرض البطيء وتحليل الفيديو",
   "en": "Slow motion and video analysis"
  },
+ "Rapport": {
+  "ar": "التقرير",
+  "en": "Report"
+ },
+ "Rapport PDF": {
+  "ar": "تقرير PDF",
+  "en": "PDF report"
+ },
+ "Rapport des recommandations": {
+  "ar": "تقرير التوصيات",
+  "en": "Recommendations report"
+ },
  "Recueillir les représentations de l'allure et rappeler les consignes.": {
   "ar": "جمع تمثلات التلاميذ حول الإيقاع والتذكير بالتعليمات.",
   "en": "Gather pupils' ideas about pace and recall the instructions."
@@ -1499,6 +1619,14 @@
   "ar": "النقطة: {n}/100",
   "en": "Score: {n}/100"
  },
+ "Scénario (PDF)": {
+  "ar": "السيناريو (PDF)",
+  "en": "Lesson plan (PDF)"
+ },
+ "Scénario de séance d'EPS": {
+  "ar": "سيناريو حصة التربية البدنية",
+  "en": "PE lesson plan"
+ },
  "Selon le sens favorable choisi pour l'épreuve.": {
   "ar": "حسب الاتجاه الأفضل المختار للاختبار.",
   "en": "According to the better direction chosen for the test."
@@ -1606,6 +1734,10 @@
  "Tableau tactique": {
   "ar": "سبورة تكتيكية",
   "en": "Tactics board"
+ },
+ "Tableur (CSV)": {
+  "ar": "جدول بيانات (CSV)",
+  "en": "Spreadsheet (CSV)"
  },
  "Taille": {
   "ar": "القامة",
@@ -1803,6 +1935,10 @@
   "ar": "غشت",
   "en": "Aug"
  },
+ "application en arabe": {
+  "ar": "تطبيق بالعربية",
+  "en": "app in Arabic"
+ },
  "arabe": {
   "ar": "العربية",
   "en": "Arabic"
@@ -1835,9 +1971,17 @@
   "ar": "نبضة/د",
   "en": "bpm"
  },
+ "budget limité": {
+  "ar": "ميزانية محدودة",
+  "en": "limited budget"
+ },
  "chronométrage": {
   "ar": "التوقيت",
   "en": "timing"
+ },
+ "classe nombreuse": {
+  "ar": "قسم مكتظ",
+  "en": "large class"
  },
  "connexion instable": {
   "ar": "اتصال غير مستقر",
@@ -1915,6 +2059,10 @@
   "ar": "الغولف",
   "en": "golf"
  },
+ "gratuit": {
+  "ar": "مجاني",
+  "en": "free"
+ },
  "gymnastique": {
   "ar": "الجمباز",
   "en": "gymnastics"
@@ -1991,6 +2139,10 @@
   "ar": "عدد",
   "en": "count"
  },
+ "non renseigné": {
+  "ar": "غير متوفر",
+  "en": "not documented"
+ },
  "nov.": {
   "ar": "نونبر",
   "en": "Nov"
@@ -2057,7 +2209,7 @@
  },
  "sans connexion": {
   "ar": "بدون اتصال",
-  "en": "no connection"
+  "en": "no internet"
  },
  "saut": {
   "ar": "القفز",
@@ -2159,6 +2311,10 @@
   "ar": "{n} تطبيقًا مطابقًا",
   "en": "{n} matching apps"
  },
+ "{n} applications examinées, {m} retenues, analyse en {ms} ms.": {
+  "ar": "تم فحص {n} تطبيقًا، والاحتفاظ بـ{m}، التحليل في {ms} مللي ثانية.",
+  "en": "{n} apps examined, {m} kept, analysed in {ms} ms."
+ },
  "{n} autres": {
   "ar": "{n} أخرى",
   "en": "{n} others"
@@ -2239,6 +2395,10 @@
   "ar": "التلميذ",
   "en": "Pupil"
  },
+ "Élèves": {
+  "ar": "التلاميذ",
+  "en": "Pupils"
+ },
  "Élèves en progression": {
   "ar": "تلاميذ في تقدم",
   "en": "Pupils improving"
@@ -2283,6 +2443,10 @@
   "ar": "التقويم",
   "en": "Assessment"
  },
+ "Évaluation / feedback": {
+  "ar": "التقويم والتغذية الراجعة",
+  "en": "Assessment / feedback"
+ },
  "Évaluation et quiz": {
   "ar": "التقويم والاختبارات القصيرة",
   "en": "Assessment and quizzes"
@@ -2306,6 +2470,10 @@
  "échecs": {
   "ar": "الشطرنج",
   "en": "chess"
+ },
+ "élèves en situation de handicap": {
+  "ar": "تلاميذ في وضعية إعاقة",
+  "en": "pupils with a disability"
  },
  "équipes": {
   "ar": "الفرق",

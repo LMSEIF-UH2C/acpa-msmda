@@ -111,6 +111,11 @@ def recommend(context, votes=None, path=DEFAULT_PATH):
     wanted = set(keywords_in(context))
     related = {r for k in wanted for r in RELATED.get(k, ())} - wanted
     activities = (wanted | related) & ACTIVITIES
+    normalized = f" {normalize_text(context)} "
+    wants_ar = language == "ar" or any(f" {normalize_text(x).strip()} " in normalized for x in
+                                       ("en arabe", "application en arabe", "in arabic", "arabic", "بالعربية", "عربي"))
+    wants_free = any(f" {normalize_text(x).strip()} " in normalized for x in
+                     ("gratuit", "gratuite", "free", "مجاني", "مجانا", "مجانية"))
     best = sum((3 if k in ACTIVITIES else 1) * 3 for k in wanted) or 1
     votes = votes or {}
     found = []
@@ -135,7 +140,8 @@ def recommend(context, votes=None, path=DEFAULT_PATH):
         verified = t.get("evidence_status") in VERIFIED
         quality = criteria_score(rated, weights) if rated else None
         bonus = ((3 if verified else 0) + (4 if offline and works_offline(t) else 0)
-                 + (4 if language == "ar" and (t.get("store") or {}).get("has_ar") else 0)
+                 + (4 if wants_ar and (t.get("store") or {}).get("has_ar") else 0)
+                 + (4 if wants_free and "gratuit" in normalize_text((t.get("store") or {}).get("price", "")) else 0)
                  + 2 * max(-3, min(3, votes.get(t["id"], 0))))
         fit = max(0.0, min(100.0, 50 * min(1.0, relevance / best) + .5 * (quality if quality is not None else 50.0) + bonus))
         cautions = [t.get("caution", "")] + store_cautions(t)

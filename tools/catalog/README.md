@@ -12,6 +12,8 @@ d'une source vérifiable, et les fonctions pédagogiques restent à documenter.
 | `verify_candidates.py` | Pour une liste nom + site officiel : page accessible et nom présent dans la page. |
 | `resolve_names.py` | Confirme un nom de la liste de prospection par correspondance exacte sur l'App Store (au moins 20 avis). |
 | `build_catalog.py` | Fusionne les sources, retire les doublons, plafonne chaque catégorie et recalcule l'en-tête. |
+| `enrich_from_stores.py` | Complète chaque fiche à partir de sa fiche officielle (App Store, Aptoide, F-Droid) : éditeur, prix, langues, âge minimal, dernière mise à jour, plateformes, et pour F-Droid licence et accès au réseau. Ajoute les fonctions annoncées (`feature_vocabulary.py`) sans enregistrer la description. Retrouve par nom exact les fiches sans lien (au moins 20 avis). |
+| `feature_vocabulary.py` | Expressions recherchées dans les descriptions pour chaque fonction annoncée. |
 
 Les fiches ajoutées ont le statut `OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW` :
 masquées par défaut dans l'application et jamais suggérées tant que leurs fonctions

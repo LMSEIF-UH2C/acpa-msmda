@@ -89,6 +89,7 @@ def recommend(context, votes=None, path=DEFAULT_PATH):
     """
     from .scoring import relevant, score as criteria_score
     from .keywords import keywords_in
+    from .store_info import cautions as store_cautions, works_offline
     if not isinstance(context, str) or not context.strip(): raise ValueError("Contexte requis")
     analysis = analyze_context(ContextRequest(context, "fr"))
     offline = "connectivite_faible" in analysis.flags
@@ -98,6 +99,8 @@ def recommend(context, votes=None, path=DEFAULT_PATH):
     found = []
     weights = analysis.weights.values
     for t in load_real_tools(path):
+        # Seules les applications retrouvées sur une source officielle sont suggérées.
+        if not t.get("source_url") or (t.get("store") or {}).get("available") is False: continue
         if offline and t.get("requirement") == "internet": continue
         rated = t.get("criteria_scores")
         if rated and (not relevant(rated) or (offline and rated.get("C6") == 1.0)): continue
@@ -107,11 +110,12 @@ def recommend(context, votes=None, path=DEFAULT_PATH):
         verified = t.get("evidence_status") in VERIFIED
         title_hits = wanted & set(t.get("title_keywords", []))
         score = (4 * len(hits | set(documented)) + 2 * len(title_hits) + (3 if verified else 0)
-                 + (1 if offline and t.get("offline_hint") else 0) + max(-3, min(3, votes.get(t["id"], 0))))
-        cautions = [t.get("caution", "")]
+                 + (1 if offline and works_offline(t) else 0) + max(-3, min(3, votes.get(t["id"], 0))))
+        cautions = [t.get("caution", "")] + store_cautions(t)
         if analysis.flags and "budget_serre" in analysis.flags and t.get("requirement") == "materiel":
             cautions.append("Coût du matériel à vérifier.")
         found.append({**t, "matched_terms": sorted(hits | set(documented)), "verified": verified,
+                      "offline_hint": works_offline(t),
                       "score": score, "cautions": cautions,
                       "criteria_total": criteria_score(rated, weights) if rated else None})
     # Besoins couverts d'abord ; à couverture égale, fonctions vérifiées, puis score sur 18 critères.

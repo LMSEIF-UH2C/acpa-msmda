@@ -12,6 +12,7 @@ from acpa_msmda import feedback  # noqa: E402
 from acpa_msmda import session_context as ctx  # noqa: E402
 from acpa_msmda.real_catalog import load_real_tools, recommend  # noqa: E402
 from acpa_msmda import scoring  # noqa: E402
+from acpa_msmda import store_info  # noqa: E402
 from acpa_msmda.ui import PRIVACY_NOTE, SEARCH, configure_page, page_header  # noqa: E402
 
 DOCUMENTED = ("OFFICIAL_SOURCE_FEATURES_ONLY", "FEATURES_VERIFIED_ON_OFFICIAL_SITE")
@@ -52,6 +53,19 @@ def _evaluation(tool: dict) -> None:
     if weak:
         st.write("Points de vigilance : " + ", ".join(scoring.PUBLIC_LABELS[c] for c in weak))
     st.caption("D'après les informations publiées par l'éditeur.")
+
+
+def _store_block(tool: dict) -> None:
+    """Fonctions annoncées et informations de la fiche du magasin."""
+    announced = store_info.announced(tool)
+    if announced:
+        st.write("Fonctions annoncées par l'éditeur : " + ", ".join(announced))
+    rows = store_info.details(tool)
+    if rows:
+        st.caption(" · ".join(f"{label} : {value}" for label, value in rows))
+    note = store_info.source_note(tool)
+    if note:
+        st.caption(note)
 
 
 def _show_more() -> None:
@@ -119,7 +133,8 @@ if query:
                     st.write("Fonctions : " + ", ".join(tool["features"][:4]))
                 if tool.get("platforms"):
                     st.caption("Plateformes : " + ", ".join(tool["platforms"]))
-                if tool.get("offline_hint"):
+                _store_block(tool)
+                if tool.get("offline_hint") and (tool.get("store") or {}).get("uses_internet") is not False:
                     st.caption("Fonctionnement hors connexion annoncé par l'éditeur.")
                 for note in tool.get("cautions", []):
                     if note:
@@ -166,9 +181,12 @@ for tool in filtered[(page - 1) * PAGE_SIZE:page * PAGE_SIZE]:
     documented = tool.get("evidence_status") in DOCUMENTED
     with st.expander(f"{tool['name']} · {tool['category']}"):
         if not documented:
-            st.caption("Fiche en cours de documentation : fonctionnalités non vérifiées.")
+            st.caption("Fonctions non vérifiées en séance.")
         if tool.get("features"):
             st.write("Fonctions : " + ", ".join(tool["features"]))
+        _store_block(tool)
+        for note in store_info.cautions(tool):
+            st.caption(note)
         if tool.get("platforms"):
             st.write("Plateformes : " + ", ".join(tool["platforms"]))
         if tool.get("pricing"):

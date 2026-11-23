@@ -2590,5 +2590,33 @@
  "Bilan (PDF)": {
   "ar": "الحصيلة (PDF)",
   "en": "Report (PDF)"
+ },
+ "Parcours guidés": {
+  "ar": "مسارات موجهة",
+  "en": "Guided pathways"
+ },
+ "Choisissez votre objectif, puis adaptez le contexte de classe.": {
+  "ar": "اختر هدفك ثم كيّف سياق القسم.",
+  "en": "Choose your goal, then adapt the class context."
+ },
+ "Préparer une séance": {
+  "ar": "تحضير حصة",
+  "en": "Prepare a lesson"
+ },
+ "Évaluer une classe": {
+  "ar": "تقويم قسم",
+  "en": "Assess a class"
+ },
+ "Trouver un outil": {
+  "ar": "البحث عن أداة",
+  "en": "Find a tool"
+ },
+ "Préparer une séance sans connexion": {
+  "ar": "تحضير حصة دون اتصال",
+  "en": "Prepare an offline lesson"
+ },
+ "La préparation sans connexion concerne le terrain ; cette application hébergée nécessite Internet.": {
+  "ar": "التحضير دون اتصال يخص ميدان الممارسة؛ يتطلب هذا التطبيق المستضاف اتصالا بالإنترنت.",
+  "en": "Offline preparation refers to the practice venue; this hosted application requires internet access."
  }
 }

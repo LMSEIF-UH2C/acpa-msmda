@@ -2618,5 +2618,9 @@
  "La préparation sans connexion concerne le terrain ; cette application hébergée nécessite Internet.": {
   "ar": "التحضير دون اتصال يخص ميدان الممارسة؛ يتطلب هذا التطبيق المستضاف اتصالا بالإنترنت.",
   "en": "Offline preparation refers to the practice venue; this hosted application requires internet access."
+ },
+ "Préparer des activités réalisables sans Internet sur le terrain.": {
+  "ar": "تحضير أنشطة قابلة للتنفيذ دون إنترنت في الميدان.",
+  "en": "Prepare activities that can be carried out without internet at the venue."
  }
 }

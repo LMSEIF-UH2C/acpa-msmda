@@ -4,7 +4,7 @@
   "templates": [
     {
       "id": "endurance_allure",
-      "title": "Endurance — gérer son allure",
+      "title": "Endurance : gérer son allure",
       "activity": "Endurance",
       "level": "Collège",
       "duration": 60,
@@ -62,7 +62,7 @@
     },
     {
       "id": "gymnastique_enchainement",
-      "title": "Gymnastique — construire un enchaînement",
+      "title": "Gymnastique : construire un enchaînement",
       "activity": "Gymnastique",
       "level": "Collège",
       "duration": 60,
@@ -120,7 +120,7 @@
     },
     {
       "id": "basketball_cooperation",
-      "title": "Basketball — coopérer pour progresser",
+      "title": "Basketball : coopérer pour progresser",
       "activity": "Basketball",
       "level": "Lycée",
       "duration": 60,
@@ -177,7 +177,7 @@
     },
     {
       "id": "distance_activite",
-      "title": "À distance — activité physique autonome",
+      "title": "À distance : activité physique autonome",
       "activity": "Activité physique autonome",
       "level": "Lycée",
       "duration": 45,
@@ -229,6 +229,147 @@
           "media": [
             "Quiz"
           ]
+        }
+      ]
+    },
+    {
+      "id": "handball_space",
+      "title": "Handball : créer un espace libre",
+      "activity": "Handball",
+      "level": "Lycée",
+      "duration": 60,
+      "objectives": "Se démarquer et choisir une passe utile en situation de jeu.",
+      "prerequisites": "Respecter les consignes de sécurité et les espaces de pratique.",
+      "constraints": "Matériel adapté, espace sécurisé, groupes de taille ajustable.",
+      "phases": [
+        {
+          "phase": "Diagnostic",
+          "minutes": 5,
+          "activity": "Observer une première réalisation sans classement.",
+          "success": "Identifier un besoin de progression.",
+          "media": []
+        },
+        {
+          "phase": "Mise en activité",
+          "minutes": 10,
+          "activity": "Échauffement progressif adapté à l'activité et rappel des règles de sécurité.",
+          "success": "Respecter les consignes et adapter son effort.",
+          "media": []
+        },
+        {
+          "phase": "Apprentissage",
+          "minutes": 30,
+          "activity": "Jouer en 3 contre 2 sans contact ; faciliter par un défenseur passif ou complexifier en 3 contre 3. Alterner joueurs et observateurs.",
+          "success": "Créer une ligne de passe et transmettre à un partenaire disponible.",
+          "media": []
+        },
+        {
+          "phase": "Régulation",
+          "minutes": 10,
+          "activity": "En binômes, observer un critère, donner un retour et refaire une tentative.",
+          "success": "Modifier une action à partir du retour reçu.",
+          "media": []
+        },
+        {
+          "phase": "Évaluation",
+          "minutes": 5,
+          "activity": "Comparer les tentatives et choisir un objectif personnel pour la prochaine séance.",
+          "success": "Décrire un progrès et un objectif observable.",
+          "media": []
+        }
+      ]
+    },
+    {
+      "id": "volleyball_continuity",
+      "title": "Volleyball : maintenir un échange",
+      "activity": "Volleyball",
+      "level": "Lycée",
+      "duration": 60,
+      "objectives": "Orienter le ballon vers un partenaire pour maintenir un échange.",
+      "prerequisites": "Respecter les consignes de sécurité et les espaces de pratique.",
+      "constraints": "Matériel adapté, espace sécurisé, groupes de taille ajustable.",
+      "phases": [
+        {
+          "phase": "Diagnostic",
+          "minutes": 5,
+          "activity": "Observer une première réalisation sans classement.",
+          "success": "Identifier un besoin de progression.",
+          "media": []
+        },
+        {
+          "phase": "Mise en activité",
+          "minutes": 10,
+          "activity": "Échauffement progressif adapté à l'activité et rappel des règles de sécurité.",
+          "success": "Respecter les consignes et adapter son effort.",
+          "media": []
+        },
+        {
+          "phase": "Apprentissage",
+          "minutes": 30,
+          "activity": "En petits groupes, viser une zone de réception ; autoriser une saisie au début, puis passer au renvoi direct selon la maîtrise.",
+          "success": "Envoyer un ballon contrôlable vers la zone choisie.",
+          "media": []
+        },
+        {
+          "phase": "Régulation",
+          "minutes": 10,
+          "activity": "En binômes, observer un critère, donner un retour et refaire une tentative.",
+          "success": "Modifier une action à partir du retour reçu.",
+          "media": []
+        },
+        {
+          "phase": "Évaluation",
+          "minutes": 5,
+          "activity": "Comparer les tentatives et choisir un objectif personnel pour la prochaine séance.",
+          "success": "Décrire un progrès et un objectif observable.",
+          "media": []
+        }
+      ]
+    },
+    {
+      "id": "sprint_start",
+      "title": "Vitesse : départ et accélération",
+      "activity": "Athlétisme",
+      "level": "Lycée",
+      "duration": 60,
+      "objectives": "Réagir au signal et accélérer progressivement sur une courte distance.",
+      "prerequisites": "Respecter les consignes de sécurité et les espaces de pratique.",
+      "constraints": "Matériel adapté, espace sécurisé, groupes de taille ajustable.",
+      "phases": [
+        {
+          "phase": "Diagnostic",
+          "minutes": 5,
+          "activity": "Observer une première réalisation sans classement.",
+          "success": "Identifier un besoin de progression.",
+          "media": []
+        },
+        {
+          "phase": "Mise en activité",
+          "minutes": 10,
+          "activity": "Échauffement progressif adapté à l'activité et rappel des règles de sécurité.",
+          "success": "Respecter les consignes et adapter son effort.",
+          "media": []
+        },
+        {
+          "phase": "Apprentissage",
+          "minutes": 30,
+          "activity": "Alterner courses courtes et récupération suffisante sur des couloirs dégagés ; varier le signal et la distance selon les capacités.",
+          "success": "Partir au signal, rester dans son couloir et comparer ses propres essais.",
+          "media": []
+        },
+        {
+          "phase": "Régulation",
+          "minutes": 10,
+          "activity": "En binômes, observer un critère, donner un retour et refaire une tentative.",
+          "success": "Modifier une action à partir du retour reçu.",
+          "media": []
+        },
+        {
+          "phase": "Évaluation",
+          "minutes": 5,
+          "activity": "Comparer les tentatives et choisir un objectif personnel pour la prochaine séance.",
+          "success": "Décrire un progrès et un objectif observable.",
+          "media": []
         }
       ]
     }

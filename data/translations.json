@@ -239,7 +239,7 @@
   "ar": "كرة السلة",
   "en": "Basketball"
  },
- "Basketball — coopérer pour progresser": {
+ "Basketball : coopérer pour progresser": {
   "ar": "كرة السلة: التعاون من أجل التقدم",
   "en": "Basketball: cooperating to move forward"
  },
@@ -463,6 +463,10 @@
   "ar": "خلق واستغلال فضاءات اللعب بفضل التعاون.",
   "en": "Create and use space through cooperation."
  },
+ "Cycle (0 = non renseigné)": {
+  "ar": "الدورة (0 = غير محددة)",
+  "en": "Cycle (0 = unspecified)"
+ },
  "D'après les informations publiées par l'éditeur.": {
   "ar": "حسب المعلومات التي نشرها الناشر.",
   "en": "Based on the information published by the publisher."
@@ -619,7 +623,7 @@
   "ar": "التحمل العضلي",
   "en": "Muscular endurance"
  },
- "Endurance — gérer son allure": {
+ "Endurance : gérer son allure": {
   "ar": "التحمل: التحكم في الإيقاع",
   "en": "Endurance: managing your pace"
  },
@@ -831,7 +835,7 @@
   "ar": "الجمباز",
   "en": "Gymnastics"
  },
- "Gymnastique — construire un enchaînement": {
+ "Gymnastique : construire un enchaînement": {
   "ar": "الجمباز: بناء سلسلة حركية",
   "en": "Gymnastics: building a routine"
  },
@@ -1230,6 +1234,14 @@
  "Nouvelle recherche": {
   "ar": "بحث جديد",
   "en": "New search"
+ },
+ "Numéro de séance": {
+  "ar": "رقم الحصة",
+  "en": "Lesson number"
+ },
+ "Numéro du cycle": {
+  "ar": "رقم الدورة",
+  "en": "Cycle number"
  },
  "Nécessite un environnement de diffusion adapté.": {
   "ar": "يتطلب بيئة عرض ملائمة.",
@@ -1710,6 +1722,10 @@
  "Séance": {
   "ar": "الحصة",
   "en": "Lesson"
+ },
+ "Séance (0 = non renseignée)": {
+  "ar": "الحصة (0 = غير محددة)",
+  "en": "Lesson (0 = unspecified)"
  },
  "Séance 1": {
   "ar": "الحصة 1",
@@ -2359,7 +2375,7 @@
   "ar": "عن بعد",
   "en": "Remote"
  },
- "À distance — activité physique autonome": {
+ "À distance : activité physique autonome": {
   "ar": "عن بعد: نشاط بدني مستقل",
   "en": "Remote: self-directed physical activity"
  },
@@ -2482,5 +2498,145 @@
  "évaluation": {
   "ar": "التقويم",
   "en": "assessment"
+ },
+ "Observer une première réalisation sans classement.": {
+  "ar": "لاحظ محاولة أولى دون ترتيب.",
+  "en": "Observe an initial attempt without ranking."
+ },
+ "Identifier un besoin de progression.": {
+  "ar": "حدد حاجة للتطور.",
+  "en": "Identify one learning need."
+ },
+ "Échauffement progressif adapté à l'activité et rappel des règles de sécurité.": {
+  "ar": "إحماء تدريجي ملائم للنشاط وتذكير بقواعد السلامة.",
+  "en": "Progressive activity-specific warm-up and safety reminders."
+ },
+ "Respecter les consignes et adapter son effort.": {
+  "ar": "احترام التعليمات وتكييف الجهد.",
+  "en": "Follow instructions and adjust effort."
+ },
+ "En binômes, observer un critère, donner un retour et refaire une tentative.": {
+  "ar": "في ثنائيات، لاحظ معيارا وقدم تغذية راجعة ثم أعد المحاولة.",
+  "en": "In pairs, observe one criterion, give feedback and try again."
+ },
+ "Modifier une action à partir du retour reçu.": {
+  "ar": "تعديل الأداء بناء على التغذية الراجعة.",
+  "en": "Adjust an action using feedback."
+ },
+ "Comparer les tentatives et choisir un objectif personnel pour la prochaine séance.": {
+  "ar": "قارن المحاولات واختر هدفا شخصيا للحصة المقبلة.",
+  "en": "Compare attempts and choose a personal goal for the next lesson."
+ },
+ "Décrire un progrès et un objectif observable.": {
+  "ar": "وصف تقدم وهدف قابل للملاحظة.",
+  "en": "Describe progress and an observable goal."
+ },
+ "Handball : créer un espace libre": {
+  "ar": "كرة اليد : خلق مساحة حرة",
+  "en": "Handball : create space"
+ },
+ "Se démarquer et choisir une passe utile en situation de jeu.": {
+  "ar": "التحرر من الرقابة واختيار تمريرة مفيدة أثناء اللعب.",
+  "en": "Get free and choose an effective pass in play."
+ },
+ "Respecter les consignes de sécurité et les espaces de pratique.": {
+  "ar": "احترام تعليمات السلامة وفضاءات الممارسة.",
+  "en": "Follow safety instructions and practice boundaries."
+ },
+ "Matériel adapté, espace sécurisé, groupes de taille ajustable.": {
+  "ar": "معدات ملائمة وفضاء آمن ومجموعات قابلة للتعديل.",
+  "en": "Suitable equipment, safe space and adjustable group sizes."
+ },
+ "Jouer en 3 contre 2 sans contact ; faciliter par un défenseur passif ou complexifier en 3 contre 3. Alterner joueurs et observateurs.": {
+  "ar": "العب ثلاثة ضد اثنين دون احتكاك؛ سهّل بمدافع سلبي أو صعّب بثلاثة ضد ثلاثة. بدّل بين اللاعبين والملاحظين.",
+  "en": "Play 3 versus 2 without contact; simplify with a passive defender or progress to 3 versus 3. Rotate players and observers."
+ },
+ "Créer une ligne de passe et transmettre à un partenaire disponible.": {
+  "ar": "خلق خط تمرير والتمرير لزميل متاح.",
+  "en": "Create a passing lane and pass to an available teammate."
+ },
+ "Volleyball : maintenir un échange": {
+  "ar": "الكرة الطائرة : استمرار التبادل",
+  "en": "Volleyball : sustain a rally"
+ },
+ "Orienter le ballon vers un partenaire pour maintenir un échange.": {
+  "ar": "توجيه الكرة نحو زميل لاستمرار التبادل.",
+  "en": "Direct the ball to a teammate to sustain a rally."
+ },
+ "En petits groupes, viser une zone de réception ; autoriser une saisie au début, puis passer au renvoi direct selon la maîtrise.": {
+  "ar": "في مجموعات صغيرة، استهدف منطقة استقبال؛ اسمح بمسك الكرة في البداية ثم انتقل إلى ردها مباشرة حسب المستوى.",
+  "en": "In small groups, aim at a receiving zone; allow catching initially, then progress to direct returns as skills improve."
+ },
+ "Envoyer un ballon contrôlable vers la zone choisie.": {
+  "ar": "إرسال كرة قابلة للتحكم نحو المنطقة المختارة.",
+  "en": "Send a controllable ball toward the chosen zone."
+ },
+ "Vitesse : départ et accélération": {
+  "ar": "السرعة : الانطلاق والتسارع",
+  "en": "Sprint : start and acceleration"
+ },
+ "Réagir au signal et accélérer progressivement sur une courte distance.": {
+  "ar": "الاستجابة للإشارة والتسارع تدريجيا لمسافة قصيرة.",
+  "en": "React to the signal and accelerate over a short distance."
+ },
+ "Alterner courses courtes et récupération suffisante sur des couloirs dégagés ; varier le signal et la distance selon les capacités.": {
+  "ar": "ناوب بين عدو قصير واستراحة كافية في ممرات خالية؛ نوّع الإشارة والمسافة حسب القدرات.",
+  "en": "Alternate short runs and adequate recovery in clear lanes; vary the signal and distance according to ability."
+ },
+ "Partir au signal, rester dans son couloir et comparer ses propres essais.": {
+  "ar": "الانطلاق عند الإشارة والبقاء في الممر ومقارنة المحاولات الشخصية.",
+  "en": "Start on signal, stay in lane and compare personal attempts."
+ },
+ "Bilan (PDF)": {
+  "ar": "الحصيلة (PDF)",
+  "en": "Report (PDF)"
+ },
+ "Parcours guidés": {
+  "ar": "مسارات موجهة",
+  "en": "Guided pathways"
+ },
+ "Choisissez votre objectif, puis adaptez le contexte de classe.": {
+  "ar": "اختر هدفك ثم كيّف سياق القسم.",
+  "en": "Choose your goal, then adapt the class context."
+ },
+ "Préparer une séance": {
+  "ar": "تحضير حصة",
+  "en": "Prepare a lesson"
+ },
+ "Évaluer une classe": {
+  "ar": "تقويم قسم",
+  "en": "Assess a class"
+ },
+ "Trouver un outil": {
+  "ar": "البحث عن أداة",
+  "en": "Find a tool"
+ },
+ "Préparer une séance sans connexion": {
+  "ar": "تحضير حصة دون اتصال",
+  "en": "Prepare an offline lesson"
+ },
+ "La préparation sans connexion concerne le terrain ; cette application hébergée nécessite Internet.": {
+  "ar": "التحضير دون اتصال يخص ميدان الممارسة؛ يتطلب هذا التطبيق المستضاف اتصالا بالإنترنت.",
+  "en": "Offline preparation refers to the practice venue; this hosted application requires internet access."
+ },
+ "Préparer des activités réalisables sans Internet sur le terrain.": {
+  "ar": "تحضير أنشطة قابلة للتنفيذ دون إنترنت في الميدان.",
+  "en": "Prepare activities that can be carried out without internet at the venue."
+ },
+ "Prévoyez des consignes imprimées, des démonstrations et des critères observables sans Internet.": {
+  "ar": "حضّر تعليمات مطبوعة وعروضا تطبيقية ومعايير قابلة للملاحظة دون إنترنت.",
+  "en": "Prepare printed instructions, demonstrations and observable criteria without internet."
+ },
+ "Conditions de mesure": {
+  "ar": "ظروف القياس",
+  "en": "Measurement conditions"
+ },
+ "Précisez le matériel, le protocole et les conditions de réalisation.": {
+  "ar": "حدد المعدات والبروتوكول وظروف الإنجاز.",
+  "en": "Specify equipment, protocol and testing conditions."
+ },
+ "Conditions de mesure non renseignées ou différentes : interprétez la comparaison avec prudence.": {
+  "ar": "ظروف القياس غير محددة أو مختلفة: فسّر المقارنة بحذر.",
+  "en": "Measurement conditions are missing or different: interpret the comparison cautiously."
  }
 }

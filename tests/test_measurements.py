@@ -105,7 +105,8 @@ class LabJourneyTests(unittest.TestCase):
         text = " ".join(m.value for m in app.markdown)
         self.assertIn("Élèves en progression", text)
         self.assertIn("2 / 3", text)
-        self.assertEqual(len(app.get("download_button")), 2)
+        self.assertCountEqual([b.proto.label for b in app.get("download_button")],
+                              ["Bilan (PDF)", "Bilan imprimable (HTML)", "Données (CSV)"])
 
     def test_invalid_line_is_reported_not_saved(self):
         app = lab()

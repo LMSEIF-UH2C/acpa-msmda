@@ -8,9 +8,10 @@ import streamlit as st
 
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT / "src"))
+from acpa_msmda import session_context as ctx
 from acpa_msmda import i18n  # noqa: E402
 from acpa_msmda.i18n import t  # noqa: E402
-from acpa_msmda.ui import (APP_NAME, HOME, MODULES, PRIVACY_NOTE, TASKS, configure_page,  # noqa: E402
+from acpa_msmda.ui import (APP_NAME, HOME, MODULES, PRIVACY_NOTE, configure_page,  # noqa: E402
                            language_buttons, page_header, tab_bar)
 
 
@@ -29,15 +30,23 @@ def home():
     page_header(HOME, title=APP_NAME, eyebrow="EPS · collège et lycée", tagline="De l’idée à la séance.")
     st.subheader(t("Que voulez-vous faire ?"))
     st.caption(t("Choisissez un parcours pour commencer."))
-    for row in (TASKS[:2], TASKS[2:]):
-        for column, module in zip(st.columns(2), row):
-            with column, st.container(key=f"task_{module.key}"):
-                # Deux blocs côte à côte : le pictogramme, puis le texte (titre + description).
-                # La carte les aligne au centre : le pictogramme est centré sur tout le texte.
-                st.markdown(module.icon)
-                with st.container(key=f"tasktext_{module.key}"):
-                    st.page_link(module.path, label=t(module.title), use_container_width=True)
-                    st.caption(t(module.summary))
+    paths = (
+        ("prepare", "Préparer une séance", "Phases, activités, supports et critères de réussite.", ":material/edit_note:", "pages/5_Studio_Pedagogique.py"),
+        ("assess", "Évaluer une classe", "Saisir des résultats et suivre une progression.", ":material/monitoring:", "pages/2_Performance_Lab.py"),
+        ("find", "Trouver un outil", "Des outils adaptés à votre activité et à vos contraintes.", ":material/search:", "pages/4_Technologies_Reelles.py"),
+        ("offline", "Préparer une séance sans connexion", "Préparer des activités réalisables sans Internet sur le terrain.", ":material/wifi_off:", "pages/5_Studio_Pedagogique.py"),
+    )
+    for start in (0, 2):
+        for column, (key, label, description, icon, target) in zip(st.columns(2), paths[start:start+2]):
+            with column:
+                if st.button(t(label), key="guided_" + key, icon=icon, use_container_width=True):
+                    ctx.put(st.session_state, "guided_path", key)
+                    if key == "offline":
+                        ctx.put(st.session_state, "connectivity", "Aucune")
+                    st.switch_page(target)
+                st.caption(t(description))
+    st.page_link("pages/3_Espace_Enseignant.py", label=t("Organiser les ateliers"), icon=":material/groups:")
+    st.caption(t("La préparation sans connexion concerne le terrain ; cette application hébergée nécessite Internet."))
     st.caption(t(PRIVACY_NOTE))
     st.caption(t("Langue"))
     language_buttons("switch")

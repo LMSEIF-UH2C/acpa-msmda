@@ -35,6 +35,8 @@ SPACES = ("Terrain extérieur", "Gymnase", "Piste", "Salle polyvalente", "Autre"
 CONTEXT_DEFAULTS: dict[str, Any] = {
     "activity": "Endurance",
     "level": "Collège",
+    "cycle_number": 0,
+    "lesson_number": 0,
     "class_size": 30,
     "duration": 60,
     "connectivity": "Aucune",
@@ -130,13 +132,17 @@ def search_query(session: MutableMapping) -> str:
 
 def render_context(st: Any, session: MutableMapping,
                    fields: Sequence[str] = ("activity", "level", "class_size", "duration",
-                                            "connectivity", "devices", "space", "equipment",
+                                            "connectivity", "devices", "space", "cycle_number", "lesson_number", "equipment",
                                             "objectives"),
                    expanded: bool = False) -> None:
     """Affiche les champs du contexte, identiques d'une page à l'autre."""
     widgets: dict[str, Callable[[], Any]] = {
         "activity": lambda: st.selectbox(t("Activité physique ou sportive"), APS, format_func=t, **bind(session, "activity")),
         "level": lambda: st.selectbox(t("Niveau"), LEVELS, format_func=t, **bind(session, "level")),
+        "cycle_number": lambda: st.number_input(t("Cycle (0 = non renseigné)"), min_value=0, step=1,
+                                                **bind(session, "cycle_number")),
+        "lesson_number": lambda: st.number_input(t("Séance (0 = non renseignée)"), min_value=0, step=1,
+                                                 **bind(session, "lesson_number")),
         "class_size": lambda: st.number_input(t("Effectif"), min_value=1, max_value=150, step=1,
                                               **bind(session, "class_size")),
         "duration": lambda: st.number_input(t("Durée de la séance (min)"), min_value=15, max_value=240,

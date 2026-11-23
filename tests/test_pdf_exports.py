@@ -1,6 +1,7 @@
 """Exports PDF du scénario et de l'organisation en ateliers, dans les trois langues."""
 import sys
 import unittest
+from types import SimpleNamespace
 from pathlib import Path
 
 from streamlit.testing.v1 import AppTest
@@ -9,7 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
 from acpa_msmda import i18n  # noqa: E402
-from acpa_msmda.pdf import organisation_pdf, scenario_pdf  # noqa: E402
+from acpa_msmda.pdf import organisation_pdf, scenario_pdf, measurements_pdf  # noqa: E402
 
 ROWS = [{"Phase": "Échauffement", "Durée (min)": 10, "Activité / consignes": "Footing et gammes",
          "Supports": "Plots", "Évaluation / feedback": "Allure régulière"},
@@ -40,6 +41,14 @@ class Exports(unittest.TestCase):
                                {"balanced": True, "available_minutes": 10}, [])
             self.assertTrue(pdf.startswith(b"%PDF"), lang)
             self.assertGreater(pdf.count(b"/Type /Page\n"), 1, lang)
+
+    def test_measurements_pdf(self):
+        for lang in ("fr", "en", "ar"):
+            i18n.use(lang)
+            ind = SimpleNamespace(label=i18n.t("Effectif"), value="30", basis="30 / 30")
+            pdf = measurements_pdf(i18n.t("Bilan"), "EPS", [("Test", [ind])],
+                                   [i18n.t("Élève"), "Test"], [[f"E{i:03}", "12"] for i in range(150)], [])
+            self.assertTrue(pdf.startswith(b"%PDF"), lang)
 
     def test_organisation(self):
         for lang in ("fr", "en", "ar"):

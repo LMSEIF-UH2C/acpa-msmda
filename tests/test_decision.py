@@ -79,8 +79,8 @@ class Report(unittest.TestCase):
         return " ".join(out)
 
     def test_pdf_in_french_and_english(self):
-        from acpa_msmda.decision import _fonts
-        _fonts()
+        from acpa_msmda.pdf import fonts
+        fonts()
         fr = self.pdf("fr", "natation au lycée, 30 élèves")
         en = self.pdf("en", "swimming in high school, 30 pupils")
         self.assertTrue(fr.startswith(b"%PDF") and en.startswith(b"%PDF"))

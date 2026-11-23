@@ -31,6 +31,8 @@ def required() -> set[str]:
         texts |= {m.title, m.summary, m.short}
     texts |= {ui.PRIVACY_NOTE, "EPS · collège et lycée", "De l’idée à la séance."}
     from acpa_msmda import decision, understanding
+    from acpa_msmda.scenario_engine import COLUMNS
+    texts |= set(COLUMNS)
     texts |= {label for label, _ in decision.GROUPS} | set(decision.REFINEMENTS) | {"Connexion"}
     texts |= set(understanding.LEVELS) | set(understanding.CONSTRAINTS.values())
     texts |= {"Activité", "Fonction", "Niveau", "Effectif", "Contrainte", "sûr", "probable", "à confirmer"}

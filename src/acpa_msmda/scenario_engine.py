@@ -54,12 +54,14 @@ def safe_cell(value):
         return "'" + value
     return value
 
+COLUMNS=("Phase","Durée (min)","Activité / consignes","Supports","Évaluation / feedback")
+
 def export_scenario_csv(metadata,rows):
     stream=io.StringIO()
     writer=csv.writer(stream)
     for key,value in metadata.items():writer.writerow([safe_cell(key),safe_cell(value)])
     writer.writerow([])
-    columns=("Phase","Durée (min)","Activité / consignes","Supports","Évaluation / feedback")
+    columns=COLUMNS
     writer.writerow([_t(c) for c in columns])
     for row in rows:writer.writerow([safe_cell(_t(row.get(k,"")) if k=="Phase" else row.get(k,"")) for k in columns])
     return stream.getvalue().encode("utf-8-sig")

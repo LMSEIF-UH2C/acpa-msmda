@@ -11,6 +11,7 @@ sys.path.insert(0, str(ROOT / "src"))
 from acpa_msmda import session_context as ctx  # noqa: E402
 from acpa_msmda.scenario_engine import export_scenario_csv, recommend_phase_tools, validate_scenario  # noqa: E402
 from acpa_msmda.scenario_templates import apply_template, load_templates, scenario_checks  # noqa: E402
+from acpa_msmda.pdf import scenario_pdf  # noqa: E402
 from acpa_msmda.i18n import t, tj  # noqa: E402
 from acpa_msmda.ui import PRIVACY_NOTE, STUDIO, configure_page, page_header  # noqa: E402
 
@@ -95,5 +96,9 @@ metadata = {t("APS"): t(ctx.get(S, "activity")), t("Niveau"): t(ctx.get(S, "leve
             t("Connexion"): t(ctx.CONNECTIVITY_LABELS[connectivity]),
             t("Appareils"): t(ctx.get(S, "devices")), t("Objectifs"): ctx.get(S, "objectives"),
             t("Prérequis"): prerequisites, t("Matériel et contraintes"): ctx.get(S, "equipment")}
-st.download_button(t("Exporter le scénario (CSV)"), export_scenario_csv(metadata, rows),
-                   "scenario_seance_eps.csv", "text/csv")
+pdf_col, csv_col = st.columns([2, 1])
+pdf_col.download_button(t("Scénario (PDF)"), scenario_pdf(metadata, rows, validation, issues),
+                        "scenario_seance_eps.pdf", "application/pdf", type="primary",
+                        icon=":material/picture_as_pdf:", use_container_width=True)
+csv_col.download_button(t("Tableur (CSV)"), export_scenario_csv(metadata, rows),
+                        "scenario_seance_eps.csv", "text/csv", use_container_width=True)

@@ -58,39 +58,9 @@ def refine(query: str, additions: Iterable[str]) -> str:
     return ", ".join([query.strip().rstrip(",")] + extra) if extra else query
 
 
-FONTS = Path(__file__).resolve().parents[2] / "assets" / "fonts"
-
-
-def _fonts() -> tuple[str, str]:
-    """Police DejaVu Sans (latin et arabe) enregistrée une fois pour reportlab."""
-    from reportlab.pdfbase import pdfmetrics
-    from reportlab.pdfbase.ttfonts import TTFont
-
-    if "DejaVu" not in pdfmetrics.getRegisteredFontNames():
-        pdfmetrics.registerFont(TTFont("DejaVu", str(FONTS / "DejaVuSans.ttf")))
-        pdfmetrics.registerFont(TTFont("DejaVu-Bold", str(FONTS / "DejaVuSans-Bold.ttf")))
-    return "DejaVu", "DejaVu-Bold"
-
-
-def _rtl_lines(text: str, font: str, size: float, width: float) -> list[str]:
-    """Coupe un texte arabe en lignes (ordre logique), puis met chaque ligne en forme pour l'affichage :
-    liaison des lettres et ordre de droite à gauche, ligne par ligne pour que le retour à la ligne
-    reste dans le bon ordre."""
-    import arabic_reshaper
-    from bidi.algorithm import get_display
-    from reportlab.pdfbase.pdfmetrics import stringWidth
-
-    lines, current = [], ""
-    for word in str(text).split():
-        trial = f"{current} {word}".strip()
-        if current and stringWidth(arabic_reshaper.reshape(trial), font, size) > width:
-            lines.append(current)
-            current = word
-        else:
-            current = trial
-    if current:
-        lines.append(current)
-    return [get_display(arabic_reshaper.reshape(line), base_dir="R") for line in lines]
+def _rtl_lines(text, font, size, width):  # compatibilité des tests
+    from .pdf import rtl_lines
+    return rtl_lines(text, font, size, width)
 
 
 def report_pdf(query: str, items, matches: Sequence[dict], examined: int, elapsed_ms: float,
@@ -111,7 +81,9 @@ def report_pdf(query: str, items, matches: Sequence[dict], examined: int, elapse
 
     from .store_info import cautions as store_cautions
 
-    regular, bold = _fonts()
+    from .pdf import fonts as _pdf_fonts
+
+    regular, bold = _pdf_fonts()
     rtl = i18n.is_rtl()
     page_width = A4[0] - 32 * mm
     align = TA_RIGHT if rtl else TA_LEFT

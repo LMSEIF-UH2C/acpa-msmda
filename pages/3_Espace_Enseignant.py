@@ -11,6 +11,7 @@ import streamlit as st
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from acpa_msmda import session_context as ctx  # noqa: E402
 from acpa_msmda.scenario_engine import safe_cell  # noqa: E402
+from acpa_msmda.pdf import organisation_pdf  # noqa: E402
 from acpa_msmda.i18n import t  # noqa: E402
 from acpa_msmda.ui import PLANNER, PRIVACY_NOTE, SEARCH, configure_page, page_header  # noqa: E402
 
@@ -64,7 +65,20 @@ writer.writerow([t(h) for h in ("APS", "Niveau", "Effectif", "Durée", "Objectif
 for name, minutes in plan["phases"]:
     writer.writerow([t(ctx.get(S, "activity")), t(ctx.get(S, "level")), class_size, duration,
                      safe_cell(ctx.get(S, "objectives") or ""), t(name), minutes])
-st.download_button(t("Exporter l'organisation (CSV)"), output.getvalue().encode("utf-8-sig"),
-                   file_name="organisation_seance_eps.csv", mime="text/csv")
+advice = []
+if ctx.get(S, "connectivity") != "Disponible":
+    advice.append(t("Connexion limitée sur le lieu de pratique : préférez les chronomètres, les supports "
+                    "téléchargés à l'avance et les fiches papier."))
+if ctx.get(S, "devices") == "Aucun":
+    advice.append(t("Sans appareil : consignes imprimées, ateliers autonomes et observation directe."))
+context_rows = {t("APS"): t(ctx.get(S, "activity")), t("Niveau"): t(ctx.get(S, "level")), t("Effectif"): class_size,
+                t("Durée (min)"): duration, t("Objectifs"): ctx.get(S, "objectives") or ""}
+pdf_col, csv_col = st.columns([2, 1])
+pdf_col.download_button(t("Organisation (PDF)"),
+                        organisation_pdf(context_rows, plan["phases"], plan["groups"], plan["rotation"], advice),
+                        "organisation_seance_eps.pdf", "application/pdf", type="primary",
+                        icon=":material/picture_as_pdf:", use_container_width=True)
+csv_col.download_button(t("Tableur (CSV)"), output.getvalue().encode("utf-8-sig"),
+                        file_name="organisation_seance_eps.csv", mime="text/csv", use_container_width=True)
 st.caption(t("Répartition indicative : environ 10 % du temps pour l'accueil, le retour au calme et le bilan. "
              "À adapter à votre terrain."))

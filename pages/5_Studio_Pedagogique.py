@@ -24,6 +24,9 @@ S = st.session_state
 configure_page(STUDIO)
 page_header(STUDIO, PRIVACY_NOTE)
 
+if ctx.get(S, "guided_path") == "offline" and ctx.get(S, "connectivity") == "Aucune":
+    st.info(t("Prévoyez des consignes imprimées, des démonstrations et des critères observables sans Internet."))
+    st.page_link("pages/3_Espace_Enseignant.py", label=t("Organiser les ateliers"))
 templates = load_templates()
 left, right = st.columns([3, 1], vertical_alignment="bottom")
 with left:

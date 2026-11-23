@@ -4,7 +4,7 @@
   "templates": [
     {
       "id": "endurance_allure",
-      "title": "Endurance — gérer son allure",
+      "title": "Endurance : gérer son allure",
       "activity": "Endurance",
       "level": "Collège",
       "duration": 60,
@@ -62,7 +62,7 @@
     },
     {
       "id": "gymnastique_enchainement",
-      "title": "Gymnastique — construire un enchaînement",
+      "title": "Gymnastique : construire un enchaînement",
       "activity": "Gymnastique",
       "level": "Collège",
       "duration": 60,
@@ -120,7 +120,7 @@
     },
     {
       "id": "basketball_cooperation",
-      "title": "Basketball — coopérer pour progresser",
+      "title": "Basketball : coopérer pour progresser",
       "activity": "Basketball",
       "level": "Lycée",
       "duration": 60,
@@ -177,7 +177,7 @@
     },
     {
       "id": "distance_activite",
-      "title": "À distance — activité physique autonome",
+      "title": "À distance : activité physique autonome",
       "activity": "Activité physique autonome",
       "level": "Lycée",
       "duration": 45,
@@ -234,7 +234,7 @@
     },
     {
       "id": "handball_space",
-      "title": "Handball — créer un espace libre",
+      "title": "Handball : créer un espace libre",
       "activity": "Handball",
       "level": "Lycée",
       "duration": 60,
@@ -281,7 +281,7 @@
     },
     {
       "id": "volleyball_continuity",
-      "title": "Volleyball — maintenir un échange",
+      "title": "Volleyball : maintenir un échange",
       "activity": "Volleyball",
       "level": "Lycée",
       "duration": 60,
@@ -328,7 +328,7 @@
     },
     {
       "id": "sprint_start",
-      "title": "Vitesse — départ et accélération",
+      "title": "Vitesse : départ et accélération",
       "activity": "Athlétisme",
       "level": "Lycée",
       "duration": 60,

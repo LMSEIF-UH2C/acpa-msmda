@@ -51,6 +51,9 @@ with entry:
         label = st.text_input(t("Nom de la série"), max_chars=60, **ctx.bind(S, "series_label", t("Séance 1")))
     with right:
         when = st.date_input(t("Date"), format="DD/MM/YYYY", **ctx.bind(S, "series_date", date.today()))
+    protocol = st.text_input(t("Conditions de mesure"), max_chars=300,
+                             help=t("Précisez le matériel, le protocole et les conditions de réalisation."),
+                             **ctx.bind(S, "measurement_protocol", ""))
     raw = st.text_area(t("Résultats en {u}, une valeur par ligne", u=t(test["unit"])),
                        placeholder="12,5\n13,1\nabs\n11,8", height=180, max_chars=6000,
                        help=t("Ligne vide ou « abs » : élève absent. Virgule ou point acceptés.")
@@ -64,7 +67,9 @@ with entry:
         else:
             all_series.append({"id": uuid.uuid4().hex[:8], "test_id": test_id, "test_name": test["name"],
                                "unit": test["unit"], "label": label.strip() or t("Série"),
-                               "date": when.isoformat(), "codes": codes, "values": parsed.values})
+                               "date": when.isoformat(), "codes": codes, "values": parsed.values,
+                               "protocol": protocol.strip(), "cycle": ctx.get(S, "cycle_number"),
+                               "lesson": ctx.get(S, "lesson_number")})
             ctx.put(S, "series_text", "")
             ctx.put(S, "lab_flash", t("Série « {label} » enregistrée : {n} / {total} élèves mesurés. "
                                       "Ouvrez l'onglet Bilan.", label=label,
@@ -95,10 +100,10 @@ with report:
                                             format_func=t, horizontal=True, **ctx.bind(S, f"direction_{test_id}", "Non précisé"))]
 
         def aligned(serie):
-            values = dict(zip(serie["codes"], serie["values"]))
+            values = dict(zip((int(code[1:]) for code in serie["codes"]), serie["values"]))
             return [values.get(code) for code in union]
 
-        union = sorted(set(last["codes"]) | (set(first["codes"]) if first else set()))
+        union = sorted({int(code[1:]) for code in last["codes"]} | ({int(code[1:]) for code in first["codes"]} if first else set()))
         deltas = None
         if first:
             indicators, deltas = comparison(aligned(first), aligned(last), direction, last["unit"])
@@ -121,7 +126,7 @@ with report:
         last_values = aligned(last)
         first_values = aligned(first) if first else None
         for i, code in enumerate(union):
-            row = [code]
+            row = [f"E{code:03d}"]
             if first:
                 row.append("" if first_values[i] is None else fr(first_values[i]))
             row.append(t("abs") if last_values[i] is None else fr(last_values[i]))
@@ -136,6 +141,10 @@ with report:
         notes = [t("Indicateurs descriptifs calculés uniquement à partir des valeurs saisies ; aucune norme ni aucun barème n'est appliqué."),
                  t("Une variation entre deux séries ne suffit pas à établir un progrès : conditions de mesure, "
                    "protocole et erreur de mesure doivent être comparables.")]
+        for serie in ([first, last] if first else [last]):
+            notes.append(t("Conditions de mesure") + " · " + titles[serie["id"]] + " : " + (serie.get("protocol") or t("Non précisé")))
+        if first and (not first.get("protocol") or not last.get("protocol") or first.get("protocol") != last.get("protocol")):
+            st.warning(t("Conditions de mesure non renseignées ou différentes : interprétez la comparaison avec prudence."))
         if test_id == "cooper":
             notes.append(t("Vitesse moyenne = distance (m) / 200. Ce n'est pas une VMA mesurée."))
         for note in notes:

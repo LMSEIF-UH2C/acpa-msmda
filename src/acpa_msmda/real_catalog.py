@@ -1,6 +1,7 @@
 """Matching transparent des références documentées du catalogue réel."""
 from __future__ import annotations
 import json
+import re
 from pathlib import Path
 from .context_engine import normalize_text,analyze_context,detect_language
 from .contracts import ContextRequest
@@ -74,27 +75,43 @@ def match_pending_tools(context,votes=None,limit=8,path=DEFAULT_PATH):
 VERIFIED = ("OFFICIAL_SOURCE_FEATURES_ONLY", "FEATURES_VERIFIED_ON_OFFICIAL_SITE")
 
 
+# Besoins voisins : une demande de cross ou de course sur route retrouve aussi les outils de course.
+# Applications réelles du catalogue sans rapport avec l'EPS malgré un mot commun (boussole...).
+NOT_EPS = re.compile(r"qibla|kaaba|mushroom|prayer", re.IGNORECASE)
+# Marques dont les applications servent surtout avec leur montre ou leur capteur.
+DEVICE_BRANDS = re.compile(r"\b(garmin|polar|coros|suunto|wahoo|fitbit|whoop|zepp|amazfit|chronojump)\b", re.IGNORECASE)
+
+RELATED = {"cross": ("course", "endurance"), "course sur route": ("course",),
+           "beach": ("volleyball", "football", "handball")}
+
+
 def recommend(context, votes=None, path=DEFAULT_PATH):
     """Recommandations parmi toutes les applications retenues dans le catalogue.
 
-    Chaque fiche est comparée à la demande par les mots-clés EPS de son nom et de sa description
-    officielle. Le classement favorise, dans l'ordre : le nombre de besoins couverts, leur présence
-    dans le nom de l'application, les fonctions vérifiées, l'usage hors connexion annoncé quand il est
-    demandé, puis les avis des enseignants. Chaque résultat indique si ses fonctions sont vérifiées.
+    Pertinence : chaque besoin de la demande trouvé dans la fiche compte, davantage s'il s'agit d'une
+    activité physique (natation, basket...) que d'une fonction (chronomètre, score...), et davantage
+    s'il figure dans le nom de l'application que dans sa seule description. Un besoin voisin
+    (RELATED) compte pour moitié. Quand la demande nomme une activité et que des fiches y répondent,
+    les fiches qui ne couvrent aucune activité (plateformes généralistes) sont écartées.
 
-    Les fiches évaluées sur les 18 critères reçoivent un score sur 100, pondéré selon les contraintes
-    de la demande (voir scoring.py). À besoins couverts et statut de vérification égaux, les fiches
-    sont classées par ce score ; une fiche non encore évaluée compte pour la note neutre de 50. Une
-    fiche évaluée hors programme d'EPS n'est pas recommandée.
+    Adéquation affichée (sur 100) = moitié pertinence, moitié qualité sur les 18 critères pondérés
+    selon les contraintes (50 pour une fiche non encore évaluée), avec de petits ajustements :
+    fonctions vérifiées, usage hors connexion annoncé quand il est demandé, interface en arabe pour
+    une demande en arabe, avis des enseignants. Les fiches sont classées par cette adéquation, si bien
+    que l'ordre affiché suit toujours le score affiché. Une fiche évaluée hors programme d'EPS n'est
+    pas recommandée.
     """
     from .scoring import relevant, score as criteria_score
-    from .keywords import keywords_in
+    from .keywords import ACTIVITIES, keywords_in
     from .store_info import cautions as store_cautions, works_offline
     if not isinstance(context, str) or not context.strip(): raise ValueError("Contexte requis")
-    analysis = analyze_context(ContextRequest(context, detect_language(context)))
+    language = detect_language(context)
+    analysis = analyze_context(ContextRequest(context, language))
     offline = "connectivite_faible" in analysis.flags
     wanted = set(keywords_in(context))
-    words = set(normalize_text(context).split())
+    related = {r for k in wanted for r in RELATED.get(k, ())} - wanted
+    activities = (wanted | related) & ACTIVITIES
+    best = sum((3 if k in ACTIVITIES else 1) * 3 for k in wanted) or 1
     votes = votes or {}
     found = []
     weights = analysis.weights.values
@@ -102,26 +119,41 @@ def recommend(context, votes=None, path=DEFAULT_PATH):
         # Seules les applications retrouvées sur une source officielle sont suggérées.
         if not t.get("source_url") or (t.get("store") or {}).get("available") is False: continue
         if offline and t.get("requirement") == "internet": continue
+        if NOT_EPS.search(t["name"]): continue
         rated = t.get("criteria_scores")
         if rated and (not relevant(rated) or (offline and rated.get("C6") == 1.0)): continue
-        hits = wanted & set(t.get("keywords", []))
-        documented = sorted({term for term in t.get("activities", []) + t.get("uses", []) if normalize_text(term) in words})
-        if not hits and not documented: continue
+        keys = set(t.get("keywords", []))
+        # Activités et usages documentés à la main sur la fiche : comparés par mot-clé, quelle que
+        # soit la langue de la demande.
+        documented = {k for term in t.get("activities", []) + t.get("uses", []) for k in keywords_in(term)} & wanted
+        hits = (wanted & keys) | documented
+        near = (related & keys) - hits
+        if not hits and not near and not documented: continue
+        strong = set(t.get("title_keywords", [])) | documented
+        relevance = (sum((3 if k in ACTIVITIES else 1) * (3 if k in strong else 1) for k in hits)
+                     + sum(1.5 if k in ACTIVITIES else .5 for k in near))
         verified = t.get("evidence_status") in VERIFIED
-        title_hits = wanted & set(t.get("title_keywords", []))
-        score = (4 * len(hits | set(documented)) + 2 * len(title_hits) + (3 if verified else 0)
-                 + (1 if offline and works_offline(t) else 0) + max(-3, min(3, votes.get(t["id"], 0))))
+        quality = criteria_score(rated, weights) if rated else None
+        bonus = ((3 if verified else 0) + (4 if offline and works_offline(t) else 0)
+                 + (4 if language == "ar" and (t.get("store") or {}).get("has_ar") else 0)
+                 + 2 * max(-3, min(3, votes.get(t["id"], 0))))
+        fit = max(0.0, min(100.0, 50 * min(1.0, relevance / best) + .5 * (quality if quality is not None else 50.0) + bonus))
         cautions = [t.get("caution", "")] + store_cautions(t)
-        if analysis.flags and "budget_serre" in analysis.flags and t.get("requirement") == "materiel":
-            cautions.append("Coût du matériel à vérifier.")
-        found.append({**t, "matched_terms": sorted(hits | set(documented)), "verified": verified,
-                      "offline_hint": works_offline(t),
-                      "score": score, "cautions": cautions,
-                      "criteria_total": criteria_score(rated, weights) if rated else None})
-    # Besoins couverts d'abord ; à couverture égale, fonctions vérifiées, puis score sur 18 critères.
-    # Une fiche non encore évaluée compte pour la note neutre (50), comme une fiche sans critère documenté.
-    found.sort(key=lambda t: (-len(t["matched_terms"]), not t["verified"],
-                              -(t["criteria_total"] if t["criteria_total"] is not None else 50.0),
-                              -t["score"], t["name"].casefold()))
-    return {"context_flags": list(analysis.flags), "wanted": sorted(wanted), "matches": found,
+        device = t.get("requirement") == "materiel" or bool(DEVICE_BRANDS.search(t["name"]))
+        if device:
+            cautions.append("Matériel requis : montre ou capteur compatible.")
+            if "budget_serre" in analysis.flags:
+                cautions.append("Coût du matériel à vérifier.")
+        found.append({**t, "matched_terms": sorted(hits | documented | near), "device": device, "verified": verified,
+                      "activity_hit": bool((hits | near | documented) & ACTIVITIES),
+                      "offline_hint": works_offline(t), "relevance": relevance,
+                      "score": relevance + bonus, "fit": round(fit, 1), "cautions": cautions,
+                      "criteria_total": quality})
+    # Demande qui nomme une activité : les outils sans aucune activité commune sont écartés,
+    # sauf si aucune fiche ne couvre l'activité (on garde alors les outils de fonction).
+    if activities and any(t["activity_hit"] for t in found):
+        found = [t for t in found if t["activity_hit"]]
+    found.sort(key=lambda t: (-t["fit"], -t["relevance"], not t["verified"], t["name"].casefold()))
+    return {"context_flags": list(analysis.flags), "wanted": sorted(wanted), "related": sorted(related),
+            "language": language, "matches": found,
             "method": "keyword_matching_full_catalogue", "ranking_validated": False}

@@ -31,8 +31,8 @@ class RealCatalogueTests(unittest.TestCase):
         self.assertGreater(len(result["matches"]),50)
         self.assertTrue(any(not t["verified"] for t in result["matches"]))
         self.assertTrue(all({"basketball","tactique","score"}&set(t["matched_terms"]) for t in result["matches"]))
-        covered=[len(t["matched_terms"]) for t in result["matches"]]
-        self.assertEqual(covered,sorted(covered,reverse=True))
+        fits=[t["fit"] for t in result["matches"]]
+        self.assertEqual(fits,sorted(fits,reverse=True))
         self.assertEqual(recommend("zzzzxyz")["matches"],[])
     def test_recommend_offline_and_votes(self):
         offline=recommend("course endurance sans connexion")["matches"]
@@ -62,11 +62,13 @@ class RecommendFunctionTests(unittest.TestCase):
 
 
 def test_recommend_puts_verified_first_at_equal_coverage():
+    # L'ordre suit le score affiché ; à score et pertinence égaux, les fonctions vérifiées d'abord.
     matches = recommend("course d'endurance, 35 élèves, sans connexion")["matches"]
     for before, after in zip(matches, matches[1:]):
-        if len(before["matched_terms"]) == len(after["matched_terms"]):
+        assert before["fit"] >= after["fit"]
+        if before["fit"] == after["fit"] and before["relevance"] == after["relevance"]:
             assert before["verified"] or not after["verified"]
-    assert [t["name"] for t in matches[:2]] == ["Garmin Connect", "Strava"]
+    assert all("endurance" in t["matched_terms"] or "course" in t["matched_terms"] for t in matches[:10])
 
 
 def test_recommend_uses_criteria_scores_and_relevance():
@@ -78,10 +80,10 @@ def test_recommend_uses_criteria_scores_and_relevance():
     off=[t for t in tools.values() if t.get("criteria_scores") and not relevant(t["criteria_scores"])]
     ids={t["id"] for t in recommend("score basket volley course yoga golf randonnée")["matches"]}
     assert off and not ids.intersection(t["id"] for t in off)
-    # À besoins et statut égaux, un meilleur score passe devant.
+    # À pertinence et bonus égaux, une meilleure qualité sur les critères passe devant.
     m=result["matches"]
     for a,b in zip(m,m[1:]):
-        if len(a["matched_terms"])==len(b["matched_terms"]) and a["verified"]==b["verified"]:
+        if a["relevance"]==b["relevance"] and a["score"]==b["score"]:
             sa=a["criteria_total"] if a["criteria_total"] is not None else 50.0
             sb=b["criteria_total"] if b["criteria_total"] is not None else 50.0
             assert sa>=sb

@@ -31,6 +31,10 @@
   "ar": "فعّل الزر لإظهار البطاقات التي لم يتم التحقق منها.",
   "en": "Turn on the switch to include entries still to be checked."
  },
+ "Activité": {
+  "ar": "النشاط",
+  "en": "Activity"
+ },
  "Activité et bien-être": {
   "ar": "النشاط والرفاه",
   "en": "Activity and well-being"
@@ -239,6 +243,10 @@
   "ar": "بوصلة",
   "en": "Compass"
  },
+ "Budget limité": {
+  "ar": "ميزانية محدودة",
+  "en": "Limited budget"
+ },
  "Calculée sur {n} élève(s) mesuré(s).": {
   "ar": "محسوبة على {n} تلميذ تم قياسه.",
   "en": "Based on {n} measured pupil(s)."
@@ -291,6 +299,10 @@
   "ar": "القسم المعكوس",
   "en": "Flipped classroom"
  },
+ "Classe nombreuse": {
+  "ar": "قسم مكتظ",
+  "en": "Large class"
+ },
  "Classée {age} par le magasin : déconseillée avec des élèves.": {
   "ar": "مصنفة {age} من طرف المتجر: لا يُنصح بها مع التلاميذ.",
   "en": "Rated {age} by the store: not advised with pupils."
@@ -330,6 +342,10 @@
  "Compatibilité avec équipement Garmin et confidentialité à vérifier.": {
   "ar": "يجب التحقق من التوافق مع أجهزة Garmin ومن السرية.",
   "en": "Check compatibility with Garmin devices and privacy."
+ },
+ "Compris : ": {
+  "ar": "ما تم فهمه: ",
+  "en": "Understood: "
  },
  "Conception pédagogique et multimédia": {
   "ar": "التصميم البيداغوجي والوسائط المتعددة",
@@ -375,6 +391,10 @@
   "ar": "محتويات تفاعلية",
   "en": "Interactive content"
  },
+ "Contrainte": {
+  "ar": "إكراه",
+  "en": "Constraint"
+ },
  "Contrôle à distance par navigateur": {
   "ar": "التحكم عن بعد عبر المتصفح",
   "en": "Remote control from a browser"
@@ -398,6 +418,10 @@
  "Coût": {
   "ar": "التكلفة",
   "en": "Cost"
+ },
+ "Coût du matériel à vérifier.": {
+  "ar": "يجب التحقق من تكلفة العتاد.",
+  "en": "Check the cost of the equipment."
  },
  "Critères de réussite et retour aux élèves": {
   "ar": "معايير النجاح والتغذية الراجعة للتلاميذ",
@@ -630,6 +654,10 @@
  "Fiche numérique": {
   "ar": "بطاقة رقمية",
   "en": "Digital worksheet"
+ },
+ "Fonction": {
+  "ar": "الوظيفة",
+  "en": "Feature"
  },
  "Fonctionne hors connexion": {
   "ar": "يعمل دون اتصال",
@@ -966,6 +994,10 @@
  "Matériel et procédure de mesure à confirmer.": {
   "ar": "يجب تأكيد العتاد وطريقة القياس.",
   "en": "Equipment and measurement procedure to confirm."
+ },
+ "Matériel requis : montre ou capteur compatible.": {
+  "ar": "عتاد ضروري: ساعة أو جهاز استشعار متوافق.",
+  "en": "Equipment needed: compatible watch or sensor."
  },
  "Maîtriser les règles de parade et d'installation des tapis.": {
   "ar": "التحكم في قواعد المساعدة وتثبيت البساط.",
@@ -1443,6 +1475,10 @@
   "ar": "دون حساب",
   "en": "No account"
  },
+ "Sans connexion": {
+  "ar": "بدون اتصال",
+  "en": "No connection"
+ },
  "Sans publicité": {
   "ar": "دون إشهار",
   "en": "No ads"
@@ -1815,6 +1851,18 @@
   "ar": "الجري",
   "en": "running"
  },
+ "course d'orientation": {
+  "ar": "السباق التوجيهي",
+  "en": "orienteering"
+ },
+ "course sur route": {
+  "ar": "السباق على الطريق",
+  "en": "road race"
+ },
+ "cross": {
+  "ar": "العدو الريفي",
+  "en": "cross-country"
+ },
  "danse": {
   "ar": "الرقص",
   "en": "dance"
@@ -1843,6 +1891,10 @@
   "ar": "الإسبانية",
   "en": "Spanish"
  },
+ "fléchettes": {
+  "ar": "الدارتس",
+  "en": "darts"
+ },
  "football": {
   "ar": "كرة القدم",
   "en": "football"
@@ -1859,13 +1911,25 @@
   "ar": "فبراير",
   "en": "Feb"
  },
+ "golf": {
+  "ar": "الغولف",
+  "en": "golf"
+ },
  "gymnastique": {
   "ar": "الجمباز",
   "en": "gymnastics"
  },
+ "haltérophilie": {
+  "ar": "رفع الأثقال",
+  "en": "weightlifting"
+ },
  "handball": {
   "ar": "كرة اليد",
   "en": "handball"
+ },
+ "hockey": {
+  "ar": "الهوكي",
+  "en": "hockey"
  },
  "inclusion": {
   "ar": "الإدماج",
@@ -1882,6 +1946,10 @@
  "janv.": {
   "ar": "يناير",
   "en": "Jan"
+ },
+ "jeux traditionnels": {
+  "ar": "الألعاب التقليدية",
+  "en": "traditional games"
  },
  "juil.": {
   "ar": "يوليوز",
@@ -1959,6 +2027,14 @@
   "ar": "البرتغالية",
   "en": "Portuguese"
  },
+ "probable": {
+  "ar": "مرجح",
+  "en": "likely"
+ },
+ "pétanque": {
+  "ar": "الكرة الحديدية",
+  "en": "pétanque"
+ },
  "randonnée": {
   "ar": "المشي الجبلي",
   "en": "hiking"
@@ -1970,6 +2046,10 @@
  "respiration": {
   "ar": "التنفس",
   "en": "breathing"
+ },
+ "roller": {
+  "ar": "الرولر والسكايت",
+  "en": "roller and skate"
  },
  "rugby": {
   "ar": "الرغبي",
@@ -1991,6 +2071,10 @@
   "ar": "شتنبر",
   "en": "Sep"
  },
+ "ski": {
+  "ar": "التزلج",
+  "en": "skiing"
+ },
  "souplesse": {
   "ar": "المرونة",
   "en": "flexibility"
@@ -1998,6 +2082,18 @@
  "sports de combat": {
   "ar": "رياضات النزال",
   "en": "combat sports"
+ },
+ "sports de plage": {
+  "ar": "الرياضات الشاطئية",
+  "en": "beach sports"
+ },
+ "surf": {
+  "ar": "ركوب الموج",
+  "en": "surfing"
+ },
+ "sûr": {
+  "ar": "مؤكد",
+  "en": "certain"
  },
  "tactique": {
   "ar": "التكتيك",
@@ -2010,6 +2106,10 @@
  "tennis de table": {
   "ar": "كرة الطاولة",
   "en": "table tennis"
+ },
+ "tir à l'arc": {
+  "ar": "الرماية بالنبال",
+  "en": "archery"
  },
  "tournoi": {
   "ar": "الدوري",
@@ -2026,6 +2126,10 @@
  "vitesse": {
   "ar": "السرعة",
   "en": "speed"
+ },
+ "voile": {
+  "ar": "الشراع",
+  "en": "sailing"
  },
  "volleyball": {
   "ar": "الكرة الطائرة",
@@ -2143,6 +2247,10 @@
   "ar": "تلاميذ في تراجع",
   "en": "Pupils declining"
  },
+ "Élèves en situation de handicap": {
+  "ar": "تلاميذ في وضعية إعاقة",
+  "en": "Pupils with disabilities"
+ },
  "Élèves mesurés": {
   "ar": "التلاميذ المقيسون",
   "en": "Pupils measured"
@@ -2194,6 +2302,10 @@
  "échauffement": {
   "ar": "الإحماء",
   "en": "warm-up"
+ },
+ "échecs": {
+  "ar": "الشطرنج",
+  "en": "chess"
  },
  "équipes": {
   "ar": "الفرق",

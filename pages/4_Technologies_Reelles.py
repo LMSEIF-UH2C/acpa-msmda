@@ -16,6 +16,7 @@ from acpa_msmda import store_info  # noqa: E402
 from acpa_msmda import i18n  # noqa: E402
 from acpa_msmda.i18n import t, tj  # noqa: E402
 from acpa_msmda.keywords import label as keyword_label  # noqa: E402
+from acpa_msmda.understanding import confidence_label, understand  # noqa: E402
 from acpa_msmda.ui import PRIVACY_NOTE, SEARCH, configure_page, page_header  # noqa: E402
 
 DOCUMENTED = ("OFFICIAL_SOURCE_FEATURES_ONLY", "FEATURES_VERIFIED_ON_OFFICIAL_SITE")
@@ -45,11 +46,11 @@ def _vote_buttons(tool: dict, prefix: str) -> None:
 
 def _evaluation(tool: dict) -> None:
     """Score de l'application pour la demande, points forts et points de vigilance."""
+    st.markdown("**" + t("Score : {n}/100", n=f"{tool['fit']:.0f}") + "**")
+    st.progress(min(1.0, tool["fit"] / 100))
     rated = tool.get("criteria_scores")
     if not rated or tool.get("criteria_total") is None:
         return
-    st.markdown("**" + t("Score : {n}/100", n=f"{tool['criteria_total']:.0f}") + "**")
-    st.progress(min(1.0, tool["criteria_total"] / 100))
     strong, weak = scoring.strengths(rated), scoring.weaknesses(rated)
     if strong:
         st.write(t("Points forts : ") + tj(scoring.PUBLIC_LABELS[c] for c in strong))
@@ -104,6 +105,12 @@ if query:
         ctx.put(S, "rec_ranking", {k: feedback.score(v) for k, v in feedback.tallies().items()})
     result = recommend(query, votes=ctx.store(S)["rec_ranking"])
     matches = result["matches"]
+    understood = understand(query)
+    if understood:
+        st.caption(t("Compris : ") + " · ".join(
+            t(item.parameter) + i18n.colon()
+            + (keyword_label(item.value) if item.parameter in ("Activité", "Fonction") else t(item.value))
+            + f" ({t(confidence_label(item.confidence))})" for item in understood))
     if not matches:
         st.info(t("Aucune application du catalogue ne correspond à ces mots. Précisez l'activité "
                   "(ex. course, basket, gymnastique) ou le besoin (chronométrage, vidéo, évaluation)."))
@@ -122,8 +129,7 @@ if query:
         opinions = feedback.tallies()
         for tool in matches[:shown]:
             status = t("Fonctions vérifiées") if tool["verified"] else t("À vérifier")
-            total = tool["criteria_total"]
-            label = f"{tool['name']} · {status}" + (f" · {total:.0f}/100" if total is not None else "")
+            label = f"{tool['name']} · {status} · {tool['fit']:.0f}/100"
             with st.expander(label):
                 if tool["verified"]:
                     st.badge(status, icon=":material/verified:", color="green")

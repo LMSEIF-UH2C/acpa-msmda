@@ -143,6 +143,10 @@
   "ar": "التعلم",
   "en": "Learning"
  },
+ "Arrêter la dictée": {
+  "ar": "إيقاف الإملاء",
+  "en": "Stop dictation"
+ },
  "Assistants IA et recherche": {
   "ar": "المساعدات الذكية والبحث",
   "en": "AI assistants and research"
@@ -482,6 +486,22 @@
  "Diagnostic": {
   "ar": "التشخيص",
   "en": "Diagnosis"
+ },
+ "Dicter ma demande": {
+  "ar": "إملاء طلبي صوتيًا",
+  "en": "Dictate my request"
+ },
+ "Dicter ma demande (en français)": {
+  "ar": "إملاء طلبي صوتيًا (بالفرنسية)",
+  "en": "Dictate my request (in French)"
+ },
+ "Dictée interrompue : réessayez.": {
+  "ar": "توقف الإملاء: أعد المحاولة.",
+  "en": "Dictation stopped: try again."
+ },
+ "Dictée non disponible sur ce navigateur.": {
+  "ar": "الإملاء الصوتي غير متاح في هذا المتصفح.",
+  "en": "Dictation is not available in this browser."
  },
  "Différence entre marque bras levés et marque au saut.": {
   "ar": "الفرق بين العلامة بالذراعين المرفوعتين وعلامة القفز.",
@@ -1087,6 +1107,10 @@
   "ar": "قياس الزوايا والمسافات",
   "en": "Angle and distance measurement"
  },
+ "Micro refusé : autorisez-le dans les réglages du navigateur.": {
+  "ar": "تم رفض الميكروفون: اسمح به في إعدادات المتصفح.",
+  "en": "Microphone blocked: allow it in the browser settings."
+ },
  "Minuteur d'intervalles": {
   "ar": "مؤقت الفترات",
   "en": "Interval timer"
@@ -1246,6 +1270,10 @@
  "Parcours balisé, chronomètre, points d'eau.": {
   "ar": "مسار محدد بعلامات، ميقاتية، نقاط ماء.",
   "en": "Marked course, stopwatch, water points."
+ },
+ "Parlez, puis touchez « Arrêter ».": {
+  "ar": "تكلم، ثم اضغط «إيقاف».",
+  "en": "Speak, then tap \"Stop\"."
  },
  "Partir d'un modèle": {
   "ar": "الانطلاق من نموذج",
@@ -1419,9 +1447,17 @@
   "ar": "التقرير",
   "en": "Report"
  },
+ "Rapport PDF": {
+  "ar": "تقرير PDF",
+  "en": "PDF report"
+ },
  "Rapport des recommandations": {
   "ar": "تقرير التوصيات",
   "en": "Recommendations report"
+ },
+ "Rapport en français pour une demande en arabe.": {
+  "ar": "يصدر التقرير بالفرنسية للطلب المكتوب بالعربية.",
+  "en": "Report in French for a request in Arabic."
  },
  "Recueillir les représentations de l'allure et rappeler les consignes.": {
   "ar": "جمع تمثلات التلاميذ حول الإيقاع والتذكير بالتعليمات.",

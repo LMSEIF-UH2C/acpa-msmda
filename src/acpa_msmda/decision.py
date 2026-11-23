@@ -57,50 +57,89 @@ def refine(query: str, additions: Iterable[str]) -> str:
     return ", ".join([query.strip().rstrip(",")] + extra) if extra else query
 
 
-def report_html(query: str, understood: Sequence[str], matches: Sequence[dict], examined: int,
-                elapsed_ms: float, limit: int = 10) -> bytes:
-    """Rapport des recommandations, autonome, lisible sur téléphone et imprimable en PDF."""
-    e = html.escape
-    rtl = i18n.is_rtl()
-    title = t("Rapport des recommandations")
-    parts = [
-        f"<!DOCTYPE html><html lang='{i18n.current()}' dir='{'rtl' if rtl else 'ltr'}'><head><meta charset='utf-8'>",
-        "<meta name='viewport' content='width=device-width,initial-scale=1'>",
-        f"<title>{e(title)}</title><style>",
-        "body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:24px;color:#1f2933;max-width:820px}",
-        "h1{font-size:1.5rem;margin:0 0 4px}h2{font-size:1.1rem;margin:24px 0 6px}",
-        ".muted{color:#52606d}.tool{border-top:1px solid #e4e7eb;padding:10px 0}",
-        ".row{display:grid;grid-template-columns:minmax(140px,1fr) 3.5rem 2fr;gap:4px 10px;align-items:center;margin:3px 0}",
-        ".bar{height:9px;background:#e4e7eb;border-radius:5px;overflow:hidden}.bar span{display:block;height:100%;background:#2563eb}",
-        "ul{margin:4px 0;padding-inline-start:20px}a{color:#1d4ed8}@media print{body{margin:0}a{color:inherit}}</style></head><body>",
-        f"<h1>{e(title)}</h1>",
-        f"<p class='muted'>{e(t('Demande : '))}{e(query)}<br>{e(t('Date : '))}{date.today().isoformat()}</p>",
-    ]
-    if understood:
-        parts.append(f"<p>{e(t('Compris : '))}{e(' · '.join(understood))}</p>")
-    parts.append(f"<p class='muted'>{e(t('{n} applications examinées, {m} retenues, analyse en {ms} ms.', n=examined, m=len(matches), ms=round(elapsed_ms)))}</p>")
+def _latin(text: str) -> str:
+    """Texte limité aux caractères des polices PDF standard (les noms en écriture arabe sont omis)."""
+    text = str(text).replace("\u2009", " ").replace("\u202f", " ")
+    return text.encode("cp1252", "ignore").decode("cp1252")
 
-    def row(label: str, value: float | None) -> str:
-        if value is None:
-            return f"<div class='row'><span>{e(t(label))}</span><span>–</span><span class='muted'>{e(t('non renseigné'))}</span></div>"
-        return (f"<div class='row'><span>{e(t(label))}</span><span>{value:.0f}</span>"
-                f"<div class='bar'><span style='width:{max(0.0, min(100.0, value)):.0f}%'></span></div></div>")
 
-    for rank, tool in enumerate(matches[:limit], 1):
-        status = t("Fonctions vérifiées") if tool.get("verified") else t("À vérifier")
-        parts.append(f"<div class='tool'><h2>{rank}. {e(tool['name'])}</h2><p class='muted'>{e(status)} · {e(t(tool.get('category', '')))}</p>")
-        parts.append(row("Adéquation à la demande", tool.get("fit")))
-        for label, value in bars(tool.get("criteria_scores")):
-            parts.append(row(label, value))
-        notes = [n for n in tool.get("cautions", []) if n]
-        if notes:
-            parts.append("<ul>" + "".join(f"<li>{e(t(n))}</li>" for n in notes) + "</ul>")
-        if tool.get("source_url"):
-            parts.append(f"<p><a href='{e(tool['source_url'])}'>{e(t("Voir l'application"))}</a></p>")
-        parts.append("</div>")
-    parts.append(f"<p class='muted'>{e(t('Fonctions annoncées par les éditeurs : à essayer avant la séance. Vérifiez les conditions d’utilisation et l’âge minimal requis avant tout usage avec des élèves.'))}</p>")
-    parts.append("</body></html>")
-    return "".join(parts).encode("utf-8")
+def report_pdf(query: str, items, matches: Sequence[dict], examined: int, elapsed_ms: float,
+               keyword_label, limit: int = 10) -> bytes:
+    """Rapport des recommandations en PDF, en français ou en anglais.
+
+    Interface en arabe : le rapport sort en français (l'écriture arabe demande une police et une mise
+    en forme que les PDF standard n'offrent pas). La demande saisie en arabe est alors remplacée par
+    ce que l'application en a compris, déjà exprimé en français."""
+    from io import BytesIO
+
+    from reportlab.lib import colors
+    from reportlab.lib.pagesizes import A4
+    from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
+    from reportlab.lib.units import mm
+    from reportlab.platypus import Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
+
+    from .store_info import cautions as store_cautions
+
+    shown = i18n.current()
+    out = shown if shown in ("fr", "en") else "fr"
+    token = i18n.use(out)
+    try:
+        e = lambda x: html.escape(_latin(x))
+        base = getSampleStyleSheet()
+        body = ParagraphStyle("b", parent=base["BodyText"], fontName="Helvetica", fontSize=9.5, leading=12.5)
+        muted = ParagraphStyle("m", parent=body, textColor=colors.HexColor("#52606d"))
+        h1 = ParagraphStyle("h1", parent=base["Heading1"], fontName="Helvetica-Bold", fontSize=16, spaceAfter=4)
+        h2 = ParagraphStyle("h2", parent=base["Heading2"], fontName="Helvetica-Bold", fontSize=11.5, spaceBefore=10, spaceAfter=2)
+        story = [Paragraph(e(t("Rapport des recommandations")), h1)]
+        typed = _latin(query).strip() if shown != "ar" else ""
+        if typed:
+            story.append(Paragraph(e(t("Demande : ")) + e(typed), body))
+        labels = understood_labels(items, keyword_label)
+        if labels:
+            story.append(Paragraph(e(t("Compris : ")) + e(" · ".join(labels)), body))
+        story.append(Paragraph(e(t("Date : ")) + date.today().isoformat() + " · " + e(t(
+            "{n} applications examinées, {m} retenues, analyse en {ms} ms.", n=examined, m=len(matches),
+            ms=round(elapsed_ms))), muted))
+
+        def bar(value):
+            if value is None:
+                return Paragraph(e(t("non renseigné")), muted)
+            table = Table([["", ""]], colWidths=[max(.5, value) * .55 * mm, max(.5, 100 - value) * .55 * mm], rowHeights=[2.6 * mm])
+            table.setStyle(TableStyle([("BACKGROUND", (0, 0), (0, 0), colors.HexColor("#2563eb")),
+                                       ("BACKGROUND", (1, 0), (1, 0), colors.HexColor("#e4e7eb")),
+                                       ("LEFTPADDING", (0, 0), (-1, -1), 0), ("RIGHTPADDING", (0, 0), (-1, -1), 0)]))
+            return table
+
+        for rank, tool in enumerate(matches[:limit], 1):
+            name = _latin(tool["name"]).strip() or tool.get("id", "")
+            status = t("Fonctions vérifiées") if tool.get("verified") else t("À vérifier")
+            story.append(Paragraph(f"{rank}. {e(name)}", h2))
+            story.append(Paragraph(e(status + " · " + t(tool.get("category", ""))), muted))
+            rows = [[Paragraph(e(t("Adéquation à la demande")), body), f"{tool.get('fit', 0):.0f}", bar(tool.get("fit"))]]
+            for label, value in bars(tool.get("criteria_scores")):
+                rows.append([Paragraph(e(t(label)), body), "" if value is None else f"{value:.0f}", bar(value)])
+            grid = Table(rows, colWidths=[62 * mm, 12 * mm, 60 * mm], hAlign="LEFT")
+            grid.setStyle(TableStyle([("VALIGN", (0, 0), (-1, -1), "MIDDLE"), ("FONTNAME", (1, 0), (1, -1), "Helvetica"),
+                                      ("FONTSIZE", (1, 0), (1, -1), 9)]))
+            story.append(grid)
+            # Mises en garde recalculées dans la langue du rapport (celles de l'écran suivent l'interface).
+            notes = [tool.get("caution", "")] + store_cautions(tool)
+            if tool.get("device"):
+                notes.append("Matériel requis : montre ou capteur compatible.")
+            for note in [n for n in notes if n]:
+                story.append(Paragraph("• " + e(t(note)), muted))
+            if tool.get("source_url"):
+                url = html.escape(tool["source_url"])
+                story.append(Paragraph(f"<link href='{url}' color='#1d4ed8'>{url}</link>", muted))
+        story += [Spacer(1, 6 * mm), Paragraph(e(t("Fonctions annoncées par les éditeurs : à essayer avant la séance. Vérifiez les conditions d’utilisation et l’âge minimal requis avant tout usage avec des élèves.")), muted)]
+        stream = BytesIO()
+        SimpleDocTemplate(stream, pagesize=A4, leftMargin=16 * mm, rightMargin=16 * mm, topMargin=14 * mm,
+                          bottomMargin=14 * mm, title=_latin(t("Rapport des recommandations")),
+                          author="ACPA/MSMDA").build(story)
+        return stream.getvalue()
+    finally:
+        i18n.use(shown)
+        del token
 
 
 def understood_labels(items, keyword_label) -> list[str]:
@@ -112,4 +151,4 @@ def understood_labels(items, keyword_label) -> list[str]:
             + f" ({t(confidence_label(i.confidence))})" for i in items]
 
 
-__all__ = ["GROUPS", "REFINEMENTS", "bars", "refine", "report_html", "understood_labels", "tj"]
+__all__ = ["GROUPS", "REFINEMENTS", "bars", "refine", "understood_labels", "tj"]

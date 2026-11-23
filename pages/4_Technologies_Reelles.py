@@ -16,7 +16,7 @@ from acpa_msmda import session_context as ctx  # noqa: E402
 from acpa_msmda.real_catalog import load_real_tools, recommend  # noqa: E402
 from acpa_msmda import scoring  # noqa: E402
 from acpa_msmda import store_info  # noqa: E402
-from acpa_msmda import decision, i18n  # noqa: E402
+from acpa_msmda import decision, i18n, voice  # noqa: E402
 from acpa_msmda.i18n import t, tj  # noqa: E402
 from acpa_msmda.keywords import label as keyword_label  # noqa: E402
 from acpa_msmda.understanding import understand  # noqa: E402
@@ -124,6 +124,11 @@ st.subheader(t("Suggestions pour votre séance"))
 if st.button(t("Partir de ma séance : ") + ctx.summary(S), icon=":material/assignment:"):
     ctx.put(S, "search_context", ctx.search_query(S))
     ctx.put(S, "search_query", ctx.search_query(S))
+spoken = voice.dictation("dictation")
+if spoken and spoken.get("at") != ctx.store(S).get("dictation_at"):
+    ctx.put(S, "dictation_at", spoken.get("at"))
+    before = (ctx.store(S).get("search_context") or "").strip()
+    ctx.put(S, "search_context", f"{before}, {spoken['text']}" if before else spoken["text"])
 context = st.text_area(t("Activité, objectif et contraintes"),
                        placeholder=t("Ex. endurance, 35 élèves, sans connexion, budget limité"),
                        max_chars=1000, height=95, **ctx.bind(S, "search_context", ""))
@@ -161,10 +166,10 @@ if query:
         st.pills(t("Ajouter à la demande"), decision.REFINEMENTS, format_func=t, selection_mode="multi",
                  key="refine_pick")
         st.button(t("Appliquer"), type="primary", on_click=_apply_refine, use_container_width=True)
-    report.download_button(t("Rapport"), icon=":material/description:", use_container_width=True,
-                           data=decision.report_html(query, understood, matches, examined, elapsed),
-                           file_name="rapport_recommandations.html", mime="text/html",
-                           help=t("S'ouvre dans le navigateur ; « Imprimer » permet de l'enregistrer en PDF."))
+    report.download_button(t("Rapport PDF"), icon=":material/picture_as_pdf:", use_container_width=True,
+                           data=decision.report_pdf(query, understand(query), matches, examined, elapsed, keyword_label),
+                           file_name="rapport_recommandations.pdf", mime="application/pdf",
+                           help=t("Rapport en français pour une demande en arabe.") if i18n.is_rtl() else None)
     if not matches:
         st.info(t("Aucune application du catalogue ne correspond à ces mots. Précisez l'activité "
                   "(ex. course, basket, gymnastique) ou le besoin (chronométrage, vidéo, évaluation)."))

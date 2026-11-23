@@ -52,15 +52,46 @@ class Refine(unittest.TestCase):
 
 
 class Report(unittest.TestCase):
-    def test_report_in_arabic_is_rtl_and_complete(self):
-        i18n.use("ar")
-        matches = recommend("كرة السلة")["matches"]
-        page = decision.report_html("كرة السلة", ["النشاط: كرة السلة (مرجح)"], matches, 2466, 12.3).decode()
-        i18n.use("fr")
-        self.assertIn("dir='rtl'", page)
-        self.assertIn("تقرير التوصيات", page)
-        self.assertEqual(page.count("class='tool'"), 10)
-        self.assertNotIn("critère", page.casefold())
+    def pdf(self, lang, query):
+        from acpa_msmda.keywords import label
+        from acpa_msmda.understanding import understand
+
+        i18n.use(lang)
+        try:
+            matches = recommend(query)["matches"]
+            return decision.report_pdf(query, understand(query), matches, 2466, 12.3, label)
+        finally:
+            i18n.use("fr")
+
+    def text(self, pdf):
+        import re
+        import zlib
+        out = []
+        import base64
+        for raw in re.findall(rb"stream\r?\n(.*?)endstream", pdf, re.S):
+            for decode in (lambda r: zlib.decompress(base64.a85decode(r.strip(), adobe=True)), zlib.decompress,
+                           lambda r: r):
+                try:
+                    out.append(decode(raw).decode("latin-1"))
+                    break
+                except Exception:
+                    continue
+        return " ".join(out)
+
+    def test_pdf_in_french_and_english(self):
+        fr = self.pdf("fr", "natation au lycée, 30 élèves")
+        en = self.pdf("en", "swimming in high school, 30 pupils")
+        self.assertTrue(fr.startswith(b"%PDF") and en.startswith(b"%PDF"))
+        self.assertIn("Rapport des recommandations", self.text(fr))
+        self.assertIn("Recommendations report", self.text(en))
+
+    def test_arabic_interface_gives_french_pdf(self):
+        pdf = self.pdf("ar", "السباحة في الثانوي لقسم من 30 تلميذا")
+        body = self.text(pdf)
+        self.assertIn("Rapport des recommandations", body)
+        self.assertIn("natation", body)
+        self.assertEqual(i18n.current(), "fr")
+        self.assertNotIn("critère", body.casefold())
 
 
 class Page(unittest.TestCase):

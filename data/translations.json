@@ -463,6 +463,10 @@
   "ar": "خلق واستغلال فضاءات اللعب بفضل التعاون.",
   "en": "Create and use space through cooperation."
  },
+ "Cycle (0 = non renseigné)": {
+  "ar": "الدورة (0 = غير محددة)",
+  "en": "Cycle (0 = unspecified)"
+ },
  "D'après les informations publiées par l'éditeur.": {
   "ar": "حسب المعلومات التي نشرها الناشر.",
   "en": "Based on the information published by the publisher."
@@ -1231,6 +1235,14 @@
   "ar": "بحث جديد",
   "en": "New search"
  },
+ "Numéro de séance": {
+  "ar": "رقم الحصة",
+  "en": "Lesson number"
+ },
+ "Numéro du cycle": {
+  "ar": "رقم الدورة",
+  "en": "Cycle number"
+ },
  "Nécessite un environnement de diffusion adapté.": {
   "ar": "يتطلب بيئة عرض ملائمة.",
   "en": "Requires a suitable display setup."
@@ -1710,6 +1722,10 @@
  "Séance": {
   "ar": "الحصة",
   "en": "Lesson"
+ },
+ "Séance (0 = non renseignée)": {
+  "ar": "الحصة (0 = غير محددة)",
+  "en": "Lesson (0 = unspecified)"
  },
  "Séance 1": {
   "ar": "الحصة 1",

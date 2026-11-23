@@ -2586,5 +2586,9 @@
  "Partir au signal, rester dans son couloir et comparer ses propres essais.": {
   "ar": "الانطلاق عند الإشارة والبقاء في الممر ومقارنة المحاولات الشخصية.",
   "en": "Start on signal, stay in lane and compare personal attempts."
+ },
+ "Bilan (PDF)": {
+  "ar": "الحصيلة (PDF)",
+  "en": "Report (PDF)"
  }
 }

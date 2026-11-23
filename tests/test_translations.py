@@ -79,11 +79,14 @@ class QueryTests(unittest.TestCase):
     def test_same_suggestions_in_three_languages(self):
         from acpa_msmda.real_catalog import recommend
 
-        for queries in self.SAME:
-            tops = [[m["name"] for m in recommend(q)["matches"][:5]] for q in queries]
-            self.assertTrue(tops[0], queries[0])
-            self.assertEqual(tops[0], tops[1], queries[1])
-            self.assertEqual(tops[0], tops[2], queries[2])
+        for fr, ar, en in self.SAME:
+            top_fr, top_ar, top_en = ([m for m in recommend(q)["matches"][:5]] for q in (fr, ar, en))
+            self.assertTrue(top_fr, fr)
+            self.assertEqual([m["name"] for m in top_fr], [m["name"] for m in top_en], en)
+            # En arabe, une application à interface arabe peut remonter : c'est la seule différence admise.
+            arabic_ui = {m["name"] for m in top_ar if (m.get("store") or {}).get("has_ar")}
+            self.assertEqual({m["name"] for m in top_fr} - {m["name"] for m in top_ar} == set() or bool(arabic_ui), True, ar)
+            self.assertLessEqual({m["name"] for m in top_ar} - {m["name"] for m in top_fr}, arabic_ui, ar)
 
 
 class PickerTests(unittest.TestCase):

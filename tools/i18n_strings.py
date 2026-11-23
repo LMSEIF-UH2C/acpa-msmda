@@ -30,6 +30,10 @@ def required() -> set[str]:
     for m in ui.MODULES:
         texts |= {m.title, m.summary, m.short}
     texts |= {ui.PRIVACY_NOTE, "EPS · collège et lycée", "De l’idée à la séance."}
+    from acpa_msmda import understanding
+    texts |= set(understanding.LEVELS) | set(understanding.CONSTRAINTS.values())
+    texts |= {"Activité", "Fonction", "Niveau", "Effectif", "Contrainte", "sûr", "probable", "à confirmer"}
+    texts |= {"Matériel requis : montre ou capteur compatible.", "Coût du matériel à vérifier."}
     sc = session_context
     texts |= set(sc.APS) | set(sc.LEVELS) | set(sc.DEVICES) | set(sc.SPACES) | set(sc.CONNECTIVITY_LABELS.values())
     texts |= {sc.CONTEXT_DEFAULTS["equipment"], sc.CONTEXT_DEFAULTS["objectives"]}

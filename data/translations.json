@@ -2498,5 +2498,93 @@
  "évaluation": {
   "ar": "التقويم",
   "en": "assessment"
+ },
+ "Observer une première réalisation sans classement.": {
+  "ar": "لاحظ محاولة أولى دون ترتيب.",
+  "en": "Observe an initial attempt without ranking."
+ },
+ "Identifier un besoin de progression.": {
+  "ar": "حدد حاجة للتطور.",
+  "en": "Identify one learning need."
+ },
+ "Échauffement progressif adapté à l'activité et rappel des règles de sécurité.": {
+  "ar": "إحماء تدريجي ملائم للنشاط وتذكير بقواعد السلامة.",
+  "en": "Progressive activity-specific warm-up and safety reminders."
+ },
+ "Respecter les consignes et adapter son effort.": {
+  "ar": "احترام التعليمات وتكييف الجهد.",
+  "en": "Follow instructions and adjust effort."
+ },
+ "En binômes, observer un critère, donner un retour et refaire une tentative.": {
+  "ar": "في ثنائيات، لاحظ معيارا وقدم تغذية راجعة ثم أعد المحاولة.",
+  "en": "In pairs, observe one criterion, give feedback and try again."
+ },
+ "Modifier une action à partir du retour reçu.": {
+  "ar": "تعديل الأداء بناء على التغذية الراجعة.",
+  "en": "Adjust an action using feedback."
+ },
+ "Comparer les tentatives et choisir un objectif personnel pour la prochaine séance.": {
+  "ar": "قارن المحاولات واختر هدفا شخصيا للحصة المقبلة.",
+  "en": "Compare attempts and choose a personal goal for the next lesson."
+ },
+ "Décrire un progrès et un objectif observable.": {
+  "ar": "وصف تقدم وهدف قابل للملاحظة.",
+  "en": "Describe progress and an observable goal."
+ },
+ "Handball — créer un espace libre": {
+  "ar": "كرة اليد — خلق مساحة حرة",
+  "en": "Handball — create space"
+ },
+ "Se démarquer et choisir une passe utile en situation de jeu.": {
+  "ar": "التحرر من الرقابة واختيار تمريرة مفيدة أثناء اللعب.",
+  "en": "Get free and choose an effective pass in play."
+ },
+ "Respecter les consignes de sécurité et les espaces de pratique.": {
+  "ar": "احترام تعليمات السلامة وفضاءات الممارسة.",
+  "en": "Follow safety instructions and practice boundaries."
+ },
+ "Matériel adapté, espace sécurisé, groupes de taille ajustable.": {
+  "ar": "معدات ملائمة وفضاء آمن ومجموعات قابلة للتعديل.",
+  "en": "Suitable equipment, safe space and adjustable group sizes."
+ },
+ "Jouer en 3 contre 2 sans contact ; faciliter par un défenseur passif ou complexifier en 3 contre 3. Alterner joueurs et observateurs.": {
+  "ar": "العب ثلاثة ضد اثنين دون احتكاك؛ سهّل بمدافع سلبي أو صعّب بثلاثة ضد ثلاثة. بدّل بين اللاعبين والملاحظين.",
+  "en": "Play 3 versus 2 without contact; simplify with a passive defender or progress to 3 versus 3. Rotate players and observers."
+ },
+ "Créer une ligne de passe et transmettre à un partenaire disponible.": {
+  "ar": "خلق خط تمرير والتمرير لزميل متاح.",
+  "en": "Create a passing lane and pass to an available teammate."
+ },
+ "Volleyball — maintenir un échange": {
+  "ar": "الكرة الطائرة — استمرار التبادل",
+  "en": "Volleyball — sustain a rally"
+ },
+ "Orienter le ballon vers un partenaire pour maintenir un échange.": {
+  "ar": "توجيه الكرة نحو زميل لاستمرار التبادل.",
+  "en": "Direct the ball to a teammate to sustain a rally."
+ },
+ "En petits groupes, viser une zone de réception ; autoriser une saisie au début, puis passer au renvoi direct selon la maîtrise.": {
+  "ar": "في مجموعات صغيرة، استهدف منطقة استقبال؛ اسمح بمسك الكرة في البداية ثم انتقل إلى ردها مباشرة حسب المستوى.",
+  "en": "In small groups, aim at a receiving zone; allow catching initially, then progress to direct returns as skills improve."
+ },
+ "Envoyer un ballon contrôlable vers la zone choisie.": {
+  "ar": "إرسال كرة قابلة للتحكم نحو المنطقة المختارة.",
+  "en": "Send a controllable ball toward the chosen zone."
+ },
+ "Vitesse — départ et accélération": {
+  "ar": "السرعة — الانطلاق والتسارع",
+  "en": "Sprint — start and acceleration"
+ },
+ "Réagir au signal et accélérer progressivement sur une courte distance.": {
+  "ar": "الاستجابة للإشارة والتسارع تدريجيا لمسافة قصيرة.",
+  "en": "React to the signal and accelerate over a short distance."
+ },
+ "Alterner courses courtes et récupération suffisante sur des couloirs dégagés ; varier le signal et la distance selon les capacités.": {
+  "ar": "ناوب بين عدو قصير واستراحة كافية في ممرات خالية؛ نوّع الإشارة والمسافة حسب القدرات.",
+  "en": "Alternate short runs and adequate recovery in clear lanes; vary the signal and distance according to ability."
+ },
+ "Partir au signal, rester dans son couloir et comparer ses propres essais.": {
+  "ar": "الانطلاق عند الإشارة والبقاء في الممر ومقارنة المحاولات الشخصية.",
+  "en": "Start on signal, stay in lane and compare personal attempts."
  }
 }

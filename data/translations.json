@@ -2626,5 +2626,17 @@
  "Prévoyez des consignes imprimées, des démonstrations et des critères observables sans Internet.": {
   "ar": "حضّر تعليمات مطبوعة وعروضا تطبيقية ومعايير قابلة للملاحظة دون إنترنت.",
   "en": "Prepare printed instructions, demonstrations and observable criteria without internet."
+ },
+ "Conditions de mesure": {
+  "ar": "ظروف القياس",
+  "en": "Measurement conditions"
+ },
+ "Précisez le matériel, le protocole et les conditions de réalisation.": {
+  "ar": "حدد المعدات والبروتوكول وظروف الإنجاز.",
+  "en": "Specify equipment, protocol and testing conditions."
+ },
+ "Conditions de mesure non renseignées ou différentes : interprétez la comparaison avec prudence.": {
+  "ar": "ظروف القياس غير محددة أو مختلفة: فسّر المقارنة بحذر.",
+  "en": "Measurement conditions are missing or different: interpret the comparison cautiously."
  }
 }

@@ -35,7 +35,7 @@ with right:
         st.rerun()
 
 ctx.render_context(st, S, fields=("activity", "level", "class_size", "duration", "connectivity",
-                                  "devices", "equipment", "objectives"))
+                                  "devices", "cycle_number", "lesson_number", "equipment", "objectives"))
 modality = st.selectbox(t("Modalité"), MODALITIES, format_func=t, **ctx.bind(S, "modality", "Présentiel"))
 prerequisites = st.text_input(t("Prérequis"), max_chars=300, **ctx.bind(S, "prerequisites", ""))
 
@@ -96,6 +96,9 @@ metadata = {t("APS"): t(ctx.get(S, "activity")), t("Niveau"): t(ctx.get(S, "leve
             t("Connexion"): t(ctx.CONNECTIVITY_LABELS[connectivity]),
             t("Appareils"): t(ctx.get(S, "devices")), t("Objectifs"): ctx.get(S, "objectives"),
             t("Prérequis"): prerequisites, t("Matériel et contraintes"): ctx.get(S, "equipment")}
+for field, label in (("cycle_number", t("Numéro du cycle")), ("lesson_number", t("Numéro de séance"))):
+    if ctx.get(S, field):
+        metadata[label] = ctx.get(S, field)
 pdf_col, csv_col = st.columns([2, 1])
 pdf_col.download_button(t("Scénario (PDF)"), scenario_pdf(metadata, rows, validation, issues),
                         "scenario_seance_eps.pdf", "application/pdf", type="primary",

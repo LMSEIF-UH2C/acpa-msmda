@@ -66,7 +66,7 @@ class Kit:
         st = self.styles[style]
         text = "" if text is None else str(text)
         if self.rtl and any(ARABIC[0] <= c <= ARABIC[1] for c in text):
-            lines = rtl_lines(text, st.fontName, st.fontSize, (width or self.width) - 4)
+            lines = rtl_lines(text, st.fontName, st.fontSize, (width - 12 if width is not None else self.width))
             return Paragraph("<br/>".join(html.escape(line) for line in lines), st)
         return Paragraph(html.escape(text).replace("\n", "<br/>"), st)
 
@@ -81,7 +81,7 @@ class Kit:
         if self.rtl:
             cells = [list(reversed(r)) for r in cells]
             widths = list(reversed(widths))
-        table = Table(cells, colWidths=widths, repeatRows=1 if header else 0, hAlign="RIGHT" if self.rtl else "LEFT")
+        table = Table(cells, colWidths=widths, repeatRows=1 if header else 0, splitInRow=1, hAlign="RIGHT" if self.rtl else "LEFT")
         commands = [("VALIGN", (0, 0), (-1, -1), "TOP"), ("GRID", (0, 0), (-1, -1), .4, colors.HexColor("#cbd2d9")),
                     ("TOPPADDING", (0, 0), (-1, -1), 3), ("BOTTOMPADDING", (0, 0), (-1, -1), 3)]
         if header:
@@ -124,7 +124,7 @@ def kit() -> Kit:
         "head": ParagraphStyle("head", parent=body, fontName=bold, fontSize=8.8, leading=11.5),
         "link": ParagraphStyle("link", parent=body, textColor=colors.HexColor("#52606d"), alignment=TA_LEFT),
     }
-    return Kit(rtl=rtl, width=A4[0] - 32 * mm, regular=regular, bold=bold, styles=styles)
+    return Kit(rtl=rtl, width=A4[0] - 32 * mm - 12, regular=regular, bold=bold, styles=styles)
 
 
 def build(story: list, title: str) -> bytes:
@@ -168,7 +168,7 @@ def scenario_pdf(metadata: dict, rows: Sequence[dict], validation: dict, issues:
     story.append(k.table(body, widths))
     story.append(k.para(t("Répartition du temps"), "h2"))
     total = sum(r.get("Durée (min)", 0) for r in rows) or 1
-    lines = [[t(r.get("Phase", "")), t("{n} min", n=r.get("Durée (min)", 0)), k.bar(r.get("Durée (min)", 0) / total, 80 * mm)]
+    lines = [[t(r.get("Phase", "")), t("{n} min", n=r.get("Durée (min)", 0)), k.bar(r.get("Durée (min)", 0) / total, (82 * mm - 12))]
              for r in rows]
     from reportlab.platypus import Table, TableStyle
     cells = [[k.para(a, "cell", 45 * mm), k.para(b, "cell", 22 * mm), c] for a, b, c in lines]

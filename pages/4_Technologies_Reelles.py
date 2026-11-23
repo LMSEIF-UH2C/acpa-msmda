@@ -168,8 +168,7 @@ if query:
         st.button(t("Appliquer"), type="primary", on_click=_apply_refine, use_container_width=True)
     report.download_button(t("Rapport PDF"), icon=":material/picture_as_pdf:", use_container_width=True,
                            data=decision.report_pdf(query, understand(query), matches, examined, elapsed, keyword_label),
-                           file_name="rapport_recommandations.pdf", mime="application/pdf",
-                           help=t("Rapport en français pour une demande en arabe.") if i18n.is_rtl() else None)
+                           file_name="rapport_recommandations.pdf", mime="application/pdf")
     if not matches:
         st.info(t("Aucune application du catalogue ne correspond à ces mots. Précisez l'activité "
                   "(ex. course, basket, gymnastique) ou le besoin (chronométrage, vidéo, évaluation)."))

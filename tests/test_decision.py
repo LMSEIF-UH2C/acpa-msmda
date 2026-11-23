@@ -79,19 +79,25 @@ class Report(unittest.TestCase):
         return " ".join(out)
 
     def test_pdf_in_french_and_english(self):
+        from acpa_msmda.decision import _fonts
+        _fonts()
         fr = self.pdf("fr", "natation au lycée, 30 élèves")
         en = self.pdf("en", "swimming in high school, 30 pupils")
         self.assertTrue(fr.startswith(b"%PDF") and en.startswith(b"%PDF"))
         self.assertIn("Rapport des recommandations", self.text(fr))
         self.assertIn("Recommendations report", self.text(en))
 
-    def test_arabic_interface_gives_french_pdf(self):
+    def test_arabic_report_embeds_font_and_shapes_letters(self):
         pdf = self.pdf("ar", "السباحة في الثانوي لقسم من 30 تلميذا")
-        body = self.text(pdf)
-        self.assertIn("Rapport des recommandations", body)
-        self.assertIn("natation", body)
+        self.assertIn(b"DejaVu", pdf)
         self.assertEqual(i18n.current(), "fr")
-        self.assertNotIn("critère", body.casefold())
+        import arabic_reshaper
+        from bidi.algorithm import get_display
+
+        from acpa_msmda.decision import _rtl_lines
+        lines = _rtl_lines("تقرير التوصيات", "DejaVu", 16, 400)
+        self.assertEqual(lines, [get_display(arabic_reshaper.reshape("تقرير التوصيات"), base_dir="R")])
+        self.assertGreater(len(_rtl_lines("كلمة " * 80, "DejaVu", 9.5, 200)), 3)
 
 
 class Page(unittest.TestCase):

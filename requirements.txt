@@ -1,5 +1,6 @@
 # Versions exactes vérifiées avec Python 3.12 (tests et moteur). Régénérer avec : uv pip compile ou pip freeze dans un environnement propre.
 altair==5.5.0
+arabic-reshaper==3.1.0
 attrs==26.1.0
 blinker==1.9.0
 cachetools==6.2.6
@@ -21,6 +22,7 @@ pillow==11.3.0
 protobuf==6.33.6
 pyarrow==26.0.1
 pydeck==0.9.3
+python-bidi==0.6.12
 python-dateutil==4.0.0
 pytz==2026.6
 referencing==0.37.0

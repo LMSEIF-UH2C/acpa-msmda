@@ -487,13 +487,17 @@
   "ar": "التشخيص",
   "en": "Diagnosis"
  },
+ "Dicter en arabe": {
+  "ar": "إملاء بالعربية",
+  "en": "Dictate in Arabic"
+ },
+ "Dicter en français": {
+  "ar": "إملاء بالفرنسية",
+  "en": "Dictate in French"
+ },
  "Dicter ma demande": {
   "ar": "إملاء طلبي صوتيًا",
   "en": "Dictate my request"
- },
- "Dicter ma demande (en français)": {
-  "ar": "إملاء طلبي صوتيًا (بالفرنسية)",
-  "en": "Dictate my request (in French)"
  },
  "Dictée interrompue : réessayez.": {
   "ar": "توقف الإملاء: أعد المحاولة.",
@@ -1454,10 +1458,6 @@
  "Rapport des recommandations": {
   "ar": "تقرير التوصيات",
   "en": "Recommendations report"
- },
- "Rapport en français pour une demande en arabe.": {
-  "ar": "يصدر التقرير بالفرنسية للطلب المكتوب بالعربية.",
-  "en": "Report in French for a request in Arabic."
  },
  "Recueillir les représentations de l'allure et rappeler les consignes.": {
   "ar": "جمع تمثلات التلاميذ حول الإيقاع والتذكير بالتعليمات.",

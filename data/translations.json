@@ -239,7 +239,7 @@
   "ar": "كرة السلة",
   "en": "Basketball"
  },
- "Basketball — coopérer pour progresser": {
+ "Basketball : coopérer pour progresser": {
   "ar": "كرة السلة: التعاون من أجل التقدم",
   "en": "Basketball: cooperating to move forward"
  },
@@ -623,7 +623,7 @@
   "ar": "التحمل العضلي",
   "en": "Muscular endurance"
  },
- "Endurance — gérer son allure": {
+ "Endurance : gérer son allure": {
   "ar": "التحمل: التحكم في الإيقاع",
   "en": "Endurance: managing your pace"
  },
@@ -835,7 +835,7 @@
   "ar": "الجمباز",
   "en": "Gymnastics"
  },
- "Gymnastique — construire un enchaînement": {
+ "Gymnastique : construire un enchaînement": {
   "ar": "الجمباز: بناء سلسلة حركية",
   "en": "Gymnastics: building a routine"
  },
@@ -2375,7 +2375,7 @@
   "ar": "عن بعد",
   "en": "Remote"
  },
- "À distance — activité physique autonome": {
+ "À distance : activité physique autonome": {
   "ar": "عن بعد: نشاط بدني مستقل",
   "en": "Remote: self-directed physical activity"
  },
@@ -2531,9 +2531,9 @@
   "ar": "وصف تقدم وهدف قابل للملاحظة.",
   "en": "Describe progress and an observable goal."
  },
- "Handball — créer un espace libre": {
-  "ar": "كرة اليد — خلق مساحة حرة",
-  "en": "Handball — create space"
+ "Handball : créer un espace libre": {
+  "ar": "كرة اليد : خلق مساحة حرة",
+  "en": "Handball : create space"
  },
  "Se démarquer et choisir une passe utile en situation de jeu.": {
   "ar": "التحرر من الرقابة واختيار تمريرة مفيدة أثناء اللعب.",
@@ -2555,9 +2555,9 @@
   "ar": "خلق خط تمرير والتمرير لزميل متاح.",
   "en": "Create a passing lane and pass to an available teammate."
  },
- "Volleyball — maintenir un échange": {
-  "ar": "الكرة الطائرة — استمرار التبادل",
-  "en": "Volleyball — sustain a rally"
+ "Volleyball : maintenir un échange": {
+  "ar": "الكرة الطائرة : استمرار التبادل",
+  "en": "Volleyball : sustain a rally"
  },
  "Orienter le ballon vers un partenaire pour maintenir un échange.": {
   "ar": "توجيه الكرة نحو زميل لاستمرار التبادل.",
@@ -2571,9 +2571,9 @@
   "ar": "إرسال كرة قابلة للتحكم نحو المنطقة المختارة.",
   "en": "Send a controllable ball toward the chosen zone."
  },
- "Vitesse — départ et accélération": {
-  "ar": "السرعة — الانطلاق والتسارع",
-  "en": "Sprint — start and acceleration"
+ "Vitesse : départ et accélération": {
+  "ar": "السرعة : الانطلاق والتسارع",
+  "en": "Sprint : start and acceleration"
  },
  "Réagir au signal et accélérer progressivement sur une courte distance.": {
   "ar": "الاستجابة للإشارة والتسارع تدريجيا لمسافة قصيرة.",

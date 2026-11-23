@@ -2622,5 +2622,9 @@
  "Préparer des activités réalisables sans Internet sur le terrain.": {
   "ar": "تحضير أنشطة قابلة للتنفيذ دون إنترنت في الميدان.",
   "en": "Prepare activities that can be carried out without internet at the venue."
+ },
+ "Prévoyez des consignes imprimées, des démonstrations et des critères observables sans Internet.": {
+  "ar": "حضّر تعليمات مطبوعة وعروضا تطبيقية ومعايير قابلة للملاحظة دون إنترنت.",
+  "en": "Prepare printed instructions, demonstrations and observable criteria without internet."
  }
 }

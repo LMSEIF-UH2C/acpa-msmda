@@ -14,6 +14,7 @@ sys.path.insert(0, str(ROOT / "src"))
 from acpa_msmda import session_context as ctx  # noqa: E402
 from acpa_msmda.measurements import (comparison, cooper_speed_kmh, fr, parse_series, pupil_codes,  # noqa: E402
                                      report_html, series_csv, series_indicators)
+from acpa_msmda.pdf import measurements_pdf  # noqa: E402
 from acpa_msmda.i18n import t  # noqa: E402
 from acpa_msmda.ui import LAB, PRIVACY_NOTE, configure_page, page_header  # noqa: E402
 
@@ -23,7 +24,7 @@ DIRECTIONS = {"Non précisé": None, "Valeur plus élevée": True, "Valeur plus 
 S = st.session_state
 configure_page(LAB)
 page_header(LAB, PRIVACY_NOTE)
-ctx.render_context(st, S, fields=("activity", "level", "class_size"), expanded=False)
+ctx.render_context(st, S, fields=("activity", "level", "class_size", "cycle_number", "lesson_number"), expanded=False)
 
 domain = st.selectbox(t("Domaine"), ["Tous"] + sorted({x["domain"] for x in TESTS}), format_func=t,
                       **ctx.bind(S, "lab_domain", "Tous"))
@@ -144,6 +145,9 @@ with report:
         context_line = ctx.summary(S) + " · " + t("Épreuve : {name} ({u})", name=t(test["name"]), u=t(test["unit"]))
         c1, c2 = st.columns(2)
         with c1:
+            st.download_button(t("Bilan (PDF)"),
+                               measurements_pdf(t("Bilan") + " · " + t(test["name"]), context_line, sections, header, table, notes),
+                               f"bilan_{test_id}.pdf", "application/pdf", type="primary", use_container_width=True)
             st.download_button(t("Bilan imprimable (HTML)"),
                                report_html(t("Bilan") + " · " + t(test["name"]), context_line, sections, header, table, notes),
                                f"bilan_{test_id}.html", "text/html", use_container_width=True,

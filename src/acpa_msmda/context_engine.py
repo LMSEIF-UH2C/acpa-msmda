@@ -10,8 +10,8 @@ from .contracts import CRITERIA_COUNT, CriterionVector, WeightVector, ContextReq
 from .prototype import ToolRecord, Recommendation, rank
 
 LEXICON = {
- 'sports_collectifs': ('football','basketball','volleyball','handball','rugby','soccer','كرة السلة','كرة القدم'),
- 'sports_individuels': ('athletisme','natation','gymnastique','judo','tennis','athletics','سباحة','ألعاب القوى'),
+ 'sports_collectifs': ('football','basketball','volleyball','handball','rugby','soccer','كرة السلة','كرة القدم','كرة اليد','الكرة الطائرة'),
+ 'sports_individuels': ('athletisme','natation','gymnastique','judo','tennis','athletics','swimming','gymnastics','سباحة','ألعاب القوى','جمباز','الجري'),
  'niveaux': ('college','lycee','primaire','baccalaureat','brevet','school','ثانوي','ابتدائي'),
  'contraintes': ('budget','effectif','infrastructure','handicap','rural','تكلفة','ميزانية','disability'),
 }
@@ -22,10 +22,44 @@ CONTEXT_BOOSTS = {
  'inclusion': {'C12': .30,'C11': .20,'C4': .15},
 }
 
+# Arabe : formes d'une même lettre ramenées à une seule, et article ou préfixe collé retiré, pour que
+# « الجري » et « جري », « كرة » et « كره » se rejoignent. Appliqué au texte comme au vocabulaire.
+_AR_LETTERS = str.maketrans({'أ': 'ا', 'إ': 'ا', 'آ': 'ا', 'ٱ': 'ا', 'ة': 'ه', 'ى': 'ي', 'ؤ': 'و', 'ئ': 'ي',
+                             'ـ': None})
+_AR_AND = re.compile(r'(?<!\w)و(?=[\u0621-\u064a]{3,})')
+_AR_PREFIX = re.compile(r'(?<!\w)(?:وال|فال|بال|كال|لل|ال)(?=[\u0621-\u064a]{2,})')
+
+
 def normalize_text(text: str) -> str:
     text = unicodedata.normalize('NFKD', text.casefold())
     text = ''.join(c for c in text if not unicodedata.combining(c))
-    return re.sub(r'[^\w\s]', ' ', text)
+    text = re.sub(r'[^\w\s]', ' ', text)
+    if re.search(r'[\u0600-\u06ff]', text):
+        text = _AR_PREFIX.sub('', _AR_AND.sub('', text.translate(_AR_LETTERS)))
+    return text
+
+
+_EN_WORDS = {'the', 'and', 'with', 'for', 'without', 'my', 'students', 'pupils', 'class', 'no', 'need',
+             'running', 'lesson', 'kids', 'children', 'team', 'teams', 'to', 'in', 'of', 'a', 'an', 'tool', 'app'}
+_FR_WORDS = {'le', 'la', 'les', 'des', 'du', 'de', 'avec', 'pour', 'sans', 'eleves', 'une', 'un', 'et', 'en',
+             'seance', 'classe', 'course', 'au', 'aux', 'mes', 'outil', 'application', 'connexion'}
+
+
+def detect_language(text: str) -> str:
+    """Langue probable d'une demande : arabe si l'écriture arabe domine, sinon anglais ou français
+    selon les mots outils les plus fréquents (français par défaut)."""
+    letters = [c for c in text if c.isalpha()]
+    if not letters:
+        return 'fr'
+    arabic = sum('\u0600' <= c <= '\u06ff' for c in letters)
+    if arabic / len(letters) >= 0.3:
+        return 'ar'
+    words = normalize_text(text).split()
+    en = sum(w in _EN_WORDS for w in words)
+    fr = sum(w in _FR_WORDS for w in words)
+    if re.search(r'[éèêàùçôî]', text.casefold()):
+        fr += 1
+    return 'en' if en > fr else 'fr'
 
 def tokenize(text: str) -> tuple[str, ...]:
     return tuple(x for x in normalize_text(text).split() if len(x) > 2 and x not in {'les','des','une','pour','avec','the','and','dans'})

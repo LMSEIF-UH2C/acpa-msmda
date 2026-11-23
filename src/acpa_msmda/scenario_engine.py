@@ -3,6 +3,7 @@ from __future__ import annotations
 import csv
 import io
 from .real_catalog import load_real_tools
+from .i18n import t as _t
 
 PHASES=(
  ("Diagnostic",("questionnaire","evaluation","quiz"),("Questionnaires et évaluation","Ressources et apprentissage")),
@@ -28,8 +29,8 @@ def recommend_phase_tools(phase,connectivity="Disponible",catalogue=None,limit=8
         if connectivity=="Aucune" and t.get("requirement")=="internet":continue
         notes=[]
         if connectivity!="Disponible" and t.get("requirement") in ("internet","à vérifier"):
-            notes.append("Connexion ou fonctionnement hors ligne à confirmer")
-        if not verified:notes.append("Usages et compatibilité à confirmer")
+            notes.append(_t("Connexion ou fonctionnement hors ligne à confirmer"))
+        if not verified:notes.append(_t("Usages et compatibilité à confirmer"))
         found.append({"id":t["id"],"name":t["name"],"category":t["category"],"source_url":t["source_url"],"matched_uses":overlap,"notes":notes,"documented":verified})
     found.sort(key=lambda t:(-int(t["documented"]),-len(t["matched_uses"]),t["name"].casefold()))
     return found[:limit]
@@ -58,6 +59,7 @@ def export_scenario_csv(metadata,rows):
     writer=csv.writer(stream)
     for key,value in metadata.items():writer.writerow([safe_cell(key),safe_cell(value)])
     writer.writerow([])
-    writer.writerow(["Phase","Durée (min)","Activité / consignes","Supports","Évaluation / feedback"])
-    for row in rows:writer.writerow([safe_cell(row.get(k,"")) for k in ("Phase","Durée (min)","Activité / consignes","Supports","Évaluation / feedback")])
+    columns=("Phase","Durée (min)","Activité / consignes","Supports","Évaluation / feedback")
+    writer.writerow([_t(c) for c in columns])
+    for row in rows:writer.writerow([safe_cell(_t(row.get(k,"")) if k=="Phase" else row.get(k,"")) for k in columns])
     return stream.getvalue().encode("utf-8-sig")

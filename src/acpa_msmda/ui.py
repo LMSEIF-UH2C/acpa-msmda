@@ -7,6 +7,9 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
+from . import i18n
+from .i18n import t
+
 
 @dataclass(frozen=True)
 class Module:
@@ -208,13 +211,60 @@ input,textarea,[data-baseweb="select"] div{font-size:16px!important}
 """
 
 
+# Arabe : lecture de droite à gauche. Les nombres, les dates et les saisies chiffrées restent de
+# gauche à droite ; la barre d'onglets garde l'ordre des modules, lu de droite à gauche.
+_RTL_CSS = """
+<style>
+[data-testid="stMainBlockContainer"],.st-key-tabbar{direction:rtl}
+[data-testid="stMainBlockContainer"] p,[data-testid="stMainBlockContainer"] li,
+[data-testid="stMainBlockContainer"] label,[data-testid="stMainBlockContainer"] h1,
+[data-testid="stMainBlockContainer"] h2,[data-testid="stMainBlockContainer"] h3,
+[data-testid="stMainBlockContainer"] summary,[data-testid="stCaptionContainer"]{text-align:right}
+[data-testid="stMainBlockContainer"] button>span:first-child{margin:0 0 0 .5rem!important;flex-shrink:0}
+[data-testid="stMainBlockContainer"] button p{text-align:center!important}
+textarea,input[type="text"]{direction:rtl;text-align:right}
+input[type="number"],[data-testid="stDateInputField"] input{direction:ltr;text-align:left}
+div[class*="st-key-task_"]{padding:1rem calc(1rem - 1px) .95rem 2.6rem}
+div[class*="st-key-task_"]::after{content:"chevron_left";right:auto;left:1rem}
+[data-testid="stExpander"] summary{flex-direction:row-reverse}
+ul,ol{padding-right:1.4rem;padding-left:0}
+</style>
+"""
+
+
 def configure_page(module: Module) -> None:
-    """Titre d'onglet, icône et feuille de style. À appeler en tête de chaque page."""
+    """Langue, titre d'onglet, icône et feuille de style. À appeler en tête de chaque page."""
     import streamlit as st
 
-    st.set_page_config(page_title=f"{module.title} | {APP_NAME}", page_icon=module.icon,
+    i18n.use(i18n.from_session(st.session_state, st.query_params) or i18n.DEFAULT)
+    st.set_page_config(page_title=f"{t(module.title)} | {APP_NAME}", page_icon=module.icon,
                        layout="centered", initial_sidebar_state="collapsed")
     st.markdown(_CSS, unsafe_allow_html=True)
+    if i18n.is_rtl():
+        st.markdown(_RTL_CSS, unsafe_allow_html=True)
+
+
+def set_language(lang: str) -> None:
+    """Enregistre la langue choisie dans la session et dans l'adresse (rechargement compris)."""
+    import streamlit as st
+
+    from .session_context import refresh_text_defaults
+
+    st.session_state[i18n.SESSION_KEY] = lang
+    st.query_params[i18n.SESSION_KEY] = lang
+    i18n.use(lang)
+    refresh_text_defaults(st.session_state)
+
+
+def language_buttons(key: str, primary: bool = False) -> None:
+    """Trois boutons de langue ; la langue courante est mise en valeur."""
+    import streamlit as st
+
+    for column, (code, name) in zip(st.columns(3), i18n.LANGUAGES.items()):
+        chosen = st.session_state.get(i18n.SESSION_KEY) == code
+        column.button(name, key=f"{key}_{code}", use_container_width=True,
+                      type="primary" if (chosen or primary) else "secondary",
+                      on_click=set_language, args=(code,))
 
 
 def page_header(module: Module, note: str | None = None, title: str | None = None,
@@ -223,11 +273,11 @@ def page_header(module: Module, note: str | None = None, title: str | None = Non
     import streamlit as st
 
     with st.container(key="hero"):
-        st.markdown(f'<span class="eyebrow">{eyebrow}</span>', unsafe_allow_html=True)
-        st.title(title or module.title)
+        st.markdown(f'<span class="eyebrow">{t(eyebrow)}</span>', unsafe_allow_html=True)
+        st.title(t(title or module.title))
         if tagline:
-            st.markdown(f'<p class="tagline">{tagline}</p>', unsafe_allow_html=True)
-        st.caption(module.summary + (" " + note if note else ""))
+            st.markdown(f'<p class="tagline">{t(tagline)}</p>', unsafe_allow_html=True)
+        st.caption(t(module.summary) + (" " + t(note) if note else ""))
 
 
 def tab_bar(current: str, home_page=None) -> None:
@@ -241,4 +291,4 @@ def tab_bar(current: str, home_page=None) -> None:
                 continue
             state = "active" if module.key == current else "idle"
             with column, st.container(key=f"tab_{state}_{module.key}"):
-                st.page_link(target, label=module.short, icon=module.icon, use_container_width=True)
+                st.page_link(target, label=t(module.short), icon=module.icon, use_container_width=True)

@@ -16,7 +16,9 @@ SEARCH = "pages/4_Technologies_Reelles.py"
 
 
 def app_on(page):
-    app = AppTest.from_file(str(ROOT / "app.py"), default_timeout=30).run()
+    app = AppTest.from_file(str(ROOT / "app.py"), default_timeout=30)
+    app.session_state["lang"] = "fr"
+    app.run()
     app.switch_page(page).run()
     return app
 

@@ -12,6 +12,7 @@ import threading
 from collections import Counter
 from datetime import date
 from pathlib import Path
+from .i18n import t
 
 DEFAULT_PATH = Path(__file__).resolve().parents[2] / "data" / "feedback" / "votes.jsonl"
 _LOCK = threading.Lock()
@@ -68,6 +69,9 @@ def score(counts: Counter | None) -> int:
 
 def label(counts: Counter | None) -> str:
     if not counts or (counts["useful"] <= 0 and counts["not_useful"] <= 0):
-        return "Pas encore d'avis d'enseignant."
+        return t("Pas encore d'avis d'enseignant.")
     u, n = max(counts["useful"], 0), max(counts["not_useful"], 0)
-    return f"Avis d'enseignants : {u} utile{'s' if u > 1 else ''} en séance, {n} pas utile{'s' if n > 1 else ''}."
+    from .i18n import current
+    if current() == "fr":
+        return f"Avis d'enseignants : {u} utile{'s' if u > 1 else ''} en séance, {n} pas utile{'s' if n > 1 else ''}."
+    return t("Avis d'enseignants : {u} utile(s) en séance, {n} pas utile(s).", u=u, n=n)

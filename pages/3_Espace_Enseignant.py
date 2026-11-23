@@ -11,6 +11,7 @@ import streamlit as st
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from acpa_msmda import session_context as ctx  # noqa: E402
 from acpa_msmda.scenario_engine import safe_cell  # noqa: E402
+from acpa_msmda.i18n import t  # noqa: E402
 from acpa_msmda.ui import PLANNER, PRIVACY_NOTE, SEARCH, configure_page, page_header  # noqa: E402
 
 S = st.session_state
@@ -19,7 +20,7 @@ page_header(PLANNER, PRIVACY_NOTE)
 
 ctx.render_context(st, S, fields=("activity", "level", "class_size", "duration", "connectivity",
                                   "devices", "space", "equipment", "objectives"))
-workshops = st.slider("Nombre d'ateliers", min_value=1, max_value=8, **ctx.bind(S, "workshops", 4))
+workshops = st.slider(t("Nombre d'ateliers"), min_value=1, max_value=8, **ctx.bind(S, "workshops", 4))
 
 
 def build_plan(class_size: int, duration: int, workshops: int) -> dict:
@@ -36,34 +37,34 @@ def build_plan(class_size: int, duration: int, workshops: int) -> dict:
 class_size = int(ctx.get(S, "class_size"))
 duration = int(ctx.get(S, "duration"))
 if workshops > class_size:
-    st.error(f"{workshops} ateliers pour {class_size} élèves : certains groupes seraient vides. "
-             "Réduisez le nombre d'ateliers.")
+    st.error(t("{w} ateliers pour {n} élèves : certains groupes seraient vides. Réduisez le nombre d'ateliers.",
+               w=workshops, n=class_size))
     st.stop()
 
 plan = build_plan(class_size, duration, workshops)
-st.subheader("Organisation proposée")
-st.dataframe([{"Phase": name, "Durée (min)": minutes} for name, minutes in plan["phases"]],
+st.subheader(t("Organisation proposée"))
+st.dataframe([{t("Phase"): t(name), t("Durée (min)"): minutes} for name, minutes in plan["phases"]],
              hide_index=True, use_container_width=True)
-st.write("**Groupes :** " + ", ".join(str(n) for n in plan["groups"]) + " élèves")
-st.write(f"**Temps par atelier :** {plan['rotation']:.1f} min, transitions comprises.")
+st.write("**" + t("Groupes :") + "** " + t("{list} élèves", list=", ".join(str(n) for n in plan["groups"])))
+st.write("**" + t("Temps par atelier :") + "** " + t("{n} min, transitions comprises.", n=f"{plan['rotation']:.1f}"))
 
 if ctx.get(S, "connectivity") != "Disponible":
-    st.info("Connexion limitée sur le lieu de pratique : préférez les chronomètres, les supports "
-            "téléchargés à l'avance et les fiches papier.")
+    st.info(t("Connexion limitée sur le lieu de pratique : préférez les chronomètres, les supports "
+              "téléchargés à l'avance et les fiches papier."))
 if ctx.get(S, "devices") == "Aucun":
-    st.info("Sans appareil : consignes imprimées, ateliers autonomes et observation directe.")
-if st.button(SEARCH.title + " pour cette séance", icon=SEARCH.icon):
+    st.info(t("Sans appareil : consignes imprimées, ateliers autonomes et observation directe."))
+if st.button(t("Trouver une technologie pour cette séance"), icon=SEARCH.icon):
     ctx.put(S, "search_context", ctx.search_query(S))
     ctx.put(S, "search_query", ctx.search_query(S))
     st.switch_page(SEARCH.path)
 
 output = io.StringIO()
 writer = csv.writer(output)
-writer.writerow(["APS", "Niveau", "Effectif", "Durée", "Objectifs", "Phase", "Minutes"])
+writer.writerow([t(h) for h in ("APS", "Niveau", "Effectif", "Durée", "Objectifs", "Phase", "Minutes")])
 for name, minutes in plan["phases"]:
-    writer.writerow([ctx.get(S, "activity"), ctx.get(S, "level"), class_size, duration,
-                     safe_cell(ctx.get(S, "objectives") or ""), name, minutes])
-st.download_button("Exporter l'organisation (CSV)", output.getvalue().encode("utf-8-sig"),
+    writer.writerow([t(ctx.get(S, "activity")), t(ctx.get(S, "level")), class_size, duration,
+                     safe_cell(ctx.get(S, "objectives") or ""), t(name), minutes])
+st.download_button(t("Exporter l'organisation (CSV)"), output.getvalue().encode("utf-8-sig"),
                    file_name="organisation_seance_eps.csv", mime="text/csv")
-st.caption("Répartition indicative : environ 10 % du temps pour l'accueil, le retour au calme et le bilan. "
-           "À adapter à votre terrain.")
+st.caption(t("Répartition indicative : environ 10 % du temps pour l'accueil, le retour au calme et le bilan. "
+             "À adapter à votre terrain."))

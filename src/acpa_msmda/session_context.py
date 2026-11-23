@@ -17,6 +17,8 @@ from __future__ import annotations
 
 from typing import Any, Callable, MutableMapping, Sequence
 
+from .i18n import t
+
 STORE_KEY = "acpa_store"
 WIDGET_PREFIX = "w:"
 
@@ -48,9 +50,30 @@ def store(session: MutableMapping) -> dict:
     return session.setdefault(STORE_KEY, {})
 
 
+# Textes proposés par défaut : écrits dans la langue de l'interface au moment où ils sont proposés.
+TEXT_DEFAULTS = ("equipment", "objectives")
+
+
+def _default(key: str) -> Any:
+    value = CONTEXT_DEFAULTS.get(key)
+    return t(value) if key in TEXT_DEFAULTS and isinstance(value, str) else value
+
+
+def refresh_text_defaults(session: MutableMapping) -> None:
+    """Après un changement de langue, réécrit les textes proposés par défaut que l'enseignant
+    n'a pas modifiés, dans la nouvelle langue. Ses propres textes ne sont jamais touchés."""
+    from .i18n import table
+
+    data = store(session)
+    for key, source in [(k, CONTEXT_DEFAULTS[k]) for k in TEXT_DEFAULTS] + [("series_label", "Séance 1")]:
+        variants = {source, *table().get(source, {}).values()}
+        if data.get(key) in variants:
+            data[key] = t(source)
+
+
 def get(session: MutableMapping, key: str) -> Any:
     data = store(session)
-    return data.get(key, CONTEXT_DEFAULTS.get(key))
+    return data.get(key, _default(key))
 
 
 def put(session: MutableMapping, key: str, value: Any) -> None:
@@ -65,7 +88,7 @@ def bind(session: MutableMapping, key: str, default: Any = None) -> dict:
     """
     data = store(session)
     if key not in data:
-        data[key] = CONTEXT_DEFAULTS.get(key, default) if default is None else default
+        data[key] = (_default(key) if key in CONTEXT_DEFAULTS else default) if default is None else default
     widget_key = WIDGET_PREFIX + key
     session[widget_key] = data[key]
     return {"key": widget_key, "on_change": _save, "args": (session, key)}
@@ -78,11 +101,11 @@ def _save(session: MutableMapping, key: str) -> None:
 def summary(session: MutableMapping) -> str:
     """Résumé d'une ligne du contexte, pour les titres et les exports."""
     return " · ".join([
-        get(session, "activity"),
-        get(session, "level"),
-        f"{get(session, 'class_size')} élèves",
-        f"{get(session, 'duration')} min",
-        CONNECTIVITY_LABELS[get(session, "connectivity")].lower(),
+        t(get(session, "activity")),
+        t(get(session, "level")),
+        t("{n} élèves", n=get(session, "class_size")),
+        t("{n} min", n=get(session, "duration")),
+        t(CONNECTIVITY_LABELS[get(session, "connectivity")]).lower(),
     ])
 
 
@@ -93,12 +116,12 @@ def search_query(session: MutableMapping) -> str:
     déjà (« sans connexion », « connexion instable ») : aucune règle du moteur
     n'est modifiée.
     """
-    parts = [get(session, "activity").lower(), f"{get(session, 'class_size')} élèves"]
+    parts = [t(get(session, "activity")).lower(), t("{n} élèves", n=get(session, "class_size"))]
     connectivity = get(session, "connectivity")
     if connectivity == "Aucune":
-        parts.append("sans connexion")
+        parts.append(t("sans connexion"))
     elif connectivity == "Limitée":
-        parts.append("connexion instable")
+        parts.append(t("connexion instable"))
     objectives = (get(session, "objectives") or "").strip()
     if objectives:
         parts.append(objectives)
@@ -112,23 +135,23 @@ def render_context(st: Any, session: MutableMapping,
                    expanded: bool = False) -> None:
     """Affiche les champs du contexte, identiques d'une page à l'autre."""
     widgets: dict[str, Callable[[], Any]] = {
-        "activity": lambda: st.selectbox("Activité physique ou sportive", APS, **bind(session, "activity")),
-        "level": lambda: st.selectbox("Niveau", LEVELS, **bind(session, "level")),
-        "class_size": lambda: st.number_input("Effectif", min_value=1, max_value=150, step=1,
+        "activity": lambda: st.selectbox(t("Activité physique ou sportive"), APS, format_func=t, **bind(session, "activity")),
+        "level": lambda: st.selectbox(t("Niveau"), LEVELS, format_func=t, **bind(session, "level")),
+        "class_size": lambda: st.number_input(t("Effectif"), min_value=1, max_value=150, step=1,
                                               **bind(session, "class_size")),
-        "duration": lambda: st.number_input("Durée de la séance (min)", min_value=15, max_value=240,
+        "duration": lambda: st.number_input(t("Durée de la séance (min)"), min_value=15, max_value=240,
                                             step=5, **bind(session, "duration")),
-        "connectivity": lambda: st.selectbox("Connexion sur le lieu de pratique", CONNECTIVITY,
-                                             format_func=CONNECTIVITY_LABELS.get,
+        "connectivity": lambda: st.selectbox(t("Connexion sur le lieu de pratique"), CONNECTIVITY,
+                                             format_func=lambda v: t(CONNECTIVITY_LABELS[v]),
                                              **bind(session, "connectivity")),
-        "devices": lambda: st.selectbox("Appareils disponibles", DEVICES, **bind(session, "devices")),
-        "space": lambda: st.selectbox("Espace", SPACES, **bind(session, "space")),
-        "equipment": lambda: st.text_input("Matériel et contraintes", max_chars=400,
+        "devices": lambda: st.selectbox(t("Appareils disponibles"), DEVICES, format_func=t, **bind(session, "devices")),
+        "space": lambda: st.selectbox(t("Espace"), SPACES, format_func=t, **bind(session, "space")),
+        "equipment": lambda: st.text_input(t("Matériel et contraintes"), max_chars=400,
                                            **bind(session, "equipment")),
-        "objectives": lambda: st.text_area("Objectifs de la séance", max_chars=800,
+        "objectives": lambda: st.text_area(t("Objectifs de la séance"), max_chars=800,
                                            **bind(session, "objectives")),
     }
-    with st.expander("Votre séance : " + summary(session), expanded=expanded):
+    with st.expander(t("Votre séance : ") + summary(session), expanded=expanded):
         short = [f for f in fields if f not in ("equipment", "objectives")]
         # Une rangée par paire de champs : sur téléphone, les colonnes s'empilent
         # rangée par rangée et l'ordre de lecture reste celui de la liste.
@@ -139,4 +162,4 @@ def render_context(st: Any, session: MutableMapping,
         for field in fields:
             if field in ("equipment", "objectives"):
                 widgets[field]()
-        st.caption("Ces informations sont reprises dans tous les modules.")
+        st.caption(t("Ces informations sont reprises dans tous les modules."))

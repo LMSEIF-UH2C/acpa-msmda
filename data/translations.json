@@ -1,0 +1,2206 @@
+{
+ "1 autre": {
+  "ar": "1 أخرى",
+  "en": "1 other"
+ },
+ "ALT-PE": {
+  "ar": "ALT-PE",
+  "en": "ALT-PE"
+ },
+ "APS": {
+  "ar": "النشاط البدني والرياضي",
+  "en": "Physical activity"
+ },
+ "Accessibilité": {
+  "ar": "سهولة الولوج",
+  "en": "Accessibility"
+ },
+ "Accessibilité et communication": {
+  "ar": "سهولة الولوج والتواصل",
+  "en": "Accessibility and communication"
+ },
+ "Accueil": {
+  "ar": "الرئيسية",
+  "en": "Home"
+ },
+ "Accueil et consignes": {
+  "ar": "الاستقبال والتعليمات",
+  "en": "Welcome and instructions"
+ },
+ "Activez l'interrupteur pour inclure les fiches à vérifier.": {
+  "ar": "فعّل الزر لإظهار البطاقات التي لم يتم التحقق منها.",
+  "en": "Turn on the switch to include entries still to be checked."
+ },
+ "Activité et bien-être": {
+  "ar": "النشاط والرفاه",
+  "en": "Activity and well-being"
+ },
+ "Activité physique autonome": {
+  "ar": "نشاط بدني مستقل",
+  "en": "Self-directed physical activity"
+ },
+ "Activité physique et entraînement": {
+  "ar": "النشاط البدني والتدريب",
+  "en": "Physical activity and training"
+ },
+ "Activité physique ou sportive": {
+  "ar": "النشاط البدني أو الرياضي",
+  "en": "Physical or sports activity"
+ },
+ "Activité, consignes et rôle des élèves": {
+  "ar": "النشاط والتعليمات ودور التلاميذ",
+  "en": "Activity, instructions and pupils' roles"
+ },
+ "Activité, objectif et contraintes": {
+  "ar": "النشاط والهدف والإكراهات",
+  "en": "Activity, goal and constraints"
+ },
+ "Adaptez les activités, supports, critères de réussite et durées.": {
+  "ar": "عدّل الأنشطة والوسائط ومعايير النجاح والمدد.",
+  "en": "Adjust activities, media, success criteria and durations."
+ },
+ "Adapté aux programmes d'EPS": {
+  "ar": "ملائم لبرامج التربية البدنية",
+  "en": "Suited to the PE curriculum"
+ },
+ "Afficher {n} de plus ({rest} restantes)": {
+  "ar": "عرض {n} أخرى ({rest} متبقية)",
+  "en": "Show {n} more ({rest} left)"
+ },
+ "Aide et support": {
+  "ar": "المساعدة والدعم",
+  "en": "Help and support"
+ },
+ "Alternatives directement utilisables en séance": {
+  "ar": "بدائل قابلة للاستعمال مباشرة في الحصة",
+  "en": "Alternatives you can use directly in class"
+ },
+ "Analyse vidéo": {
+  "ar": "تحليل الفيديو",
+  "en": "Video analysis"
+ },
+ "Analyse vidéo au ralenti": {
+  "ar": "تحليل الفيديو بالعرض البطيء",
+  "en": "Slow-motion video analysis"
+ },
+ "Analyse vidéo et mouvement": {
+  "ar": "تحليل الفيديو والحركة",
+  "en": "Video and movement analysis"
+ },
+ "Annonces vocales": {
+  "ar": "إعلانات صوتية",
+  "en": "Voice announcements"
+ },
+ "Annotations et ralenti": {
+  "ar": "تعليقات توضيحية وعرض بطيء",
+  "en": "Annotations and slow motion"
+ },
+ "Annotations vidéo": {
+  "ar": "تعليقات على الفيديو",
+  "en": "Video annotations"
+ },
+ "Anthropométrie": {
+  "ar": "القياسات الجسمية",
+  "en": "Anthropometry"
+ },
+ "Appareils": {
+  "ar": "الأجهزة",
+  "en": "Devices"
+ },
+ "Appareils disponibles": {
+  "ar": "الأجهزة المتوفرة",
+  "en": "Available devices"
+ },
+ "Apple Santé ou Google Fit": {
+  "ar": "Apple Santé أو Google Fit",
+  "en": "Apple Health or Google Fit"
+ },
+ "Application avec achats intégrés ; tarifs variables": {
+  "ar": "تطبيق بمشتريات داخلية؛ أسعار متغيرة",
+  "en": "App with in-app purchases; prices vary"
+ },
+ "Apprentissage": {
+  "ar": "التعلم",
+  "en": "Learning"
+ },
+ "Assistants IA et recherche": {
+  "ar": "المساعدات الذكية والبحث",
+  "en": "AI assistants and research"
+ },
+ "Ateliers": {
+  "ar": "الورشات",
+  "en": "Workshops"
+ },
+ "Ateliers de composition, répétition et observation par critères.": {
+  "ar": "ورشات للتركيب والتكرار والملاحظة وفق معايير.",
+  "en": "Workshops for composing, rehearsing and observing against criteria."
+ },
+ "Ateliers et rotations": {
+  "ar": "الورشات والتناوب",
+  "en": "Workshops and rotations"
+ },
+ "Athlétisme": {
+  "ar": "ألعاب القوى",
+  "en": "Athletics"
+ },
+ "Aucun": {
+  "ar": "لا شيء",
+  "en": "None"
+ },
+ "Aucun outil documenté pour cette phase. Un support non numérique peut convenir.": {
+  "ar": "لا توجد أداة موثقة لهذه المرحلة. قد تكفي وسيلة غير رقمية.",
+  "en": "No documented tool for this phase. A non-digital aid may work."
+ },
+ "Aucun élève n'a de valeur dans les deux séries.": {
+  "ar": "لا يوجد تلميذ له قيمة في السلسلتين معًا.",
+  "en": "No pupil has a value in both series."
+ },
+ "Aucune application du catalogue ne correspond à ces mots. Précisez l'activité (ex. course, basket, gymnastique) ou le besoin (chronométrage, vidéo, évaluation).": {
+  "ar": "لا يوجد تطبيق في الدليل يطابق هذه الكلمات. حدّد النشاط (مثل الجري، كرة السلة، الجمباز) أو الحاجة (التوقيت، الفيديو، التقويم).",
+  "en": "No app in the catalogue matches these words. Name the activity (e.g. running, basketball, gymnastics) or the need (timing, video, assessment)."
+ },
+ "Aucune connexion": {
+  "ar": "لا يوجد اتصال",
+  "en": "No connection"
+ },
+ "Aucune fiche ne correspond à ces filtres.": {
+  "ar": "لا توجد بطاقة تطابق هذه المرشحات.",
+  "en": "No entry matches these filters."
+ },
+ "Aucune série enregistrée pour cette épreuve. Saisissez une série dans l'onglet précédent.": {
+  "ar": "لا توجد سلسلة مسجلة لهذا الاختبار. أدخل سلسلة في التبويب السابق.",
+  "en": "No series saved for this test. Enter a series in the previous tab."
+ },
+ "Aucune valeur saisie.": {
+  "ar": "لم يتم إدخال أي قيمة.",
+  "en": "No value entered."
+ },
+ "Audio": {
+  "ar": "صوت",
+  "en": "Audio"
+ },
+ "Autonomie accompagnée": {
+  "ar": "استقلالية مؤطرة",
+  "en": "Guided autonomy"
+ },
+ "Autoévaluation et perspective de progression.": {
+  "ar": "تقويم ذاتي وآفاق للتقدم.",
+  "en": "Self-assessment and next steps for progress."
+ },
+ "Autre": {
+  "ar": "أخرى",
+  "en": "Other"
+ },
+ "Avis d'enseignants : {u} utile(s) en séance, {n} pas utile(s).": {
+  "ar": "آراء الأساتذة: {u} مفيد في الحصة، {n} غير مفيد.",
+  "en": "Teacher feedback: {u} useful in class, {n} not useful."
+ },
+ "Badminton": {
+  "ar": "الريشة الطائرة",
+  "en": "Badminton"
+ },
+ "Ballons, chasubles, terrain et plots.": {
+  "ar": "كرات وصدريات وملعب وأقماع.",
+  "en": "Balls, bibs, court and cones."
+ },
+ "Basketball": {
+  "ar": "كرة السلة",
+  "en": "Basketball"
+ },
+ "Basketball — coopérer pour progresser": {
+  "ar": "كرة السلة: التعاون من أجل التقدم",
+  "en": "Basketball: cooperating to move forward"
+ },
+ "Bilan": {
+  "ar": "الحصيلة",
+  "en": "Summary"
+ },
+ "Bilan bref sans données de localisation.": {
+  "ar": "حصيلة موجزة دون بيانات تحديد الموقع.",
+  "en": "Brief review without location data."
+ },
+ "Bilan et traces": {
+  "ar": "الحصيلة والآثار",
+  "en": "Review and records"
+ },
+ "Bilan imprimable (HTML)": {
+  "ar": "حصيلة قابلة للطباعة (HTML)",
+  "en": "Printable summary (HTML)"
+ },
+ "Bilan oral ou écrit des stratégies utilisées.": {
+  "ar": "حصيلة شفوية أو كتابية للاستراتيجيات المستعملة.",
+  "en": "Oral or written review of the strategies used."
+ },
+ "Bilan sur la coopération et les décisions prises.": {
+  "ar": "حصيلة حول التعاون والقرارات المتخذة.",
+  "en": "Review of cooperation and decisions made."
+ },
+ "Boussole": {
+  "ar": "بوصلة",
+  "en": "Compass"
+ },
+ "Calculée sur {n} élève(s) mesuré(s).": {
+  "ar": "محسوبة على {n} تلميذ تم قياسه.",
+  "en": "Based on {n} measured pupil(s)."
+ },
+ "Captation d'images d'élèves à éviter sans cadre autorisé.": {
+  "ar": "يجب تجنب تصوير التلاميذ دون إطار مرخص.",
+  "en": "Avoid filming pupils without an authorised framework."
+ },
+ "Capteurs": {
+  "ar": "أجهزة الاستشعار",
+  "en": "Sensors"
+ },
+ "Capteurs et tests": {
+  "ar": "أجهزة الاستشعار والاختبارات",
+  "en": "Sensors and tests"
+ },
+ "Cartes hors connexion": {
+  "ar": "خرائط دون اتصال",
+  "en": "Offline maps"
+ },
+ "Cartographie et parcours": {
+  "ar": "الخرائط والمسارات",
+  "en": "Maps and routes"
+ },
+ "Catalogue": {
+  "ar": "الدليل",
+  "en": "Catalogue"
+ },
+ "Ces informations sont reprises dans tous les modules.": {
+  "ar": "تُستعمل هذه المعلومات في جميع الوحدات.",
+  "en": "This information is used in every module."
+ },
+ "Charger le modèle": {
+  "ar": "تحميل النموذج",
+  "en": "Load template"
+ },
+ "Choisir un ou plusieurs supports": {
+  "ar": "اختر وسيلة أو أكثر",
+  "en": "Choose one or more media"
+ },
+ "Choisissez un parcours pour commencer.": {
+  "ar": "اختر مسارًا للبدء.",
+  "en": "Choose a path to get started."
+ },
+ "Chronomètre": {
+  "ar": "ميقاتية",
+  "en": "Stopwatch"
+ },
+ "Classe inversée": {
+  "ar": "القسم المعكوس",
+  "en": "Flipped classroom"
+ },
+ "Classée {age} par le magasin : déconseillée avec des élèves.": {
+  "ar": "مصنفة {age} من طرف المتجر: لا يُنصح بها مع التلاميذ.",
+  "en": "Rated {age} by the store: not advised with pupils."
+ },
+ "Classées selon vos besoins, vos contraintes et les avis des enseignants. Les fiches « À vérifier » sont des applications réelles dont les fonctions n'ont pas encore été contrôlées.": {
+  "ar": "مرتبة حسب حاجياتك وإكراهاتك وآراء الأساتذة. البطاقات «للتحقق» تطبيقات حقيقية لم يتم بعد التحقق من وظائفها.",
+  "en": "Ranked by your needs, your constraints and teachers' feedback. Entries marked \"To check\" are real apps whose features have not been checked yet."
+ },
+ "Codage d'observation selon protocole ALT-PE.": {
+  "ar": "ترميز الملاحظة وفق بروتوكول ALT-PE.",
+  "en": "Observation coding with the ALT-PE protocol."
+ },
+ "Codes élèves {a} à {b}, dans l'ordre de votre liste de classe. Gardez la correspondance code et élève en dehors de l'application.": {
+  "ar": "رموز التلاميذ من {a} إلى {b}، حسب ترتيب لائحة القسم. احتفظ بمطابقة الرمز والتلميذ خارج التطبيق.",
+  "en": "Pupil codes {a} to {b}, in the order of your class list. Keep the code-to-pupil key outside the app."
+ },
+ "Collège": {
+  "ar": "الإعدادي",
+  "en": "Lower secondary"
+ },
+ "Communication et visioconférence": {
+  "ar": "التواصل والمحاضرات المرئية",
+  "en": "Communication and video calls"
+ },
+ "Comparaison de vidéos": {
+  "ar": "مقارنة الفيديوهات",
+  "en": "Video comparison"
+ },
+ "Comparer avec": {
+  "ar": "قارن مع",
+  "en": "Compare with"
+ },
+ "Comparer les temps de passage et proposer un ajustement.": {
+  "ar": "مقارنة الأزمنة المرحلية واقتراح تعديل.",
+  "en": "Compare split times and suggest an adjustment."
+ },
+ "Compatibilité avec équipement Garmin et confidentialité à vérifier.": {
+  "ar": "يجب التحقق من التوافق مع أجهزة Garmin ومن السرية.",
+  "en": "Check compatibility with Garmin devices and privacy."
+ },
+ "Conception pédagogique et multimédia": {
+  "ar": "التصميم البيداغوجي والوسائط المتعددة",
+  "en": "Instructional design and multimedia"
+ },
+ "Concevoir une séance": {
+  "ar": "تصميم حصة",
+  "en": "Design a lesson"
+ },
+ "Connexion": {
+  "ar": "الاتصال",
+  "en": "Connection"
+ },
+ "Connexion disponible": {
+  "ar": "اتصال متوفر",
+  "en": "Connection available"
+ },
+ "Connexion et équipement variables ; alternatives sans application.": {
+  "ar": "الاتصال والتجهيز متغيران؛ بدائل دون تطبيق.",
+  "en": "Connection and equipment vary; alternatives without an app."
+ },
+ "Connexion instable": {
+  "ar": "اتصال غير مستقر",
+  "en": "Unstable connection"
+ },
+ "Connexion limitée sur le lieu de pratique : préférez les chronomètres, les supports téléchargés à l'avance et les fiches papier.": {
+  "ar": "اتصال محدود في مكان الممارسة: فضّل الميقاتيات والوسائط المحملة مسبقًا والبطاقات الورقية.",
+  "en": "Limited connection at the venue: prefer stopwatches, materials downloaded in advance and paper sheets."
+ },
+ "Connexion sur le lieu de pratique": {
+  "ar": "الاتصال في مكان الممارسة",
+  "en": "Connection at the venue"
+ },
+ "Conserver la convention des signes du protocole.": {
+  "ar": "احترم اصطلاح الإشارات الخاص بالبروتوكول.",
+  "en": "Keep the protocol's sign convention."
+ },
+ "Contenus adaptés aux écrans mobiles": {
+  "ar": "محتويات ملائمة لشاشات الهواتف",
+  "en": "Content adapted to mobile screens"
+ },
+ "Contenus interactifs": {
+  "ar": "محتويات تفاعلية",
+  "en": "Interactive content"
+ },
+ "Contrôle à distance par navigateur": {
+  "ar": "التحكم عن بعد عبر المتصفح",
+  "en": "Remote control from a browser"
+ },
+ "Cooper 12 minutes": {
+  "ar": "اختبار كوبر 12 دقيقة",
+  "en": "Cooper 12-minute test"
+ },
+ "Correspond à : ": {
+  "ar": "يطابق: ",
+  "en": "Matches: "
+ },
+ "Countermovement Jump (CMJ)": {
+  "ar": "القفز بحركة مضادة (CMJ)",
+  "en": "Countermovement jump (CMJ)"
+ },
+ "Course et chronométrage": {
+  "ar": "الجري والتوقيت",
+  "en": "Running and timing"
+ },
+ "Coût": {
+  "ar": "التكلفة",
+  "en": "Cost"
+ },
+ "Critères de réussite et retour aux élèves": {
+  "ar": "معايير النجاح والتغذية الراجعة للتلاميذ",
+  "en": "Success criteria and feedback to pupils"
+ },
+ "Créer et exploiter des espaces de jeu grâce à la coopération.": {
+  "ar": "خلق واستغلال فضاءات اللعب بفضل التعاون.",
+  "en": "Create and use space through cooperation."
+ },
+ "D'après les informations publiées par l'éditeur.": {
+  "ar": "حسب المعلومات التي نشرها الناشر.",
+  "en": "Based on the information published by the publisher."
+ },
+ "Date": {
+  "ar": "التاريخ",
+  "en": "Date"
+ },
+ "De l’idée à la séance.": {
+  "ar": "من الفكرة إلى الحصة.",
+  "en": "From idea to lesson."
+ },
+ "Des outils adaptés à votre activité et à vos contraintes.": {
+  "ar": "أدوات ملائمة لنشاطك وإكراهاتك.",
+  "en": "Tools suited to your activity and constraints."
+ },
+ "Dessin sur vidéo": {
+  "ar": "الرسم على الفيديو",
+  "en": "Drawing on video"
+ },
+ "Diagnostic": {
+  "ar": "التشخيص",
+  "en": "Diagnosis"
+ },
+ "Différence entre marque bras levés et marque au saut.": {
+  "ar": "الفرق بين العلامة بالذراعين المرفوعتين وعلامة القفز.",
+  "en": "Difference between the standing reach mark and the jump mark."
+ },
+ "Disponibilité et modalités des fonctionnalités à revérifier ; ressources web accessibles avec connexion.": {
+  "ar": "يجب إعادة التحقق من توفر الوظائف وشروطها؛ الموارد على الويب تتطلب اتصالًا.",
+  "en": "Feature availability and terms to recheck; web resources need a connection."
+ },
+ "Disposer d'un espace adapté et connaître les consignes de sécurité.": {
+  "ar": "توفر فضاء ملائم ومعرفة تعليمات السلامة.",
+  "en": "Have a suitable space and know the safety rules."
+ },
+ "Distance": {
+  "ar": "المسافة",
+  "en": "Distance"
+ },
+ "Distance doigts-pieds": {
+  "ar": "المسافة بين الأصابع والقدمين",
+  "en": "Fingertip-to-toe distance"
+ },
+ "Distance doigts-sol": {
+  "ar": "المسافة بين الأصابع والأرض",
+  "en": "Fingertip-to-floor distance"
+ },
+ "Domaine": {
+  "ar": "المجال",
+  "en": "Area"
+ },
+ "Données (CSV)": {
+  "ar": "البيانات (CSV)",
+  "en": "Data (CSV)"
+ },
+ "Données et automatisation": {
+  "ar": "البيانات والأتمتة",
+  "en": "Data and automation"
+ },
+ "Durée": {
+  "ar": "المدة",
+  "en": "Duration"
+ },
+ "Durée (min)": {
+  "ar": "المدة (دقيقة)",
+  "en": "Duration (min)"
+ },
+ "Durée de la séance (min)": {
+  "ar": "مدة الحصة (دقيقة)",
+  "en": "Lesson length (min)"
+ },
+ "Décrivez votre activité ou vos contraintes pour obtenir des suggestions.": {
+  "ar": "صف نشاطك أو إكراهاتك للحصول على اقتراحات.",
+  "en": "Describe your activity or constraints to get suggestions."
+ },
+ "Démonstration": {
+  "ar": "عرض تطبيقي",
+  "en": "Demonstration"
+ },
+ "Départ, chronométrage et nombre d'essais à standardiser.": {
+  "ar": "يجب توحيد الانطلاق والتوقيت وعدد المحاولات.",
+  "en": "Standardise the start, timing and number of attempts."
+ },
+ "Dépend de la connectivité et du type de ressource.": {
+  "ar": "يتوقف على الاتصال ونوع المورد.",
+  "en": "Depends on connectivity and the type of resource."
+ },
+ "Déroulement": {
+  "ar": "سير الحصة",
+  "en": "Lesson flow"
+ },
+ "Détail par élève": {
+  "ar": "التفاصيل حسب التلميذ",
+  "en": "Details by pupil"
+ },
+ "Détente": {
+  "ar": "الارتقاء",
+  "en": "Jumping power"
+ },
+ "EPS · collège et lycée": {
+  "ar": "التربية البدنية · الإعدادي والثانوي",
+  "en": "PE · secondary school"
+ },
+ "Effectif": {
+  "ar": "عدد التلاميذ",
+  "en": "Class size"
+ },
+ "Efficacité pour l'apprentissage moteur": {
+  "ar": "الفعالية في التعلم الحركي",
+  "en": "Effectiveness for motor learning"
+ },
+ "Endurance": {
+  "ar": "التحمل",
+  "en": "Endurance"
+ },
+ "Endurance musculaire": {
+  "ar": "التحمل العضلي",
+  "en": "Muscular endurance"
+ },
+ "Endurance — gérer son allure": {
+  "ar": "التحمل: التحكم في الإيقاع",
+  "en": "Endurance: managing your pace"
+ },
+ "Engagement des élèves": {
+  "ar": "انخراط التلاميذ",
+  "en": "Pupil engagement"
+ },
+ "Enregistrer la série": {
+  "ar": "تسجيل السلسلة",
+  "en": "Save series"
+ },
+ "Espace": {
+  "ar": "الفضاء",
+  "en": "Space"
+ },
+ "Espaces de communication": {
+  "ar": "فضاءات التواصل",
+  "en": "Communication spaces"
+ },
+ "Ex. Kinovea": {
+  "ar": "مثال: Kinovea",
+  "en": "e.g. Kinovea"
+ },
+ "Ex. endurance, 35 élèves, sans connexion, budget limité": {
+  "ar": "مثال: تحمل، 35 تلميذًا، بدون اتصال، ميزانية محدودة",
+  "en": "e.g. endurance, 35 pupils, no connection, limited budget"
+ },
+ "Exercices en vidéo": {
+  "ar": "تمارين بالفيديو",
+  "en": "Exercise videos"
+ },
+ "Exploitation des capteurs du smartphone": {
+  "ar": "استغلال أجهزة استشعار الهاتف",
+  "en": "Uses the smartphone's sensors"
+ },
+ "Export CSV de mesures": {
+  "ar": "تصدير القياسات بصيغة CSV",
+  "en": "CSV export of measurements"
+ },
+ "Export CSV ou Excel": {
+  "ar": "تصدير CSV أو Excel",
+  "en": "CSV or Excel export"
+ },
+ "Export PDF": {
+  "ar": "تصدير PDF",
+  "en": "PDF export"
+ },
+ "Export des données": {
+  "ar": "تصدير البيانات",
+  "en": "Data export"
+ },
+ "Export des mesures": {
+  "ar": "تصدير القياسات",
+  "en": "Measurement export"
+ },
+ "Exporter": {
+  "ar": "تصدير",
+  "en": "Export"
+ },
+ "Exporter l'organisation (CSV)": {
+  "ar": "تصدير التنظيم (CSV)",
+  "en": "Export the plan (CSV)"
+ },
+ "Exporter le scénario (CSV)": {
+  "ar": "تصدير السيناريو (CSV)",
+  "en": "Export the lesson plan (CSV)"
+ },
+ "Expériences personnalisées": {
+  "ar": "تجارب مخصصة",
+  "en": "Personalised experiences"
+ },
+ "Facilité d'usage": {
+  "ar": "سهولة الاستعمال",
+  "en": "Ease of use"
+ },
+ "Famille d'outils": {
+  "ar": "فئة الأدوات",
+  "en": "Tool family"
+ },
+ "Feedback audio et partage": {
+  "ar": "تغذية راجعة صوتية ومشاركة",
+  "en": "Audio feedback and sharing"
+ },
+ "Feedback collectif sur les déplacements et nouvelle situation.": {
+  "ar": "تغذية راجعة جماعية حول التنقلات ووضعية جديدة.",
+  "en": "Group feedback on movement and a new situation."
+ },
+ "Feedback vidéo": {
+  "ar": "تغذية راجعة بالفيديو",
+  "en": "Video feedback"
+ },
+ "Feuille de score": {
+  "ar": "ورقة النتيجة",
+  "en": "Score sheet"
+ },
+ "Fiabilité": {
+  "ar": "الموثوقية",
+  "en": "Reliability"
+ },
+ "Fiche numérique": {
+  "ar": "بطاقة رقمية",
+  "en": "Digital worksheet"
+ },
+ "Fonctionne hors connexion": {
+  "ar": "يعمل دون اتصال",
+  "en": "Works offline"
+ },
+ "Fonctionne sans Internet (l'application ne demande aucun accès au réseau).": {
+  "ar": "يعمل دون إنترنت (لا يطلب التطبيق أي ولوج إلى الشبكة).",
+  "en": "Works without Internet (the app requests no network access)."
+ },
+ "Fonctionnement hors connexion": {
+  "ar": "الاشتغال دون اتصال",
+  "en": "Offline use"
+ },
+ "Fonctionnement hors connexion annoncé par l'éditeur.": {
+  "ar": "الاشتغال دون اتصال حسب الناشر.",
+  "en": "Offline use stated by the publisher."
+ },
+ "Fonctionnement hors ligne à vérifier": {
+  "ar": "الاشتغال دون اتصال يجب التحقق منه",
+  "en": "Offline use to check"
+ },
+ "Fonctions : ": {
+  "ar": "الوظائف: ",
+  "en": "Features: "
+ },
+ "Fonctions annoncées par l'éditeur : ": {
+  "ar": "الوظائف المعلنة من طرف الناشر: ",
+  "en": "Features stated by the publisher: "
+ },
+ "Fonctions annoncées par l'éditeur, à essayer avant la séance ; vérifier les conditions d'usage avec des élèves.": {
+  "ar": "وظائف معلنة من طرف الناشر، يجب تجريبها قبل الحصة؛ تحقق من شروط الاستعمال مع التلاميذ.",
+  "en": "Features stated by the publisher, to try before the lesson; check the terms of use with pupils."
+ },
+ "Fonctions non vérifiées en séance.": {
+  "ar": "وظائف لم يتم التحقق منها في الحصة.",
+  "en": "Features not checked in class."
+ },
+ "Fonctions vérifiées": {
+  "ar": "وظائف تم التحقق منها",
+  "en": "Features checked"
+ },
+ "Football": {
+  "ar": "كرة القدم",
+  "en": "Football"
+ },
+ "Force": {
+  "ar": "القوة",
+  "en": "Strength"
+ },
+ "Formation d'enseignants": {
+  "ar": "تكوين الأساتذة",
+  "en": "Teacher training"
+ },
+ "Fréquence cardiaque": {
+  "ar": "معدل نبض القلب",
+  "en": "Heart rate"
+ },
+ "Fréquence cardiaque de repos": {
+  "ar": "نبض القلب في الراحة",
+  "en": "Resting heart rate"
+ },
+ "Gestion d'équipe": {
+  "ar": "تدبير الفريق",
+  "en": "Team management"
+ },
+ "Gestion et planification": {
+  "ar": "التدبير والتخطيط",
+  "en": "Management and planning"
+ },
+ "Gratuit selon l'éditeur": {
+  "ar": "مجاني حسب الناشر",
+  "en": "Free according to the publisher"
+ },
+ "Gratuit, logiciel libre": {
+  "ar": "مجاني، برنامج حر",
+  "en": "Free, open-source software"
+ },
+ "Groupes :": {
+  "ar": "المجموعات:",
+  "en": "Groups:"
+ },
+ "Groupes, rotations et temps de séance.": {
+  "ar": "المجموعات والتناوب وزمن الحصة.",
+  "en": "Groups, rotations and lesson time."
+ },
+ "Gymnase": {
+  "ar": "القاعة المغطاة",
+  "en": "Gym"
+ },
+ "Gymnastique": {
+  "ar": "الجمباز",
+  "en": "Gymnastics"
+ },
+ "Gymnastique — construire un enchaînement": {
+  "ar": "الجمباز: بناء سلسلة حركية",
+  "en": "Gymnastics: building a routine"
+ },
+ "Gérer les séries": {
+  "ar": "تدبير السلاسل",
+  "en": "Manage series"
+ },
+ "Gérer son allure et analyser sa performance.": {
+  "ar": "التحكم في الإيقاع وتحليل الأداء.",
+  "en": "Manage pace and analyse performance."
+ },
+ "Handball": {
+  "ar": "كرة اليد",
+  "en": "Handball"
+ },
+ "Hauteur": {
+  "ar": "الارتفاع",
+  "en": "Height"
+ },
+ "Hauteur de saut": {
+  "ar": "ارتفاع القفز",
+  "en": "Jump height"
+ },
+ "Hors connexion : ": {
+  "ar": "دون اتصال: ",
+  "en": "Offline: "
+ },
+ "Hybride": {
+  "ar": "هجين",
+  "en": "Blended"
+ },
+ "Identifier l'espace disponible et les contraintes.": {
+  "ar": "تحديد الفضاء المتوفر والإكراهات.",
+  "en": "Identify the available space and constraints."
+ },
+ "Identifier les éléments connus et rappeler les règles de sécurité.": {
+  "ar": "تحديد العناصر المعروفة والتذكير بقواعد السلامة.",
+  "en": "Identify known elements and recall the safety rules."
+ },
+ "Inclure les fiches à vérifier": {
+  "ar": "إظهار البطاقات التي يجب التحقق منها",
+  "en": "Include entries to check"
+ },
+ "Indicateurs descriptifs calculés uniquement à partir des valeurs saisies ; aucune norme ni aucun barème n'est appliqué.": {
+  "ar": "مؤشرات وصفية محسوبة فقط من القيم المدخلة؛ لا يُطبق أي معيار أو سلم تنقيط.",
+  "en": "Descriptive indicators computed only from the values entered; no norm or scoring scale is applied."
+ },
+ "Indice": {
+  "ar": "مؤشر",
+  "en": "Index"
+ },
+ "Informations de la fiche {name}, relevées en {when}.": {
+  "ar": "معلومات بطاقة {name}، تم جمعها في {when}.",
+  "en": "Information from the {name} listing, collected in {when}."
+ },
+ "Informations de la fiche {name}.": {
+  "ar": "معلومات بطاقة {name}.",
+  "en": "Information from the {name} listing."
+ },
+ "Intégration LMS": {
+  "ar": "الإدماج في منصة تعلم",
+  "en": "LMS integration"
+ },
+ "Jeux actifs et ludification": {
+  "ar": "الألعاب النشيطة والتلعيب",
+  "en": "Active games and gamification"
+ },
+ "Jeux de passes et démarquage progressifs.": {
+  "ar": "ألعاب تمرير وتحرر تدريجية.",
+  "en": "Progressive passing and getting-free games."
+ },
+ "Jeux réduits avec consignes de circulation et rôles d'observateurs.": {
+  "ar": "ألعاب مصغرة بتعليمات حول تداول الكرة وأدوار للملاحظين.",
+  "en": "Small-sided games with movement instructions and observer roles."
+ },
+ "Killy": {
+  "ar": "اختبار كيلي",
+  "en": "Killy test"
+ },
+ "L'activité choisie est adaptée à l'environnement.": {
+  "ar": "النشاط المختار ملائم للمحيط.",
+  "en": "The chosen activity suits the setting."
+ },
+ "L'application ne sauvegarde pas les séries : elles disparaissent au rechargement ou à la fermeture de la page. Exportez-les pour les conserver.": {
+  "ar": "لا يحفظ التطبيق السلاسل: تختفي عند إعادة التحميل أو إغلاق الصفحة. صدّرها للاحتفاظ بها.",
+  "en": "The app does not save series: they disappear when the page is reloaded or closed. Export them to keep them."
+ },
+ "L'enchaînement respecte les critères annoncés.": {
+  "ar": "تحترم السلسلة الحركية المعايير المعلنة.",
+  "en": "The routine meets the stated criteria."
+ },
+ "L'échauffement est réalisé progressivement.": {
+  "ar": "يُنجز الإحماء بشكل تدريجي.",
+  "en": "The warm-up is progressive."
+ },
+ "L'élève compare allure prévue et allure réalisée.": {
+  "ar": "يقارن التلميذ الإيقاع المتوقع بالإيقاع المنجز.",
+  "en": "The pupil compares planned and actual pace."
+ },
+ "L'élève décrit son activité et une amélioration possible.": {
+  "ar": "يصف التلميذ نشاطه وتحسينًا ممكنًا.",
+  "en": "The pupil describes their activity and one possible improvement."
+ },
+ "L'élève explique une décision pertinente.": {
+  "ar": "يشرح التلميذ قرارًا مناسبًا.",
+  "en": "The pupil explains a sound decision."
+ },
+ "L'élève formule un objectif de progression.": {
+  "ar": "يصوغ التلميذ هدفًا للتقدم.",
+  "en": "The pupil sets a progress goal."
+ },
+ "L'élève identifie un point fort et un axe d'amélioration.": {
+  "ar": "يحدد التلميذ نقطة قوة ومجالًا للتحسين.",
+  "en": "The pupil identifies a strength and an area to improve."
+ },
+ "L'élève identifie un signe de fatigue et adapte l'effort.": {
+  "ar": "يتعرف التلميذ على علامة تعب ويكيّف مجهوده.",
+  "en": "The pupil recognises a sign of fatigue and adjusts the effort."
+ },
+ "L'élève identifie une allure soutenable.": {
+  "ar": "يحدد التلميذ إيقاعًا يمكن الحفاظ عليه.",
+  "en": "The pupil identifies a sustainable pace."
+ },
+ "L'élève justifie un ajustement concret.": {
+  "ar": "يبرر التلميذ تعديلًا ملموسًا.",
+  "en": "The pupil justifies a concrete adjustment."
+ },
+ "L'élève réalise les mouvements préparatoires.": {
+  "ar": "ينجز التلميذ الحركات التحضيرية.",
+  "en": "The pupil performs the preparatory movements."
+ },
+ "L'élève se rend disponible pour recevoir.": {
+  "ar": "يجعل التلميذ نفسه متاحًا لاستقبال الكرة.",
+  "en": "The pupil gets free to receive."
+ },
+ "L'élève suit le parcours en sécurité.": {
+  "ar": "يتبع التلميذ المسار بأمان.",
+  "en": "The pupil follows the course safely."
+ },
+ "L'élève suit une progression personnelle réaliste.": {
+  "ar": "يتبع التلميذ تدرجًا شخصيًا واقعيًا.",
+  "en": "The pupil follows a realistic personal progression."
+ },
+ "L'équipe crée des solutions de passe identifiables.": {
+  "ar": "يخلق الفريق حلول تمرير واضحة.",
+  "en": "The team creates clear passing options."
+ },
+ "L'équipe repère une difficulté de circulation du ballon.": {
+  "ar": "يرصد الفريق صعوبة في تداول الكرة.",
+  "en": "The team spots a difficulty in moving the ball."
+ },
+ "LMS compatible": {
+  "ar": "متوافق مع منصات التعلم",
+  "en": "LMS compatible"
+ },
+ "La moitié des élèves mesurés est au-dessus, l'autre moitié en dessous.": {
+  "ar": "نصف التلاميذ المقيسين فوقها والنصف الآخر تحتها.",
+  "en": "Half of the measured pupils are above, half below."
+ },
+ "Lancer médecine-ball 3 kg": {
+  "ar": "رمي الكرة الطبية 3 كلغ",
+  "en": "3 kg medicine-ball throw"
+ },
+ "Langue": {
+  "ar": "اللغة",
+  "en": "Language"
+ },
+ "Langues": {
+  "ar": "اللغات",
+  "en": "Languages"
+ },
+ "Lecture au ralenti": {
+  "ar": "القراءة بالعرض البطيء",
+  "en": "Slow-motion playback"
+ },
+ "Les phases occupent exactement la durée prévue : {n} min.": {
+  "ar": "تشغل المراحل المدة المقررة بالضبط: {n} دقيقة.",
+  "en": "The phases fill exactly the planned time: {n} min."
+ },
+ "Les phases totalisent {used} min pour une séance de {n} min (écart : {gap} min).": {
+  "ar": "مجموع المراحل {used} دقيقة لحصة مدتها {n} دقيقة (الفارق: {gap} دقيقة).",
+  "en": "The phases add up to {used} min for a {n}-min lesson (difference: {gap} min)."
+ },
+ "Les règles de sécurité sont reformulées.": {
+  "ar": "تتم إعادة صياغة قواعد السلامة.",
+  "en": "The safety rules are restated."
+ },
+ "Les élèves ajustent leurs placements.": {
+  "ar": "يعدّل التلاميذ تموضعهم.",
+  "en": "Pupils adjust their positions."
+ },
+ "Liaison avec d'autres outils": {
+  "ar": "الربط مع أدوات أخرى",
+  "en": "Links with other tools"
+ },
+ "Lien avec les programmes d'EPS": {
+  "ar": "الارتباط ببرامج التربية البدنية",
+  "en": "Link with the PE curriculum"
+ },
+ "Ligne vide ou « abs » : élève absent. Virgule ou point acceptés.": {
+  "ar": "سطر فارغ أو «abs»: تلميذ غائب. الفاصلة أو النقطة مقبولتان.",
+  "en": "Empty line or \"abs\": absent pupil. Comma or point accepted."
+ },
+ "Ligne {i} : valeur non valide.": {
+  "ar": "السطر {i}: قيمة غير صالحة.",
+  "en": "Line {i}: invalid value."
+ },
+ "Ligne {i} : valeur négative non prévue pour cette épreuve.": {
+  "ar": "السطر {i}: قيمة سالبة غير متوقعة في هذا الاختبار.",
+  "en": "Line {i}: negative value not expected for this test."
+ },
+ "Ligne {i} : « {raw} » n'est pas un nombre.": {
+  "ar": "السطر {i}: «{raw}» ليس عددًا.",
+  "en": "Line {i}: \"{raw}\" is not a number."
+ },
+ "Localisation et données d'activité : vérifier les réglages de confidentialité et l'adéquation à l'âge des élèves.": {
+  "ar": "تحديد الموقع وبيانات النشاط: تحقق من إعدادات السرية وملاءمتها لسن التلاميذ.",
+  "en": "Location and activity data: check the privacy settings and suitability for the pupils' age."
+ },
+ "Lycée": {
+  "ar": "الثانوي التأهيلي",
+  "en": "Upper secondary"
+ },
+ "Maintenir une allure adaptée à une durée définie et décrire ses sensations d'effort.": {
+  "ar": "الحفاظ على إيقاع ملائم لمدة محددة ووصف الإحساس بالمجهود.",
+  "en": "Hold a suitable pace for a set time and describe how the effort feels."
+ },
+ "Maintien isométrique.": {
+  "ar": "ثبات متساوي القياس.",
+  "en": "Isometric hold."
+ },
+ "Masse": {
+  "ar": "الكتلة",
+  "en": "Mass"
+ },
+ "Matériel et contraintes": {
+  "ar": "العتاد والإكراهات",
+  "en": "Equipment and constraints"
+ },
+ "Matériel et procédure de mesure à confirmer.": {
+  "ar": "يجب تأكيد العتاد وطريقة القياس.",
+  "en": "Equipment and measurement procedure to confirm."
+ },
+ "Maîtriser les règles de parade et d'installation des tapis.": {
+  "ar": "التحكم في قواعد المساعدة وتثبيت البساط.",
+  "en": "Master spotting rules and mat set-up."
+ },
+ "Merci, votre avis est enregistré.": {
+  "ar": "شكرًا، تم تسجيل رأيك.",
+  "en": "Thank you, your feedback is saved."
+ },
+ "Mesure : {m} ({u}). Protocole : {p}": {
+  "ar": "القياس: {m} ({u}). البروتوكول: {p}",
+  "en": "Measure: {m} ({u}). Protocol: {p}"
+ },
+ "Mesure de taille ; ne pas afficher de jugement corporel.": {
+  "ar": "قياس القامة؛ لا يُعرض أي حكم على الجسم.",
+  "en": "Height measurement; show no judgement about the body."
+ },
+ "Mesure par dispositif ou saisie manuelle ; pas de hauteur calculée à partir d'une vidéo non étalonnée.": {
+  "ar": "قياس بجهاز أو إدخال يدوي؛ لا يُحسب الارتفاع من فيديو غير معاير.",
+  "en": "Measured with a device or entered by hand; no height computed from an uncalibrated video."
+ },
+ "Mesure sensible ; aucune donnée nominative dans la démo.": {
+  "ar": "قياس حساس؛ لا توجد أي بيانات اسمية في العرض.",
+  "en": "Sensitive measure; no personal data in the demo."
+ },
+ "Mesure standardisée au repos.": {
+  "ar": "قياس موحد في حالة الراحة.",
+  "en": "Standardised measurement at rest."
+ },
+ "Mesurer et analyser": {
+  "ar": "القياس والتحليل",
+  "en": "Measure and analyse"
+ },
+ "Mesures": {
+  "ar": "القياسات",
+  "en": "Measures"
+ },
+ "Mesures d'angles et de distances": {
+  "ar": "قياس الزوايا والمسافات",
+  "en": "Angle and distance measurement"
+ },
+ "Minuteur d'intervalles": {
+  "ar": "مؤقت الفترات",
+  "en": "Interval timer"
+ },
+ "Mise en activité": {
+  "ar": "الإحماء والانطلاق",
+  "en": "Warm-up"
+ },
+ "Mise à jour": {
+  "ar": "التحديث",
+  "en": "Updated"
+ },
+ "Mobilité": {
+  "ar": "المرونة",
+  "en": "Mobility"
+ },
+ "Mobilité et préparation spécifique.": {
+  "ar": "المرونة والإعداد الخاص.",
+  "en": "Mobility and specific preparation."
+ },
+ "Modalité": {
+  "ar": "الصيغة",
+  "en": "Format"
+ },
+ "Mode de décompte à préciser avant comparaison.": {
+  "ar": "يجب تحديد طريقة العد قبل المقارنة.",
+  "en": "Specify the counting method before comparing."
+ },
+ "Montage et supports": {
+  "ar": "المونتاج والوسائط",
+  "en": "Editing and media"
+ },
+ "Montre connectée": {
+  "ar": "ساعة ذكية",
+  "en": "Smartwatch"
+ },
+ "Motivation": {
+  "ar": "الدافعية",
+  "en": "Motivation"
+ },
+ "Moyenne": {
+  "ar": "المتوسط",
+  "en": "Mean"
+ },
+ "Médiane": {
+  "ar": "الوسيط",
+  "en": "Median"
+ },
+ "N'indiquez ni nom ni identifiant d'élève.": {
+  "ar": "لا تكتب اسم أي تلميذ أو معرّفه.",
+  "en": "Do not enter any pupil's name or identifier."
+ },
+ "Natation et sports aquatiques": {
+  "ar": "السباحة والرياضات المائية",
+  "en": "Swimming and water sports"
+ },
+ "Navette Léger 20 m": {
+  "ar": "اختبار الذهاب والإياب 20 م (Léger)",
+  "en": "Léger 20 m shuttle run"
+ },
+ "Navigateur web": {
+  "ar": "متصفح الويب",
+  "en": "Web browser"
+ },
+ "Ne pas collecter de données nominatives ou sensibles dans un compte non autorisé.": {
+  "ar": "لا تجمع بيانات اسمية أو حساسة في حساب غير مرخص.",
+  "en": "Do not collect personal or sensitive data in an unauthorised account."
+ },
+ "Niveau": {
+  "ar": "المستوى",
+  "en": "Level"
+ },
+ "Nom de l'outil": {
+  "ar": "اسم الأداة",
+  "en": "Tool name"
+ },
+ "Nom de la série": {
+  "ar": "اسم السلسلة",
+  "en": "Series name"
+ },
+ "Nombre d'ateliers": {
+  "ar": "عدد الورشات",
+  "en": "Number of workshops"
+ },
+ "Non confirmé": {
+  "ar": "غير مؤكد",
+  "en": "Not confirmed"
+ },
+ "Non précisé": {
+  "ar": "غير محدد",
+  "en": "Not specified"
+ },
+ "Noter sensations et ajuster l'intensité.": {
+  "ar": "تدوين الأحاسيس وتعديل الشدة.",
+  "en": "Note how it feels and adjust intensity."
+ },
+ "Nécessite un environnement de diffusion adapté.": {
+  "ar": "يتطلب بيئة عرض ملائمة.",
+  "en": "Requires a suitable display setup."
+ },
+ "Nécessite une instance configurée et une politique de gestion des données.": {
+  "ar": "يتطلب نسخة مهيأة وسياسة لتدبير البيانات.",
+  "en": "Requires a configured instance and a data management policy."
+ },
+ "Objectifs": {
+  "ar": "الأهداف",
+  "en": "Goals"
+ },
+ "Objectifs de la séance": {
+  "ar": "أهداف الحصة",
+  "en": "Lesson goals"
+ },
+ "Objectifs, activités et critères de réussite sont renseignés.": {
+  "ar": "الأهداف والأنشطة ومعايير النجاح مملوءة.",
+  "en": "Goals, activities and success criteria are filled in."
+ },
+ "Observation pédagogique": {
+  "ar": "الملاحظة البيداغوجية",
+  "en": "Teaching observation"
+ },
+ "Observer une situation de conservation simple.": {
+  "ar": "ملاحظة وضعية احتفاظ بسيطة بالكرة.",
+  "en": "Observe a simple ball-keeping situation."
+ },
+ "Organisation et bureautique": {
+  "ar": "التنظيم والمكتبيات",
+  "en": "Organisation and office tools"
+ },
+ "Organisation proposée": {
+  "ar": "التنظيم المقترح",
+  "en": "Suggested organisation"
+ },
+ "Organiser les ateliers": {
+  "ar": "تنظيم الورشات",
+  "en": "Organise workshops"
+ },
+ "Outils": {
+  "ar": "الأدوات",
+  "en": "Tools"
+ },
+ "Outils à explorer pour cette phase": {
+  "ar": "أدوات للاستكشاف في هذه المرحلة",
+  "en": "Tools to explore for this phase"
+ },
+ "Page": {
+  "ar": "الصفحة",
+  "en": "Page"
+ },
+ "Palier atteint": {
+  "ar": "المرحلة المنجزة",
+  "en": "Stage reached"
+ },
+ "Parcours balisé, chronomètre, points d'eau.": {
+  "ar": "مسار محدد بعلامات، ميقاتية، نقاط ماء.",
+  "en": "Marked course, stopwatch, water points."
+ },
+ "Partir d'un modèle": {
+  "ar": "الانطلاق من نموذج",
+  "en": "Start from a template"
+ },
+ "Partir de ma séance : ": {
+  "ar": "الانطلاق من حصتي: ",
+  "en": "Start from my lesson: "
+ },
+ "Pas encore d'avis d'enseignant.": {
+  "ar": "لا توجد بعد آراء للأساتذة.",
+  "en": "No teacher feedback yet."
+ },
+ "Pas utile": {
+  "ar": "غير مفيد",
+  "en": "Not useful"
+ },
+ "Performance": {
+  "ar": "الأداء",
+  "en": "Performance"
+ },
+ "Peu mise à jour : dernière version en {year}.": {
+  "ar": "قليل التحديث: آخر إصدار سنة {year}.",
+  "en": "Rarely updated: last version in {year}."
+ },
+ "Phase": {
+  "ar": "المرحلة",
+  "en": "Phase"
+ },
+ "Phases, activités, supports et critères de réussite.": {
+  "ar": "المراحل والأنشطة والوسائط ومعايير النجاح.",
+  "en": "Phases, activities, media and success criteria."
+ },
+ "Physiologie": {
+  "ar": "الفيزيولوجيا",
+  "en": "Physiology"
+ },
+ "Piste": {
+  "ar": "المضمار",
+  "en": "Track"
+ },
+ "Planifier une activité physique réalisable en sécurité et décrire sa réalisation.": {
+  "ar": "تخطيط نشاط بدني قابل للإنجاز بأمان ووصف إنجازه.",
+  "en": "Plan a physical activity that can be done safely and describe how it went."
+ },
+ "Plateformes": {
+  "ar": "المنصات",
+  "en": "Platforms"
+ },
+ "Plateformes : ": {
+  "ar": "المنصات: ",
+  "en": "Platforms: "
+ },
+ "Plots, chronomètre, un smartphone enseignant": {
+  "ar": "أقماع، ميقاتية، هاتف ذكي للأستاذ",
+  "en": "Cones, stopwatch, one teacher smartphone"
+ },
+ "Plus petite et plus grande valeur saisies.": {
+  "ar": "أصغر وأكبر قيمة مدخلة.",
+  "en": "Smallest and largest values entered."
+ },
+ "Plusieurs élèves ou athlètes": {
+  "ar": "عدة تلاميذ أو رياضيين",
+  "en": "Several pupils or athletes"
+ },
+ "Podomètre": {
+  "ar": "عداد الخطوات",
+  "en": "Pedometer"
+ },
+ "Poids": {
+  "ar": "الوزن",
+  "en": "Weight"
+ },
+ "Points de vigilance : ": {
+  "ar": "نقاط تستدعي الانتباه: ",
+  "en": "Points to watch: "
+ },
+ "Points forts : ": {
+  "ar": "نقاط القوة: ",
+  "en": "Strengths: "
+ },
+ "Points à compléter : {n}": {
+  "ar": "نقاط يجب إتمامها: {n}",
+  "en": "Items to complete: {n}"
+ },
+ "Position assise dos au mur.": {
+  "ar": "وضعية الجلوس والظهر إلى الحائط.",
+  "en": "Seated with back against the wall."
+ },
+ "Pour cette épreuve, le meilleur résultat est la": {
+  "ar": "في هذا الاختبار، أفضل نتيجة هي",
+  "en": "For this test, the better result is the"
+ },
+ "Primaire": {
+  "ar": "الابتدائي",
+  "en": "Primary"
+ },
+ "Prix": {
+  "ar": "السعر",
+  "en": "Price"
+ },
+ "Programmes d'entraînement": {
+  "ar": "برامج التدريب",
+  "en": "Training plans"
+ },
+ "Protection des données": {
+  "ar": "حماية البيانات",
+  "en": "Data protection"
+ },
+ "Protocole de maintien à préciser.": {
+  "ar": "يجب تحديد بروتوكول الثبات.",
+  "en": "Specify the hold protocol."
+ },
+ "Protocole et table palier-vitesse à préciser avant estimation de VMA ou VO₂max.": {
+  "ar": "يجب تحديد البروتوكول وجدول المراحل والسرعات قبل تقدير السرعة الهوائية القصوى أو VO₂max.",
+  "en": "Specify the protocol and stage-speed table before estimating MAS or VO₂max."
+ },
+ "Précisez les objectifs de la séance.": {
+  "ar": "حدد أهداف الحصة.",
+  "en": "State the lesson goals."
+ },
+ "Précision des capteurs": {
+  "ar": "دقة أجهزة الاستشعار",
+  "en": "Sensor accuracy"
+ },
+ "Précision et protocole de mesure à vérifier selon le capteur.": {
+  "ar": "يجب التحقق من الدقة وبروتوكول القياس حسب جهاز الاستشعار.",
+  "en": "Check accuracy and measurement protocol for the sensor."
+ },
+ "Préparer, organiser et enrichir vos séances d'EPS.": {
+  "ar": "حضّر ونظّم وأغنِ حصص التربية البدنية.",
+  "en": "Prepare, organise and enrich your PE lessons."
+ },
+ "Prérequis": {
+  "ar": "المكتسبات القبلية",
+  "en": "Prerequisites"
+ },
+ "Présentiel": {
+  "ar": "حضوري",
+  "en": "In person"
+ },
+ "Psychométrie": {
+  "ar": "القياس النفسي",
+  "en": "Psychometrics"
+ },
+ "Puissance": {
+  "ar": "القدرة",
+  "en": "Power"
+ },
+ "QR code": {
+  "ar": "رمز QR",
+  "en": "QR code"
+ },
+ "Que voulez-vous faire ?": {
+  "ar": "ماذا تريد أن تفعل؟",
+  "en": "What would you like to do?"
+ },
+ "Questionnaires et évaluation": {
+  "ar": "الاستمارات والتقويم",
+  "en": "Questionnaires and assessment"
+ },
+ "Quiz": {
+  "ar": "اختبار قصير",
+  "en": "Quiz"
+ },
+ "Ralenti et analyse vidéo": {
+  "ar": "العرض البطيء وتحليل الفيديو",
+  "en": "Slow motion and video analysis"
+ },
+ "Recueillir les représentations de l'allure et rappeler les consignes.": {
+  "ar": "جمع تمثلات التلاميذ حول الإيقاع والتذكير بالتعليمات.",
+  "en": "Gather pupils' ideas about pace and recall the instructions."
+ },
+ "Repères anatomiques selon protocole.": {
+  "ar": "معالم تشريحية حسب البروتوكول.",
+  "en": "Anatomical landmarks as per protocol."
+ },
+ "Requiert trois fréquences cardiaques selon le protocole.": {
+  "ar": "يتطلب ثلاث قياسات لنبض القلب حسب البروتوكول.",
+  "en": "Requires three heart-rate readings as per protocol."
+ },
+ "Respecter droits d'utilisation, version linguistique et cotation autorisée.": {
+  "ar": "احترام حقوق الاستعمال والنسخة اللغوية والتنقيط المرخص.",
+  "en": "Respect usage rights, language version and authorised scoring."
+ },
+ "Respecter les règles de sécurité et connaître le parcours.": {
+  "ar": "احترام قواعد السلامة ومعرفة المسار.",
+  "en": "Follow the safety rules and know the course."
+ },
+ "Ressources et apprentissage": {
+  "ar": "الموارد والتعلم",
+  "en": "Resources and learning"
+ },
+ "Retour au calme": {
+  "ar": "الرجوع إلى الهدوء",
+  "en": "Cool-down"
+ },
+ "Retour d'observation et nouvel essai.": {
+  "ar": "تغذية راجعة من الملاحظة ومحاولة جديدة.",
+  "en": "Observation feedback and a new attempt."
+ },
+ "Retour en temps réel": {
+  "ar": "تغذية راجعة فورية",
+  "en": "Real-time feedback"
+ },
+ "Retour sur investissement": {
+  "ar": "العائد على الاستثمار",
+  "en": "Return on investment"
+ },
+ "Ruffier-Dickson": {
+  "ar": "اختبار روفيي-ديكسون",
+  "en": "Ruffier-Dickson test"
+ },
+ "Règles élémentaires de déplacement, passe et sécurité.": {
+  "ar": "القواعد الأساسية للتنقل والتمرير والسلامة.",
+  "en": "Basic rules for moving, passing and safety."
+ },
+ "Réaliser des fractions de course à allure choisie avec récupération et ajustements.": {
+  "ar": "إنجاز أجزاء من الجري بإيقاع مختار مع الاسترجاع والتعديل.",
+  "en": "Run segments at a chosen pace with recovery and adjustments."
+ },
+ "Réaliser un enchaînement maîtrisé et observer des critères techniques simples.": {
+  "ar": "إنجاز سلسلة حركية متحكم فيها وملاحظة معايير تقنية بسيطة.",
+  "en": "Perform a controlled routine and observe simple technical criteria."
+ },
+ "Réaliser une activité adaptée avec pauses possibles.": {
+  "ar": "إنجاز نشاط ملائم مع إمكانية التوقف.",
+  "en": "Do an adapted activity with breaks allowed."
+ },
+ "Référence à documenter avant toute suggestion personnalisée.": {
+  "ar": "مرجع يجب توثيقه قبل أي اقتراح مخصص.",
+  "en": "Reference to document before any tailored suggestion."
+ },
+ "Référence à vérifier : usage EPS, disponibilité, prix, confidentialité et compatibilité non évalués.": {
+  "ar": "مرجع للتحقق: الاستعمال في التربية البدنية والتوفر والسعر والسرية والتوافق غير مقيمة.",
+  "en": "Reference to check: PE use, availability, price, privacy and compatibility not assessed."
+ },
+ "Régulation": {
+  "ar": "التعديل",
+  "en": "Adjustment"
+ },
+ "Répartition du temps": {
+  "ar": "توزيع الزمن",
+  "en": "Time allocation"
+ },
+ "Répartition indicative : environ 10 % du temps pour l'accueil, le retour au calme et le bilan. À adapter à votre terrain.": {
+  "ar": "توزيع إرشادي: حوالي 10 % من الزمن للاستقبال والرجوع إلى الهدوء والحصيلة. يُكيَّف حسب ظروفك.",
+  "en": "Indicative split: about 10% of the time each for welcome, cool-down and review. Adapt to your setting."
+ },
+ "Résultat identique": {
+  "ar": "نتيجة مماثلة",
+  "en": "Same result"
+ },
+ "Résultats en {u}, une valeur par ligne": {
+  "ar": "النتائج بـ{u}، قيمة واحدة في كل سطر",
+  "en": "Results in {u}, one value per line"
+ },
+ "S'ouvre dans le navigateur ; « Imprimer » permet de l'enregistrer en PDF.": {
+  "ar": "يُفتح في المتصفح؛ يتيح «طباعة» حفظه بصيغة PDF.",
+  "en": "Opens in the browser; \"Print\" lets you save it as a PDF."
+ },
+ "Saisir des résultats et suivre une progression.": {
+  "ar": "إدخال النتائج وتتبع التقدم.",
+  "en": "Enter results and track progress."
+ },
+ "Saisir une série": {
+  "ar": "إدخال سلسلة",
+  "en": "Enter a series"
+ },
+ "Salle polyvalente": {
+  "ar": "قاعة متعددة الاستعمالات",
+  "en": "Multi-purpose hall"
+ },
+ "Sans appareil : consignes imprimées, ateliers autonomes et observation directe.": {
+  "ar": "دون جهاز: تعليمات مطبوعة وورشات مستقلة وملاحظة مباشرة.",
+  "en": "No device: printed instructions, independent workshops and direct observation."
+ },
+ "Sans compte": {
+  "ar": "دون حساب",
+  "en": "No account"
+ },
+ "Sans publicité": {
+  "ar": "دون إشهار",
+  "en": "No ads"
+ },
+ "Saut horizontal": {
+  "ar": "القفز الأفقي",
+  "en": "Standing long jump"
+ },
+ "Saut vertical Sargent": {
+  "ar": "القفز العمودي (سارجنت)",
+  "en": "Sargent vertical jump"
+ },
+ "Schober": {
+  "ar": "اختبار شوبر",
+  "en": "Schober test"
+ },
+ "Score : {n}/100": {
+  "ar": "النقطة: {n}/100",
+  "en": "Score: {n}/100"
+ },
+ "Selon le sens favorable choisi pour l'épreuve.": {
+  "ar": "حسب الاتجاه الأفضل المختار للاختبار.",
+  "en": "According to the better direction chosen for the test."
+ },
+ "Seules les fiches dont les fonctions ont été vérifiées sur le site de l'éditeur sont affichées. {n} autres applications sont à vérifier : activez l'interrupteur pour les voir.": {
+  "ar": "تُعرض فقط البطاقات التي تم التحقق من وظائفها على موقع الناشر. {n} تطبيقًا آخر يجب التحقق منه: فعّل الزر لرؤيتها.",
+  "en": "Only entries whose features were checked on the publisher's site are shown. {n} other apps are still to check: turn on the switch to see them."
+ },
+ "Shirado": {
+  "ar": "اختبار شيرادو",
+  "en": "Shirado test"
+ },
+ "Site de l'éditeur": {
+  "ar": "موقع الناشر",
+  "en": "Publisher's site"
+ },
+ "Site officiel renseigné. Fonctionnalités, disponibilité, coût, sécurité et pertinence EPS restent à vérifier.": {
+  "ar": "الموقع الرسمي مذكور. يجب التحقق من الوظائف والتوفر والتكلفة والسلامة والملاءمة للتربية البدنية.",
+  "en": "Official site listed. Features, availability, cost, safety and PE relevance remain to be checked."
+ },
+ "Site officiel vérifié automatiquement ; fonctions et conditions d'usage à vérifier.": {
+  "ar": "تم التحقق تلقائيًا من الموقع الرسمي؛ يجب التحقق من الوظائف وشروط الاستعمال.",
+  "en": "Official site checked automatically; features and terms of use to check."
+ },
+ "Souplesse assise": {
+  "ar": "المرونة من الجلوس",
+  "en": "Sit-and-reach"
+ },
+ "Souplesse debout": {
+  "ar": "المرونة من الوقوف",
+  "en": "Standing reach"
+ },
+ "Sous-échelles": {
+  "ar": "مقاييس فرعية",
+  "en": "Subscales"
+ },
+ "Sports collectifs et tactique": {
+  "ar": "الرياضات الجماعية والتكتيك",
+  "en": "Team sports and tactics"
+ },
+ "Sprint 30 m": {
+  "ar": "عدو 30 م",
+  "en": "30 m sprint"
+ },
+ "Statistiques de match": {
+  "ar": "إحصائيات المباراة",
+  "en": "Match statistics"
+ },
+ "Suggestions pour votre séance": {
+  "ar": "اقتراحات لحصتك",
+  "en": "Suggestions for your lesson"
+ },
+ "Suivi GPS": {
+  "ar": "التتبع بنظام GPS",
+  "en": "GPS tracking"
+ },
+ "Suivi des progrès": {
+  "ar": "تتبع التقدم",
+  "en": "Progress tracking"
+ },
+ "Suivi et GPS": {
+  "ar": "التتبع وGPS",
+  "en": "Tracking and GPS"
+ },
+ "Supports": {
+  "ar": "الوسائط",
+  "en": "Media"
+ },
+ "Supprimer": {
+  "ar": "حذف",
+  "en": "Delete"
+ },
+ "Supérieur": {
+  "ar": "التعليم العالي",
+  "en": "Higher education"
+ },
+ "Sur {n} élève(s) mesuré(s) aux deux séances.": {
+  "ar": "على {n} تلميذ تم قياسه في الحصتين.",
+  "en": "Based on {n} pupil(s) measured in both lessons."
+ },
+ "Séance": {
+  "ar": "الحصة",
+  "en": "Lesson"
+ },
+ "Séance 1": {
+  "ar": "الحصة 1",
+  "en": "Lesson 1"
+ },
+ "Séance vierge": {
+  "ar": "حصة فارغة",
+  "en": "Blank lesson"
+ },
+ "Série": {
+  "ar": "سلسلة",
+  "en": "Series"
+ },
+ "Série « {label} » enregistrée : {n} / {total} élèves mesurés. Ouvrez l'onglet Bilan.": {
+  "ar": "تم تسجيل السلسلة «{label}»: {n} / {total} تلميذًا تم قياسهم. افتح تبويب الحصيلة.",
+  "en": "Series \"{label}\" saved: {n} / {total} pupils measured. Open the Summary tab."
+ },
+ "Série à analyser": {
+  "ar": "السلسلة المراد تحليلها",
+  "en": "Series to analyse"
+ },
+ "Tableau tactique": {
+  "ar": "سبورة تكتيكية",
+  "en": "Tactics board"
+ },
+ "Taille": {
+  "ar": "القامة",
+  "en": "Height"
+ },
+ "Tapis, espaces sécurisés ; vidéo facultative.": {
+  "ar": "بساط وفضاءات آمنة؛ الفيديو اختياري.",
+  "en": "Mats, safe areas; video optional."
+ },
+ "Tarif : ": {
+  "ar": "السعر: ",
+  "en": "Price: "
+ },
+ "Technologie ouverte ; hébergement/services variables": {
+  "ar": "تقنية مفتوحة؛ الاستضافة والخدمات متغيرة",
+  "en": "Open technology; hosting and services vary"
+ },
+ "Temps": {
+  "ar": "الزمن",
+  "en": "Time"
+ },
+ "Temps d'engagement": {
+  "ar": "زمن الانخراط",
+  "en": "Engagement time"
+ },
+ "Temps par atelier :": {
+  "ar": "الزمن لكل ورشة:",
+  "en": "Time per workshop:"
+ },
+ "Terrain extérieur": {
+  "ar": "ملعب خارجي",
+  "en": "Outdoor field"
+ },
+ "Tous": {
+  "ar": "الكل",
+  "en": "All"
+ },
+ "Toutes": {
+  "ar": "الكل",
+  "en": "All"
+ },
+ "Trouver une technologie": {
+  "ar": "البحث عن تقنية",
+  "en": "Find a technology"
+ },
+ "Trouver une technologie pour cette séance": {
+  "ar": "البحث عن تقنية لهذه الحصة",
+  "en": "Find a technology for this lesson"
+ },
+ "Type d'outil efficace pour les apprentissages": {
+  "ar": "نوع أداة فعال للتعلمات",
+  "en": "A tool type that works for learning"
+ },
+ "Téléchargement gratuit": {
+  "ar": "تحميل مجاني",
+  "en": "Free download"
+ },
+ "Téléphone enseignant": {
+  "ar": "هاتف الأستاذ",
+  "en": "Teacher's phone"
+ },
+ "Téléphones individuels": {
+  "ar": "هواتف فردية",
+  "en": "Individual phones"
+ },
+ "Téléphones partagés": {
+  "ar": "هواتف مشتركة",
+  "en": "Shared phones"
+ },
+ "Une correction ciblée est visible.": {
+  "ar": "يظهر تصحيح محدد.",
+  "en": "A targeted correction is visible."
+ },
+ "Une variation entre deux séries ne suffit pas à établir un progrès : conditions de mesure, protocole et erreur de mesure doivent être comparables.": {
+  "ar": "لا يكفي التغير بين سلسلتين لإثبات التقدم: يجب أن تكون ظروف القياس والبروتوكول وخطأ القياس قابلة للمقارنة.",
+  "en": "A change between two series is not enough to show progress: measurement conditions, protocol and measurement error must be comparable."
+ },
+ "Usage avec une classe": {
+  "ar": "الاستعمال مع قسم",
+  "en": "Use with a class"
+ },
+ "Utile en séance": {
+  "ar": "مفيد في الحصة",
+  "en": "Useful in class"
+ },
+ "Utilisable avec une classe": {
+  "ar": "قابل للاستعمال مع قسم",
+  "en": "Usable with a class"
+ },
+ "Valeur en baisse": {
+  "ar": "قيمة منخفضة",
+  "en": "Value down"
+ },
+ "Valeur en hausse": {
+  "ar": "قيمة مرتفعة",
+  "en": "Value up"
+ },
+ "Valeur identique": {
+  "ar": "قيمة مماثلة",
+  "en": "Same value"
+ },
+ "Valeur plus faible": {
+  "ar": "القيمة الأدنى",
+  "en": "Lower value"
+ },
+ "Valeur plus élevée": {
+  "ar": "القيمة الأعلى",
+  "en": "Higher value"
+ },
+ "Valeurs négatives acceptées pour cette épreuve.": {
+  "ar": "القيم السالبة مقبولة في هذا الاختبار.",
+  "en": "Negative values accepted for this test."
+ },
+ "Variation": {
+  "ar": "التغير",
+  "en": "Change"
+ },
+ "Variation de distance": {
+  "ar": "تغير المسافة",
+  "en": "Change in distance"
+ },
+ "Variation moyenne": {
+  "ar": "متوسط التغير",
+  "en": "Mean change"
+ },
+ "Vidéo": {
+  "ar": "فيديو",
+  "en": "Video"
+ },
+ "Vidéos et présentations interactives": {
+  "ar": "فيديوهات وعروض تفاعلية",
+  "en": "Videos and interactive presentations"
+ },
+ "Vitesse": {
+  "ar": "السرعة",
+  "en": "Speed"
+ },
+ "Vitesse moyenne (km/h)": {
+  "ar": "السرعة المتوسطة (كلم/س)",
+  "en": "Average speed (km/h)"
+ },
+ "Vitesse moyenne = distance (m) / 200. Ce n'est pas une VMA mesurée.": {
+  "ar": "السرعة المتوسطة = المسافة (م) / 200. ليست سرعة هوائية قصوى مقيسة.",
+  "en": "Average speed = distance (m) / 200. This is not a measured MAS."
+ },
+ "Vitesse moyenne calculable ; VO₂max seulement estimée.": {
+  "ar": "السرعة المتوسطة قابلة للحساب؛ VO₂max تقديرية فقط.",
+  "en": "Average speed can be computed; VO₂max is only estimated."
+ },
+ "Voir l'application": {
+  "ar": "عرض التطبيق",
+  "en": "View the app"
+ },
+ "Voir les suggestions": {
+  "ar": "عرض الاقتراحات",
+  "en": "See suggestions"
+ },
+ "Volleyball": {
+  "ar": "الكرة الطائرة",
+  "en": "Volleyball"
+ },
+ "Vos avis sont anonymes : seuls la fiche, l'avis et la date sont enregistrés. Ils font remonter les outils utiles pour tous les enseignants.": {
+  "ar": "آراؤك مجهولة الهوية: تُسجل فقط البطاقة والرأي والتاريخ. وهي ترفع الأدوات المفيدة لجميع الأساتذة.",
+  "en": "Your feedback is anonymous: only the entry, the opinion and the date are saved. It moves useful tools up for every teacher."
+ },
+ "Votre séance : ": {
+  "ar": "حصتك: ",
+  "en": "Your lesson: "
+ },
+ "Vérifier la modalité d'élan décrite dans le protocole institutionnel.": {
+  "ar": "تحقق من طريقة الاندفاع الموصوفة في البروتوكول المؤسساتي.",
+  "en": "Check the run-up method described in the official protocol."
+ },
+ "Vérifiez les conditions d'utilisation et l'âge minimal requis avant tout usage avec des élèves.": {
+  "ar": "تحقق من شروط الاستعمال والسن الأدنى المطلوب قبل أي استعمال مع التلاميذ.",
+  "en": "Check the terms of use and the minimum age before any use with pupils."
+ },
+ "abs": {
+  "ar": "غ",
+  "en": "abs"
+ },
+ "allemand": {
+  "ar": "الألمانية",
+  "en": "German"
+ },
+ "analyse": {
+  "ar": "التحليل",
+  "en": "analysis"
+ },
+ "anglais": {
+  "ar": "الإنجليزية",
+  "en": "English"
+ },
+ "août": {
+  "ar": "غشت",
+  "en": "Aug"
+ },
+ "arabe": {
+  "ar": "العربية",
+  "en": "Arabic"
+ },
+ "ateliers": {
+  "ar": "الورشات",
+  "en": "workshops"
+ },
+ "athlétisme": {
+  "ar": "ألعاب القوى",
+  "en": "athletics"
+ },
+ "avec publicité": {
+  "ar": "مع إشهار",
+  "en": "with ads"
+ },
+ "avr.": {
+  "ar": "أبريل",
+  "en": "Apr"
+ },
+ "badminton": {
+  "ar": "الريشة الطائرة",
+  "en": "badminton"
+ },
+ "basketball": {
+  "ar": "كرة السلة",
+  "en": "basketball"
+ },
+ "bpm": {
+  "ar": "نبضة/د",
+  "en": "bpm"
+ },
+ "chronométrage": {
+  "ar": "التوقيت",
+  "en": "timing"
+ },
+ "connexion instable": {
+  "ar": "اتصال غير مستقر",
+  "en": "unstable connection"
+ },
+ "corde à sauter": {
+  "ar": "حبل القفز",
+  "en": "jump rope"
+ },
+ "course": {
+  "ar": "الجري",
+  "en": "running"
+ },
+ "danse": {
+  "ar": "الرقص",
+  "en": "dance"
+ },
+ "du magasin": {
+  "ar": "المتجر",
+  "en": "the store"
+ },
+ "déc.": {
+  "ar": "دجنبر",
+  "en": "Dec"
+ },
+ "endurance": {
+  "ar": "التحمل",
+  "en": "endurance"
+ },
+ "entraînement": {
+  "ar": "التدريب",
+  "en": "training"
+ },
+ "escalade": {
+  "ar": "التسلق",
+  "en": "climbing"
+ },
+ "espagnol": {
+  "ar": "الإسبانية",
+  "en": "Spanish"
+ },
+ "football": {
+  "ar": "كرة القدم",
+  "en": "football"
+ },
+ "français": {
+  "ar": "الفرنسية",
+  "en": "French"
+ },
+ "fréquence cardiaque": {
+  "ar": "نبض القلب",
+  "en": "heart rate"
+ },
+ "févr.": {
+  "ar": "فبراير",
+  "en": "Feb"
+ },
+ "gymnastique": {
+  "ar": "الجمباز",
+  "en": "gymnastics"
+ },
+ "handball": {
+  "ar": "كرة اليد",
+  "en": "handball"
+ },
+ "inclusion": {
+  "ar": "الإدماج",
+  "en": "inclusion"
+ },
+ "intervalles": {
+  "ar": "الفترات المتقطعة",
+  "en": "intervals"
+ },
+ "italien": {
+  "ar": "الإيطالية",
+  "en": "Italian"
+ },
+ "janv.": {
+  "ar": "يناير",
+  "en": "Jan"
+ },
+ "juil.": {
+  "ar": "يوليوز",
+  "en": "Jul"
+ },
+ "juin": {
+  "ar": "يونيو",
+  "en": "Jun"
+ },
+ "kg": {
+  "ar": "كلغ",
+  "en": "kg"
+ },
+ "mai": {
+  "ar": "ماي",
+  "en": "May"
+ },
+ "marche": {
+  "ar": "المشي",
+  "en": "walking"
+ },
+ "mars": {
+  "ar": "مارس",
+  "en": "Mar"
+ },
+ "mesure": {
+  "ar": "القياس",
+  "en": "measurement"
+ },
+ "musculation": {
+  "ar": "تقوية العضلات بالأثقال",
+  "en": "weight training"
+ },
+ "natation": {
+  "ar": "السباحة",
+  "en": "swimming"
+ },
+ "nombre": {
+  "ar": "عدد",
+  "en": "count"
+ },
+ "nov.": {
+  "ar": "نونبر",
+  "en": "Nov"
+ },
+ "néerlandais": {
+  "ar": "الهولندية",
+  "en": "Dutch"
+ },
+ "oct.": {
+  "ar": "أكتوبر",
+  "en": "Oct"
+ },
+ "orientation": {
+  "ar": "التوجيه",
+  "en": "orienteering"
+ },
+ "palier": {
+  "ar": "مرحلة",
+  "en": "stage"
+ },
+ "pilates": {
+  "ar": "البيلاتس",
+  "en": "pilates"
+ },
+ "planification": {
+  "ar": "التخطيط",
+  "en": "planning"
+ },
+ "points": {
+  "ar": "نقاط",
+  "en": "points"
+ },
+ "portugais": {
+  "ar": "البرتغالية",
+  "en": "Portuguese"
+ },
+ "randonnée": {
+  "ar": "المشي الجبلي",
+  "en": "hiking"
+ },
+ "renforcement": {
+  "ar": "التقوية العضلية",
+  "en": "strengthening"
+ },
+ "respiration": {
+  "ar": "التنفس",
+  "en": "breathing"
+ },
+ "rugby": {
+  "ar": "الرغبي",
+  "en": "rugby"
+ },
+ "sans connexion": {
+  "ar": "بدون اتصال",
+  "en": "no connection"
+ },
+ "saut": {
+  "ar": "القفز",
+  "en": "jumping"
+ },
+ "score": {
+  "ar": "النتيجة",
+  "en": "scoring"
+ },
+ "sept.": {
+  "ar": "شتنبر",
+  "en": "Sep"
+ },
+ "souplesse": {
+  "ar": "المرونة",
+  "en": "flexibility"
+ },
+ "sports de combat": {
+  "ar": "رياضات النزال",
+  "en": "combat sports"
+ },
+ "tactique": {
+  "ar": "التكتيك",
+  "en": "tactics"
+ },
+ "tennis": {
+  "ar": "التنس",
+  "en": "tennis"
+ },
+ "tennis de table": {
+  "ar": "كرة الطاولة",
+  "en": "table tennis"
+ },
+ "tournoi": {
+  "ar": "الدوري",
+  "en": "tournament"
+ },
+ "turc": {
+  "ar": "التركية",
+  "en": "Turkish"
+ },
+ "vidéo": {
+  "ar": "الفيديو",
+  "en": "video"
+ },
+ "vitesse": {
+  "ar": "السرعة",
+  "en": "speed"
+ },
+ "volleyball": {
+  "ar": "الكرة الطائرة",
+  "en": "volleyball"
+ },
+ "vélo": {
+  "ar": "الدراجة",
+  "en": "cycling"
+ },
+ "yoga": {
+  "ar": "اليوغا",
+  "en": "yoga"
+ },
+ "{a} à {b}": {
+  "ar": "من {a} إلى {b}",
+  "en": "{a} to {b}"
+ },
+ "{list} élèves": {
+  "ar": "{list} تلاميذ",
+  "en": "{list} pupils"
+ },
+ "{n} absent(s) ou non mesuré(s).": {
+  "ar": "{n} غائب أو غير مقيس.",
+  "en": "{n} absent or not measured."
+ },
+ "{n} applications correspondent": {
+  "ar": "{n} تطبيقًا مطابقًا",
+  "en": "{n} matching apps"
+ },
+ "{n} autres": {
+  "ar": "{n} أخرى",
+  "en": "{n} others"
+ },
+ "{n} lignes saisies pour {count} élèves.": {
+  "ar": "{n} سطرًا مدخلًا لـ{count} تلميذًا.",
+  "en": "{n} lines entered for {count} pupils."
+ },
+ "{n} min": {
+  "ar": "{n} د",
+  "en": "{n} min"
+ },
+ "{n} min, transitions comprises.": {
+  "ar": "{n} د، بما فيها الانتقالات.",
+  "en": "{n} min, including transitions."
+ },
+ "{n} à fonctions vérifiées": {
+  "ar": "{n} بوظائف تم التحقق منها",
+  "en": "{n} with checked features"
+ },
+ "{n} élèves": {
+  "ar": "{n} تلميذًا",
+  "en": "{n} pupils"
+ },
+ "{phase} : activité à préciser.": {
+  "ar": "{phase}: يجب تحديد النشاط.",
+  "en": "{phase}: activity to specify."
+ },
+ "{phase} : critère de réussite à préciser.": {
+  "ar": "{phase}: يجب تحديد معيار النجاح.",
+  "en": "{phase}: success criterion to specify."
+ },
+ "{w} ateliers pour {n} élèves : certains groupes seraient vides. Réduisez le nombre d'ateliers.": {
+  "ar": "{w} ورشات لـ{n} تلاميذ: ستبقى بعض المجموعات فارغة. قلل عدد الورشات.",
+  "en": "{w} workshops for {n} pupils: some groups would be empty. Reduce the number of workshops."
+ },
+ "À confirmer pour les usages ciblés": {
+  "ar": "يجب التأكيد بالنسبة للاستعمالات المستهدفة",
+  "en": "To confirm for the intended uses"
+ },
+ "À distance": {
+  "ar": "عن بعد",
+  "en": "Remote"
+ },
+ "À distance — activité physique autonome": {
+  "ar": "عن بعد: نشاط بدني مستقل",
+  "en": "Remote: self-directed physical activity"
+ },
+ "À vérifier": {
+  "ar": "للتحقق",
+  "en": "To check"
+ },
+ "Âge": {
+  "ar": "السن",
+  "en": "Age"
+ },
+ "Échauffement autonome guidé.": {
+  "ar": "إحماء مستقل موجّه.",
+  "en": "Guided self-led warm-up."
+ },
+ "Échauffement progressif et repérage du parcours.": {
+  "ar": "إحماء تدريجي والتعرف على المسار.",
+  "en": "Progressive warm-up and course walk-through."
+ },
+ "Échelle de motivation en EPS (EMEP)": {
+  "ar": "سلم الدافعية في التربية البدنية (EMEP)",
+  "en": "PE motivation scale (EMEP)"
+ },
+ "Économie de batterie": {
+  "ar": "توفير البطارية",
+  "en": "Battery saving"
+ },
+ "Éditeur": {
+  "ar": "الناشر",
+  "en": "Publisher"
+ },
+ "Élève": {
+  "ar": "التلميذ",
+  "en": "Pupil"
+ },
+ "Élèves en progression": {
+  "ar": "تلاميذ في تقدم",
+  "en": "Pupils improving"
+ },
+ "Élèves en recul": {
+  "ar": "تلاميذ في تراجع",
+  "en": "Pupils declining"
+ },
+ "Élèves mesurés": {
+  "ar": "التلاميذ المقيسون",
+  "en": "Pupils measured"
+ },
+ "Élèves mesurés aux deux séances": {
+  "ar": "التلاميذ المقيسون في الحصتين",
+  "en": "Pupils measured in both lessons"
+ },
+ "Épreuve": {
+  "ar": "الاختبار",
+  "en": "Test"
+ },
+ "Épreuve : {name} ({u})": {
+  "ar": "الاختبار: {name} ({u})",
+  "en": "Test: {name} ({u})"
+ },
+ "Équilibre": {
+  "ar": "التوازن",
+  "en": "Balance"
+ },
+ "Équilibre flamingo": {
+  "ar": "توازن الفلامنغو",
+  "en": "Flamingo balance"
+ },
+ "Étendue": {
+  "ar": "المدى",
+  "en": "Range"
+ },
+ "Évaluation": {
+  "ar": "التقويم",
+  "en": "Assessment"
+ },
+ "Évaluation et quiz": {
+  "ar": "التقويم والاختبارات القصيرة",
+  "en": "Assessment and quizzes"
+ },
+ "Évaluation et recherche pédagogique": {
+  "ar": "التقويم والبحث البيداغوجي",
+  "en": "Assessment and educational research"
+ },
+ "Évolution : {a} puis {b}": {
+  "ar": "التطور: {a} ثم {b}",
+  "en": "Change: {a} then {b}"
+ },
+ "à confirmer": {
+  "ar": "يجب التأكيد",
+  "en": "to confirm"
+ },
+ "échauffement": {
+  "ar": "الإحماء",
+  "en": "warm-up"
+ },
+ "équipes": {
+  "ar": "الفرق",
+  "en": "teams"
+ },
+ "évaluation": {
+  "ar": "التقويم",
+  "en": "assessment"
+ }
+}

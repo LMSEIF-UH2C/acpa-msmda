@@ -72,7 +72,7 @@ class SearchPageTests(unittest.TestCase):
         app = start(SEARCH_PAGE)
         app.text_input[0].set_value("Testmoz").run()
         self.assertTrue(any(e.label.startswith("Testmoz") for e in app.expander))
-        self.assertTrue(any("fonctionnalités non vérifiées" in c.value for c in app.caption))
+        self.assertTrue(any("Fonctions non vérifiées en séance" in c.value for c in app.caption))
         app.toggle[0].set_value(False).run()  # l'enseignant peut se limiter aux fiches vérifiées
         self.assertFalse(any(e.label.startswith("Testmoz") for e in app.expander))
         self.assertTrue(any("Activez l'interrupteur" in i.value for i in app.info))

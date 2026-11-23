@@ -215,3 +215,18 @@ def organisation_pdf(context: dict, phases: Sequence[tuple[str, int]], groups: S
     story += [Spacer(1, 5 * mm), k.para(t("Répartition indicative : environ 10 % du temps pour l'accueil, le retour au calme et le bilan. "
                                          "À adapter à votre terrain."), "muted")]
     return build(story, title)
+
+
+def measurements_pdf(title, context, sections, header, rows, notes):
+    """Bilan descriptif, sans barème ni données nominatives."""
+    k = kit()
+    story = [k.para(title, "h1"), k.para(context, "muted")]
+    for heading, indicators in sections:
+        story.append(k.para(heading, "h2"))
+        story.append(k.table([[ind.label, ind.value, ind.basis] for ind in indicators],
+                             [k.width * .30, k.width * .22, k.width * .48], header=False))
+    if header:
+        story.append(k.para(t("Détail par élève"), "h2"))
+        story.append(k.table([header] + list(rows), [k.width / len(header)] * len(header)))
+    story.extend(k.para(note, "muted") for note in notes)
+    return build(story, title)

@@ -67,13 +67,25 @@
   "ar": "ملائم لبرامج التربية البدنية",
   "en": "Suited to the PE curriculum"
  },
+ "Adéquation à la demande": {
+  "ar": "الملاءمة للطلب",
+  "en": "Fit with the request"
+ },
  "Afficher {n} de plus ({rest} restantes)": {
   "ar": "عرض {n} أخرى ({rest} متبقية)",
   "en": "Show {n} more ({rest} left)"
  },
+ "Affiner": {
+  "ar": "تدقيق",
+  "en": "Refine"
+ },
  "Aide et support": {
   "ar": "المساعدة والدعم",
   "en": "Help and support"
+ },
+ "Ajouter à la demande": {
+  "ar": "إضافة إلى الطلب",
+  "en": "Add to the request"
  },
  "Alternatives directement utilisables en séance": {
   "ar": "بدائل قابلة للاستعمال مباشرة في الحصة",
@@ -122,6 +134,10 @@
  "Application avec achats intégrés ; tarifs variables": {
   "ar": "تطبيق بمشتريات داخلية؛ أسعار متغيرة",
   "en": "App with in-app purchases; prices vary"
+ },
+ "Appliquer": {
+  "ar": "تطبيق",
+  "en": "Apply"
  },
  "Apprentissage": {
   "ar": "التعلم",
@@ -371,6 +387,10 @@
   "ar": "اتصال غير مستقر",
   "en": "Unstable connection"
  },
+ "Connexion lente": {
+  "ar": "اتصال بطيء",
+  "en": "Slow connection"
+ },
  "Connexion limitée sur le lieu de pratique : préférez les chronomètres, les supports téléchargés à l'avance et les fiches papier.": {
   "ar": "اتصال محدود في مكان الممارسة: فضّل الميقاتيات والوسائط المحملة مسبقًا والبطاقات الورقية.",
   "en": "Limited connection at the venue: prefer stopwatches, materials downloaded in advance and paper sheets."
@@ -439,9 +459,17 @@
   "ar": "التاريخ",
   "en": "Date"
  },
+ "Date : ": {
+  "ar": "التاريخ: ",
+  "en": "Date: "
+ },
  "De l’idée à la séance.": {
   "ar": "من الفكرة إلى الحصة.",
   "en": "From idea to lesson."
+ },
+ "Demande : ": {
+  "ar": "الطلب: ",
+  "en": "Request: "
  },
  "Des outils adaptés à votre activité et à vos contraintes.": {
   "ar": "أدوات ملائمة لنشاطك وإكراهاتك.",
@@ -543,6 +571,10 @@
   "ar": "الفعالية في التعلم الحركي",
   "en": "Effectiveness for motor learning"
  },
+ "En ligne": {
+  "ar": "متصل",
+  "en": "Online"
+ },
  "Endurance": {
   "ar": "التحمل",
   "en": "Endurance"
@@ -627,6 +659,10 @@
   "ar": "سهولة الاستعمال",
   "en": "Ease of use"
  },
+ "Facilité de mise en œuvre": {
+  "ar": "سهولة التنفيذ",
+  "en": "Ease of use in class"
+ },
  "Famille d'outils": {
   "ar": "فئة الأدوات",
   "en": "Tool family"
@@ -690,6 +726,10 @@
  "Fonctions annoncées par l'éditeur, à essayer avant la séance ; vérifier les conditions d'usage avec des élèves.": {
   "ar": "وظائف معلنة من طرف الناشر، يجب تجريبها قبل الحصة؛ تحقق من شروط الاستعمال مع التلاميذ.",
   "en": "Features stated by the publisher, to try before the lesson; check the terms of use with pupils."
+ },
+ "Fonctions annoncées par les éditeurs : à essayer avant la séance. Vérifiez les conditions d’utilisation et l’âge minimal requis avant tout usage avec des élèves.": {
+  "ar": "وظائف معلنة من طرف الناشرين: يجب تجريبها قبل الحصة. تحقق من شروط الاستعمال والسن الأدنى المطلوب قبل أي استعمال مع التلاميذ.",
+  "en": "Features announced by publishers: try them before the lesson. Check the terms of use and minimum age before any use with pupils."
  },
  "Fonctions non vérifiées en séance.": {
   "ar": "وظائف لم يتم التحقق منها في الحصة.",
@@ -775,6 +815,10 @@
   "ar": "ارتفاع القفز",
   "en": "Jump height"
  },
+ "Hors connexion": {
+  "ar": "غير متصل",
+  "en": "Offline"
+ },
  "Hors connexion : ": {
   "ar": "دون اتصال: ",
   "en": "Offline: "
@@ -814,6 +858,10 @@
  "Intégration LMS": {
   "ar": "الإدماج في منصة تعلم",
   "en": "LMS integration"
+ },
+ "Intérêt pédagogique": {
+  "ar": "القيمة البيداغوجية",
+  "en": "Teaching value"
  },
  "Jeux actifs et ludification": {
   "ar": "الألعاب النشيطة والتلعيب",
@@ -1135,6 +1183,10 @@
   "ar": "تدوين الأحاسيس وتعديل الشدة.",
   "en": "Note how it feels and adjust intensity."
  },
+ "Nouvelle recherche": {
+  "ar": "بحث جديد",
+  "en": "New search"
+ },
  "Nécessite un environnement de diffusion adapté.": {
   "ar": "يتطلب بيئة عرض ملائمة.",
   "en": "Requires a suitable display setup."
@@ -1362,6 +1414,14 @@
  "Ralenti et analyse vidéo": {
   "ar": "العرض البطيء وتحليل الفيديو",
   "en": "Slow motion and video analysis"
+ },
+ "Rapport": {
+  "ar": "التقرير",
+  "en": "Report"
+ },
+ "Rapport des recommandations": {
+  "ar": "تقرير التوصيات",
+  "en": "Recommendations report"
  },
  "Recueillir les représentations de l'allure et rappeler les consignes.": {
   "ar": "جمع تمثلات التلاميذ حول الإيقاع والتذكير بالتعليمات.",
@@ -1803,6 +1863,10 @@
   "ar": "غشت",
   "en": "Aug"
  },
+ "application en arabe": {
+  "ar": "تطبيق بالعربية",
+  "en": "app in Arabic"
+ },
  "arabe": {
   "ar": "العربية",
   "en": "Arabic"
@@ -1835,9 +1899,17 @@
   "ar": "نبضة/د",
   "en": "bpm"
  },
+ "budget limité": {
+  "ar": "ميزانية محدودة",
+  "en": "limited budget"
+ },
  "chronométrage": {
   "ar": "التوقيت",
   "en": "timing"
+ },
+ "classe nombreuse": {
+  "ar": "قسم مكتظ",
+  "en": "large class"
  },
  "connexion instable": {
   "ar": "اتصال غير مستقر",
@@ -1915,6 +1987,10 @@
   "ar": "الغولف",
   "en": "golf"
  },
+ "gratuit": {
+  "ar": "مجاني",
+  "en": "free"
+ },
  "gymnastique": {
   "ar": "الجمباز",
   "en": "gymnastics"
@@ -1991,6 +2067,10 @@
   "ar": "عدد",
   "en": "count"
  },
+ "non renseigné": {
+  "ar": "غير متوفر",
+  "en": "not documented"
+ },
  "nov.": {
   "ar": "نونبر",
   "en": "Nov"
@@ -2057,7 +2137,7 @@
  },
  "sans connexion": {
   "ar": "بدون اتصال",
-  "en": "no connection"
+  "en": "no internet"
  },
  "saut": {
   "ar": "القفز",
@@ -2158,6 +2238,10 @@
  "{n} applications correspondent": {
   "ar": "{n} تطبيقًا مطابقًا",
   "en": "{n} matching apps"
+ },
+ "{n} applications examinées, {m} retenues, analyse en {ms} ms.": {
+  "ar": "تم فحص {n} تطبيقًا، والاحتفاظ بـ{m}، التحليل في {ms} مللي ثانية.",
+  "en": "{n} apps examined, {m} kept, analysed in {ms} ms."
  },
  "{n} autres": {
   "ar": "{n} أخرى",
@@ -2306,6 +2390,10 @@
  "échecs": {
   "ar": "الشطرنج",
   "en": "chess"
+ },
+ "élèves en situation de handicap": {
+  "ar": "تلاميذ في وضعية إعاقة",
+  "en": "pupils with a disability"
  },
  "équipes": {
   "ar": "الفرق",

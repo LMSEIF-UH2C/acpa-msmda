@@ -1,10 +1,13 @@
 """Trouver une technologie : suggestions selon le contexte et fiches du catalogue."""
 from __future__ import annotations
 
+import json
 import sys
+import time
 from pathlib import Path
 
 import streamlit as st
+import streamlit.components.v1 as components
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
@@ -13,10 +16,10 @@ from acpa_msmda import session_context as ctx  # noqa: E402
 from acpa_msmda.real_catalog import load_real_tools, recommend  # noqa: E402
 from acpa_msmda import scoring  # noqa: E402
 from acpa_msmda import store_info  # noqa: E402
-from acpa_msmda import i18n  # noqa: E402
+from acpa_msmda import decision, i18n  # noqa: E402
 from acpa_msmda.i18n import t, tj  # noqa: E402
 from acpa_msmda.keywords import label as keyword_label  # noqa: E402
-from acpa_msmda.understanding import confidence_label, understand  # noqa: E402
+from acpa_msmda.understanding import understand  # noqa: E402
 from acpa_msmda.ui import PRIVACY_NOTE, SEARCH, configure_page, page_header  # noqa: E402
 
 DOCUMENTED = ("OFFICIAL_SOURCE_FEATURES_ONLY", "FEATURES_VERIFIED_ON_OFFICIAL_SITE")
@@ -46,11 +49,15 @@ def _vote_buttons(tool: dict, prefix: str) -> None:
 
 def _evaluation(tool: dict) -> None:
     """Score de l'application pour la demande, points forts et points de vigilance."""
-    st.markdown("**" + t("Score : {n}/100", n=f"{tool['fit']:.0f}") + "**")
-    st.progress(min(1.0, tool["fit"] / 100))
+    st.progress(min(1.0, tool["fit"] / 100), text=t("Adéquation à la demande") + f" · {tool['fit']:.0f}/100")
     rated = tool.get("criteria_scores")
     if not rated or tool.get("criteria_total") is None:
         return
+    for label, value in decision.bars(rated):
+        if value is None:
+            st.caption(t(label) + i18n.colon() + t("non renseigné"))
+        else:
+            st.progress(min(1.0, value / 100), text=t(label) + f" · {value:.0f}/100")
     strong, weak = scoring.strengths(rated), scoring.weaknesses(rated)
     if strong:
         st.write(t("Points forts : ") + tj(scoring.PUBLIC_LABELS[c] for c in strong))
@@ -72,6 +79,37 @@ def _store_block(tool: dict) -> None:
         st.caption(note)
 
 
+def _connection_chip() -> None:
+    """Indicateur de connexion du téléphone (en ligne, type de réseau quand le navigateur le donne)."""
+    words = {"on": t("En ligne"), "off": t("Hors connexion"), "slow": t("Connexion lente"), "label": t("Connexion") + i18n.colon()}
+    components.html(f"""<div id='c' dir='{"rtl" if i18n.is_rtl() else "ltr"}' style='font:13px system-ui,-apple-system,sans-serif;
+color:#52606d;display:flex;align-items:center;gap:6px'><span id='d' style='width:9px;height:9px;border-radius:50%;
+display:inline-block;background:#9aa5b1'></span><span id='t'></span></div><script>
+const W={json.dumps(words, ensure_ascii=False)};
+function u(){{const n=navigator.connection||{{}};const on=navigator.onLine;
+const slow=on&&n.effectiveType&&/2g|slow/.test(n.effectiveType);
+document.getElementById('d').style.background=!on?'#dc2626':(slow?'#f59e0b':'#16a34a');
+document.getElementById('t').textContent=W.label+(!on?W.off:(slow?W.slow:W.on))+(on&&n.effectiveType?' ('+n.effectiveType+')':'');}}
+u();addEventListener('online',u);addEventListener('offline',u);(navigator.connection||{{}}).onchange=u;</script>""", height=26)
+
+
+def _new_search() -> None:
+    for key in ("search_query", "rec_query"):
+        ctx.put(S, key, None)
+    ctx.put(S, "search_context", "")
+    S.pop("refine_pick", None)
+
+
+def _apply_refine() -> None:
+    picked = S.get("refine_pick") or []
+    query = ctx.store(S).get("search_query") or ""
+    if picked and query:
+        refined = decision.refine(query, picked)
+        ctx.put(S, "search_query", refined)
+        ctx.put(S, "search_context", refined)
+    S.pop("refine_pick", None)
+
+
 def _show_more() -> None:
     ctx.put(S, "rec_shown", ctx.store(S).get("rec_shown", REC_STEP) + REC_STEP)
 
@@ -89,6 +127,10 @@ if st.button(t("Partir de ma séance : ") + ctx.summary(S), icon=":material/assi
 context = st.text_area(t("Activité, objectif et contraintes"),
                        placeholder=t("Ex. endurance, 35 élèves, sans connexion, budget limité"),
                        max_chars=1000, height=95, **ctx.bind(S, "search_context", ""))
+live = understand(context)
+if live:
+    st.caption(t("Compris : ") + " · ".join(decision.understood_labels(live, keyword_label)))
+_connection_chip()
 st.caption(t(PRIVACY_NOTE))
 if st.button(t("Voir les suggestions"), type="primary", use_container_width=True):
     if context.strip():
@@ -103,14 +145,26 @@ if query:
         ctx.put(S, "rec_query", query)
         ctx.put(S, "rec_shown", REC_STEP)
         ctx.put(S, "rec_ranking", {k: feedback.score(v) for k, v in feedback.tallies().items()})
+    started = time.perf_counter()
     result = recommend(query, votes=ctx.store(S)["rec_ranking"])
+    elapsed = (time.perf_counter() - started) * 1000
     matches = result["matches"]
-    understood = understand(query)
-    if understood:
-        st.caption(t("Compris : ") + " · ".join(
-            t(item.parameter) + i18n.colon()
-            + (keyword_label(item.value) if item.parameter in ("Activité", "Fonction") else t(item.value))
-            + f" ({t(confidence_label(item.confidence))})" for item in understood))
+    examined = len(load_real_tools())
+    understood = decision.understood_labels(understand(query), keyword_label)
+    with st.container(key="status_bar"):
+        st.caption(":material/analytics: " + t("{n} applications examinées, {m} retenues, analyse en {ms} ms.",
+                                                n=examined, m=len(matches), ms=round(elapsed)))
+    again, more, report = st.columns(3)
+    again.button(t("Nouvelle recherche"), icon=":material/restart_alt:", on_click=_new_search,
+                 use_container_width=True)
+    with more.popover(t("Affiner"), icon=":material/tune:", use_container_width=True):
+        st.pills(t("Ajouter à la demande"), decision.REFINEMENTS, format_func=t, selection_mode="multi",
+                 key="refine_pick")
+        st.button(t("Appliquer"), type="primary", on_click=_apply_refine, use_container_width=True)
+    report.download_button(t("Rapport"), icon=":material/description:", use_container_width=True,
+                           data=decision.report_html(query, understood, matches, examined, elapsed),
+                           file_name="rapport_recommandations.html", mime="text/html",
+                           help=t("S'ouvre dans le navigateur ; « Imprimer » permet de l'enregistrer en PDF."))
     if not matches:
         st.info(t("Aucune application du catalogue ne correspond à ces mots. Précisez l'activité "
                   "(ex. course, basket, gymnastique) ou le besoin (chronométrage, vidéo, évaluation)."))

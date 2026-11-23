@@ -221,6 +221,7 @@ _RTL_CSS = """
 [data-testid="stMainBlockContainer"] h2,[data-testid="stMainBlockContainer"] h3,
 [data-testid="stMainBlockContainer"] summary,[data-testid="stCaptionContainer"]{text-align:right}
 [data-testid="stMainBlockContainer"] button>span:first-child{margin:0 0 0 .5rem!important;flex-shrink:0}
+[data-testid="stMainBlockContainer"] button{gap:.4rem}
 [data-testid="stMainBlockContainer"] button p{text-align:center!important}
 textarea,input[type="text"]{direction:rtl;text-align:right}
 input[type="number"],[data-testid="stDateInputField"] input{direction:ltr;text-align:left}

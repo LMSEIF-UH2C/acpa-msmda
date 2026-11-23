@@ -8,6 +8,7 @@ import streamlit as st
 
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT / "src"))
+from acpa_msmda import session_context as ctx
 from acpa_msmda import i18n  # noqa: E402
 from acpa_msmda.i18n import t  # noqa: E402
 from acpa_msmda.ui import (APP_NAME, HOME, MODULES, PRIVACY_NOTE, TASKS, configure_page,  # noqa: E402
@@ -38,6 +39,19 @@ def home():
                 with st.container(key=f"tasktext_{module.key}"):
                     st.page_link(module.path, label=t(module.title), use_container_width=True)
                     st.caption(t(module.summary))
+    st.subheader(t("Parcours guidés"))
+    st.caption(t("Choisissez votre objectif, puis adaptez le contexte de classe."))
+    for label, target, offline in (
+        ("Préparer une séance", "pages/5_Studio_Pedagogique.py", False),
+        ("Évaluer une classe", "pages/2_Performance_Lab.py", False),
+        ("Trouver un outil", "pages/4_Technologies_Reelles.py", False),
+        ("Préparer une séance sans connexion", "pages/5_Studio_Pedagogique.py", True),
+    ):
+        if st.button(t(label), key="guided_" + label, use_container_width=True):
+            if offline:
+                ctx.put(st.session_state, "connectivity", "Aucune")
+            st.switch_page(target)
+    st.caption(t("La préparation sans connexion concerne le terrain ; cette application hébergée nécessite Internet."))
     st.caption(t(PRIVACY_NOTE))
     st.caption(t("Langue"))
     language_buttons("switch")

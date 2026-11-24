@@ -1,0 +1,22 @@
+name: Independent R validation
+on:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  reference:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned Python environment
+        run: pip install -r requirements.txt
+      - name: Install base R
+        run: sudo apt-get update && sudo apt-get install -y r-base-core
+      - name: Compare Lab with base R
+        run: |
+          Rscript --version
+          python scripts/validate_lab_r.py

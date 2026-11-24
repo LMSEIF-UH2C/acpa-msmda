@@ -9,12 +9,13 @@ from .scenario_engine import safe_cell
 
 STATUSES=("Prévue","Réalisée","Reportée","Annulée")
 FIELDS=("id","date","group","activity","level","cycle","lesson","duration","objectives","status","reflection")
-MAX_ENTRIES=1000
+MAX_ENTRIES=3000
 
 def validate_entries(entries):
     if not isinstance(entries,list) or len(entries)>MAX_ENTRIES:
         raise ValueError("Invalid journal")
     ids=set()
+    group_days=set()
     clean=[]
     for e in entries:
         if not isinstance(e,dict) or set(e)!=set(FIELDS):
@@ -25,6 +26,10 @@ def validate_entries(entries):
         if not e["id"] or e["id"] in ids or not e["group"].strip():
             raise ValueError("Invalid identifier")
         ids.add(e["id"])
+        group_day=(e["group"].strip(),e["date"])
+        if group_day in group_days:
+            raise ValueError("Duplicate class and date")
+        group_days.add(group_day)
         if date.fromisoformat(e["date"]).isoformat()!=e["date"]:
             raise ValueError("Invalid date")
         if not valid_specialty(e["activity"]) or e["level"] not in LEVELS or e["status"] not in STATUSES:

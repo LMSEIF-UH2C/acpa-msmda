@@ -92,6 +92,81 @@ with st.expander(library_labels[0]):
     else:
         st.info(library_labels[8])
 
+# Separate imported study data from existing classroom series.
+from acpa_msmda.longitudinal import parse_long_csv, parse_long_xlsx, export_long_csv, paired_panel, group_summary, FIELDS
+study_labels = {
+    "fr": ("Étude longitudinale (CSV)", "Utilisez uniquement des codes non nominatifs. Les données restent dans cette session ; exportez avant de quitter.", "Télécharger le modèle CSV", "Importer un CSV UTF-8", "Valider et remplacer les données de l'étude", "Import accepté", "Import refusé", "Exporter les données de l'étude", "Instrument", "Protocole", "Groupe", "Tous les groupes", "Temps de mesure (ordre chronologique)", "Construire le panel apparié", "Participants complets / total", "Effacer les données de l'étude", "Observations", "Séparateur CSV", "Vérifiez les dates, codes, unités et doublons. Le fichier précédent est conservé en cas d'échec."),
+    "en": ("Longitudinal study (CSV)", "Use non-identifying codes only. Data stay in this session; export before leaving.", "Download CSV template", "Import UTF-8 CSV", "Validate and replace study data", "Import accepted", "Import rejected", "Export study data", "Instrument", "Protocol", "Group", "All groups", "Occasions (chronological order)", "Build paired panel", "Complete participants / total", "Clear study data", "Observations", "CSV delimiter", "Check dates, codes, units and duplicates. Previous data are retained on failure."),
+    "ar": ("دراسة طولية (CSV)", "استخدم رموزا غير اسمية فقط. تبقى البيانات في هذه الجلسة؛ صدّرها قبل المغادرة.", "تنزيل نموذج CSV", "استيراد CSV بترميز UTF-8", "التحقق واستبدال بيانات الدراسة", "تم قبول الاستيراد", "تم رفض الاستيراد", "تصدير بيانات الدراسة", "الأداة", "البروتوكول", "المجموعة", "جميع المجموعات", "أوقات القياس بالترتيب الزمني", "إنشاء لوحة القياسات المزدوجة", "المشاركون المكتملون / المجموع", "مسح بيانات الدراسة", "الملاحظات", "فاصل CSV", "تحقق من التواريخ والرموز والوحدات والتكرار. تبقى البيانات السابقة عند الفشل."),
+}[current()]
+with st.expander(study_labels[0]):
+    enabled = st.checkbox(study_labels[0], key="lab_study_enabled")
+    if enabled:
+        st.caption(study_labels[1])
+        st.caption({"fr":"XLSX : une feuille, dates ISO en texte, sans formules.","en":"XLSX: one sheet, ISO dates as text, no formulas.","ar":"XLSX: ورقة واحدة، تواريخ ISO نصية، دون صيغ."}[current()])
+        registry = {x["id"]: x for x in TESTS}
+        st.download_button(study_labels[2], data=(";".join(FIELDS)+"\n").encode("utf-8-sig"),
+                           file_name="study_template.csv", mime="text/csv", key="lab_study_template")
+        delimiter = st.selectbox(study_labels[17], [";", ","], key="lab_study_delimiter")
+        upload = st.file_uploader(study_labels[3] + " / XLSX", type=["csv", "xlsx"], key="lab_study_upload")
+        if st.button(study_labels[4], key="lab_study_import", disabled=upload is None):
+            try:
+                S["lab_study_rows"] = (parse_long_xlsx(upload.getvalue(), registry) if upload.name.lower().endswith(".xlsx") else parse_long_csv(upload.getvalue(), registry, delimiter))
+            except (ValueError, UnicodeError):
+                st.error(study_labels[6] + ". " + study_labels[18])
+            else:
+                st.success(study_labels[5])
+        study_rows = S.get("lab_study_rows", [])
+        if study_rows:
+            st.caption(f"{study_labels[16]} : {len(study_rows)}")
+            st.download_button(study_labels[7], export_long_csv(study_rows), "study.csv", "text/csv", key="lab_study_export")
+            instrument = st.selectbox(study_labels[8], sorted({r["instrument"] for r in study_rows}),
+                                      format_func=names.get, key="lab_study_instrument")
+            subset = [r for r in study_rows if r["instrument"] == instrument]
+            protocol = st.selectbox(study_labels[9], sorted({r["protocol"] for r in subset}), key="lab_study_protocol")
+            subset = [r for r in subset if r["protocol"] == protocol]
+            group = st.selectbox(study_labels[10], [None] + sorted({r["group"] for r in subset}),
+                                 format_func=lambda v: study_labels[11] if v is None else v, key="lab_study_group")
+            subset = [r for r in subset if group is None or r["group"] == group]
+            occasions = st.multiselect(study_labels[12], sorted({r["occasion"] for r in subset}), key="lab_study_occasions")
+            if st.button(study_labels[12+1], key="lab_study_panel", disabled=len(occasions)<2):
+                try:
+                    panel = paired_panel(study_rows, instrument, protocol, occasions, group)
+                except ValueError:
+                    st.error(study_labels[18])
+                else:
+                    st.write(f"{study_labels[14]} : {panel['n_complete']} / {panel['n_total']}")
+                    st.dataframe([{ "participant": p, **dict(zip(occasions, vals))}
+                                  for p, vals in zip(panel["participants"], panel["values"])], hide_index=True)
+                    if panel["values"]:
+                        import pandas as pd
+                        import altair as alt
+                        trajectory = pd.DataFrame([{"participant": p, "occasion": o, "value": v}
+                                                    for p, vals in zip(panel["participants"], panel["values"])
+                                                    for o, v in zip(occasions, vals)])
+                        st.altair_chart(alt.Chart(trajectory).mark_line(point=True).encode(
+                            x=alt.X("occasion:N", sort=occasions, title=study_labels[12]),
+                            y=alt.Y("value:Q", title=t(registry[instrument]["unit"])),
+                            color=alt.Color("participant:N", legend=None),
+                            tooltip=["participant", "occasion", "value"]), use_container_width=True)
+                    if group is None:
+                        summary = group_summary(study_rows, instrument, protocol, occasions)
+                        if summary:
+                            st.dataframe(summary, hide_index=True)
+                            import pandas as pd
+                            import altair as alt
+                            frame = pd.DataFrame(summary).dropna(subset=["mean"])
+                            if not frame.empty:
+                                st.altair_chart(alt.Chart(frame).mark_line(point=True).encode(
+                                    x=alt.X("occasion:N", sort=occasions, title=study_labels[12]),
+                                    y=alt.Y("mean:Q", title=t("Moyenne")+" ("+t(registry[instrument]["unit"])+")"),
+                                    color=alt.Color("group:N", title=study_labels[10]),
+                                    tooltip=["group", "occasion", "n", "mean"]), use_container_width=True)
+
+            if st.button(study_labels[15], key="lab_study_clear"):
+                S.pop("lab_study_rows", None)
+                st.rerun()
+
 all_series = ctx.store(S).setdefault("series", [])
 class_size = int(ctx.get(S, "class_size"))
 codes = pupil_codes(class_size)

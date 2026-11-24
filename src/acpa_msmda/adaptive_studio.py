@@ -23,3 +23,24 @@ def balanced_groups(count, target):
     groups = (count + target - 1) // target
     base, extra = divmod(count, groups)
     return [base+1]*extra + [base]*(groups-extra)
+
+
+def adaptation_notes(profile, equipment_limited, space_limited, connectivity, devices):
+    """Non-prescriptive, explicit constraints; no inference about pupil ability."""
+    from .i18n import t
+    notes = []
+    if profile == "Découverte":
+        notes.append(t("Privilégier la variante simplifiée, une démonstration et un seul critère observable à la fois."))
+    elif profile == "Approfondissement":
+        notes.append(t("Proposer la variante complexifiée seulement après maîtrise de la situation de base."))
+    else:
+        notes.append(t("Proposer des variantes de difficulté et laisser les élèves évoluer selon leur maîtrise."))
+    if equipment_limited:
+        notes.append(t("Répartir le matériel entre ateliers et alterner pratique et observation brève sans attente prolongée."))
+    if space_limited:
+        notes.append(t("Réduire les déplacements simultanés, délimiter les zones et conserver des distances de sécurité."))
+    if connectivity != "Disponible":
+        notes.append(t("Préparer les supports à l’avance et prévoir une alternative utilisable sans Internet."))
+    if devices == "Aucun":
+        notes.append(t("Utiliser des démonstrations, des repères visuels et des fiches papier."))
+    return notes

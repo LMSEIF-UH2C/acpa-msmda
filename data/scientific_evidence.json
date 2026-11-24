@@ -11,7 +11,8 @@
       "reference_urls": [
         "https://doi.org/10.1080/02640418808729800"
       ],
-      "citation": "Léger et al. (1988)"
+      "citation": "Léger et al. (1988)",
+      "other_reference_urls": []
     },
     {
       "id": "sprint30",
@@ -19,7 +20,8 @@
       "protocol_status": "to_confirm",
       "empirical_status": "not_assessed_for_current_implementation",
       "limitations": "Départ, chronométrage et nombre d'essais à standardiser.",
-      "reference_urls": []
+      "reference_urls": [],
+      "other_reference_urls": []
     },
     {
       "id": "saut_horizontal",
@@ -27,10 +29,11 @@
       "protocol_status": "to_confirm",
       "empirical_status": "not_assessed_for_current_implementation",
       "limitations": "Vérifier la modalité d'élan décrite dans le protocole institutionnel.",
-      "reference_urls": [
+      "reference_urls": [],
+      "citation": "Council of Europe — EUROFIT (1993)",
+      "other_reference_urls": [
         "https://books.google.com/books/about/Eurofit.html?id=9i6njwEACAAJ"
-      ],
-      "citation": "Council of Europe — EUROFIT (1993)"
+      ]
     },
     {
       "id": "sargent",
@@ -41,7 +44,8 @@
       "reference_urls": [
         "https://doi.org/10.1080/23267224.1921.10650486"
       ],
-      "citation": "Sargent (1921)"
+      "citation": "Sargent (1921)",
+      "other_reference_urls": []
     },
     {
       "id": "medecine_ball",
@@ -49,7 +53,11 @@
       "protocol_status": "to_confirm",
       "empirical_status": "not_assessed_for_current_implementation",
       "limitations": "Position assise dos au mur.",
-      "reference_urls": []
+      "reference_urls": [],
+      "other_reference_urls": [
+        "https://ojs.srce.hr/kinesiology/article/view/36048"
+      ],
+      "citation": "González-Devesa et al. (2025)"
     },
     {
       "id": "souplesse_assise",
@@ -60,7 +68,8 @@
       "reference_urls": [
         "https://doi.org/10.1080/10671188.1952.10761965"
       ],
-      "citation": "Wells & Dillon (1952)"
+      "citation": "Wells & Dillon (1952)",
+      "other_reference_urls": []
     },
     {
       "id": "souplesse_debout",
@@ -68,7 +77,8 @@
       "protocol_status": "to_confirm",
       "empirical_status": "not_assessed_for_current_implementation",
       "limitations": "Conserver la convention des signes du protocole.",
-      "reference_urls": []
+      "reference_urls": [],
+      "other_reference_urls": []
     },
     {
       "id": "flamingo",
@@ -76,10 +86,11 @@
       "protocol_status": "to_confirm",
       "empirical_status": "not_assessed_for_current_implementation",
       "limitations": "Mode de décompte à préciser avant comparaison.",
-      "reference_urls": [
+      "reference_urls": [],
+      "citation": "Council of Europe — EUROFIT (1993)",
+      "other_reference_urls": [
         "https://books.google.com/books/about/Eurofit.html?id=9i6njwEACAAJ"
-      ],
-      "citation": "Council of Europe — EUROFIT (1993)"
+      ]
     },
     {
       "id": "taille",
@@ -87,7 +98,11 @@
       "protocol_status": "to_confirm",
       "empirical_status": "not_assessed_for_current_implementation",
       "limitations": "Mesure de taille ; ne pas afficher de jugement corporel.",
-      "reference_urls": []
+      "reference_urls": [],
+      "other_reference_urls": [
+        "https://extranet.who.int/ncdsmicrodata/index.php/collections/STEPS"
+      ],
+      "citation": "WHO — STEPS"
     },
     {
       "id": "poids",
@@ -95,7 +110,11 @@
       "protocol_status": "to_confirm",
       "empirical_status": "not_assessed_for_current_implementation",
       "limitations": "Mesure sensible ; aucune donnée nominative dans la démo.",
-      "reference_urls": []
+      "reference_urls": [],
+      "other_reference_urls": [
+        "https://extranet.who.int/ncdsmicrodata/index.php/collections/STEPS"
+      ],
+      "citation": "WHO — STEPS"
     },
     {
       "id": "fc_repos",
@@ -103,7 +122,11 @@
       "protocol_status": "to_confirm",
       "empirical_status": "not_assessed_for_current_implementation",
       "limitations": "Mesure standardisée au repos.",
-      "reference_urls": []
+      "reference_urls": [],
+      "other_reference_urls": [
+        "https://extranet.who.int/ncdsmicrodata/index.php/collections/STEPS"
+      ],
+      "citation": "WHO — STEPS"
     },
     {
       "id": "ruffier",
@@ -111,7 +134,11 @@
       "protocol_status": "to_confirm",
       "empirical_status": "not_assessed_for_current_implementation",
       "limitations": "Requiert trois fréquences cardiaques selon le protocole.",
-      "reference_urls": []
+      "reference_urls": [
+        "https://doi.org/10.1371/journal.pone.0238863"
+      ],
+      "other_reference_urls": [],
+      "citation": "Bruggeman et al. (2020)"
     },
     {
       "id": "shirado",
@@ -119,10 +146,11 @@
       "protocol_status": "to_confirm",
       "empirical_status": "not_assessed_for_current_implementation",
       "limitations": "Protocole de maintien à préciser.",
-      "reference_urls": [
+      "reference_urls": [],
+      "citation": "Ito et al. (1996)",
+      "other_reference_urls": [
         "https://pubmed.ncbi.nlm.nih.gov/8554479/"
-      ],
-      "citation": "Ito et al. (1996)"
+      ]
     },
     {
       "id": "schober",
@@ -130,7 +158,11 @@
       "protocol_status": "to_confirm",
       "empirical_status": "not_assessed_for_current_implementation",
       "limitations": "Repères anatomiques selon protocole.",
-      "reference_urls": []
+      "reference_urls": [
+        "https://doi.org/10.1080/09638280400018411"
+      ],
+      "other_reference_urls": [],
+      "citation": "Tousignant et al. (2005) — modified-modified Schober"
     },
     {
       "id": "killy",
@@ -138,7 +170,8 @@
       "protocol_status": "to_confirm",
       "empirical_status": "not_assessed_for_current_implementation",
       "limitations": "Maintien isométrique.",
-      "reference_urls": []
+      "reference_urls": [],
+      "other_reference_urls": []
     },
     {
       "id": "emep",
@@ -146,7 +179,8 @@
       "protocol_status": "to_confirm",
       "empirical_status": "not_assessed_for_current_implementation",
       "limitations": "Respecter droits d'utilisation, version linguistique et cotation autorisée.",
-      "reference_urls": []
+      "reference_urls": [],
+      "other_reference_urls": []
     },
     {
       "id": "altpe",
@@ -154,10 +188,11 @@
       "protocol_status": "to_confirm",
       "empirical_status": "not_assessed_for_current_implementation",
       "limitations": "Codage d'observation selon protocole ALT-PE.",
-      "reference_urls": [
+      "reference_urls": [],
+      "citation": "Siedentop, Tousignant & Parker (1982)",
+      "other_reference_urls": [
         "https://books.google.com/books/about/Academic_Learning_Time_physical_Educatio.html?id=cV6tTQcfaN4C"
-      ],
-      "citation": "Siedentop, Tousignant & Parker (1982)"
+      ]
     },
     {
       "id": "cooper",
@@ -168,7 +203,8 @@
       "reference_urls": [
         "https://doi.org/10.1001/jama.1968.03140030033008"
       ],
-      "citation": "Cooper (1968)"
+      "citation": "Cooper (1968)",
+      "other_reference_urls": []
     },
     {
       "id": "cmj",
@@ -177,9 +213,10 @@
       "empirical_status": "not_assessed_for_current_implementation",
       "limitations": "Mesure par dispositif ou saisie manuelle ; pas de hauteur calculée à partir d'une vidéo non étalonnée.",
       "reference_urls": [
-        "https://pubmed.ncbi.nlm.nih.gov/6681758/"
+        "https://doi.org/10.1007/BF00422166"
       ],
-      "citation": "Bosco, Luhtanen & Komi (1983)"
+      "citation": "Bosco, Luhtanen & Komi (1983)",
+      "other_reference_urls": []
     }
   ],
   "methods": [
@@ -204,7 +241,7 @@
     {
       "id": "sem_mdc",
       "citation": "SEM / MDC95 — Weir (2005)",
-      "reference": "https://doi.org/10.1519/15184.1",
+      "reference": "https://doi.org/10.1519/00124278-200502000-00038",
       "limitations": "SEM and MDC95 assume independent errors with comparable variance."
     }
   ]

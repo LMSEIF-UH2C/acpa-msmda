@@ -17,7 +17,8 @@
         "fr": "Piste de 20 m, audio et repères ; noter le dernier palier selon une règle constante.",
         "en": "20 m lane, audio and markers; record the last stage using a consistent rule.",
         "ar": "مسار 20 مترا وتسجيل صوتي وعلامات؛ سجل آخر مستوى وفق قاعدة ثابتة."
-      }
+      },
+      "group": "institutional"
     },
     {
       "id": "sprint30",
@@ -34,7 +35,8 @@
         "fr": "Distance mesurée et chronomètre ; garder le même départ et dispositif de chronométrage.",
         "en": "Measured distance and timer; keep start and timing method consistent.",
         "ar": "مسافة مقاسة ومؤقت؛ حافظ على طريقة الانطلاق والتوقيت نفسها."
-      }
+      },
+      "group": "institutional"
     },
     {
       "id": "saut_horizontal",
@@ -51,7 +53,8 @@
         "fr": "Surface sûre et mètre ; confirmer la variante avec ou sans élan avant comparaison.",
         "en": "Safe surface and tape; confirm standing or running-start variant before comparison.",
         "ar": "سطح آمن وشريط قياس؛ حدد طريقة الوثب مع أو دون اقتراب قبل المقارنة."
-      }
+      },
+      "group": "institutional"
     },
     {
       "id": "sargent",
@@ -68,7 +71,8 @@
         "fr": "Mur gradué ; comparer la hauteur atteinte debout et au saut selon le protocole.",
         "en": "Marked wall; compare standing reach and jump reach under the protocol.",
         "ar": "حائط مدرج؛ قارن ارتفاع الوصول من الوقوف ومن الوثب وفق البروتوكول."
-      }
+      },
+      "group": "institutional"
     },
     {
       "id": "medecine_ball",
@@ -82,10 +86,11 @@
       ],
       "citation": "González-Devesa et al. (2025)",
       "teacher_info": {
-        "fr": "Ballon de 3 kg, mur et mètre ; conserver la position assise et la masse du ballon.",
-        "en": "3 kg ball, wall and tape; keep seated position and ball mass constant.",
-        "ar": "كرة طبية 3 كغ وحائط وشريط قياس؛ حافظ على وضع الجلوس وكتلة الكرة."
-      }
+        "fr": "Ballon de 3 kg, mur et mètre ; conserver la position assise et la masse du ballon. La revue concerne plusieurs variantes chez les jeunes ; vérifier la charge et la position exactes.",
+        "en": "3 kg ball, wall and tape; keep seated position and ball mass constant. The review covers several youth variants; verify the exact load and posture.",
+        "ar": "كرة طبية 3 كغ وحائط وشريط قياس؛ حافظ على وضع الجلوس وكتلة الكرة. تشمل المراجعة صيغاً متعددة لدى اليافعين؛ تحقق من الكتلة والوضعية بدقة."
+      },
+      "group": "institutional"
     },
     {
       "id": "souplesse_assise",
@@ -102,7 +107,8 @@
         "fr": "Règle ou caisson ; conserver le zéro, la position et la convention de signe.",
         "en": "Ruler or box; keep zero point, posture and sign convention consistent.",
         "ar": "مسطرة أو صندوق؛ حافظ على نقطة الصفر والوضعية واتفاقية الإشارة."
-      }
+      },
+      "group": "institutional"
     },
     {
       "id": "souplesse_debout",
@@ -119,7 +125,8 @@
         "fr": "Règle ; noter la distance doigts-sol sans forcer. La référence est clinique, non une norme scolaire.",
         "en": "Ruler; record fingertip-to-floor distance without forcing. The reference is clinical, not a school norm.",
         "ar": "مسطرة؛ سجل المسافة بين الأصابع والأرض دون إجبار. المرجع سريري وليس معيارا مدرسيا."
-      }
+      },
+      "group": "institutional"
     },
     {
       "id": "flamingo",
@@ -136,7 +143,8 @@
         "fr": "Support stable et chronomètre ; préciser la durée et le décompte des pertes d’équilibre.",
         "en": "Stable support and timer; specify duration and how balance losses are counted.",
         "ar": "دعامة ثابتة ومؤقت؛ حدد المدة وطريقة عد فقدان التوازن."
-      }
+      },
+      "group": "institutional"
     },
     {
       "id": "taille",
@@ -146,14 +154,16 @@
       "limitations": "Mesure de taille ; ne pas afficher de jugement corporel.",
       "reference_urls": [],
       "other_reference_urls": [
-        "https://extranet.who.int/ncdsmicrodata/index.php/collections/STEPS"
+        "https://extranet.who.int/ncdsmicrodata/index.php/collections/STEPS",
+        "https://www.who.int/tools/growth-reference-data-for-5to19-years"
       ],
       "citation": "WHO — STEPS",
       "teacher_info": {
         "fr": "Toise ; mesurer dans des conditions constantes et préserver la confidentialité.",
         "en": "Stadiometer; use consistent conditions and protect privacy.",
         "ar": "مقياس الطول؛ حافظ على ظروف ثابتة وسرية البيانات."
-      }
+      },
+      "group": "institutional"
     },
     {
       "id": "poids",
@@ -163,14 +173,16 @@
       "limitations": "Mesure sensible ; aucune donnée nominative dans la démo.",
       "reference_urls": [],
       "other_reference_urls": [
-        "https://extranet.who.int/ncdsmicrodata/index.php/collections/STEPS"
+        "https://extranet.who.int/ncdsmicrodata/index.php/collections/STEPS",
+        "https://www.who.int/tools/growth-reference-data-for-5to19-years"
       ],
       "citation": "WHO — STEPS",
       "teacher_info": {
         "fr": "Balance adaptée ; préserver la confidentialité et éviter tout classement corporel.",
         "en": "Suitable scale; protect privacy and avoid body-based ranking.",
         "ar": "ميزان مناسب؛ احفظ السرية وتجنب التصنيف حسب الجسم."
-      }
+      },
+      "group": "institutional"
     },
     {
       "id": "fc_repos",
@@ -187,7 +199,8 @@
         "fr": "Dispositif de mesure du pouls ; standardiser la durée et la posture de repos.",
         "en": "Pulse measurement device; standardize rest duration and posture.",
         "ar": "جهاز قياس النبض؛ وحد مدة الراحة ووضعية الجسم."
-      }
+      },
+      "group": "institutional"
     },
     {
       "id": "ruffier",
@@ -204,7 +217,8 @@
         "fr": "Chronomètre et mesure du pouls ; confirmer la variante, les trois temps et la formule avant saisie.",
         "en": "Timer and pulse measurement; confirm variant, three timing points and formula before entry.",
         "ar": "مؤقت وقياس النبض؛ تحقق من الصيغة والأزمنة الثلاثة وطريقة الاختبار قبل الإدخال."
-      }
+      },
+      "group": "complementary"
     },
     {
       "id": "shirado",
@@ -221,7 +235,8 @@
         "fr": "Tapis et chronomètre ; confirmer la posture et le critère d’arrêt. Ito est une référence apparentée.",
         "en": "Mat and timer; confirm posture and stopping criterion. Ito is a related reference.",
         "ar": "حصيرة ومؤقت؛ تحقق من الوضعية ومعيار التوقف. مرجع إيتو مرتبط بالاختبار."
-      }
+      },
+      "group": "complementary"
     },
     {
       "id": "schober",
@@ -238,7 +253,8 @@
         "fr": "Mètre souple ; confirmer les repères anatomiques et la variante. La référence porte sur une variante modifiée.",
         "en": "Flexible tape; confirm anatomical landmarks and variant. The reference concerns a modified variant.",
         "ar": "شريط قياس مرن؛ تحقق من المعالم التشريحية والنسخة. المرجع يتعلق بنسخة معدلة."
-      }
+      },
+      "group": "complementary"
     },
     {
       "id": "killy",
@@ -255,7 +271,8 @@
         "fr": "Mur et chronomètre ; confirmer la posture et arrêter en cas de douleur.",
         "en": "Wall and timer; confirm posture and stop if pain occurs.",
         "ar": "حائط ومؤقت؛ تحقق من الوضعية وأوقف الاختبار عند الألم."
-      }
+      },
+      "group": "complementary"
     },
     {
       "id": "emep",
@@ -272,7 +289,8 @@
         "fr": "Questionnaire autorisé et clé de cotation ; confirmer la version et les droits. ÉMÉPS concerne le postsecondaire.",
         "en": "Authorized questionnaire and scoring key; confirm version and rights. ÉMÉPS concerns postsecondary students.",
         "ar": "استبيان مرخص ومفتاح التصحيح؛ تحقق من النسخة والحقوق. المقياس المرجعي يخص التعليم بعد الثانوي."
-      }
+      },
+      "group": "complementary"
     },
     {
       "id": "altpe",
@@ -289,7 +307,8 @@
         "fr": "Grille de codage et observation ; définir les catégories et les intervalles. Saisir les résultats déjà codés.",
         "en": "Coding sheet and observation; define categories and intervals. Enter previously coded results.",
         "ar": "شبكة ترميز وملاحظة؛ حدد الفئات والفترات. أدخل النتائج المرمزة مسبقا."
-      }
+      },
+      "group": "complementary"
     },
     {
       "id": "cooper",
@@ -306,7 +325,8 @@
         "fr": "Parcours mesuré et chronomètre ; relever la distance en 12 minutes. La vitesse moyenne n’est pas la VMA.",
         "en": "Measured course and timer; record distance in 12 minutes. Mean speed is not maximal aerobic speed.",
         "ar": "مسار مقاس ومؤقت؛ سجل المسافة في 12 دقيقة. السرعة المتوسطة ليست السرعة الهوائية القصوى."
-      }
+      },
+      "group": "complementary"
     },
     {
       "id": "cmj",
@@ -317,13 +337,16 @@
       "reference_urls": [
         "https://doi.org/10.1007/BF00422166"
       ],
-      "citation": "Bosco, Luhtanen & Komi (1983)",
-      "other_reference_urls": [],
+      "citation": "Bosco, Luhtanen & Komi (1983); Markovic et al. (2004)",
+      "other_reference_urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/15320660/"
+      ],
       "teacher_info": {
         "fr": "Dispositif étalonné ; conserver la technique et le mode de mesure. La référence traite des sauts verticaux.",
         "en": "Calibrated device; keep technique and measurement method constant. The reference concerns vertical jumps.",
         "ar": "جهاز معاير؛ حافظ على التقنية وطريقة القياس. المرجع يتعلق بالوثب العمودي."
-      }
+      },
+      "group": "complementary"
     }
   ],
   "methods": [
@@ -371,5 +394,19 @@
         "ar": "يقدر SEM خطأ القياس؛ ويقدر MDC95 الحد الأدنى للتغير القابل للكشف وفق الافتراضات."
       }
     }
-  ]
+  ],
+  "group_labels": {
+    "fr": [
+      "Batterie institutionnelle · 8 tests et 3 mesures",
+      "Instruments complémentaires"
+    ],
+    "en": [
+      "Institutional battery · 8 tests and 3 measurements",
+      "Complementary instruments"
+    ],
+    "ar": [
+      "البطارية المؤسساتية · 8 اختبارات و3 قياسات",
+      "أدوات تكميلية"
+    ]
+  }
 }

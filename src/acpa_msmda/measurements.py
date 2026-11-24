@@ -13,12 +13,13 @@ import html
 import io
 import math
 from dataclasses import dataclass
-from statistics import mean, median
+from statistics import mean, median, stdev
 from typing import Optional, Sequence
 
 from . import i18n
 from .i18n import t
 from .scenario_engine import safe_cell
+from .intervals import mean_interval
 
 MAX_PUPILS = 150
 
@@ -101,6 +102,8 @@ def series_indicators(values: Sequence[Optional[float]], unit: str) -> list[Indi
                          t("Calculée sur {n} élève(s) mesuré(s).", n=len(measured))))
     out.append(Indicator(t("Médiane"), f"{fr(median(measured), 2)} {unit}", None,
                          t("La moitié des élèves mesurés est au-dessus, l'autre moitié en dessous.")))
+    if len(measured) >= 2:
+        out.append(Indicator(t("Écart-type (échantillon)"), f"{fr(stdev(measured), 2)} {unit}", None, t("Dispersion des mesures autour de la moyenne ; dénominateur n − 1.")))
     out.append(Indicator(t("Étendue"), t("{a} à {b}", a=fr(min(measured)), b=fr(max(measured))) + f" {unit}", None,
                          t("Plus petite et plus grande valeur saisies.")))
     return out
@@ -133,10 +136,18 @@ def comparison(first: Sequence[Optional[float]], last: Sequence[Optional[float]]
     else:
         better = up if higher_is_better else down
         worse = down if higher_is_better else up
-        out = [Indicator(t("Élèves en progression"), f"{better} / {n}", better / n,
+        out = [Indicator(t("Variation favorable"), f"{better} / {n}", better / n,
                          base + " " + t("Selon le sens favorable choisi pour l'épreuve.")),
-               Indicator(t("Élèves en recul"), f"{worse} / {n}", worse / n, base),
+               Indicator(t("Variation défavorable"), f"{worse} / {n}", worse / n, base),
                Indicator(t("Résultat identique"), f"{same} / {n}", same / n, base)]
+    if n >= 2:
+        sd = stdev(paired)
+        out.append(Indicator(t("Écart-type des différences"), f"{fr(sd, 2)} {unit}".strip(), None, base))
+        interval = mean_interval(paired)
+        if interval:
+            out.append(Indicator(t("IC à 95 % de la variation moyenne"), f"[{fr(interval['lower'], 3)} ; {fr(interval['upper'], 3)}] {unit}".strip(), None, t("Intervalle t : {n} paires, {df} degrés de liberté utilisés (au plus {actual}). Suppose des différences indépendantes et approximativement normales.", n=n, df=interval["df_used"], actual=interval["df"])))
+        if sd > 0:
+            out.append(Indicator(t("Taille d’effet appariée (d_z)"), fr(mean(paired)/sd, 3, sign=True), None, t("Différence moyenne divisée par son écart-type ; signe après moins avant. Aucune interprétation causale.")))
     out.append(Indicator(t("Variation moyenne"), f"{fr(mean(paired), 2, sign=True)} {unit}".strip(), None, base))
     return out, deltas
 
@@ -150,11 +161,11 @@ def series_csv(rows: Sequence[dict]) -> bytes:
     """Export long : une ligne par élève et par série."""
     stream = io.StringIO()
     writer = csv.writer(stream)
-    writer.writerow([t(h) for h in ("Séance", "Date", "Épreuve", "Unité", "Élève", "Valeur")])
+    writer.writerow([t(h) for h in ("Séance", "Date", "Épreuve", "Unité", "Élève", "Valeur", "Code du groupe (non nominatif)", "Numéro du cycle", "Numéro de séance", "Conditions de mesure")])
     for row in rows:
         for code, value in zip(row["codes"], row["values"]):
             writer.writerow([safe_cell(row["label"]), row["date"], t(row["test_name"]), t(row["unit"]), code,
-                             "" if value is None else value])
+                             "" if value is None else value, safe_cell(row.get("group","")), row.get("cycle",""), row.get("lesson",""), safe_cell(row.get("protocol",""))])
     return stream.getvalue().encode("utf-8-sig")
 
 
@@ -190,3 +201,15 @@ def report_html(title: str, context_line: str, sections: Sequence[tuple[str, Seq
                                       for i, c in enumerate(row)) + "</tr>")
     parts.append("</tbody></table><div class='notes'>" + "".join(f"<p>{e(n)}</p>" for n in notes) + "</div></body></html>")
     return "".join(parts).encode("utf-8")
+
+
+def comparable_series(a, b):
+    """Conservative eligibility; teacher must additionally confirm stable pupil codes."""
+    return (bool(a.get("group")) and a.get("group") == b.get("group")
+            and bool(a.get("cycle")) and a.get("cycle") == b.get("cycle")
+            and a.get("activity") == b.get("activity") and a.get("level") == b.get("level")
+            and a.get("test_id") == b.get("test_id") and a.get("unit") == b.get("unit")
+            and bool(a.get("protocol")) and a.get("protocol") == b.get("protocol")
+            and a.get("codes") == b.get("codes")
+            and a.get("date", "") <= b.get("date", "")
+            and a.get("lesson", 0) > 0 and a.get("lesson", 0) < b.get("lesson", 0))

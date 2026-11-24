@@ -3190,5 +3190,97 @@
  "Confirmer la restauration": {
   "ar": "تأكيد الاستعادة",
   "en": "Confirm restore"
+ },
+ "Variation favorable": {
+  "ar": "تغير في الاتجاه المرغوب",
+  "en": "Favourable change"
+ },
+ "Variation défavorable": {
+  "ar": "تغير في الاتجاه غير المرغوب",
+  "en": "Unfavourable change"
+ },
+ "Aucune série antérieure comparable : vérifiez le groupe, le cycle, les codes et les conditions de mesure.": {
+  "ar": "لا توجد سلسلة سابقة قابلة للمقارنة: تحقق من المجموعة والدورة والرموز وظروف القياس.",
+  "en": "No comparable earlier series: check group, cycle, codes and measurement conditions."
+ },
+ "Écart-type (échantillon)": {
+  "ar": "الانحراف المعياري للعينة",
+  "en": "Sample standard deviation"
+ },
+ "Dispersion des mesures autour de la moyenne ; dénominateur n − 1.": {
+  "ar": "تشتت القياسات حول المتوسط؛ المقام n − 1.",
+  "en": "Dispersion around the mean; denominator n − 1."
+ },
+ "Écart-type des différences": {
+  "ar": "الانحراف المعياري للفروق",
+  "en": "Standard deviation of differences"
+ },
+ "Taille d’effet appariée (d_z)": {
+  "ar": "حجم الأثر للقياسات المزدوجة (d_z)",
+  "en": "Paired effect size (d_z)"
+ },
+ "Différence moyenne divisée par son écart-type ; signe après moins avant. Aucune interprétation causale.": {
+  "ar": "متوسط الفرق مقسوما على انحرافه المعياري؛ الإشارة بعد ناقص قبل. لا تفسير سببي.",
+  "en": "Mean difference divided by its standard deviation; sign is after minus before. No causal interpretation."
+ },
+ "Type d’analyse": {
+  "ar": "نوع التحليل",
+  "en": "Analysis type"
+ },
+ "Évolution pédagogique": {
+  "ar": "التطور التعليمي",
+  "en": "Learning change"
+ },
+ "Fiabilité test-retest": {
+  "ar": "ثبات الاختبار وإعادة الاختبار",
+  "en": "Test-retest reliability"
+ },
+ "Mesures répétées sans changement réel attendu, avec protocole identique.": {
+  "ar": "قياسات مكررة دون تغير حقيقي متوقع وبنفس البروتوكول.",
+  "en": "Repeated measures with no expected true change and identical protocol."
+ },
+ "Au moins trois paires complètes sont nécessaires au calcul ; un effectif faible reste insuffisant pour une estimation précise.": {
+  "ar": "يلزم ثلاث أزواج مكتملة على الأقل للحساب؛ العينة الصغيرة لا تكفي لتقدير دقيق.",
+  "en": "At least three complete pairs are needed; a small sample remains insufficient for precise estimation."
+ },
+ "Biais moyen": {
+  "ar": "متوسط الانحياز",
+  "en": "Mean bias"
+ },
+ "SEM": {
+  "ar": "الخطأ المعياري للقياس (SEM)",
+  "en": "SEM"
+ },
+ "MDC95": {
+  "ar": "الحد الأدنى للتغير القابل للكشف (MDC95)",
+  "en": "MDC95"
+ },
+ "Limite inférieure d’accord": {
+  "ar": "الحد الأدنى للاتفاق",
+  "en": "Lower agreement limit"
+ },
+ "Limite supérieure d’accord": {
+  "ar": "الحد الأعلى للاتفاق",
+  "en": "Upper agreement limit"
+ },
+ "Moyenne des deux mesures": {
+  "ar": "متوسط القياسين",
+  "en": "Mean of two measurements"
+ },
+ "Différence après moins avant": {
+  "ar": "الفرق بعد ناقص قبل",
+  "en": "Difference after minus before"
+ },
+ "SEM et MDC95 supposent des erreurs indépendantes de variance comparable. Les limites d’accord supposent des différences approximativement normales et de dispersion stable. Les estimations restent exploratoires, sans intervalle de confiance de l’ICC.": {
+  "ar": "يفترض SEM وMDC95 أخطاء مستقلة ذات تباين متقارب. تفترض حدود الاتفاق فروقا ذات توزيع طبيعي تقريبا وتشتت ثابت. التقديرات استكشافية دون فاصل ثقة لمعامل ICC.",
+  "en": "SEM and MDC95 assume independent errors of comparable variance. Agreement limits assume approximately normal differences with stable dispersion. Estimates remain exploratory, without an ICC confidence interval."
+ },
+ "IC à 95 % de la variation moyenne": {
+  "ar": "فاصل الثقة 95٪ لمتوسط التغير",
+  "en": "95% CI of mean change"
+ },
+ "Intervalle t : {n} paires, {df} degrés de liberté utilisés (au plus {actual}). Suppose des différences indépendantes et approximativement normales.": {
+  "ar": "فاصل t: عدد الأزواج {n}، درجات الحرية المستخدمة {df} (بحد أقصى {actual}). يفترض فروقا مستقلة وتوزيعا طبيعيا تقريبا.",
+  "en": "t interval: {n} pairs, {df} degrees of freedom used (at most {actual}). Assumes independent, approximately normal differences."
  }
 }

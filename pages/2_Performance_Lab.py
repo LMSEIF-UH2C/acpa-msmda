@@ -13,7 +13,9 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 from acpa_msmda import session_context as ctx  # noqa: E402
 from acpa_msmda.measurements import (comparison, cooper_speed_kmh, fr, parse_series, pupil_codes,  # noqa: E402
-                                     report_html, series_csv, series_indicators)
+                                     report_html, series_csv, series_indicators, comparable_series)
+from acpa_msmda.reliability import agreement
+from acpa_msmda.measurements import Indicator
 from acpa_msmda.pdf import measurements_pdf  # noqa: E402
 from acpa_msmda.i18n import t  # noqa: E402
 from acpa_msmda.ui import LAB, PRIVACY_NOTE, configure_page, page_header  # noqa: E402
@@ -51,6 +53,7 @@ with entry:
         label = st.text_input(t("Nom de la série"), max_chars=60, **ctx.bind(S, "series_label", t("Séance 1")))
     with right:
         when = st.date_input(t("Date"), format="DD/MM/YYYY", **ctx.bind(S, "series_date", date.today()))
+    group = st.text_input(t("Code du groupe (non nominatif)"),max_chars=30,**ctx.bind(S,"measurement_group",""))
     protocol = st.text_input(t("Conditions de mesure"), max_chars=300,
                              help=t("Précisez le matériel, le protocole et les conditions de réalisation."),
                              **ctx.bind(S, "measurement_protocol", ""))
@@ -68,7 +71,7 @@ with entry:
             all_series.append({"id": uuid.uuid4().hex[:8], "test_id": test_id, "test_name": test["name"],
                                "unit": test["unit"], "label": label.strip() or t("Série"),
                                "date": when.isoformat(), "codes": codes, "values": parsed.values,
-                               "protocol": protocol.strip(), "cycle": ctx.get(S, "cycle_number"),
+                               "group": group.strip(), "activity": ctx.get(S,"activity"), "level": ctx.get(S,"level"), "protocol": protocol.strip(), "cycle": ctx.get(S, "cycle_number"),
                                "lesson": ctx.get(S, "lesson_number")})
             ctx.put(S, "series_text", "")
             ctx.put(S, "lab_flash", t("Série « {label} » enregistrée : {n} / {total} élèves mesurés. "
@@ -92,12 +95,24 @@ with report:
 
         first = None
         direction = None
+        reliability_mode = False
+        agreement_result = None
         if len(mine) > 1:
-            others = [i for i in ids if i != last_id]
-            first_id = st.selectbox(t("Comparer avec"), others, index=0, format_func=titles.get)
-            first = next(s for s in mine if s["id"] == first_id)
-            direction = DIRECTIONS[st.radio(t("Pour cette épreuve, le meilleur résultat est la"), list(DIRECTIONS),
-                                            format_func=t, horizontal=True, **ctx.bind(S, f"direction_{test_id}", "Non précisé"))]
+            others = [s["id"] for s in mine if s["id"] != last_id and comparable_series(s,last)]
+            if not others:
+                st.info(t("Aucune série antérieure comparable : vérifiez le groupe, le cycle, les codes et les conditions de mesure."))
+            else:
+                first_id = st.selectbox(t("Comparer avec"), others, index=0, format_func=titles.get)
+                candidate = next(s for s in mine if s["id"] == first_id)
+                if st.checkbox(t("Les codes correspondent aux mêmes élèves et les conditions d’observation sont comparables."), key=f"match_{first_id}_{last_id}"):
+                    first = candidate
+                    reliability_mode = st.radio(t("Type d’analyse"), ["Évolution pédagogique","Fiabilité test-retest"],format_func=t,key=f"analysis_{first_id}_{last_id}") == "Fiabilité test-retest"
+                    if reliability_mode:
+                        if not st.checkbox(t("Mesures répétées sans changement réel attendu, avec protocole identique."),key=f"stable_{first_id}_{last_id}"):
+                            first = None
+                    else:
+                        direction = DIRECTIONS[st.radio(t("Pour cette épreuve, le meilleur résultat est la"), list(DIRECTIONS),
+                                                    format_func=t, horizontal=True, **ctx.bind(S, f"direction_{test_id}", "Non précisé"))]
 
         def aligned(serie):
             values = dict(zip((int(code[1:]) for code in serie["codes"]), serie["values"]))
@@ -107,7 +122,20 @@ with report:
         deltas = None
         if first:
             indicators, deltas = comparison(aligned(first), aligned(last), direction, last["unit"])
-            sections.append((t("Évolution : {a} puis {b}", a=titles[first["id"]], b=titles[last_id]), indicators))
+            if reliability_mode:
+                agreement_result = agreement(aligned(first), aligned(last))
+                if agreement_result is None:
+                    st.warning(t("Au moins trois paires complètes sont nécessaires au calcul ; un effectif faible reste insuffisant pour une estimation précise."))
+                else:
+                    result = agreement_result
+                    basis = t("Sur {n} élève(s) mesuré(s) aux deux séances.", n=result["n"])
+                    indicators = [Indicator(t(label),fr(result[key],3)+" "+t(last["unit"]),None,basis)
+                                  for label,key in [("Biais moyen","bias"),("SEM","sem"),("MDC95","mdc95"),("Limite inférieure d’accord","lower"),("Limite supérieure d’accord","upper")]]
+                    if result["icc"] is not None:
+                        indicators.append(Indicator("ICC(A,1)",fr(result["icc"],3),None,basis))
+                    sections.append((t("Fiabilité test-retest"),indicators))
+            else:
+                sections.append((t("Évolution : {a} puis {b}", a=titles[first["id"]], b=titles[last_id]), indicators))
 
         for heading, indicators in sections:
             st.subheader(heading)
@@ -117,6 +145,14 @@ with report:
                     st.progress(ind.ratio)
                 st.caption(ind.basis)
 
+        if agreement_result is not None:
+            import altair as alt
+            import pandas as pd
+            result = agreement_result
+            points = alt.Chart(pd.DataFrame(result["points"])).mark_circle(size=65).encode(x=alt.X("mean:Q",title=t("Moyenne des deux mesures")),y=alt.Y("difference:Q",title=t("Différence après moins avant")))
+            lines = alt.Chart(pd.DataFrame({"limit":[result["lower"],result["bias"],result["upper"]]})).mark_rule(strokeDash=[5,4]).encode(y="limit:Q")
+            st.subheader("Bland-Altman")
+            st.altair_chart(points+lines,use_container_width=True)
         header = [t("Élève")] + ([titles[first["id"]]] if first else []) + [titles[last_id]]
         if first:
             header.append(t("Variation"))
@@ -141,6 +177,8 @@ with report:
         notes = [t("Indicateurs descriptifs calculés uniquement à partir des valeurs saisies ; aucune norme ni aucun barème n'est appliqué."),
                  t("Une variation entre deux séries ne suffit pas à établir un progrès : conditions de mesure, "
                    "protocole et erreur de mesure doivent être comparables.")]
+        if reliability_mode:
+            notes.append(t("SEM et MDC95 supposent des erreurs indépendantes de variance comparable. Les limites d’accord supposent des différences approximativement normales et de dispersion stable. Les estimations restent exploratoires, sans intervalle de confiance de l’ICC."))
         for serie in ([first, last] if first else [last]):
             notes.append(t("Conditions de mesure") + " · " + titles[serie["id"]] + " : " + (serie.get("protocol") or t("Non précisé")))
         if first and (not first.get("protocol") or not last.get("protocol") or first.get("protocol") != last.get("protocol")):
@@ -151,7 +189,7 @@ with report:
             st.caption(note)
 
         st.subheader(t("Exporter"))
-        context_line = ctx.summary(S) + " · " + t("Épreuve : {name} ({u})", name=t(test["name"]), u=t(test["unit"]))
+        context_line = " · ".join([t(last.get("activity","")),t(last.get("level","")),last.get("group",""),t("{n} élèves",n=len(last["codes"]))]) + " · " + t("Épreuve : {name} ({u})", name=t(test["name"]), u=t(test["unit"]))
         c1, c2 = st.columns(2)
         with c1:
             st.download_button(t("Bilan (PDF)"),

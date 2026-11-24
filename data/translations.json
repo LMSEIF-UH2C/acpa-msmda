@@ -3790,5 +3790,29 @@
  "Les compagnons vidéo et hors ligne restent expérimentaux.": {
   "ar": "تظل أدوات الفيديو والعمل دون اتصال تجريبية.",
   "en": "The video and offline companions remain experimental."
+ },
+ "Technothèque": {
+  "ar": "مكتبة التقنيات",
+  "en": "Technology library"
+ },
+ "Explorer": {
+  "ar": "استكشف",
+  "en": "Explore"
+ },
+ "Scénarisation pédagogique": {
+  "ar": "بناء السيناريو التربوي",
+  "en": "Teaching scenario design"
+ },
+ "Évaluation des technologies": {
+  "ar": "تقييم التقنيات",
+  "en": "Technology assessment"
+ },
+ "Écosystème d’accompagnement pédagogique.": {
+  "ar": "منظومة للدعم التربوي.",
+  "en": "Teaching support ecosystem."
+ },
+ "Répertoire des technologies": {
+  "ar": "دليل التقنيات",
+  "en": "Technology directory"
  }
 }

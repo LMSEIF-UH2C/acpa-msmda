@@ -16,6 +16,7 @@ from acpa_msmda.pdf import scenario_pdf, situation_pdf
 from acpa_msmda.teaching_photos import clean_photo
 from acpa_msmda.adaptive_studio import redistribute_minutes, balanced_groups, adaptation_notes  # noqa: E402
 from acpa_msmda.teaching_assistant import suggestions
+from acpa_msmda.real_catalog import load_real_tools, VERIFIED
 from acpa_msmda.i18n import t, tj  # noqa: E402
 from acpa_msmda.ui import PRIVACY_NOTE, STUDIO, configure_page, page_header  # noqa: E402
 
@@ -135,6 +136,24 @@ st.subheader(t("Déroulement"))
 st.caption(t("Adaptez les activités, supports, critères de réussite et durées."))
 connectivity = ctx.get(S, "connectivity")
 rows = []
+catalogue_by_id = {tool["id"]:tool for tool in load_real_tools()}
+candidate = catalogue_by_id.get(ctx.get(S,"scenario_tool_candidate"))
+if candidate:
+    st.write(t("Technologie retenue") + " : " + candidate["name"])
+    if candidate.get("source_url"):
+        st.link_button(t("Site de l'éditeur"),candidate["source_url"])
+    st.caption(t("Vérifiez la compatibilité avec votre séance et précisez son rôle pédagogique."))
+    incompatible=connectivity=="Aucune" and candidate.get("requirement")=="internet"
+    if incompatible:
+        st.warning(t("Cette technologie exige Internet. Adaptez votre choix ou votre contexte."))
+    phase_index=st.selectbox(t("Phase"),range(len(PHASE_NAMES)),format_func=lambda i:t(PHASE_NAMES[i]),key="candidate_phase")
+    if st.button(t("Associer à cette phase"),key="assign_candidate",disabled=incompatible):
+        ctx.store(S).setdefault("scenario_phase_tools",{})[str(phase_index)]=candidate["id"]
+        ctx.put(S,"scenario_tool_candidate",None)
+        st.rerun()
+    if st.button(t("Annuler"),key="cancel_candidate"):
+        ctx.put(S,"scenario_tool_candidate",None)
+        st.rerun()
 for i, (phase, default_minutes) in enumerate(zip(PHASE_NAMES, PHASE_MINUTES)):
     minutes_now = ctx.store(S).get(f"minutes_{i}", default_minutes)
     with st.expander(f"{i + 1}. {t(phase)} · " + t("{n} min", n=minutes_now), expanded=i == 2):
@@ -148,8 +167,21 @@ for i, (phase, default_minutes) in enumerate(zip(PHASE_NAMES, PHASE_MINUTES)):
         with col2:
             minutes = int(st.number_input(t("Durée (min)"), min_value=0, max_value=240,
                                           **ctx.bind(S, f"minutes_{i}", default_minutes)))
+        selected_tools=ctx.store(S).setdefault("scenario_phase_tools",{})
+        chosen=catalogue_by_id.get(selected_tools.get(str(i)))
+        support_text=tj(supports)
+        if chosen:
+            status=t("Fonctions vérifiées") if chosen.get("evidence_status") in VERIFIED else t("À vérifier")
+            st.write(t("Technologie retenue")+" : "+chosen["name"])
+            st.caption(status)
+            if connectivity=="Aucune" and chosen.get("requirement")=="internet":
+                st.warning(t("Cette technologie exige Internet. Adaptez votre choix ou votre contexte."))
+            if st.button(t("Retirer la technologie"),key=f"remove_phase_tool_{i}"):
+                selected_tools.pop(str(i),None)
+                st.rerun()
+            support_text=" · ".join(filter(None,[support_text,chosen["name"]+" ("+status+")"]))
         rows.append({"Phase": phase, "Durée (min)": minutes, "Activité / consignes": action,
-                     "Supports": tj(supports), "Évaluation / feedback": evaluation})
+                     "Supports": support_text, "Évaluation / feedback": evaluation})
         suggestions = recommend_phase_tools(phase, connectivity=connectivity, limit=5)
         if suggestions:
             st.markdown("**" + t("Outils à explorer pour cette phase") + "**")
@@ -176,6 +208,10 @@ else:
     st.warning(t("Les phases totalisent {used} min pour une séance de {n} min (écart : {gap} min).",
                  used=validation["used_minutes"], n=duration, gap=f"{validation['difference_minutes']:+d}"))
 issues = scenario_checks(rows, ctx.get(S, "objectives") or "")
+for i, tool_id in ctx.store(S).get("scenario_phase_tools",{}).items():
+    tool=catalogue_by_id.get(tool_id)
+    if tool and connectivity=="Aucune" and tool.get("requirement")=="internet":
+        issues.append(t(PHASE_NAMES[int(i)])+" : "+tool["name"]+" · "+t("Cette technologie exige Internet. Adaptez votre choix ou votre contexte."))
 with st.expander(t("Points à compléter : {n}", n=len(issues))):
     if issues:
         for issue in issues:

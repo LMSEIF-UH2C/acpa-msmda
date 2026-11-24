@@ -82,6 +82,7 @@ def put(session: MutableMapping, key: str, value: Any) -> None:
     data = store(session)
     if key == "activity" and value != get(session, "activity"):
         data.pop("activity_specialty", None)
+        data.pop("scenario_phase_tools", None)
     data[key] = value
 
 
@@ -131,6 +132,8 @@ def search_query(session: MutableMapping) -> str:
     n'est modifiée.
     """
     parts = [t(activity_label(session)).lower(), t("{n} élèves", n=get(session, "class_size"))]
+    if activity_label(session) != get(session, "activity"):
+        parts.append(t(get(session, "activity")).lower())
     connectivity = get(session, "connectivity")
     if connectivity == "Aucune":
         parts.append(t("sans connexion"))

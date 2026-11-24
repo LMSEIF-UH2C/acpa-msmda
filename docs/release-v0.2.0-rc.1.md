@@ -5,7 +5,7 @@ Statut : candidat en préparation, non déclaré stable.
 ## Périmètre
 
 - Interface FR/AR/EN, Amiri locale pour l'arabe et navigation à cinq onglets.
-- Évaluation documentaire et autoévaluation exploratoire sur 18 critères.
+- Analyse du contexte de l’enseignant et de ses priorités, transmission à Explorer ; évaluation documentaire et autoévaluation exploratoire sur 18 critères en complément.
 - Technothèque, recommandations heuristiques contextualisées et transfert d'une technologie vers son évaluation et une phase du scénario.
 - Scénarios pédagogiques, exports PDF/CSV, bibliothèque de situations et assistant par règles.
 - Espace EPS : ateliers, terrain, évaluation formative, mesures et cahier journalier annuel avec projets de classe et sauvegarde.

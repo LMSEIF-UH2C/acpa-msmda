@@ -206,18 +206,21 @@ with st.expander(study_labels[0]):
                                 st.error({"fr":"Résultat non fini : vérifier les données.","en":"Non-finite result: check the data.","ar":"نتيجة غير منتهية: تحقق من البيانات."}[current()])
                             else:
                                 st.json(result)
-                                st.download_button({"fr":"Exporter le résultat JSON","en":"Export JSON result","ar":"تصدير نتيجة JSON"}[current()],payload,"study_analysis.json","application/json",key="lab_study_analysis_export")
+                                st.download_button({"fr":"Exporter le résultat JSON","en":"Export JSON result","ar":"تصدير نتيجة JSON"}[current()],payload,"study_analysis.json","application/json",key="lab_study_analysis_export",on_click="ignore")
                     if panel["values"]:
                         import pandas as pd
                         import altair as alt
-                        trajectory = pd.DataFrame([{"participant": p, "occasion": o, "value": v}
-                                                    for p, vals in zip(panel["participants"], panel["values"])
-                                                    for o, v in zip(occasions, vals)])
-                        st.altair_chart(alt.Chart(trajectory).mark_line(point=True).encode(
-                            x=alt.X("occasion:N", sort=occasions, title=study_labels[12]),
-                            y=alt.Y("value:Q", title=t(registry[instrument]["unit"])),
-                            color=alt.Color("participant:N", legend=None),
-                            tooltip=["participant", "occasion", "value"]), use_container_width=True)
+                        from acpa_msmda.lab_display import trajectory_records
+                        records, displayed = trajectory_records(panel["participants"], panel["values"], occasions)
+                        if displayed < len(panel["participants"]):
+                            st.caption({"fr":"Graphique : {n}/{total} participants affichés ; analyses et exports inchangés.","en":"Chart: {n}/{total} participants displayed; analyses and exports unchanged.","ar":"الرسم: عرض {n}/{total} مشاركا؛ التحليلات والتصدير دون تغيير."}[current()].format(n=displayed,total=len(panel["participants"])))
+                        if records:
+                            trajectory = pd.DataFrame(records)
+                            st.altair_chart(alt.Chart(trajectory).mark_line(point=True).encode(
+                                x=alt.X("occasion:N", sort=occasions, title=study_labels[12]),
+                                y=alt.Y("value:Q", title=t(registry[instrument]["unit"])),
+                                color=alt.Color("participant:N", legend=None),
+                                tooltip=["participant", "occasion", "value"]), use_container_width=True)
                     if group is None and not independent:
                         summary = group_summary(study_rows, instrument, protocol, occasions)
                         if summary:
@@ -225,7 +228,9 @@ with st.expander(study_labels[0]):
                             import pandas as pd
                             import altair as alt
                             frame = pd.DataFrame(summary).dropna(subset=["mean"])
-                            if not frame.empty:
+                            if len(frame)>5000:
+                                st.caption({"fr":"Graphique de groupes non affiché : volume élevé. Le tableau complet reste disponible.","en":"Group chart omitted: high volume. The full table remains available.","ar":"لم يعرض رسم المجموعات لكبر حجم البيانات؛ الجدول الكامل متاح."}[current()])
+                            elif not frame.empty:
                                 st.altair_chart(alt.Chart(frame).mark_line(point=True).encode(
                                     x=alt.X("occasion:N", sort=occasions, title=study_labels[12]),
                                     y=alt.Y("mean:Q", title=t("Moyenne")+" ("+t(registry[instrument]["unit"])+")"),
@@ -275,7 +280,7 @@ with st.expander(study_labels[0]):
                         st.error(ml[7])
                     else:
                         st.json(result)
-                        st.download_button(ml[8],payload,"analysis.json","application/json",key="lab_mv_download")
+                        st.download_button(ml[8],payload,"analysis.json","application/json",key="lab_mv_download",on_click="ignore")
 
             if st.button(study_labels[15], key="lab_study_clear"):
                 S.pop("lab_study_rows", None)

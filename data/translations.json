@@ -3154,5 +3154,41 @@
  "Les variations sont descriptives ; elles ne démontrent pas à elles seules un apprentissage.": {
   "ar": "التغيرات وصفية ولا تثبت وحدها حدوث التعلم.",
   "en": "Changes are descriptive; they do not by themselves demonstrate learning."
+ },
+ "Sauvegarder ou restaurer les évaluations": {
+  "ar": "حفظ التقويمات أو استعادتها",
+  "en": "Back up or restore assessments"
+ },
+ "Conservez ce fichier dans un emplacement sécurisé. Ne saisissez aucune donnée nominative.": {
+  "ar": "احتفظ بهذا الملف في مكان آمن. لا تدخل أي بيانات اسمية.",
+  "en": "Keep this file in a secure location. Do not enter identifying data."
+ },
+ "Télécharger la sauvegarde (JSON)": {
+  "ar": "تنزيل النسخة الاحتياطية (JSON)",
+  "en": "Download backup (JSON)"
+ },
+ "La sauvegarde dépasse les limites autorisées ou contient des données invalides.": {
+  "ar": "تتجاوز النسخة الحدود المسموح بها أو تتضمن بيانات غير صالحة.",
+  "en": "Backup exceeds the allowed limits or contains invalid data."
+ },
+ "Restaurer une sauvegarde JSON": {
+  "ar": "استعادة نسخة احتياطية JSON",
+  "en": "Restore a JSON backup"
+ },
+ "Fichier de sauvegarde invalide ou incompatible.": {
+  "ar": "ملف احتياطي غير صالح أو غير متوافق.",
+  "en": "Invalid or incompatible backup file."
+ },
+ "{n} séances archivées dans le fichier": {
+  "ar": "{n} حصص مؤرشفة في الملف",
+  "en": "{n} archived lessons in the file"
+ },
+ "La restauration remplacera les évaluations actuellement ouvertes.": {
+  "ar": "ستحل الاستعادة محل التقويمات المفتوحة حاليا.",
+  "en": "Restoring replaces the currently open assessments."
+ },
+ "Confirmer la restauration": {
+  "ar": "تأكيد الاستعادة",
+  "en": "Confirm restore"
  }
 }

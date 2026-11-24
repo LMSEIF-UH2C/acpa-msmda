@@ -3294,5 +3294,329 @@
  "Référence déclarée : {source}": {
   "ar": "المرجع المصرح به: {source}",
   "en": "Declared reference: {source}"
+ },
+ "Le journal reste en mémoire de session. Téléchargez une sauvegarde pour le conserver.": {
+  "ar": "يبقى السجل في ذاكرة الجلسة. نزّل نسخة احتياطية للاحتفاظ به.",
+  "en": "The journal stays in session memory. Download a backup to retain it."
+ },
+ "Sauvegarder ou restaurer le journal": {
+  "ar": "حفظ أو استعادة السجل",
+  "en": "Back up or restore the journal"
+ },
+ "La restauration remplacera le journal actuel.": {
+  "ar": "ستحل النسخة المستعادة محل السجل الحالي.",
+  "en": "Restoring replaces the current journal."
+ },
+ "Programmation annuelle des cycles": {
+  "ar": "البرمجة السنوية للدورات",
+  "en": "Annual cycle planning"
+ },
+ "Cycle": {
+  "ar": "دورة",
+  "en": "Cycle"
+ },
+ "Début": {
+  "ar": "البداية",
+  "en": "Start"
+ },
+ "Fin": {
+  "ar": "النهاية",
+  "en": "End"
+ },
+ "Ajouter ou modifier un cycle": {
+  "ar": "إضافة أو تعديل دورة",
+  "en": "Add or edit a cycle"
+ },
+ "APS du cycle": {
+  "ar": "النشاط البدني والرياضي للدورة",
+  "en": "Cycle activity"
+ },
+ "APS personnalisée (si autre)": {
+  "ar": "نشاط مخصص (إذا كان آخر)",
+  "en": "Custom activity (if other)"
+ },
+ "Enregistrer le cycle": {
+  "ar": "حفظ الدورة",
+  "en": "Save cycle"
+ },
+ "Cycle incompatible : vérifiez les dates, les chevauchements et les séances existantes.": {
+  "ar": "دورة غير متوافقة: تحقق من التواريخ والتداخلات والحصص الموجودة.",
+  "en": "Incompatible cycle: check dates, overlaps and existing lessons."
+ },
+ "Emploi du temps hebdomadaire": {
+  "ar": "استعمال الزمن الأسبوعي",
+  "en": "Weekly timetable"
+ },
+ "Jour": {
+  "ar": "اليوم",
+  "en": "Day"
+ },
+ "Heure": {
+  "ar": "الساعة",
+  "en": "Time"
+ },
+ "Ajouter un créneau": {
+  "ar": "إضافة موعد",
+  "en": "Add time slot"
+ },
+ "Enregistrer le créneau": {
+  "ar": "حفظ الموعد",
+  "en": "Save time slot"
+ },
+ "Créneau invalide ou en conflit.": {
+  "ar": "موعد غير صالح أو متعارض.",
+  "en": "Invalid or conflicting time slot."
+ },
+ "Créneau à supprimer": {
+  "ar": "الموعد المراد حذفه",
+  "en": "Slot to remove"
+ },
+ "Supprimer le créneau": {
+  "ar": "حذف الموعد",
+  "en": "Remove slot"
+ },
+ "Interruptions pédagogiques": {
+  "ar": "فترات توقف الدراسة",
+  "en": "Teaching interruptions"
+ },
+ "Ajouter une interruption": {
+  "ar": "إضافة فترة توقف",
+  "en": "Add interruption"
+ },
+ "Période invalide.": {
+  "ar": "فترة غير صالحة.",
+  "en": "Invalid period."
+ },
+ "Interruption à supprimer": {
+  "ar": "فترة التوقف المراد حذفها",
+  "en": "Interruption to remove"
+ },
+ "Supprimer l’interruption": {
+  "ar": "حذف فترة التوقف",
+  "en": "Remove interruption"
+ },
+ "Avertissement non bloquant.": {
+  "ar": "تنبيه غير مانع.",
+  "en": "Non-blocking warning."
+ },
+ "La génération ajoute uniquement les séances manquantes. Elle ne modifie pas les séances existantes.": {
+  "ar": "تضيف العملية الحصص الناقصة فقط دون تعديل الحصص الموجودة.",
+  "en": "Generation only adds missing lessons; existing lessons are not modified."
+ },
+ "Générer les séances annuelles": {
+  "ar": "إنشاء حصص السنة",
+  "en": "Generate annual lessons"
+ },
+ "Génération impossible : vérifiez les créneaux et la capacité du journal.": {
+  "ar": "تعذر الإنشاء: تحقق من المواعيد وسعة السجل.",
+  "en": "Generation failed: check slots and journal capacity."
+ },
+ "Date de la séance": {
+  "ar": "تاريخ الحصة",
+  "en": "Lesson date"
+ },
+ "Aucun cycle prévu à cette date.": {
+  "ar": "لا توجد دورة مبرمجة في هذا التاريخ.",
+  "en": "No cycle scheduled on this date."
+ },
+ "Planifier la séance": {
+  "ar": "برمجة الحصة",
+  "en": "Schedule lesson"
+ },
+ "Renseignez le code du groupe.": {
+  "ar": "أدخل رمز المجموعة.",
+  "en": "Enter the group code."
+ },
+ "Une séance existe déjà pour ce groupe à cette date.": {
+  "ar": "توجد حصة لهذه المجموعة في هذا التاريخ.",
+  "en": "A lesson already exists for this group on this date."
+ },
+ "Séances enregistrées": {
+  "ar": "الحصص المسجلة",
+  "en": "Saved lessons"
+ },
+ "Statut de la séance": {
+  "ar": "حالة الحصة",
+  "en": "Lesson status"
+ },
+ "Séance à consulter": {
+  "ar": "الحصة المراد عرضها",
+  "en": "Lesson to view"
+ },
+ "Bilan pédagogique": {
+  "ar": "الحصيلة التربوية",
+  "en": "Teaching reflection"
+ },
+ "Enregistrer le bilan": {
+  "ar": "حفظ الحصيلة",
+  "en": "Save reflection"
+ },
+ "Aucun cycle compatible à cette date.": {
+  "ar": "لا توجد دورة متوافقة في هذا التاريخ.",
+  "en": "No compatible cycle on this date."
+ },
+ "Reprendre le contexte de la séance": {
+  "ar": "استعادة سياق الحصة",
+  "en": "Reuse lesson context"
+ },
+ "Confirmer la suppression": {
+  "ar": "تأكيد الحذف",
+  "en": "Confirm deletion"
+ },
+ "Journal (CSV)": {
+  "ar": "السجل (CSV)",
+  "en": "Journal (CSV)"
+ },
+ "Cahier journalier": {
+  "ar": "دفتر النصوص",
+  "en": "Teaching journal"
+ },
+ "Programmation cyclique et suivi des séances.": {
+  "ar": "البرمجة الدورية وتتبع الحصص.",
+  "en": "Cycle planning and lesson tracking."
+ },
+ "Journal": {
+  "ar": "السجل",
+  "en": "Journal"
+ },
+ "Autre APS": {
+  "ar": "نشاط آخر",
+  "en": "Other activity"
+ },
+ "Prévue": {
+  "ar": "مبرمجة",
+  "en": "Scheduled"
+ },
+ "Réalisée": {
+  "ar": "منجزة",
+  "en": "Completed"
+ },
+ "Reportée": {
+  "ar": "مؤجلة",
+  "en": "Postponed"
+ },
+ "Annulée": {
+  "ar": "ملغاة",
+  "en": "Cancelled"
+ },
+ "Horaire avant 15 h : vérifier la règle EPS.": {
+  "ar": "موعد قبل الثالثة بعد الزوال: تحقق من قاعدة التربية البدنية.",
+  "en": "Afternoon start before 15:00: check PE guidance."
+ },
+ "Nombre de créneaux différent de deux par semaine.": {
+  "ar": "عدد الحصص الأسبوعية يختلف عن حصتين.",
+  "en": "Weekly slot count differs from two."
+ },
+ "Intervalle inférieur à 48 h entre deux séances.": {
+  "ar": "الفاصل بين الحصص أقل من 48 ساعة.",
+  "en": "Less than 48 hours between lessons."
+ },
+ "Cycle {n} : {activity}": {
+  "ar": "الدورة {n}: {activity}",
+  "en": "Cycle {n}: {activity}"
+ },
+ "Lundi": {
+  "ar": "الاثنين",
+  "en": "Monday"
+ },
+ "Mardi": {
+  "ar": "الثلاثاء",
+  "en": "Tuesday"
+ },
+ "Mercredi": {
+  "ar": "الأربعاء",
+  "en": "Wednesday"
+ },
+ "Jeudi": {
+  "ar": "الخميس",
+  "en": "Thursday"
+ },
+ "Vendredi": {
+  "ar": "الجمعة",
+  "en": "Friday"
+ },
+ "Samedi": {
+  "ar": "السبت",
+  "en": "Saturday"
+ },
+ "Dimanche": {
+  "ar": "الأحد",
+  "en": "Sunday"
+ },
+ "Course de vitesse": {
+  "ar": "سباق السرعة",
+  "en": "Sprint"
+ },
+ "Course en durée": {
+  "ar": "الجري لمدة طويلة",
+  "en": "Endurance running"
+ },
+ "Course de relais": {
+  "ar": "سباق التتابع",
+  "en": "Relay"
+ },
+ "Course de haies": {
+  "ar": "سباق الحواجز",
+  "en": "Hurdles"
+ },
+ "Saut en hauteur": {
+  "ar": "الوثب العالي",
+  "en": "High jump"
+ },
+ "Saut en longueur": {
+  "ar": "الوثب الطويل",
+  "en": "Long jump"
+ },
+ "Triple saut": {
+  "ar": "الوثب الثلاثي",
+  "en": "Triple jump"
+ },
+ "Lancer de poids": {
+  "ar": "دفع الجلة",
+  "en": "Shot put"
+ },
+ "Lancer de javelot": {
+  "ar": "رمي الرمح",
+  "en": "Javelin"
+ },
+ "Lancer de disque": {
+  "ar": "رمي القرص",
+  "en": "Discus"
+ },
+ "Rugby": {
+  "ar": "الركبي",
+  "en": "Rugby"
+ },
+ "Ultimate": {
+  "ar": "ألتميت",
+  "en": "Ultimate"
+ },
+ "Gymnastique au sol": {
+  "ar": "الجمباز الأرضي",
+  "en": "Floor gymnastics"
+ },
+ "Gymnastique aux agrès": {
+  "ar": "الجمباز على الأجهزة",
+  "en": "Apparatus gymnastics"
+ },
+ "Acrosport": {
+  "ar": "الجمباز الأكروباتي",
+  "en": "Acrosport"
+ },
+ "Tennis de table": {
+  "ar": "كرة الطاولة",
+  "en": "Table tennis"
+ },
+ "Tennis": {
+  "ar": "التنس",
+  "en": "Tennis"
+ },
+ "Course d’orientation": {
+  "ar": "سباق التوجيه",
+  "en": "Orienteering"
+ },
+ "Randonnée": {
+  "ar": "المشي لمسافات طويلة",
+  "en": "Hiking"
  }
 }

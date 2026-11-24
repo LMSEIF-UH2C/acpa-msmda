@@ -59,7 +59,8 @@ class FeedbackStoreTest(unittest.TestCase):
     def test_catalogue_page_records_votes_and_ranks_useful_tools_first(self):
         at = AppTest.from_file(str(ROOT / "pages" / "4_Technologies_Reelles.py"), default_timeout=60).run()
         self.assertFalse(at.exception)
-        self.assertTrue(any(c.value.startswith("Vos avis sont anonymes") for c in at.caption))
+        self.assertTrue(any("sans identifiant d’utilisateur" in c.value and "leur conservation dépend de l’hébergement" in c.value for c in at.caption))
+        self.assertTrue(any("Le navigateur peut transmettre l’audio" in c.value for c in at.caption))
         at.toggle[0].set_value(True).run()
         no_buttons = [b for b in at.button if str(b.key).startswith("no_")]
         last = no_buttons[-1].key[len("no_"):]

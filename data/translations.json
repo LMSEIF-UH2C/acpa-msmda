@@ -3910,5 +3910,89 @@
  "Annuler": {
   "ar": "إلغاء",
   "en": "Cancel"
+ },
+ "La dictée est facultative. Le navigateur peut transmettre l’audio à son service de reconnaissance vocale ; ACPA/MSMDA reçoit le texte reconnu.": {
+  "ar": "الإملاء اختياري. قد يرسل المتصفح الصوت إلى خدمة التعرف على الكلام؛ يتلقى ACPA/MSMDA النص الناتج.",
+  "en": "Dictation is optional. The browser may send audio to its speech recognition service; ACPA/MSMDA receives the recognized text."
+ },
+ "Les avis enregistrent la fiche, le choix, la date et une variation de compteur, sans identifiant d’utilisateur. Ils peuvent influencer le classement ; leur conservation dépend de l’hébergement.": {
+  "ar": "تسجل الآراء البطاقة والاختيار والتاريخ وتغير العداد دون معرف المستخدم. وقد تؤثر في الترتيب؛ ويعتمد حفظها على الاستضافة.",
+  "en": "Feedback records the entry, choice, date and count adjustment without a user identifier. It may influence ranking; retention depends on hosting."
+ },
+ "Analysez votre contexte et identifiez vos besoins numériques.": {
+  "ar": "حلل سياقك وحدد احتياجاتك الرقمية.",
+  "en": "Analyse your teaching context and identify your digital needs."
+ },
+ "Trouvez les technologies adaptées à votre situation d’enseignement.": {
+  "ar": "اعثر على التقنيات الملائمة لوضعيتك التعليمية.",
+  "en": "Find technologies suited to your teaching situation."
+ },
+ "Intégrez les technologies dans vos situations d’apprentissage.": {
+  "ar": "ادمج التقنيات في وضعيات التعلم.",
+  "en": "Integrate technologies into your learning activities."
+ },
+ "Organisez, accompagnez et suivez les apprentissages de vos élèves.": {
+  "ar": "نظم تعلم تلاميذك وواكبه وتابعه.",
+  "en": "Organise, support and monitor your students’ learning."
+ },
+ "Évaluer votre contexte": {
+  "ar": "تقييم سياقك",
+  "en": "Assess your context"
+ },
+ "Décrivez votre situation d’enseignement pour identifier vos besoins et vos priorités.": {
+  "ar": "صف وضعيتك التعليمية لتحديد احتياجاتك وأولوياتك.",
+  "en": "Describe your teaching situation to identify your needs and priorities."
+ },
+ "Reprendre le contexte de ma séance": {
+  "ar": "استعمال سياق حصتي",
+  "en": "Use my lesson context"
+ },
+ "Votre situation d’enseignement": {
+  "ar": "وضعيتك التعليمية",
+  "en": "Your teaching situation"
+ },
+ "Vos besoins et contraintes": {
+  "ar": "احتياجاتك وإكراهاتك",
+  "en": "Your needs and constraints"
+ },
+ "Analyser mon contexte": {
+  "ar": "تحليل سياقي",
+  "en": "Analyse my context"
+ },
+ "Vos besoins et priorités": {
+  "ar": "احتياجاتك وأولوياتك",
+  "en": "Your needs and priorities"
+ },
+ "Précisez vos contraintes pour mieux cibler les technologies adaptées.": {
+  "ar": "حدد إكراهاتك لاختيار التقنيات الأنسب.",
+  "en": "Specify your constraints to better identify suitable technologies."
+ },
+ "Ces priorités découlent de votre description. Vérifiez qu’elles correspondent à votre réalité.": {
+  "ar": "تنبع هذه الأولويات من وصفك. تحقق من ملاءمتها لواقعك.",
+  "en": "These priorities follow from your description. Check that they reflect your situation."
+ },
+ "Explorer les technologies adaptées": {
+  "ar": "استكشاف التقنيات الملائمة",
+  "en": "Explore suitable technologies"
+ },
+ "Votre contexte a changé. Relancez l’analyse.": {
+  "ar": "تغير سياقك. أعد التحليل.",
+  "en": "Your context has changed. Run the analysis again."
+ },
+ "Vous pouvez aussi examiner une technologie que vous utilisez déjà.": {
+  "ar": "يمكنك أيضا فحص تقنية تستعملها بالفعل.",
+  "en": "You can also review a technology you already use."
+ },
+ "Examiner une technologie": {
+  "ar": "فحص تقنية",
+  "en": "Review a technology"
+ },
+ "Vérifiez les fonctionnalités dans vos propres conditions de pratique.": {
+  "ar": "تحقق من الوظائف في ظروف ممارستك الخاصة.",
+  "en": "Check the features in your own teaching conditions."
+ },
+ "Donnez votre avis sur un outil à partir de vos propres essais.": {
+  "ar": "قدم رأيك في أداة بناء على تجاربك الخاصة.",
+  "en": "Assess a tool based on your own experience."
  }
 }

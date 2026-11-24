@@ -136,6 +136,7 @@ st.subheader(t("Suggestions pour votre séance"))
 if st.button(t("Partir de ma séance : ") + ctx.summary(S), icon=":material/assignment:"):
     ctx.put(S, "search_context", ctx.search_query(S))
     ctx.put(S, "search_query", ctx.search_query(S))
+st.caption(t("La dictée est facultative. Le navigateur peut transmettre l’audio à son service de reconnaissance vocale ; ACPA/MSMDA reçoit le texte reconnu."))
 spoken = voice.dictation("dictation")
 if spoken and spoken.get("at") != ctx.store(S).get("dictation_at"):
     ctx.put(S, "dictation_at", spoken.get("at"))
@@ -280,6 +281,6 @@ for tool in filtered[(page - 1) * PAGE_SIZE:page * PAGE_SIZE]:
         st.caption(feedback.label(opinions.get(tool["id"])))
         _tool_actions(tool, "catalog_")
         _vote_buttons(tool, "")
-st.caption(t("Vos avis sont anonymes : seuls la fiche, l'avis et la date sont enregistrés. "
-             "Ils font remonter les outils utiles pour tous les enseignants."))
+st.caption(t("Les avis enregistrent la fiche, le choix, la date et une variation de compteur, sans identifiant d’utilisateur. "
+             "Ils peuvent influencer le classement ; leur conservation dépend de l’hébergement."))
 st.caption(t("Vérifiez les conditions d'utilisation et l'âge minimal requis avant tout usage avec des élèves."))

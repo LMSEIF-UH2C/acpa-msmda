@@ -1,7 +1,7 @@
 cff-version: 1.2.0
-message: "Please cite the version-specific Zenodo DOI for this release."
+message: "Please cite this candidate by version and repository commit. The archived v0.1.1 has its own DOI."
 type: software
-title: "ACPA/MSMDA: Heuristic EPS Technology Recommendation Engine"
+title: "ACPA/MSMDA: EPS Technology Evaluation and Teaching Assistant"
 authors:
   - family-names: "Moudettir"
     given-names: "Youness"
@@ -10,18 +10,17 @@ authors:
   - family-names: "Ouhrir"
     given-names: "S."
 repository-code: "https://github.com/LMSEIF-UH2C/acpa-msmda"
-doi: "10.5281/zenodo.23244629"
 license: "MIT"
-date-released: 2026-10-08
 keywords:
   - physical education
   - educational technology
   - context-aware recommendation
   - heuristic ranking
-  - synthetic data
-version: "0.1.1"
+  - pedagogical scenarios
+version: "0.2.0-rc.1"
 abstract: >-
-  Rule-based French/Arabic/English pedagogical context analysis,
-  contextual weighting of 18 criteria and relative ranking of fictional
-  EPS technology profiles. Heuristic development release with synthetic
-  data; no empirical validation or operational recommendations.
+  Trilingual research demonstrator for EPS technology evaluation, contextual
+  recommendation, pedagogical scenario design and teaching support. The
+  application uses documented and unverified real-app entries and heuristic
+  matching. This candidate does not establish empirical educational efficacy
+  or production readiness.

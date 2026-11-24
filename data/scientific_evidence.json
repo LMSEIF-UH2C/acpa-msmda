@@ -347,6 +347,132 @@
         "ar": "جهاز معاير؛ حافظ على التقنية وطريقة القياس. المرجع يتعلق بالوثب العمودي."
       },
       "group": "complementary"
+    },
+    {
+      "id": "leger_boucher",
+      "source_label": "Complément",
+      "protocol_status": "to_confirm",
+      "empirical_status": "not_assessed_for_current_implementation",
+      "limitations": "Paliers de deux minutes ; appliquer la bande sonore et la règle d'arrêt du protocole choisi.",
+      "reference_urls": [],
+      "citation": "Léger & Boucher (1980)",
+      "other_reference_urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/7389053/"
+      ],
+      "teacher_info": {
+        "fr": "Paliers de deux minutes ; appliquer la bande sonore et la règle d'arrêt du protocole choisi.",
+        "en": "Two-minute stages; follow the audio and stopping rule of the chosen protocol.",
+        "ar": "مراحل من دقيقتين؛ اتبع التسجيل الصوتي وقاعدة التوقف للبروتوكول المختار."
+      },
+      "group": "complementary"
+    },
+    {
+      "id": "yoyo_ir1",
+      "source_label": "Complément",
+      "protocol_status": "to_confirm",
+      "empirical_status": "not_assessed_for_current_implementation",
+      "limitations": "Navettes de 20 m avec récupération active de 10 s ; utiliser l'audio IR1 et compter seulement les navettes terminées selon le protocole.",
+      "reference_urls": [],
+      "citation": "Krustrup et al. (2003)",
+      "other_reference_urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/12673156/"
+      ],
+      "teacher_info": {
+        "fr": "Navettes de 20 m avec récupération active de 10 s ; utiliser l'audio IR1 et compter seulement les navettes terminées selon le protocole.",
+        "en": "20 m shuttles with 10 s active recovery; use IR1 audio and count completed shuttles according to the protocol.",
+        "ar": "جري مكوكي 20 مترا مع استشفاء نشط 10 ثوان؛ استخدم تسجيل IR1 واحسب المسافات المكتملة وفق البروتوكول."
+      },
+      "group": "complementary"
+    },
+    {
+      "id": "yoyo_ir2",
+      "source_label": "Complément",
+      "protocol_status": "to_confirm",
+      "empirical_status": "not_assessed_for_current_implementation",
+      "limitations": "Variante intense ; utiliser exclusivement l'audio IR2 et vérifier l'aptitude à l'effort avant passation.",
+      "reference_urls": [],
+      "citation": "Krustrup et al. (2006)",
+      "other_reference_urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/16960529/"
+      ],
+      "teacher_info": {
+        "fr": "Variante intense ; utiliser exclusivement l'audio IR2 et vérifier l'aptitude à l'effort avant passation.",
+        "en": "High-intensity variant; use IR2 audio only and check suitability for exertion before testing.",
+        "ar": "نسخة عالية الشدة؛ استخدم تسجيل IR2 فقط وتحقق من ملاءمة الجهد قبل الاختبار."
+      },
+      "group": "complementary"
+    },
+    {
+      "id": "ift3015",
+      "source_label": "Complément",
+      "protocol_status": "to_confirm",
+      "empirical_status": "not_assessed_for_current_implementation",
+      "limitations": "Alternance de 30 s de course et 15 s de récupération ; noter la VIFT, distincte de la VMA continue.",
+      "reference_urls": [
+        "https://doi.org/10.1519/JSC.0b013e3181635b2e"
+      ],
+      "citation": "Buchheit (2008)",
+      "other_reference_urls": [],
+      "teacher_info": {
+        "fr": "Alternance de 30 s de course et 15 s de récupération ; noter la VIFT, distincte de la VMA continue.",
+        "en": "Alternate 30 s running and 15 s recovery; record VIFT, distinct from continuous maximal aerobic speed.",
+        "ar": "تناوب 30 ثانية جريا و15 ثانية استشفاء؛ سجل VIFT وهي مختلفة عن السرعة الهوائية القصوى المستمرة."
+      },
+      "group": "complementary"
+    },
+    {
+      "id": "shuttle4x10",
+      "source_label": "Complément",
+      "protocol_status": "to_confirm",
+      "empirical_status": "not_assessed_for_current_implementation",
+      "limitations": "Deux lignes espacées de 10 m ; conserver le protocole ALPHA, les objets et le chronométrage.",
+      "reference_urls": [],
+      "citation": "Ruiz et al. (2011) — ALPHA",
+      "other_reference_urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/20961915/"
+      ],
+      "teacher_info": {
+        "fr": "Deux lignes espacées de 10 m ; conserver le protocole ALPHA, les objets et le chronométrage.",
+        "en": "Two lines 10 m apart; keep the ALPHA protocol, objects and timing consistent.",
+        "ar": "خطان يفصل بينهما 10 أمتار؛ حافظ على بروتوكول ألفا والأدوات والتوقيت."
+      },
+      "group": "complementary"
+    },
+    {
+      "id": "handgrip",
+      "source_label": "Complément",
+      "protocol_status": "to_confirm",
+      "empirical_status": "not_assessed_for_current_implementation",
+      "limitations": "Dynamomètre étalonné ; préciser la main, le réglage, les essais et la convention kg-force.",
+      "reference_urls": [],
+      "citation": "Ruiz et al. (2011) — ALPHA",
+      "other_reference_urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/20961915/"
+      ],
+      "teacher_info": {
+        "fr": "Dynamomètre étalonné ; préciser la main, le réglage, les essais et la convention kg-force.",
+        "en": "Calibrated dynamometer; specify hand, grip adjustment, trials and kg-force convention.",
+        "ar": "دينامومتر معاير؛ حدد اليد وضبط المقبض والمحاولات ووحدة كيلوغرام-قوة."
+      },
+      "group": "complementary"
+    },
+    {
+      "id": "side_plank",
+      "source_label": "Complément",
+      "protocol_status": "to_confirm",
+      "empirical_status": "not_assessed_for_current_implementation",
+      "limitations": "Préciser le côté et la posture ; arrêter à la perte de position ou en cas de douleur.",
+      "reference_urls": [],
+      "citation": "McGill et al. (1999)",
+      "other_reference_urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/10453772/"
+      ],
+      "teacher_info": {
+        "fr": "Préciser le côté et la posture ; arrêter à la perte de position ou en cas de douleur.",
+        "en": "Specify side and posture; stop on loss of position or pain.",
+        "ar": "حدد الجانب والوضعية؛ أوقف الاختبار عند فقدان الوضعية أو الشعور بالألم."
+      },
+      "group": "complementary"
     }
   ],
   "methods": [

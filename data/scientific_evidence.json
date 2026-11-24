@@ -31,7 +31,9 @@
       "reference_urls": [
         "https://doi.org/10.3390/su11247187"
       ],
-      "other_reference_urls": [],
+      "other_reference_urls": [
+        "https://www.mdpi.com/2071-1050/11/24/7187"
+      ],
       "citation": "ESA fitness battery (2019)",
       "teacher_info": {
         "fr": "Distance mesurée et chronomètre ; garder le même départ et dispositif de chronométrage.",
@@ -122,7 +124,9 @@
       "reference_urls": [
         "https://doi.org/10.1053/apmr.2001.26064"
       ],
-      "other_reference_urls": [],
+      "other_reference_urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/11689977/"
+      ],
       "citation": "Perret et al. (2001) — clinical fingertip-to-floor test",
       "teacher_info": {
         "fr": "Règle ; noter la distance doigts-sol sans forcer. La référence est clinique, non une norme scolaire.",
@@ -216,7 +220,9 @@
       "reference_urls": [
         "https://doi.org/10.1371/journal.pone.0238863"
       ],
-      "other_reference_urls": [],
+      "other_reference_urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/32886730/"
+      ],
       "citation": "Bruggeman et al. (2020)",
       "teacher_info": {
         "fr": "Chronomètre et mesure du pouls ; confirmer la variante, les trois temps et la formule avant saisie.",
@@ -269,7 +275,8 @@
       "limitations": "Maintien isométrique.",
       "reference_urls": [],
       "other_reference_urls": [
-        "https://hauts-de-france.ffgym.fr/content/download/59488/271960/version/1/file/Protocoles-tests--physiques-PAS-2018-2019.pdf"
+        "https://hauts-de-france.ffgym.fr/content/download/59488/271960/version/1/file/Protocoles-tests--physiques-PAS-2018-2019.pdf",
+        "https://hauts-de-france.ffgym.fr/content/download/59487/271956/version/1/file/BAREMES-tests-physiques-PAS-2018-2019.pdf"
       ],
       "citation": "FFGym — PAS (2018–2019)",
       "teacher_info": {
@@ -287,7 +294,8 @@
       "limitations": "Respecter droits d'utilisation, version linguistique et cotation autorisée.",
       "reference_urls": [],
       "other_reference_urls": [
-        "https://crires.ulaval.ca/publication/6490cbe46d418934662032fd"
+        "https://crires.ulaval.ca/publication/6490cbe46d418934662032fd",
+        "https://doi.org/10.7202/1097154ar"
       ],
       "citation": "Cabot & Bradette (2022) — related scale ÉMÉPS",
       "teacher_info": {
@@ -494,7 +502,8 @@
       "reference_urls": [],
       "citation": "Cazorla & Léger (1993) — VAMEVAL",
       "other_reference_urls": [
-        "https://www.worldcat.org/search?q=Cazorla+Leger+VAMEVAL"
+        "https://www.worldcat.org/search?q=Cazorla+Leger+VAMEVAL",
+        "https://areaps.org/formation-filiere-energetique-entrainement/module5/"
       ],
       "teacher_info": {
         "fr": "Utiliser la bande sonore VAMEVAL et les repères de piste ; noter la vitesse du dernier palier validé.",
@@ -513,7 +522,9 @@
         "https://doi.org/10.1001/jama.1968.03140030033008"
       ],
       "citation": "Cooper (1968) — related 12-minute protocol, not validation of six minutes",
-      "other_reference_urls": [],
+      "other_reference_urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/3769907/"
+      ],
       "teacher_info": {
         "fr": "Mesurer la distance parcourue en six minutes sur piste ; ne pas assimiler automatiquement la vitesse moyenne à la VMA.",
         "en": "Record distance covered in six minutes on a track; do not equate mean speed automatically with maximal aerobic speed.",
@@ -530,7 +541,8 @@
       "reference_urls": [],
       "citation": "Bohannon et al. (2018) — plank test",
       "other_reference_urls": [
-        "https://pubmed.ncbi.nlm.nih.gov/?term=Bohannon+plank+test+2018"
+        "https://pubmed.ncbi.nlm.nih.gov/?term=Bohannon+plank+test+2018",
+        "https://pubmed.ncbi.nlm.nih.gov/29861239/"
       ],
       "teacher_info": {
         "fr": "Maintien sur avant-bras et pieds ; arrêter à la perte de posture ou en cas de douleur.",
@@ -548,7 +560,8 @@
       "reference_urls": [],
       "citation": "FITNESSGRAM — push-up protocol",
       "other_reference_urls": [
-        "https://fitnessgram.net/"
+        "https://fitnessgram.net/",
+        "https://nycpswellness.zendesk.com/hc/en-us/articles/32081894676499-FITNESSGRAM-90-Degree-Push-Up-Protocol-Video"
       ],
       "teacher_info": {
         "fr": "Fixer amplitude, cadence et variante avant le test ; compter les répétitions conformes.",

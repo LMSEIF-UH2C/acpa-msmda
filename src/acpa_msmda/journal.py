@@ -3,7 +3,8 @@ import csv
 import io
 import json
 from datetime import date
-from .session_context import APS, LEVELS
+from .session_context import LEVELS
+from .aps_specialties import valid_specialty
 from .scenario_engine import safe_cell
 
 STATUSES=("Prévue","Réalisée","Reportée","Annulée")
@@ -26,7 +27,7 @@ def validate_entries(entries):
         ids.add(e["id"])
         if date.fromisoformat(e["date"]).isoformat()!=e["date"]:
             raise ValueError("Invalid date")
-        if e["activity"] not in APS or e["level"] not in LEVELS or e["status"] not in STATUSES:
+        if not valid_specialty(e["activity"]) or e["level"] not in LEVELS or e["status"] not in STATUSES:
             raise ValueError("Invalid category")
         for key,low,high in (("cycle",0,10000),("lesson",0,10000),("duration",15,240)):
             if type(e[key]) is not int or not low<=e[key]<=high:
@@ -54,7 +55,7 @@ def export_csv(entries):
     writer=csv.writer(out)
     writer.writerow([t(x) for x in ("Date","Code du groupe (non nominatif)","Activité physique ou sportive","Niveau","Cycle","Séance","Durée (min)","Objectifs de la séance","Statut de la séance","Bilan pédagogique")])
     for e in sorted(validate_entries(entries),key=lambda e:(e["date"],e["group"],e["lesson"])):
-        writer.writerow([e["date"],safe_cell(e["group"]),t(e["activity"]),t(e["level"]),e["cycle"],e["lesson"],e["duration"],safe_cell(e["objectives"]),t(e["status"]),safe_cell(e["reflection"])])
+        writer.writerow([e["date"],safe_cell(e["group"]),safe_cell(t(e["activity"])),t(e["level"]),e["cycle"],e["lesson"],e["duration"],safe_cell(e["objectives"]),t(e["status"]),safe_cell(e["reflection"])])
     return out.getvalue().encode("utf-8-sig")
 
 

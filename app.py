@@ -31,9 +31,9 @@ def home():
     st.subheader(t("Que voulez-vous faire ?"))
     st.caption(t("Choisissez un parcours pour commencer."))
     paths = (
-        ("evaluate", TECH_EVAL, "Évaluer", "Consulter les critères et les évaluations documentées."),
-        ("find", SEARCH, "Explorer", "Des outils adaptés à votre activité et à vos contraintes."),
-        ("prepare", STUDIO, "Scénario", "Phases, activités, supports et critères de réussite."),
+        ("evaluate", TECH_EVAL, "Évaluer", "Analysez votre contexte et identifiez vos besoins numériques."),
+        ("find", SEARCH, "Explorer", "Trouvez les technologies adaptées à votre situation d’enseignement."),
+        ("prepare", STUDIO, "Scénario", "Intégrez les technologies dans vos situations d’apprentissage."),
     )
     for key, module, label, description in paths:
         with st.container(key="core_"+key):

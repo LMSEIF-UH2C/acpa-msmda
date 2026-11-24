@@ -30,3 +30,23 @@ def rotation_assignments(groups, step):
     if not 1 <= groups <= 8:
         raise ValueError("Invalid group count")
     return [(i+step)%groups+1 for i in range(groups)]
+
+
+def observation_change(attempts, successes, index, delta):
+    """Maintain 0 <= successes <= attempts, including corrections."""
+    if index == 0:
+        attempts = change_count(attempts, delta)
+        successes = min(successes, attempts)
+    elif index == 1:
+        successes = min(attempts, change_count(successes, delta))
+    else:
+        raise ValueError("Invalid observation counter")
+    return attempts, successes
+
+def next_rotation(step, count, timer, now):
+    """Advance only after the interval, without skipping or wrapping."""
+    if not 1 <= count <= 8 or not 0 <= step < count:
+        raise ValueError("Invalid rotation")
+    if step == count-1 or timer.seconds_left(now) > 0:
+        return step, timer
+    return step+1, Timer.new(timer.duration)

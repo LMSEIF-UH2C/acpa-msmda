@@ -29,6 +29,7 @@ assistant de développement (recette simulée, corrections, preuves).
 | R8 | Évaluer votre contexte, Évaluation formative, Cahier journalier (saisie), 6 outils du mode terrain, Espace EPS en 3 langues | `scripts/apptest_flows.py` | 17/17 étapes réussies (`resultats/parcours_apptest.json`) |
 | R9 | Mode terrain : minuteur en marche en arabe et en anglais | `scripts/f_field.py` | Après correction A1 : libellés traduits pendant le décompte (`captures/flow_field_ar.jpg`) |
 | R10 | Laboratoire : import longitudinal de 2 880 observations synthétiques (lecture seule, sans modification du module) | `scripts/f_lab.py`, `scripts/generer_lab_synthetique.py` | Import accepté sous Python 3.12, en local et sur l'application déployée ; aucune exception sur la vue par défaut. Les graphiques ne sont pas évalués ici |
+| R12 | Intégration continue sur la PR de recette, fusionnée virtuellement avec `main` à f7044f4 (PR #64 incluse) | GitHub Actions | Tests sous Python 3.12 et 3.14 réussis ; démonstration publique réussie ; validation indépendante avec R réussie : https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/45505666486 |
 | R11 | Application déployée | Playwright sur https://acpa-msmda.streamlit.app | Écran de choix de la langue affiché ; import Lab identique au local |
 
 ## Anomalies et corrections
@@ -43,7 +44,7 @@ assistant de développement (recette simulée, corrections, preuves).
 
 | Id | Constat | Raison |
 |---|---|---|
-| N1 | Le déploiement semble tourner sous Python 3.14 (erreur Altair rapportée sur iPhone), alors que `DEPLOYMENT.md` et la CI exigent Python 3.12 | Réglage du déploiement Streamlit, à vérifier par le porteur du projet ; à coordonner avec la branche de compatibilité |
+| N1 | Le déploiement tourne sous Python 3.14 (erreur Altair rapportée sur iPhone), alors que `DEPLOYMENT.md` demande Python 3.12 | Compatibilité 3.14 apportée par la PR #64 (fusionnée pendant la recette) ; `DEPLOYMENT.md` reste à harmoniser avec la version réellement retenue |
 | N2 | Textes intégrés de Streamlit non traduisibles en 1.47 : zone de dépôt (« Drag and drop file here », « Browse files », « Limit… per file ») et calendrier des champs de date | Limite de la bibliothèque, pas d'anomalie de l'application |
 | N3 | Laboratoire : un multiple choix sans texte indicatif traduit et un deux-points à la française | Fichier `pages/2_Performance_Lab.py` en cours de correction dans une autre branche : à reprendre ensuite |
 | N4 | `src/acpa_msmda/__init__.py` indique 0.1.0 alors que `CITATION.cff` indique 0.2.0-rc.1 | Numéro de version à fixer au moment de la livraison, sur décision du porteur du projet |
@@ -52,7 +53,7 @@ assistant de développement (recette simulée, corrections, preuves).
 ## Reste à faire
 
 - Essais sur appareils réels par le porteur du projet (iPhone et Android) : chaque essai daté, avec le commit, l'appareil, le parcours, le résultat et une capture.
-- Validation indépendante avec R par le workflow GitHub « Independent R validation » sur le commit de recette.
+- Validation indépendante avec R à refaire sur le commit final de livraison.
 - Recette graphique du Laboratoire après fusion de la branche de compatibilité.
 - Illustrations prioritaires (PR #59) à réception de l'archive.
 

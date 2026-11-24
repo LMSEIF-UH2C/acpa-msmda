@@ -43,6 +43,8 @@ FIELD = Module("field", "Mode terrain", ":material/timer:",
                "pages/6_Mode_Terrain.py", "Chronomètre, scores, compteurs et rotations.", "Terrain")
 FORMATIVE = Module("formative", "Évaluation formative", ":material/assignment:",
                    "pages/7_Evaluation_Formative.py", "Observer les acquisitions à partir de critères personnalisés.", "Évaluation")
+JOURNAL = Module("journal", "Cahier journalier", ":material/calendar_month:",
+                 "pages/8_Cahier_Journalier.py", "Programmation cyclique et suivi des séances.", "Journal")
 MODULES = (HOME, SEARCH, STUDIO, PLANNER, LAB)
 TASKS = (SEARCH, STUDIO, PLANNER, LAB)
 

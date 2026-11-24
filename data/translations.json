@@ -2782,5 +2782,69 @@
  "Organisation indicative : adaptez les groupes à l’espace, au matériel et aux besoins des élèves.": {
   "ar": "تنظيم إرشادي: كيف المجموعات مع الفضاء والمعدات وحاجات التلاميذ.",
   "en": "Suggested organisation: adapt groups to space, equipment and pupils’ needs."
+ },
+ "Maîtrise actuelle du groupe": {
+  "ar": "مستوى إتقان المجموعة الحالي",
+  "en": "Current group proficiency"
+ },
+ "Hétérogène": {
+  "ar": "متفاوت المستوى",
+  "en": "Mixed ability"
+ },
+ "Découverte": {
+  "ar": "اكتشاف",
+  "en": "Introductory"
+ },
+ "Approfondissement": {
+  "ar": "تعميق",
+  "en": "Advanced practice"
+ },
+ "Matériel limité": {
+  "ar": "معدات محدودة",
+  "en": "Limited equipment"
+ },
+ "Espace limité": {
+  "ar": "فضاء محدود",
+  "en": "Limited space"
+ },
+ "Inclure les adaptations dans les exports": {
+  "ar": "إدراج التكييفات في الملفات المصدرة",
+  "en": "Include adaptations in exports"
+ },
+ "Adaptations proposées": {
+  "ar": "التكييفات المقترحة",
+  "en": "Suggested adaptations"
+ },
+ "Organisation indicative des groupes": {
+  "ar": "تنظيم المجموعات المقترح",
+  "en": "Suggested group organisation"
+ },
+ "Privilégier la variante simplifiée, une démonstration et un seul critère observable à la fois.": {
+  "ar": "إعطاء الأولوية للوضعية المبسطة والعرض التطبيقي ومعيار واحد قابل للملاحظة في كل مرة.",
+  "en": "Prefer the simpler variation, a demonstration and one observable criterion at a time."
+ },
+ "Proposer la variante complexifiée seulement après maîtrise de la situation de base.": {
+  "ar": "اقتراح الوضعية الأكثر تعقيدا بعد إتقان الوضعية الأساسية فقط.",
+  "en": "Offer the harder variation only after mastery of the basic task."
+ },
+ "Proposer des variantes de difficulté et laisser les élèves évoluer selon leur maîtrise.": {
+  "ar": "اقتراح مستويات مختلفة للصعوبة والسماح للتلاميذ بالتقدم حسب إتقانهم.",
+  "en": "Offer difficulty variations and allow pupils to progress according to mastery."
+ },
+ "Répartir le matériel entre ateliers et alterner pratique et observation brève sans attente prolongée.": {
+  "ar": "توزيع المعدات بين الورشات والتناوب بين الممارسة والملاحظة القصيرة دون انتظار طويل.",
+  "en": "Distribute equipment across stations and alternate practice with brief observation without prolonged waiting."
+ },
+ "Réduire les déplacements simultanés, délimiter les zones et conserver des distances de sécurité.": {
+  "ar": "تقليل التحركات المتزامنة وتحديد المناطق والحفاظ على مسافات السلامة.",
+  "en": "Reduce simultaneous movement, mark zones and maintain safe distances."
+ },
+ "Préparer les supports à l’avance et prévoir une alternative utilisable sans Internet.": {
+  "ar": "إعداد الوسائل مسبقا وتوفير بديل قابل للاستخدام دون إنترنت.",
+  "en": "Prepare resources in advance and provide an offline alternative."
+ },
+ "Utiliser des démonstrations, des repères visuels et des fiches papier.": {
+  "ar": "استعمال عروض تطبيقية وعلامات بصرية وبطاقات ورقية.",
+  "en": "Use demonstrations, visual markers and paper worksheets."
  }
 }

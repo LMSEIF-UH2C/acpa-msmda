@@ -3994,5 +3994,21 @@
  "Donnez votre avis sur un outil à partir de vos propres essais.": {
   "ar": "قدم رأيك في أداة بناء على تجاربك الخاصة.",
   "en": "Assess a tool based on your own experience."
+ },
+ "Contexte de votre recherche": {
+  "ar": "سياق بحثك",
+  "en": "Your search context"
+ },
+ "Confirmez ces informations avant de les reprendre dans votre séance. Les autres champs restent inchangés.": {
+  "ar": "أكد هذه المعلومات قبل اعتمادها في حصتك. تبقى الحقول الأخرى دون تغيير.",
+  "en": "Confirm these details before using them in your lesson. Other fields remain unchanged."
+ },
+ "Reprendre ces informations": {
+  "ar": "اعتماد هذه المعلومات",
+  "en": "Use these details"
+ },
+ "Conserver ma séance actuelle": {
+  "ar": "الاحتفاظ بحصتي الحالية",
+  "en": "Keep my current lesson"
  }
 }

@@ -75,6 +75,7 @@ def _tool_actions(tool: dict, prefix: str) -> None:
         st.switch_page("pages/9_Evaluation_Technologie.py")
     if tool.get("source_url") and st.button(t("Retenir pour mon scénario"), key=prefix+"studio_"+tool["id"]):
         ctx.put(S,"scenario_tool_candidate",tool["id"])
+        ctx.put(S,"scenario_context_pending",ctx.get(S,"search_query") or "")
         st.switch_page("pages/5_Studio_Pedagogique.py")
 
 

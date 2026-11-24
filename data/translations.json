@@ -2926,5 +2926,21 @@
  "Rotation suivante": {
   "ar": "التناوب التالي",
   "en": "Next rotation"
+ },
+ "Taux de réussite": {
+  "ar": "نسبة النجاح",
+  "en": "Success rate"
+ },
+ "Aucune tentative enregistrée.": {
+  "ar": "لم تسجل أي محاولة.",
+  "en": "No attempts recorded."
+ },
+ "Durée par atelier (min)": {
+  "ar": "مدة كل ورشة (دقيقة)",
+  "en": "Station duration (min)"
+ },
+ "Régler les rotations": {
+  "ar": "ضبط التناوب",
+  "en": "Configure rotations"
  }
 }

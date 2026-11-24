@@ -10,7 +10,8 @@
       "limitations": "Protocole et table palier-vitesse à préciser avant estimation de VMA ou VO₂max.",
       "reference_urls": [
         "https://doi.org/10.1080/02640418808729800"
-      ]
+      ],
+      "citation": "Léger et al. (1988)"
     },
     {
       "id": "sprint30",
@@ -26,7 +27,10 @@
       "protocol_status": "to_confirm",
       "empirical_status": "not_assessed_for_current_implementation",
       "limitations": "Vérifier la modalité d'élan décrite dans le protocole institutionnel.",
-      "reference_urls": []
+      "reference_urls": [
+        "https://books.google.com/books/about/Eurofit.html?id=9i6njwEACAAJ"
+      ],
+      "citation": "Council of Europe — EUROFIT (1993)"
     },
     {
       "id": "sargent",
@@ -34,7 +38,10 @@
       "protocol_status": "to_confirm",
       "empirical_status": "not_assessed_for_current_implementation",
       "limitations": "Différence entre marque bras levés et marque au saut.",
-      "reference_urls": []
+      "reference_urls": [
+        "https://doi.org/10.1080/23267224.1921.10650486"
+      ],
+      "citation": "Sargent (1921)"
     },
     {
       "id": "medecine_ball",
@@ -50,7 +57,10 @@
       "protocol_status": "to_confirm",
       "empirical_status": "not_assessed_for_current_implementation",
       "limitations": "Conserver la convention des signes du protocole.",
-      "reference_urls": []
+      "reference_urls": [
+        "https://doi.org/10.1080/10671188.1952.10761965"
+      ],
+      "citation": "Wells & Dillon (1952)"
     },
     {
       "id": "souplesse_debout",
@@ -66,7 +76,10 @@
       "protocol_status": "to_confirm",
       "empirical_status": "not_assessed_for_current_implementation",
       "limitations": "Mode de décompte à préciser avant comparaison.",
-      "reference_urls": []
+      "reference_urls": [
+        "https://books.google.com/books/about/Eurofit.html?id=9i6njwEACAAJ"
+      ],
+      "citation": "Council of Europe — EUROFIT (1993)"
     },
     {
       "id": "taille",
@@ -106,7 +119,10 @@
       "protocol_status": "to_confirm",
       "empirical_status": "not_assessed_for_current_implementation",
       "limitations": "Protocole de maintien à préciser.",
-      "reference_urls": []
+      "reference_urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/8554479/"
+      ],
+      "citation": "Ito et al. (1996)"
     },
     {
       "id": "schober",
@@ -138,7 +154,10 @@
       "protocol_status": "to_confirm",
       "empirical_status": "not_assessed_for_current_implementation",
       "limitations": "Codage d'observation selon protocole ALT-PE.",
-      "reference_urls": []
+      "reference_urls": [
+        "https://books.google.com/books/about/Academic_Learning_Time_physical_Educatio.html?id=cV6tTQcfaN4C"
+      ],
+      "citation": "Siedentop, Tousignant & Parker (1982)"
     },
     {
       "id": "cooper",
@@ -148,7 +167,8 @@
       "limitations": "Vitesse moyenne calculable ; VO₂max seulement estimée.",
       "reference_urls": [
         "https://doi.org/10.1001/jama.1968.03140030033008"
-      ]
+      ],
+      "citation": "Cooper (1968)"
     },
     {
       "id": "cmj",
@@ -156,24 +176,36 @@
       "protocol_status": "to_confirm",
       "empirical_status": "not_assessed_for_current_implementation",
       "limitations": "Mesure par dispositif ou saisie manuelle ; pas de hauteur calculée à partir d'une vidéo non étalonnée.",
-      "reference_urls": []
+      "reference_urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/6681758/"
+      ],
+      "citation": "Bosco, Luhtanen & Komi (1983)"
     }
   ],
   "methods": [
     {
       "id": "icc_a1",
       "reference": "https://doi.org/10.1016/j.jcm.2016.02.012",
-      "limitations": "Point estimate only; stable test-retest, no ICC confidence interval."
+      "limitations": "Point estimate only; stable test-retest, no ICC confidence interval.",
+      "citation": "ICC(A,1) — Koo & Li (2016)"
     },
     {
       "id": "bland_altman",
       "reference": "https://doi.org/10.1016/S0140-6736(86)90837-8",
-      "limitations": "Inspect normality and constant dispersion of differences."
+      "limitations": "Inspect normality and constant dispersion of differences.",
+      "citation": "Bland–Altman (1986)"
     },
     {
       "id": "paired_dz",
       "reference": "https://doi.org/10.3389/fpsyg.2013.00863",
-      "limitations": "Descriptive standardized change, not causal effect."
+      "limitations": "Descriptive standardized change, not causal effect.",
+      "citation": "d_z — Lakens (2013)"
+    },
+    {
+      "id": "sem_mdc",
+      "citation": "SEM / MDC95 — Weir (2005)",
+      "reference": "https://doi.org/10.1519/15184.1",
+      "limitations": "SEM and MDC95 assume independent errors with comparable variance."
     }
   ]
 }

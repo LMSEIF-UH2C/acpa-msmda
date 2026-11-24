@@ -1,16 +1,20 @@
-ACPA/MSMDA — heuristic recommendation engine (development release)
+ACPA/MSMDA — research demonstrator and archived heuristic engine
 
 Copyright (c) 2026 Youness Moudettir.
 
-The released code implements a deterministic, illustrative 18-criterion
-contextual weighting and relative-ranking pipeline. It uses synthetic data
-and is not an empirically validated recommendation system.
+The archived v0.1.1 implements an illustrative ranking pipeline with synthetic data.
+The v0.2.0-rc.1 candidate includes a real-app catalogue, descriptive assessments,
+heuristic recommendations and pedagogical preparation tools. Neither version
+establishes empirical educational efficacy.
 
 The published source code is a defined subset of the wider ACPA/MSMDA
 development project. Separate private components, original research data,
 student records and local state are not included.
 
-The MIT License covers the included copyrightable software files. It does
+The MIT License covers the original included copyrightable software files.
+Third-party fonts retain their own licenses: Amiri under SIL OFL (assets/fonts/OFL.txt),
+DejaVu under its accompanying license. Catalogue links and third-party marks
+are not grants of rights in the linked products. It does
 not contain an express patent grant. Patent-related rights associated with
 the broader project are distinct and are not characterized here.
 

@@ -86,3 +86,19 @@ def paired_panel(rows: list[dict], instrument: str, protocol: str, occasions: li
             complete[person] = [values[o] for o in occasions]
     return {"occasions": occasions, "participants": list(complete), "values": list(complete.values()),
             "n_total": len(panel), "n_complete": len(complete), "n_excluded": len(panel)-len(complete)}
+
+
+def group_summary(rows: list[dict], instrument: str, protocol: str, occasions: list[str]) -> list[dict]:
+    """Descriptive means on complete participants, separately for each fixed group."""
+    from statistics import mean, stdev
+    groups = sorted({r["group"] for r in rows if r["instrument"] == instrument and r["protocol"] == protocol})
+    result = []
+    for group in groups:
+        panel = paired_panel(rows, instrument, protocol, occasions, group)
+        for j, occasion in enumerate(occasions):
+            values = [v[j] for v in panel["values"]]
+            result.append({"group": group, "occasion": occasion, "n": len(values),
+                           "n_total": panel["n_total"], "n_excluded": panel["n_excluded"],
+                           "mean": mean(values) if values else None,
+                           "sd": stdev(values) if len(values) > 1 else None})
+    return result

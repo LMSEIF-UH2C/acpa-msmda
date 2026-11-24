@@ -93,7 +93,7 @@ with st.expander(library_labels[0]):
         st.info(library_labels[8])
 
 # Separate imported study data from existing classroom series.
-from acpa_msmda.longitudinal import parse_long_csv, export_long_csv, paired_panel, group_summary, FIELDS
+from acpa_msmda.longitudinal import parse_long_csv, parse_long_xlsx, export_long_csv, paired_panel, group_summary, FIELDS
 study_labels = {
     "fr": ("Étude longitudinale (CSV)", "Utilisez uniquement des codes non nominatifs. Les données restent dans cette session ; exportez avant de quitter.", "Télécharger le modèle CSV", "Importer un CSV UTF-8", "Valider et remplacer les données de l'étude", "Import accepté", "Import refusé", "Exporter les données de l'étude", "Instrument", "Protocole", "Groupe", "Tous les groupes", "Temps de mesure (ordre chronologique)", "Construire le panel apparié", "Participants complets / total", "Effacer les données de l'étude", "Observations", "Séparateur CSV", "Vérifiez les dates, codes, unités et doublons. Le fichier précédent est conservé en cas d'échec."),
     "en": ("Longitudinal study (CSV)", "Use non-identifying codes only. Data stay in this session; export before leaving.", "Download CSV template", "Import UTF-8 CSV", "Validate and replace study data", "Import accepted", "Import rejected", "Export study data", "Instrument", "Protocol", "Group", "All groups", "Occasions (chronological order)", "Build paired panel", "Complete participants / total", "Clear study data", "Observations", "CSV delimiter", "Check dates, codes, units and duplicates. Previous data are retained on failure."),
@@ -101,14 +101,15 @@ study_labels = {
 }[current()]
 with st.expander(study_labels[0]):
     st.caption(study_labels[1])
+    st.caption("XLSX: 1 sheet · ISO date (YYYY-MM-DD) as text · no formulas.")
     registry = {x["id"]: x for x in TESTS}
     st.download_button(study_labels[2], data=(";".join(FIELDS)+"\n").encode("utf-8-sig"),
                        file_name="study_template.csv", mime="text/csv", key="lab_study_template")
     delimiter = st.selectbox(study_labels[17], [";", ","], key="lab_study_delimiter")
-    upload = st.file_uploader(study_labels[3], type=["csv"], key="lab_study_upload")
+    upload = st.file_uploader(study_labels[3] + " / XLSX", type=["csv", "xlsx"], key="lab_study_upload")
     if st.button(study_labels[4], key="lab_study_import", disabled=upload is None):
         try:
-            S["lab_study_rows"] = parse_long_csv(upload.getvalue(), registry, delimiter)
+            S["lab_study_rows"] = (parse_long_xlsx(upload.getvalue(), registry) if upload.name.lower().endswith(".xlsx") else parse_long_csv(upload.getvalue(), registry, delimiter))
         except (ValueError, UnicodeError):
             st.error(study_labels[6] + ". " + study_labels[18])
         else:

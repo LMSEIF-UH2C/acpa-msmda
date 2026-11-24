@@ -102,3 +102,67 @@ def group_summary(rows: list[dict], instrument: str, protocol: str, occasions: l
                            "mean": mean(values) if values else None,
                            "sd": stdev(values) if len(values) > 1 else None})
     return result
+
+
+def parse_long_xlsx(data: bytes, registry: dict) -> list[dict]:
+    """Read the first sheet of an XLSX workbook, values only, with the CSV schema."""
+    import zipfile
+    import xml.etree.ElementTree as ET
+    if len(data) > MAX_BYTES:
+        raise ValueError("Workbook too large")
+    ns = {"s": "http://schemas.openxmlformats.org/spreadsheetml/2006/main"}
+    try:
+        with zipfile.ZipFile(io.BytesIO(data)) as z:
+            infos = z.infolist()
+            if len(infos)>500 or sum(i.file_size for i in infos)>32_000_000:
+                raise ValueError("Workbook expansion limit")
+            # Reject complex workbooks instead of silently choosing a different sheet.
+            book = ET.fromstring(z.read("xl/workbook.xml"))
+            sheets = book.findall("s:sheets/s:sheet", ns)
+            if len(sheets) != 1:
+                raise ValueError("Workbook must contain one sheet")
+            rel = ET.fromstring(z.read("xl/_rels/workbook.xml.rels"))
+            rid = sheets[0].get("{http://schemas.openxmlformats.org/officeDocument/2006/relationships}id")
+            target = next(r.get("Target") for r in rel if r.get("Id")==rid)
+            path = target.lstrip("/") if target.startswith("/") else "xl/"+target
+            if not re.fullmatch(r"xl/worksheets/sheet[0-9]+\.xml", path):
+                raise ValueError("Unsupported sheet path")
+            strings = []
+            if "xl/sharedStrings.xml" in z.namelist():
+                root = ET.fromstring(z.read("xl/sharedStrings.xml"))
+                strings = ["".join(t.text or "" for t in si.findall(".//s:t", ns)) for si in root.findall("s:si", ns)]
+            root = ET.fromstring(z.read(path))
+            output = io.StringIO()
+            writer = csv.writer(output, delimiter=";")
+            for index, row in enumerate(root.findall("s:sheetData/s:row", ns)):
+                if index > MAX_ROWS:
+                    raise ValueError("Row limit")
+                values = [""] * len(FIELDS)
+                used = set()
+                for c in row.findall("s:c", ns):
+                    ref = c.get("r","")
+                    m = re.fullmatch(r"([A-Z])([1-9][0-9]*)", ref)
+                    if not m or c.find("s:f", ns) is not None:
+                        raise ValueError("Unsupported cell or formula")
+                    col = ord(m.group(1))-65
+                    if col >= len(FIELDS) or col in used:
+                        raise ValueError("Unexpected column")
+                    used.add(col)
+                    typ = c.get("t","n")
+                    v = c.findtext("s:v", default="", namespaces=ns)
+                    if typ == "s":
+                        pos = int(v)
+                        if pos < 0:
+                            raise ValueError("Invalid shared string")
+                        v = strings[pos]
+                    elif typ == "inlineStr":
+                        v = "".join(t.text or "" for t in c.findall(".//s:t",ns))
+                    elif typ not in ("n","str","d"):
+                        raise ValueError("Unsupported cell type")
+                    # Excel serial dates are intentionally not guessed. Use ISO text.
+                    values[col] = v
+                if any(values):
+                    writer.writerow(values)
+            return parse_long_csv(output.getvalue().encode(), registry)
+    except (zipfile.BadZipFile, KeyError, IndexError, StopIteration, ET.ParseError, OSError, RuntimeError) as exc:
+        raise ValueError("Invalid or unsupported XLSX") from exc

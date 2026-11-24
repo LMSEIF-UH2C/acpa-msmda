@@ -220,6 +220,48 @@ with st.expander(study_labels[0]):
                                     color=alt.Color("group:N", title=study_labels[10]),
                                     tooltip=["group", "occasion", "n", "mean"]), use_container_width=True)
 
+            with st.expander({"fr":"Analyses multivariables","en":"Multivariable analyses","ar":"التحليلات متعددة المتغيرات"}[current()]):
+                from acpa_msmda.longitudinal import multivariable_panel
+                from acpa_msmda import lab_statistics as ls
+                import numpy as np
+                ml = {
+                    "fr": ["Groupe analysé","Méthode","Variable dépendante Y","Prédicteurs X","Vérifier indépendance, linéarité, résidus, variance constante, colinéarité et valeurs influentes. Aucun effet causal déduit.","Conditions vérifiées","Calculer","Données insuffisantes ou modèle incompatible.","Exporter le résultat JSON","Corrélation Pearson","Corrélation Spearman","Régression linéaire","Modération X × M"],
+                    "en": ["Study group","Method","Outcome Y","Predictors X","Check independence, linearity, residuals, constant variance, collinearity and influential values. No causal inference.","Assumptions checked","Calculate","Insufficient data or incompatible model.","Export JSON result","Pearson correlation","Spearman correlation","Linear regression","Moderation X × M"],
+                    "ar": ["المجموعة","الطريقة","المتغير التابع Y","المتغيرات المستقلة X","تحقق من الاستقلال والخطية والبواقي وثبات التباين والتعدد الخطي والقيم المؤثرة. لا استنتاج سببي.","تم التحقق من الشروط","احسب","بيانات غير كافية أو نموذج غير ملائم.","تصدير نتيجة JSON","ارتباط بيرسون","ارتباط سبيرمان","انحدار خطي","تعديل X × M"],
+                }[current()]
+                mg = st.selectbox(ml[0], sorted({r["group"] for r in study_rows}),key="lab_mv_group")
+                mmethods = ["pearson","spearman","regression","moderation"]
+                mm = st.selectbox(ml[1],mmethods,format_func=dict(zip(mmethods,ml[9:13])).get,key="lab_mv_method")
+                available = sorted({(r["instrument"],r["protocol"],r["occasion"]) for r in study_rows if r["group"]==mg})
+                def variable_label(v):
+                    return f"{names[v[0]]} · {v[1]} · {v[2]}"
+                y = st.selectbox(ml[2],available,format_func=variable_label,key="lab_mv_y")
+                xs = st.multiselect(ml[3],[v for v in available if v!=y],format_func=variable_label,key="lab_mv_x",max_selections=2 if mm=="moderation" else (1 if mm in ("pearson","spearman") else 10))
+                st.warning(ml[4])
+                checked = st.checkbox(ml[5],key="lab_mv_assumptions")
+                if st.button(ml[6],key="lab_mv_calculate",disabled=not checked or not xs):
+                    try:
+                        if mm=="moderation" and len(xs)!=2:
+                            raise ValueError("Two predictors required")
+                        if mm in ("pearson","spearman") and len(xs)!=1:
+                            raise ValueError("One predictor required")
+                        mv = multivariable_panel(study_rows,[y]+xs,mg)
+                        matrix = np.asarray(mv["values"],dtype=float)
+                        if matrix.ndim!=2:
+                            raise ValueError("No complete participants")
+                        result = ls.correlate(matrix[:,0],matrix[:,1],mm) if mm in ("pearson","spearman") else ls.regression(matrix[:,0],matrix[:,1:],moderation=mm=="moderation")
+                        result.update({"method":mm,"group":mg,"outcome":variable_label(y),"predictors":[variable_label(v) for v in xs],"n_eligible":mv["n_total"],"n_excluded":mv["n_excluded"]})
+                        if mm in ("regression","moderation"):
+                            terms=["Intercept"]+[variable_label(v) for v in xs]+(["X × M"] if mm=="moderation" else [])
+                            for term, coefficient in zip(terms,result["coefficients"]):
+                                coefficient["term"]=term
+                        payload=json.dumps(result,ensure_ascii=False,indent=2,allow_nan=False)
+                    except (ValueError, TypeError, ArithmeticError, np.linalg.LinAlgError):
+                        st.error(ml[7])
+                    else:
+                        st.json(result)
+                        st.download_button(ml[8],payload,"analysis.json","application/json",key="lab_mv_download")
+
             if st.button(study_labels[15], key="lab_study_clear"):
                 S.pop("lab_study_rows", None)
                 st.rerun()

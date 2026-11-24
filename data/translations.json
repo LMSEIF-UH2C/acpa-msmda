@@ -3910,5 +3910,13 @@
  "Annuler": {
   "ar": "إلغاء",
   "en": "Cancel"
+ },
+ "La dictée est facultative. Le navigateur peut transmettre l’audio à son service de reconnaissance vocale ; ACPA/MSMDA reçoit le texte reconnu.": {
+  "ar": "الإملاء اختياري. قد يرسل المتصفح الصوت إلى خدمة التعرف على الكلام؛ يتلقى ACPA/MSMDA النص الناتج.",
+  "en": "Dictation is optional. The browser may send audio to its speech recognition service; ACPA/MSMDA receives the recognized text."
+ },
+ "Les avis enregistrent la fiche, le choix, la date et une variation de compteur, sans identifiant d’utilisateur. Ils peuvent influencer le classement ; leur conservation dépend de l’hébergement.": {
+  "ar": "تسجل الآراء البطاقة والاختيار والتاريخ وتغير العداد دون معرف المستخدم. وقد تؤثر في الترتيب؛ ويعتمد حفظها على الاستضافة.",
+  "en": "Feedback records the entry, choice, date and count adjustment without a user identifier. It may influence ranking; retention depends on hosting."
  }
 }

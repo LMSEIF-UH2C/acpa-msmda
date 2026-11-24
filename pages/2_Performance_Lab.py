@@ -150,6 +150,8 @@ with st.expander(study_labels[0]):
                 except ValueError:
                     st.error(study_labels[18])
                 else:
+                    restituted = False
+                    chart_args = {}
                     if not independent:
                         st.write(f"{study_labels[14]} : {panel['n_complete']} / {panel['n_total']}")
                         st.dataframe([{ "participant": p, **dict(zip(occasions, vals))}
@@ -165,6 +167,7 @@ with st.expander(study_labels[0]):
                                 if method == "mixed_anova":
                                     panels = [paired_panel(study_rows, instrument, protocol, occasions, g) for g in groups]
                                     result = ls.mixed_anova([p["values"] for p in panels])
+                                    chart_args = {"group_panels": [p["values"] for p in panels], "group_labels": groups, "columns": occasions}
                                     result["group_labels"] = groups
                                     result["included"] = [p["n_complete"] for p in panels]
                                     result["eligible"] = [p["n_total"] for p in panels]
@@ -172,6 +175,7 @@ with st.expander(study_labels[0]):
                                     if len(occasions)!=1:
                                         raise ValueError("Select one occasion")
                                     samples = [[r["value"] for r in subset if r["group"]==g and r["occasion"]==occasions[0] and r["value"] is not None] for g in groups]
+                                    chart_args = {"samples": samples, "group_labels": groups}
                                     if method == "one_way":
                                         result = ls.one_way(samples)
                                     else:
@@ -184,6 +188,7 @@ with st.expander(study_labels[0]):
                             else:
                                 if group is None:
                                     raise ValueError("Select one group")
+                                chart_args = {"panel_values": vals, "participants": panel["participants"], "columns": occasions}
                                 if method in ("repeated_anova","friedman"):
                                     result = getattr(ls,method)(vals)
                                 elif method == "paired_posthoc":
@@ -202,13 +207,30 @@ with st.expander(study_labels[0]):
                             import scipy
                             result["scipy_version"]=scipy.__version__
                             try:
-                                payload=json.dumps(result,ensure_ascii=False,indent=2,allow_nan=False)
+                                json.dumps(result,ensure_ascii=False,allow_nan=False)
                             except ValueError:
                                 st.error({"fr":"Résultat non fini : vérifier les données.","en":"Non-finite result: check the data.","ar":"نتيجة غير منتهية: تحقق من البيانات."}[current()])
                             else:
-                                st.json(result)
-                                st.download_button({"fr":"Exporter le résultat JSON","en":"Export JSON result","ar":"تصدير نتيجة JSON"}[current()],payload,"study_analysis.json","application/json",key="lab_study_analysis_export",on_click="ignore")
-                    if panel["values"]:
+                                from acpa_msmda import lab_results
+                                lab_results.render(st, method, method_names[method], result, export_key="lab_study_analysis_export",
+                                                   file_name="study_analysis.json",
+                                                   chart_args={**chart_args, "unit": registry[instrument]["unit"]},
+                                                   panel_values=chart_args.get("panel_values"), columns=occasions)
+                                restituted = True
+                    elif method == "descriptive" and panel["values"]:
+                        from acpa_msmda import lab_results
+                        import scipy
+                        result = {"method":method,"instrument":instrument,"unit":registry[instrument]["unit"],"protocol":protocol,
+                                  "occasions":occasions,"group":group,"n_eligible":panel["n_total"],"n_complete":panel["n_complete"],
+                                  "n_excluded":panel["n_excluded"],"scipy_version":scipy.__version__,
+                                  "descriptives":lab_results.describe(occasions, panel["values"])}
+                        lab_results.render(st, method, method_names[method], result, export_key="lab_study_analysis_export",
+                                           file_name="study_analysis.json",
+                                           chart_args={"panel_values": panel["values"], "participants": panel["participants"],
+                                                       "columns": occasions, "unit": registry[instrument]["unit"]},
+                                           panel_values=panel["values"], columns=occasions)
+                        restituted = True
+                    if panel["values"] and not restituted:
                         with chart_guard(st, current()):
                             import pandas as pd
                             import altair as alt
@@ -278,12 +300,16 @@ with st.expander(study_labels[0]):
                         import scipy
                         result["scipy_version"]=scipy.__version__
                         result["variables"]=[list(v) for v in [y]+xs]
-                        payload=json.dumps(result,ensure_ascii=False,indent=2,allow_nan=False)
+                        json.dumps(result,ensure_ascii=False,allow_nan=False)
                     except (ValueError, TypeError, ArithmeticError, np.linalg.LinAlgError):
                         st.error(ml[7])
                     else:
-                        st.json(result)
-                        st.download_button(ml[8],payload,"analysis.json","application/json",key="lab_mv_download",on_click="ignore")
+                        from acpa_msmda import lab_results
+                        labels = [variable_label(v) for v in [y]+xs]
+                        lab_results.render(st, mm, dict(zip(mmethods,ml[9:13]))[mm], result, export_key="lab_mv_download",
+                                           file_name="analysis.json",
+                                           chart_args={"matrix": matrix if mm in ("regression","moderation") else matrix[:,[1,0]],
+                                                       "columns": labels if mm in ("regression","moderation") else [labels[1], labels[0]]})
 
             if st.button(study_labels[15], key="lab_study_clear"):
                 S.pop("lab_study_rows", None)

@@ -31,6 +31,11 @@ def required() -> set[str]:
         texts |= {m.title, m.summary, m.short}
     texts |= {ui.PRIVACY_NOTE, "EPS · collège et lycée", "De l’idée à la séance."}
     from acpa_msmda import decision, understanding
+    from acpa_msmda import lab_results
+    texts |= {line for lines in lab_results.CONDITIONS.values() for line in lines}
+    texts |= {line for lines in lab_results.LIMITS.values() for line in lines}
+    texts |= {"différence", "association", "différence entre occasions", "différence d'évolution entre groupes",
+              "différence entre groupes", "association globale", "modération", "Intercept", "Instrument", "Protocole", "Groupe"}
     from acpa_msmda.scenario_engine import COLUMNS
     texts |= set(COLUMNS)
     texts |= {label for label, _ in decision.GROUPS} | set(decision.REFINEMENTS) | {"Connexion"}

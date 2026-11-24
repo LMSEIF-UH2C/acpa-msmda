@@ -25,6 +25,9 @@ class LabDisplayTests(unittest.TestCase):
         rows,n=trajectory_records(list(range(150)),[[1,2]]*150,["pre","post"])
         self.assertEqual((len(rows),n),(200,100))
     def test_exports_do_not_trigger_rerun(self):
-        page=(Path(__file__).resolve().parents[1]/"pages/2_Performance_Lab.py").read_text()
+        root=Path(__file__).resolve().parents[1]
+        page=(root/"pages/2_Performance_Lab.py").read_text(encoding="utf-8")
+        renderer=(root/"src/acpa_msmda/lab_results.py").read_text(encoding="utf-8")
         for key in ("lab_study_analysis_export","lab_mv_download"):
-            self.assertIn('key="'+key+'",on_click="ignore"',page)
+            self.assertIn('export_key="'+key+'"',page)
+        self.assertIn('key=export_key, on_click="ignore"',renderer)

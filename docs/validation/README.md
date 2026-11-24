@@ -42,3 +42,6 @@ Les lignes représentent des identifiants d'exécution de workflow, non des cas 
 Avant chaque livraison, exporter un nouvel instantané paginé, dédupliquer par run ID, conserver les tentatives séparément si récupérables, archiver les preuves de chaque échec significatif et de sa correction, les jeux synthétiques et les résultats indépendants. Pour le rapport final, compter séparément les identifiants de cas de test, les exécutions de suites, les workflows et les comparaisons R. Les essais manuels de Youness et Claude doivent être datés et associés au commit, appareil, scénario, résultat et capture si disponible.
 
 Sources : https://github.com/LMSEIF-UH2C/acpa-msmda/actions et https://docs.github.com/en/rest/actions/workflow-runs
+
+## Recettes de la phase 2
+- [Restitution des analyses du Laboratoire en trois niveaux, 24 novembre 2026](restitution-lab-2026-11-24/README.md)

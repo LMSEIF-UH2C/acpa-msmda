@@ -149,7 +149,7 @@ def build(story: list, title: str) -> bytes:
     return stream.getvalue()
 
 
-def scenario_pdf(metadata: dict, rows: Sequence[dict], validation: dict, issues: Sequence[str]) -> bytes:
+def scenario_pdf(metadata: dict, rows: Sequence[dict], validation: dict, issues: Sequence[str], situation: dict | None = None) -> bytes:
     """Fiche de séance : contexte, déroulement par phase, répartition du temps, points à compléter."""
     from reportlab.lib.units import mm
     from reportlab.platypus import Spacer
@@ -188,6 +188,8 @@ def scenario_pdf(metadata: dict, rows: Sequence[dict], validation: dict, issues:
     if issues:
         story.append(k.para(t("Points à compléter : {n}", n=len(issues)), "h2"))
         story += [k.para("• " + issue, "body") for issue in issues]
+    if situation:
+        story.extend(situation_story(k, situation))
     story += [Spacer(1, 5 * mm), k.para(t("Document de préparation : à adapter à votre classe et à votre terrain."), "muted")]
     return build(story, title)
 
@@ -230,3 +232,24 @@ def measurements_pdf(title, context, sections, header, rows, notes):
         story.append(k.table([header] + list(rows), [k.width / len(header)] * len(header)))
     story.extend(k.para(note, "muted") for note in notes)
     return build(story, title)
+
+
+def situation_story(k, situation):
+    from .learning_library import details, diagram_drawing
+    d = details(situation)
+    return [k.para(t(situation["title"]), "h2"), diagram_drawing(situation["diagram"]),
+            k.para(t("Schéma indicatif, non à l’échelle. Bleu : pratiquants. Orange : défenseurs. Flèches : directions proposées."), "muted"),
+            k.table([(t(label), d[field]) for label, field in (
+                ("Objectif", "objective"), ("Organisation", "organisation"),
+                ("Critère de réussite", "success"), ("Simplifier", "easier"),
+                ("Complexifier", "harder"), ("Sécurité", "safety"))],
+                [k.width * .28, k.width * .72], header=False),
+            k.para(t("Proposition pédagogique à adapter et à valider."), "muted")]
+
+
+def situation_pdf(situation):
+    k = kit()
+    title = t(situation["title"])
+    return build([k.para(t("Situation d’apprentissage"), "h1"),
+                  k.para(t(situation["activity"]) + " · " + t(situation["level"]), "muted")]
+                 + situation_story(k, situation), title)

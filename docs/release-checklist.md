@@ -6,7 +6,11 @@ Une fusion ou un succès CI ne constitue pas une validation scientifique, ergono
 
 - [x] 15 socles fonctionnels fusionnés ; périmètres expérimentaux identifiés.
 - [x] PR 38 : tests automatiques réussis ; APS précise et sauvegarde journal v4 intégrées.
-- [ ] Tests du parcours avec journal rempli, contexte partagé et trois langues (PR de stabilisation en cours).
+- [x] PR 39 : parcours automatisés avec journal rempli, contexte partagé et trois langues.
+- [x] PR 41 : accueil mobile compact ; deux workflows réussis.
+- [x] PR 42 : Amiri locale et licence OFL, autoévaluation descriptive, sauvegarde en langage courant ; deux workflows réussis.
+- [x] PR 43 : continuité Technothèque, Évaluer et Scénario ; deux workflows réussis.
+- [ ] Validation de la capacité annuelle et des contrôles de restauration de la PR de clôture du journal.
 - [ ] Essai réel sur ordinateur, iPhone et Android : navigation, lisibilité, focus, contraste, défilement, RTL, clavier, taille des cibles ; aucune certification WCAG à ce stade.
 - [ ] Essai manuel création cycle, créneaux, génération, projet de classe, studio, export, restauration et bilan.
 - [ ] Vérification manuelle PDF/CSV/JSON et des messages d'erreur ; confirmer les limites de conservation.

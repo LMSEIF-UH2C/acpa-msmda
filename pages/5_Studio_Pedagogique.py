@@ -11,7 +11,9 @@ sys.path.insert(0, str(ROOT / "src"))
 from acpa_msmda import session_context as ctx  # noqa: E402
 from acpa_msmda.scenario_engine import export_scenario_csv, recommend_phase_tools, validate_scenario  # noqa: E402
 from acpa_msmda.scenario_templates import apply_template, load_templates, scenario_checks  # noqa: E402
-from acpa_msmda.pdf import scenario_pdf  # noqa: E402
+from acpa_msmda.learning_library import load_situations, details, diagram_svg, apply_situation, selected_situation
+from acpa_msmda.pdf import scenario_pdf, situation_pdf
+from acpa_msmda.teaching_photos import clean_photo  # noqa: E402
 from acpa_msmda.i18n import t, tj  # noqa: E402
 from acpa_msmda.ui import PRIVACY_NOTE, STUDIO, configure_page, page_header  # noqa: E402
 
@@ -35,10 +37,55 @@ with left:
 with right:
     if st.button(t("Charger le modèle"), disabled=selected == "Séance vierge", use_container_width=True):
         apply_template(next(x for x in templates if x["title"] == selected), S)
+        ctx.put(S, "illustrated_situation", None)
+        ctx.put(S, "teaching_photo", None)
         st.rerun()
 
 ctx.render_context(st, S, fields=("activity", "level", "class_size", "duration", "connectivity",
                                   "devices", "cycle_number", "lesson_number", "equipment", "objectives"))
+with st.expander(t("Bibliothèque de situations illustrées")):
+    matching = [s for s in load_situations() if s["activity"] == ctx.get(S, "activity")
+                and s["level"] == ctx.get(S, "level")]
+    if not matching:
+        st.caption(t("Aucune situation illustrée pour cette activité et ce niveau."))
+    else:
+        choices = {s["id"]: s for s in matching}
+        sid = st.selectbox(t("Situation d’apprentissage"), list(choices),
+                           format_func=lambda key: t(choices[key]["title"]))
+        situation = choices[sid]
+        d = details(situation)
+        st.image(diagram_svg(situation["diagram"]), use_container_width=True)
+        st.caption(t("Schéma indicatif, non à l’échelle. Bleu : pratiquants. Orange : défenseurs. Flèches : directions proposées."))
+        st.caption(t("Proposition pédagogique à adapter et à valider."))
+        for label, field in (("Objectif", "objective"), ("Organisation", "organisation"),
+                             ("Critère de réussite", "success"), ("Simplifier", "easier"),
+                             ("Complexifier", "harder"), ("Sécurité", "safety")):
+            st.write("**" + t(label) + "** : " + d[field])
+        if st.button(t("Remplacer la phase d’apprentissage"), key="apply_situation"):
+            apply_situation(situation, S)
+            st.rerun()
+        st.download_button(t("Fiche illustrée (PDF)"), situation_pdf(situation),
+                           f"{sid}.pdf", "application/pdf", key="situation_pdf")
+    if selected_situation(S) and st.button(t("Retirer le schéma du scénario")):
+        ctx.put(S, "illustrated_situation", None)
+        st.rerun()
+with st.expander(t("Photo pédagogique personnelle")):
+    st.caption(t("Utilisez une photo de matériel ou de terrain sans personne identifiable. L’image est envoyée au serveur pour cette session ; elle peut figurer dans le PDF exporté."))
+    if st.checkbox(t("Je dispose des droits et aucune personne identifiable ne figure sur la photo."), key="photo_permission"):
+        uploaded = st.file_uploader(t("Photo JPEG ou PNG (5 Mo maximum)"), type=["jpg", "jpeg", "png"], key="photo_upload")
+        if uploaded is not None and st.button(t("Ajouter la photo au scénario")):
+            try:
+                ctx.put(S, "teaching_photo", clean_photo(uploaded.getvalue()))
+                ctx.put(S, "photo_context", (ctx.get(S, "activity"), ctx.get(S, "level")))
+            except ValueError:
+                st.error(t("Image invalide ou trop volumineuse."))
+    photo = ctx.get(S, "teaching_photo") if ctx.get(S, "photo_context") == (ctx.get(S, "activity"), ctx.get(S, "level")) else None
+    if ctx.get(S, "teaching_photo"):
+        if photo:
+            st.image(photo, use_container_width=True)
+        if st.button(t("Supprimer la photo du scénario")):
+            ctx.put(S, "teaching_photo", None)
+            st.rerun()
 modality = st.selectbox(t("Modalité"), MODALITIES, format_func=t, **ctx.bind(S, "modality", "Présentiel"))
 prerequisites = st.text_input(t("Prérequis"), max_chars=300, **ctx.bind(S, "prerequisites", ""))
 
@@ -103,7 +150,7 @@ for field, label in (("cycle_number", t("Numéro du cycle")), ("lesson_number", 
     if ctx.get(S, field):
         metadata[label] = ctx.get(S, field)
 pdf_col, csv_col = st.columns([2, 1])
-pdf_col.download_button(t("Scénario (PDF)"), scenario_pdf(metadata, rows, validation, issues),
+pdf_col.download_button(t("Scénario (PDF)"), scenario_pdf(metadata, rows, validation, issues, situation=selected_situation(S), photo=photo),
                         "scenario_seance_eps.pdf", "application/pdf", type="primary",
                         icon=":material/picture_as_pdf:", use_container_width=True)
 csv_col.download_button(t("Tableur (CSV)"), export_scenario_csv(metadata, rows),

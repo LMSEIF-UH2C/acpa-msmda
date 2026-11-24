@@ -84,7 +84,7 @@ def diagram_drawing(kind):
             drawing.add(Circle(n("cx"), 220-n("cy"), n("r"), **style))
         elif tag == "path":
             # The authored diagrams use absolute M/L and horizontal/vertical commands only.
-            tokens = re.findall(r"[MLHV]|-?\\d+(?:\\.\\d+)?", a["d"])
+            tokens = re.findall(r"[MLHV]|-?[0-9]+(?:[.][0-9]+)?", a["d"])
             p = Path(**style)
             if "stroke-dasharray" in a:
                 p.strokeDashArray = [float(x) for x in a["stroke-dasharray"].split()]

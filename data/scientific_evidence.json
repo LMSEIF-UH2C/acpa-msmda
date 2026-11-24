@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "notice": "Bibliographic leads and methodological status, not certified protocols or empirical validation.",
+  "instruments": [
+    {
+      "id": "leger20",
+      "source_label": "Circulaire 2358/25",
+      "protocol_status": "to_confirm",
+      "empirical_status": "not_assessed_for_current_implementation",
+      "limitations": "Protocole et table palier-vitesse à préciser avant estimation de VMA ou VO₂max.",
+      "reference_urls": [
+        "https://doi.org/10.1080/02640418808729800"
+      ]
+    },
+    {
+      "id": "sprint30",
+      "source_label": "Circulaire 2358/25",
+      "protocol_status": "to_confirm",
+      "empirical_status": "not_assessed_for_current_implementation",
+      "limitations": "Départ, chronométrage et nombre d'essais à standardiser.",
+      "reference_urls": []
+    },
+    {
+      "id": "saut_horizontal",
+      "source_label": "Circulaire 2358/25",
+      "protocol_status": "to_confirm",
+      "empirical_status": "not_assessed_for_current_implementation",
+      "limitations": "Vérifier la modalité d'élan décrite dans le protocole institutionnel.",
+      "reference_urls": []
+    },
+    {
+      "id": "sargent",
+      "source_label": "Circulaire 2358/25",
+      "protocol_status": "to_confirm",
+      "empirical_status": "not_assessed_for_current_implementation",
+      "limitations": "Différence entre marque bras levés et marque au saut.",
+      "reference_urls": []
+    },
+    {
+      "id": "medecine_ball",
+      "source_label": "Circulaire 2358/25",
+      "protocol_status": "to_confirm",
+      "empirical_status": "not_assessed_for_current_implementation",
+      "limitations": "Position assise dos au mur.",
+      "reference_urls": []
+    },
+    {
+      "id": "souplesse_assise",
+      "source_label": "Circulaire 2358/25",
+      "protocol_status": "to_confirm",
+      "empirical_status": "not_assessed_for_current_implementation",
+      "limitations": "Conserver la convention des signes du protocole.",
+      "reference_urls": []
+    },
+    {
+      "id": "souplesse_debout",
+      "source_label": "Circulaire 2358/25",
+      "protocol_status": "to_confirm",
+      "empirical_status": "not_assessed_for_current_implementation",
+      "limitations": "Conserver la convention des signes du protocole.",
+      "reference_urls": []
+    },
+    {
+      "id": "flamingo",
+      "source_label": "Circulaire 2358/25",
+      "protocol_status": "to_confirm",
+      "empirical_status": "not_assessed_for_current_implementation",
+      "limitations": "Mode de décompte à préciser avant comparaison.",
+      "reference_urls": []
+    },
+    {
+      "id": "taille",
+      "source_label": "Circulaire 2358/25",
+      "protocol_status": "to_confirm",
+      "empirical_status": "not_assessed_for_current_implementation",
+      "limitations": "Mesure de taille ; ne pas afficher de jugement corporel.",
+      "reference_urls": []
+    },
+    {
+      "id": "poids",
+      "source_label": "Circulaire 2358/25",
+      "protocol_status": "to_confirm",
+      "empirical_status": "not_assessed_for_current_implementation",
+      "limitations": "Mesure sensible ; aucune donnée nominative dans la démo.",
+      "reference_urls": []
+    },
+    {
+      "id": "fc_repos",
+      "source_label": "Circulaire 2358/25",
+      "protocol_status": "to_confirm",
+      "empirical_status": "not_assessed_for_current_implementation",
+      "limitations": "Mesure standardisée au repos.",
+      "reference_urls": []
+    },
+    {
+      "id": "ruffier",
+      "source_label": "Protocole de terrain",
+      "protocol_status": "to_confirm",
+      "empirical_status": "not_assessed_for_current_implementation",
+      "limitations": "Requiert trois fréquences cardiaques selon le protocole.",
+      "reference_urls": []
+    },
+    {
+      "id": "shirado",
+      "source_label": "Protocole de terrain",
+      "protocol_status": "to_confirm",
+      "empirical_status": "not_assessed_for_current_implementation",
+      "limitations": "Protocole de maintien à préciser.",
+      "reference_urls": []
+    },
+    {
+      "id": "schober",
+      "source_label": "Protocole de terrain",
+      "protocol_status": "to_confirm",
+      "empirical_status": "not_assessed_for_current_implementation",
+      "limitations": "Repères anatomiques selon protocole.",
+      "reference_urls": []
+    },
+    {
+      "id": "killy",
+      "source_label": "Protocole de terrain",
+      "protocol_status": "to_confirm",
+      "empirical_status": "not_assessed_for_current_implementation",
+      "limitations": "Maintien isométrique.",
+      "reference_urls": []
+    },
+    {
+      "id": "emep",
+      "source_label": "Protocole de terrain",
+      "protocol_status": "to_confirm",
+      "empirical_status": "not_assessed_for_current_implementation",
+      "limitations": "Respecter droits d'utilisation, version linguistique et cotation autorisée.",
+      "reference_urls": []
+    },
+    {
+      "id": "altpe",
+      "source_label": "Protocole de terrain",
+      "protocol_status": "to_confirm",
+      "empirical_status": "not_assessed_for_current_implementation",
+      "limitations": "Codage d'observation selon protocole ALT-PE.",
+      "reference_urls": []
+    },
+    {
+      "id": "cooper",
+      "source_label": "Complément",
+      "protocol_status": "to_confirm",
+      "empirical_status": "not_assessed_for_current_implementation",
+      "limitations": "Vitesse moyenne calculable ; VO₂max seulement estimée.",
+      "reference_urls": [
+        "https://doi.org/10.1001/jama.1968.03140030033008"
+      ]
+    },
+    {
+      "id": "cmj",
+      "source_label": "Complément",
+      "protocol_status": "to_confirm",
+      "empirical_status": "not_assessed_for_current_implementation",
+      "limitations": "Mesure par dispositif ou saisie manuelle ; pas de hauteur calculée à partir d'une vidéo non étalonnée.",
+      "reference_urls": []
+    }
+  ],
+  "methods": [
+    {
+      "id": "icc_a1",
+      "reference": "https://doi.org/10.1016/j.jcm.2016.02.012",
+      "limitations": "Point estimate only; stable test-retest, no ICC confidence interval."
+    },
+    {
+      "id": "bland_altman",
+      "reference": "https://doi.org/10.1016/S0140-6736(86)90837-8",
+      "limitations": "Inspect normality and constant dispersion of differences."
+    },
+    {
+      "id": "paired_dz",
+      "reference": "https://doi.org/10.3389/fpsyg.2013.00863",
+      "limitations": "Descriptive standardized change, not causal effect."
+    }
+  ]
+}

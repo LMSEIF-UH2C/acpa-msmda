@@ -21,6 +21,7 @@ from acpa_msmda.i18n import t  # noqa: E402
 from acpa_msmda.ui import LAB, PRIVACY_NOTE, configure_page, page_header  # noqa: E402
 
 TESTS = json.loads((ROOT / "data" / "performance_tests.json").read_text(encoding="utf-8"))["tests"]
+EVIDENCE = json.loads((ROOT / "data" / "scientific_evidence.json").read_text(encoding="utf-8"))
 DIRECTIONS = {"Non précisé": None, "Valeur plus élevée": True, "Valeur plus faible": False}
 
 S = st.session_state
@@ -39,6 +40,13 @@ test = next(x for x in TESTS if x["id"] == test_id)
 signed = bool(test.get("signed"))
 st.caption(t("Mesure : {m} ({u}). Protocole : {p}", m=t(test["measure"]), u=t(test["unit"]), p=t(test["protocol_note"])))
 
+with st.expander(t("Statut scientifique et sources")):
+    evidence = next(x for x in EVIDENCE["instruments"] if x["id"] == test_id)
+    st.warning(t("Protocole à confirmer ; validation empirique de cette implémentation non établie."))
+    st.caption(t("Référence déclarée : {source}", source=evidence["source_label"]))
+    for url in evidence["reference_urls"]:
+        st.markdown("[DOI]("+url+")")
+    st.caption(t(test["protocol_note"]))
 all_series = ctx.store(S).setdefault("series", [])
 class_size = int(ctx.get(S, "class_size"))
 codes = pupil_codes(class_size)

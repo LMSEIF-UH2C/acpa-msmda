@@ -28,6 +28,14 @@ def diagram_svg(kind):
         body = '<path d="M15 78H345M15 142H345" stroke="white" stroke-width="3"/><path d="M280 15V205" stroke="#72958a" stroke-dasharray="5 4"/>'+''.join(player(50,y)+arrow(70,y,265,y) for y in (47,110,175))
     elif kind == "loop":
         body = '<rect x="55" y="45" width="250" height="130" rx="60" fill="none" stroke="#1552f8" stroke-width="4"/>'+arrow(140,45,235,45)+arrow(220,175,125,175)+player(120,45)+player(240,175)
+    elif kind == "racket":
+        body = '<path d="M180 18V202" stroke="#425b68" stroke-width="5" stroke-dasharray="5 3"/><rect x="255" y="70" width="65" height="80" rx="5" fill="#c7e7ff" stroke="#1552f8"/>'+player(70,110)+player(235,45)+arrow(85,110,280,110)
+    elif kind in ("balance", "mirror"):
+        def mat(x):
+            return f'<rect x="{x}" y="55" width="125" height="110" rx="6" fill="#c7e7ff" stroke="#72958a"/>'
+        def figure(x):
+            return f'<circle cx="{x}" cy="85" r="9" fill="#1552f8"/><path d="M{x} 98V130M{x-22} 110H{x+22}M{x} 130L{x-20} 150M{x} 130L{x+20} 150" fill="none" stroke="#1552f8" stroke-width="5"/>'
+        body = mat(35)+mat(200)+figure(97)+(figure(262) if kind=="mirror" else player(262,110))
     else:
         raise ValueError("Unknown diagram")
     return head+body+"</svg>"

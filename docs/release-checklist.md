@@ -19,6 +19,15 @@ Une fusion ou un succès CI ne constitue pas une validation scientifique, ergono
 - [ ] Confirmer les contrôles en situation réelle et les conditions d’hébergement avant usage institutionnel.
 - [ ] CI verte sur le commit candidat ; identifier la version et publier les notes de version, sans modifier rétroactivement le DOI archivé.
 
+## Gel technique et préparation de v0.2.0
+
+- [x] PR #50, #51 et #52 fusionnées ; notices scientifiques et parcours test-retest contrôlés.
+- [x] Deux workflows post-fusion réussis sur `48f8d915` : 188 tests chacun.
+- [ ] Deux workflows réussis sur la révision documentaire finale.
+- [ ] Recette réelle et confirmation du déploiement ; concordance des variantes bibliographiques.
+- [ ] Publication du tag v0.2.0 après réception, sans revendication de production institutionnelle.
+- [ ] Valorisation et archivage distincts après finalisation.
+
 ## Après la première version
 
 Bibliothèque de situations plus complète, validation scientifique indépendante, transcription vérifiée des orientations pédagogiques, extension hors ligne et vidéo, IA générative et communauté. Le compagnon terrain et le module vidéo restent expérimentaux jusqu'à leurs essais et leur déploiement. Les objectifs SUS et réussite des tâches nécessitent une évaluation avec des utilisateurs, non une estimation.

@@ -15,13 +15,16 @@ def generate(cycles, slots, interruptions, entries, profile='MA'):
     if not isinstance(interruptions,list) or len(interruptions)>100:
         raise ValueError("Invalid interruptions")
     breaks=[]
-    for start,end in interruptions:
+    for item in interruptions:
+        if not isinstance(item,(list,tuple)) or len(item)!=2 or not all(isinstance(v,str) for v in item):
+            raise ValueError("Invalid interruption")
+        start,end=item
         a,b=date.fromisoformat(start),date.fromisoformat(end)
         if a>b: raise ValueError("Invalid interruption")
         breaks.append((a,b))
     seen=set()
     for s in slots:
-        if set(s)!={"group","level","weekday","duration","start_minute"}:
+        if not isinstance(s,dict) or set(s)!={"group","level","weekday","duration","start_minute"}:
             raise ValueError("Invalid slot fields")
         if not isinstance(s["group"],str) or not s["group"].strip() or len(s["group"])>30 or s["level"] not in LEVELS:
             raise ValueError("Invalid class")

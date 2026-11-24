@@ -3690,5 +3690,21 @@
  "Restaurer les projets de cycle": {
   "ar": "استعادة مشاريع الدورات",
   "en": "Restore cycle projects"
+ },
+ "Assistant pédagogique contextualisé": {
+  "ar": "مساعد تربوي سياقي",
+  "en": "Contextual teaching assistant"
+ },
+ "Suggestions par règles et ressources documentées, sans IA générative ni garantie d’efficacité.": {
+  "ar": "اقتراحات تعتمد على قواعد وموارد موثقة دون ذكاء اصطناعي توليدي أو ضمان للفعالية.",
+  "en": "Rule-based suggestions from documented resources, without generative AI or guarantees of effectiveness."
+ },
+ "Fonctionnalités documentées, efficacité pédagogique non démontrée.": {
+  "ar": "وظائف موثقة، دون إثبات الفعالية التربوية.",
+  "en": "Documented features, not demonstrated teaching effectiveness."
+ },
+ "Usages et compatibilité à confirmer": {
+  "ar": "الاستخدامات والتوافق بحاجة إلى التحقق",
+  "en": "Uses and compatibility to be confirmed"
  }
 }

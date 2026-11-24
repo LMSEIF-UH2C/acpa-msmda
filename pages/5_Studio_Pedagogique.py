@@ -15,6 +15,7 @@ from acpa_msmda.learning_library import load_situations, details, diagram_svg, a
 from acpa_msmda.pdf import scenario_pdf, situation_pdf
 from acpa_msmda.teaching_photos import clean_photo
 from acpa_msmda.adaptive_studio import redistribute_minutes, balanced_groups, adaptation_notes  # noqa: E402
+from acpa_msmda.teaching_assistant import suggestions
 from acpa_msmda.i18n import t, tj  # noqa: E402
 from acpa_msmda.ui import PRIVACY_NOTE, STUDIO, configure_page, page_header  # noqa: E402
 
@@ -44,6 +45,23 @@ with right:
 
 ctx.render_context(st, S, fields=("activity", "level", "class_size", "duration", "connectivity",
                                   "devices", "cycle_number", "lesson_number", "equipment", "objectives"))
+with st.expander(t("Assistant pédagogique contextualisé")):
+    st.caption(t("Suggestions par règles et ressources documentées, sans IA générative ni garantie d’efficacité."))
+    assist_phase=st.selectbox(t("Phase"),PHASE_NAMES,format_func=t,key="assistant_phase")
+    result=suggestions(ctx.get(S,"activity"),ctx.get(S,"level"),ctx.get(S,"connectivity"),assist_phase)
+    if assist_phase=="Apprentissage":
+        for situation in result["situations"]:
+            st.write(t(situation["title"]))
+            st.caption(t("Proposition pédagogique à adapter et à valider."))
+            st.write(details(situation)["objective"])
+    if not result["tools"]:
+        st.caption(t("Aucun outil documenté pour cette phase. Un support non numérique peut convenir."))
+    for tool in result["tools"]:
+        st.write(tool["name"])
+        st.markdown("[Source]("+tool["source_url"]+")")
+        st.caption(t("Fonctionnalités documentées, efficacité pédagogique non démontrée.") if tool["documented"] else t("Usages et compatibilité à confirmer"))
+        for note in tool["notes"]:
+            st.caption(note)
 with st.expander(t("Bibliothèque de situations illustrées")):
     matching = [s for s in load_situations() if s["activity"] == ctx.get(S, "activity")
                 and s["level"] == ctx.get(S, "level")]

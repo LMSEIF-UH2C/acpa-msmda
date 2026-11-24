@@ -26,26 +26,22 @@ class HomeTests(unittest.TestCase):
         self.assertFalse(app.exception)
         self.assertEqual(len(app.metric), 0)
 
-    def test_four_task_links(self):
+    def test_scientific_core_links(self):
         app = start()
         self.assertFalse(app.exception)
         self.assertEqual([b.label for b in app.button if b.key and b.key.startswith("guided_")],
-                         ["Préparer une séance", "Évaluer une classe", "Trouver un outil",
-                          "Préparer une séance sans connexion"])
+                         ["Évaluer une technologie", "Trouver une technologie adaptée", "Concevoir un scénario pédagogique"])
         import sys
         sys.path.insert(0, str(ROOT / "src"))
         from acpa_msmda.ui import MODULES
         links = [e.proto.label for e in app.get("page_link")]
-        self.assertIn("Organiser les ateliers", links)
-        self.assertIn("Évaluation formative", links)
-        self.assertEqual([label for label in links if label not in ("Organiser les ateliers", "Évaluation formative")],
-                         [m.short for m in MODULES])
+        self.assertEqual(links, [m.short for m in MODULES] + ["Espace EPS"])
 
     def test_navigation_targets_exist(self):
         import sys
         sys.path.insert(0, str(ROOT / "src"))
-        from acpa_msmda.ui import MODULES, FIELD, FORMATIVE
-        for module in (*MODULES, FIELD, FORMATIVE):
+        from acpa_msmda.ui import ALL_MODULES
+        for module in ALL_MODULES:
             if module.path:
                 self.assertTrue((ROOT / module.path).is_file(), module.path)
 

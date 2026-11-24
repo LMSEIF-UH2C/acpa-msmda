@@ -19,6 +19,7 @@ from typing import Optional, Sequence
 from . import i18n
 from .i18n import t
 from .scenario_engine import safe_cell
+from .intervals import mean_interval
 
 MAX_PUPILS = 150
 
@@ -142,6 +143,9 @@ def comparison(first: Sequence[Optional[float]], last: Sequence[Optional[float]]
     if n >= 2:
         sd = stdev(paired)
         out.append(Indicator(t("Écart-type des différences"), f"{fr(sd, 2)} {unit}".strip(), None, base))
+        interval = mean_interval(paired)
+        if interval:
+            out.append(Indicator(t("IC à 95 % de la variation moyenne"), f"[{fr(interval['lower'], 3)} ; {fr(interval['upper'], 3)}] {unit}".strip(), None, t("Intervalle t : {n} paires, {df} degrés de liberté utilisés (au plus {actual}). Suppose des différences indépendantes et approximativement normales.", n=n, df=interval["df_used"], actual=interval["df"])))
         if sd > 0:
             out.append(Indicator(t("Taille d’effet appariée (d_z)"), fr(mean(paired)/sd, 3, sign=True), None, t("Différence moyenne divisée par son écart-type ; signe après moins avant. Aucune interprétation causale.")))
     out.append(Indicator(t("Variation moyenne"), f"{fr(mean(paired), 2, sign=True)} {unit}".strip(), None, base))

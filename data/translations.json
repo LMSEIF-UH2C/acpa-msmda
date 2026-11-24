@@ -852,8 +852,8 @@
     "en": "Handball"
   },
   "Hauteur": {
-    "ar": "الارتفاع",
-    "en": "Height"
+    "en": "Height",
+    "ar": "الارتفاع"
   },
   "Hauteur de saut": {
     "ar": "ارتفاع القفز",
@@ -4090,5 +4090,57 @@
   "Complément": {
     "en": "Complementary",
     "ar": "تكميلي"
+  },
+  "VAMEVAL": {
+    "en": "VAMEVAL track test",
+    "ar": "اختبار فاميفال"
+  },
+  "Utiliser la bande sonore VAMEVAL et les repères de piste ; noter la vitesse du dernier palier validé.": {
+    "en": "Use VAMEVAL audio and track markers; record the last completed stage speed.",
+    "ar": "استخدم التسجيل الصوتي وعلامات المضمار؛ سجل سرعة آخر مرحلة مكتملة."
+  },
+  "Demi-Cooper 6 min": {
+    "en": "Six-minute run",
+    "ar": "جري ست دقائق"
+  },
+  "Mesurer la distance parcourue en six minutes sur piste ; ne pas assimiler automatiquement la vitesse moyenne à la VMA.": {
+    "en": "Record distance covered in six minutes on a track; do not equate mean speed automatically with maximal aerobic speed.",
+    "ar": "قس المسافة خلال ست دقائق على المضمار؛ لا تعتبر السرعة المتوسطة تلقائيا السرعة الهوائية القصوى."
+  },
+  "Gainage ventral": {
+    "en": "Front plank",
+    "ar": "تمرين الثبات الأمامي"
+  },
+  "Maintien sur avant-bras et pieds ; arrêter à la perte de posture ou en cas de douleur.": {
+    "en": "Forearm and toe support; stop when posture is lost or pain occurs.",
+    "ar": "ارتكاز على الساعدين والقدمين؛ توقف عند فقدان الوضعية أو الألم."
+  },
+  "Pompes": {
+    "en": "Push-up test",
+    "ar": "اختبار الضغط"
+  },
+  "Fixer amplitude, cadence et variante avant le test ; compter les répétitions conformes.": {
+    "en": "Set range, cadence and variant before testing; count compliant repetitions.",
+    "ar": "حدد مدى الحركة والإيقاع والنسخة قبل الاختبار؛ احسب التكرارات المطابقة."
+  },
+  "Squat Jump (SJ)": {
+    "en": "Squat Jump (SJ)",
+    "ar": "الوثب من القرفصاء"
+  },
+  "Saut depuis une position fléchie stabilisée sans contre-mouvement ; préciser le dispositif de mesure.": {
+    "en": "Jump from a stabilized squat without countermovement; specify measurement device.",
+    "ar": "وثب من وضع القرفصاء الثابت دون حركة تمهيدية؛ حدد جهاز القياس."
+  },
+  "T-Test de changement de direction": {
+    "en": "T-test of change of direction",
+    "ar": "اختبار تغيير الاتجاه على شكل T"
+  },
+  "Parcours en T balisé ; fixer distances, déplacements, règles de validité et chronométrage.": {
+    "en": "Marked T course; specify distances, movement patterns, validity rules and timing.",
+    "ar": "مسار محدد على شكل T؛ حدد المسافات وأنماط الحركة وقواعد الصلاحية والتوقيت."
+  },
+  "Répétitions": {
+    "en": "Repetitions",
+    "ar": "التكرارات"
   }
 }

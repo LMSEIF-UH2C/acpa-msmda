@@ -20,3 +20,15 @@ class TimetableTests(unittest.TestCase):
     def test_invalid_interruption(self):
         with self.assertRaises(ValueError):
             generate(self.cycles,self.slots,[["2026-11-10","2026-11-09"]],[])
+
+    def test_moroccan_rules(self):
+        base=self.slots[0]
+        for slot in (dict(base,start_minute=840),dict(base,start_minute=870)):
+            with self.assertRaises(ValueError):
+                generate([], [slot], [], [])
+        generate([], [dict(base,start_minute=900)], [], [])
+        for second in (dict(base,weekday=1),dict(base,weekday=2,start_minute=479),dict(base,weekday=5,start_minute=600)):
+            with self.assertRaises(ValueError):
+                generate([], [base,second], [], [])
+        generate([], [base,dict(base,weekday=2)], [], [])
+        generate([], [dict(base,start_minute=840)], [], [],profile="generic")

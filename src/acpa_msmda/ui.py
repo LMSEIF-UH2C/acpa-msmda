@@ -289,17 +289,20 @@ ul,ol{padding-right:1.4rem;padding-left:0}
 """
 
 
-@lru_cache(maxsize=1)
-def arabic_font_css() -> str:
-    """Local OFL fonts, embedded only in the Arabic interface; no external requests."""
+@lru_cache(maxsize=2)
+def arabic_font_css(mixed: bool = False) -> str:
+    """Local OFL fonts; mixed mode applies Amiri only to Arabic Unicode ranges."""
     root = Path(__file__).resolve().parents[2] / "assets" / "fonts"
     faces = []
+    unicode_range = "unicode-range:U+0600-06FF,U+0750-077F,U+0870-089F,U+08A0-08FF,U+FB50-FDFF,U+FE70-FEFF;" if mixed else ""
     for weight, name in ((400, "Amiri-Regular.ttf"), (700, "Amiri-Bold.ttf")):
         try:
             encoded = b64encode((root / name).read_bytes()).decode("ascii")
         except OSError:
             continue
-        faces.append(f"@font-face{{font-family:Amiri;src:url(data:font/ttf;base64,{encoded}) format('truetype');font-weight:{weight};font-display:swap;}}")
+        faces.append(f"@font-face{{font-family:Amiri;src:url(data:font/ttf;base64,{encoded}) format('truetype');font-weight:{weight};font-display:swap;{unicode_range}}}")
+    if mixed:
+        return "<style>" + "".join(faces) + '\n[data-testid="stMainBlockContainer"]{--font:Amiri,-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}\n</style>'
     return "<style>" + "".join(faces) + """
 [data-testid="stMainBlockContainer"],.st-key-tabbar{--font:Amiri,"Geeza Pro","Noto Naskh Arabic",Arial,sans-serif}
 [data-testid="stMainBlockContainer"] p,[data-testid="stMainBlockContainer"] li,
@@ -329,6 +332,8 @@ def configure_page(module: Module) -> None:
     if i18n.is_rtl():
         st.markdown(_RTL_CSS, unsafe_allow_html=True)
         st.markdown(arabic_font_css(), unsafe_allow_html=True)
+    else:
+        st.markdown(arabic_font_css(mixed=True), unsafe_allow_html=True)
 
 
 def set_language(lang: str) -> None:

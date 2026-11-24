@@ -129,6 +129,18 @@ with st.expander(study_labels[0]):
                                  format_func=lambda v: study_labels[11] if v is None else v, key="lab_study_group")
             subset = [r for r in subset if group is None or r["group"] == group]
             occasions = st.multiselect(study_labels[12], sorted({r["occasion"] for r in subset}), key="lab_study_occasions")
+            methods = ["descriptive","pearson","spearman","paired_t","wilcoxon","repeated_anova","friedman"]
+            method_labels = {
+                "fr": ["Descriptif","Pearson","Spearman","t apparié","Wilcoxon","ANOVA répétée","Friedman"],
+                "en": ["Descriptive","Pearson","Spearman","Paired t","Wilcoxon","Repeated ANOVA","Friedman"],
+                "ar": ["وصفي","بيرسون","سبيرمان","ت للعينات المترابطة","ويلكوكسون","تحليل التباين المتكرر","فريدمان"],
+            }[current()]
+            method_names = dict(zip(methods, method_labels))
+            method = st.selectbox({"fr":"Analyse","en":"Analysis","ar":"التحليل"}[current()], methods, format_func=method_names.get, key="lab_study_method")
+            assumptions = False
+            if method != "descriptive":
+                st.warning({"fr":"Analyse exploratoire : participants indépendants, cas complets, protocole comparable. Vérifiez normalité, valeurs aberrantes, symétrie selon le test et regroupement en classes. Les corrélations ne prouvent pas la causalité.","en":"Exploratory analysis: independent participants, complete cases, comparable protocol. Check normality, outliers, symmetry as applicable and classroom clustering. Correlation is not causation.","ar":"تحليل استكشافي: مشاركون مستقلون وحالات مكتملة وبروتوكول قابل للمقارنة. تحقق من التوزيع والقيم الشاذة والتماثل حسب الاختبار والتجمع داخل الأقسام. الارتباط لا يثبت السببية."}[current()])
+                assumptions = st.checkbox({"fr":"J'ai vérifié les conditions du test","en":"I have checked test assumptions","ar":"تحققت من شروط الاختبار"}[current()], key="lab_study_assumptions")
             if st.button(study_labels[12+1], key="lab_study_panel", disabled=len(occasions)<2):
                 try:
                     panel = paired_panel(study_rows, instrument, protocol, occasions, group)
@@ -138,6 +150,21 @@ with st.expander(study_labels[0]):
                     st.write(f"{study_labels[14]} : {panel['n_complete']} / {panel['n_total']}")
                     st.dataframe([{ "participant": p, **dict(zip(occasions, vals))}
                                   for p, vals in zip(panel["participants"], panel["values"])], hide_index=True)
+                    if method != "descriptive" and assumptions:
+                        from acpa_msmda import lab_statistics as ls
+                        try:
+                            vals = panel["values"]
+                            if method in ("repeated_anova","friedman"):
+                                result = getattr(ls,method)(vals)
+                            else:
+                                if len(occasions)!=2:
+                                    raise ValueError("Exactly two occasions required")
+                                a,b = zip(*vals)
+                                result = ls.correlate(a,b,method) if method in ("pearson","spearman") else ls.paired_test(a,b,"t" if method=="paired_t" else "wilcoxon")
+                        except (ValueError, TypeError, ArithmeticError):
+                            st.error({"fr":"Données insuffisantes ou incompatibles avec ce test.","en":"Insufficient or incompatible data for this test.","ar":"البيانات غير كافية أو غير ملائمة لهذا الاختبار."}[current()])
+                        else:
+                            st.json(result)
                     if panel["values"]:
                         import pandas as pd
                         import altair as alt

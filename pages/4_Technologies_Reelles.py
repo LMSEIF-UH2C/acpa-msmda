@@ -215,7 +215,7 @@ if query:
                         rest=len(matches) - shown), on_click=_show_more, use_container_width=True)
 
 st.divider()
-st.subheader(t("Catalogue"))
+st.subheader(t("Répertoire des technologies"))
 catalogue = load_real_tools()
 left, right = st.columns(2)
 with left:

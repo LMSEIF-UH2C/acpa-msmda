@@ -187,3 +187,48 @@ def render_context(st: Any, session: MutableMapping,
             if field in ("equipment", "objectives"):
                 widgets[field]()
         st.caption(t("Ces informations sont reprises dans tous les modules."))
+
+
+def context_proposal(query: str) -> dict:
+    """Recognized session fields only; never modify state until the teacher confirms."""
+    from .understanding import understand
+    from .context_engine import normalize_text, extract_flags
+    from .aps_specialties import categories
+    items = understand(query)
+    mapping = {"endurance": "Endurance", "course": "Endurance", "athletisme": "Athlétisme",
+               "vitesse": "Athlétisme", "saut": "Athlétisme", "gymnastique": "Gymnastique",
+               "basketball": "Basketball", "football": "Football", "handball": "Handball",
+               "volleyball": "Volleyball", "badminton": "Badminton"}
+    out = {}
+    normalized = " " + " ".join(normalize_text(query).split()) + " "
+    def contains(value):
+        return " " + " ".join(normalize_text(value).split()) + " " in normalized
+    recognized = {mapping[i.value] for i in items if i.parameter == "Activité" and i.value in mapping}
+    precise = {label: cat for label, cat in categories().items()
+               if label != cat and contains(label)}
+    if len(precise) == 1:
+        label, category = next(iter(precise.items()))
+        if not recognized - {category, "Endurance" if category == "Athlétisme" else category}:
+            out.update(activity=category, activity_specialty=label)
+    elif not precise and len(recognized) == 1:
+        out["activity"] = next(iter(recognized))
+    for item in items:
+        if item.parameter == "Niveau" and item.value in LEVELS:
+            out["level"] = item.value
+        if item.parameter == "Effectif" and item.confidence >= .85 and 1 <= int(item.value) <= 150:
+            out["class_size"] = int(item.value)
+    if "connectivite_faible" in extract_flags(query):
+        absent = any(contains(x) for x in ("sans connexion", "sans internet", "pas de wifi",
+                     "no internet", "without internet", "no wifi", "بدون انترنت", "بدون اتصال", "لا يوجد انترنت"))
+        limited = any(contains(x) for x in ("connexion instable", "internet faible",
+                      "poor connectivity", "limited internet", "unstable connection", "انترنت ضعيف"))
+        if absent != limited:
+            out["connectivity"] = "Aucune" if absent else "Limitée"
+    return out
+
+
+def apply_context_proposal(session: MutableMapping, proposal: dict) -> None:
+    """Apply a teacher-confirmed proposal; leave unrecognized fields unchanged."""
+    for key in ("activity", "activity_specialty", "level", "class_size", "connectivity"):
+        if key in proposal:
+            put(session, key, proposal[key])

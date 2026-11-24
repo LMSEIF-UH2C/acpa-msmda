@@ -1,0 +1,17 @@
+{
+  "name": "ACPA/MSMDA — Terrain",
+  "short_name": "ACPA Terrain",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f7ff",
+  "theme_color": "#1552f8",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

@@ -2,7 +2,7 @@
 
 ## Démarrer
 
-Choisir la langue (français, arabe ou anglais). L'accueil propose les parcours de préparation, recherche d'outils, organisation, mesure, terrain, évaluation formative et cahier journalier.
+Choisir la langue (français, arabe ou anglais). L'accueil privilégie Évaluer, Explorer (Technothèque) et Scénario. Espace EPS regroupe les fonctionnalités complémentaires : cahier journalier, ateliers, terrain, évaluation formative et mesures.
 
 ## Préparer l'année et les séances
 
@@ -13,13 +13,15 @@ Choisir la langue (français, arabe ou anglais). L'accueil propose les parcours 
 5. Choisir une séance et reprendre son contexte dans le studio. Adapter les phases, consignes, critères et durées. Exporter le scénario en PDF ou CSV.
 6. Utiliser les outils de terrain et d'évaluation ; revenir au journal pour enregistrer le bilan. Les résultats ne sont pas automatiquement synchronisés avec le journal.
 
-## Choisir un outil numérique
+## Évaluer et choisir un outil numérique
+
+Évaluer permet de consulter les notes documentaires disponibles (18 critères), ou de renseigner une autoévaluation exploratoire distincte avec sources et observations. NR signifie non renseigné, SO sans objet. La moyenne descriptive des notes renseignées, à poids égaux, ne constitue pas un score ACPA/MSMDA validé et ne couvre pas l'intégralité du cadre 10D/97P. Télécharger le rapport CSV avant de quitter la session.
 
 Rechercher selon l'activité, le niveau, les objectifs et les contraintes. Les liens et fonctionnalités documentées ne prouvent pas l'efficacité pédagogique. Vérifier la disponibilité, les permissions, le coût et la compatibilité avant usage. Les suggestions de l'assistant sont fondées sur des règles, pas sur une IA générative.
 
 ## Sauvegarder
 
-Télécharger régulièrement la sauvegarde JSON du journal : cycles, créneaux, interruptions, séances et projets. La restauration remplace ces données après confirmation. Les autres modules ont leurs propres exports ; ce fichier ne constitue pas une sauvegarde de toute l'application. La session hébergée nécessite Internet et peut être perdue lors de sa fermeture. Ne saisir aucun nom ou identifiant personnel d'élève.
+Utiliser « Sauvegarder mes données » régulièrement : cycles, créneaux, interruptions, séances et projets. La restauration remplace ces données après confirmation. Les autres modules ont leurs propres exports ; ce fichier ne constitue pas une sauvegarde de toute l'application. La session hébergée nécessite Internet et peut être perdue lors de sa fermeture. Ne saisir aucun nom ou identifiant personnel d'élève.
 
 ## Compagnons expérimentaux
 

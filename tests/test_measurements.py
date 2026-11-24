@@ -122,8 +122,9 @@ class LabJourneyTests(unittest.TestCase):
             with self.subTest(lang=lang):
                 app = AppTest.from_file(str(ROOT / LAB), default_timeout=30)
                 app.session_state["lang"] = lang
+                app.session_state["acpa_store"] = {"lab_test": "cooper"}
                 app.run()
-                app.selectbox(key="w:lab_test").set_value("cooper").run()
+                self.assertEqual(app.selectbox(key="w:lab_test").value, "cooper")
                 self.assertFalse(app.exception)
                 self.assertTrue(any(instrument["citation"] in m.value for m in app.caption))
                 self.assertTrue(any(instrument["teacher_info"][lang] in m.value for m in app.markdown))

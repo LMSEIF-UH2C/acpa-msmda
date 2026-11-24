@@ -7,7 +7,7 @@ import streamlit as st
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/"src"))
 from acpa_msmda import session_context as ctx
 from acpa_msmda.journal import STATUSES, MAX_ENTRIES, cycle_backup, restore_cycles, export_csv
-from acpa_msmda.timetable import generate
+from acpa_msmda.timetable import generate, timetable_warnings
 from acpa_msmda.cycle_plan import check_journal, cycle_at, allows_session
 from acpa_msmda.i18n import t
 from acpa_msmda.aps_specialties import registry, catalog_category, valid_specialty
@@ -97,6 +97,9 @@ with st.expander(t("Interruptions pédagogiques")):
         if st.button(t("Supprimer l’interruption")):
             interruptions.pop(remove_break)
             st.rerun()
+for kind,group in timetable_warnings(slots):
+    messages={"afternoon":"Horaire avant 15 h : vérifier la règle EPS.","weekly_count":"Nombre de créneaux différent de deux par semaine.","spacing":"Intervalle inférieur à 48 h entre deux séances."}
+    st.warning(group+" : "+t(messages[kind])+" "+t("Avertissement non bloquant."))
 st.caption(t("La génération ajoute uniquement les séances manquantes. Elle ne modifie pas les séances existantes."))
 if st.button(t("Générer les séances annuelles"),disabled=not cycles or not slots):
     try:

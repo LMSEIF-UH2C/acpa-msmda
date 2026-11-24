@@ -9,6 +9,7 @@ from acpa_msmda import session_context as ctx
 from acpa_msmda.journal import STATUSES, MAX_ENTRIES, cycle_backup, restore_cycles, export_csv
 from acpa_msmda.cycle_plan import check_journal, cycle_at, allows_session
 from acpa_msmda.i18n import t
+from acpa_msmda.aps_specialties import registry, catalog_category, valid_specialty
 from acpa_msmda.ui import JOURNAL, configure_page, page_header, PRIVACY_NOTE
 
 S=st.session_state
@@ -40,7 +41,10 @@ with st.expander(t("Ajouter ou modifier un cycle"),expanded=not cycles):
         number=st.number_input(t("Cycle"),min_value=1,max_value=30,step=1)
         start=st.date_input(t("Début"),value=date.today())
         end=st.date_input(t("Fin"),value=date.today())
-        activity=st.selectbox(t("Activité physique ou sportive"),ctx.APS,format_func=t)
+        choices=[a["label"] for g in registry() for a in g["activities"]]
+        choice=st.selectbox(t("APS du cycle"),choices+["Autre APS"],format_func=t)
+        custom=st.text_input(t("APS personnalisée (si autre)"),max_chars=100)
+        activity=custom.strip() if choice=="Autre APS" else choice
         if st.form_submit_button(t("Enregistrer le cycle")):
             candidate=[c for c in cycles if c["number"]!=number]+[{"number":number,"start":start.isoformat(),"end":end.isoformat(),"activities":[activity]}]
             try:
@@ -89,7 +93,7 @@ if entries:
                 entry.update(status=status,reflection=reflection,date=actual_date.isoformat())
                 st.rerun()
     if st.button(t("Reprendre le contexte de la séance")):
-        for key,value in (("activity",entry["activity"]),("level",entry["level"]),("cycle_number",entry["cycle"]),("lesson_number",entry["lesson"]),("duration",entry["duration"]),("objectives",entry["objectives"])):
+        for key,value in (("activity",catalog_category(entry["activity"])),("activity_specialty",entry["activity"]),("level",entry["level"]),("cycle_number",entry["cycle"]),("lesson_number",entry["lesson"]),("duration",entry["duration"]),("objectives",entry["objectives"])):
             ctx.put(S,key,value)
         st.switch_page("pages/5_Studio_Pedagogique.py")
     if st.checkbox(t("Confirmer la suppression"),key="journal_delete_"+selected):

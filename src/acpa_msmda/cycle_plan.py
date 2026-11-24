@@ -1,6 +1,6 @@
 """Annual cycle allocation independent of individual class sessions."""
 from datetime import date
-from .session_context import APS
+from .aps_specialties import valid_specialty
 from copy import deepcopy
 
 def validate_cycles(cycles):
@@ -34,7 +34,7 @@ def check_journal(cycles, entries):
     """Every scheduled lesson must match the single assigned activity."""
     clean=validate_cycles(cycles)
     for cycle in clean:
-        if len(cycle["activities"]) != 1 or cycle["activities"][0] not in APS:
+        if len(cycle["activities"]) != 1 or not valid_specialty(cycle["activities"][0]):
             raise ValueError("Select one catalog activity per cycle")
     for entry in entries:
         if not allows_session(clean,entry["date"],entry["cycle"],entry["activity"]):

@@ -51,3 +51,17 @@ class LongitudinalTests(unittest.TestCase):
         self.assertEqual(parse_long_xlsx(workbook(), REG), parse_long_csv((HEADER+ROWS).encode(), REG))
         with self.assertRaises(ValueError):
             parse_long_xlsx(workbook(True), REG)
+
+
+    def test_multivariable_panel(self):
+        from acpa_msmda.longitudinal import multivariable_panel
+        registry={**REG,"jump":{"unit":"cm"}}
+        data=HEADER+ROWS+"E02;G1;jump;cm;pre;2026-01-01;P2;140\nE03;G1;jump;cm;pre;2026-01-01;P2;150\n"
+        rows=parse_long_csv(data.encode(),registry)
+        variables=[("jump","P2","pre"),("sprint","P1","pre")]
+        result=multivariable_panel(rows,variables,"G1")
+        self.assertEqual(result["participants"],["E02"])
+        self.assertEqual(result["values"],[[140.0,6.0]])
+        self.assertEqual(result["n_excluded"],2)
+        with self.assertRaises(ValueError):
+            multivariable_panel(rows,[variables[0]]*2,"G1")

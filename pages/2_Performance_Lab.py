@@ -129,15 +129,84 @@ with st.expander(study_labels[0]):
                                  format_func=lambda v: study_labels[11] if v is None else v, key="lab_study_group")
             subset = [r for r in subset if group is None or r["group"] == group]
             occasions = st.multiselect(study_labels[12], sorted({r["occasion"] for r in subset}), key="lab_study_occasions")
-            if st.button(study_labels[12+1], key="lab_study_panel", disabled=len(occasions)<2):
+            methods = ["descriptive","pearson","spearman","paired_t","wilcoxon","repeated_anova","friedman","mixed_anova","paired_posthoc","welch","mann_whitney","one_way"]
+            method_labels = {
+                "fr": ["Descriptif","Pearson","Spearman","t apparié","Wilcoxon","ANOVA répétée","Friedman","ANOVA mixte","Post-hoc appariés (Holm)","t de Welch","Mann-Whitney","ANOVA à un facteur"],
+                "en": ["Descriptive","Pearson","Spearman","Paired t","Wilcoxon","Repeated ANOVA","Friedman","Mixed ANOVA","Paired post-hoc (Holm)","Welch t","Mann-Whitney","One-way ANOVA"],
+                "ar": ["وصفي","بيرسون","سبيرمان","ت للعينات المترابطة","ويلكوكسون","تحليل التباين المتكرر","فريدمان","تحليل التباين المختلط","مقارنات زوجية (هولم)","اختبار ويلش","مان ويتني","تحليل التباين الأحادي"],
+            }[current()]
+            method_names = dict(zip(methods, method_labels))
+            method = st.selectbox({"fr":"Analyse","en":"Analysis","ar":"التحليل"}[current()], methods, format_func=method_names.get, key="lab_study_method")
+            assumptions = False
+            if method != "descriptive":
+                st.warning({"fr":"Analyse exploratoire : participants indépendants, cas complets, protocole comparable. Vérifiez normalité, valeurs aberrantes, symétrie selon le test et regroupement en classes. Les corrélations ne prouvent pas la causalité.","en":"Exploratory analysis: independent participants, complete cases, comparable protocol. Check normality, outliers, symmetry as applicable and classroom clustering. Correlation is not causation.","ar":"تحليل استكشافي: مشاركون مستقلون وحالات مكتملة وبروتوكول قابل للمقارنة. تحقق من التوزيع والقيم الشاذة والتماثل حسب الاختبار والتجمع داخل الأقسام. الارتباط لا يثبت السببية."}[current()])
+                assumptions = st.checkbox({"fr":"J'ai vérifié les conditions du test","en":"I have checked test assumptions","ar":"تحققت من شروط الاختبار"}[current()], key="lab_study_assumptions")
+            independent = method in ("welch","mann_whitney","one_way")
+            min_occasions = 1 if independent else 2
+            if st.button(study_labels[12+1], key="lab_study_panel", disabled=len(occasions)<min_occasions):
                 try:
-                    panel = paired_panel(study_rows, instrument, protocol, occasions, group)
+                    panel = paired_panel(study_rows, instrument, protocol, occasions, group) if not independent else {"values": [], "participants": [], "n_complete": 0, "n_total": 0}
                 except ValueError:
                     st.error(study_labels[18])
                 else:
-                    st.write(f"{study_labels[14]} : {panel['n_complete']} / {panel['n_total']}")
-                    st.dataframe([{ "participant": p, **dict(zip(occasions, vals))}
-                                  for p, vals in zip(panel["participants"], panel["values"])], hide_index=True)
+                    if not independent:
+                        st.write(f"{study_labels[14]} : {panel['n_complete']} / {panel['n_total']}")
+                        st.dataframe([{ "participant": p, **dict(zip(occasions, vals))}
+                                      for p, vals in zip(panel["participants"], panel["values"])], hide_index=True)
+                    if method != "descriptive" and assumptions:
+                        from acpa_msmda import lab_statistics as ls
+                        try:
+                            vals = panel["values"]
+                            if method in ("mixed_anova","welch","mann_whitney","one_way"):
+                                if group is not None:
+                                    raise ValueError("Select all groups")
+                                groups = sorted({r["group"] for r in subset})
+                                if method == "mixed_anova":
+                                    panels = [paired_panel(study_rows, instrument, protocol, occasions, g) for g in groups]
+                                    result = ls.mixed_anova([p["values"] for p in panels])
+                                    result["group_labels"] = groups
+                                    result["included"] = [p["n_complete"] for p in panels]
+                                    result["eligible"] = [p["n_total"] for p in panels]
+                                else:
+                                    if len(occasions)!=1:
+                                        raise ValueError("Select one occasion")
+                                    samples = [[r["value"] for r in subset if r["group"]==g and r["occasion"]==occasions[0] and r["value"] is not None] for g in groups]
+                                    if method == "one_way":
+                                        result = ls.one_way(samples)
+                                    else:
+                                        if len(samples)!=2:
+                                            raise ValueError("Exactly two groups required")
+                                        result = ls.independent_test(*samples,method=method)
+                                    result["group_labels"] = groups
+                                    result["included"] = [len(v) for v in samples]
+                                    result["eligible"] = [sum(r["group"]==g and r["occasion"]==occasions[0] for r in subset) for g in groups]
+                            else:
+                                if group is None:
+                                    raise ValueError("Select one group")
+                                if method in ("repeated_anova","friedman"):
+                                    result = getattr(ls,method)(vals)
+                                elif method == "paired_posthoc":
+                                    result = {"contrasts": ls.paired_posthoc(vals), "occasion_labels": occasions}
+                                else:
+                                    if len(occasions)!=2:
+                                        raise ValueError("Exactly two occasions required")
+                                    a,b = zip(*vals)
+                                    result = ls.correlate(a,b,method) if method in ("pearson","spearman") else ls.paired_test(a,b,"t" if method=="paired_t" else "wilcoxon")
+                        except (ValueError, TypeError, ArithmeticError):
+                            st.error({"fr":"Données insuffisantes ou incompatibles avec ce test.","en":"Insufficient or incompatible data for this test.","ar":"البيانات غير كافية أو غير ملائمة لهذا الاختبار."}[current()])
+                        else:
+                            result.update({"method":method,"instrument":instrument,"unit":registry[instrument]["unit"],"protocol":protocol,"occasions":occasions,"group":group})
+                            if not independent:
+                                result.update({"n_eligible":panel["n_total"],"n_complete":panel["n_complete"],"n_excluded":panel["n_excluded"]})
+                            import scipy
+                            result["scipy_version"]=scipy.__version__
+                            try:
+                                payload=json.dumps(result,ensure_ascii=False,indent=2,allow_nan=False)
+                            except ValueError:
+                                st.error({"fr":"Résultat non fini : vérifier les données.","en":"Non-finite result: check the data.","ar":"نتيجة غير منتهية: تحقق من البيانات."}[current()])
+                            else:
+                                st.json(result)
+                                st.download_button({"fr":"Exporter le résultat JSON","en":"Export JSON result","ar":"تصدير نتيجة JSON"}[current()],payload,"study_analysis.json","application/json",key="lab_study_analysis_export")
                     if panel["values"]:
                         import pandas as pd
                         import altair as alt
@@ -149,7 +218,7 @@ with st.expander(study_labels[0]):
                             y=alt.Y("value:Q", title=t(registry[instrument]["unit"])),
                             color=alt.Color("participant:N", legend=None),
                             tooltip=["participant", "occasion", "value"]), use_container_width=True)
-                    if group is None:
+                    if group is None and not independent:
                         summary = group_summary(study_rows, instrument, protocol, occasions)
                         if summary:
                             st.dataframe(summary, hide_index=True)
@@ -162,6 +231,51 @@ with st.expander(study_labels[0]):
                                     y=alt.Y("mean:Q", title=t("Moyenne")+" ("+t(registry[instrument]["unit"])+")"),
                                     color=alt.Color("group:N", title=study_labels[10]),
                                     tooltip=["group", "occasion", "n", "mean"]), use_container_width=True)
+
+            with st.expander({"fr":"Analyses multivariables","en":"Multivariable analyses","ar":"التحليلات متعددة المتغيرات"}[current()]):
+                from acpa_msmda.longitudinal import multivariable_panel
+                from acpa_msmda import lab_statistics as ls
+                import numpy as np
+                ml = {
+                    "fr": ["Groupe analysé","Méthode","Variable dépendante Y","Prédicteurs X","Vérifier indépendance, linéarité, résidus, variance constante, colinéarité et valeurs influentes. Aucun effet causal déduit.","Conditions vérifiées","Calculer","Données insuffisantes ou modèle incompatible.","Exporter le résultat JSON","Corrélation Pearson","Corrélation Spearman","Régression linéaire","Modération X × M"],
+                    "en": ["Study group","Method","Outcome Y","Predictors X","Check independence, linearity, residuals, constant variance, collinearity and influential values. No causal inference.","Assumptions checked","Calculate","Insufficient data or incompatible model.","Export JSON result","Pearson correlation","Spearman correlation","Linear regression","Moderation X × M"],
+                    "ar": ["المجموعة","الطريقة","المتغير التابع Y","المتغيرات المستقلة X","تحقق من الاستقلال والخطية والبواقي وثبات التباين والتعدد الخطي والقيم المؤثرة. لا استنتاج سببي.","تم التحقق من الشروط","احسب","بيانات غير كافية أو نموذج غير ملائم.","تصدير نتيجة JSON","ارتباط بيرسون","ارتباط سبيرمان","انحدار خطي","تعديل X × M"],
+                }[current()]
+                mg = st.selectbox(ml[0], sorted({r["group"] for r in study_rows}),key="lab_mv_group")
+                mmethods = ["pearson","spearman","regression","moderation"]
+                mm = st.selectbox(ml[1],mmethods,format_func=dict(zip(mmethods,ml[9:13])).get,key="lab_mv_method")
+                available = sorted({(r["instrument"],r["protocol"],r["occasion"]) for r in study_rows if r["group"]==mg})
+                def variable_label(v):
+                    return f"{names[v[0]]} · {v[1]} · {v[2]}"
+                y = st.selectbox(ml[2],available,format_func=variable_label,key="lab_mv_y")
+                xs = st.multiselect(ml[3],[v for v in available if v!=y],format_func=variable_label,key="lab_mv_x",max_selections=2 if mm=="moderation" else (1 if mm in ("pearson","spearman") else 10))
+                st.warning(ml[4])
+                checked = st.checkbox(ml[5],key="lab_mv_assumptions")
+                if st.button(ml[6],key="lab_mv_calculate",disabled=not checked or not xs):
+                    try:
+                        if mm=="moderation" and len(xs)!=2:
+                            raise ValueError("Two predictors required")
+                        if mm in ("pearson","spearman") and len(xs)!=1:
+                            raise ValueError("One predictor required")
+                        mv = multivariable_panel(study_rows,[y]+xs,mg)
+                        matrix = np.asarray(mv["values"],dtype=float)
+                        if matrix.ndim!=2:
+                            raise ValueError("No complete participants")
+                        result = ls.correlate(matrix[:,0],matrix[:,1],mm) if mm in ("pearson","spearman") else ls.regression(matrix[:,0],matrix[:,1:],moderation=mm=="moderation")
+                        result.update({"method":mm,"group":mg,"outcome":variable_label(y),"predictors":[variable_label(v) for v in xs],"n_eligible":mv["n_total"],"n_excluded":mv["n_excluded"]})
+                        if mm in ("regression","moderation"):
+                            terms=["Intercept"]+[variable_label(v) for v in xs]+(["X × M"] if mm=="moderation" else [])
+                            for term, coefficient in zip(terms,result["coefficients"]):
+                                coefficient["term"]=term
+                        import scipy
+                        result["scipy_version"]=scipy.__version__
+                        result["variables"]=[list(v) for v in [y]+xs]
+                        payload=json.dumps(result,ensure_ascii=False,indent=2,allow_nan=False)
+                    except (ValueError, TypeError, ArithmeticError, np.linalg.LinAlgError):
+                        st.error(ml[7])
+                    else:
+                        st.json(result)
+                        st.download_button(ml[8],payload,"analysis.json","application/json",key="lab_mv_download")
 
             if st.button(study_labels[15], key="lab_study_clear"):
                 S.pop("lab_study_rows", None)

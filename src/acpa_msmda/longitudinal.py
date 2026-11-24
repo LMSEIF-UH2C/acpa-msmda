@@ -166,3 +166,26 @@ def parse_long_xlsx(data: bytes, registry: dict) -> list[dict]:
             return parse_long_csv(output.getvalue().encode(), registry)
     except (zipfile.BadZipFile, KeyError, IndexError, StopIteration, ET.ParseError, OSError, RuntimeError) as exc:
         raise ValueError("Invalid or unsupported XLSX") from exc
+
+
+def multivariable_panel(rows: list[dict], variables: list[tuple[str,str,str]], group: str) -> dict:
+    """Join explicit (instrument, protocol, occasion) selections by participant.
+    Eligible denominator is the union of participants observed for selected variables.
+    One group only; no imputation and no implicit aggregation.
+    """
+    if not group or len(variables)<2 or len(set(variables))!=len(variables):
+        raise ValueError("Select distinct variables and one group")
+    selected=set(variables)
+    panel={}
+    for row in rows:
+        key=(row["instrument"],row["protocol"],row["occasion"])
+        if row["group"]!=group or key not in selected:
+            continue
+        person=panel.setdefault(row["participant"],{})
+        if key in person:
+            raise ValueError("Duplicate observation")
+        person[key]=row["value"]
+    complete={p:[v[k] for k in variables] for p,v in sorted(panel.items())
+              if all(v.get(k) is not None for k in variables)}
+    return {"participants":list(complete),"values":list(complete.values()),
+            "n_total":len(panel),"n_complete":len(complete),"n_excluded":len(panel)-len(complete)}

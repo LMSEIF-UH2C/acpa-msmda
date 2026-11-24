@@ -56,7 +56,7 @@ with st.form("independent_assessment"):
             st.error(t("Indiquez un nom, des sources ou observations et au moins une note."))
         else:
             ctx.put(st.session_state,"independent_assessment",{"name":name.strip(),"evidence":evidence.strip(),"scores":assessment})
-result=ctx.get(st.session_state,"independent_assessment",None)
+result=ctx.get(st.session_state,"independent_assessment")
 if result:
     scores=result["scores"]
     known=documented(scores)

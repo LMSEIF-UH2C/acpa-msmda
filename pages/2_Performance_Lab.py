@@ -17,6 +17,7 @@ from acpa_msmda.measurements import (comparison, cooper_speed_kmh, fr, parse_ser
 from acpa_msmda.reliability import agreement
 from acpa_msmda.measurements import Indicator
 from acpa_msmda.pdf import measurements_pdf  # noqa: E402
+from acpa_msmda.lab_display import chart_guard
 from acpa_msmda.i18n import current, t  # noqa: E402
 from acpa_msmda.ui import LAB, PRIVACY_NOTE, configure_page, page_header  # noqa: E402
 
@@ -208,34 +209,36 @@ with st.expander(study_labels[0]):
                                 st.json(result)
                                 st.download_button({"fr":"Exporter le résultat JSON","en":"Export JSON result","ar":"تصدير نتيجة JSON"}[current()],payload,"study_analysis.json","application/json",key="lab_study_analysis_export",on_click="ignore")
                     if panel["values"]:
-                        import pandas as pd
-                        import altair as alt
-                        from acpa_msmda.lab_display import trajectory_records
-                        records, displayed = trajectory_records(panel["participants"], panel["values"], occasions)
-                        if displayed < len(panel["participants"]):
-                            st.caption({"fr":"Graphique : {n}/{total} participants affichés ; analyses et exports inchangés.","en":"Chart: {n}/{total} participants displayed; analyses and exports unchanged.","ar":"الرسم: عرض {n}/{total} مشاركا؛ التحليلات والتصدير دون تغيير."}[current()].format(n=displayed,total=len(panel["participants"])))
-                        if records:
-                            trajectory = pd.DataFrame(records)
-                            st.altair_chart(alt.Chart(trajectory).mark_line(point=True).encode(
-                                x=alt.X("occasion:N", sort=occasions, title=study_labels[12]),
-                                y=alt.Y("value:Q", title=t(registry[instrument]["unit"])),
-                                color=alt.Color("participant:N", legend=None),
-                                tooltip=["participant", "occasion", "value"]), use_container_width=True)
-                    if group is None and not independent:
-                        summary = group_summary(study_rows, instrument, protocol, occasions)
-                        if summary:
-                            st.dataframe(summary, hide_index=True)
-                            import pandas as pd
-                            import altair as alt
-                            frame = pd.DataFrame(summary).dropna(subset=["mean"])
-                            if len(frame)>5000:
-                                st.caption({"fr":"Graphique de groupes non affiché : volume élevé. Le tableau complet reste disponible.","en":"Group chart omitted: high volume. The full table remains available.","ar":"لم يعرض رسم المجموعات لكبر حجم البيانات؛ الجدول الكامل متاح."}[current()])
-                            elif not frame.empty:
-                                st.altair_chart(alt.Chart(frame).mark_line(point=True).encode(
-                                    x=alt.X("occasion:N", sort=occasions, title=study_labels[12]),
-                                    y=alt.Y("mean:Q", title=t("Moyenne")+" ("+t(registry[instrument]["unit"])+")"),
-                                    color=alt.Color("group:N", title=study_labels[10]),
-                                    tooltip=["group", "occasion", "n", "mean"]), use_container_width=True)
+                        with chart_guard(st, current()):
+                            with chart_guard(st, current()):
+                                import pandas as pd
+                                import altair as alt
+                                from acpa_msmda.lab_display import trajectory_records
+                                records, displayed = trajectory_records(panel["participants"], panel["values"], occasions)
+                                if displayed < len(panel["participants"]):
+                                    st.caption({"fr":"Graphique : {n}/{total} participants affichés ; analyses et exports inchangés.","en":"Chart: {n}/{total} participants displayed; analyses and exports unchanged.","ar":"الرسم: عرض {n}/{total} مشاركا؛ التحليلات والتصدير دون تغيير."}[current()].format(n=displayed,total=len(panel["participants"])))
+                                if records:
+                                    trajectory = pd.DataFrame(records)
+                                    st.altair_chart(alt.Chart(trajectory).mark_line(point=True).encode(
+                                        x=alt.X("occasion:N", sort=occasions, title=study_labels[12]),
+                                        y=alt.Y("value:Q", title=t(registry[instrument]["unit"])),
+                                        color=alt.Color("participant:N", legend=None),
+                                        tooltip=["participant", "occasion", "value"]), use_container_width=True)
+                        if group is None and not independent:
+                            summary = group_summary(study_rows, instrument, protocol, occasions)
+                            if summary:
+                                st.dataframe(summary, hide_index=True)
+                                import pandas as pd
+                                import altair as alt
+                                frame = pd.DataFrame(summary).dropna(subset=["mean"])
+                                if len(frame)>5000:
+                                    st.caption({"fr":"Graphique de groupes non affiché : volume élevé. Le tableau complet reste disponible.","en":"Group chart omitted: high volume. The full table remains available.","ar":"لم يعرض رسم المجموعات لكبر حجم البيانات؛ الجدول الكامل متاح."}[current()])
+                                elif not frame.empty:
+                                    st.altair_chart(alt.Chart(frame).mark_line(point=True).encode(
+                                        x=alt.X("occasion:N", sort=occasions, title=study_labels[12]),
+                                        y=alt.Y("mean:Q", title=t("Moyenne")+" ("+t(registry[instrument]["unit"])+")"),
+                                        color=alt.Color("group:N", title=study_labels[10]),
+                                        tooltip=["group", "occasion", "n", "mean"]), use_container_width=True)
 
             with st.expander({"fr":"Analyses multivariables","en":"Multivariable analyses","ar":"التحليلات متعددة المتغيرات"}[current()]):
                 from acpa_msmda.longitudinal import multivariable_panel
@@ -402,13 +405,15 @@ with report:
                 st.caption(ind.basis)
 
         if agreement_result is not None:
-            import altair as alt
-            import pandas as pd
-            result = agreement_result
-            points = alt.Chart(pd.DataFrame(result["points"])).mark_circle(size=65).encode(x=alt.X("mean:Q",title=t("Moyenne des deux mesures")),y=alt.Y("difference:Q",title=t("Différence après moins avant")))
-            lines = alt.Chart(pd.DataFrame({"limit":[result["lower"],result["bias"],result["upper"]]})).mark_rule(strokeDash=[5,4]).encode(y="limit:Q")
             st.subheader("Bland-Altman")
-            st.altair_chart(points+lines,use_container_width=True)
+            st.dataframe(agreement_result["points"], hide_index=True)
+            with chart_guard(st, current()):
+                import altair as alt
+                import pandas as pd
+                result = agreement_result
+                points = alt.Chart(pd.DataFrame(result["points"])).mark_circle(size=65).encode(x=alt.X("mean:Q",title=t("Moyenne des deux mesures")),y=alt.Y("difference:Q",title=t("Différence après moins avant")))
+                lines = alt.Chart(pd.DataFrame({"limit":[result["lower"],result["bias"],result["upper"]]})).mark_rule(strokeDash=[5,4]).encode(y="limit:Q")
+                st.altair_chart(points+lines,use_container_width=True)
         header = [t("Élève")] + ([titles[first["id"]]] if first else []) + [titles[last_id]]
         if first:
             header.append(t("Variation"))

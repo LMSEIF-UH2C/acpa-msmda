@@ -27,3 +27,27 @@ class LongitudinalTests(unittest.TestCase):
         summary = group_summary(rows, "sprint", "P1", ["pre","post"])
         self.assertEqual([r["mean"] for r in summary], [6.0,4.0,8.0,7.0])
         self.assertEqual([r["n_excluded"] for r in summary], [1,1,0,0])
+
+    def test_xlsx_values_only(self):
+        import io, zipfile, xml.etree.ElementTree as ET
+        from acpa_msmda.longitudinal import parse_long_xlsx
+        ns = "http://schemas.openxmlformats.org/spreadsheetml/2006/main"
+        def workbook(formula=False):
+            out = io.BytesIO()
+            root = ET.Element("worksheet", xmlns=ns)
+            data = ET.SubElement(root, "sheetData")
+            for i, line in enumerate((HEADER+ROWS).splitlines(), 1):
+                row = ET.SubElement(data, "row", r=str(i))
+                for j, val in enumerate(line.split(";")):
+                    cell = ET.SubElement(row, "c", r=chr(65+j)+str(i), t="inlineStr")
+                    ET.SubElement(ET.SubElement(cell, "is"), "t").text = val
+                    if formula and i==2 and j==7:
+                        ET.SubElement(cell, "f").text = "1+3"
+            with zipfile.ZipFile(out, "w") as z:
+                z.writestr("xl/workbook.xml", '<workbook xmlns="'+ns+'" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets><sheet name="Study" sheetId="1" r:id="rId1"/></sheets></workbook>')
+                z.writestr("xl/_rels/workbook.xml.rels", '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Target="worksheets/sheet1.xml"/></Relationships>')
+                z.writestr("xl/worksheets/sheet1.xml", ET.tostring(root))
+            return out.getvalue()
+        self.assertEqual(parse_long_xlsx(workbook(), REG), parse_long_csv((HEADER+ROWS).encode(), REG))
+        with self.assertRaises(ValueError):
+            parse_long_xlsx(workbook(True), REG)

@@ -210,24 +210,24 @@ with st.expander(study_labels[0]):
                                 st.download_button({"fr":"Exporter le résultat JSON","en":"Export JSON result","ar":"تصدير نتيجة JSON"}[current()],payload,"study_analysis.json","application/json",key="lab_study_analysis_export",on_click="ignore")
                     if panel["values"]:
                         with chart_guard(st, current()):
+                            import pandas as pd
+                            import altair as alt
+                            from acpa_msmda.lab_display import trajectory_records
+                            records, displayed = trajectory_records(panel["participants"], panel["values"], occasions)
+                            if displayed < len(panel["participants"]):
+                                st.caption({"fr":"Graphique : {n}/{total} participants affichés ; analyses et exports inchangés.","en":"Chart: {n}/{total} participants displayed; analyses and exports unchanged.","ar":"الرسم: عرض {n}/{total} مشاركا؛ التحليلات والتصدير دون تغيير."}[current()].format(n=displayed,total=len(panel["participants"])))
+                            if records:
+                                trajectory = pd.DataFrame(records)
+                                st.altair_chart(alt.Chart(trajectory).mark_line(point=True).encode(
+                                    x=alt.X("occasion:N", sort=occasions, title=study_labels[12]),
+                                    y=alt.Y("value:Q", title=t(registry[instrument]["unit"])),
+                                    color=alt.Color("participant:N", legend=None),
+                                    tooltip=["participant", "occasion", "value"]), use_container_width=True)
+                    if group is None and not independent:
+                        summary = group_summary(study_rows, instrument, protocol, occasions)
+                        if summary:
+                            st.dataframe(summary, hide_index=True)
                             with chart_guard(st, current()):
-                                import pandas as pd
-                                import altair as alt
-                                from acpa_msmda.lab_display import trajectory_records
-                                records, displayed = trajectory_records(panel["participants"], panel["values"], occasions)
-                                if displayed < len(panel["participants"]):
-                                    st.caption({"fr":"Graphique : {n}/{total} participants affichés ; analyses et exports inchangés.","en":"Chart: {n}/{total} participants displayed; analyses and exports unchanged.","ar":"الرسم: عرض {n}/{total} مشاركا؛ التحليلات والتصدير دون تغيير."}[current()].format(n=displayed,total=len(panel["participants"])))
-                                if records:
-                                    trajectory = pd.DataFrame(records)
-                                    st.altair_chart(alt.Chart(trajectory).mark_line(point=True).encode(
-                                        x=alt.X("occasion:N", sort=occasions, title=study_labels[12]),
-                                        y=alt.Y("value:Q", title=t(registry[instrument]["unit"])),
-                                        color=alt.Color("participant:N", legend=None),
-                                        tooltip=["participant", "occasion", "value"]), use_container_width=True)
-                        if group is None and not independent:
-                            summary = group_summary(study_rows, instrument, protocol, occasions)
-                            if summary:
-                                st.dataframe(summary, hide_index=True)
                                 import pandas as pd
                                 import altair as alt
                                 frame = pd.DataFrame(summary).dropna(subset=["mean"])

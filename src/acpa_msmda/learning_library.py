@@ -31,3 +31,79 @@ def diagram_svg(kind):
     else:
         raise ValueError("Unknown diagram")
     return head+body+"</svg>"
+
+
+def apply_situation(situation, session):
+    """Explicitly replace the learning phase only; keep class context and timings."""
+    from . import session_context as ctx
+    d = details(situation)
+    ctx.put(session, "action_2", " ".join(d[k] for k in ("organisation", "easier", "harder", "safety")))
+    ctx.put(session, "evaluation_2", d["success"])
+    ctx.put(session, "illustrated_situation", situation["id"])
+
+
+def selected_situation(session):
+    from . import session_context as ctx
+    selected = ctx.get(session, "illustrated_situation")
+    return next((s for s in load_situations() if s["id"] == selected
+                 and s["activity"] == ctx.get(session, "activity")
+                 and s["level"] == ctx.get(session, "level")), None)
+
+
+def diagram_drawing(kind):
+    """Convert the controlled, original SVG subset into a ReportLab vector drawing."""
+    from xml.etree import ElementTree as ET
+    from reportlab.graphics.shapes import Drawing, Rect, Circle, Line, Path, Polygon
+    from reportlab.lib.colors import HexColor
+    import re
+    import math
+
+    drawing = Drawing(360, 220)
+    root = ET.fromstring(diagram_svg(kind))
+    def color(value):
+        return None if value in (None, "none") else HexColor(value) if value.startswith("#") else HexColor("#ffffff")
+    for el in root:
+        tag = el.tag.rsplit("}", 1)[-1]
+        a = el.attrib
+        def n(key, default=0):
+            return float(a.get(key, default))
+        style = dict(fillColor=color(a.get("fill")), strokeColor=color(a.get("stroke")),
+                     strokeWidth=n("stroke-width", 1))
+        if tag == "rect":
+            drawing.add(Rect(n("x"), 220-n("y")-n("height"), n("width"), n("height"),
+                             rx=n("rx"), ry=n("rx"), **style))
+        elif tag == "circle":
+            drawing.add(Circle(n("cx"), 220-n("cy"), n("r"), **style))
+        elif tag == "path":
+            # The authored diagrams use absolute M/L and horizontal/vertical commands only.
+            tokens = re.findall(r"[MLHV]|-?\\d+(?:\\.\\d+)?", a["d"])
+            p = Path(**style)
+            if "stroke-dasharray" in a:
+                p.strokeDashArray = [float(x) for x in a["stroke-dasharray"].split()]
+            i, x, y, previous = 0, 0, 0, None
+            while i < len(tokens):
+                cmd = tokens[i]
+                i += 1
+                old = (x, y)
+                if cmd in ("M", "L"):
+                    x, y = float(tokens[i]), float(tokens[i+1])
+                    i += 2
+                elif cmd == "H":
+                    x = float(tokens[i]); i += 1
+                elif cmd == "V":
+                    y = float(tokens[i]); i += 1
+                else:
+                    raise ValueError("Unsupported diagram command")
+                if cmd == "M":
+                    p.moveTo(x, 220-y)
+                else:
+                    p.lineTo(x, 220-y)
+                    previous = old
+            drawing.add(p)
+            if a.get("marker-end") and previous:
+                angle = math.atan2(y-previous[1], x-previous[0])
+                points = [x, 220-y]
+                for offset in (-.5, .5):
+                    points.extend([x-9*math.cos(angle+offset), 220-y+9*math.sin(angle+offset)])
+                drawing.add(Polygon(points, fillColor=HexColor("#1552f8"), strokeColor=None))
+    return drawing

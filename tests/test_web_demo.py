@@ -37,6 +37,12 @@ class HomeTests(unittest.TestCase):
         links = [e.proto.label for e in app.get("page_link")]
         self.assertEqual(links, [m.short for m in MODULES] + ["Espace EPS"])
 
+    def test_compact_home_preserves_actions_and_languages(self):
+        app = start()
+        for key in ("guided_evaluate", "guided_find", "guided_prepare", "switch_fr", "switch_ar", "switch_en"):
+            self.assertIsNotNone(app.button(key=key))
+        self.assertFalse(app.exception)
+
     def test_navigation_targets_exist(self):
         import sys
         sys.path.insert(0, str(ROOT / "src"))

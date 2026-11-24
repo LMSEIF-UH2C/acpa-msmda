@@ -50,7 +50,7 @@ with st.expander("ⓘ " + t("Statut scientifique et sources")):
     st.caption(t("Référence déclarée : {source}", source=evidence["source_label"]))
     if evidence.get("citation"):
         st.write(evidence["citation"])
-    for url in evidence["reference_urls"]:
+    for url in evidence["reference_urls"] + evidence.get("other_reference_urls", []):
         st.markdown("[" + ("DOI" if "doi.org/" in url else url) + "](" + url + ")")
     st.caption(t(test["protocol_note"]))
 all_series = ctx.store(S).setdefault("series", [])

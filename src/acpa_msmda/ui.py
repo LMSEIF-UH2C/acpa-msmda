@@ -25,10 +25,10 @@ APP_NAME = "ACPA/MSMDA"
 
 HOME = Module("home", "Accueil", ":material/home:", None,
               "Évaluer, sélectionner et intégrer les technologies numériques en EPS.", "Accueil")
-SEARCH = Module("search", "Trouver une technologie", ":material/search:",
+SEARCH = Module("search", "Technothèque", ":material/search:",
                 "pages/4_Technologies_Reelles.py",
-                "Des outils adaptés à votre activité et à vos contraintes.", "Catalogue")
-STUDIO = Module("studio", "Concevoir une séance", ":material/edit_note:",
+                "Des outils adaptés à votre activité et à vos contraintes.", "Explorer")
+STUDIO = Module("studio", "Scénarisation pédagogique", ":material/edit_note:",
                 "pages/5_Studio_Pedagogique.py",
                 "Phases, activités, supports et critères de réussite.", "Scénario")
 PLANNER = Module("planner", "Organiser les ateliers", ":material/groups:",
@@ -45,8 +45,8 @@ FORMATIVE = Module("formative", "Évaluation formative", ":material/assignment:"
                    "pages/7_Evaluation_Formative.py", "Observer les acquisitions à partir de critères personnalisés.", "Évaluation")
 JOURNAL = Module("journal", "Cahier journalier", ":material/calendar_month:",
                  "pages/8_Cahier_Journalier.py", "Programmation cyclique et suivi des séances.", "Journal")
-TECH_EVAL = Module("tech_eval", "Évaluer une technologie", ":material/fact_check:", "pages/9_Evaluation_Technologie.py", "Consulter les critères et les évaluations documentées.", "Évaluer")
-EPS_SPACE = Module("eps_space", "Espace EPS", ":material/apps:", "pages/10_Espace_EPS.py", "Fonctionnalités complémentaires pour les enseignants.", "Espace EPS")
+TECH_EVAL = Module("tech_eval", "Évaluation des technologies", ":material/fact_check:", "pages/9_Evaluation_Technologie.py", "Consulter les critères et les évaluations documentées.", "Évaluer")
+EPS_SPACE = Module("eps_space", "Espace EPS", ":material/apps:", "pages/10_Espace_EPS.py", "Écosystème d’accompagnement pédagogique.", "Espace EPS")
 MODULES = (HOME, TECH_EVAL, SEARCH, STUDIO, EPS_SPACE)
 ALL_MODULES = (*MODULES, PLANNER, LAB, FIELD, FORMATIVE, JOURNAL)
 TASKS = (SEARCH, STUDIO, PLANNER, LAB)
@@ -197,7 +197,7 @@ input,textarea,[data-baseweb="select"] div{font-size:16px!important}
 }
 .st-key-tabbar a[data-testid="stPageLink-NavLink"] p{
   font-size:.7rem!important;line-height:1.15!important;font-weight:600;
-  color:#5E6A88;white-space:normal;overflow-wrap:anywhere;margin:0!important;text-align:center!important
+  color:#5E6A88;white-space:normal;overflow-wrap:normal;word-break:normal;margin:0!important;text-align:center!important
 }
 .st-key-tabbar [data-testid="stIconMaterial"]{
   display:inline-flex!important;align-items:center!important;justify-content:center!important;

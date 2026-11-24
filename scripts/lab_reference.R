@@ -22,6 +22,7 @@ emit("oneway_F",ow[1,"F value"]);emit("oneway_p",ow[1,"Pr(>F)"])
 long <- function(z,groups) data.frame(value=as.vector(t(z)),id=factor(rep(seq_len(nrow(z)),each=ncol(z))),time=factor(rep(seq_len(ncol(z)),nrow(z))),group=factor(rep(groups,each=ncol(z))))
 rm <- summary(aov(value~time+Error(id/time),long(a,rep(1,4))))
 tab <- rm[["Error: id:time"]][[1]]
+rownames(tab)<-trimws(rownames(tab))
 emit("rm_F",tab["time","F value"]);emit("rm_p",tab["time","Pr(>F)"])
 mx <- summary(aov(value~group*time+Error(id/time),long(rbind(a,b),rep(1:2,each=4))))
 between <- mx[["Error: id"]][[1]]

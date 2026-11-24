@@ -2730,5 +2730,33 @@
  "Acrosport : composer en miroir": {
   "ar": "الأكروسبورت : تركيب حركي متقابل",
   "en": "Acrosport: mirror composition"
+ },
+ "Photo pédagogique personnelle": {
+  "ar": "صورة تعليمية شخصية",
+  "en": "Personal teaching photo"
+ },
+ "Utilisez une photo de matériel ou de terrain sans personne identifiable. L’image est envoyée au serveur pour cette session ; elle peut figurer dans le PDF exporté.": {
+  "ar": "استعمل صورة للمعدات أو الملعب دون أشخاص يمكن التعرف عليهم. ترسل الصورة إلى الخادم لهذه الجلسة وقد تدرج في ملف PDF المصدر.",
+  "en": "Use a photo of equipment or the venue without identifiable people. The image is sent to the server for this session and may appear in the exported PDF."
+ },
+ "Je dispose des droits et aucune personne identifiable ne figure sur la photo.": {
+  "ar": "أملك حقوق الاستخدام ولا يظهر أي شخص يمكن التعرف عليه في الصورة.",
+  "en": "I have the rights and the photo contains no identifiable person."
+ },
+ "Photo JPEG ou PNG (5 Mo maximum)": {
+  "ar": "صورة JPEG أو PNG (5 ميغابايت كحد أقصى)",
+  "en": "JPEG or PNG photo (5 MB maximum)"
+ },
+ "Ajouter la photo au scénario": {
+  "ar": "إضافة الصورة إلى السيناريو",
+  "en": "Add photo to lesson plan"
+ },
+ "Image invalide ou trop volumineuse.": {
+  "ar": "صورة غير صالحة أو كبيرة جدا.",
+  "en": "Invalid image or file too large."
+ },
+ "Supprimer la photo du scénario": {
+  "ar": "حذف الصورة من السيناريو",
+  "en": "Remove photo from lesson plan"
  }
 }

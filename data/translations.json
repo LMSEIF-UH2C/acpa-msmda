@@ -2942,5 +2942,41 @@
  "Régler les rotations": {
   "ar": "ضبط التناوب",
   "en": "Configure rotations"
+ },
+ "Équipes": {
+  "ar": "الفرق",
+  "en": "Teams"
+ },
+ "Consignes": {
+  "ar": "التعليمات",
+  "en": "Instructions"
+ },
+ "Les codes sont anonymes. Conservez la correspondance avec votre liste de classe hors de l’application.": {
+  "ar": "الرموز مجهولة الهوية. احتفظ بربطها بقائمة القسم خارج التطبيق.",
+  "en": "Codes are anonymous. Keep the mapping to your class list outside the app."
+ },
+ "Constituer les équipes": {
+  "ar": "تشكيل الفرق",
+  "en": "Create teams"
+ },
+ "Équipe {n}": {
+  "ar": "الفريق {n}",
+  "en": "Team {n}"
+ },
+ "Répartition aléatoire équilibrée en effectifs, pas en niveaux de compétence.": {
+  "ar": "توزيع عشوائي متوازن في العدد وليس في مستويات المهارة.",
+  "en": "Random allocation balanced by size, not by proficiency."
+ },
+ "Consignes à afficher": {
+  "ar": "التعليمات المراد عرضها",
+  "en": "Instructions to display"
+ },
+ "Saisissez une consigne courte et observable.": {
+  "ar": "أدخل تعليمة قصيرة قابلة للملاحظة.",
+  "en": "Enter a short observable instruction."
+ },
+ "Consignes (TXT)": {
+  "ar": "التعليمات (TXT)",
+  "en": "Instructions (TXT)"
  }
 }

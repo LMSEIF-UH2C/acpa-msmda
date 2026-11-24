@@ -40,10 +40,14 @@ test = next(x for x in TESTS if x["id"] == test_id)
 signed = bool(test.get("signed"))
 st.caption(t("Mesure : {m} ({u}). Protocole : {p}", m=t(test["measure"]), u=t(test["unit"]), p=t(test["protocol_note"])))
 
-with st.expander(t("Statut scientifique et sources")):
-    evidence = next(x for x in EVIDENCE["instruments"] if x["id"] == test_id)
+evidence = next(x for x in EVIDENCE["instruments"] if x["id"] == test_id)
+if evidence.get("citation"):
+    st.caption(evidence["citation"])
+with st.expander("ⓘ " + t("Statut scientifique et sources")):
     st.warning(t("Protocole à confirmer ; validation empirique de cette implémentation non établie."))
     st.caption(t("Référence déclarée : {source}", source=evidence["source_label"]))
+    if evidence.get("citation"):
+        st.write(evidence["citation"])
     for url in evidence["reference_urls"]:
         st.markdown("[DOI]("+url+")")
     st.caption(t(test["protocol_note"]))
@@ -144,6 +148,15 @@ with report:
                     sections.append((t("Fiabilité test-retest"),indicators))
             else:
                 sections.append((t("Évolution : {a} puis {b}", a=titles[first["id"]], b=titles[last_id]), indicators))
+
+        if first:
+            with st.expander("ⓘ " + t("Statut scientifique et sources")):
+                method_ids = ("icc_a1", "bland_altman", "sem_mdc") if reliability_mode else ("paired_dz",)
+                for method in EVIDENCE["methods"]:
+                    if method["id"] in method_ids:
+                        st.markdown("**" + method.get("citation", method["id"]) + "**")
+                        st.caption(t(method.get("teacher_note", method["limitations"])))
+                        st.markdown("[DOI](" + method["reference"] + ")")
 
         for heading, indicators in sections:
             st.subheader(heading)

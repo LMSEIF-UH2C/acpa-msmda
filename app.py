@@ -31,9 +31,9 @@ def home():
     st.subheader(t("Que voulez-vous faire ?"))
     st.caption(t("Choisissez un parcours pour commencer."))
     paths = (
-        ("evaluate", TECH_EVAL, "Évaluer une technologie", "Consulter les critères et les évaluations documentées."),
-        ("find", SEARCH, "Trouver une technologie adaptée", "Des outils adaptés à votre activité et à vos contraintes."),
-        ("prepare", STUDIO, "Concevoir un scénario pédagogique", "Phases, activités, supports et critères de réussite."),
+        ("evaluate", TECH_EVAL, "Évaluer", "Consulter les critères et les évaluations documentées."),
+        ("find", SEARCH, "Explorer", "Des outils adaptés à votre activité et à vos contraintes."),
+        ("prepare", STUDIO, "Scénario", "Phases, activités, supports et critères de réussite."),
     )
     for key, module, label, description in paths:
         with st.container(border=True, key="core_"+key):
@@ -41,7 +41,7 @@ def home():
                 ctx.put(st.session_state, "guided_path", key)
                 st.switch_page(module.path)
             st.caption(t(description))
-    st.subheader(t("Espace EPS"))
+    st.divider()
     st.page_link(EPS_SPACE.path,label=t(EPS_SPACE.title),icon=EPS_SPACE.icon)
     st.caption(t(EPS_SPACE.summary))
     st.caption(t(PRIVACY_NOTE))

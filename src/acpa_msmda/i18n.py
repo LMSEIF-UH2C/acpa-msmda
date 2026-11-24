@@ -29,8 +29,17 @@ _current: ContextVar[str] = ContextVar("acpa_lang", default=DEFAULT)
 
 
 @lru_cache(maxsize=1)
+def _read_table(path: Path, modified_ns: int, size: int) -> dict[str, dict[str, str]]:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
 def table() -> dict[str, dict[str, str]]:
-    return json.loads(PATH.read_text(encoding="utf-8"))
+    """Refresh translations when a deployment changes the JSON file in a live process."""
+    stat = PATH.stat()
+    return _read_table(PATH, stat.st_mtime_ns, stat.st_size)
+
+
+table.cache_clear = _read_table.cache_clear
 
 
 def use(lang: str | None) -> str:

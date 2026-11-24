@@ -61,7 +61,7 @@ Bland-Altman et ICC étaient déjà restitués sans JSON dans le bilan test-rete
 | L2 | Suite complète en Python 3.12 (versions exactes) et contrôle de mutation | 223 tests réussis (branche issue de `main` à f7044f4, sans la PR #65) |
 | L3 | Banc visuel iPhone 13 simulé : 6 méthodes × 3 langues (`scripts/banc_restitution.py`) | 18/18 sans exception ni débordement horizontal (`captures/methodes_iphone.jpg`) |
 | L4 | Page réelle sur iPhone simulé : import de 2 880 observations synthétiques, groupe TC1, T1-T2, t apparié | FR et AR : carte « Comprendre » affichée, JSON masqué par défaut, aucune exception (`captures/page_reelle_t_apparie_*.jpg`, `scripts/parcours_lab_reel.py`) |
-| L5 | Python 3.14 et validation indépendante avec R | Par l'intégration continue de la PR (matrice 3.12 et 3.14, workflow R) |
+| L5 | Intégration continue de la PR #66 : tests Python 3.12 et 3.14, démonstration publique, validation indépendante avec R | Tout réussi : https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/45511840505 (tests) et https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/45511840464 (R) |
 
 ## Limites
 

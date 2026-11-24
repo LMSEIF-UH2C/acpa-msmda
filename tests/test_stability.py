@@ -21,6 +21,7 @@ PAGES = (
     "6_Mode_Terrain.py",
     "7_Evaluation_Formative.py",
     "8_Cahier_Journalier.py",
+    "9_Evaluation_Technologie.py",
 )
 
 

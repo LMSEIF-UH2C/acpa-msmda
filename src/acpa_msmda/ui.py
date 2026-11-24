@@ -24,13 +24,13 @@ class Module:
 APP_NAME = "ACPA/MSMDA"
 
 HOME = Module("home", "Accueil", ":material/home:", None,
-              "Préparer, organiser et enrichir vos séances d'EPS.", "Accueil")
-SEARCH = Module("search", "Trouver une technologie", ":material/search:",
+              "Évaluer, sélectionner et intégrer les technologies numériques en EPS.", "Accueil")
+SEARCH = Module("search", "Technothèque", ":material/search:",
                 "pages/4_Technologies_Reelles.py",
-                "Des outils adaptés à votre activité et à vos contraintes.", "Outils")
-STUDIO = Module("studio", "Concevoir une séance", ":material/edit_note:",
+                "Des outils adaptés à votre activité et à vos contraintes.", "Explorer")
+STUDIO = Module("studio", "Scénarisation pédagogique", ":material/edit_note:",
                 "pages/5_Studio_Pedagogique.py",
-                "Phases, activités, supports et critères de réussite.", "Séance")
+                "Phases, activités, supports et critères de réussite.", "Scénario")
 PLANNER = Module("planner", "Organiser les ateliers", ":material/groups:",
                  "pages/3_Espace_Enseignant.py",
                  "Groupes, rotations et temps de séance.", "Ateliers")
@@ -45,7 +45,10 @@ FORMATIVE = Module("formative", "Évaluation formative", ":material/assignment:"
                    "pages/7_Evaluation_Formative.py", "Observer les acquisitions à partir de critères personnalisés.", "Évaluation")
 JOURNAL = Module("journal", "Cahier journalier", ":material/calendar_month:",
                  "pages/8_Cahier_Journalier.py", "Programmation cyclique et suivi des séances.", "Journal")
-MODULES = (HOME, SEARCH, STUDIO, PLANNER, LAB)
+TECH_EVAL = Module("tech_eval", "Évaluation des technologies", ":material/fact_check:", "pages/9_Evaluation_Technologie.py", "Consulter les critères et les évaluations documentées.", "Évaluer")
+EPS_SPACE = Module("eps_space", "Espace EPS", ":material/apps:", "pages/10_Espace_EPS.py", "Écosystème d’accompagnement pédagogique.", "Espace EPS")
+MODULES = (HOME, TECH_EVAL, SEARCH, STUDIO, EPS_SPACE)
+ALL_MODULES = (*MODULES, PLANNER, LAB, FIELD, FORMATIVE, JOURNAL)
 TASKS = (SEARCH, STUDIO, PLANNER, LAB)
 
 PRIVACY_NOTE = "N'indiquez ni nom ni identifiant d'élève."
@@ -90,7 +93,7 @@ h3{font-size:1.12rem!important;font-weight:650!important}
 .st-key-hero h1{color:#fff!important;font-size:clamp(1.55rem,6.4vw,2.2rem)!important;font-weight:750!important;
   line-height:1.15;padding:0!important;margin:0}
 .st-key-hero [data-testid="stCaptionContainer"],.st-key-hero [data-testid="stCaptionContainer"] p{
-  color:#fff!important;font-size:.98rem}
+  color:#fff!important;opacity:1!important;font-size:.98rem}
 .st-key-hero .tagline{color:#fff;font-size:clamp(1.05rem,3.6vw,1.25rem);font-weight:560;letter-spacing:-.02em;margin:.15rem 0 .35rem}
 .st-key-hero .eyebrow{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.12em;
   text-transform:uppercase;color:rgba(255,255,255,.85);background:rgba(255,255,255,.16);
@@ -194,7 +197,7 @@ input,textarea,[data-baseweb="select"] div{font-size:16px!important}
 }
 .st-key-tabbar a[data-testid="stPageLink-NavLink"] p{
   font-size:.7rem!important;line-height:1.15!important;font-weight:600;
-  color:#5E6A88;white-space:nowrap;margin:0!important;text-align:center!important
+  color:#5E6A88;white-space:normal;overflow-wrap:normal;word-break:normal;margin:0!important;text-align:center!important
 }
 .st-key-tabbar [data-testid="stIconMaterial"]{
   display:inline-flex!important;align-items:center!important;justify-content:center!important;
@@ -296,6 +299,6 @@ def tab_bar(current: str, home_page=None) -> None:
             target = home_page if module.path is None else module.path
             if target is None:
                 continue
-            state = "active" if module.key == current else "idle"
+            state = "active" if module.key == current or (module.key == EPS_SPACE.key and current in {PLANNER.key, LAB.key, FIELD.key, FORMATIVE.key, JOURNAL.key}) else "idle"
             with column, st.container(key=f"tab_{state}_{module.key}"):
                 st.page_link(target, label=t(module.short), icon=module.icon, use_container_width=True)

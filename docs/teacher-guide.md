@@ -17,11 +17,11 @@ Choisir la langue (français, arabe ou anglais). L'accueil privilégie Évaluer,
 
 Évaluer permet de consulter les notes documentaires disponibles (18 critères), ou de renseigner une autoévaluation exploratoire distincte avec sources et observations. NR signifie non renseigné, SO sans objet. La moyenne descriptive des notes renseignées, à poids égaux, ne constitue pas un score ACPA/MSMDA validé et ne couvre pas l'intégralité du cadre 10D/97P. Télécharger le rapport CSV avant de quitter la session.
 
-Rechercher selon l'activité, le niveau, les objectifs et les contraintes. Les liens et fonctionnalités documentées ne prouvent pas l'efficacité pédagogique. Vérifier la disponibilité, les permissions, le coût et la compatibilité avant usage. Les suggestions de l'assistant sont fondées sur des règles, pas sur une IA générative.
+Rechercher selon l'activité, le niveau, les objectifs et les contraintes. Dans Explorer, « Consulter son évaluation » ouvre la fiche correspondante ; « Retenir pour mon scénario » permet de choisir ensuite une phase pédagogique. Le nom et le statut documentaire de la technologie sont inclus dans les exports du scénario. L'indice d'adéquation est heuristique, et une valeur neutre de classement n'est pas une note de qualité réelle. Les liens et fonctionnalités documentées ne prouvent pas l'efficacité pédagogique. Vérifier la disponibilité, les permissions, le coût et la compatibilité avant usage. Les suggestions de l'assistant sont fondées sur des règles, pas sur une IA générative.
 
 ## Sauvegarder
 
-Utiliser « Sauvegarder mes données » régulièrement : cycles, créneaux, interruptions, séances et projets. La restauration remplace ces données après confirmation. Les autres modules ont leurs propres exports ; ce fichier ne constitue pas une sauvegarde de toute l'application. La session hébergée nécessite Internet et peut être perdue lors de sa fermeture. Ne saisir aucun nom ou identifiant personnel d'élève.
+Utiliser « Sauvegarder mes données » régulièrement : cycles, créneaux, interruptions, séances et projets. La restauration remplace ces données après confirmation. La capacité du journal est de 3 000 séances et la taille maximale d'un fichier de sauvegarde est de 10 Mio. Deux séances de la même classe le même jour ne sont pas prises en charge dans cette version. Les autres modules ont leurs propres exports ; ce fichier ne constitue pas une sauvegarde de toute l'application. La session hébergée nécessite Internet et peut être perdue lors de sa fermeture. Ne saisir aucun nom ou identifiant personnel d'élève.
 
 ## Compagnons expérimentaux
 

@@ -175,6 +175,123 @@
       "measure": "Hauteur",
       "unit": "cm",
       "protocol_note": "Mesure par dispositif ou saisie manuelle ; pas de hauteur calculée à partir d'une vidéo non étalonnée."
+    },
+    {
+      "id": "leger_boucher",
+      "name": "Léger-Boucher sur piste (2 min)",
+      "source": "Complément",
+      "domain": "Endurance",
+      "measure": "Vitesse finale",
+      "unit": "km/h",
+      "protocol_note": "Paliers de deux minutes ; appliquer la bande sonore et la règle d'arrêt du protocole choisi."
+    },
+    {
+      "id": "yoyo_ir1",
+      "name": "Yo-Yo IR1",
+      "source": "Complément",
+      "domain": "Endurance",
+      "measure": "Distance",
+      "unit": "m",
+      "protocol_note": "Navettes de 20 m avec récupération active de 10 s ; utiliser l'audio IR1 et compter seulement les navettes terminées selon le protocole."
+    },
+    {
+      "id": "yoyo_ir2",
+      "name": "Yo-Yo IR2",
+      "source": "Complément",
+      "domain": "Endurance",
+      "measure": "Distance",
+      "unit": "m",
+      "protocol_note": "Variante intense ; utiliser exclusivement l'audio IR2 et vérifier l'aptitude à l'effort avant passation."
+    },
+    {
+      "id": "ift3015",
+      "name": "30-15 IFT",
+      "source": "Complément",
+      "domain": "Endurance",
+      "measure": "Vitesse finale",
+      "unit": "km/h",
+      "protocol_note": "Alternance de 30 s de course et 15 s de récupération ; noter la VIFT, distincte de la VMA continue."
+    },
+    {
+      "id": "shuttle4x10",
+      "name": "Navette 4 × 10 m",
+      "source": "Complément",
+      "domain": "Vitesse",
+      "measure": "Temps",
+      "unit": "s",
+      "protocol_note": "Deux lignes espacées de 10 m ; conserver le protocole ALPHA, les objets et le chronométrage."
+    },
+    {
+      "id": "handgrip",
+      "name": "Force de préhension (handgrip)",
+      "source": "Complément",
+      "domain": "Force",
+      "measure": "Force de préhension",
+      "unit": "kg",
+      "protocol_note": "Dynamomètre étalonné ; préciser la main, le réglage, les essais et la convention kg-force."
+    },
+    {
+      "id": "side_plank",
+      "name": "Gainage latéral",
+      "source": "Complément",
+      "domain": "Endurance musculaire",
+      "measure": "Durée",
+      "unit": "s",
+      "protocol_note": "Préciser le côté et la posture ; arrêter à la perte de position ou en cas de douleur."
+    },
+    {
+      "id": "vameval",
+      "name": "VAMEVAL",
+      "source": "Complément",
+      "domain": "Endurance",
+      "measure": "Vitesse finale",
+      "unit": "km/h",
+      "protocol_note": "Utiliser la bande sonore VAMEVAL et les repères de piste ; noter la vitesse du dernier palier validé."
+    },
+    {
+      "id": "demi_cooper",
+      "name": "Demi-Cooper 6 min",
+      "source": "Complément",
+      "domain": "Endurance",
+      "measure": "Distance",
+      "unit": "m",
+      "protocol_note": "Mesurer la distance parcourue en six minutes sur piste ; ne pas assimiler automatiquement la vitesse moyenne à la VMA."
+    },
+    {
+      "id": "front_plank",
+      "name": "Gainage ventral",
+      "source": "Complément",
+      "domain": "Endurance musculaire",
+      "measure": "Durée",
+      "unit": "s",
+      "protocol_note": "Maintien sur avant-bras et pieds ; arrêter à la perte de posture ou en cas de douleur."
+    },
+    {
+      "id": "pushup",
+      "name": "Pompes",
+      "source": "Complément",
+      "domain": "Endurance musculaire",
+      "measure": "Répétitions",
+      "unit": "nombre",
+      "protocol_note": "Fixer amplitude, cadence et variante avant le test ; compter les répétitions conformes."
+    },
+    {
+      "id": "squat_jump",
+      "name": "Squat Jump (SJ)",
+      "source": "Complément",
+      "domain": "Détente",
+      "measure": "Hauteur",
+      "unit": "cm",
+      "protocol_note": "Saut depuis une position fléchie stabilisée sans contre-mouvement ; préciser le dispositif de mesure."
+    },
+    {
+      "id": "t_test",
+      "name": "T-Test de changement de direction",
+      "source": "Complément",
+      "domain": "Vitesse",
+      "measure": "Temps",
+      "unit": "s",
+      "protocol_note": "Parcours en T balisé ; fixer distances, déplacements, règles de validité et chronométrage."
     }
   ]
 }

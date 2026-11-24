@@ -3870,5 +3870,45 @@
  "Télécharger mon évaluation": {
   "ar": "تنزيل تقييمي",
   "en": "Download my assessment"
+ },
+ "Consulter son évaluation": {
+  "ar": "الاطلاع على تقييمها",
+  "en": "View its assessment"
+ },
+ "Retenir pour mon scénario": {
+  "ar": "اختيارها للسيناريو الخاص بي",
+  "en": "Select for my scenario"
+ },
+ "Indice heuristique de correspondance, non validé comme mesure d’efficacité pédagogique.": {
+  "ar": "مؤشر تقريبي للمطابقة، غير معتمد كمقياس للفعالية التربوية.",
+  "en": "Heuristic matching index, not validated as a measure of educational effectiveness."
+ },
+ "Qualité non évaluée : valeur neutre utilisée pour le classement, pas une note réelle.": {
+  "ar": "الجودة غير مقيمة: تستخدم قيمة محايدة للترتيب وليست درجة فعلية.",
+  "en": "Quality not assessed: a neutral ranking value, not an actual rating."
+ },
+ "Technologie retenue": {
+  "ar": "التقنية المختارة",
+  "en": "Selected technology"
+ },
+ "Vérifiez la compatibilité avec votre séance et précisez son rôle pédagogique.": {
+  "ar": "تحقق من توافق التقنية مع حصتك وحدد دورها التربوي.",
+  "en": "Check compatibility with your lesson and specify its pedagogical role."
+ },
+ "Cette technologie exige Internet. Adaptez votre choix ou votre contexte.": {
+  "ar": "تتطلب هذه التقنية الإنترنت. عدل اختيارك أو سياقك.",
+  "en": "This technology requires internet. Adapt your choice or context."
+ },
+ "Associer à cette phase": {
+  "ar": "ربطها بهذه المرحلة",
+  "en": "Assign to this phase"
+ },
+ "Retirer la technologie": {
+  "ar": "إزالة التقنية",
+  "en": "Remove technology"
+ },
+ "Annuler": {
+  "ar": "إلغاء",
+  "en": "Cancel"
  }
 }

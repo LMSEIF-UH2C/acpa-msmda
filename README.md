@@ -1,12 +1,14 @@
 # ACPA/MSMDA — EPS teaching assistant and research engine
 
-**Current development branch:** trilingual EPS teaching assistant (research demonstrator; not yet a stable production release).
+**Candidate under review: v0.2.0-rc.1** — trilingual EPS technology evaluation and teaching assistant. Not a stable production release.
+
+[Public demonstration](https://acpa-msmda.streamlit.app/) · [Candidate notes](docs/release-v0.2.0-rc.1.md) · [Privacy and deployment](docs/privacy-deployment.md)
 
 **Archived research engine:** v0.1.1, released separately with the DOI below. Its synthetic catalogue and citation must not be confused with the later application.
 
 ## Current application
 
-The Streamlit interface provides a real-app catalogue with documented and unverified entries, contextual search, a teaching studio, workshop planning, field tools, formative assessment, performance analysis, annual cycle planning and a teaching journal with class projects. The journal uses session storage on the server and portable JSON backups; it is not a persistent school database. A rule-based assistant provides source-linked suggestions, not generative AI or proof of teaching efficacy.
+The scientific workflow is Evaluate → Explore → Scenario, supported by the EPS Space. The Streamlit interface provides a real-app catalogue with documented and unverified entries, contextual search, a teaching studio, workshop planning, field tools, formative assessment, performance analysis, annual cycle planning and a teaching journal with class projects. The journal uses session storage on the server and portable JSON backups; it is not a persistent school database. A rule-based assistant provides source-linked suggestions, not generative AI or proof of teaching efficacy.
 
 Start locally:
 
@@ -81,7 +83,7 @@ The broader ACPA/MSMDA project is associated with OMPIC patent application No. 7
 - **v0.1.0 (8 October 2026):** initial public release of the working heuristic engine with synthetic examples.
 - **v0.1.1 (8 October 2026):** updated machine-readable software citation metadata and release documentation for scholarly archiving. The ranking algorithm, context rules, synthetic catalogue and runtime behavior are unchanged from v0.1.0.
 
-Both versions are development artifacts. A version number or archival DOI does not imply empirical validation, educational efficacy or production readiness.
+The archived versions and current candidate are development artifacts. A version number or archival DOI does not imply empirical validation, educational efficacy or production readiness.
 
 ## License and citation
 

@@ -39,6 +39,8 @@ LAB = Module("lab", "Mesurer et analyser", ":material/monitoring:",
              "Saisir des résultats et suivre une progression.", "Mesures")
 
 # Ordre d'affichage dans la barre d'onglets et sur l'accueil.
+FIELD = Module("field", "Mode terrain", ":material/timer:",
+               "pages/6_Mode_Terrain.py", "Chronomètre, scores, compteurs et rotations.", "Terrain")
 MODULES = (HOME, SEARCH, STUDIO, PLANNER, LAB)
 TASKS = (SEARCH, STUDIO, PLANNER, LAB)
 

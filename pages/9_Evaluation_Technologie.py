@@ -79,6 +79,7 @@ with st.expander(t("Examiner une technologie"),expanded=bool(ctx.get(S,"evaluati
             st.link_button(t("Site de l'éditeur"),tool["source_url"])
         if tool.get("source_url") and st.button(t("Retenir pour mon scénario"),key="eval_to_studio"):
             ctx.put(st.session_state,"scenario_tool_candidate",tool["id"])
+            ctx.put(S,"scenario_context_pending",analysis_query if analysis_query == query_context else "")
             st.switch_page("pages/5_Studio_Pedagogique.py")
         scores=tool.get("criteria_scores")
         if not scores:

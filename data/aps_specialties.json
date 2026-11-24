@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "status": "illustrative_extensible_not_official_curriculum",
+  "groups": [
+    {
+      "family": "Athlétisme — courses",
+      "activities": [
+        {
+          "label": "Course de vitesse",
+          "catalog_category": "Athlétisme"
+        },
+        {
+          "label": "Course en durée",
+          "catalog_category": "Endurance"
+        },
+        {
+          "label": "Course de relais",
+          "catalog_category": "Athlétisme"
+        },
+        {
+          "label": "Course de haies",
+          "catalog_category": "Athlétisme"
+        }
+      ]
+    },
+    {
+      "family": "Athlétisme — sauts",
+      "activities": [
+        {
+          "label": "Saut en hauteur",
+          "catalog_category": "Athlétisme"
+        },
+        {
+          "label": "Saut en longueur",
+          "catalog_category": "Athlétisme"
+        },
+        {
+          "label": "Triple saut",
+          "catalog_category": "Athlétisme"
+        }
+      ]
+    },
+    {
+      "family": "Athlétisme — lancers",
+      "activities": [
+        {
+          "label": "Lancer de poids",
+          "catalog_category": "Athlétisme"
+        },
+        {
+          "label": "Lancer de javelot",
+          "catalog_category": "Athlétisme"
+        },
+        {
+          "label": "Lancer de disque",
+          "catalog_category": "Athlétisme"
+        }
+      ]
+    },
+    {
+      "family": "Sports collectifs",
+      "activities": [
+        {
+          "label": "Football",
+          "catalog_category": "Football"
+        },
+        {
+          "label": "Basketball",
+          "catalog_category": "Basketball"
+        },
+        {
+          "label": "Handball",
+          "catalog_category": "Handball"
+        },
+        {
+          "label": "Volleyball",
+          "catalog_category": "Volleyball"
+        },
+        {
+          "label": "Rugby",
+          "catalog_category": "Autre"
+        },
+        {
+          "label": "Ultimate",
+          "catalog_category": "Autre"
+        }
+      ]
+    },
+    {
+      "family": "Activités gymniques",
+      "activities": [
+        {
+          "label": "Gymnastique au sol",
+          "catalog_category": "Gymnastique"
+        },
+        {
+          "label": "Gymnastique aux agrès",
+          "catalog_category": "Gymnastique"
+        },
+        {
+          "label": "Acrosport",
+          "catalog_category": "Gymnastique"
+        }
+      ]
+    },
+    {
+      "family": "Sports de raquette",
+      "activities": [
+        {
+          "label": "Badminton",
+          "catalog_category": "Badminton"
+        },
+        {
+          "label": "Tennis de table",
+          "catalog_category": "Autre"
+        },
+        {
+          "label": "Tennis",
+          "catalog_category": "Autre"
+        }
+      ]
+    },
+    {
+      "family": "Activités de pleine nature",
+      "activities": [
+        {
+          "label": "Course d’orientation",
+          "catalog_category": "Autre"
+        },
+        {
+          "label": "Randonnée",
+          "catalog_category": "Autre"
+        }
+      ]
+    }
+  ]
+}

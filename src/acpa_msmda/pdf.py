@@ -149,7 +149,7 @@ def build(story: list, title: str) -> bytes:
     return stream.getvalue()
 
 
-def scenario_pdf(metadata: dict, rows: Sequence[dict], validation: dict, issues: Sequence[str], situation: dict | None = None) -> bytes:
+def scenario_pdf(metadata: dict, rows: Sequence[dict], validation: dict, issues: Sequence[str], situation: dict | None = None, photo: bytes | None = None) -> bytes:
     """Fiche de séance : contexte, déroulement par phase, répartition du temps, points à compléter."""
     from reportlab.lib.units import mm
     from reportlab.platypus import Spacer
@@ -190,6 +190,13 @@ def scenario_pdf(metadata: dict, rows: Sequence[dict], validation: dict, issues:
         story += [k.para("• " + issue, "body") for issue in issues]
     if situation:
         story.extend(situation_story(k, situation))
+    if photo:
+        from reportlab.platypus import Image
+        image = Image(BytesIO(photo))
+        scale = min(k.width / image.imageWidth, 210 / image.imageHeight)
+        image.drawWidth = image.imageWidth * scale
+        image.drawHeight = image.imageHeight * scale
+        story.extend([k.para(t("Photo pédagogique personnelle"), "h2"), image])
     story += [Spacer(1, 5 * mm), k.para(t("Document de préparation : à adapter à votre classe et à votre terrain."), "muted")]
     return build(story, title)
 

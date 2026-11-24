@@ -6,7 +6,7 @@ from datetime import date
 import streamlit as st
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/"src"))
 from acpa_msmda import session_context as ctx
-from acpa_msmda.journal import STATUSES, MAX_ENTRIES, full_backup, restore_full, export_csv
+from acpa_msmda.journal import STATUSES, MAX_ENTRIES, workspace_backup, restore_workspace, export_csv
 from acpa_msmda.timetable import generate, timetable_warnings
 from acpa_msmda.cycle_plan import check_journal, cycle_at, allows_session
 from acpa_msmda.i18n import t
@@ -22,13 +22,19 @@ entries=data.setdefault("journal_entries",[])
 cycles=data.setdefault("journal_cycles",[])
 slots=data.setdefault("journal_slots",[])
 interruptions=data.setdefault("journal_interruptions",[])
+projects=data.setdefault("cycle_projects",[])
 st.caption(t("Le journal reste en mémoire de session. Téléchargez une sauvegarde pour le conserver."))
 with st.expander(t("Sauvegarder ou restaurer le journal")):
-    st.download_button(t("Télécharger la sauvegarde (JSON)"),full_backup(cycles,entries,slots,interruptions),"journal_acpa.json","application/json")
+    try:
+        raw=workspace_backup(cycles,entries,slots,interruptions,projects)
+    except ValueError:
+        st.error(t("Fichier de sauvegarde invalide ou incompatible."))
+    else:
+        st.download_button(t("Télécharger la sauvegarde (JSON)"),raw,"journal_acpa.json","application/json")
     uploaded=st.file_uploader(t("Restaurer une sauvegarde JSON"),type=["json"],key="journal_upload")
     if uploaded is not None:
         try:
-            restored_cycles,restored,restored_slots,restored_breaks=restore_full(uploaded.getvalue())
+            restored_cycles,restored,restored_slots,restored_breaks,restored_projects=restore_workspace(uploaded.getvalue())
         except ValueError:
             st.error(t("Fichier de sauvegarde invalide ou incompatible."))
         else:
@@ -38,6 +44,7 @@ with st.expander(t("Sauvegarder ou restaurer le journal")):
                 data["journal_entries"]=restored
                 data["journal_slots"]=restored_slots
                 data["journal_interruptions"]=restored_breaks
+                data["cycle_projects"]=restored_projects
                 st.rerun()
 st.subheader(t("Programmation annuelle des cycles"))
 if cycles:
@@ -54,7 +61,9 @@ with st.expander(t("Ajouter ou modifier un cycle"),expanded=not cycles):
         if st.form_submit_button(t("Enregistrer le cycle")):
             candidate=[c for c in cycles if c["number"]!=number]+[{"number":number,"start":start.isoformat(),"end":end.isoformat(),"activities":[activity]}]
             try:
-                data["journal_cycles"]=check_journal(candidate,entries)
+                checked=check_journal(candidate,entries)
+                validate_projects(projects,checked)
+                data["journal_cycles"]=checked
             except ValueError:
                 st.error(t("Cycle incompatible : vérifiez les dates, les chevauchements et les séances existantes."))
             else:
@@ -163,7 +172,6 @@ if entries:
 
 
 st.subheader(t("Projets de cycle par classe"))
-projects=data.setdefault("cycle_projects",[])
 if cycles:
     profile=st.selectbox(t("Référentiel"),profiles(),format_func=lambda p:t(p["label"]),key="cp_profile")
     grades=profile["levels"]

@@ -30,7 +30,7 @@ class HomeTests(unittest.TestCase):
         app = start()
         self.assertFalse(app.exception)
         self.assertEqual([b.label for b in app.button if b.key and b.key.startswith("guided_")],
-                         ["Évaluer une technologie", "Trouver une technologie adaptée", "Concevoir un scénario pédagogique"])
+                         ["Évaluer", "Explorer", "Scénario"])
         import sys
         sys.path.insert(0, str(ROOT / "src"))
         from acpa_msmda.ui import MODULES

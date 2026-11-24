@@ -31,18 +31,6 @@ def generate(cycles, slots, interruptions, entries, profile='MA'):
         key=(s["group"],s["weekday"])
         if key in seen: raise ValueError("One session per class and day in this version")
         seen.add(key)
-    if profile=="MA":
-        by_group={}
-        for s in slots:
-            if 12*60<=s["start_minute"]<15*60:
-                raise ValueError("MA: afternoon EPS begins at 15:00")
-            by_group.setdefault(s["group"],[]).append(s["weekday"]*1440+s["start_minute"])
-        for times in by_group.values():
-            times.sort()
-            if len(times)>2:
-                raise ValueError("MA: maximum two weekly EPS slots per class")
-            if len(times)>1 and any(b-a<48*60 for a,b in zip(times,times[1:]+[times[0]+7*1440])):
-                raise ValueError("MA: minimum 48 hours between class sessions")
     ordered=sorted(slots,key=lambda s:(s["weekday"],s["start_minute"]))
     for i,s in enumerate(ordered):
         for other in ordered[i+1:]:
@@ -70,3 +58,22 @@ def generate(cycles, slots, interruptions, entries, profile='MA'):
                     if len(existing)+len(new)>MAX_ENTRIES: raise ValueError("Journal capacity exceeded")
             day+=timedelta(days=1)
     return validate_entries(existing+new)
+
+
+def timetable_warnings(slots, profile="MA"):
+    """Advisory only: administrative allocations may depart from guidance."""
+    if profile != "MA":
+        return []
+    warnings=[]
+    by_group={}
+    for s in slots:
+        if 12*60<=s["start_minute"]<15*60:
+            warnings.append(("afternoon",s["group"]))
+        by_group.setdefault(s["group"],[]).append(s["weekday"]*1440+s["start_minute"])
+    for group,times in by_group.items():
+        times.sort()
+        if len(times)!=2:
+            warnings.append(("weekly_count",group))
+        if len(times)>1 and any(b-a<48*60 for a,b in zip(times,times[1:]+[times[0]+7*1440])):
+            warnings.append(("spacing",group))
+    return warnings

@@ -16,18 +16,28 @@ configure_page(TECH_EVAL)
 page_header(TECH_EVAL)
 st.caption(t("Les évaluations disponibles reposent sur les informations documentées. Elles ne démontrent pas l’efficacité pédagogique."))
 tools=load_real_tools()
-query=st.text_input(t("Nom de l'outil"),max_chars=100)
-rated_only=st.checkbox(t("Afficher uniquement les outils évalués"),value=False)
+target=ctx.store(st.session_state).pop("evaluation_target",None)
+if target:
+    st.session_state["eval_query"]=""
+    st.session_state["eval_rated_only"]=False
+    st.session_state["eval_selected"]=target
+query=st.text_input(t("Nom de l'outil"),max_chars=100,key="eval_query")
+rated_only=st.checkbox(t("Afficher uniquement les outils évalués"),value=False,key="eval_rated_only")
 matches=[x for x in tools if query.casefold() in x["name"].casefold() and (not rated_only or x.get("criteria_scores"))]
 if not matches:
     st.info(t("Aucune fiche ne correspond à ces filtres."))
 else:
     options={x["id"]:x for x in matches}
-    selected=st.selectbox(t("Choisir une technologie"),list(options),format_func=lambda k:options[k]["name"])
+    if st.session_state.get("eval_selected") not in options:
+        st.session_state["eval_selected"]=next(iter(options))
+    selected=st.selectbox(t("Choisir une technologie"),list(options),format_func=lambda k:options[k]["name"],key="eval_selected")
     tool=options[selected]
     st.subheader(tool["name"])
     if tool.get("source_url"):
         st.link_button(t("Site de l'éditeur"),tool["source_url"])
+    if tool.get("source_url") and st.button(t("Retenir pour mon scénario"),key="eval_to_studio"):
+        ctx.put(st.session_state,"scenario_tool_candidate",tool["id"])
+        st.switch_page("pages/5_Studio_Pedagogique.py")
     scores=tool.get("criteria_scores")
     if not scores:
         st.info(t("Cette technologie ne dispose pas encore d’une évaluation documentée."))

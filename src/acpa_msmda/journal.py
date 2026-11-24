@@ -76,3 +76,31 @@ def restore_cycles(raw):
         return check_journal(data["cycles"],entries),entries
     except (ValueError,TypeError,KeyError,RecursionError,AttributeError) as exc:
         raise ValueError("Invalid cycle backup") from exc
+
+
+def full_backup(cycles, entries, slots, interruptions):
+    from .timetable import generate
+    payload=json.loads(cycle_backup(cycles,entries))
+    generate([],slots,interruptions,[])
+    payload.update(version=3,slots=slots,interruptions=interruptions)
+    return json.dumps(payload,ensure_ascii=False).encode("utf-8")
+
+def restore_full(raw):
+    from .timetable import generate
+    if not isinstance(raw,bytes) or len(raw)>10*1024*1024:
+        raise ValueError("Invalid file size")
+    try:
+        payload=json.loads(raw.decode("utf-8"))
+        if not isinstance(payload,dict):
+            raise ValueError("Invalid payload")
+        if payload.get("version")==2:
+            cycles,entries=restore_cycles(raw)
+            return cycles,entries,[],[]
+        if type(payload.get("version")) is not int or payload["version"]!=3 or set(payload)!={"version","cycles","entries","slots","interruptions"}:
+            raise ValueError("Invalid version")
+        cycles,entries=restore_cycles(json.dumps({"version":2,"cycles":payload["cycles"],"entries":payload["entries"]}).encode())
+        slots,interruptions=payload["slots"],payload["interruptions"]
+        generate([],slots,interruptions,[])
+        return cycles,entries,slots,interruptions
+    except (ValueError,TypeError,KeyError,RecursionError,AttributeError) as exc:
+        raise ValueError("Invalid journal backup") from exc

@@ -3706,5 +3706,89 @@
  "Usages et compatibilité à confirmer": {
   "ar": "الاستخدامات والتوافق بحاجة إلى التحقق",
   "en": "Uses and compatibility to be confirmed"
+ },
+ "Évaluer, sélectionner et intégrer les technologies numériques en EPS.": {
+  "ar": "تقييم وانتقاء وإدماج التقنيات الرقمية في التربية البدنية والرياضية.",
+  "en": "Evaluate, select and integrate digital technologies in PE."
+ },
+ "Technologies numériques · EPS": {
+  "ar": "التقنيات الرقمية · التربية البدنية",
+  "en": "Digital technologies · PE"
+ },
+ "De la technologie à l’apprentissage.": {
+  "ar": "من التكنولوجيا إلى التعلم.",
+  "en": "From technology to learning."
+ },
+ "Évaluer une technologie": {
+  "ar": "تقييم تقنية",
+  "en": "Evaluate a technology"
+ },
+ "Consulter les critères et les évaluations documentées.": {
+  "ar": "اطلع على المعايير والتقييمات الموثقة.",
+  "en": "Review criteria and documented assessments."
+ },
+ "Trouver une technologie adaptée": {
+  "ar": "البحث عن تقنية ملائمة",
+  "en": "Find a suitable technology"
+ },
+ "Concevoir un scénario pédagogique": {
+  "ar": "تصميم سيناريو تربوي",
+  "en": "Design a teaching scenario"
+ },
+ "Espace EPS": {
+  "ar": "فضاء التربية البدنية",
+  "en": "PE space"
+ },
+ "Fonctionnalités complémentaires pour les enseignants.": {
+  "ar": "وظائف تكميلية للمدرسين.",
+  "en": "Complementary tools for teachers."
+ },
+ "Évaluer": {
+  "ar": "تقييم",
+  "en": "Evaluate"
+ },
+ "Scénario": {
+  "ar": "سيناريو",
+  "en": "Scenario"
+ },
+ "Les évaluations disponibles reposent sur les informations documentées. Elles ne démontrent pas l’efficacité pédagogique.": {
+  "ar": "تستند التقييمات المتاحة إلى المعلومات الموثقة ولا تثبت الفعالية التربوية.",
+  "en": "Available assessments rely on documented information and do not demonstrate teaching effectiveness."
+ },
+ "Afficher uniquement les outils évalués": {
+  "ar": "عرض الأدوات المقيمة فقط",
+  "en": "Show assessed tools only"
+ },
+ "Choisir une technologie": {
+  "ar": "اختر تقنية",
+  "en": "Choose a technology"
+ },
+ "Cette technologie ne dispose pas encore d’une évaluation documentée.": {
+  "ar": "لا يتوفر تقييم موثق لهذه التقنية بعد.",
+  "en": "This technology has no documented assessment yet."
+ },
+ "Non renseigné": {
+  "ar": "غير موثق",
+  "en": "Not reported"
+ },
+ "Sans objet": {
+  "ar": "غير منطبق",
+  "en": "Not applicable"
+ },
+ "Critère": {
+  "ar": "معيار",
+  "en": "Criterion"
+ },
+ "NR : information non renseignée. SO : critère sans objet.": {
+  "ar": "NR: معلومات غير موثقة. SO: معيار غير منطبق.",
+  "en": "NR: not reported. SO: not applicable."
+ },
+ "Les 18 critères opérationnels ne constituent pas une transcription exhaustive des 97 paramètres.": {
+  "ar": "المعايير الإجرائية الثمانية عشر ليست نقلا شاملا للمعلمات السبعة والتسعين.",
+  "en": "The 18 operational criteria are not an exhaustive transcription of the 97 parameters."
+ },
+ "Les compagnons vidéo et hors ligne restent expérimentaux.": {
+  "ar": "تظل أدوات الفيديو والعمل دون اتصال تجريبية.",
+  "en": "The video and offline companions remain experimental."
  }
 }

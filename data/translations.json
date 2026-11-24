@@ -3702,5 +3702,9 @@
  "Fonctionnalités documentées, efficacité pédagogique non démontrée.": {
   "ar": "وظائف موثقة، دون إثبات الفعالية التربوية.",
   "en": "Documented features, not demonstrated teaching effectiveness."
+ },
+ "Usages et compatibilité à confirmer": {
+  "ar": "الاستخدامات والتوافق بحاجة إلى التحقق",
+  "en": "Uses and compatibility to be confirmed"
  }
 }

@@ -43,6 +43,15 @@ if ctx.store(S).get("lab_test") not in {x["id"] for x in choices}:
 test_id = st.selectbox(t("Épreuve"), [x["id"] for x in choices], format_func=choice_labels.get, **ctx.bind(S, "lab_test"))
 test = next(x for x in TESTS if x["id"] == test_id)
 signed = bool(test.get("signed"))
+# Local, optional AI-generated illustrations; never substitute for a scientific protocol.
+illustration_ids = {"sprint30","saut_horizontal","medecine_ball","sargent","souplesse_assise","front_plank","killy","handgrip"}
+if test_id in illustration_ids:
+    illustration = ROOT / "assets" / "lab" / (test_id + ".jpg")
+    if illustration.is_file():
+        with st.expander({"fr":"Illustration pédagogique","en":"Educational illustration","ar":"رسم توضيحي تربوي"}[current()]):
+            st.image(str(illustration), use_container_width=True)
+            st.caption({"fr":"Illustration générée par IA, non normative : consulter le protocole et vérifier le matériel, les distances et les conditions de mesure.","en":"AI-generated, non-normative illustration: consult the protocol and verify equipment, distances and measurement conditions.","ar":"رسم مولد بالذكاء الاصطناعي غير معياري: راجع البروتوكول وتحقق من المعدات والمسافات وشروط القياس."}[current()])
+
 st.caption(t("Mesure : {m} ({u}). Protocole : {p}", m=t(test["measure"]), u=t(test["unit"]), p=t(test["protocol_note"])))
 
 evidence = evidence_by_id[test_id]

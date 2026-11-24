@@ -4,7 +4,7 @@ Statut : candidat en préparation, non déclaré stable.
 
 ## Périmètre
 
-- Interface FR/AR/EN, Amiri locale pour l'arabe et navigation à cinq onglets.
+- Interface FR/AR/EN, IBM Plex Sans Arabic locale pour l'arabe et navigation à cinq onglets.
 - Analyse du contexte de l’enseignant et de ses priorités, transmission à Explorer ; évaluation documentaire et autoévaluation exploratoire sur 18 critères en complément.
 - Technothèque, recommandations heuristiques contextualisées et transfert d'une technologie vers son évaluation et une phase du scénario.
 - Scénarios pédagogiques, exports PDF/CSV, bibliothèque de situations et assistant par règles.

@@ -18,6 +18,7 @@ PAGES = (
     "3_Espace_Enseignant.py",
     "4_Technologies_Reelles.py",
     "5_Studio_Pedagogique.py",
+    "8_Cahier_Journalier.py",
 )
 
 

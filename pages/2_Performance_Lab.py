@@ -179,6 +179,7 @@ with st.expander(study_labels[0]):
                                         result = ls.independent_test(*samples,method=method)
                                     result["group_labels"] = groups
                                     result["included"] = [len(v) for v in samples]
+                                    result["eligible"] = [sum(r["group"]==g and r["occasion"]==occasions[0] for r in subset) for g in groups]
                             else:
                                 if group is None:
                                     raise ValueError("Select one group")
@@ -194,7 +195,18 @@ with st.expander(study_labels[0]):
                         except (ValueError, TypeError, ArithmeticError):
                             st.error({"fr":"Données insuffisantes ou incompatibles avec ce test.","en":"Insufficient or incompatible data for this test.","ar":"البيانات غير كافية أو غير ملائمة لهذا الاختبار."}[current()])
                         else:
-                            st.json(result)
+                            result.update({"method":method,"instrument":instrument,"unit":registry[instrument]["unit"],"protocol":protocol,"occasions":occasions,"group":group})
+                            if not independent:
+                                result.update({"n_eligible":panel["n_total"],"n_complete":panel["n_complete"],"n_excluded":panel["n_excluded"]})
+                            import scipy
+                            result["scipy_version"]=scipy.__version__
+                            try:
+                                payload=json.dumps(result,ensure_ascii=False,indent=2,allow_nan=False)
+                            except ValueError:
+                                st.error({"fr":"Résultat non fini : vérifier les données.","en":"Non-finite result: check the data.","ar":"نتيجة غير منتهية: تحقق من البيانات."}[current()])
+                            else:
+                                st.json(result)
+                                st.download_button({"fr":"Exporter le résultat JSON","en":"Export JSON result","ar":"تصدير نتيجة JSON"}[current()],payload,"study_analysis.json","application/json",key="lab_study_analysis_export")
                     if panel["values"]:
                         import pandas as pd
                         import altair as alt
@@ -255,6 +267,9 @@ with st.expander(study_labels[0]):
                             terms=["Intercept"]+[variable_label(v) for v in xs]+(["X × M"] if mm=="moderation" else [])
                             for term, coefficient in zip(terms,result["coefficients"]):
                                 coefficient["term"]=term
+                        import scipy
+                        result["scipy_version"]=scipy.__version__
+                        result["variables"]=[list(v) for v in [y]+xs]
                         payload=json.dumps(result,ensure_ascii=False,indent=2,allow_nan=False)
                     except (ValueError, TypeError, ArithmeticError, np.linalg.LinAlgError):
                         st.error(ml[7])

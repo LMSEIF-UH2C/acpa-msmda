@@ -32,15 +32,21 @@ ctx.render_context(st, S, fields=("activity", "level", "class_size", "cycle_numb
 domain = st.selectbox(t("Domaine"), ["Tous"] + sorted({x["domain"] for x in TESTS}), format_func=t,
                       **ctx.bind(S, "lab_domain", "Tous"))
 choices = [x for x in TESTS if domain == "Tous" or x["domain"] == domain]
+# Keep existing domain filter and instrument IDs; group choices without hiding any.
+evidence_by_id = {x["id"]: x for x in EVIDENCE["instruments"]}
+choices.sort(key=lambda x: evidence_by_id[x["id"]]["group"] != "institutional")
+group_labels = dict(zip(("institutional", "complementary"), EVIDENCE["group_labels"][current()]))
 names = {x["id"]: t(x["name"]) for x in TESTS}
+choice_labels = {x["id"]: names[x["id"]] + " · " + group_labels[evidence_by_id[x["id"]]["group"]] for x in choices}
 if ctx.store(S).get("lab_test") not in {x["id"] for x in choices}:
     ctx.put(S, "lab_test", choices[0]["id"])
-test_id = st.selectbox(t("Épreuve"), [x["id"] for x in choices], format_func=names.get, **ctx.bind(S, "lab_test"))
+test_id = st.selectbox(t("Épreuve"), [x["id"] for x in choices], format_func=choice_labels.get, **ctx.bind(S, "lab_test"))
 test = next(x for x in TESTS if x["id"] == test_id)
 signed = bool(test.get("signed"))
 st.caption(t("Mesure : {m} ({u}). Protocole : {p}", m=t(test["measure"]), u=t(test["unit"]), p=t(test["protocol_note"])))
 
-evidence = next(x for x in EVIDENCE["instruments"] if x["id"] == test_id)
+evidence = evidence_by_id[test_id]
+st.caption(group_labels[evidence["group"]])
 if evidence.get("citation"):
     st.caption(evidence["citation"] + " · " + t("Référence déclarée : {source}", source=t(evidence["source_label"])))
 else:

@@ -7,11 +7,11 @@ sys.path.insert(0,str(ROOT/"src"))
 from acpa_msmda.ui import arabic_font_css
 
 class ClosureTests(unittest.TestCase):
-    def test_local_amiri(self):
-        for name in ("Amiri-Regular.ttf","Amiri-Bold.ttf"):
+    def test_local_plex(self):
+        for name in ("IBMPlexSansArabic-Regular.ttf","IBMPlexSansArabic-Medium.ttf","IBMPlexSansArabic-SemiBold.ttf","IBMPlexSansArabic-Bold.ttf"):
             self.assertEqual((ROOT/"assets/fonts"/name).read_bytes()[:4],b"\x00\x01\x00\x00")
-        self.assertTrue((ROOT/"assets/fonts/OFL.txt").is_file())
-        self.assertEqual(arabic_font_css().count("data:font/ttf;base64,"),2)
+        self.assertTrue((ROOT/"assets/fonts/IBM-Plex-OFL.txt").is_file())
+        self.assertEqual(arabic_font_css().count("data:font/ttf;base64,"),4)
     def test_manual_assessment(self):
         app=AppTest.from_file(str(ROOT/"pages/9_Evaluation_Technologie.py"),default_timeout=30).run()
         self.assertFalse(app.exception)

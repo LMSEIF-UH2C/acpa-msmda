@@ -30,3 +30,18 @@ class LabStatisticsTests(unittest.TestCase):
         r=regression(y,x[:,None])
         self.assertAlmostEqual(r["coefficients"][1]["b"], np.cov(x,y)[0,1]/np.var(x,ddof=1))
         with self.assertRaises(ValueError): regression(y,np.column_stack([x,x]))
+
+
+    def test_mixed_two_occasions_interaction(self):
+        from acpa_msmda.lab_statistics import mixed_anova, paired_posthoc
+        from scipy import stats
+        a=np.array([[1,2],[2,4],[4,5],[5,8]],float)
+        b=np.array([[2,5],[3,7],[5,10],[6,10]],float)
+        result=mixed_anova([a,b])
+        t=stats.ttest_ind(a[:,1]-a[:,0],b[:,1]-b[:,0],equal_var=True)
+        self.assertAlmostEqual(result["group_time"]["F"],t.statistic**2)
+        self.assertAlmostEqual(result["group_time"]["p"],t.pvalue)
+        with self.assertRaises(ValueError): mixed_anova([a,b[:3]])
+        contrasts=paired_posthoc([[1,2,4],[2,4,5],[3,4,7],[4,6,8]])
+        self.assertEqual(len(contrasts),3)
+        self.assertTrue(all(r["p"]<=r["p_holm"]<=1 for r in contrasts))

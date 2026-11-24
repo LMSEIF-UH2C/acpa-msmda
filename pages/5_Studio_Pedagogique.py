@@ -17,7 +17,7 @@ from acpa_msmda.teaching_photos import clean_photo
 from acpa_msmda.adaptive_studio import redistribute_minutes, balanced_groups, adaptation_notes  # noqa: E402
 from acpa_msmda.teaching_assistant import suggestions
 from acpa_msmda.real_catalog import load_real_tools, VERIFIED
-from acpa_msmda.i18n import t, tj  # noqa: E402
+from acpa_msmda.i18n import colon, t, tj  # noqa: E402
 from acpa_msmda.ui import PRIVACY_NOTE, STUDIO, configure_page, page_header  # noqa: E402
 
 PHASE_NAMES = ("Diagnostic", "Mise en activité", "Apprentissage", "Régulation", "Évaluation")
@@ -52,7 +52,7 @@ if pending:
     if proposal:
         labels = {"activity": "APS", "activity_specialty": "APS", "level": "Niveau",
                   "class_size": "Effectif", "connectivity": "Connexion"}
-        st.write(" · ".join(t(labels[k]) + " : " + (t(ctx.CONNECTIVITY_LABELS[v]) if k == "connectivity" else t(v) if isinstance(v, str) else str(v)) for k, v in proposal.items() if k != "activity" or "activity_specialty" not in proposal))
+        st.write(" · ".join(t(labels[k]) + colon() + (t(ctx.CONNECTIVITY_LABELS[v]) if k == "connectivity" else t(v) if isinstance(v, str) else str(v)) for k, v in proposal.items() if k != "activity" or "activity_specialty" not in proposal))
         st.caption(t("Confirmez ces informations avant de les reprendre dans votre séance. Les autres champs restent inchangés."))
         if st.button(t("Reprendre ces informations"), key="accept_search_context"):
             ctx.apply_context_proposal(S, proposal)
@@ -139,7 +139,7 @@ with st.expander(t("Adapter la séance à votre contexte")):
         st.rerun()
     target = st.number_input(t("Effectif maximum souhaité par groupe"), min_value=1, max_value=150, **ctx.bind(S, "group_target", 6))
     sizes = balanced_groups(int(ctx.get(S, "class_size")), int(target))
-    st.write(t("{n} groupes proposés", n=len(sizes)) + " : " + " / ".join(map(str, sizes)))
+    st.write(t("{n} groupes proposés", n=len(sizes)) + colon() + " / ".join(map(str, sizes)))
     st.caption(t("Organisation indicative : adaptez les groupes à l’espace, au matériel et aux besoins des élèves."))
     profile = st.selectbox(t("Maîtrise actuelle du groupe"), ["Hétérogène", "Découverte", "Approfondissement"],
                            format_func=t, **ctx.bind(S, "ability_profile", "Hétérogène"))
@@ -157,7 +157,7 @@ rows = []
 catalogue_by_id = {tool["id"]:tool for tool in load_real_tools()}
 candidate = catalogue_by_id.get(ctx.get(S,"scenario_tool_candidate"))
 if candidate:
-    st.write(t("Technologie retenue") + " : " + candidate["name"])
+    st.write(t("Technologie retenue") + colon() + candidate["name"])
     if candidate.get("source_url"):
         st.link_button(t("Site de l'éditeur"),candidate["source_url"])
     st.caption(t("Vérifiez la compatibilité avec votre séance et précisez son rôle pédagogique."))
@@ -190,7 +190,7 @@ for i, (phase, default_minutes) in enumerate(zip(PHASE_NAMES, PHASE_MINUTES)):
         support_text=tj(supports)
         if chosen:
             status=t("Fonctions vérifiées") if chosen.get("evidence_status") in VERIFIED else t("À vérifier")
-            st.write(t("Technologie retenue")+" : "+chosen["name"])
+            st.write(t("Technologie retenue")+colon()+chosen["name"])
             st.caption(status)
             if connectivity=="Aucune" and chosen.get("requirement")=="internet":
                 st.warning(t("Cette technologie exige Internet. Adaptez votre choix ou votre contexte."))
@@ -229,7 +229,7 @@ issues = scenario_checks(rows, ctx.get(S, "objectives") or "")
 for i, tool_id in ctx.store(S).get("scenario_phase_tools",{}).items():
     tool=catalogue_by_id.get(tool_id)
     if tool and connectivity=="Aucune" and tool.get("requirement")=="internet":
-        issues.append(t(PHASE_NAMES[int(i)])+" : "+tool["name"]+" · "+t("Cette technologie exige Internet. Adaptez votre choix ou votre contexte."))
+        issues.append(t(PHASE_NAMES[int(i)])+colon()+tool["name"]+" · "+t("Cette technologie exige Internet. Adaptez votre choix ou votre contexte."))
 with st.expander(t("Points à compléter : {n}", n=len(issues))):
     if issues:
         for issue in issues:

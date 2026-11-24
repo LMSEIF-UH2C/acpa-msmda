@@ -5,7 +5,7 @@ import streamlit as st
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/"src"))
 from acpa_msmda import session_context as ctx
 from acpa_msmda.formative import DIMENSIONS, LEVELS, summarize_observations, observation_export, snapshot, compare_lessons
-from acpa_msmda.i18n import t
+from acpa_msmda.i18n import colon, t
 from acpa_msmda.pdf import formative_comparison_pdf
 from acpa_msmda.formative_backup import make_backup, load_backup
 from acpa_msmda.learning_library import load_situations, details
@@ -83,7 +83,7 @@ with st.expander(t("Construire la grille"),expanded=not criteria):
         criteria.append((str(len(criteria)+1),dimension,criterion.strip()))
         st.rerun()
     for key, dim, label in criteria:
-        st.write(t(dim)+" : "+label)
+        st.write(t(dim)+colon()+label)
 if not criteria:
     st.stop()
 code=st.selectbox(t("Code élève"),[f"E{i:03d}" for i in range(1,context[2]+1)])

@@ -17,7 +17,7 @@ from acpa_msmda.measurements import (comparison, cooper_speed_kmh, fr, parse_ser
 from acpa_msmda.reliability import agreement
 from acpa_msmda.measurements import Indicator
 from acpa_msmda.pdf import measurements_pdf  # noqa: E402
-from acpa_msmda.i18n import t  # noqa: E402
+from acpa_msmda.i18n import current, t  # noqa: E402
 from acpa_msmda.ui import LAB, PRIVACY_NOTE, configure_page, page_header  # noqa: E402
 
 TESTS = json.loads((ROOT / "data" / "performance_tests.json").read_text(encoding="utf-8"))["tests"]
@@ -42,7 +42,7 @@ st.caption(t("Mesure : {m} ({u}). Protocole : {p}", m=t(test["measure"]), u=t(te
 
 evidence = next(x for x in EVIDENCE["instruments"] if x["id"] == test_id)
 if evidence.get("citation"):
-    st.caption(evidence["citation"] + " · " + t("Référence déclarée : {source}", source=evidence["source_label"]))
+    st.caption(evidence["citation"] + " · " + t("Référence déclarée : {source}", source=t(evidence["source_label"])))
 else:
     st.caption(t("Référence déclarée : {source}", source=evidence["source_label"]))
 with st.expander("ⓘ " + t("Statut scientifique et sources")):
@@ -52,6 +52,7 @@ with st.expander("ⓘ " + t("Statut scientifique et sources")):
         st.write(evidence["citation"])
     for url in evidence["reference_urls"] + evidence.get("other_reference_urls", []):
         st.markdown("[" + ("DOI" if "doi.org/" in url else url) + "](" + url + ")")
+    st.write(evidence["teacher_info"][current()])
     st.caption(t(test["protocol_note"]))
 all_series = ctx.store(S).setdefault("series", [])
 class_size = int(ctx.get(S, "class_size"))
@@ -157,7 +158,7 @@ with report:
                 for method in EVIDENCE["methods"]:
                     if method["id"] in method_ids:
                         st.markdown("**" + method.get("citation", method["id"]) + "**")
-                        st.caption(t(method.get("teacher_note", method["limitations"])))
+                        st.caption(method["teacher_info"][current()])
                         st.markdown("[DOI](" + method["reference"] + ")")
 
         for heading, indicators in sections:

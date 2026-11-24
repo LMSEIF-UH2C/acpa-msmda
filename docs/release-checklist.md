@@ -10,11 +10,13 @@ Une fusion ou un succès CI ne constitue pas une validation scientifique, ergono
 - [x] PR 41 : accueil mobile compact ; deux workflows réussis.
 - [x] PR 42 : Amiri locale et licence OFL, autoévaluation descriptive, sauvegarde en langage courant ; deux workflows réussis.
 - [x] PR 43 : continuité Technothèque, Évaluer et Scénario ; deux workflows réussis.
-- [ ] Validation de la capacité annuelle et des contrôles de restauration de la PR de clôture du journal.
+- [x] PR 44 : capacité annuelle et restauration, deux workflows réussis.
+- [x] PR 45 : correctif CSS des cartes iPhone, deux workflows réussis ; confirmation visuelle restante.
 - [ ] Essai réel sur ordinateur, iPhone et Android : navigation, lisibilité, focus, contraste, défilement, RTL, clavier, taille des cibles ; aucune certification WCAG à ce stade.
 - [ ] Essai manuel création cycle, créneaux, génération, projet de classe, studio, export, restauration et bilan.
 - [ ] Vérification manuelle PDF/CSV/JSON et des messages d'erreur ; confirmer les limites de conservation.
-- [ ] Revue finale de confidentialité et de la documentation de déploiement.
+- [x] Revue documentaire de confidentialité et de déploiement : voir privacy-deployment.md ; ne constitue pas un audit juridique.
+- [ ] Confirmer les contrôles en situation réelle et les conditions d’hébergement avant usage institutionnel.
 - [ ] CI verte sur le commit candidat ; identifier la version et publier les notes de version, sans modifier rétroactivement le DOI archivé.
 
 ## Après la première version

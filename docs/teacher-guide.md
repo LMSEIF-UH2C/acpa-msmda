@@ -4,6 +4,12 @@
 
 Choisir la langue (français, arabe ou anglais). L'accueil privilégie Évaluer, Explorer (Technothèque) et Scénario. Espace EPS regroupe les fonctionnalités complémentaires : cahier journalier, ateliers, terrain, évaluation formative et mesures.
 
+## Utiliser la plateforme à son rythme
+
+Aucun parcours ni niveau d'accès n'est imposé. On peut consulter une fiche de la technothèque, analyser son contexte, préparer une séance, organiser son année ou suivre les résultats, selon ses besoins. Les outils scientifiques constituent un approfondissement facultatif, pas un prérequis à l'usage pédagogique.
+
+Dans Espace EPS, « Laboratoire EPS — Mesurer et analyser » donne accès au module existant : choix d'une épreuve, saisie de séries codées, bilans descriptifs, comparaison de séries appariées et, si les conditions le permettent, fiabilité test-retest (ICC(A,1), SEM, MDC95, Bland-Altman). Les protocoles et conditions de mesure restent à vérifier ; les estimations sont exploratoires et ne prouvent pas un effet causal. Exporter les séries avant la fermeture. Ce laboratoire ne propose pas encore un environnement complet de recherche-action ni une saisie ALT-PE chronométrée automatisée.
+
 ## Préparer l'année et les séances
 
 1. Dans le cahier journalier, créer les cycles avec une seule APS précise par période, commune aux classes. Les objectifs restent propres à chaque classe.

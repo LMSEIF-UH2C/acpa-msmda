@@ -2638,5 +2638,81 @@
  "Conditions de mesure non renseignées ou différentes : interprétez la comparaison avec prudence.": {
   "ar": "ظروف القياس غير محددة أو مختلفة: فسّر المقارنة بحذر.",
   "en": "Measurement conditions are missing or different: interpret the comparison cautiously."
+ },
+ "Bibliothèque de situations illustrées": {
+  "ar": "مكتبة الوضعيات التعليمية المصورة",
+  "en": "Illustrated learning library"
+ },
+ "Aucune situation illustrée pour cette activité et ce niveau.": {
+  "ar": "لا توجد وضعية مصورة لهذا النشاط والمستوى.",
+  "en": "No illustrated activity for this activity and level."
+ },
+ "Situation d’apprentissage": {
+  "ar": "وضعية تعلم",
+  "en": "Learning situation"
+ },
+ "Schéma indicatif, non à l’échelle. Bleu : pratiquants. Orange : défenseurs. Flèches : directions proposées.": {
+  "ar": "رسم توضيحي غير مطابق للمقياس. الأزرق: الممارسون. البرتقالي: المدافعون. الأسهم: الاتجاهات المقترحة.",
+  "en": "Illustrative diagram, not to scale. Blue: participants. Orange: defenders. Arrows: suggested directions."
+ },
+ "Proposition pédagogique à adapter et à valider.": {
+  "ar": "اقتراح تربوي يتطلب التكييف والتحقق.",
+  "en": "Teaching proposal to adapt and validate."
+ },
+ "Objectif": {
+  "ar": "الهدف",
+  "en": "Objective"
+ },
+ "Organisation": {
+  "ar": "التنظيم",
+  "en": "Organisation"
+ },
+ "Critère de réussite": {
+  "ar": "معيار النجاح",
+  "en": "Success criterion"
+ },
+ "Simplifier": {
+  "ar": "التبسيط",
+  "en": "Make easier"
+ },
+ "Complexifier": {
+  "ar": "التعقيد",
+  "en": "Make harder"
+ },
+ "Sécurité": {
+  "ar": "السلامة",
+  "en": "Safety"
+ },
+ "Remplacer la phase d’apprentissage": {
+  "ar": "استبدال مرحلة التعلم",
+  "en": "Replace the learning phase"
+ },
+ "Fiche illustrée (PDF)": {
+  "ar": "بطاقة مصورة (PDF)",
+  "en": "Illustrated card (PDF)"
+ },
+ "Retirer le schéma du scénario": {
+  "ar": "إزالة الرسم من السيناريو",
+  "en": "Remove diagram from lesson plan"
+ },
+ "Se démarquer en triangle": {
+  "ar": "التحرر من الرقابة في مثلث",
+  "en": "Get open in a triangle"
+ },
+ "Créer un surnombre": {
+  "ar": "خلق تفوق عددي",
+  "en": "Create a numerical advantage"
+ },
+ "Construire un échange": {
+  "ar": "بناء تبادل للكرة",
+  "en": "Build a rally"
+ },
+ "Accélérer en couloir": {
+  "ar": "التسارع داخل الممر",
+  "en": "Accelerate in a lane"
+ },
+ "Réguler son allure": {
+  "ar": "تنظيم وتيرة الجري",
+  "en": "Regulate running pace"
  }
 }

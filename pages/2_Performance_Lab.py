@@ -60,6 +60,38 @@ with st.expander("ⓘ " + t("Statut scientifique et sources")):
         st.markdown("[" + ("DOI" if "doi.org/" in url else url) + "](" + url + ")")
     st.write(evidence["teacher_info"][current()])
     st.caption(t(test["protocol_note"]))
+# Optional discovery library; never feeds unverified instruments into measurement.
+LIBRARY = json.loads((ROOT / "data" / "lab_library.json").read_text(encoding="utf-8"))
+library_labels = {
+    "fr": ("Bibliothèque scientifique complémentaire", "Rechercher un instrument ou un auteur", "Famille documentaire", "Toutes les familles", "Instruments spécialisés inclus", "Piste documentaire — protocole et droits à vérifier. Aucun calcul ni diagnostic disponible.", "Ressources trouvées", "Consulter la source ou la recherche bibliographique", "Aucun résultat"),
+    "en": ("Complementary scientific library", "Search for an instrument or author", "Resource family", "All families", "Include specialized instruments", "Documentary lead — check protocol and rights. No scoring or diagnosis available.", "Resources found", "Open source or bibliographic search", "No results"),
+    "ar": ("المكتبة العلمية التكميلية", "البحث عن أداة أو مؤلف", "فئة الموارد", "جميع الفئات", "إدراج الأدوات المتخصصة", "مرجع استكشافي — تحقق من البروتوكول والحقوق. لا حساب أو تشخيص متاح.", "الموارد الموجودة", "فتح المصدر أو البحث الببليوغرافي", "لا نتائج"),
+}[current()]
+with st.expander(library_labels[0]):
+    query = st.text_input(library_labels[1], key="lab_library_query").strip().casefold()
+    groups = LIBRARY["groups"]
+    group_names = {g["id"]: g["label"][current()] for g in groups}
+    group_names["all"] = library_labels[3]
+    family = st.selectbox(library_labels[2], ["all"] + list(g["id"] for g in groups),
+                          format_func=group_names.get, key="lab_library_family")
+    specialized = st.checkbox(library_labels[4], key="lab_library_specialist")
+    matches = [(g, item) for g in groups for item in g["entries"]
+               if (family == "all" or family == g["id"])
+               and (specialized or item["level"] != "specialist")
+               and (not query or query in (item["name"] + " " + item["citation"] + " " + " ".join(g["label"].values())).casefold())]
+    st.caption(f"{library_labels[6]} : {len(matches)}")
+    st.caption(library_labels[5])
+    if matches:
+        item_names = {item["id"]: item["name"] for _, item in matches}
+        item_id = st.selectbox(library_labels[0], list(item_names), format_func=item_names.get, key="lab_library_item")
+        group, item = next((g, i) for g, i in matches if i["id"] == item_id)
+        st.markdown("**" + item["name"] + "**")
+        st.caption(group["label"][current()])
+        st.write(item["citation"])
+        st.markdown("[" + library_labels[7] + "](" + item["url"] + ")")
+    else:
+        st.info(library_labels[8])
+
 all_series = ctx.store(S).setdefault("series", [])
 class_size = int(ctx.get(S, "class_size"))
 codes = pupil_codes(class_size)

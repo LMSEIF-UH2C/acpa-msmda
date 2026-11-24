@@ -291,32 +291,32 @@ ul,ol{padding-right:1.4rem;padding-left:0}
 
 @lru_cache(maxsize=2)
 def arabic_font_css(mixed: bool = False) -> str:
-    """Local OFL fonts; mixed mode applies Amiri only to Arabic Unicode ranges."""
+    """Local OFL fonts; mixed mode applies IBM Plex Sans Arabic only to Arabic Unicode ranges."""
     root = Path(__file__).resolve().parents[2] / "assets" / "fonts"
     faces = []
     unicode_range = "unicode-range:U+0600-06FF,U+0750-077F,U+0870-089F,U+08A0-08FF,U+FB50-FDFF,U+FE70-FEFF;" if mixed else ""
-    for weight, name in ((400, "Amiri-Regular.ttf"), (700, "Amiri-Bold.ttf")):
+    for weight, name in ((400, "IBMPlexSansArabic-Regular.ttf"), (500, "IBMPlexSansArabic-Medium.ttf"), (600, "IBMPlexSansArabic-SemiBold.ttf"), (700, "IBMPlexSansArabic-Bold.ttf")):
         try:
             encoded = b64encode((root / name).read_bytes()).decode("ascii")
         except OSError:
             continue
-        faces.append(f"@font-face{{font-family:Amiri;src:url(data:font/ttf;base64,{encoded}) format('truetype');font-weight:{weight};font-display:swap;{unicode_range}}}")
+        faces.append(f"@font-face{{font-family:IBM Plex Sans Arabic;src:url(data:font/ttf;base64,{encoded}) format('truetype');font-weight:{weight};font-display:swap;{unicode_range}}}")
     if mixed:
-        return "<style>" + "".join(faces) + '\n[data-testid="stMainBlockContainer"]{--font:Amiri,-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}\n</style>'
+        return "<style>" + "".join(faces) + '\n[data-testid="stMainBlockContainer"]{--font:"IBM Plex Sans Arabic",-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}\n</style>'
     return "<style>" + "".join(faces) + """
-[data-testid="stMainBlockContainer"],.st-key-tabbar{--font:Amiri,"Geeza Pro","Noto Naskh Arabic",Arial,sans-serif}
+[data-testid="stMainBlockContainer"],.st-key-tabbar{--font:"IBM Plex Sans Arabic","Geeza Pro","Noto Naskh Arabic",Arial,sans-serif}
 [data-testid="stMainBlockContainer"] p,[data-testid="stMainBlockContainer"] li,
 [data-testid="stMainBlockContainer"] label,[data-testid="stMainBlockContainer"] summary{
- font-size:1.15rem;line-height:1.65;letter-spacing:0}
+ font-size:1rem;line-height:1.55;letter-spacing:0}
 [data-testid="stMainBlockContainer"] h1,[data-testid="stMainBlockContainer"] h2,
-[data-testid="stMainBlockContainer"] h3{letter-spacing:0;line-height:1.5}
-[data-testid="stMainBlockContainer"] input,[data-testid="stMainBlockContainer"] textarea{font-size:19px!important}
-.st-key-hero .eyebrow{font-family:Amiri,Arial,sans-serif;letter-spacing:0;font-size:.95rem}
-.st-key-hero .tagline{font-size:1.3rem}
-.st-key-hero [data-testid="stCaptionContainer"] p{font-size:1.15rem}
+[data-testid="stMainBlockContainer"] h3{letter-spacing:0;line-height:1.35}
+[data-testid="stMainBlockContainer"] input,[data-testid="stMainBlockContainer"] textarea{font-size:16px!important}
+.st-key-hero .eyebrow{font-family:"IBM Plex Sans Arabic",Arial,sans-serif;letter-spacing:0;font-size:.95rem}
+.st-key-hero .tagline{font-size:1.15rem}
+.st-key-hero [data-testid="stCaptionContainer"] p{font-size:1rem}
 div[class*="st-key-core_"] [data-testid="stCaptionContainer"] p,
-.st-key-home_eps [data-testid="stCaptionContainer"] p{font-size:1.05rem;line-height:1.6}
-.st-key-tabbar a[data-testid="stPageLink-NavLink"] p{font-family:Amiri,Arial,sans-serif!important;font-size:.9rem!important;line-height:1.25!important}
+.st-key-home_eps [data-testid="stCaptionContainer"] p{font-size:.92rem;line-height:1.5}
+.st-key-tabbar a[data-testid="stPageLink-NavLink"] p{font-family:"IBM Plex Sans Arabic",Arial,sans-serif!important;font-size:.74rem!important;line-height:1.25!important}
 [data-testid="stIconMaterial"]{font-family:"Material Symbols Rounded"!important}
 </style>"""
 

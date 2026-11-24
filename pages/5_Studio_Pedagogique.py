@@ -183,7 +183,7 @@ with st.expander(t("Points à compléter : {n}", n=len(issues))):
     else:
         st.write(t("Objectifs, activités et critères de réussite sont renseignés."))
 
-metadata = {t("APS"): t(ctx.get(S, "activity")), t("Niveau"): t(ctx.get(S, "level")), t("Modalité"): t(modality),
+metadata = {t("APS"): t(ctx.activity_label(S)), t("Niveau"): t(ctx.get(S, "level")), t("Modalité"): t(modality),
             t("Effectif"): ctx.get(S, "class_size"), t("Durée (min)"): duration,
             t("Connexion"): t(ctx.CONNECTIVITY_LABELS[connectivity]),
             t("Appareils"): t(ctx.get(S, "devices")), t("Objectifs"): ctx.get(S, "objectives"),

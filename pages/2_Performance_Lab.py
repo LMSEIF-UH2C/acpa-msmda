@@ -42,14 +42,16 @@ st.caption(t("Mesure : {m} ({u}). Protocole : {p}", m=t(test["measure"]), u=t(te
 
 evidence = next(x for x in EVIDENCE["instruments"] if x["id"] == test_id)
 if evidence.get("citation"):
-    st.caption(evidence["citation"])
+    st.caption(evidence["citation"] + " · " + t("Référence déclarée : {source}", source=evidence["source_label"]))
+else:
+    st.caption(t("Référence déclarée : {source}", source=evidence["source_label"]))
 with st.expander("ⓘ " + t("Statut scientifique et sources")):
     st.warning(t("Protocole à confirmer ; validation empirique de cette implémentation non établie."))
     st.caption(t("Référence déclarée : {source}", source=evidence["source_label"]))
     if evidence.get("citation"):
         st.write(evidence["citation"])
     for url in evidence["reference_urls"]:
-        st.markdown("[DOI]("+url+")")
+        st.markdown("[" + ("DOI" if "doi.org/" in url else url) + "](" + url + ")")
     st.caption(t(test["protocol_note"]))
 all_series = ctx.store(S).setdefault("series", [])
 class_size = int(ctx.get(S, "class_size"))

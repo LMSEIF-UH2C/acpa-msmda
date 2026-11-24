@@ -79,7 +79,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 h1,h2,h3{color:var(--ink);letter-spacing:-.02em}
 h2{font-size:1.35rem!important;font-weight:700!important}
 h3{font-size:1.12rem!important;font-weight:650!important}
-[data-testid="stCaptionContainer"],[data-testid="stCaptionContainer"] p{color:var(--muted)}
+[data-testid="stCaptionContainer"],[data-testid="stCaptionContainer"] p{color:var(--muted)!important;opacity:1!important}
 [data-testid="stHeadingWithActionElements"] a{display:none}
 
 /* En-tête de page : bandeau lumineux */
@@ -208,7 +208,38 @@ input,textarea,[data-baseweb="select"] div{font-size:16px!important}
 .st-key-tabbar [class*="st-key-tab_active"] p,.st-key-tabbar [class*="st-key-tab_active"] [data-testid="stIconMaterial"]{color:var(--blue)!important}
 [data-testid="stSidebar"],[data-testid="stExpandSidebarButton"],[data-testid="stSidebarCollapsedControl"]{display:none!important}
 
-/* Apparition douce du contenu */
+/* Accueil : une seule surface par action, bouton natif et description solidaire. */
+div[class*="st-key-core_"],.st-key-home_eps{
+  position:relative;isolation:isolate;gap:.15rem!important;padding:.65rem .85rem;
+  border:1px solid var(--line);border-radius:18px;background:#fff;box-shadow:var(--shadow);
+}
+div[class*="st-key-core_"] button[data-testid="stBaseButton-secondary"]{
+  background:transparent!important;border:0!important;box-shadow:none!important;
+  color:var(--ink)!important;justify-content:flex-start!important;
+  border-radius:0!important;min-height:2.75rem;padding:.15rem .25rem!important;
+}
+div[class*="st-key-core_"] button::after,.st-key-home_eps a[data-testid="stPageLink-NavLink"]::after{
+  content:"";position:absolute;inset:0;z-index:1;border-radius:18px;
+}
+div[class*="st-key-core_"]:focus-within,.st-key-home_eps:focus-within{
+  outline:3px solid var(--blue);outline-offset:2px;
+}
+div[class*="st-key-core_"] button [data-testid="stIconMaterial"],
+.st-key-home_eps [data-testid="stIconMaterial"]{color:var(--blue)!important}
+div[class*="st-key-core_"] [data-testid="stCaptionContainer"] p,
+.st-key-home_eps [data-testid="stCaptionContainer"] p{
+  font-size:.88rem;line-height:1.4;margin:0;padding-inline-start:2rem;color:#475569!important;opacity:1!important;
+}
+.st-key-home_eps{box-shadow:none;background:rgba(255,255,255,.6);margin-top:.3rem}
+.st-key-home_eps a[data-testid="stPageLink-NavLink"]{min-height:2.75rem;padding:.15rem .25rem}
+.st-key-home_languages [data-testid="stHorizontalBlock"]{flex-wrap:nowrap!important;gap:.35rem!important}
+.st-key-home_languages [data-testid="stColumn"]{min-width:0!important;flex:1 1 0!important;width:auto!important}
+.st-key-home_languages button{min-height:2.75rem;padding:.25rem .15rem!important;font-size:.85rem!important}
+.st-key-home_languages button p{font-size:.85rem!important}
+@media(max-width:640px){
+  div[class*="st-key-core_"],.st-key-home_eps{padding:.45rem .75rem}
+}
+ /* Apparition douce du contenu */
 [data-testid="stMainBlockContainer"]>div>div>div{animation:rise .35s ease both}
 @keyframes rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}

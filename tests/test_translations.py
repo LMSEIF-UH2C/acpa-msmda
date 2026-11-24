@@ -20,6 +20,19 @@ PLACEHOLDER = re.compile(r"\{(\w*)\}")
 
 
 class TableTests(unittest.TestCase):
+    def test_translation_cache_refreshes_when_file_changes(self):
+        import tempfile
+        import json
+        from unittest.mock import patch
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / "translations.json"
+            with patch.object(i18n, "PATH", path):
+                path.write_text(json.dumps({"test": {"ar": "first"}}), encoding="utf-8")
+                self.assertEqual(i18n.table()["test"]["ar"], "first")
+                path.write_text(json.dumps({"test": {"ar": "updated translation"}}), encoding="utf-8")
+                self.assertEqual(i18n.table()["test"]["ar"], "updated translation")
+
+
     def test_every_interface_text_has_arabic_and_english(self):
         import i18n_strings
 
@@ -105,6 +118,21 @@ class PickerTests(unittest.TestCase):
         self.assertEqual(app.session_state["lang"], "ar")
         self.assertIn("ماذا تريد أن تفعل؟", [s.value for s in app.subheader])
         self.assertTrue(any('direction:rtl' in m.value for m in app.markdown))
+
+    def test_home_descriptions_in_three_languages(self):
+        from acpa_msmda.ui import TECH_EVAL, SEARCH, STUDIO, EPS_SPACE
+        for lang in ("fr", "ar", "en"):
+            with self.subTest(lang=lang):
+                app = AppTest.from_file(str(APP), default_timeout=30)
+                app.session_state["lang"] = lang
+                app.run()
+                self.assertFalse(app.exception)
+                captions = [c.value for c in app.caption]
+                for module in (TECH_EVAL, SEARCH, STUDIO, EPS_SPACE):
+                    expected = module.summary if lang == "fr" else i18n.table()[module.summary][lang]
+                    self.assertIn(expected, captions)
+                    if lang != "fr":
+                        self.assertNotIn(module.summary, captions)
 
     def test_switching_back_to_french(self):
         app = AppTest.from_file(str(APP), default_timeout=30)

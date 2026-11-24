@@ -7,6 +7,7 @@ from acpa_msmda.i18n import t
 configure_page(EPS_SPACE)
 page_header(EPS_SPACE)
 for m in (JOURNAL,PLANNER,FIELD,FORMATIVE,LAB):
-    st.page_link(m.path,label=t(m.title),icon=m.icon)
+    if st.button(t(m.title), key="eps_"+m.key, icon=m.icon, use_container_width=True):
+        st.switch_page(m.path)
     st.caption(t(m.summary))
 st.caption(t("Les compagnons vidéo et hors ligne restent expérimentaux."))

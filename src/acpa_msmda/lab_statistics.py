@@ -116,3 +116,63 @@ def one_way(groups):
         raise ValueError("Zero within-group variance")
     r=stats.f_oneway(*arrays)
     return {"n":len(all_values),"F":float(r.statistic),"df1":len(arrays)-1,"df2":len(all_values)-len(arrays),"p":float(r.pvalue),"eta2":float(ssb/(ssb+ssw))}
+
+
+def mixed_anova(groups):
+    """Balanced group sizes, complete panels, independent subjects, common covariance.
+    Equal n is required to avoid ambiguous sums-of-squares conventions.
+    """
+    arrays=[np.asarray(g,dtype=float) for g in groups]
+    if len(arrays)<2 or any(a.ndim!=2 or min(a.shape)<2 or not np.isfinite(a).all() for a in arrays):
+        raise ValueError("At least two valid complete groups required")
+    if len({a.shape for a in arrays})!=1:
+        raise ValueError("Equal group sizes and common occasions required")
+    a=np.stack(arrays)
+    g,n,k=a.shape
+    if n<3:
+        raise ValueError("At least three subjects per group required")
+    grand=a.mean()
+    gm=a.mean(axis=(1,2))
+    tm=a.mean(axis=(0,1))
+    cell=a.mean(axis=1)
+    sm=a.mean(axis=2)
+    ss_group=n*k*np.sum((gm-grand)**2)
+    ss_subject=k*np.sum((sm-gm[:,None])**2)
+    ss_time=g*n*np.sum((tm-grand)**2)
+    ss_interaction=n*np.sum((cell-gm[:,None]-tm[None,:]+grand)**2)
+    ss_error=np.sum((a-cell[:,None,:]-sm[:,:,None]+gm[:,None,None])**2)
+    df_subject=g*(n-1)
+    df_error=df_subject*(k-1)
+    if min(ss_subject,ss_error)<=np.finfo(float).eps:
+        raise ValueError("Degenerate error variance")
+    residual=np.concatenate([x-x.mean(axis=0) for x in arrays])
+    c=np.eye(k)-np.ones((k,k))/k
+    cov=c@np.cov(residual,rowvar=False)@c
+    den=(k-1)*np.trace(cov@cov)
+    eps=float(np.clip(np.trace(cov)**2/den,1/(k-1),1)) if den>0 else 1.0
+    def effect(ss,df,error,edf,correction=1.0):
+        f=(ss/df)/(error/edf)
+        return {"F":float(f),"df1":df,"df2":edf,"p":float(stats.f.sf(f,df,edf)),
+                "partial_eta2":float(ss/(ss+error)), "gg_epsilon":correction,
+                "p_gg":float(stats.f.sf(f,df*correction,edf*correction))}
+    return {"groups":g,"n_per_group":n,"occasions":k,
+            "group":effect(ss_group,g-1,ss_subject,df_subject),
+            "time":effect(ss_time,k-1,ss_error,df_error,eps),
+            "group_time":effect(ss_interaction,(g-1)*(k-1),ss_error,df_error,eps)}
+
+def paired_posthoc(values):
+    """Pairwise paired t tests with Holm familywise correction."""
+    from itertools import combinations
+    a=np.asarray(values,dtype=float)
+    if a.ndim!=2 or min(a.shape)<3 or not np.isfinite(a).all():
+        raise ValueError("Complete panel required")
+    results=[]
+    for i,j in combinations(range(a.shape[1]),2):
+        r=paired_test(a[:,i],a[:,j])
+        results.append({"first":i,"second":j,**r})
+    order=sorted(range(len(results)),key=lambda i:results[i]["p"])
+    running=0.
+    for rank,i in enumerate(order):
+        running=max(running,min(1.,(len(order)-rank)*results[i]["p"]))
+        results[i]["p_holm"]=running
+    return results

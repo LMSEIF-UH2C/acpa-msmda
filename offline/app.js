@@ -1,0 +1,35 @@
+"use strict";
+const $=id=>document.getElementById(id);
+const KEY="acpa-field-v1";
+const empty=()=>({lang:"fr",entries:[],notes:{},a:0,b:0,selected:""});
+let state=empty(),storageOK=true;
+try{const raw=localStorage.getItem(KEY);if(raw){const parsed=JSON.parse(raw);if(parsed&&Array.isArray(parsed.entries)&&parsed.notes&&typeof parsed.notes==="object")state={...empty(),...parsed};}}catch(e){storageOK=false;}
+const dictionary={
+fr:["Mode terrain hors ligne","Langue","Ne saisissez aucun nom d'élève. Les données restent dans ce navigateur.","Chronomètre","Démarrer","Pause","Réinitialiser","Scores","Équipe A","Équipe B","Séances du cahier journalier","Importer une sauvegarde JSON du journal","Séance","Observation pédagogique","Enregistrer localement","Exporter les observations","Effacer les données locales","Premier chargement avec Internet nécessaire. Les données locales peuvent être effacées par le navigateur ; exportez vos observations.","Connecté","Hors connexion","Sauvegarde importée.","Fichier invalide ou incompatible.","Observation enregistrée.","Stockage indisponible : exportez avant de fermer.","Effacer le journal importé, les scores et les observations ?","Sélectionner une séance","L'import remplace le journal local et ses observations. Continuer ?"],
+en:["Offline field mode","Language","Do not enter pupil names. Data stays in this browser.","Stopwatch","Start","Pause","Reset","Scores","Team A","Team B","Teaching journal lessons","Import journal JSON backup","Lesson","Teaching observation","Save locally","Export observations","Clear local data","Internet is needed for the first load. Browser data may be cleared; export your observations.","Online","Offline","Backup imported.","Invalid or incompatible file.","Observation saved.","Storage unavailable: export before closing.","Clear imported journal, scores and observations?","Choose a lesson","Import replaces the local journal and observations. Continue?"],
+ar:["وضع الميدان دون اتصال","اللغة","لا تدخل أسماء التلاميذ. تبقى البيانات في هذا المتصفح.","المؤقت","بدء","إيقاف مؤقت","إعادة الضبط","النتائج","الفريق أ","الفريق ب","حصص دفتر النصوص","استيراد نسخة السجل JSON","الحصة","ملاحظة تربوية","حفظ محلي","تصدير الملاحظات","مسح البيانات المحلية","يلزم الاتصال عند التحميل الأول. قد يمسح المتصفح البيانات؛ صدّر ملاحظاتك.","متصل","غير متصل","تم استيراد النسخة.","ملف غير صالح أو غير متوافق.","تم حفظ الملاحظة.","التخزين غير متاح: صدّر البيانات قبل الإغلاق.","مسح السجل المستورد والنتائج والملاحظات؟","اختر حصة","سيحل الاستيراد محل السجل المحلي وملاحظاته. متابعة؟"]};
+const keys=["title","lang","privacy","timer","start","pause","reset","score","teamA","teamB","journal","import","lesson","note","save","export","clear","limits","online","offline","imported","invalid","saved","storage","confirm","choose","replace"];
+const t=k=>(dictionary[state.lang]||dictionary.fr)[keys.indexOf(k)]||k;
+function persist(){try{localStorage.setItem(KEY,JSON.stringify(state));storageOK=true;return true;}catch(e){storageOK=false;$("message").textContent=t("storage");return false;}}
+function status(){$("connection").textContent=t(navigator.onLine?"online":"offline");}
+function translate(){document.documentElement.lang=state.lang;document.documentElement.dir=state.lang==="ar"?"rtl":"ltr";document.querySelectorAll("[data-i]").forEach(e=>e.textContent=t(e.dataset.i));status();renderLessons();}
+$("language").value=state.lang;
+$("language").onchange=e=>{state.lang=e.target.value;translate();persist();};
+addEventListener("online",status);addEventListener("offline",status);
+let started=null,elapsed=0;
+function tick(){let ms=elapsed+(started===null?0:performance.now()-started),s=Math.floor(ms/1000);$("clock").textContent=String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0")+"."+Math.floor(ms%1000/100);}
+$("start").onclick=()=>{if(started===null)started=performance.now();};
+$("pause").onclick=()=>{if(started!==null){elapsed+=performance.now()-started;started=null;}tick();};
+$("reset").onclick=()=>{started=null;elapsed=0;tick();};setInterval(tick,100);
+function renderScores(){for(const k of ["a","b"])$(k).textContent=String(state[k]);}
+for(const k of ["a","b"])for(const [suffix,d] of [["Plus",1],["Minus",-1]])$(k+suffix).onclick=()=>{state[k]=Math.max(0,Math.min(9999,state[k]+d));renderScores();persist();};
+function renderLessons(){const sel=$("lesson");sel.replaceChildren(new Option(t("choose"),""));for(const e of state.entries)sel.add(new Option(e.date+" · "+e.group+" · "+e.activity+" · "+e.lesson,e.id));sel.value=state.selected;showLesson();}
+function showLesson(){const e=state.entries.find(e=>e.id===$("lesson").value);$("details").textContent=e?[e.date,e.group,e.activity,e.objectives].join("\n"):"";$("note").value=e?(state.notes[e.id]||""):"";$("save").disabled=!e;}
+$("lesson").onchange=()=>{state.selected=$("lesson").value;showLesson();persist();};
+function validEntry(e){return e&&typeof e.id==="string"&&/^[a-zA-Z0-9_-]{1,40}$/.test(e.id)&&typeof e.date==="string"&&/^\d{4}-\d{2}-\d{2}$/.test(e.date)&&typeof e.group==="string"&&e.group.length<=30&&typeof e.activity==="string"&&e.activity.length<=100&&Number.isInteger(e.lesson)&&typeof e.objectives==="string"&&e.objectives.length<=800;}
+$("import").onchange=async e=>{const file=e.target.files[0];if(!file)return;try{if(file.size>10485760)throw Error();const data=JSON.parse(await file.text());if(![1,2,3].includes(data.version)||!Array.isArray(data.entries)||data.entries.length>1000||!data.entries.every(validEntry)||new Set(data.entries.map(x=>x.id)).size!==data.entries.length)throw Error();if(state.entries.length&&!confirm(t("replace")))return;state.entries=data.entries.map(({id,date,group,activity,lesson,objectives})=>({id,date,group,activity,lesson,objectives}));state.notes={};state.selected="";renderLessons();$("message").textContent=persist()?t("imported"):t("storage");}catch(err){$("message").textContent=t("invalid");}finally{e.target.value="";}};
+$("save").onclick=()=>{const id=$("lesson").value;if(!state.entries.some(e=>e.id===id))return;state.notes[id]=$("note").value.slice(0,1500);$("message").textContent=persist()?t("saved"):t("storage");};
+$("export").onclick=()=>{const notes=state.entries.filter(e=>Object.hasOwn(state.notes,e.id)).map(e=>({id:e.id,date:e.date,group:e.group,activity:e.activity,lesson:e.lesson,observation:state.notes[e.id]}));const blob=new Blob([JSON.stringify({version:1,kind:"acpa-field-observations",notes},null,2)],{type:"application/json"});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download="acpa-observations.json";a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
+$("clear").onclick=()=>{if(!confirm(t("confirm")))return;const lang=state.lang;state=empty();state.lang=lang;try{localStorage.removeItem(KEY);}catch(e){storageOK=false;}renderScores();renderLessons();$("message").textContent=storageOK?"":t("storage");};
+renderScores();translate();if(!storageOK)$("message").textContent=t("storage");
+if("serviceWorker" in navigator)navigator.serviceWorker.register("./sw.js").catch(()=>{$("connection").textContent=t("online")+" · cache unavailable";});

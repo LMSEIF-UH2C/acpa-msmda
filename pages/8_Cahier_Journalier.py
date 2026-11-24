@@ -30,15 +30,15 @@ with st.expander(t("Sauvegarder ou restaurer le journal")):
     except ValueError:
         st.error(t("Fichier de sauvegarde invalide ou incompatible."))
     else:
-        st.download_button(t("Télécharger la sauvegarde (JSON)"),raw,"journal_acpa.json","application/json")
-    uploaded=st.file_uploader(t("Restaurer une sauvegarde JSON"),type=["json"],key="journal_upload")
+        st.download_button(t("Sauvegarder mes données"),raw,"journal_acpa.json","application/json")
+    uploaded=st.file_uploader(t("Restaurer mes données"),type=["json"],key="journal_upload")
     if uploaded is not None:
         try:
             restored_cycles,restored,restored_slots,restored_breaks,restored_projects=restore_workspace(uploaded.getvalue())
         except ValueError:
             st.error(t("Fichier de sauvegarde invalide ou incompatible."))
         else:
-            st.warning(t("La restauration remplacera le journal actuel."))
+            st.warning(t("La restauration remplacera les cycles, séances, créneaux, interruptions et projets actuels."))
             if st.button(t("Confirmer la restauration"),key="journal_restore"):
                 data["journal_cycles"]=restored_cycles
                 data["journal_entries"]=restored
@@ -203,7 +203,7 @@ if cycles:
     except ValueError:
         st.warning(t("Certains projets ne correspondent plus aux cycles actuels."))
     else:
-        st.download_button(t("Exporter les projets de cycle"),saved,"projets_cycles.json","application/json")
+        st.download_button(t("Sauvegarder les projets de cycle"),saved,"projets_cycles.json","application/json")
     upload=st.file_uploader(t("Restaurer les projets de cycle"),type=["json"],key="cp_upload")
     if upload is not None:
         try:

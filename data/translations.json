@@ -3814,5 +3814,61 @@
  "Répertoire des technologies": {
   "ar": "دليل التقنيات",
   "en": "Technology directory"
+ },
+ "Sauvegarder mes données": {
+  "ar": "حفظ بياناتي",
+  "en": "Back up my data"
+ },
+ "Restaurer mes données": {
+  "ar": "استعادة بياناتي",
+  "en": "Restore my data"
+ },
+ "La restauration remplacera les cycles, séances, créneaux, interruptions et projets actuels.": {
+  "ar": "ستستبدل الاستعادة الدورات والحصص والمواعيد والانقطاعات والمشاريع الحالية.",
+  "en": "Restoring will replace current cycles, lessons, slots, interruptions and projects."
+ },
+ "Sauvegarder les projets de cycle": {
+  "ar": "حفظ مشاريع الدورات",
+  "en": "Back up cycle projects"
+ },
+ "Évaluer un nouvel outil": {
+  "ar": "تقييم أداة جديدة",
+  "en": "Assess a new tool"
+ },
+ "Autoévaluation exploratoire sur 18 critères, distincte des évaluations documentées du répertoire.": {
+  "ar": "تقييم ذاتي استكشافي وفق 18 معيارا، مستقل عن التقييمات الموثقة في الدليل.",
+  "en": "Exploratory self-assessment on 18 criteria, separate from documented directory assessments."
+ },
+ "Sources et observations": {
+  "ar": "المصادر والملاحظات",
+  "en": "Sources and observations"
+ },
+ "0 = très insuffisant ; 10 = excellent. Utilisez NR si la preuve manque et SO si le critère ne s’applique pas.": {
+  "ar": "0 = ضعيف جدا؛ 10 = ممتاز. استخدم NR عند غياب الدليل وSO عند عدم انطباق المعيار.",
+  "en": "0 = very poor; 10 = excellent. Use NR if evidence is missing and SO if the criterion is not applicable."
+ },
+ "Enregistrer mon évaluation": {
+  "ar": "حفظ تقييمي",
+  "en": "Save my assessment"
+ },
+ "Indiquez un nom, des sources ou observations et au moins une note.": {
+  "ar": "أدخل اسما ومصادر أو ملاحظات ودرجة واحدة على الأقل.",
+  "en": "Enter a name, sources or observations, and at least one rating."
+ },
+ "Critères renseignés : {n}/{m}": {
+  "ar": "المعايير الموثقة: {n}/{m}",
+  "en": "Rated criteria: {n}/{m}"
+ },
+ "Moyenne descriptive des critères renseignés : {value}/10": {
+  "ar": "المتوسط الوصفي للمعايير المقيمة: {value}/10",
+  "en": "Descriptive mean of rated criteria: {value}/10"
+ },
+ "Cette moyenne ne constitue ni une note ACPA/MSMDA validée ni une preuve d’efficacité. Les critères ont ici le même poids.": {
+  "ar": "هذا المتوسط ليس درجة ACPA/MSMDA معتمدة ولا دليلا على الفعالية. المعايير هنا متساوية الأوزان.",
+  "en": "This mean is neither a validated ACPA/MSMDA score nor evidence of effectiveness. Criteria here have equal weights."
+ },
+ "Télécharger mon évaluation": {
+  "ar": "تنزيل تقييمي",
+  "en": "Download my assessment"
  }
 }

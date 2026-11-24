@@ -30,10 +30,10 @@ HOME = Module("home", "Accueil", ":material/home:", None,
               "Évaluer, sélectionner et intégrer les technologies numériques en EPS.", "Accueil")
 SEARCH = Module("search", "Technothèque", ":material/search:",
                 "pages/4_Technologies_Reelles.py",
-                "Des outils adaptés à votre activité et à vos contraintes.", "Explorer")
+                "Trouvez les technologies adaptées à votre situation d’enseignement.", "Explorer")
 STUDIO = Module("studio", "Scénarisation pédagogique", ":material/edit_note:",
                 "pages/5_Studio_Pedagogique.py",
-                "Phases, activités, supports et critères de réussite.", "Scénario")
+                "Intégrez les technologies dans vos situations d’apprentissage.", "Scénario")
 PLANNER = Module("planner", "Organiser les ateliers", ":material/groups:",
                  "pages/3_Espace_Enseignant.py",
                  "Groupes, rotations et temps de séance.", "Ateliers")
@@ -48,8 +48,8 @@ FORMATIVE = Module("formative", "Évaluation formative", ":material/assignment:"
                    "pages/7_Evaluation_Formative.py", "Observer les acquisitions à partir de critères personnalisés.", "Évaluation")
 JOURNAL = Module("journal", "Cahier journalier", ":material/calendar_month:",
                  "pages/8_Cahier_Journalier.py", "Programmation cyclique et suivi des séances.", "Journal")
-TECH_EVAL = Module("tech_eval", "Évaluation des technologies", ":material/fact_check:", "pages/9_Evaluation_Technologie.py", "Consulter les critères et les évaluations documentées.", "Évaluer")
-EPS_SPACE = Module("eps_space", "Espace EPS", ":material/apps:", "pages/10_Espace_EPS.py", "Écosystème d’accompagnement pédagogique.", "Espace EPS")
+TECH_EVAL = Module("tech_eval", "Évaluer votre contexte", ":material/fact_check:", "pages/9_Evaluation_Technologie.py", "Analysez votre contexte et identifiez vos besoins numériques.", "Évaluer")
+EPS_SPACE = Module("eps_space", "Espace EPS", ":material/apps:", "pages/10_Espace_EPS.py", "Organisez, accompagnez et suivez les apprentissages de vos élèves.", "Espace EPS")
 MODULES = (HOME, TECH_EVAL, SEARCH, STUDIO, EPS_SPACE)
 ALL_MODULES = (*MODULES, PLANNER, LAB, FIELD, FORMATIVE, JOURNAL)
 TASKS = (SEARCH, STUDIO, PLANNER, LAB)

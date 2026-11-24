@@ -7,6 +7,7 @@ from acpa_msmda import session_context as ctx
 from acpa_msmda.formative import DIMENSIONS, LEVELS, summarize_observations, observation_export, snapshot, compare_lessons
 from acpa_msmda.i18n import t
 from acpa_msmda.pdf import formative_comparison_pdf
+from acpa_msmda.formative_backup import make_backup, load_backup
 from acpa_msmda.learning_library import load_situations, details
 from acpa_msmda.ui import FORMATIVE, configure_page, page_header, PRIVACY_NOTE
 
@@ -14,8 +15,39 @@ S=st.session_state
 configure_page(FORMATIVE)
 page_header(FORMATIVE, PRIVACY_NOTE)
 st.caption(t("Évaluation descriptive : une absence d’observation ne signifie pas un échec."))
-ctx.render_context(st,S,fields=("activity","level","class_size","cycle_number","lesson_number"))
 data=ctx.store(S)
+with st.expander(t("Sauvegarder ou restaurer les évaluations")):
+    st.caption(t("Conservez ce fichier dans un emplacement sécurisé. Ne saisissez aucune donnée nominative."))
+    current = None
+    if data.get("formative_context") is not None:
+        current = {"context":data["formative_context"],"criteria":data["formative_criteria"],"records":data["formative_records"]}
+    saved_history = data.get("formative_history",{})
+    if current is not None or saved_history:
+        try:
+            backup = make_backup(current,saved_history)
+            st.download_button(t("Télécharger la sauvegarde (JSON)"),backup,"evaluations_acpa.json","application/json")
+        except ValueError:
+            st.error(t("La sauvegarde dépasse les limites autorisées ou contient des données invalides."))
+    uploaded = st.file_uploader(t("Restaurer une sauvegarde JSON"),type=["json"],key="formative_backup_upload")
+    if uploaded is not None:
+        try:
+            restored, archived = load_backup(uploaded.getvalue())
+        except ValueError:
+            st.error(t("Fichier de sauvegarde invalide ou incompatible."))
+        else:
+            st.write(t("{n} séances archivées dans le fichier",n=len(archived)))
+            st.warning(t("La restauration remplacera les évaluations actuellement ouvertes."))
+            if st.button(t("Confirmer la restauration"),key="formative_restore"):
+                data["formative_history"]=archived
+                data["formative_generation"]=data.get("formative_generation",0)+1
+                selected=restored or max(archived.values(),key=lambda v:v["context"][4])
+                data["formative_context"]=selected["context"]
+                data["formative_criteria"]=selected["criteria"]
+                data["formative_records"]=selected["records"]
+                for key,value in zip(("activity","level","class_size","cycle_number","lesson_number","formative_group"),selected["context"]):
+                    ctx.put(S,key,value)
+                st.rerun()
+ctx.render_context(st,S,fields=("activity","level","class_size","cycle_number","lesson_number"))
 group=st.text_input(t("Code du groupe (non nominatif)"),max_chars=30,**ctx.bind(S,"formative_group","")).strip()
 history=data.setdefault("formative_history",{})
 context=(ctx.get(S,"activity"),ctx.get(S,"level"),ctx.get(S,"class_size"),ctx.get(S,"cycle_number"),ctx.get(S,"lesson_number"),group)
@@ -24,10 +56,11 @@ if data.get("formative_context") != context:
     if st.button(t("Créer une nouvelle grille")):
         data["formative_generation"]=data.get("formative_generation",0)+1
         data["formative_context"]=context
+        existing=history.get(context)
         previous=[v for k,v in history.items() if k[:4]==context[:4] and k[5]==context[5] and k[4]<context[4]]
         from copy import deepcopy
-        data["formative_criteria"]=deepcopy(max(previous,key=lambda v:v["context"][4])["criteria"]) if previous else []
-        data["formative_records"]={}
+        data["formative_criteria"]=deepcopy(existing["criteria"]) if existing else deepcopy(max(previous,key=lambda v:v["context"][4])["criteria"]) if previous else []
+        data["formative_records"]=deepcopy(existing["records"]) if existing else {}
         st.rerun()
     if data.get("formative_criteria"):
         st.download_button(t("Exporter les observations (CSV)"),observation_export(data["formative_criteria"],{f"E{i:03d}":data["formative_records"].get(f"E{i:03d}",{}) for i in range(1,data["formative_context"][2]+1)}),"observations.csv","text/csv")

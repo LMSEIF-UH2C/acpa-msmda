@@ -41,6 +41,8 @@ LAB = Module("lab", "Mesurer et analyser", ":material/monitoring:",
 # Ordre d'affichage dans la barre d'onglets et sur l'accueil.
 FIELD = Module("field", "Mode terrain", ":material/timer:",
                "pages/6_Mode_Terrain.py", "Chronomètre, scores, compteurs et rotations.", "Terrain")
+FORMATIVE = Module("formative", "Évaluation formative", ":material/assignment:",
+                   "pages/7_Evaluation_Formative.py", "Observer les acquisitions à partir de critères personnalisés.", "Évaluation")
 MODULES = (HOME, SEARCH, STUDIO, PLANNER, LAB)
 TASKS = (SEARCH, STUDIO, PLANNER, LAB)
 

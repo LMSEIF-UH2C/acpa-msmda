@@ -10,7 +10,7 @@ from streamlit.testing.v1 import AppTest
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 from acpa_msmda.measurements import (comparison, cooper_speed_kmh, parse_series, pupil_codes,  # noqa: E402
-                                     report_html, series_csv, series_indicators)
+                                     report_html, series_csv, series_indicators, comparable_series)
 
 LAB = "pages/2_Performance_Lab.py"
 
@@ -45,13 +45,13 @@ class IndicatorTests(unittest.TestCase):
     def test_comparison_without_direction_avoids_progress_wording(self):
         inds, deltas = comparison([10, 12, None, 9], [11, 12, 8, 7], None)
         labels = [i.label for i in inds]
-        self.assertNotIn("Élèves en progression", labels)
+        self.assertNotIn("Variation favorable", labels)
         self.assertEqual(inds[0].value, "1 / 3")
         self.assertEqual(deltas, [1, 0, None, -2])
 
     def test_lower_is_better(self):
         inds, _ = comparison([5.0, 5.2], [4.8, 5.4], False)
-        self.assertEqual(inds[0].label, "Élèves en progression")
+        self.assertEqual(inds[0].label, "Variation favorable")
         self.assertEqual(inds[0].value, "1 / 2")
 
     def test_french_number_format_and_unit_on_variation(self):
@@ -67,7 +67,7 @@ class ExportTests(unittest.TestCase):
         data = series_csv([{"label": "=cmd", "date": "2026-11-21", "test_name": "Sprint 30 m", "unit": "s",
                             "codes": ["E01", "E02"], "values": [5.1, None]}])
         rows = list(csv.reader(io.StringIO(data.decode("utf-8-sig"))))
-        self.assertEqual(rows[0], ["Séance", "Date", "Épreuve", "Unité", "Élève", "Valeur"])
+        self.assertEqual(rows[0], ["Séance", "Date", "Épreuve", "Unité", "Élève", "Valeur", "Code du groupe (non nominatif)", "Numéro du cycle", "Numéro de séance", "Conditions de mesure"])
         self.assertEqual(rows[1][0], "'=cmd")
         self.assertEqual(rows[2][5], "")
 
@@ -95,15 +95,21 @@ class LabJourneyTests(unittest.TestCase):
         app = lab()
         app.number_input(key="w:class_size").set_value(4).run()
         app.selectbox(key="w:lab_test").set_value("sprint30").run()
+        app.text_input(key="w:measurement_group").set_value("G01").run()
+        app.text_input(key="w:measurement_protocol").set_value("Même piste, même chronomètre").run()
+        app.number_input(key="w:cycle_number").set_value(1).run()
+        app.number_input(key="w:lesson_number").set_value(1).run()
         save(app, "Début de cycle", "5,4\n5,9\nabs\n6,1")
         self.assertFalse(app.exception)
         self.assertTrue(any("3 / 4" in s.value for s in app.success))
         app.date_input(key="w:series_date").set_value(__import__("datetime").date(2027, 1, 15)).run()
+        app.number_input(key="w:lesson_number").set_value(2).run()
         save(app, "Fin de cycle", "5,2\n6,0\n5,8\n5,9")
+        next(c for c in app.checkbox if c.key and c.key.startswith("match_")).check().run()
         app.radio(key="w:direction_sprint30").set_value("Valeur plus faible").run()
         self.assertFalse(app.exception)
         text = " ".join(m.value for m in app.markdown)
-        self.assertIn("Élèves en progression", text)
+        self.assertIn("Variation favorable", text)
         self.assertIn("2 / 3", text)
         self.assertCountEqual([b.proto.label for b in app.get("download_button")],
                               ["Bilan (PDF)", "Bilan imprimable (HTML)", "Données (CSV)"])
@@ -122,6 +128,23 @@ class LabJourneyTests(unittest.TestCase):
         app.switch_page("pages/5_Studio_Pedagogique.py").run()
         app.switch_page(LAB).run()
         self.assertEqual(len(app.session_state["acpa_store"]["series"]), 1)
+
+
+class ScientificTests(unittest.TestCase):
+    def test_standard_deviation_and_effect_size(self):
+        inds = series_indicators([1.0,2.0,3.0,None],"m")
+        self.assertEqual(next(i.value for i in inds if i.label=="Écart-type (échantillon)"),"1,00 m")
+        inds,_=comparison([1,2,3,None],[2,4,6,9],True,"m")
+        self.assertEqual(next(i.value for i in inds if i.label=="Taille d’effet appariée (d_z)"),"+2,000")
+        inds,_=comparison([1,2],[2,3],True,"m")
+        self.assertFalse(any("d_z" in i.label for i in inds))
+
+    def test_eligibility(self):
+        a=dict(group="G01",cycle=1,activity="Athlétisme",level="Collège",test_id="sprint30",unit="s",protocol="P1",codes=["E01","E02"],date="2026-10-01",lesson=1)
+        b=dict(a,date="2026-10-08",lesson=2)
+        self.assertTrue(comparable_series(a,b))
+        for key,value in [("group","G02"),("protocol",""),("cycle",2),("level","Lycée"),("activity","Endurance"),("codes",["E02","E01"]),("lesson",1),("unit","m")]:
+            self.assertFalse(comparable_series(a,dict(b,**{key:value})),key)
 
 
 if __name__ == "__main__":

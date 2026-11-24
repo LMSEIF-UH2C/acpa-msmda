@@ -6,7 +6,7 @@ from datetime import date
 import streamlit as st
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/"src"))
 from acpa_msmda import session_context as ctx
-from acpa_msmda.journal import STATUSES, MAX_ENTRIES, cycle_backup, restore_cycles, export_csv
+from acpa_msmda.journal import STATUSES, MAX_ENTRIES, full_backup, restore_full, export_csv
 from acpa_msmda.timetable import generate, timetable_warnings
 from acpa_msmda.cycle_plan import check_journal, cycle_at, allows_session
 from acpa_msmda.i18n import t
@@ -19,13 +19,15 @@ page_header(JOURNAL,PRIVACY_NOTE)
 data=ctx.store(S)
 entries=data.setdefault("journal_entries",[])
 cycles=data.setdefault("journal_cycles",[])
+slots=data.setdefault("journal_slots",[])
+interruptions=data.setdefault("journal_interruptions",[])
 st.caption(t("Le journal reste en mémoire de session. Téléchargez une sauvegarde pour le conserver."))
 with st.expander(t("Sauvegarder ou restaurer le journal")):
-    st.download_button(t("Télécharger la sauvegarde (JSON)"),cycle_backup(cycles,entries),"journal_acpa.json","application/json")
+    st.download_button(t("Télécharger la sauvegarde (JSON)"),full_backup(cycles,entries,slots,interruptions),"journal_acpa.json","application/json")
     uploaded=st.file_uploader(t("Restaurer une sauvegarde JSON"),type=["json"],key="journal_upload")
     if uploaded is not None:
         try:
-            restored_cycles,restored=restore_cycles(uploaded.getvalue())
+            restored_cycles,restored,restored_slots,restored_breaks=restore_full(uploaded.getvalue())
         except ValueError:
             st.error(t("Fichier de sauvegarde invalide ou incompatible."))
         else:
@@ -33,6 +35,8 @@ with st.expander(t("Sauvegarder ou restaurer le journal")):
             if st.button(t("Confirmer la restauration"),key="journal_restore"):
                 data["journal_cycles"]=restored_cycles
                 data["journal_entries"]=restored
+                data["journal_slots"]=restored_slots
+                data["journal_interruptions"]=restored_breaks
                 st.rerun()
 st.subheader(t("Programmation annuelle des cycles"))
 if cycles:
@@ -55,8 +59,6 @@ with st.expander(t("Ajouter ou modifier un cycle"),expanded=not cycles):
             else:
                 st.rerun()
 st.subheader(t("Emploi du temps hebdomadaire"))
-slots=data.setdefault("journal_slots",[])
-interruptions=data.setdefault("journal_interruptions",[])
 days=("Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche")
 if slots:
     st.dataframe([{t("Code du groupe (non nominatif)"):s["group"],t("Niveau"):t(s["level"]),t("Jour"):t(days[s["weekday"]]),t("Heure"):f'{s["start_minute"]//60:02d}:{s["start_minute"]%60:02d}',t("Durée (min)"):s["duration"]} for s in slots],hide_index=True)
@@ -138,6 +140,7 @@ if entries:
     with st.form("journal_edit_"+selected):
         status=st.selectbox(t("Statut de la séance"),STATUSES,index=STATUSES.index(entry["status"]),format_func=t)
         actual_date=st.date_input(t("Date"),value=date.fromisoformat(entry["date"]))
+        objectives=st.text_area(t("Objectifs de la séance"),value=entry["objectives"],max_chars=800)
         reflection=st.text_area(t("Bilan pédagogique"),value=entry["reflection"],max_chars=1500)
         if st.form_submit_button(t("Enregistrer le bilan")):
             if not allows_session(cycles,actual_date,entry["cycle"],entry["activity"]):
@@ -145,7 +148,7 @@ if entries:
             elif any(e["id"]!=selected and e["group"]==entry["group"] and e["date"]==actual_date.isoformat() for e in entries):
                 st.error(t("Une séance existe déjà pour ce groupe à cette date."))
             else:
-                entry.update(status=status,reflection=reflection,date=actual_date.isoformat())
+                entry.update(status=status,reflection=reflection,objectives=objectives,date=actual_date.isoformat())
                 st.rerun()
     if st.button(t("Reprendre le contexte de la séance")):
         for key,value in (("activity",catalog_category(entry["activity"])),("activity_specialty",entry["activity"]),("level",entry["level"]),("cycle_number",entry["cycle"]),("lesson_number",entry["lesson"]),("duration",entry["duration"]),("objectives",entry["objectives"])):

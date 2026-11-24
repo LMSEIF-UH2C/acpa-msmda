@@ -1,16 +1,14 @@
-# Répartition cyclique : plateaux et APS
+# Programmation cyclique annuelle
 
-Correction fonctionnelle apportée par un enseignant d'EPS : une cellule « Rugby / Football / Ultimate » représente les activités possibles sur un plateau sportif, et non un cycle multi-APS.
+## Règle fonctionnelle confirmée par l'enseignant
 
-## Modèle cible
+La fiche de répartition fournie est un exemple local, non un standard national. Une cellule « Rugby / Football / Ultimate » propose plusieurs possibilités pour faciliter le choix, éventuellement en lien avec un plateau. L'enseignant retient une seule APS pour la période du cycle, commune à ses classes. Les objectifs, contenus, compétences et progressions sont adaptés à chaque classe et niveau.
 
-- Plateau : installation identifiée et ensemble d'APS réalisables.
-- Attribution : enseignant, plateau, période de début et de fin.
-- Projet de cycle : classe, période, une APS effectivement retenue parmi les possibilités du plateau, objectifs et progression.
-- Séance : date, classe, projet de cycle et créneau.
+## Modèle
 
-Le choix de l'APS est explicite au niveau du projet de cycle, jamais déduit automatiquement du seul nom du plateau. Il reste stable pendant le cycle de la classe. Les choix des différentes classes peuvent être distincts si l'organisation pédagogique le permet. Les conflits d'utilisation des installations doivent être contrôlés selon les créneaux et la capacité réelle, et non par interdiction générale de plusieurs APS dans une semaine.
+- Période de cycle : numéro, dates, APS unique retenue par l'enseignant.
+- Possibilités d'APS et plateau : informations facultatives, distinctes de l'APS retenue.
+- Projet de cycle par classe : référence à la période, objectifs, compétences et progression spécifiques ; hérite de l'APS retenue.
+- Séance : date, classe, projet de cycle, créneau et bilan.
 
-## Limite actuelle
-
-Le moteur et l'interface du lot 11 attribuent actuellement une catégorie APS unique à une période de l'enseignant. Ce modèle doit être remplacé avant validation de ce lot. Ne pas présenter l'interface actuelle comme conforme à cette organisation.
+Ne pas imposer six cycles, une durée fixe ou une liste de plateaux à tous les établissements sur la base de cet exemple. Ne pas créer de cycle multi-APS à partir d'une liste de possibilités. Ne pas proposer un choix indépendant de l'APS par classe dans le même cycle enseignant. Le moteur actuel impose déjà une catégorie APS unique par période ; il reste à distinguer le libellé précis de l'APS de la catégorie du catalogue et à intégrer les projets de cycle par classe.

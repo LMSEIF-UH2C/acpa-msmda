@@ -1,5 +1,5 @@
 import unittest
-from acpa_msmda.longitudinal import parse_long_csv, export_long_csv, paired_panel
+from acpa_msmda.longitudinal import parse_long_csv, export_long_csv, paired_panel, group_summary
 
 REG = {"sprint": {"unit": "s"}}
 HEADER = "participant;group;instrument;unit;occasion;date;protocol;value\n"
@@ -21,3 +21,9 @@ class LongitudinalTests(unittest.TestCase):
         rows = parse_long_csv((HEADER+ROWS).encode(), REG)
         with self.assertRaises(ValueError):
             paired_panel(rows, "sprint", "P1", ["post","pre"])
+
+    def test_group_summary_complete_cases(self):
+        rows = parse_long_csv((HEADER+ROWS+"E03;G2;sprint;s;pre;2026-01-01;P1;8\nE03;G2;sprint;s;post;2026-02-02;P1;7\n").encode(), REG)
+        summary = group_summary(rows, "sprint", "P1", ["pre","post"])
+        self.assertEqual([r["mean"] for r in summary], [6.0,4.0,8.0,7.0])
+        self.assertEqual([r["n_excluded"] for r in summary], [1,1,0,0])

@@ -3814,5 +3814,21 @@
  "Répertoire des technologies": {
   "ar": "دليل التقنيات",
   "en": "Technology directory"
+ },
+ "Sauvegarder mes données": {
+  "ar": "حفظ بياناتي",
+  "en": "Back up my data"
+ },
+ "Restaurer mes données": {
+  "ar": "استعادة بياناتي",
+  "en": "Restore my data"
+ },
+ "La restauration remplacera les cycles, séances, créneaux, interruptions et projets actuels.": {
+  "ar": "ستستبدل الاستعادة الدورات والحصص والمواعيد والانقطاعات والمشاريع الحالية.",
+  "en": "Restoring will replace current cycles, lessons, slots, interruptions and projects."
+ },
+ "Sauvegarder les projets de cycle": {
+  "ar": "حفظ مشاريع الدورات",
+  "en": "Back up cycle projects"
  }
 }

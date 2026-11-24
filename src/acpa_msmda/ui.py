@@ -6,6 +6,9 @@ la barre d'onglets, les cartes de l'accueil et les en-têtes de page restent ain
 from __future__ import annotations
 
 from dataclasses import dataclass
+from base64 import b64encode
+from functools import lru_cache
+from pathlib import Path
 
 from . import i18n
 from .i18n import t
@@ -273,6 +276,35 @@ ul,ol{padding-right:1.4rem;padding-left:0}
 """
 
 
+@lru_cache(maxsize=1)
+def arabic_font_css() -> str:
+    """Local OFL fonts, embedded only in the Arabic interface; no external requests."""
+    root = Path(__file__).resolve().parents[2] / "assets" / "fonts"
+    faces = []
+    for weight, name in ((400, "Amiri-Regular.ttf"), (700, "Amiri-Bold.ttf")):
+        try:
+            encoded = b64encode((root / name).read_bytes()).decode("ascii")
+        except OSError:
+            continue
+        faces.append(f"@font-face{{font-family:Amiri;src:url(data:font/ttf;base64,{encoded}) format('truetype');font-weight:{weight};font-display:swap;}}")
+    return "<style>" + "".join(faces) + """
+[data-testid="stMainBlockContainer"],.st-key-tabbar{--font:Amiri,"Geeza Pro","Noto Naskh Arabic",Arial,sans-serif}
+[data-testid="stMainBlockContainer"] p,[data-testid="stMainBlockContainer"] li,
+[data-testid="stMainBlockContainer"] label,[data-testid="stMainBlockContainer"] summary{
+ font-size:1.15rem;line-height:1.65;letter-spacing:0}
+[data-testid="stMainBlockContainer"] h1,[data-testid="stMainBlockContainer"] h2,
+[data-testid="stMainBlockContainer"] h3{letter-spacing:0;line-height:1.5}
+[data-testid="stMainBlockContainer"] input,[data-testid="stMainBlockContainer"] textarea{font-size:19px!important}
+.st-key-hero .eyebrow{font-family:Amiri,Arial,sans-serif;letter-spacing:0;font-size:.95rem}
+.st-key-hero .tagline{font-size:1.3rem}
+.st-key-hero [data-testid="stCaptionContainer"] p{font-size:1.15rem}
+div[class*="st-key-core_"] [data-testid="stCaptionContainer"] p,
+.st-key-home_eps [data-testid="stCaptionContainer"] p{font-size:1.05rem;line-height:1.6}
+.st-key-tabbar a[data-testid="stPageLink-NavLink"] p{font-family:Amiri,Arial,sans-serif!important;font-size:.9rem!important;line-height:1.25!important}
+[data-testid="stIconMaterial"]{font-family:"Material Symbols Rounded"!important}
+</style>"""
+
+
 def configure_page(module: Module) -> None:
     """Langue, titre d'onglet, icône et feuille de style. À appeler en tête de chaque page."""
     import streamlit as st
@@ -283,6 +315,7 @@ def configure_page(module: Module) -> None:
     st.markdown(_CSS, unsafe_allow_html=True)
     if i18n.is_rtl():
         st.markdown(_RTL_CSS, unsafe_allow_html=True)
+        st.markdown(arabic_font_css(), unsafe_allow_html=True)
 
 
 def set_language(lang: str) -> None:

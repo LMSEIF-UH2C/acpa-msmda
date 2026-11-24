@@ -93,7 +93,7 @@ with st.expander(library_labels[0]):
         st.info(library_labels[8])
 
 # Separate imported study data from existing classroom series.
-from acpa_msmda.longitudinal import parse_long_csv, export_long_csv, paired_panel, FIELDS
+from acpa_msmda.longitudinal import parse_long_csv, export_long_csv, paired_panel, group_summary, FIELDS
 study_labels = {
     "fr": ("Étude longitudinale (CSV)", "Utilisez uniquement des codes non nominatifs. Les données restent dans cette session ; exportez avant de quitter.", "Télécharger le modèle CSV", "Importer un CSV UTF-8", "Valider et remplacer les données de l'étude", "Import accepté", "Import refusé", "Exporter les données de l'étude", "Instrument", "Protocole", "Groupe", "Tous les groupes", "Temps de mesure (ordre chronologique)", "Construire le panel apparié", "Participants complets / total", "Effacer les données de l'étude", "Observations", "Séparateur CSV", "Vérifiez les dates, codes, unités et doublons. Le fichier précédent est conservé en cas d'échec."),
     "en": ("Longitudinal study (CSV)", "Use non-identifying codes only. Data stay in this session; export before leaving.", "Download CSV template", "Import UTF-8 CSV", "Validate and replace study data", "Import accepted", "Import rejected", "Export study data", "Instrument", "Protocol", "Group", "All groups", "Occasions (chronological order)", "Build paired panel", "Complete participants / total", "Clear study data", "Observations", "CSV delimiter", "Check dates, codes, units and duplicates. Previous data are retained on failure."),
@@ -135,6 +135,31 @@ with st.expander(study_labels[0]):
                 st.write(f"{study_labels[14]} : {panel['n_complete']} / {panel['n_total']}")
                 st.dataframe([{ "participant": p, **dict(zip(occasions, vals))}
                               for p, vals in zip(panel["participants"], panel["values"])], hide_index=True)
+                if panel["values"]:
+                    import pandas as pd
+                    import altair as alt
+                    trajectory = pd.DataFrame([{"participant": p, "occasion": o, "value": v}
+                                                for p, vals in zip(panel["participants"], panel["values"])
+                                                for o, v in zip(occasions, vals)])
+                    st.altair_chart(alt.Chart(trajectory).mark_line(point=True).encode(
+                        x=alt.X("occasion:N", sort=occasions, title=study_labels[12]),
+                        y=alt.Y("value:Q", title=t(registry[instrument]["unit"])),
+                        color=alt.Color("participant:N", legend=None),
+                        tooltip=["participant", "occasion", "value"]), use_container_width=True)
+                if group is None:
+                    summary = group_summary(study_rows, instrument, protocol, occasions)
+                    if summary:
+                        st.dataframe(summary, hide_index=True)
+                        import pandas as pd
+                        import altair as alt
+                        frame = pd.DataFrame(summary).dropna(subset=["mean"])
+                        if not frame.empty:
+                            st.altair_chart(alt.Chart(frame).mark_line(point=True).encode(
+                                x=alt.X("occasion:N", sort=occasions, title=study_labels[12]),
+                                y=alt.Y("mean:Q", title=t("Moyenne")+" ("+t(registry[instrument]["unit"])+")"),
+                                color=alt.Color("group:N", title=study_labels[10]),
+                                tooltip=["group", "occasion", "n", "mean"]), use_container_width=True)
+
         if st.button(study_labels[15], key="lab_study_clear"):
             S.pop("lab_study_rows", None)
             st.rerun()

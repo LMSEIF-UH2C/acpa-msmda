@@ -2,7 +2,7 @@ import unittest
 import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
-from acpa_msmda.adaptive_studio import redistribute_minutes, balanced_groups
+from acpa_msmda.adaptive_studio import redistribute_minutes, balanced_groups, adaptation_notes
 
 class AdaptiveStudioTests(unittest.TestCase):
     def test_exact_total_and_zero_phases(self):
@@ -24,3 +24,21 @@ class AdaptiveStudioTests(unittest.TestCase):
                 self.assertLessEqual(max(sizes), target)
                 self.assertGreater(min(sizes), 0)
                 self.assertLessEqual(max(sizes)-min(sizes), 1)
+
+    def test_contextual_advice(self):
+        from acpa_msmda import i18n
+        try:
+            i18n.use("fr")
+            base = adaptation_notes("Découverte", False, False, "Disponible", "Téléphone enseignant")
+            constrained = adaptation_notes("Découverte", True, True, "Aucune", "Aucun")
+            self.assertEqual(len(base), 1)
+            self.assertEqual(len(constrained), 5)
+            self.assertEqual(constrained[0], base[0])
+            self.assertNotEqual(base[0], adaptation_notes("Approfondissement", False, False, "Disponible", "Téléphone enseignant")[0])
+            for lang in ("ar", "en"):
+                i18n.use(lang)
+                translated = adaptation_notes("Découverte", True, True, "Aucune", "Aucun")
+                self.assertEqual(len(translated), 5)
+                self.assertTrue(all(a != b for a, b in zip(translated, constrained)))
+        finally:
+            i18n.use("fr")

@@ -54,3 +54,20 @@ class FieldTests(unittest.TestCase):
         self.assertEqual(app.session_state["acpa_store"]["field_count_1"],1)
         app.radio[0].set_value("Rotations").run()
         self.assertFalse(app.exception)
+
+    def test_teams_and_instructions(self):
+        app = AppTest.from_file(str(ROOT / "pages/6_Mode_Terrain.py"), default_timeout=30)
+        app.session_state["lang"] = "fr"
+        app.run()
+        app.radio[0].set_value("Équipes").run()
+        next(b for b in app.button if b.label == "Constituer les équipes").click().run()
+        self.assertFalse(app.exception)
+        count, target, teams = app.session_state["acpa_store"]["field_teams"]
+        self.assertEqual(sorted(code for team in teams for code in team), list(range(1,count+1)))
+        self.assertLessEqual(max(map(len, teams)), target)
+        self.assertLessEqual(max(map(len, teams))-min(map(len, teams)), 1)
+        app.radio[0].set_value("Consignes").run()
+        app.text_area(key="w:field_instructions").set_value("Observer le placement.").run()
+        self.assertFalse(app.exception)
+        self.assertEqual(app.session_state["acpa_store"]["field_instructions"], "Observer le placement.")
+        self.assertTrue(any(b.proto.label == "Consignes (TXT)" for b in app.get("download_button")))

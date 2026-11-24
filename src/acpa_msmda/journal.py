@@ -56,3 +56,22 @@ def export_csv(entries):
     for e in sorted(validate_entries(entries),key=lambda e:(e["date"],e["group"],e["lesson"])):
         writer.writerow([e["date"],safe_cell(e["group"]),t(e["activity"]),t(e["level"]),e["cycle"],e["lesson"],e["duration"],safe_cell(e["objectives"]),t(e["status"]),safe_cell(e["reflection"])])
     return out.getvalue().encode("utf-8-sig")
+
+
+def cycle_backup(cycles, entries):
+    from .cycle_plan import check_journal
+    clean=validate_entries(entries)
+    return json.dumps({"version":2,"cycles":check_journal(cycles,clean),"entries":clean},ensure_ascii=False).encode("utf-8")
+
+def restore_cycles(raw):
+    from .cycle_plan import check_journal
+    if not isinstance(raw,bytes) or len(raw)>10*1024*1024:
+        raise ValueError("Invalid file size")
+    try:
+        data=json.loads(raw.decode("utf-8"))
+        if not isinstance(data,dict) or set(data)!={"version","cycles","entries"} or type(data["version"]) is not int or data["version"]!=2:
+            raise ValueError("Invalid version")
+        entries=validate_entries(data["entries"])
+        return check_journal(data["cycles"],entries),entries
+    except (ValueError,TypeError,KeyError,RecursionError,AttributeError) as exc:
+        raise ValueError("Invalid cycle backup") from exc

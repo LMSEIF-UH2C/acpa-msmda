@@ -3086,5 +3086,73 @@
  "Code": {
   "ar": "الرمز",
   "en": "Code"
+ },
+ "Code du groupe (non nominatif)": {
+  "ar": "رمز المجموعة دون أسماء",
+  "en": "Non-identifying group code"
+ },
+ "Suivi du cycle": {
+  "ar": "تتبع الدورة التعليمية",
+  "en": "Cycle tracking"
+ },
+ "Historique temporaire de cette session. Exportez vos données avant de fermer l’application.": {
+  "ar": "سجل مؤقت لهذه الجلسة. صدر بياناتك قبل إغلاق التطبيق.",
+  "en": "Temporary session history. Export your data before closing the app."
+ },
+ "Les codes correspondent aux mêmes élèves et les conditions d’observation sont comparables.": {
+  "ar": "تطابق الرموز نفس التلاميذ وظروف الملاحظة قابلة للمقارنة.",
+  "en": "Codes refer to the same pupils and observation conditions are comparable."
+ },
+ "Archiver cette séance": {
+  "ar": "أرشفة هذه الحصة",
+  "en": "Archive this lesson"
+ },
+ "Séance de référence": {
+  "ar": "الحصة المرجعية",
+  "en": "Reference lesson"
+ },
+ "Niveau supérieur": {
+  "ar": "مستوى أعلى",
+  "en": "Higher level"
+ },
+ "Niveau stable": {
+  "ar": "مستوى مستقر",
+  "en": "Unchanged level"
+ },
+ "Niveau inférieur": {
+  "ar": "مستوى أدنى",
+  "en": "Lower level"
+ },
+ "Non comparable": {
+  "ar": "غير قابل للمقارنة",
+  "en": "Not comparable"
+ },
+ "Variation observée": {
+  "ar": "التغير الملاحظ",
+  "en": "Observed change"
+ },
+ "Avant": {
+  "ar": "قبل",
+  "en": "Before"
+ },
+ "Après": {
+  "ar": "بعد",
+  "en": "After"
+ },
+ "Bilan comparatif (PDF)": {
+  "ar": "حصيلة مقارنة (PDF)",
+  "en": "Comparison report (PDF)"
+ },
+ "Bilan comparatif des acquisitions": {
+  "ar": "حصيلة مقارنة للمكتسبات",
+  "en": "Comparative learning report"
+ },
+ "Cycle {cycle} : séances {before} et {after}": {
+  "ar": "الدورة {cycle}: الحصتان {before} و{after}",
+  "en": "Cycle {cycle}: lessons {before} and {after}"
+ },
+ "Les variations sont descriptives ; elles ne démontrent pas à elles seules un apprentissage.": {
+  "ar": "التغيرات وصفية ولا تثبت وحدها حدوث التعلم.",
+  "en": "Changes are descriptive; they do not by themselves demonstrate learning."
  }
 }

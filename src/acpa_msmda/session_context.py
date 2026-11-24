@@ -131,7 +131,7 @@ def search_query(session: MutableMapping) -> str:
     déjà (« sans connexion », « connexion instable ») : aucune règle du moteur
     n'est modifiée.
     """
-    parts = [t(activity_label(session)).lower(), t("{n} élèves", n=get(session, "class_size"))]
+    parts = [t(activity_label(session)).lower(), t(get(session, "level")), t("{n} élèves", n=get(session, "class_size")), t(get(session, "devices"))]
     if activity_label(session) != get(session, "activity"):
         parts.append(t(get(session, "activity")).lower())
     connectivity = get(session, "connectivity")
@@ -142,6 +142,9 @@ def search_query(session: MutableMapping) -> str:
     objectives = (get(session, "objectives") or "").strip()
     if objectives:
         parts.append(objectives)
+    equipment = (get(session, "equipment") or "").strip()
+    if equipment:
+        parts.append(equipment)
     return ", ".join(parts)
 
 

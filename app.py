@@ -36,17 +36,18 @@ def home():
         ("prepare", STUDIO, "Scénario", "Phases, activités, supports et critères de réussite."),
     )
     for key, module, label, description in paths:
-        with st.container(border=True, key="core_"+key):
+        with st.container(key="core_"+key):
             if st.button(t(label), key="guided_"+key, icon=module.icon, use_container_width=True):
                 ctx.put(st.session_state, "guided_path", key)
                 st.switch_page(module.path)
             st.caption(t(description))
-    st.divider()
-    st.page_link(EPS_SPACE.path,label=t(EPS_SPACE.title),icon=EPS_SPACE.icon)
-    st.caption(t(EPS_SPACE.summary))
+    with st.container(key="home_eps"):
+        st.page_link(EPS_SPACE.path,label=t(EPS_SPACE.title),icon=EPS_SPACE.icon)
+        st.caption(t(EPS_SPACE.summary))
     st.caption(t(PRIVACY_NOTE))
-    st.caption(t("Langue"))
-    language_buttons("switch")
+    with st.container(key="home_languages"):
+        st.caption(t("Langue"))
+        language_buttons("switch")
 
 
 i18n.use(i18n.from_session(st.session_state, st.query_params) or i18n.DEFAULT)

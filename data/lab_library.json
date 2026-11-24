@@ -1,0 +1,750 @@
+{
+  "schema_version": 1,
+  "notice": "Discovery bibliography only; not verified protocols, operational scoring or clinical guidance.",
+  "groups": [
+    {
+      "id": "endurance",
+      "label": {
+        "fr": "Endurance et capacité fonctionnelle",
+        "en": "Endurance and functional capacity",
+        "ar": "التحمل والقدرة الوظيفية"
+      },
+      "entries": [
+        {
+          "id": "yoyo_ie1",
+          "name": "Yo-Yo IE1",
+          "citation": "Bangsbo — Yo-Yo endurance",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Bangsbo+Yo-Yo+intermittent+endurance+test",
+          "level": "complementary",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "yoyo_ie2",
+          "name": "Yo-Yo IE2",
+          "citation": "Bangsbo — Yo-Yo endurance",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Bangsbo+Yo-Yo+intermittent+endurance+test",
+          "level": "complementary",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "rockport",
+          "name": "Rockport 1 mile",
+          "citation": "Kline et al. (1987)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Kline+1987+one-mile+track+walk",
+          "level": "complementary",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "ukk",
+          "name": "UKK 2 km",
+          "citation": "Oja et al. (1991)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Oja+1991+2-km+walking+test",
+          "level": "complementary",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "walk6",
+          "name": "6-minute walk test",
+          "citation": "ATS (2002)",
+          "url": "https://doi.org/10.1164/ajrccm.166.1.at1102",
+          "level": "specialist",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "step_harvard",
+          "name": "Harvard Step Test",
+          "citation": "Brouha et al. (1943)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Harvard+step+test+Brouha",
+          "level": "complementary",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "step_ymca",
+          "name": "YMCA Step Test",
+          "citation": "YMCA — fitness testing",
+          "url": "https://www.ymca.org/",
+          "level": "complementary",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "mile15",
+          "name": "1.5-mile run",
+          "citation": "Field aerobic fitness assessment",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=1.5+mile+run+validity+aerobic+fitness",
+          "level": "complementary",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "pacer",
+          "name": "FITNESSGRAM PACER",
+          "citation": "FITNESSGRAM — PACER",
+          "url": "https://fitnessgram.net/",
+          "level": "complementary",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "walk2",
+          "name": "2-minute walk test",
+          "citation": "Functional walking assessment",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=two+minute+walk+test+validity",
+          "level": "specialist",
+          "status": "documentary_lead"
+        }
+      ]
+    },
+    {
+      "id": "strength",
+      "label": {
+        "fr": "Force et endurance musculaire",
+        "en": "Strength and muscular endurance",
+        "ar": "القوة والتحمل العضلي"
+      },
+      "entries": [
+        {
+          "id": "drop_jump",
+          "name": "Drop Jump",
+          "citation": "Bosco et al. (1983) — related jump method",
+          "url": "https://doi.org/10.1007/BF00422166",
+          "level": "complementary",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "abalakov",
+          "name": "Abalakov jump",
+          "citation": "Vertical jump with arm swing",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Abalakov+jump+validity",
+          "level": "complementary",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "pullup",
+          "name": "Pull-up",
+          "citation": "Upper-body endurance assessment",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=pull-up+test+physical+fitness+reliability",
+          "level": "complementary",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "curlup",
+          "name": "Curl-up",
+          "citation": "FITNESSGRAM — curl-up",
+          "url": "https://fitnessgram.net/",
+          "level": "complementary",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "sorensen",
+          "name": "Biering-Sørensen",
+          "citation": "Biering-Sørensen (1984)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Biering-Sorensen+1984+physical+measurements",
+          "level": "specialist",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "sitstand30",
+          "name": "30-second chair stand",
+          "citation": "Jones et al. (1999)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Jones+Rikli+1999+30-s+chair+stand",
+          "level": "specialist",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "sitstand5",
+          "name": "Five times sit-to-stand",
+          "citation": "Functional mobility assessment",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=five+times+sit+to+stand+reliability",
+          "level": "specialist",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "wingate",
+          "name": "Wingate",
+          "citation": "Bar-Or — anaerobic cycling",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Bar-Or+Wingate+anaerobic+test",
+          "level": "specialist",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "rast",
+          "name": "RAST",
+          "citation": "Running-based anaerobic sprint test",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=running+based+anaerobic+sprint+test+validity",
+          "level": "complementary",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "triplehop",
+          "name": "Triple Hop Test",
+          "citation": "Single-leg hop assessment",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=triple+hop+test+reliability",
+          "level": "specialist",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "singlehop",
+          "name": "Single Hop Test",
+          "citation": "Single-leg hop assessment",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=single+leg+hop+test+reliability",
+          "level": "specialist",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "isometricpull",
+          "name": "Isometric mid-thigh pull",
+          "citation": "Force-platform assessment",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=isometric+mid-thigh+pull+reliability",
+          "level": "specialist",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "one_rm",
+          "name": "1RM",
+          "citation": "Maximal strength testing",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=one+repetition+maximum+reliability",
+          "level": "specialist",
+          "status": "documentary_lead"
+        }
+      ]
+    },
+    {
+      "id": "speed",
+      "label": {
+        "fr": "Vitesse et changements de direction",
+        "en": "Speed and change of direction",
+        "ar": "السرعة وتغيير الاتجاه"
+      },
+      "entries": [
+        {
+          "id": "sprint10",
+          "name": "Sprint 10 m",
+          "citation": "Sprint timing",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=10+m+sprint+test+reliability",
+          "level": "complementary",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "sprint20",
+          "name": "Sprint 20 m",
+          "citation": "Sprint timing",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=20+m+sprint+test+reliability",
+          "level": "complementary",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "sprint40",
+          "name": "Sprint 40 m",
+          "citation": "Sprint timing",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=40+m+sprint+test+reliability",
+          "level": "complementary",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "flying_sprint",
+          "name": "Flying sprint",
+          "citation": "Sprint timing",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=flying+sprint+maximal+velocity+test",
+          "level": "complementary",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "shuttle10x5",
+          "name": "10 × 5 m",
+          "citation": "EUROFIT — handbook",
+          "url": "https://books.google.com/books/about/Eurofit.html?id=9i6njwEACAAJ",
+          "level": "complementary",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "illinois",
+          "name": "Illinois Agility Test",
+          "citation": "Change-of-direction assessment",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Illinois+agility+test+reliability",
+          "level": "complementary",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "cod505",
+          "name": "505 Test",
+          "citation": "Change-of-direction assessment",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=505+change+of+direction+test+reliability",
+          "level": "complementary",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "proagility",
+          "name": "5-10-5",
+          "citation": "Pro-agility shuttle",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=pro+agility+5-10-5+test",
+          "level": "complementary",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "hexagon",
+          "name": "Hexagon Test",
+          "citation": "Change-of-direction assessment",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=hexagon+agility+test+reliability",
+          "level": "complementary",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "rsa",
+          "name": "RSA",
+          "citation": "Repeated sprint ability",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=repeated+sprint+ability+test+reliability",
+          "level": "complementary",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "rulerdrop",
+          "name": "Ruler Drop Test",
+          "citation": "Reaction time assessment",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=ruler+drop+test+reaction+time",
+          "level": "complementary",
+          "status": "documentary_lead"
+        }
+      ]
+    },
+    {
+      "id": "balance",
+      "label": {
+        "fr": "Équilibre et motricité",
+        "en": "Balance and motor competence",
+        "ar": "التوازن والمهارات الحركية"
+      },
+      "entries": [
+        {
+          "id": "ybt",
+          "name": "Y-Balance Test",
+          "citation": "Plisky et al. — YBT",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Plisky+Y+balance+test+reliability",
+          "level": "complementary",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "sebt",
+          "name": "Star Excursion Balance Test",
+          "citation": "Dynamic balance assessment",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=star+excursion+balance+test+reliability",
+          "level": "complementary",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "stork",
+          "name": "Stork Balance Test",
+          "citation": "Static balance assessment",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=stork+balance+test+reliability",
+          "level": "complementary",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "bess",
+          "name": "BESS",
+          "citation": "Balance Error Scoring System",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=balance+error+scoring+system+reliability",
+          "level": "specialist",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "ktk",
+          "name": "KTK",
+          "citation": "Kiphard & Schilling — KTK",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Kiphard+Schilling+KTK+motor+coordination",
+          "level": "specialist",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "tgmd3",
+          "name": "TGMD-3",
+          "citation": "Ulrich — TGMD-3",
+          "url": "https://www.proedinc.com/",
+          "level": "specialist",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "mobak",
+          "name": "MOBAK",
+          "citation": "Herrmann — MOBAK",
+          "url": "https://mobak.info/",
+          "level": "specialist",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "camsa",
+          "name": "CAMSA",
+          "citation": "Canadian Agility and Movement Skill Assessment",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Canadian+Agility+Movement+Skill+Assessment",
+          "level": "specialist",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "bot2",
+          "name": "BOT-2",
+          "citation": "Bruininks — motor proficiency",
+          "url": "https://www.pearsonassessments.com/",
+          "level": "specialist",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "mabc2",
+          "name": "MABC-2",
+          "citation": "Movement Assessment Battery for Children",
+          "url": "https://www.pearsonassessments.com/",
+          "level": "specialist",
+          "status": "documentary_lead"
+        }
+      ]
+    },
+    {
+      "id": "mobility",
+      "label": {
+        "fr": "Mobilité et fonction",
+        "en": "Mobility and function",
+        "ar": "الحركية والوظيفة"
+      },
+      "entries": [
+        {
+          "id": "backsaver",
+          "name": "Back-Saver Sit-and-Reach",
+          "citation": "FITNESSGRAM",
+          "url": "https://fitnessgram.net/",
+          "level": "complementary",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "backscratch",
+          "name": "Back Scratch",
+          "citation": "Rikli & Jones — Senior Fitness Test",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Rikli+Jones+senior+fitness+test",
+          "level": "specialist",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "apley",
+          "name": "Apley Scratch",
+          "citation": "Shoulder mobility assessment",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Apley+scratch+test",
+          "level": "specialist",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "wblt",
+          "name": "Weight-Bearing Lunge Test",
+          "citation": "Ankle dorsiflexion assessment",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=weight+bearing+lunge+test+reliability",
+          "level": "specialist",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "thomas",
+          "name": "Thomas Test",
+          "citation": "Hip flexor clinical assessment",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=modified+Thomas+test+validity",
+          "level": "specialist",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "aslr",
+          "name": "Active Straight Leg Raise",
+          "citation": "Functional mobility assessment",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=active+straight+leg+raise+test+reliability",
+          "level": "specialist",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "fms",
+          "name": "FMS",
+          "citation": "Functional Movement Screen",
+          "url": "https://www.functionalmovement.com/",
+          "level": "specialist",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "schober_mod",
+          "name": "Schober modified-modified",
+          "citation": "Tousignant et al. (2005)",
+          "url": "https://doi.org/10.1080/09638280400018411",
+          "level": "specialist",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "tug",
+          "name": "Timed Up and Go",
+          "citation": "Podsiadlo & Richardson (1991)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Podsiadlo+Richardson+1991+timed+up+go",
+          "level": "specialist",
+          "status": "documentary_lead"
+        }
+      ]
+    },
+    {
+      "id": "physiology",
+      "label": {
+        "fr": "Physiologie et charge",
+        "en": "Physiology and load",
+        "ar": "الفيزيولوجيا والحمل"
+      },
+      "entries": [
+        {
+          "id": "borg620",
+          "name": "Borg 6–20",
+          "citation": "Borg — perceived exertion",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Borg+1982+perceived+exertion",
+          "level": "complementary",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "borgcr10",
+          "name": "Borg CR10",
+          "citation": "Borg — category ratio scale",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Borg+CR10+scale",
+          "level": "complementary",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "srpe",
+          "name": "Session-RPE",
+          "citation": "Foster et al. (2001)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Foster+2001+new+approach+monitoring+exercise+training",
+          "level": "complementary",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "hrmax",
+          "name": "HRmax measured",
+          "citation": "Maximal heart rate",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=maximal+heart+rate+exercise+testing",
+          "level": "specialist",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "hrr",
+          "name": "Heart Rate Recovery",
+          "citation": "Heart rate recovery assessment",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=heart+rate+recovery+exercise+test",
+          "level": "specialist",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "karvonen",
+          "name": "Karvonen",
+          "citation": "Heart rate reserve",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Karvonen+1957+heart+rate",
+          "level": "complementary",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "trimp",
+          "name": "TRIMP",
+          "citation": "Banister — training impulse",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Banister+training+impulse+TRIMP",
+          "level": "complementary",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "hrv",
+          "name": "HRV",
+          "citation": "Task Force (1996)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/8598068/",
+          "level": "specialist",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "vo2_direct",
+          "name": "VO₂max direct",
+          "citation": "Cardiopulmonary exercise testing",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=cardiopulmonary+exercise+testing+children+guidelines",
+          "level": "specialist",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "bmi_age",
+          "name": "BMI-for-age",
+          "citation": "WHO growth reference 5–19",
+          "url": "https://www.who.int/tools/growth-reference-data-for-5to19-years",
+          "level": "specialist",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "waist",
+          "name": "Waist circumference",
+          "citation": "WHO STEPS",
+          "url": "https://www.who.int/teams/noncommunicable-diseases/surveillance/systems-tools/steps",
+          "level": "complementary",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "bia",
+          "name": "BIA",
+          "citation": "Bioelectrical impedance analysis",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=bioelectrical+impedance+children+validity",
+          "level": "specialist",
+          "status": "documentary_lead"
+        }
+      ]
+    },
+    {
+      "id": "psych",
+      "label": {
+        "fr": "Psychométrie et observation",
+        "en": "Psychometrics and observation",
+        "ar": "القياس النفسي والملاحظة"
+      },
+      "entries": [
+        {
+          "id": "ploc",
+          "name": "PLOC",
+          "citation": "Goudas et al. — PE motivation",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Goudas+Biddle+Fox+1994+physical+education",
+          "level": "specialist",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "sims",
+          "name": "SIMS",
+          "citation": "Guay et al. (2000)",
+          "url": "https://doi.org/10.1023/A:1005614228250",
+          "level": "specialist",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "sms2",
+          "name": "SMS-II",
+          "citation": "Pelletier et al. (2013)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Pelletier+2013+sport+motivation+scale+II",
+          "level": "specialist",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "paces",
+          "name": "PACES",
+          "citation": "Kendzierski & DeCarlo (1991)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=physical+activity+enjoyment+scale+Kendzierski",
+          "level": "specialist",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "imi",
+          "name": "IMI",
+          "citation": "Intrinsic Motivation Inventory",
+          "url": "https://selfdeterminationtheory.org/intrinsic-motivation-inventory/",
+          "level": "specialist",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "paqc",
+          "name": "PAQ-C",
+          "citation": "Kowalski et al. — PAQ",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Kowalski+physical+activity+questionnaire+children",
+          "level": "specialist",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "paqa",
+          "name": "PAQ-A",
+          "citation": "Kowalski et al. — PAQ",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Kowalski+physical+activity+questionnaire+adolescents",
+          "level": "specialist",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "pspp",
+          "name": "PSPP",
+          "citation": "Fox & Corbin (1989)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Fox+Corbin+physical+self+perception+profile",
+          "level": "specialist",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "teosq",
+          "name": "TEOSQ",
+          "citation": "Duda & Nicholls",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=task+ego+orientation+sport+questionnaire+Duda",
+          "level": "specialist",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "sofit",
+          "name": "SOFIT",
+          "citation": "McKenzie et al. (1991)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=McKenzie+SOFIT+1991",
+          "level": "specialist",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "sus",
+          "name": "SUS",
+          "citation": "Brooke (1996)",
+          "url": "https://www.usability.gov/how-to-and-tools/methods/system-usability-scale.html",
+          "level": "specialist",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "utaut",
+          "name": "UTAUT",
+          "citation": "Venkatesh et al. (2003)",
+          "url": "https://doi.org/10.2307/30036540",
+          "level": "specialist",
+          "status": "documentary_lead"
+        }
+      ]
+    },
+    {
+      "id": "batteries",
+      "label": {
+        "fr": "Batteries standardisées",
+        "en": "Standardized batteries",
+        "ar": "بطاريات الاختبارات المعيارية"
+      },
+      "entries": [
+        {
+          "id": "eurofit",
+          "name": "EUROFIT",
+          "citation": "Council of Europe (1993)",
+          "url": "https://books.google.com/books/about/Eurofit.html?id=9i6njwEACAAJ",
+          "level": "complementary",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "alpha",
+          "name": "ALPHA-Fitness",
+          "citation": "Ruiz et al. (2011)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/20961915/",
+          "level": "complementary",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "fitnessgram",
+          "name": "FITNESSGRAM",
+          "citation": "Cooper Institute",
+          "url": "https://fitnessgram.net/",
+          "level": "complementary",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "prefit",
+          "name": "PREFIT",
+          "citation": "Preschool fitness battery",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=PREFIT+preschool+fitness+battery",
+          "level": "specialist",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "sft",
+          "name": "Senior Fitness Test",
+          "citation": "Rikli & Jones",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Rikli+Jones+senior+fitness+test",
+          "level": "specialist",
+          "status": "documentary_lead"
+        },
+        {
+          "id": "capl",
+          "name": "CAPL-2",
+          "citation": "Canadian Assessment of Physical Literacy",
+          "url": "https://www.capl-eclp.ca/",
+          "level": "specialist",
+          "status": "documentary_lead"
+        }
+      ]
+    }
+  ]
+}

@@ -4010,5 +4010,13 @@
  "Conserver ma séance actuelle": {
   "ar": "الاحتفاظ بحصتي الحالية",
   "en": "Keep my current lesson"
+ },
+ "Laboratoire EPS — Mesurer et analyser": {
+  "ar": "مختبر التربية البدنية — القياس والتحليل",
+  "en": "PE Lab — Measure and analyse"
+ },
+ "Suivez les résultats de vos élèves, ou approfondissez avec les analyses de fiabilité.": {
+  "ar": "تتبع نتائج تلاميذك، أو تعمق في تحليلات موثوقية القياس.",
+  "en": "Track pupils' results, or explore measurement reliability analyses."
  }
 }

@@ -87,10 +87,12 @@ def regression(y,predictors,moderation=False):
     y=vector(y); x=np.asarray(predictors,dtype=float)
     if x.ndim!=2 or x.shape[0]!=len(y) or not np.isfinite(x).all() or x.shape[1]<1:
         raise ValueError("Invalid predictor matrix")
+    centers = None
     if moderation:
         if x.shape[1]!=2:
             raise ValueError("Moderation requires X and M")
-        x=x-x.mean(axis=0)
+        centers=x.mean(axis=0)
+        x=x-centers
         x=np.column_stack((x,x[:,0]*x[:,1]))
     X=np.column_stack((np.ones(len(y)),x))
     df=len(y)-X.shape[1]
@@ -101,9 +103,19 @@ def regression(y,predictors,moderation=False):
     sse=float(residual@residual); sst=float(np.sum((y-y.mean())**2))
     if sse<=np.finfo(float).eps or sst==0:
         raise ValueError("Degenerate residual or outcome variance")
-    se=np.sqrt(np.diag(np.linalg.inv(X.T@X))*sse/df)
+    condition=float(np.linalg.cond(X))
+    if not np.isfinite(condition) or condition>1e8:
+        raise ValueError("Ill-conditioned model; rescale or remove collinear predictors")
+    # SVD-based covariance avoids explicitly inverting the normal equations.
+    _, singular, vt=np.linalg.svd(X,full_matrices=False)
+    covariance=(vt.T*(1/singular**2))@vt*sse/df
+    se=np.sqrt(np.diag(covariance))
     t=beta/se; crit=stats.t.ppf(.975,df)
-    return {"n":len(y),"df":df,"r2":1-sse/sst,"coefficients":[{"b":float(b),"se":float(s),"t":float(v),"p":float(2*stats.t.sf(abs(v),df)),"ci95":[float(b-crit*s),float(b+crit*s)]} for b,s,v in zip(beta,se,t)],"condition_number":float(np.linalg.cond(X))}
+    r2=1-sse/sst
+    p=X.shape[1]-1
+    model_f=max(0., ((sst-sse)/p)/(sse/df))
+    standardized=residual/np.sqrt(sse/df)
+    return {"n":len(y),"df":df,"r2":r2,"adjusted_r2":1-(1-r2)*(len(y)-1)/df,"model_F":model_f,"model_df1":p,"model_p":float(stats.f.sf(model_f,p,df)),"residual_sd":float(np.sqrt(sse/df)),"max_abs_scaled_residual":float(np.max(np.abs(standardized))),"predictor_centers":None if centers is None else centers.tolist(),"coefficients":[{"b":float(b),"se":float(s),"t":float(v),"p":float(2*stats.t.sf(abs(v),df)),"ci95":[float(b-crit*s),float(b+crit*s)]} for b,s,v in zip(beta,se,t)],"condition_number":condition}
 
 def one_way(groups):
     arrays=[vector(g) for g in groups]

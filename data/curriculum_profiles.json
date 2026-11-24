@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "profiles": [
+    {
+      "id": "MA",
+      "label": "Maroc",
+      "levels": [
+        {
+          "id": "1AC",
+          "category": "Collège",
+          "source": "OP2009"
+        },
+        {
+          "id": "2AC",
+          "category": "Collège",
+          "source": "OP2009"
+        },
+        {
+          "id": "3AC",
+          "category": "Collège",
+          "source": "OP2009"
+        },
+        {
+          "id": "TC",
+          "category": "Lycée",
+          "source": "OP2007"
+        },
+        {
+          "id": "1BAC",
+          "category": "Lycée",
+          "source": "OP2007"
+        },
+        {
+          "id": "2BAC",
+          "category": "Lycée",
+          "source": "OP2007"
+        }
+      ],
+      "sources": {
+        "OP2007": {
+          "year": 2007,
+          "url": "https://www.dadda.ma/wp-content/uploads/2025/08/OP_2007_Fr-1.pdf",
+          "status": "archived_translation_to_verify"
+        },
+        "OP2009": {
+          "year": 2009,
+          "url": "https://www.dadda.ma/textes-officiels-en-eps/",
+          "status": "source_index_to_verify"
+        }
+      }
+    },
+    {
+      "id": "generic",
+      "label": "Autre référentiel",
+      "levels": [],
+      "sources": {}
+    }
+  ],
+  "notice": "Institutional objectives and competency statements must be checked against the source before use; custom teacher objectives are not official text."
+}

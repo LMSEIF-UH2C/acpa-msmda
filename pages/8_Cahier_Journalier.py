@@ -10,6 +10,7 @@ from acpa_msmda.journal import STATUSES, MAX_ENTRIES, full_backup, restore_full,
 from acpa_msmda.timetable import generate, timetable_warnings
 from acpa_msmda.cycle_plan import check_journal, cycle_at, allows_session
 from acpa_msmda.i18n import t
+from acpa_msmda.curriculum import profiles, validate_projects, export_projects, import_projects
 from acpa_msmda.aps_specialties import registry, catalog_category, valid_specialty
 from acpa_msmda.ui import JOURNAL, configure_page, page_header, PRIVACY_NOTE
 
@@ -159,3 +160,49 @@ if entries:
             entries.remove(entry)
             st.rerun()
     st.download_button(t("Journal (CSV)"),export_csv(visible),"journal_acpa.csv","text/csv")
+
+
+st.subheader(t("Projets de cycle par classe"))
+projects=data.setdefault("cycle_projects",[])
+if cycles:
+    profile=st.selectbox(t("Référentiel"),profiles(),format_func=lambda p:t(p["label"]),key="cp_profile")
+    grades=profile["levels"]
+    grade=st.selectbox(t("Niveau scolaire précis"),grades,format_func=lambda g:g["id"],key="cp_grade") if grades else None
+    cycle=st.selectbox(t("Cycle"),cycles,format_func=lambda c:str(c["number"])+" · "+t(c["activities"][0]),key="cp_cycle")
+    group=st.text_input(t("Code du groupe (non nominatif)"),max_chars=30,key="cp_group")
+    existing=next((p for p in projects if p["group"]==group.strip() and p["cycle"]==cycle["number"]),{})
+    if grade:
+        source=profile["sources"][grade["source"]]
+        st.caption(grade["source"]+" · "+t("Source à vérifier"))
+        st.markdown("[ "+grade["source"]+" ]("+source["url"]+")")
+    with st.form("cycle_project_"+str(cycle["number"])+"_"+group):
+        level=grade["category"] if grade else st.selectbox(t("Niveau"),ctx.LEVELS,format_func=t)
+        custom_grade=grade["id"] if grade else st.text_input(t("Niveau scolaire précis"),value=existing.get("grade",""))
+        values={}
+        for key,label in (("module","Module pédagogique"),("institutional","Objectifs institutionnels"),("reference","Référence précise du texte"),("diagnostic","Diagnostic initial"),("target","Objectif terminal du cycle"),("progression","Progression pédagogique"),("assessment","Critères et modalités d’évaluation")):
+            values[key]=st.text_area(t(label),value=existing.get(key,""),max_chars=2000)
+        if st.form_submit_button(t("Enregistrer le projet de cycle")):
+            project={"group":group.strip(),"cycle":cycle["number"],"level":level,"grade":custom_grade,"profile":profile["id"],**values}
+            candidate=[p for p in projects if (p["group"],p["cycle"])!=(project["group"],project["cycle"])]+[project]
+            try:
+                data["cycle_projects"]=validate_projects(candidate,cycles)
+            except ValueError:
+                st.error(t("Projet invalide : vérifiez le groupe, le niveau et les références."))
+            else:
+                st.rerun()
+    try:
+        saved=export_projects(projects,cycles)
+    except ValueError:
+        st.warning(t("Certains projets ne correspondent plus aux cycles actuels."))
+    else:
+        st.download_button(t("Exporter les projets de cycle"),saved,"projets_cycles.json","application/json")
+    upload=st.file_uploader(t("Restaurer les projets de cycle"),type=["json"],key="cp_upload")
+    if upload is not None:
+        try:
+            imported=import_projects(upload.getvalue(),cycles)
+        except ValueError:
+            st.error(t("Fichier de sauvegarde invalide ou incompatible."))
+        else:
+            if st.button(t("Confirmer la restauration"),key="cp_restore"):
+                data["cycle_projects"]=imported
+                st.rerun()

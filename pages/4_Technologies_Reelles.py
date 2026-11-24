@@ -50,8 +50,10 @@ def _vote_buttons(tool: dict, prefix: str) -> None:
 def _evaluation(tool: dict) -> None:
     """Score de l'application pour la demande, points forts et points de vigilance."""
     st.progress(min(1.0, tool["fit"] / 100), text=t("Adéquation à la demande") + f" · {tool['fit']:.0f}/100")
+    st.caption(t("Indice heuristique de correspondance, non validé comme mesure d’efficacité pédagogique."))
     rated = tool.get("criteria_scores")
     if not rated or tool.get("criteria_total") is None:
+        st.caption(t("Qualité non évaluée : valeur neutre utilisée pour le classement, pas une note réelle."))
         return
     for label, value in decision.bars(rated):
         if value is None:
@@ -64,6 +66,16 @@ def _evaluation(tool: dict) -> None:
     if weak:
         st.write(t("Points de vigilance : ") + tj(scoring.PUBLIC_LABELS[c] for c in weak))
     st.caption(t("D'après les informations publiées par l'éditeur."))
+
+
+def _tool_actions(tool: dict, prefix: str) -> None:
+    """Transfer a stable catalogue identifier; no automatic pedagogical endorsement."""
+    if st.button(t("Consulter son évaluation"), key=prefix+"eval_"+tool["id"]):
+        ctx.put(S,"evaluation_target",tool["id"])
+        st.switch_page("pages/9_Evaluation_Technologie.py")
+    if tool.get("source_url") and st.button(t("Retenir pour mon scénario"), key=prefix+"studio_"+tool["id"]):
+        ctx.put(S,"scenario_tool_candidate",tool["id"])
+        st.switch_page("pages/5_Studio_Pedagogique.py")
 
 
 def _store_block(tool: dict) -> None:
@@ -209,6 +221,7 @@ if query:
                 if tool.get("source_url"):
                     st.link_button(t("Voir l'application"), tool["source_url"])
                 st.caption(feedback.label(opinions.get(tool["id"])))
+                _tool_actions(tool, "rec_")
                 _vote_buttons(tool, "rec_")
         if len(matches) > shown:
             st.button(t("Afficher {n} de plus ({rest} restantes)", n=min(REC_STEP, len(matches) - shown),
@@ -265,6 +278,7 @@ for tool in filtered[(page - 1) * PAGE_SIZE:page * PAGE_SIZE]:
         if tool.get("source_url"):
             st.link_button(t("Site de l'éditeur"), tool["source_url"])
         st.caption(feedback.label(opinions.get(tool["id"])))
+        _tool_actions(tool, "catalog_")
         _vote_buttons(tool, "")
 st.caption(t("Vos avis sont anonymes : seuls la fiche, l'avis et la date sont enregistrés. "
              "Ils font remonter les outils utiles pour tous les enseignants."))

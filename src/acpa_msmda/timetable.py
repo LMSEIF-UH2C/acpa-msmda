@@ -5,7 +5,9 @@ from .cycle_plan import check_journal, cycle_at
 from .journal import validate_entries, MAX_ENTRIES
 from .session_context import LEVELS
 
-def generate(cycles, slots, interruptions, entries):
+def generate(cycles, slots, interruptions, entries, profile='MA'):
+    if profile not in ('MA','generic'):
+        raise ValueError('Unknown timetable profile')
     existing=validate_entries(entries)
     cycles=check_journal(cycles,existing)
     if not isinstance(slots,list) or len(slots)>100:
@@ -29,6 +31,18 @@ def generate(cycles, slots, interruptions, entries):
         key=(s["group"],s["weekday"])
         if key in seen: raise ValueError("One session per class and day in this version")
         seen.add(key)
+    if profile=="MA":
+        by_group={}
+        for s in slots:
+            if 12*60<=s["start_minute"]<15*60:
+                raise ValueError("MA: afternoon EPS begins at 15:00")
+            by_group.setdefault(s["group"],[]).append(s["weekday"]*1440+s["start_minute"])
+        for times in by_group.values():
+            times.sort()
+            if len(times)>2:
+                raise ValueError("MA: maximum two weekly EPS slots per class")
+            if len(times)>1 and any(b-a<48*60 for a,b in zip(times,times[1:]+[times[0]+7*1440])):
+                raise ValueError("MA: minimum 48 hours between class sessions")
     ordered=sorted(slots,key=lambda s:(s["weekday"],s["start_minute"]))
     for i,s in enumerate(ordered):
         for other in ordered[i+1:]:

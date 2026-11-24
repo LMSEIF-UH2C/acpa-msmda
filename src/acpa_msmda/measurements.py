@@ -133,9 +133,9 @@ def comparison(first: Sequence[Optional[float]], last: Sequence[Optional[float]]
     else:
         better = up if higher_is_better else down
         worse = down if higher_is_better else up
-        out = [Indicator(t("Élèves en progression"), f"{better} / {n}", better / n,
+        out = [Indicator(t("Variation favorable"), f"{better} / {n}", better / n,
                          base + " " + t("Selon le sens favorable choisi pour l'épreuve.")),
-               Indicator(t("Élèves en recul"), f"{worse} / {n}", worse / n, base),
+               Indicator(t("Variation défavorable"), f"{worse} / {n}", worse / n, base),
                Indicator(t("Résultat identique"), f"{same} / {n}", same / n, base)]
     out.append(Indicator(t("Variation moyenne"), f"{fr(mean(paired), 2, sign=True)} {unit}".strip(), None, base))
     return out, deltas
@@ -150,11 +150,11 @@ def series_csv(rows: Sequence[dict]) -> bytes:
     """Export long : une ligne par élève et par série."""
     stream = io.StringIO()
     writer = csv.writer(stream)
-    writer.writerow([t(h) for h in ("Séance", "Date", "Épreuve", "Unité", "Élève", "Valeur")])
+    writer.writerow([t(h) for h in ("Séance", "Date", "Épreuve", "Unité", "Élève", "Valeur", "Code du groupe (non nominatif)", "Numéro du cycle", "Numéro de séance", "Conditions de mesure")])
     for row in rows:
         for code, value in zip(row["codes"], row["values"]):
             writer.writerow([safe_cell(row["label"]), row["date"], t(row["test_name"]), t(row["unit"]), code,
-                             "" if value is None else value])
+                             "" if value is None else value, safe_cell(row.get("group","")), row.get("cycle",""), row.get("lesson",""), safe_cell(row.get("protocol",""))])
     return stream.getvalue().encode("utf-8-sig")
 
 
@@ -190,3 +190,14 @@ def report_html(title: str, context_line: str, sections: Sequence[tuple[str, Seq
                                       for i, c in enumerate(row)) + "</tr>")
     parts.append("</tbody></table><div class='notes'>" + "".join(f"<p>{e(n)}</p>" for n in notes) + "</div></body></html>")
     return "".join(parts).encode("utf-8")
+
+
+def comparable_series(a, b):
+    """Conservative eligibility; teacher must additionally confirm stable pupil codes."""
+    return (bool(a.get("group")) and a.get("group") == b.get("group")
+            and bool(a.get("cycle")) and a.get("cycle") == b.get("cycle")
+            and a.get("test_id") == b.get("test_id") and a.get("unit") == b.get("unit")
+            and bool(a.get("protocol")) and a.get("protocol") == b.get("protocol")
+            and a.get("codes") == b.get("codes")
+            and a.get("date", "") <= b.get("date", "")
+            and a.get("lesson", 0) > 0 and a.get("lesson", 0) < b.get("lesson", 0))

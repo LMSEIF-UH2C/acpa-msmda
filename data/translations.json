@@ -2978,5 +2978,113 @@
  "Consignes (TXT)": {
   "ar": "التعليمات (TXT)",
   "en": "Instructions (TXT)"
+ },
+ "Évaluation formative": {
+  "ar": "التقويم التكويني",
+  "en": "Formative assessment"
+ },
+ "Observer les acquisitions à partir de critères personnalisés.": {
+  "ar": "ملاحظة المكتسبات وفق معايير قابلة للتخصيص.",
+  "en": "Observe learning using custom criteria."
+ },
+ "Évaluation descriptive : une absence d’observation ne signifie pas un échec.": {
+  "ar": "تقويم وصفي: غياب الملاحظة لا يعني الفشل.",
+  "en": "Descriptive assessment: not observed does not mean unsuccessful."
+ },
+ "Toute nouvelle grille remplace les observations précédentes. Exportez-les avant de continuer.": {
+  "ar": "كل شبكة جديدة تستبدل الملاحظات السابقة. صدرها قبل المتابعة.",
+  "en": "A new grid replaces previous observations. Export them before continuing."
+ },
+ "Créer une nouvelle grille": {
+  "ar": "إنشاء شبكة جديدة",
+  "en": "Create a new rubric"
+ },
+ "Exporter les observations (CSV)": {
+  "ar": "تصدير الملاحظات (CSV)",
+  "en": "Export observations (CSV)"
+ },
+ "Construire la grille": {
+  "ar": "بناء الشبكة",
+  "en": "Build the rubric"
+ },
+ "Critère issu d’une situation pédagogique": {
+  "ar": "معيار مستمد من وضعية تعليمية",
+  "en": "Criterion from a learning situation"
+ },
+ "Ajouter le critère proposé": {
+  "ar": "إضافة المعيار المقترح",
+  "en": "Add suggested criterion"
+ },
+ "Dimension": {
+  "ar": "البعد",
+  "en": "Dimension"
+ },
+ "Motrice": {
+  "ar": "حركي",
+  "en": "Motor"
+ },
+ "Cognitive": {
+  "ar": "معرفي",
+  "en": "Cognitive"
+ },
+ "Méthodologique": {
+  "ar": "منهجي",
+  "en": "Methodological"
+ },
+ "Sociale": {
+  "ar": "اجتماعي",
+  "en": "Social"
+ },
+ "Non observé": {
+  "ar": "لم يلاحظ",
+  "en": "Not observed"
+ },
+ "À construire": {
+  "ar": "في بداية الاكتساب",
+  "en": "Emerging"
+ },
+ "En cours d’acquisition": {
+  "ar": "في طور الاكتساب",
+  "en": "Developing"
+ },
+ "Acquis": {
+  "ar": "مكتسب",
+  "en": "Acquired"
+ },
+ "Maîtrise avancée": {
+  "ar": "إتقان متقدم",
+  "en": "Advanced mastery"
+ },
+ "Critère observable": {
+  "ar": "معيار قابل للملاحظة",
+  "en": "Observable criterion"
+ },
+ "Ajouter le critère": {
+  "ar": "إضافة المعيار",
+  "en": "Add criterion"
+ },
+ "Code élève": {
+  "ar": "رمز التلميذ",
+  "en": "Pupil code"
+ },
+ "Enregistrer les observations": {
+  "ar": "حفظ الملاحظات",
+  "en": "Save observations"
+ },
+ "Bilan descriptif": {
+  "ar": "حصيلة وصفية",
+  "en": "Descriptive summary"
+ },
+ "{n} élèves observés sur {total}": {
+  "ar": "تمت ملاحظة {n} من أصل {total} تلميذا",
+  "en": "{n} pupils observed out of {total}"
+ },
+ "Niveau observé": {
+  "ar": "المستوى الملاحظ",
+  "en": "Observed level"
+ },
+ "Code": {
+  "ar": "الرمز",
+  "en": "Code"
  }
 }

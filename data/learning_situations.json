@@ -161,6 +161,134 @@
         "harder": "زيادة انتظام أزمنة المرور.",
         "safety": "تكييف الجهد حسب القدرات وتوفير الماء."
       }
+    },
+    {
+      "id": "football_support",
+      "activity": "Football",
+      "level": "Collège",
+      "title": "Conserver en mouvement",
+      "diagram": "triangle",
+      "status": "proposed",
+      "fr": {
+        "objective": "Créer une solution de passe après transmission.",
+        "organisation": "Trois joueurs conservent le ballon au sol contre un défenseur passif ; changer de position après chaque passe.",
+        "success": "Le porteur dispose d'une solution de passe accessible.",
+        "easier": "Agrandir l'espace et supprimer le défenseur.",
+        "harder": "Limiter les touches selon le niveau.",
+        "safety": "Interdire les tacles et espacer les ateliers."
+      },
+      "en": {
+        "objective": "Create a passing option after passing.",
+        "organisation": "Three players keep the ball on the ground against a passive defender; change position after each pass.",
+        "success": "The ball carrier has an accessible passing option.",
+        "easier": "Enlarge the space and remove the defender.",
+        "harder": "Limit touches according to ability.",
+        "safety": "No tackles; separate practice areas."
+      },
+      "ar": {
+        "objective": "خلق حل للتمرير بعد تمرير الكرة.",
+        "organisation": "يحافظ ثلاثة لاعبين على الكرة أرضيا ضد مدافع سلبي مع تغيير الموقع بعد كل تمريرة.",
+        "success": "يتوفر حامل الكرة على خيار تمرير متاح.",
+        "easier": "توسيع المساحة وإزالة المدافع.",
+        "harder": "تحديد عدد لمسات الكرة حسب المستوى.",
+        "safety": "منع الانزلاقات والفصل بين الورشات."
+      }
+    },
+    {
+      "id": "badminton_target",
+      "activity": "Badminton",
+      "level": "Collège",
+      "title": "Viser une zone libre",
+      "diagram": "racket",
+      "status": "proposed",
+      "fr": {
+        "objective": "Orienter le volant vers une zone choisie.",
+        "organisation": "Par deux, réaliser des frappes contrôlées vers une cible au-delà du filet.",
+        "success": "Atteindre la cible avec une trajectoire franchissant le filet.",
+        "easier": "Rapprocher la cible et agrandir sa surface.",
+        "harder": "Alterner deux cibles annoncées avant la frappe.",
+        "safety": "Garder une distance suffisante entre les raquettes et ramasser les volants au signal."
+      },
+      "en": {
+        "objective": "Direct the shuttle toward a chosen area.",
+        "organisation": "In pairs, play controlled shots toward a target beyond the net.",
+        "success": "Reach the target with a flight crossing the net.",
+        "easier": "Move the target closer and enlarge it.",
+        "harder": "Alternate two targets announced before the shot.",
+        "safety": "Keep sufficient distance between rackets and collect shuttles on signal."
+      },
+      "ar": {
+        "objective": "توجيه الريشة نحو منطقة مختارة.",
+        "organisation": "في ثنائيات، تنفيذ ضربات مضبوطة نحو هدف خلف الشبكة.",
+        "success": "بلوغ الهدف بمسار يتجاوز الشبكة.",
+        "easier": "تقريب الهدف وتوسيع مساحته.",
+        "harder": "التناوب بين هدفين يحددان قبل الضربة.",
+        "safety": "ترك مسافة كافية بين المضارب وجمع الريش عند الإشارة."
+      }
+    },
+    {
+      "id": "gym_balance",
+      "activity": "Gymnastique",
+      "level": "Collège",
+      "title": "Stabiliser un équilibre au sol",
+      "diagram": "balance",
+      "status": "proposed",
+      "fr": {
+        "objective": "Maintenir une posture stable et contrôler la sortie.",
+        "organisation": "Sur tapis, alterner appuis au sol et observation par binômes ; choisir une posture simple maîtrisée.",
+        "success": "Maintenir la posture trois secondes et sortir de façon contrôlée.",
+        "easier": "Choisir davantage d'appuis et une posture basse.",
+        "harder": "Enchaîner deux postures maîtrisées sans précipitation.",
+        "safety": "Aucun renversement ni porté ; tapis stables et espace dégagé."
+      },
+      "en": {
+        "objective": "Maintain a stable position and control the exit.",
+        "organisation": "On mats, alternate floor balances and paired observation; choose a simple mastered position.",
+        "success": "Hold the position for three seconds and exit with control.",
+        "easier": "Choose more contact points and a low position.",
+        "harder": "Link two mastered positions without rushing.",
+        "safety": "No inversions or lifts; stable mats and clear space."
+      },
+      "ar": {
+        "objective": "الحفاظ على وضعية توازن والتحكم في الخروج منها.",
+        "organisation": "على البساط، التناوب بين توازن أرضي وملاحظة ثنائية مع اختيار وضعية بسيطة متقنة.",
+        "success": "الحفاظ على الوضعية ثلاث ثوان والخروج منها بتحكم.",
+        "easier": "اختيار ارتكازات أكثر ووضعية منخفضة.",
+        "harder": "ربط وضعيتين متقنتين دون استعجال.",
+        "safety": "منع الانقلاب والحمل؛ تثبيت البساط وإخلاء المساحة."
+      }
+    },
+    {
+      "id": "acro_mirror",
+      "activity": "Gymnastique",
+      "level": "Lycée",
+      "title": "Acrosport : composer en miroir",
+      "diagram": "mirror",
+      "status": "proposed",
+      "fr": {
+        "objective": "Synchroniser des postures individuelles dans une composition collective.",
+        "organisation": "En binômes face à face, créer une suite de trois postures au sol sans contact ni porté.",
+        "success": "Enchaîner trois postures synchronisées avec des transitions maîtrisées.",
+        "easier": "Utiliser deux postures basses et un signal commun.",
+        "harder": "Varier les orientations et les transitions.",
+        "safety": "Aucune charge sur un partenaire ; tapis et distances adaptés."
+      },
+      "en": {
+        "objective": "Synchronise individual balances in a group sequence.",
+        "organisation": "In facing pairs, create three floor positions without contact or lifts.",
+        "success": "Link three synchronised positions with controlled transitions.",
+        "easier": "Use two low positions and a shared signal.",
+        "harder": "Vary orientations and transitions.",
+        "safety": "No loading of a partner; appropriate mats and spacing."
+      },
+      "ar": {
+        "objective": "مزامنة وضعيات فردية ضمن تركيب جماعي.",
+        "organisation": "في ثنائيات متقابلة، تركيب ثلاث وضعيات أرضية دون احتكاك أو حمل.",
+        "success": "ربط ثلاث وضعيات متزامنة بانتقالات مضبوطة.",
+        "easier": "استعمال وضعيتين منخفضتين وإشارة مشتركة.",
+        "harder": "تنويع الاتجاهات والانتقالات.",
+        "safety": "عدم تحميل وزن على الزميل؛ استعمال بساط ومسافات مناسبة."
+      }
     }
   ]
 }

@@ -44,6 +44,24 @@ with right:
         ctx.put(S, "teaching_photo", None)
         st.rerun()
 
+pending = ctx.get(S, "scenario_context_pending")
+if pending:
+    proposal = ctx.context_proposal(pending)
+    st.caption(t("Contexte de votre recherche"))
+    st.write(pending)
+    if proposal:
+        labels = {"activity": "APS", "activity_specialty": "APS", "level": "Niveau",
+                  "class_size": "Effectif", "connectivity": "Connexion"}
+        st.write(" · ".join(t(labels[k]) + " : " + (t(ctx.CONNECTIVITY_LABELS[v]) if k == "connectivity" else t(v) if isinstance(v, str) else str(v)) for k, v in proposal.items() if k != "activity" or "activity_specialty" not in proposal))
+        st.caption(t("Confirmez ces informations avant de les reprendre dans votre séance. Les autres champs restent inchangés."))
+        if st.button(t("Reprendre ces informations"), key="accept_search_context"):
+            ctx.apply_context_proposal(S, proposal)
+            ctx.put(S, "scenario_context_pending", None)
+            st.rerun()
+    if st.button(t("Conserver ma séance actuelle"), key="keep_current_context"):
+        ctx.put(S, "scenario_context_pending", None)
+        st.rerun()
+
 ctx.render_context(st, S, fields=("activity", "level", "class_size", "duration", "connectivity",
                                   "devices", "cycle_number", "lesson_number", "equipment", "objectives"))
 with st.expander(t("Assistant pédagogique contextualisé")):

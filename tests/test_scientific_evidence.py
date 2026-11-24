@@ -27,3 +27,14 @@ class EvidenceTests(unittest.TestCase):
             self.assertTrue(entry["reference_urls"] or entry["other_reference_urls"])
             self.assertTrue(all(url.startswith("https://") and not url.startswith("https://doi.org/")
                                 for url in entry["other_reference_urls"]))
+
+    def test_institutional_battery_and_complementary_groups(self):
+        evidence=json.loads((ROOT/"data/scientific_evidence.json").read_text(encoding="utf-8"))
+        entries=evidence["instruments"]
+        self.assertCountEqual([x["id"] for x in entries if x["group"]=="institutional"],
+                              ["leger20","sprint30","saut_horizontal","sargent","medecine_ball","souplesse_assise","souplesse_debout","flamingo","taille","poids","fc_repos"])
+        self.assertEqual(sum(x["group"]=="complementary" for x in entries),8)
+        self.assertEqual(set(evidence["group_labels"]),{"fr","ar","en"})
+        for labels in evidence["group_labels"].values():
+            self.assertEqual(len(labels),2)
+            self.assertTrue(all(label.strip() for label in labels))

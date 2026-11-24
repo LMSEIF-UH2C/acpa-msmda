@@ -38,3 +38,6 @@ typing-extensions==4.16.0
 tzdata==2026.6
 urllib3==2.8.0
 watchdog==6.0.0
+
+# Candidate dependency; compatibility must pass CI before release.
+scipy>=1.16,<2

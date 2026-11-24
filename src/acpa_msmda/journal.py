@@ -104,3 +104,32 @@ def restore_full(raw):
         return cycles,entries,slots,interruptions
     except (ValueError,TypeError,KeyError,RecursionError,AttributeError) as exc:
         raise ValueError("Invalid journal backup") from exc
+
+
+def workspace_backup(cycles, entries, slots, interruptions, projects):
+    from .curriculum import validate_projects
+    payload=json.loads(full_backup(cycles,entries,slots,interruptions))
+    payload.update(version=4,projects=validate_projects(projects,cycles))
+    raw=json.dumps(payload,ensure_ascii=False).encode("utf-8")
+    if len(raw)>10*1024*1024:
+        raise ValueError("Backup exceeds file size limit")
+    return raw
+
+def restore_workspace(raw):
+    from .curriculum import validate_projects
+    if not isinstance(raw,bytes) or len(raw)>10*1024*1024:
+        raise ValueError("Invalid file size")
+    try:
+        payload=json.loads(raw.decode("utf-8"))
+        if not isinstance(payload,dict):
+            raise ValueError("Invalid payload")
+        if type(payload.get("version")) is int and payload["version"] in (2,3):
+            return (*restore_full(raw),[])
+        if type(payload.get("version")) is not int or payload["version"]!=4 or set(payload)!={"version","cycles","entries","slots","interruptions","projects"}:
+            raise ValueError("Invalid version")
+        projects=payload.pop("projects")
+        payload["version"]=3
+        cycles,entries,slots,interruptions=restore_full(json.dumps(payload,ensure_ascii=False).encode("utf-8"))
+        return cycles,entries,slots,interruptions,validate_projects(projects,cycles)
+    except (ValueError,TypeError,KeyError,RecursionError,AttributeError) as exc:
+        raise ValueError("Invalid workspace backup") from exc

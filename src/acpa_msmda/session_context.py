@@ -79,7 +79,10 @@ def get(session: MutableMapping, key: str) -> Any:
 
 
 def put(session: MutableMapping, key: str, value: Any) -> None:
-    store(session)[key] = value
+    data = store(session)
+    if key == "activity" and value != get(session, "activity"):
+        data.pop("activity_specialty", None)
+    data[key] = value
 
 
 def bind(session: MutableMapping, key: str, default: Any = None) -> dict:
@@ -97,13 +100,22 @@ def bind(session: MutableMapping, key: str, default: Any = None) -> dict:
 
 
 def _save(session: MutableMapping, key: str) -> None:
-    store(session)[key] = session[WIDGET_PREFIX + key]
+    put(session, key, session[WIDGET_PREFIX + key])
+
+
+def activity_label(session: MutableMapping) -> str:
+    """Keep a journal specialty visible only in its matching catalogue category."""
+    from .aps_specialties import catalog_category, valid_specialty
+    specialty = get(session, "activity_specialty")
+    if valid_specialty(specialty) and catalog_category(specialty) == get(session, "activity"):
+        return specialty
+    return get(session, "activity")
 
 
 def summary(session: MutableMapping) -> str:
     """Résumé d'une ligne du contexte, pour les titres et les exports."""
     return " · ".join([
-        t(get(session, "activity")),
+        t(activity_label(session)),
         t(get(session, "level")),
         t("{n} élèves", n=get(session, "class_size")),
         t("{n} min", n=get(session, "duration")),
@@ -118,7 +130,7 @@ def search_query(session: MutableMapping) -> str:
     déjà (« sans connexion », « connexion instable ») : aucune règle du moteur
     n'est modifiée.
     """
-    parts = [t(get(session, "activity")).lower(), t("{n} élèves", n=get(session, "class_size"))]
+    parts = [t(activity_label(session)).lower(), t("{n} élèves", n=get(session, "class_size"))]
     connectivity = get(session, "connectivity")
     if connectivity == "Aucune":
         parts.append(t("sans connexion"))

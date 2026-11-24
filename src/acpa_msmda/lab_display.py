@@ -13,3 +13,19 @@ def trajectory_records(participants, values, occasions, max_rows=5000, max_subje
     return ([{"participant": p, "occasion": o, "value": v}
              for p, row in zip(participants[:n], values[:n])
              for o, v in zip(occasions, row)], n)
+
+
+from contextlib import contextmanager
+import logging
+
+
+@contextmanager
+def chart_guard(st, lang):
+    """Isolate optional chart construction/rendering from results and exports."""
+    try:
+        yield
+    except Exception:
+        logging.getLogger(__name__).exception("Optional Lab chart unavailable")
+        st.warning({"fr": "Graphique indisponible. Les tableaux, calculs et exports restent accessibles.",
+                    "en": "Chart unavailable. Tables, calculations and exports remain accessible.",
+                    "ar": "الرسم غير متاح. تبقى الجداول والحسابات والتصدير متاحة."}[lang])

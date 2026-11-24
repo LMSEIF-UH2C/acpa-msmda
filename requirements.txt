@@ -1,5 +1,5 @@
-# Versions exactes vérifiées avec Python 3.12 (tests et moteur). Régénérer avec : uv pip compile ou pip freeze dans un environnement propre.
-altair==5.5.0
+# Versions épinglées; compatibilité Python 3.12 et 3.14 vérifiée par CI. Régénérer avec : uv pip compile ou pip freeze dans un environnement propre.
+altair==6.0.0
 arabic-reshaper==3.1.0
 attrs==26.1.0
 blinker==1.9.0
@@ -30,7 +30,7 @@ reportlab==4.4.4
 requests==2.34.2
 rpds-py==2026.9.1
 smmap==5.0.3
-streamlit==1.47.1
+streamlit==1.52.0
 tenacity==9.2.1
 toml==0.10.2
 tornado==6.6.1

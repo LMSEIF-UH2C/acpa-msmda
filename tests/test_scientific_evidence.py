@@ -33,7 +33,7 @@ class EvidenceTests(unittest.TestCase):
         entries=evidence["instruments"]
         self.assertCountEqual([x["id"] for x in entries if x["group"]=="institutional"],
                               ["leger20","sprint30","saut_horizontal","sargent","medecine_ball","souplesse_assise","souplesse_debout","flamingo","taille","poids","fc_repos"])
-        self.assertEqual(sum(x["group"]=="complementary" for x in entries),15)
+        self.assertEqual(sum(x["group"]=="complementary" for x in entries),21)
         self.assertEqual(set(evidence["group_labels"]),{"fr","ar","en"})
         for labels in evidence["group_labels"].values():
             self.assertEqual(len(labels),2)
@@ -42,7 +42,7 @@ class EvidenceTests(unittest.TestCase):
     def test_common_test_units_and_translations(self):
         tests={x["id"]:x for x in json.loads((ROOT/"data/performance_tests.json").read_text(encoding="utf-8"))["tests"]}
         translations=json.loads((ROOT/"data/translations.json").read_text(encoding="utf-8"))
-        units={"leger_boucher":"km/h","yoyo_ir1":"m","yoyo_ir2":"m","ift3015":"km/h","shuttle4x10":"s","handgrip":"kg","side_plank":"s"}
+        units={"leger_boucher":"km/h","yoyo_ir1":"m","yoyo_ir2":"m","ift3015":"km/h","shuttle4x10":"s","handgrip":"kg","side_plank":"s","vameval":"km/h","demi_cooper":"m","front_plank":"s","pushup":"nombre","squat_jump":"cm","t_test":"s"}
         for instrument, unit in units.items():
             with self.subTest(instrument=instrument):
                 entry=tests[instrument]

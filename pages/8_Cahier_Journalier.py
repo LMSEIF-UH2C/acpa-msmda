@@ -7,6 +7,7 @@ import streamlit as st
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/"src"))
 from acpa_msmda import session_context as ctx
 from acpa_msmda.journal import STATUSES, MAX_ENTRIES, cycle_backup, restore_cycles, export_csv
+from acpa_msmda.timetable import generate
 from acpa_msmda.cycle_plan import check_journal, cycle_at, allows_session
 from acpa_msmda.i18n import t
 from acpa_msmda.aps_specialties import registry, catalog_category, valid_specialty
@@ -53,6 +54,57 @@ with st.expander(t("Ajouter ou modifier un cycle"),expanded=not cycles):
                 st.error(t("Cycle incompatible : vérifiez les dates, les chevauchements et les séances existantes."))
             else:
                 st.rerun()
+st.subheader(t("Emploi du temps hebdomadaire"))
+slots=data.setdefault("journal_slots",[])
+interruptions=data.setdefault("journal_interruptions",[])
+days=("Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche")
+if slots:
+    st.dataframe([{t("Code du groupe (non nominatif)"):s["group"],t("Niveau"):t(s["level"]),t("Jour"):t(days[s["weekday"]]),t("Heure"):f'{s["start_minute"]//60:02d}:{s["start_minute"]%60:02d}',t("Durée (min)"):s["duration"]} for s in slots],hide_index=True)
+with st.expander(t("Ajouter un créneau")):
+    with st.form("journal_slot"):
+        slot_group=st.text_input(t("Code du groupe (non nominatif)"),max_chars=30)
+        slot_level=st.selectbox(t("Niveau"),ctx.LEVELS,format_func=t)
+        weekday=st.selectbox(t("Jour"),range(7),format_func=lambda i:t(days[i]))
+        hour=st.time_input(t("Heure"))
+        duration=st.number_input(t("Durée (min)"),min_value=15,max_value=240,value=60,step=5)
+        if st.form_submit_button(t("Enregistrer le créneau")):
+            candidate=slots+[{"group":slot_group.strip(),"level":slot_level,"weekday":weekday,"start_minute":hour.hour*60+hour.minute,"duration":duration}]
+            try:
+                generate([],candidate,[],[])
+            except ValueError:
+                st.error(t("Créneau invalide ou en conflit."))
+            else:
+                slots[:]=candidate
+                st.rerun()
+    if slots:
+        remove_slot=st.selectbox(t("Créneau à supprimer"),range(len(slots)),format_func=lambda i:slots[i]["group"]+" · "+t(days[slots[i]["weekday"]]))
+        if st.button(t("Supprimer le créneau")):
+            slots.pop(remove_slot)
+            st.rerun()
+with st.expander(t("Interruptions pédagogiques")):
+    st.write(interruptions)
+    with st.form("journal_break"):
+        break_start=st.date_input(t("Début"),key="break_start")
+        break_end=st.date_input(t("Fin"),key="break_end")
+        if st.form_submit_button(t("Ajouter une interruption")):
+            if break_start>break_end or len(interruptions)>=100:
+                st.error(t("Période invalide."))
+            else:
+                interruptions.append([break_start.isoformat(),break_end.isoformat()])
+                st.rerun()
+    if interruptions:
+        remove_break=st.selectbox(t("Interruption à supprimer"),range(len(interruptions)),format_func=lambda i:" – ".join(interruptions[i]))
+        if st.button(t("Supprimer l’interruption")):
+            interruptions.pop(remove_break)
+            st.rerun()
+st.caption(t("La génération ajoute uniquement les séances manquantes. Elle ne modifie pas les séances existantes."))
+if st.button(t("Générer les séances annuelles"),disabled=not cycles or not slots):
+    try:
+        data["journal_entries"]=generate(cycles,slots,interruptions,entries)
+    except ValueError:
+        st.error(t("Génération impossible : vérifiez les créneaux et la capacité du journal."))
+    else:
+        st.rerun()
 ctx.render_context(st,S,fields=("level","duration","objectives"))
 when=st.date_input(t("Date de la séance"),value=date.today(),key="journal_day")
 assigned=cycle_at(cycles,when)

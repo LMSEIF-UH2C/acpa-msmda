@@ -260,3 +260,24 @@ def situation_pdf(situation):
     return build([k.para(t("Situation d’apprentissage"), "h1"),
                   k.para(t(situation["activity"]) + " · " + t(situation["level"]), "muted")]
                  + situation_story(k, situation), title)
+
+
+def formative_comparison_pdf(context, prior, comparison):
+    """Ordinal comparisons, with missing observations explicitly reported."""
+    k = kit()
+    activity, level, count, cycle, lesson, group = context
+    title = t("Bilan comparatif des acquisitions")
+    story = [k.para(title, "h1"),
+             k.para(t(activity)+" · "+t(level)+" · "+group, "muted"),
+             k.para(t("Cycle {cycle} : séances {before} et {after}", cycle=cycle,before=prior,after=lesson)),
+             k.para(t("Les variations sont descriptives ; elles ne démontrent pas à elles seules un apprentissage."),"muted")]
+    labels = {"higher":t("Niveau supérieur"),"same":t("Niveau stable"),"lower":t("Niveau inférieur"),"missing":t("Non comparable")}
+    for item in comparison:
+        story.append(k.para(t(item["dimension"])+" : "+item["criterion"],"h2"))
+        story.append(k.table([[t("Variation observée"),t("Élèves")]]+
+                    [[label,item[key]] for key,label in labels.items()],[k.width*.75,k.width*.25]))
+        story.append(k.para(t("Détail par élève"),"h2"))
+        story.append(k.table([[t("Code"),t("Avant"),t("Après"),t("Variation observée")]]+
+                    [[code,t(old),t(new),labels[status]] for code,old,new,status in item["transitions"]],
+                    [k.width*.14,k.width*.28,k.width*.28,k.width*.30]))
+    return build(story,title)

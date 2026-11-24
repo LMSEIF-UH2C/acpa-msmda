@@ -11,7 +11,7 @@ sys.path.insert(0, str(ROOT / "src"))
 from acpa_msmda import session_context as ctx
 from acpa_msmda import i18n  # noqa: E402
 from acpa_msmda.i18n import t  # noqa: E402
-from acpa_msmda.ui import (APP_NAME, HOME, MODULES, FIELD, PRIVACY_NOTE, configure_page,  # noqa: E402
+from acpa_msmda.ui import (APP_NAME, HOME, MODULES, FIELD, FORMATIVE, PRIVACY_NOTE, configure_page,  # noqa: E402
                            language_buttons, page_header, tab_bar)
 
 
@@ -48,6 +48,7 @@ def home():
     st.page_link("pages/3_Espace_Enseignant.py", label=t("Organiser les ateliers"), icon=":material/groups:")
     if st.button(t("Mode terrain"), icon=FIELD.icon, use_container_width=True, key="field_entry"):
         st.switch_page(FIELD.path)
+    st.page_link(FORMATIVE.path, label=t(FORMATIVE.title), icon=FORMATIVE.icon)
     st.caption(t("La préparation sans connexion concerne le terrain ; cette application hébergée nécessite Internet."))
     st.caption(t(PRIVACY_NOTE))
     st.caption(t("Langue"))
@@ -56,9 +57,9 @@ def home():
 
 i18n.use(i18n.from_session(st.session_state, st.query_params) or i18n.DEFAULT)
 home_page = st.Page(home, title=t(HOME.title), icon=HOME.icon, default=True)
-pages = st.navigation([home_page] + [st.Page(m.path, title=t(m.title), icon=m.icon) for m in (*MODULES, FIELD) if m.path],
+pages = st.navigation([home_page] + [st.Page(m.path, title=t(m.title), icon=m.icon) for m in (*MODULES, FIELD, FORMATIVE) if m.path],
                       position="hidden")
-current = next((m.key for m in (*MODULES, FIELD) if t(m.title) == pages.title), HOME.key)
+current = next((m.key for m in (*MODULES, FIELD, FORMATIVE) if t(m.title) == pages.title), HOME.key)
 if i18n.from_session(st.session_state, st.query_params) is not None or current != HOME.key:
     tab_bar(current, home_page)
 pages.run()

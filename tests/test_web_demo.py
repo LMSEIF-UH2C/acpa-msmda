@@ -37,14 +37,15 @@ class HomeTests(unittest.TestCase):
         from acpa_msmda.ui import MODULES
         links = [e.proto.label for e in app.get("page_link")]
         self.assertIn("Organiser les ateliers", links)
-        self.assertEqual([label for label in links if label != "Organiser les ateliers"],
+        self.assertIn("Évaluation formative", links)
+        self.assertEqual([label for label in links if label not in ("Organiser les ateliers", "Évaluation formative")],
                          [m.short for m in MODULES])
 
     def test_navigation_targets_exist(self):
         import sys
         sys.path.insert(0, str(ROOT / "src"))
-        from acpa_msmda.ui import MODULES
-        for module in MODULES:
+        from acpa_msmda.ui import MODULES, FIELD, FORMATIVE
+        for module in (*MODULES, FIELD, FORMATIVE):
             if module.path:
                 self.assertTrue((ROOT / module.path).is_file(), module.path)
 

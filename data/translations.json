@@ -3190,5 +3190,37 @@
  "Confirmer la restauration": {
   "ar": "تأكيد الاستعادة",
   "en": "Confirm restore"
+ },
+ "Variation favorable": {
+  "ar": "تغير في الاتجاه المرغوب",
+  "en": "Favourable change"
+ },
+ "Variation défavorable": {
+  "ar": "تغير في الاتجاه غير المرغوب",
+  "en": "Unfavourable change"
+ },
+ "Aucune série antérieure comparable : vérifiez le groupe, le cycle, les codes et les conditions de mesure.": {
+  "ar": "لا توجد سلسلة سابقة قابلة للمقارنة: تحقق من المجموعة والدورة والرموز وظروف القياس.",
+  "en": "No comparable earlier series: check group, cycle, codes and measurement conditions."
+ },
+ "Écart-type (échantillon)": {
+  "ar": "الانحراف المعياري للعينة",
+  "en": "Sample standard deviation"
+ },
+ "Dispersion des mesures autour de la moyenne ; dénominateur n − 1.": {
+  "ar": "تشتت القياسات حول المتوسط؛ المقام n − 1.",
+  "en": "Dispersion around the mean; denominator n − 1."
+ },
+ "Écart-type des différences": {
+  "ar": "الانحراف المعياري للفروق",
+  "en": "Standard deviation of differences"
+ },
+ "Taille d’effet appariée (d_z)": {
+  "ar": "حجم الأثر للقياسات المزدوجة (d_z)",
+  "en": "Paired effect size (d_z)"
+ },
+ "Différence moyenne divisée par son écart-type ; signe après moins avant. Aucune interprétation causale.": {
+  "ar": "متوسط الفرق مقسوما على انحرافه المعياري؛ الإشارة بعد ناقص قبل. لا تفسير سببي.",
+  "en": "Mean difference divided by its standard deviation; sign is after minus before. No causal interpretation."
  }
 }

@@ -3618,5 +3618,77 @@
  "Randonnée": {
   "ar": "المشي لمسافات طويلة",
   "en": "Hiking"
+ },
+ "Projets de cycle par classe": {
+  "ar": "مشاريع الدورات حسب القسم",
+  "en": "Class cycle projects"
+ },
+ "Référentiel": {
+  "ar": "المرجع",
+  "en": "Curriculum"
+ },
+ "Maroc": {
+  "ar": "المغرب",
+  "en": "Morocco"
+ },
+ "Autre référentiel": {
+  "ar": "مرجع آخر",
+  "en": "Other curriculum"
+ },
+ "Niveau scolaire précis": {
+  "ar": "المستوى الدراسي المحدد",
+  "en": "Specific grade"
+ },
+ "Source à vérifier": {
+  "ar": "مصدر يحتاج إلى التحقق",
+  "en": "Source to verify"
+ },
+ "Module pédagogique": {
+  "ar": "المجزوءة",
+  "en": "Teaching module"
+ },
+ "Objectifs institutionnels": {
+  "ar": "الأهداف المؤسسية",
+  "en": "Institutional objectives"
+ },
+ "Référence précise du texte": {
+  "ar": "المرجع الدقيق للنص",
+  "en": "Exact source reference"
+ },
+ "Diagnostic initial": {
+  "ar": "التشخيص الأولي",
+  "en": "Initial assessment"
+ },
+ "Objectif terminal du cycle": {
+  "ar": "الهدف النهائي للدورة",
+  "en": "Cycle learning target"
+ },
+ "Progression pédagogique": {
+  "ar": "التدرج التعلمي",
+  "en": "Learning progression"
+ },
+ "Critères et modalités d’évaluation": {
+  "ar": "معايير وطرق التقويم",
+  "en": "Assessment criteria and methods"
+ },
+ "Enregistrer le projet de cycle": {
+  "ar": "حفظ مشروع الدورة",
+  "en": "Save cycle project"
+ },
+ "Projet invalide : vérifiez le groupe, le niveau et les références.": {
+  "ar": "مشروع غير صالح: تحقق من المجموعة والمستوى والمراجع.",
+  "en": "Invalid project: check group, grade and references."
+ },
+ "Certains projets ne correspondent plus aux cycles actuels.": {
+  "ar": "بعض المشاريع لم تعد تتوافق مع الدورات الحالية.",
+  "en": "Some projects no longer match current cycles."
+ },
+ "Exporter les projets de cycle": {
+  "ar": "تصدير مشاريع الدورات",
+  "en": "Export cycle projects"
+ },
+ "Restaurer les projets de cycle": {
+  "ar": "استعادة مشاريع الدورات",
+  "en": "Restore cycle projects"
  }
 }

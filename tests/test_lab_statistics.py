@@ -61,7 +61,7 @@ class LabStatisticsTests(unittest.TestCase):
         self.assertEqual(r["df"],4)
 
     def test_repeated_reference_exact(self):
-        # Independent hand-calculation: SS time=24, SS residual=4, df=2,6.
+        # Independent hand-calculation: SS time=32, SS residual=8/3, df=2,6.
         a=np.array([[2,3,6],[4,7,8],[6,7,10],[8,11,12]],float)
         r=repeated_anova(a)
         self.assertAlmostEqual(r["F"], 36.)

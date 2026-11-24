@@ -13,7 +13,8 @@ from acpa_msmda.scenario_engine import export_scenario_csv, recommend_phase_tool
 from acpa_msmda.scenario_templates import apply_template, load_templates, scenario_checks  # noqa: E402
 from acpa_msmda.learning_library import load_situations, details, diagram_svg, apply_situation, selected_situation
 from acpa_msmda.pdf import scenario_pdf, situation_pdf
-from acpa_msmda.teaching_photos import clean_photo  # noqa: E402
+from acpa_msmda.teaching_photos import clean_photo
+from acpa_msmda.adaptive_studio import redistribute_minutes, balanced_groups  # noqa: E402
 from acpa_msmda.i18n import t, tj  # noqa: E402
 from acpa_msmda.ui import PRIVACY_NOTE, STUDIO, configure_page, page_header  # noqa: E402
 
@@ -88,6 +89,21 @@ with st.expander(t("Photo pédagogique personnelle")):
             st.rerun()
 modality = st.selectbox(t("Modalité"), MODALITIES, format_func=t, **ctx.bind(S, "modality", "Présentiel"))
 prerequisites = st.text_input(t("Prérequis"), max_chars=300, **ctx.bind(S, "prerequisites", ""))
+
+with st.expander(t("Adapter la séance à votre contexte")):
+    current_minutes = [ctx.store(S).get(f"minutes_{i}", m) for i, m in enumerate(PHASE_MINUTES)]
+    proposed = redistribute_minutes(current_minutes, int(ctx.get(S, "duration")))
+    st.caption(t("Répartition proportionnelle proposée ; vérifiez les durées minimales nécessaires à la sécurité et aux apprentissages."))
+    for phase, old, new in zip(PHASE_NAMES, current_minutes, proposed):
+        st.write(f"{t(phase)} : {old} → {new} min")
+    if st.button(t("Appliquer les durées proposées"), disabled=current_minutes == proposed):
+        for i, minutes in enumerate(proposed):
+            ctx.put(S, f"minutes_{i}", minutes)
+        st.rerun()
+    target = st.number_input(t("Effectif maximum souhaité par groupe"), min_value=1, max_value=150, value=6)
+    sizes = balanced_groups(int(ctx.get(S, "class_size")), int(target))
+    st.write(t("{n} groupes proposés", n=len(sizes)) + " : " + " / ".join(map(str, sizes)))
+    st.caption(t("Organisation indicative : adaptez les groupes à l’espace, au matériel et aux besoins des élèves."))
 
 st.subheader(t("Déroulement"))
 st.caption(t("Adaptez les activités, supports, critères de réussite et durées."))

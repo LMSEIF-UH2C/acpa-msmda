@@ -3282,5 +3282,17 @@
  "Intervalle t : {n} paires, {df} degrés de liberté utilisés (au plus {actual}). Suppose des différences indépendantes et approximativement normales.": {
   "ar": "فاصل t: عدد الأزواج {n}، درجات الحرية المستخدمة {df} (بحد أقصى {actual}). يفترض فروقا مستقلة وتوزيعا طبيعيا تقريبا.",
   "en": "t interval: {n} pairs, {df} degrees of freedom used (at most {actual}). Assumes independent, approximately normal differences."
+ },
+ "Statut scientifique et sources": {
+  "ar": "الوضع العلمي والمصادر",
+  "en": "Scientific status and sources"
+ },
+ "Protocole à confirmer ; validation empirique de cette implémentation non établie.": {
+  "ar": "البروتوكول يحتاج إلى تأكيد؛ لم تثبت الصلاحية التجريبية لهذا التطبيق.",
+  "en": "Protocol to confirm; empirical validation of this implementation not established."
+ },
+ "Référence déclarée : {source}": {
+  "ar": "المرجع المصرح به: {source}",
+  "en": "Declared reference: {source}"
  }
 }

@@ -114,6 +114,46 @@ class LabJourneyTests(unittest.TestCase):
         self.assertCountEqual([b.proto.label for b in app.get("download_button")],
                               ["Bilan (PDF)", "Bilan imprimable (HTML)", "Données (CSV)"])
 
+    def test_scientific_information_in_three_languages(self):
+        import json
+        evidence = json.loads((ROOT / "data/scientific_evidence.json").read_text(encoding="utf-8"))
+        instrument = next(x for x in evidence["instruments"] if x["id"] == "cooper")
+        for lang in ("fr", "ar", "en"):
+            with self.subTest(lang=lang):
+                app = AppTest.from_file(str(ROOT / LAB), default_timeout=30)
+                app.session_state["lang"] = lang
+                app.session_state["acpa_store"] = {"lab_test": "cooper"}
+                app.run()
+                self.assertEqual(app.selectbox(key="w:lab_test").value, "cooper")
+                self.assertFalse(app.exception)
+                self.assertTrue(any(instrument["citation"] in m.value for m in app.caption))
+                self.assertTrue(any(instrument["teacher_info"][lang] in m.value for m in app.markdown))
+
+    def test_reliability_journey_with_scientific_information(self):
+        app = lab()
+        app.number_input(key="w:class_size").set_value(4).run()
+        app.selectbox(key="w:lab_test").set_value("sprint30").run()
+        app.text_input(key="w:measurement_group").set_value("G01").run()
+        app.text_input(key="w:measurement_protocol").set_value("Même protocole").run()
+        app.number_input(key="w:cycle_number").set_value(1).run()
+        app.number_input(key="w:lesson_number").set_value(1).run()
+        app.date_input(key="w:series_date").set_value(__import__("datetime").date(2026, 11, 1)).run()
+        save(app, "Test", "5\n6\n7\n8")
+        app.number_input(key="w:lesson_number").set_value(2).run()
+        app.date_input(key="w:series_date").set_value(__import__("datetime").date(2026, 11, 2)).run()
+        save(app, "Retest", "5\n6\n7\n8")
+        next(c for c in app.checkbox if c.key and c.key.startswith("match_")).check().run()
+        next(r for r in app.radio if r.key and r.key.startswith("analysis_")).set_value("Fiabilité test-retest").run()
+        next(c for c in app.checkbox if c.key and c.key.startswith("stable_")).check().run()
+        self.assertFalse(app.exception)
+        text = " ".join(m.value for m in app.markdown)
+        self.assertIn("ICC(A,1)", text)
+        self.assertIn("Koo & Li (2016)", text)
+        self.assertIn("Weir (2005)", text)
+        self.assertIn("Bland", text)
+        self.assertCountEqual([b.proto.label for b in app.get("download_button")],
+                              ["Bilan (PDF)", "Bilan imprimable (HTML)", "Données (CSV)"])
+
     def test_invalid_line_is_reported_not_saved(self):
         app = lab()
         app.number_input(key="w:class_size").set_value(3).run()

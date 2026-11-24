@@ -14,7 +14,7 @@ configure_page(FIELD)
 page_header(FIELD, PRIVACY_NOTE)
 st.caption(t("Ces outils nécessitent une connexion à l’application hébergée. Gardez un chronomètre autonome en secours."))
 data = ctx.store(S)
-mode = st.radio(t("Outil de terrain"), ["Chronomètre", "Compteurs", "Scores", "Rotations"], format_func=t, horizontal=True)
+mode = st.radio(t("Outil de terrain"), ["Chronomètre", "Compteurs", "Scores", "Rotations", "Équipes", "Consignes"], format_func=t, horizontal=True)
 if mode == "Chronomètre":
     minutes = st.number_input(t("Durée (min)"), min_value=1, max_value=120, value=5)
     configure_timer = st.button(t("Régler le chronomètre"))
@@ -71,7 +71,7 @@ elif mode in ("Compteurs", "Scores"):
         for i in range(2):
             data[f"field_{prefix}_{i}"]=0
         st.rerun()
-else:
+elif mode == "Rotations":
     count=st.number_input(t("Nombre d'ateliers"),min_value=1,max_value=8,value=int(ctx.get(S,"workshops") or 4))
     interval = st.number_input(t("Durée par atelier (min)"), min_value=1,max_value=120,value=5)
     settings = (int(count), int(interval))
@@ -103,3 +103,33 @@ else:
             data["field_rotation_step"], data["field_rotation_timer"] = next_rotation(step,int(count),timer,time.monotonic())
             st.rerun()
     rotation_clock()
+
+elif mode == "Équipes":
+    from acpa_msmda.adaptive_studio import balanced_groups
+    count = int(ctx.get(S, "class_size"))
+    target = st.number_input(t("Effectif maximum souhaité par groupe"), min_value=1, max_value=150, value=6)
+    sizes = balanced_groups(count, int(target))
+    st.caption(t("Les codes sont anonymes. Conservez la correspondance avec votre liste de classe hors de l’application."))
+    if st.button(t("Constituer les équipes")):
+        import random
+        codes = list(range(1, count+1))
+        random.SystemRandom().shuffle(codes)
+        teams, offset = [], 0
+        for size in sizes:
+            teams.append(codes[offset:offset+size])
+            offset += size
+        data["field_teams"] = (count, int(target), teams)
+    saved = data.get("field_teams")
+    if saved and saved[:2] == (count, int(target)):
+        for i, team in enumerate(saved[2],1):
+            st.subheader(t("Équipe {n}", n=i))
+            st.write(" · ".join(f"E{code:03d}" for code in team))
+        st.caption(t("Répartition aléatoire équilibrée en effectifs, pas en niveaux de compétence."))
+else:
+    instructions = st.text_area(t("Consignes à afficher"), max_chars=600, **ctx.bind(S,"field_instructions",""))
+    if not instructions:
+        st.caption(t("Saisissez une consigne courte et observable."))
+    else:
+        with st.container(border=True):
+            st.text(instructions)
+        st.download_button(t("Consignes (TXT)"), instructions.encode("utf-8"), "consignes.txt", "text/plain")

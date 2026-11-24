@@ -111,7 +111,7 @@ class PickerTests(unittest.TestCase):
             self.assertIn(name, labels)
         self.assertEqual(len(app.get("page_link")), 0)
         styles = [m.value for m in app.markdown]
-        self.assertTrue(any("font-family:Amiri;" in s and "unicode-range:U+0600-06FF" in s for s in styles))
+        self.assertTrue(any("font-family:IBM Plex Sans Arabic;" in s and "unicode-range:U+0600-06FF" in s for s in styles))
         self.assertFalse(any("direction:rtl" in s for s in styles))
 
     def test_choosing_arabic_switches_interface(self):

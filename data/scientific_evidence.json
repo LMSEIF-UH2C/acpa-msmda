@@ -292,10 +292,11 @@
       "protocol_status": "to_confirm",
       "empirical_status": "not_assessed_for_current_implementation",
       "limitations": "Respecter droits d'utilisation, version linguistique et cotation autorisée.",
-      "reference_urls": [],
-      "other_reference_urls": [
-        "https://crires.ulaval.ca/publication/6490cbe46d418934662032fd",
+      "reference_urls": [
         "https://doi.org/10.7202/1097154ar"
+      ],
+      "other_reference_urls": [
+        "https://crires.ulaval.ca/publication/6490cbe46d418934662032fd"
       ],
       "citation": "Cabot & Bradette (2022) — related scale ÉMÉPS",
       "teacher_info": {

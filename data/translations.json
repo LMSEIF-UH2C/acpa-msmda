@@ -2846,5 +2846,137 @@
  "Utiliser des démonstrations, des repères visuels et des fiches papier.": {
   "ar": "استعمال عروض تطبيقية وعلامات بصرية وبطاقات ورقية.",
   "en": "Use demonstrations, visual markers and paper worksheets."
+ },
+ "Mode terrain": {
+  "ar": "وضع الميدان",
+  "en": "Field mode"
+ },
+ "Chronomètre, scores, compteurs et rotations.": {
+  "ar": "مؤقت ونتائج وعدادات وتناوب.",
+  "en": "Timer, scores, counters and rotations."
+ },
+ "Ces outils nécessitent une connexion à l’application hébergée. Gardez un chronomètre autonome en secours.": {
+  "ar": "تتطلب هذه الأدوات الاتصال بالتطبيق المستضاف. احتفظ بمؤقت مستقل احتياطيا.",
+  "en": "These tools require a connection to the hosted app. Keep a standalone timer as a backup."
+ },
+ "Outil de terrain": {
+  "ar": "أداة ميدانية",
+  "en": "Field tool"
+ },
+ "Compteurs": {
+  "ar": "عدادات",
+  "en": "Counters"
+ },
+ "Scores": {
+  "ar": "النتائج",
+  "en": "Scores"
+ },
+ "Rotations": {
+  "ar": "التناوب",
+  "en": "Rotations"
+ },
+ "Régler le chronomètre": {
+  "ar": "ضبط المؤقت",
+  "en": "Set timer"
+ },
+ "Temps restant": {
+  "ar": "الوقت المتبقي",
+  "en": "Time remaining"
+ },
+ "Démarrer": {
+  "ar": "بدء",
+  "en": "Start"
+ },
+ "Pause": {
+  "ar": "توقف مؤقت",
+  "en": "Pause"
+ },
+ "Réinitialiser": {
+  "ar": "إعادة الضبط",
+  "en": "Reset"
+ },
+ "Temps écoulé": {
+  "ar": "انتهى الوقت",
+  "en": "Time is up"
+ },
+ "Tentatives": {
+  "ar": "المحاولات",
+  "en": "Attempts"
+ },
+ "Réussites": {
+  "ar": "النجاحات",
+  "en": "Successes"
+ },
+ "Équipe A": {
+  "ar": "الفريق أ",
+  "en": "Team A"
+ },
+ "Équipe B": {
+  "ar": "الفريق ب",
+  "en": "Team B"
+ },
+ "Rotation {n}": {
+  "ar": "التناوب {n}",
+  "en": "Rotation {n}"
+ },
+ "Groupe {g} : atelier {a}": {
+  "ar": "المجموعة {g}: الورشة {a}",
+  "en": "Group {g}: station {a}"
+ },
+ "Rotation suivante": {
+  "ar": "التناوب التالي",
+  "en": "Next rotation"
+ },
+ "Taux de réussite": {
+  "ar": "نسبة النجاح",
+  "en": "Success rate"
+ },
+ "Aucune tentative enregistrée.": {
+  "ar": "لم تسجل أي محاولة.",
+  "en": "No attempts recorded."
+ },
+ "Durée par atelier (min)": {
+  "ar": "مدة كل ورشة (دقيقة)",
+  "en": "Station duration (min)"
+ },
+ "Régler les rotations": {
+  "ar": "ضبط التناوب",
+  "en": "Configure rotations"
+ },
+ "Équipes": {
+  "ar": "الفرق",
+  "en": "Teams"
+ },
+ "Consignes": {
+  "ar": "التعليمات",
+  "en": "Instructions"
+ },
+ "Les codes sont anonymes. Conservez la correspondance avec votre liste de classe hors de l’application.": {
+  "ar": "الرموز مجهولة الهوية. احتفظ بربطها بقائمة القسم خارج التطبيق.",
+  "en": "Codes are anonymous. Keep the mapping to your class list outside the app."
+ },
+ "Constituer les équipes": {
+  "ar": "تشكيل الفرق",
+  "en": "Create teams"
+ },
+ "Équipe {n}": {
+  "ar": "الفريق {n}",
+  "en": "Team {n}"
+ },
+ "Répartition aléatoire équilibrée en effectifs, pas en niveaux de compétence.": {
+  "ar": "توزيع عشوائي متوازن في العدد وليس في مستويات المهارة.",
+  "en": "Random allocation balanced by size, not by proficiency."
+ },
+ "Consignes à afficher": {
+  "ar": "التعليمات المراد عرضها",
+  "en": "Instructions to display"
+ },
+ "Saisissez une consigne courte et observable.": {
+  "ar": "أدخل تعليمة قصيرة قابلة للملاحظة.",
+  "en": "Enter a short observable instruction."
+ },
+ "Consignes (TXT)": {
+  "ar": "التعليمات (TXT)",
+  "en": "Instructions (TXT)"
  }
 }

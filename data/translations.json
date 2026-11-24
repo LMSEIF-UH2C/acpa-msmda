@@ -2758,5 +2758,29 @@
  "Supprimer la photo du scénario": {
   "ar": "حذف الصورة من السيناريو",
   "en": "Remove photo from lesson plan"
+ },
+ "Adapter la séance à votre contexte": {
+  "ar": "تكييف الحصة مع سياقك",
+  "en": "Adapt the lesson to your context"
+ },
+ "Répartition proportionnelle proposée ; vérifiez les durées minimales nécessaires à la sécurité et aux apprentissages.": {
+  "ar": "توزيع نسبي مقترح؛ تحقق من المدد الدنيا اللازمة للسلامة والتعلم.",
+  "en": "Suggested proportional allocation; check minimum time needed for safety and learning."
+ },
+ "Appliquer les durées proposées": {
+  "ar": "تطبيق المدد المقترحة",
+  "en": "Apply suggested durations"
+ },
+ "Effectif maximum souhaité par groupe": {
+  "ar": "العدد الأقصى المطلوب لكل مجموعة",
+  "en": "Desired maximum group size"
+ },
+ "{n} groupes proposés": {
+  "ar": "{n} مجموعات مقترحة",
+  "en": "{n} suggested groups"
+ },
+ "Organisation indicative : adaptez les groupes à l’espace, au matériel et aux besoins des élèves.": {
+  "ar": "تنظيم إرشادي: كيف المجموعات مع الفضاء والمعدات وحاجات التلاميذ.",
+  "en": "Suggested organisation: adapt groups to space, equipment and pupils’ needs."
  }
 }

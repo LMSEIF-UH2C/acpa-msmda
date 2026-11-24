@@ -1,6 +1,26 @@
-# ACPA/MSMDA — Heuristic EPS Technology Recommendation Engine
+# ACPA/MSMDA — EPS teaching assistant and research engine
 
-**Public source version v0.1.1 (heuristic development implementation; citation and documentation update).**
+**Current development branch:** trilingual EPS teaching assistant (research demonstrator; not yet a stable production release).
+
+**Archived research engine:** v0.1.1, released separately with the DOI below. Its synthetic catalogue and citation must not be confused with the later application.
+
+## Current application
+
+The Streamlit interface provides a real-app catalogue with documented and unverified entries, contextual search, a teaching studio, workshop planning, field tools, formative assessment, performance analysis, annual cycle planning and a teaching journal with class projects. The journal uses session storage on the server and portable JSON backups; it is not a persistent school database. A rule-based assistant provides source-linked suggestions, not generative AI or proof of teaching efficacy.
+
+Start locally:
+
+```bash
+python -m pip install -r requirements.txt
+streamlit run app.py
+python -m unittest discover -s tests -v
+```
+
+See [the teacher guide](docs/teacher-guide.md) and [release checklist](docs/release-checklist.md). The separate [offline companion](offline/README.md) and [local video workspace](video/README.md) are experimental, not integrated public services.
+
+## Archived engine v0.1.1
+
+The following description refers to the archived engine and its reproducible synthetic examples.
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23244629.svg)](https://doi.org/10.5281/zenodo.23244629)
 
@@ -76,17 +96,3 @@ rights associated with the wider project. See `CITATION.cff` for software
 citation metadata. For reproducibility, cite the archived v0.1.1 release DOI above. Later versions should be cited using their own version-specific identifiers.
 
 
-## Optional browser application (research demonstrator)
-
-The public engine can now be explored through a trilingual Streamlit interface:
-
-```bash
-python -m pip install -r requirements.txt
-streamlit run app.py
-```
-
-This UI displays rule-detected context features, the 18 criterion weights,
-the relative ranking of five **fictional** tool profiles, and a JSON export.
-It does not add production validation, a real tool catalogue or personal-data
-processing authorization. See [DEPLOYMENT.md](DEPLOYMENT.md) for optional public
-hosting instructions and explicit safety limits.

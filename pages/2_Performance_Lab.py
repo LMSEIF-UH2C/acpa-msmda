@@ -129,11 +129,11 @@ with st.expander(study_labels[0]):
                                  format_func=lambda v: study_labels[11] if v is None else v, key="lab_study_group")
             subset = [r for r in subset if group is None or r["group"] == group]
             occasions = st.multiselect(study_labels[12], sorted({r["occasion"] for r in subset}), key="lab_study_occasions")
-            methods = ["descriptive","pearson","spearman","paired_t","wilcoxon"]
+            methods = ["descriptive","pearson","spearman","paired_t","wilcoxon","repeated_anova","friedman"]
             method_labels = {
-                "fr": ["Descriptif","Pearson","Spearman","t apparié","Wilcoxon"],
-                "en": ["Descriptive","Pearson","Spearman","Paired t","Wilcoxon"],
-                "ar": ["وصفي","بيرسون","سبيرمان","ت للعينات المترابطة","ويلكوكسون"],
+                "fr": ["Descriptif","Pearson","Spearman","t apparié","Wilcoxon","ANOVA répétée","Friedman"],
+                "en": ["Descriptive","Pearson","Spearman","Paired t","Wilcoxon","Repeated ANOVA","Friedman"],
+                "ar": ["وصفي","بيرسون","سبيرمان","ت للعينات المترابطة","ويلكوكسون","تحليل التباين المتكرر","فريدمان"],
             }[current()]
             method_names = dict(zip(methods, method_labels))
             method = st.selectbox({"fr":"Analyse","en":"Analysis","ar":"التحليل"}[current()], methods, format_func=method_names.get, key="lab_study_method")
@@ -154,10 +154,15 @@ with st.expander(study_labels[0]):
                         from acpa_msmda import lab_statistics as ls
                         try:
                             vals = panel["values"]
-                            if len(occasions)!=2 or group is None:
-                                raise ValueError("Select exactly two occasions and one group")
-                            a,b = zip(*vals)
-                            result = ls.correlate(a,b,method) if method in ("pearson","spearman") else ls.paired_test(a,b,"t" if method=="paired_t" else "wilcoxon")
+                            if group is None:
+                                raise ValueError("Select one group")
+                            if method in ("repeated_anova","friedman"):
+                                result = getattr(ls,method)(vals)
+                            else:
+                                if len(occasions)!=2:
+                                    raise ValueError("Exactly two occasions required")
+                                a,b = zip(*vals)
+                                result = ls.correlate(a,b,method) if method in ("pearson","spearman") else ls.paired_test(a,b,"t" if method=="paired_t" else "wilcoxon")
                         except (ValueError, TypeError, ArithmeticError):
                             st.error({"fr":"Données insuffisantes ou incompatibles avec ce test.","en":"Insufficient or incompatible data for this test.","ar":"البيانات غير كافية أو غير ملائمة لهذا الاختبار."}[current()])
                         else:

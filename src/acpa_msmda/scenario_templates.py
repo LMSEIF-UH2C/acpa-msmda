@@ -18,6 +18,8 @@ def apply_template(template,session):
     from .session_context import store
     data=store(session)
     data["activity"]=template["activity"]
+    data.pop("activity_specialty",None)
+    data.pop("scenario_phase_tools",None)
     data["level"]=template["level"]
     data["duration"]=template["duration"]
     data["objectives"]=t(template["objectives"])

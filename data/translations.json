@@ -3274,5 +3274,13 @@
  "SEM et MDC95 supposent des erreurs indépendantes de variance comparable. Les limites d’accord supposent des différences approximativement normales et de dispersion stable. Les estimations restent exploratoires, sans intervalle de confiance de l’ICC.": {
   "ar": "يفترض SEM وMDC95 أخطاء مستقلة ذات تباين متقارب. تفترض حدود الاتفاق فروقا ذات توزيع طبيعي تقريبا وتشتت ثابت. التقديرات استكشافية دون فاصل ثقة لمعامل ICC.",
   "en": "SEM and MDC95 assume independent errors of comparable variance. Agreement limits assume approximately normal differences with stable dispersion. Estimates remain exploratory, without an ICC confidence interval."
+ },
+ "IC à 95 % de la variation moyenne": {
+  "ar": "فاصل الثقة 95٪ لمتوسط التغير",
+  "en": "95% CI of mean change"
+ },
+ "Intervalle t : {n} paires, {df} degrés de liberté utilisés (au plus {actual}). Suppose des différences indépendantes et approximativement normales.": {
+  "ar": "فاصل t: عدد الأزواج {n}، درجات الحرية المستخدمة {df} (بحد أقصى {actual}). يفترض فروقا مستقلة وتوزيعا طبيعيا تقريبا.",
+  "en": "t interval: {n} pairs, {df} degrees of freedom used (at most {actual}). Assumes independent, approximately normal differences."
  }
 }

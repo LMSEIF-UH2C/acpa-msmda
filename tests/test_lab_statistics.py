@@ -45,3 +45,24 @@ class LabStatisticsTests(unittest.TestCase):
         contrasts=paired_posthoc([[1,2,4],[2,4,5],[3,4,7],[4,6,8]])
         self.assertEqual(len(contrasts),3)
         self.assertTrue(all(r["p"]<=r["p_holm"]<=1 for r in contrasts))
+
+
+    def test_orthogonal_moderation_reference(self):
+        # Full 2x2 orthogonal design, two replicates per cell, residual +/- 1.
+        x=np.repeat([-1.,-1.,1.,1.],2)
+        m=np.repeat([-1.,1.,-1.,1.],2)
+        y=10+2*x+3*m+4*x*m+np.tile([-1.,1.],4)
+        r=regression(y,np.column_stack([x+10,m+20]),moderation=True)
+        np.testing.assert_allclose([v["b"] for v in r["coefficients"]],[10,2,3,4])
+        np.testing.assert_allclose([v["se"] for v in r["coefficients"]],[.5]*4)
+        self.assertAlmostEqual(r["r2"],29/30)
+        self.assertAlmostEqual(r["model_F"],116/3)
+        self.assertEqual(r["predictor_centers"],[10.,20.])
+        self.assertEqual(r["df"],4)
+
+    def test_repeated_reference_exact(self):
+        # Independent hand-calculation: SS time=24, SS residual=4, df=2,6.
+        a=np.array([[2,3,6],[4,7,8],[6,7,10],[8,11,12]],float)
+        r=repeated_anova(a)
+        self.assertAlmostEqual(r["F"], 36.)
+        self.assertAlmostEqual(r["partial_eta2"],12/13)

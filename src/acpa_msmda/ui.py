@@ -251,6 +251,17 @@ div[class*="st-key-core_"] button p,.st-key-home_eps a[data-testid="stPageLink-N
   color:var(--task-accent)!important;font-size:1.08rem!important;font-weight:750!important;
   line-height:1.2!important;text-align:start!important;margin:0!important}
 .st-key-home_eps a[data-testid="stPageLink-NavLink"] p{color:var(--red-dark)!important}
+/* Align the actual native label wrapper, not just its text paragraph. */
+div[class*="st-key-core_"] button :is(div,span):has(p),
+.st-key-home_eps a[data-testid="stPageLink-NavLink"] :is(div,span):has(p){
+  width:100%!important;min-width:0!important;flex:1 1 auto!important;
+  justify-content:flex-start!important;align-items:flex-start!important;
+  text-align:start!important;
+}
+div[class*="st-key-core_"] button p,.st-key-home_eps a[data-testid="stPageLink-NavLink"] p{
+  width:100%!important;max-width:none!important;text-align:start!important;
+}
+
 div[class*="st-key-core_"] button::after,.st-key-home_eps a[data-testid="stPageLink-NavLink"]::after{
   content:"";position:absolute;inset:0;z-index:2;border-radius:18px;
 }

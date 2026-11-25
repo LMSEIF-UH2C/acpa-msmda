@@ -4146,5 +4146,581 @@
   "Choisir dans la liste": {
     "ar": "اختر من القائمة",
     "en": "Choose from the list"
+  },
+  "ANOVA mixte": {
+    "ar": "تحليل التباين المختلط",
+    "en": "Mixed ANOVA"
+  },
+  "ANOVA à mesures répétées": {
+    "ar": "تحليل التباين للقياسات المتكررة",
+    "en": "Repeated-measures ANOVA"
+  },
+  "ANOVA à un facteur": {
+    "ar": "تحليل التباين الأحادي",
+    "en": "One-way ANOVA"
+  },
+  "Absence de colinéarité forte et de valeurs très influentes.": {
+    "ar": "غياب تعدد خطي قوي وقيم شديدة التأثير.",
+    "en": "No strong collinearity and no highly influential values."
+  },
+  "Ajustement du modèle": {
+    "ar": "جودة مطابقة النموذج",
+    "en": "Model fit"
+  },
+  "Analyse exploratoire sur cas complets : les participants incomplets sont exclus, sans imputation.": {
+    "ar": "تحليل استكشافي على الحالات المكتملة: يُستبعد المشاركون غير المكتملين دون تعويض للقيم.",
+    "en": "Exploratory complete-case analysis: incomplete participants are excluded, without imputation."
+  },
+  "Analyser : tableaux statistiques et conditions": {
+    "ar": "التحليل: الجداول الإحصائية والشروط",
+    "en": "Analyse: statistical tables and assumptions"
+  },
+  "Association {direction} : quand une mesure est plus élevée, l'autre tend à l'être {sens}.": {
+    "ar": "ارتباط {direction}: عندما يكون أحد القياسين أعلى، يميل الآخر إلى أن يكون {sens}.",
+    "en": "{direction} association: when one measure is higher, the other tends to be {sens}."
+  },
+  "Au moins un résidu dépasse 3 écarts-types : vérifiez les valeurs influentes.": {
+    "ar": "تتجاوز بقية واحدة على الأقل 3 انحرافات معيارية: تحقق من القيم المؤثرة.",
+    "en": "At least one residual exceeds 3 standard deviations: check influential values."
+  },
+  "Ce test global n'indique pas quels groupes diffèrent.": {
+    "ar": "لا يحدد هذا الاختبار الإجمالي المجموعات التي تختلف.",
+    "en": "This overall test does not show which groups differ."
+  },
+  "Coefficients": {
+    "ar": "المعاملات",
+    "en": "Coefficients"
+  },
+  "Comparaison": {
+    "ar": "المقارنة",
+    "en": "Comparison"
+  },
+  "Comparaisons deux à deux (Holm)": {
+    "ar": "المقارنات الثنائية (هولم)",
+    "en": "Pairwise comparisons (Holm)"
+  },
+  "Comparaisons deux à deux par t apparié, correction de Holm sur l'ensemble des comparaisons.": {
+    "ar": "مقارنات ثنائية باختبار ت للعينات المترابطة، مع تصحيح هولم على مجموع المقارنات.",
+    "en": "Pairwise paired t comparisons, Holm correction across all comparisons."
+  },
+  "Comparaisons significatives (Holm)": {
+    "ar": "مقارنات دالة (هولم)",
+    "en": "Significant comparisons (Holm)"
+  },
+  "Comprendre": {
+    "ar": "الفهم",
+    "en": "Understand"
+  },
+  "Conditions d'application": {
+    "ar": "شروط التطبيق",
+    "en": "Assumptions"
+  },
+  "Corrélation": {
+    "ar": "الارتباط",
+    "en": "Correlation"
+  },
+  "Corrélation bisériale de rangs": {
+    "ar": "ارتباط الرتب الثنائي التسلسلي",
+    "en": "Rank-biserial correlation"
+  },
+  "Covariances comparables entre groupes ; sphéricité corrigée lorsqu'elle est calculée.": {
+    "ar": "تغايرات متقاربة بين المجموعات؛ تصحيح الكروية عند حسابه.",
+    "en": "Comparable covariances across groups; sphericity corrected when computed."
+  },
+  "Description de l'échantillon : ces chiffres ne se généralisent pas à d'autres élèves.": {
+    "ar": "وصف للعينة: لا تُعمَّم هذه الأرقام على تلاميذ آخرين.",
+    "en": "Description of the sample: these figures do not generalise to other pupils."
+  },
+  "Deux groupes indépendants ; variances inégales acceptées.": {
+    "ar": "مجموعتان مستقلتان؛ تُقبل التباينات غير المتساوية.",
+    "en": "Two independent groups; unequal variances accepted."
+  },
+  "Deux groupes indépendants.": {
+    "ar": "مجموعتان مستقلتان.",
+    "en": "Two independent groups."
+  },
+  "Diagnostics": {
+    "ar": "التشخيص",
+    "en": "Diagnostics"
+  },
+  "Différence moyenne": {
+    "ar": "متوسط الفرق",
+    "en": "Mean difference"
+  },
+  "Différence moyenne (après − avant)": {
+    "ar": "متوسط الفرق (بعد − قبل)",
+    "en": "Mean difference (after − before)"
+  },
+  "Différence moyenne ({a} − {b})": {
+    "ar": "متوسط الفرق ({a} − {b})",
+    "en": "Mean difference ({a} − {b})"
+  },
+  "Différences approximativement normales, sans valeur extrême isolée.": {
+    "ar": "فروق ذات توزيع قريب من الطبيعي، دون قيمة متطرفة منعزلة.",
+    "en": "Approximately normal differences, with no isolated extreme value."
+  },
+  "Distribution conjointe proche de la normale pour l'intervalle de confiance.": {
+    "ar": "توزيع مشترك قريب من الطبيعي لحساب مجال الثقة.",
+    "en": "Joint distribution close to normal for the confidence interval."
+  },
+  "Distribution des différences à peu près symétrique.": {
+    "ar": "توزيع الفروق متماثل تقريبا.",
+    "en": "Roughly symmetric distribution of differences."
+  },
+  "Distributions approximativement normales ou effectifs suffisants.": {
+    "ar": "توزيعات قريبة من الطبيعي أو أعداد كافية.",
+    "en": "Approximately normal distributions or sufficient sample sizes."
+  },
+  "ET résiduel": {
+    "ar": "الانحراف المعياري للبواقي",
+    "en": "Residual SD"
+  },
+  "Effet": {
+    "ar": "الأثر",
+    "en": "Effect"
+  },
+  "Erreur type": {
+    "ar": "الخطأ المعياري",
+    "en": "Standard error"
+  },
+  "Exclus (données manquantes)": {
+    "ar": "المستبعدون (بيانات ناقصة)",
+    "en": "Excluded (missing data)"
+  },
+  "Exporter le résultat (JSON)": {
+    "ar": "تصدير النتيجة (JSON)",
+    "en": "Export result (JSON)"
+  },
+  "Groupe": {
+    "ar": "المجموعة",
+    "en": "Group"
+  },
+  "Groupes indépendants, effectifs égaux, mêmes occasions pour tous.": {
+    "ar": "مجموعات مستقلة، بأعداد متساوية، وبالمناسبات نفسها للجميع.",
+    "en": "Independent groups, equal sizes, same occasions for all."
+  },
+  "Groupes indépendants, variances comparables.": {
+    "ar": "مجموعات مستقلة بتباينات متقاربة.",
+    "en": "Independent groups, comparable variances."
+  },
+  "IC 95 %": {
+    "ar": "مجال الثقة 95 %",
+    "en": "95% CI"
+  },
+  "IC 95 % de la différence": {
+    "ar": "مجال الثقة 95 % للفرق",
+    "en": "95% CI of the difference"
+  },
+  "Instrument": {
+    "ar": "الأداة",
+    "en": "Instrument"
+  },
+  "Interaction X × M : ": {
+    "ar": "التفاعل X × M: ",
+    "en": "Interaction X × M: "
+  },
+  "Interaction groupe × temps": {
+    "ar": "تفاعل المجموعة × الزمن",
+    "en": "Group × time interaction"
+  },
+  "Intercept": {
+    "ar": "الثابت",
+    "en": "Intercept"
+  },
+  "Investiguer : données complètes et reproductibilité": {
+    "ar": "التعمق: البيانات الكاملة وقابلية إعادة الإنتاج",
+    "en": "Investigate: full data and reproducibility"
+  },
+  "L'interaction décrit une variation de la relation X–Y selon M, pas un mécanisme.": {
+    "ar": "يصف التفاعل تغيّر العلاقة بين X وY بحسب M، وليس آلية.",
+    "en": "The interaction describes how the X–Y relation varies with M, not a mechanism."
+  },
+  "La correction de Holm contrôle le risque d'erreur sur l'ensemble des comparaisons.": {
+    "ar": "يضبط تصحيح هولم خطر الخطأ على مجموع المقارنات.",
+    "en": "The Holm correction controls the error risk across all comparisons."
+  },
+  "Le R² décrit l'ajustement dans cet échantillon ; il surestime en général la performance sur d'autres élèves.": {
+    "ar": "يصف R² جودة المطابقة في هذه العينة؛ وغالبا ما يبالغ في تقدير الأداء لدى تلاميذ آخرين.",
+    "en": "R² describes fit in this sample; it usually overstates performance on other pupils."
+  },
+  "Le modèle décrit {pct} % de la variation de la variable étudiée dans cet échantillon.": {
+    "ar": "يصف النموذج {pct} % من تغيّر المتغير المدروس في هذه العينة.",
+    "en": "The model describes {pct}% of the variation in the studied variable in this sample."
+  },
+  "Le moteur ne calcule pas de taille d'effet pour ce test : aucune n'est affichée.": {
+    "ar": "لا يحسب المحرك حجم الأثر لهذا الاختبار: لا يُعرض أي حجم أثر.",
+    "en": "The engine does not compute an effect size for this test: none is shown."
+  },
+  "Lecture prudente : ces résultats décrivent des données observées, sans établir de cause.": {
+    "ar": "قراءة حذرة: تصف هذه النتائج بيانات ملاحظة، دون إثبات علاقة سببية.",
+    "en": "Cautious reading: these results describe observed data without establishing cause."
+  },
+  "Les droites simples sont tracées à M = moyenne − 1 ET, moyenne et moyenne + 1 ET de l'échantillon.": {
+    "ar": "تُرسم الخطوط البسيطة عند M = المتوسط − 1 انحراف معياري، والمتوسط، والمتوسط + 1 انحراف معياري للعينة.",
+    "en": "Simple slopes are drawn at M = mean − 1 SD, mean and mean + 1 SD of the sample."
+  },
+  "Limites d'interprétation": {
+    "ar": "حدود التأويل",
+    "en": "Limits of interpretation"
+  },
+  "M bas (−1 ET)": {
+    "ar": "M منخفض (−1 انحراف معياري)",
+    "en": "Low M (−1 SD)"
+  },
+  "M haut (+1 ET)": {
+    "ar": "M مرتفع (+1 انحراف معياري)",
+    "en": "High M (+1 SD)"
+  },
+  "M moyen": {
+    "ar": "M متوسط",
+    "en": "Mean M"
+  },
+  "Maximum": {
+    "ar": "القيمة القصوى",
+    "en": "Maximum"
+  },
+  "Minimum": {
+    "ar": "القيمة الدنيا",
+    "en": "Minimum"
+  },
+  "Modèle": {
+    "ar": "النموذج",
+    "en": "Model"
+  },
+  "Moteur statistique": {
+    "ar": "المحرك الإحصائي",
+    "en": "Statistical engine"
+  },
+  "Méthode": {
+    "ar": "الطريقة",
+    "en": "Method"
+  },
+  "Mêmes conditions que la régression ; X et M centrés avant le produit X × M.": {
+    "ar": "شروط الانحدار نفسها؛ يُركَّز X وM قبل حساب الجداء X × M.",
+    "en": "Same assumptions as regression; X and M centred before the X × M product."
+  },
+  "Mêmes participants mesurés deux fois, dans des conditions comparables.": {
+    "ar": "المشاركون أنفسهم مقيسون مرتين في ظروف متقاربة.",
+    "en": "Same participants measured twice under comparable conditions."
+  },
+  "Mêmes participants mesurés deux fois.": {
+    "ar": "المشاركون أنفسهم مقيسون مرتين.",
+    "en": "Same participants measured twice."
+  },
+  "Mêmes participants à chaque occasion, cas complets.": {
+    "ar": "المشاركون أنفسهم في كل مناسبة، حالات مكتملة.",
+    "en": "Same participants at each occasion, complete cases."
+  },
+  "Nombre de conditionnement": {
+    "ar": "عدد التكييف",
+    "en": "Condition number"
+  },
+  "Occasion": {
+    "ar": "المناسبة",
+    "en": "Occasion"
+  },
+  "Participants analysés": {
+    "ar": "المشاركون المحللون",
+    "en": "Participants analysed"
+  },
+  "Participants indépendants (attention aux élèves d'une même classe).": {
+    "ar": "مشاركون مستقلون (انتبه لتلاميذ القسم نفسه).",
+    "en": "Independent participants (beware of pupils from the same class)."
+  },
+  "Participants indépendants ; nombreuses égalités de rangs à signaler.": {
+    "ar": "مشاركون مستقلون؛ يُشار إلى كثرة تساوي الرتب.",
+    "en": "Independent participants; report many tied ranks."
+  },
+  "Probabilité non calculée : aucune conclusion de test.": {
+    "ar": "الاحتمال غير محسوب: لا خلاصة للاختبار.",
+    "en": "Probability not computed: no test conclusion."
+  },
+  "Protocole": {
+    "ar": "البروتوكول",
+    "en": "Protocol"
+  },
+  "Relation approximativement linéaire, sans valeur extrême isolée.": {
+    "ar": "علاقة خطية تقريبا، دون قيمة متطرفة منعزلة.",
+    "en": "Approximately linear relation, with no isolated extreme value."
+  },
+  "Relation linéaire, résidus indépendants, de variance constante et approximativement normaux.": {
+    "ar": "علاقة خطية، وبواقٍ مستقلة ذات تباين ثابت وتوزيع قريب من الطبيعي.",
+    "en": "Linear relation; independent, constant-variance and approximately normal residuals."
+  },
+  "Relation monotone (qui augmente ou diminue de façon régulière).": {
+    "ar": "علاقة رتيبة (تتزايد أو تتناقص بانتظام).",
+    "en": "Monotonic relation (consistently increasing or decreasing)."
+  },
+  "R² ajusté": {
+    "ar": "R² المعدّل",
+    "en": "Adjusted R²"
+  },
+  "Résidu standardisé maximal (valeur absolue)": {
+    "ar": "أكبر بقية معيارية (بالقيمة المطلقة)",
+    "en": "Largest standardised residual (absolute value)"
+  },
+  "Résidus approximativement normaux ; aucune comparaison deux à deux n'est fournie ici.": {
+    "ar": "بواقٍ قريبة من الطبيعي؛ لا تُقدَّم هنا مقارنات ثنائية.",
+    "en": "Approximately normal residuals; no pairwise comparison is provided here."
+  },
+  "Résidus approximativement normaux.": {
+    "ar": "بواقٍ قريبة من التوزيع الطبيعي.",
+    "en": "Approximately normal residuals."
+  },
+  "Sphéricité : la correction de Greenhouse-Geisser est fournie lorsqu'elle est calculée.": {
+    "ar": "الكروية: يُقدَّم تصحيح غرينهاوس-غايسر عند حسابه.",
+    "en": "Sphericity: the Greenhouse-Geisser correction is given when computed."
+  },
+  "Statistiques descriptives": {
+    "ar": "الإحصاءات الوصفية",
+    "en": "Descriptive statistics"
+  },
+  "Statistiques descriptives des cas complets : aucune inférence au-delà de l'échantillon.": {
+    "ar": "إحصاءات وصفية للحالات المكتملة: لا استدلال خارج العينة.",
+    "en": "Descriptive statistics of complete cases: no inference beyond the sample."
+  },
+  "Taille d'effet {label} = {v} : effet {size} selon les repères usuels.": {
+    "ar": "حجم الأثر {label} = {v}: أثر {size} حسب المعايير المعتادة.",
+    "en": "Effect size {label} = {v}: {size} effect by usual benchmarks."
+  },
+  "Terme": {
+    "ar": "الحد",
+    "en": "Term"
+  },
+  "Test de Friedman": {
+    "ar": "اختبار فريدمان",
+    "en": "Friedman test"
+  },
+  "Test de Mann-Whitney": {
+    "ar": "اختبار مان ويتني",
+    "en": "Mann-Whitney test"
+  },
+  "Test de Wilcoxon": {
+    "ar": "اختبار ويلكوكسون",
+    "en": "Wilcoxon test"
+  },
+  "Test sur les rangs : adapté aux données ordinales ou non normales.": {
+    "ar": "اختبار على الرتب: ملائم للبيانات الترتيبية أو غير الطبيعية.",
+    "en": "Rank-based test: suited to ordinal or non-normal data."
+  },
+  "Test sur les rangs : compare les distributions, pas seulement les médianes.": {
+    "ar": "اختبار على الرتب: يقارن التوزيعات وليس الوسيطات فقط.",
+    "en": "Rank-based test: compares distributions, not only medians."
+  },
+  "Test t apparié": {
+    "ar": "اختبار ت للعينات المترابطة",
+    "en": "Paired t test"
+  },
+  "Test t de Welch": {
+    "ar": "اختبار ت لويلش",
+    "en": "Welch t test"
+  },
+  "Un résultat non significatif ne démontre pas l'absence d'effet, surtout avec un petit effectif.": {
+    "ar": "النتيجة غير الدالة لا تثبت غياب الأثر، خاصة مع عدد صغير.",
+    "en": "A non-significant result does not show the absence of an effect, especially with a small sample."
+  },
+  "Une association ou une différence observée ne prouve pas une relation de cause à effet.": {
+    "ar": "الارتباط أو الفرق الملاحظ لا يثبت علاقة سببية.",
+    "en": "An observed association or difference does not prove cause and effect."
+  },
+  "Valeur": {
+    "ar": "القيمة",
+    "en": "Value"
+  },
+  "Valeurs ajustées par le modèle": {
+    "ar": "القيم المقدّرة بالنموذج",
+    "en": "Model-fitted values"
+  },
+  "Valeurs observées": {
+    "ar": "القيم الملاحظة",
+    "en": "Observed values"
+  },
+  "association": {
+    "ar": "ارتباط",
+    "en": "association"
+  },
+  "association globale": {
+    "ar": "ارتباط إجمالي",
+    "en": "overall association"
+  },
+  "aussi": {
+    "ar": "أعلى أيضا",
+    "en": "higher too"
+  },
+  "bisériale de rangs": {
+    "ar": "ارتباط الرتب الثنائي",
+    "en": "rank-biserial"
+  },
+  "différence": {
+    "ar": "فرق",
+    "en": "difference"
+  },
+  "différence d'évolution entre groupes": {
+    "ar": "فرق في التطور بين المجموعات",
+    "en": "difference in change between groups"
+  },
+  "différence entre groupes": {
+    "ar": "فرق بين المجموعات",
+    "en": "difference between groups"
+  },
+  "différence entre occasions": {
+    "ar": "فرق بين المناسبات",
+    "en": "difference between occasions"
+  },
+  "faible": {
+    "ar": "ضعيف",
+    "en": "small"
+  },
+  "modération": {
+    "ar": "أثر تعديلي",
+    "en": "moderation"
+  },
+  "moins": {
+    "ar": "أقل",
+    "en": "lower"
+  },
+  "moyen": {
+    "ar": "متوسط",
+    "en": "medium"
+  },
+  "négative": {
+    "ar": "سالب",
+    "en": "Negative"
+  },
+  "négligeable": {
+    "ar": "ضئيل",
+    "en": "negligible"
+  },
+  "positive": {
+    "ar": "موجب",
+    "en": "Positive"
+  },
+  "{n} comparaison(s) sur {total} reste(nt) significative(s) après correction de Holm.": {
+    "ar": "تبقى {n} مقارنة من أصل {total} دالة بعد تصحيح هولم.",
+    "en": "{n} of {total} comparison(s) remain significant after Holm correction."
+  },
+  "À interpréter après un test global (ANOVA répétée ou Friedman).": {
+    "ar": "تُفسَّر بعد اختبار إجمالي (تحليل التباين المتكرر أو فريدمان).",
+    "en": "To be read after an overall test (repeated ANOVA or Friedman)."
+  },
+  "Écart des moyennes (dernière − première)": {
+    "ar": "فرق المتوسطات (الأخيرة − الأولى)",
+    "en": "Difference in means (last − first)"
+  },
+  "Écart-type": {
+    "ar": "الانحراف المعياري",
+    "en": "Standard deviation"
+  },
+  "Élément": {
+    "ar": "العنصر",
+    "en": "Item"
+  },
+  "élevé": {
+    "ar": "كبير",
+    "en": "large"
+  },
+  "Une {what} statistiquement significative est observée au seuil de 5 % ({p}).": {
+    "ar": "لوحظ {what} ذو دلالة إحصائية عند مستوى 5 % ({p}).",
+    "en": "A statistically significant {what} is observed at the 5% level ({p})."
+  },
+  "Aucune {what} statistiquement significative n'est détectée au seuil de 5 % ({p}) ; cela ne prouve pas son absence.": {
+    "ar": "لم يُرصد {what} ذو دلالة إحصائية عند مستوى 5 % ({p})؛ وهذا لا يثبت غيابه.",
+    "en": "No statistically significant {what} is detected at the 5% level ({p}); this does not prove its absence."
+  },
+  "Après un test de Friedman, ces t appariés supposent pour chaque paire des différences approximativement normales, sans valeur extrême ; sinon, les lire avec prudence (aucune comparaison non paramétrique n'est calculée ici).": {
+    "ar": "بعد اختبار فريدمان، تفترض اختبارات ت المترابطة هذه أن الفروق لكل زوج قريبة من التوزيع الطبيعي ودون قيم متطرفة؛ وإلا فتُقرأ بحذر (لا تُحسب هنا مقارنات لا معلمية).",
+    "en": "After a Friedman test, these paired t tests assume approximately normal differences for each pair, with no extreme value; otherwise read them with caution (no non-parametric comparison is computed here)."
+  },
+  "Boîtes : quartiles, extrêmes (minimum–maximum) et moyenne (losange), calculés sur tous les cas complets.": {
+    "ar": "الصناديق: الربيعيات والقيم القصوى (الدنيا–العليا) والمتوسط (المعيّن)، محسوبة على جميع الحالات المكتملة.",
+    "en": "Boxes: quartiles, extremes (minimum–maximum) and mean (diamond), computed on all complete cases."
+  },
+  "Coefficient nul : aucune tendance commune n'apparaît entre les deux mesures dans cet échantillon.": {
+    "ar": "معامل منعدم: لا يظهر اتجاه مشترك بين القياسين في هذه العينة.",
+    "en": "Zero coefficient: no shared trend appears between the two measures in this sample."
+  },
+  "Concordance de Kendall (W)": {
+    "ar": "توافق كندال (W)",
+    "en": "Kendall's concordance (W)"
+  },
+  "Force de la relation ({s})": {
+    "ar": "قوة العلاقة ({s})",
+    "en": "Strength of the relation ({s})"
+  },
+  "IC 95 % non corrigé": {
+    "ar": "مجال الثقة 95 % غير مصحح",
+    "en": "Uncorrected 95% CI"
+  },
+  "Interaction X × M": {
+    "ar": "التفاعل X × M",
+    "en": "X × M interaction"
+  },
+  "Intervalle de confiance à 95 % de {s}": {
+    "ar": "مجال الثقة 95 % لـ{s}",
+    "en": "95% confidence interval of {s}"
+  },
+  "Nuage": {
+    "ar": "سحابة النقاط",
+    "en": "Scatter"
+  },
+  "Première variable": {
+    "ar": "المتغير الأول",
+    "en": "First variable"
+  },
+  "Probabilité (p)": {
+    "ar": "الاحتمال (p)",
+    "en": "Probability (p)"
+  },
+  "Proportion de variance expliquée (R²)": {
+    "ar": "نسبة التباين المفسَّر (R²)",
+    "en": "Proportion of variance explained (R²)"
+  },
+  "Prédicteur X puis modérateur M (2 variables, dans cet ordre)": {
+    "ar": "المتنبئ X ثم المعدِّل M (متغيران، بهذا الترتيب)",
+    "en": "Predictor X then moderator M (2 variables, in this order)"
+  },
+  "Seconde variable": {
+    "ar": "المتغير الثاني",
+    "en": "Second variable"
+  },
+  "Seules les p sont corrigées par Holm : les intervalles de confiance à 95 % de chaque comparaison ne sont pas ajustés simultanément.": {
+    "ar": "تُصحَّح قيم p فقط بطريقة هولم: لا تُعدَّل مجالات الثقة 95 % لكل مقارنة تعديلا متزامنا.",
+    "en": "Only p values are Holm-corrected: the 95% confidence intervals of each comparison are not simultaneously adjusted."
+  },
+  "Statistique F (ddl)": {
+    "ar": "إحصائية F (درجات الحرية)",
+    "en": "F statistic (df)"
+  },
+  "Statistique de Friedman (χ²)": {
+    "ar": "إحصائية فريدمان (χ²)",
+    "en": "Friedman statistic (χ²)"
+  },
+  "Statistique de Mann-Whitney (U)": {
+    "ar": "إحصائية مان ويتني (U)",
+    "en": "Mann-Whitney statistic (U)"
+  },
+  "Statistique de Wilcoxon (W)": {
+    "ar": "إحصائية ويلكوكسون (W)",
+    "en": "Wilcoxon statistic (W)"
+  },
+  "Taille d'effet ({s})": {
+    "ar": "حجم الأثر ({s})",
+    "en": "Effect size ({s})"
+  },
+  "Trajectoires individuelles : {n}/{total} participants affichés ; la moyenne (trait épais) porte sur les {total}.": {
+    "ar": "المسارات الفردية: عرض {n}/{total} مشاركا؛ المتوسط (الخط العريض) محسوب على {total}.",
+    "en": "Individual trajectories: {n}/{total} participants shown; the mean (thick line) covers all {total}."
+  },
+  "Variable expliquée (Y)": {
+    "ar": "المتغير المفسَّر (Y)",
+    "en": "Outcome variable (Y)"
+  },
+  "Variables explicatives (X)": {
+    "ar": "المتغيرات المفسِّرة (X)",
+    "en": "Explanatory variables (X)"
+  },
+  "{what} : {n}/{total} points affichés ; les résultats portent sur tous les points.": {
+    "ar": "{what}: عرض {n}/{total} نقطة؛ النتائج محسوبة على جميع النقاط.",
+    "en": "{what}: {n}/{total} points shown; results cover all points."
   }
 }

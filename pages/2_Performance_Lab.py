@@ -140,7 +140,8 @@ with st.expander(study_labels[0]):
             method = st.selectbox({"fr":"Analyse","en":"Analysis","ar":"التحليل"}[current()], methods, format_func=method_names.get, key="lab_study_method")
             assumptions = False
             if method != "descriptive":
-                st.warning({"fr":"Analyse exploratoire : participants indépendants, cas complets, protocole comparable. Vérifiez normalité, valeurs aberrantes, symétrie selon le test et regroupement en classes. Les corrélations ne prouvent pas la causalité.","en":"Exploratory analysis: independent participants, complete cases, comparable protocol. Check normality, outliers, symmetry as applicable and classroom clustering. Correlation is not causation.","ar":"تحليل استكشافي: مشاركون مستقلون وحالات مكتملة وبروتوكول قابل للمقارنة. تحقق من التوزيع والقيم الشاذة والتماثل حسب الاختبار والتجمع داخل الأقسام. الارتباط لا يثبت السببية."}[current()])
+                from acpa_msmda import lab_results as _lr
+                st.warning(_lr.precheck(method))
                 assumptions = st.checkbox({"fr":"J'ai vérifié les conditions du test","en":"I have checked test assumptions","ar":"تحققت من شروط الاختبار"}[current()], key="lab_study_assumptions")
             independent = method in ("welch","mann_whitney","one_way")
             min_occasions = 1 if independent else 2
@@ -150,10 +151,8 @@ with st.expander(study_labels[0]):
                 except ValueError:
                     st.error(study_labels[18])
                 else:
-                    if not independent:
-                        st.write(f"{study_labels[14]} : {panel['n_complete']} / {panel['n_total']}")
-                        st.dataframe([{ "participant": p, **dict(zip(occasions, vals))}
-                                      for p, vals in zip(panel["participants"], panel["values"])], hide_index=True)
+                    restituted = False
+                    chart_args = {}
                     if method != "descriptive" and assumptions:
                         from acpa_msmda import lab_statistics as ls
                         try:
@@ -165,6 +164,7 @@ with st.expander(study_labels[0]):
                                 if method == "mixed_anova":
                                     panels = [paired_panel(study_rows, instrument, protocol, occasions, g) for g in groups]
                                     result = ls.mixed_anova([p["values"] for p in panels])
+                                    chart_args = {"group_panels": [p["values"] for p in panels], "group_labels": groups, "columns": occasions}
                                     result["group_labels"] = groups
                                     result["included"] = [p["n_complete"] for p in panels]
                                     result["eligible"] = [p["n_total"] for p in panels]
@@ -172,6 +172,7 @@ with st.expander(study_labels[0]):
                                     if len(occasions)!=1:
                                         raise ValueError("Select one occasion")
                                     samples = [[r["value"] for r in subset if r["group"]==g and r["occasion"]==occasions[0] and r["value"] is not None] for g in groups]
+                                    chart_args = {"samples": samples, "group_labels": groups}
                                     if method == "one_way":
                                         result = ls.one_way(samples)
                                     else:
@@ -184,6 +185,7 @@ with st.expander(study_labels[0]):
                             else:
                                 if group is None:
                                     raise ValueError("Select one group")
+                                chart_args = {"panel_values": vals, "participants": panel["participants"], "columns": occasions}
                                 if method in ("repeated_anova","friedman"):
                                     result = getattr(ls,method)(vals)
                                 elif method == "paired_posthoc":
@@ -202,13 +204,35 @@ with st.expander(study_labels[0]):
                             import scipy
                             result["scipy_version"]=scipy.__version__
                             try:
-                                payload=json.dumps(result,ensure_ascii=False,indent=2,allow_nan=False)
+                                json.dumps(result,ensure_ascii=False,allow_nan=False)
                             except ValueError:
                                 st.error({"fr":"Résultat non fini : vérifier les données.","en":"Non-finite result: check the data.","ar":"نتيجة غير منتهية: تحقق من البيانات."}[current()])
                             else:
-                                st.json(result)
-                                st.download_button({"fr":"Exporter le résultat JSON","en":"Export JSON result","ar":"تصدير نتيجة JSON"}[current()],payload,"study_analysis.json","application/json",key="lab_study_analysis_export",on_click="ignore")
-                    if panel["values"]:
+                                from acpa_msmda import lab_results
+                                lab_results.render(st, method, method_names[method], result, export_key="lab_study_analysis_export",
+                                                   file_name="study_analysis.json",
+                                                   chart_args={**chart_args, "unit": registry[instrument]["unit"]},
+                                                   panel_values=chart_args.get("panel_values"), columns=occasions)
+                                restituted = True
+                    elif method == "descriptive" and panel["values"]:
+                        from acpa_msmda import lab_results
+                        import scipy
+                        result = {"method":method,"instrument":instrument,"unit":registry[instrument]["unit"],"protocol":protocol,
+                                  "occasions":occasions,"group":group,"n_eligible":panel["n_total"],"n_complete":panel["n_complete"],
+                                  "n_excluded":panel["n_excluded"],"scipy_version":scipy.__version__,
+                                  "descriptives":lab_results.describe(occasions, panel["values"])}
+                        lab_results.render(st, method, method_names[method], result, export_key="lab_study_analysis_export",
+                                           file_name="study_analysis.json",
+                                           chart_args={"panel_values": panel["values"], "participants": panel["participants"],
+                                                       "columns": occasions, "unit": registry[instrument]["unit"]},
+                                           panel_values=panel["values"], columns=occasions)
+                        restituted = True
+                    if not independent:
+                        # Détail des participants après la carte « Comprendre ».
+                        with st.expander(f"{study_labels[14]} : {panel['n_complete']} / {panel['n_total']}", expanded=not restituted):
+                            st.dataframe([{ "participant": p, **dict(zip(occasions, vals))}
+                                          for p, vals in zip(panel["participants"], panel["values"])], hide_index=True)
+                    if panel["values"] and not restituted:
                         with chart_guard(st, current()):
                             import pandas as pd
                             import altair as alt
@@ -255,9 +279,11 @@ with st.expander(study_labels[0]):
                 available = sorted({(r["instrument"],r["protocol"],r["occasion"]) for r in study_rows if r["group"]==mg})
                 def variable_label(v):
                     return f"{names[v[0]]} · {v[1]} · {v[2]}"
-                y = st.selectbox(ml[2],available,format_func=variable_label,key="lab_mv_y")
-                xs = st.multiselect(ml[3],[v for v in available if v!=y],format_func=variable_label,key="lab_mv_x",max_selections=2 if mm=="moderation" else (1 if mm in ("pearson","spearman") else 10))
-                st.warning(ml[4])
+                from acpa_msmda import lab_results as _lr
+                y_label, x_label = _lr.variable_labels(mm)
+                y = st.selectbox(y_label,available,format_func=variable_label,key="lab_mv_y")
+                xs = st.multiselect(x_label,[v for v in available if v!=y],format_func=variable_label,key="lab_mv_x",max_selections=2 if mm=="moderation" else (1 if mm in ("pearson","spearman") else 10))
+                st.warning(_lr.precheck(mm))
                 checked = st.checkbox(ml[5],key="lab_mv_assumptions")
                 if st.button(ml[6],key="lab_mv_calculate",disabled=not checked or not xs):
                     try:
@@ -278,12 +304,16 @@ with st.expander(study_labels[0]):
                         import scipy
                         result["scipy_version"]=scipy.__version__
                         result["variables"]=[list(v) for v in [y]+xs]
-                        payload=json.dumps(result,ensure_ascii=False,indent=2,allow_nan=False)
+                        json.dumps(result,ensure_ascii=False,allow_nan=False)
                     except (ValueError, TypeError, ArithmeticError, np.linalg.LinAlgError):
                         st.error(ml[7])
                     else:
-                        st.json(result)
-                        st.download_button(ml[8],payload,"analysis.json","application/json",key="lab_mv_download",on_click="ignore")
+                        from acpa_msmda import lab_results
+                        labels = [variable_label(v) for v in [y]+xs]
+                        lab_results.render(st, mm, dict(zip(mmethods,ml[9:13]))[mm], result, export_key="lab_mv_download",
+                                           file_name="analysis.json",
+                                           chart_args={"matrix": matrix if mm in ("regression","moderation") else matrix[:,[1,0]],
+                                                       "columns": labels if mm in ("regression","moderation") else [labels[1], labels[0]]})
 
             if st.button(study_labels[15], key="lab_study_clear"):
                 S.pop("lab_study_rows", None)

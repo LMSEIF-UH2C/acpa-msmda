@@ -80,7 +80,7 @@ pdf_col.download_button(t("Organisation (PDF)"),
                         organisation_pdf(context_rows, plan["phases"], plan["groups"], plan["rotation"], advice),
                         "organisation_seance_eps.pdf", "application/pdf", type="primary",
                         icon=":material/picture_as_pdf:", use_container_width=True)
-csv_col.download_button(t("Tableur (Excel)"), report_xlsx(output.getvalue().encode("utf-8-sig")),
+csv_col.download_button(t("Tableur (Excel)"), report_xlsx(output.getvalue().encode("utf-8-sig"), numeric_columns=(2,3,6)),
                         file_name="organisation_seance_eps.xlsx", mime=MIME, use_container_width=True)
 st.caption(t("Répartition indicative : environ 10 % du temps pour l'accueil, le retour au calme et le bilan. "
              "À adapter à votre terrain."))

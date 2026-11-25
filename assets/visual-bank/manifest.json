@@ -1,0 +1,437 @@
+{
+  "version": 1,
+  "date": "2026-11-25",
+  "purpose": "Banque de ressources facultatives, hors interface",
+  "lab_specific": [
+    {
+      "id": "leger20",
+      "expected_path": "assets/lab/leger20.jpg",
+      "status": "accepted_by_user_archive_handoff_pending",
+      "origin": "Illustration générée par IA, acceptation pédagogique utilisateur; non normative"
+    },
+    {
+      "id": "sprint30",
+      "expected_path": "assets/lab/sprint30.jpg",
+      "status": "accepted_by_user_archive_handoff_pending",
+      "origin": "Illustration générée par IA, acceptation pédagogique utilisateur; non normative"
+    },
+    {
+      "id": "saut_horizontal",
+      "expected_path": "assets/lab/saut_horizontal.jpg",
+      "status": "accepted_by_user_archive_handoff_pending",
+      "origin": "Illustration générée par IA, acceptation pédagogique utilisateur; non normative"
+    },
+    {
+      "id": "sargent",
+      "expected_path": "assets/lab/sargent.jpg",
+      "status": "accepted_by_user_archive_handoff_pending",
+      "origin": "Illustration générée par IA, acceptation pédagogique utilisateur; non normative"
+    },
+    {
+      "id": "medecine_ball",
+      "expected_path": "assets/lab/medecine_ball.jpg",
+      "status": "accepted_by_user_archive_handoff_pending",
+      "origin": "Illustration générée par IA, acceptation pédagogique utilisateur; non normative"
+    },
+    {
+      "id": "souplesse_assise",
+      "expected_path": "assets/lab/souplesse_assise.jpg",
+      "status": "accepted_by_user_archive_handoff_pending",
+      "origin": "Illustration générée par IA, acceptation pédagogique utilisateur; non normative"
+    },
+    {
+      "id": "souplesse_debout",
+      "expected_path": "assets/lab/souplesse_debout.jpg",
+      "status": "accepted_by_user_archive_handoff_pending",
+      "origin": "Illustration générée par IA, acceptation pédagogique utilisateur; non normative"
+    },
+    {
+      "id": "flamingo",
+      "expected_path": "assets/lab/flamingo.jpg",
+      "status": "accepted_by_user_archive_handoff_pending",
+      "origin": "Illustration générée par IA, acceptation pédagogique utilisateur; non normative"
+    },
+    {
+      "id": "taille",
+      "expected_path": "assets/lab/taille.jpg",
+      "status": "accepted_by_user_archive_handoff_pending",
+      "origin": "Illustration générée par IA, acceptation pédagogique utilisateur; non normative"
+    },
+    {
+      "id": "poids",
+      "expected_path": "assets/lab/poids.jpg",
+      "status": "accepted_by_user_archive_handoff_pending",
+      "origin": "Illustration générée par IA, acceptation pédagogique utilisateur; non normative"
+    },
+    {
+      "id": "fc_repos",
+      "expected_path": "assets/lab/fc_repos.jpg",
+      "status": "accepted_by_user_archive_handoff_pending",
+      "origin": "Illustration générée par IA, acceptation pédagogique utilisateur; non normative"
+    },
+    {
+      "id": "ruffier",
+      "expected_path": "assets/lab/ruffier.jpg",
+      "status": "accepted_by_user_archive_handoff_pending",
+      "origin": "Illustration générée par IA, acceptation pédagogique utilisateur; non normative"
+    },
+    {
+      "id": "killy",
+      "expected_path": "assets/lab/killy.jpg",
+      "status": "accepted_by_user_archive_handoff_pending",
+      "origin": "Illustration générée par IA, acceptation pédagogique utilisateur; non normative"
+    },
+    {
+      "id": "front_plank",
+      "expected_path": "assets/lab/front_plank.jpg",
+      "status": "accepted_by_user_archive_handoff_pending",
+      "origin": "Illustration générée par IA, acceptation pédagogique utilisateur; non normative"
+    }
+  ],
+  "lab_generic": [
+    {
+      "id": "shirado",
+      "icon": "chrono",
+      "disclaimer": "Pictogramme de famille, pas une illustration du protocole."
+    },
+    {
+      "id": "schober",
+      "icon": "mesure",
+      "disclaimer": "Pictogramme de famille, pas une illustration du protocole."
+    },
+    {
+      "id": "emep",
+      "icon": "observation",
+      "disclaimer": "Pictogramme de famille, pas une illustration du protocole."
+    },
+    {
+      "id": "altpe",
+      "icon": "observation",
+      "disclaimer": "Pictogramme de famille, pas une illustration du protocole."
+    },
+    {
+      "id": "cooper",
+      "icon": "course",
+      "disclaimer": "Pictogramme de famille, pas une illustration du protocole."
+    },
+    {
+      "id": "cmj",
+      "icon": "gymnastique",
+      "disclaimer": "Pictogramme de famille, pas une illustration du protocole."
+    },
+    {
+      "id": "leger_boucher",
+      "icon": "course",
+      "disclaimer": "Pictogramme de famille, pas une illustration du protocole."
+    },
+    {
+      "id": "yoyo_ir1",
+      "icon": "course",
+      "disclaimer": "Pictogramme de famille, pas une illustration du protocole."
+    },
+    {
+      "id": "yoyo_ir2",
+      "icon": "course",
+      "disclaimer": "Pictogramme de famille, pas une illustration du protocole."
+    },
+    {
+      "id": "ift3015",
+      "icon": "course",
+      "disclaimer": "Pictogramme de famille, pas une illustration du protocole."
+    },
+    {
+      "id": "shuttle4x10",
+      "icon": "course",
+      "disclaimer": "Pictogramme de famille, pas une illustration du protocole."
+    },
+    {
+      "id": "handgrip",
+      "icon": "force",
+      "disclaimer": "Pictogramme de famille, pas une illustration du protocole."
+    },
+    {
+      "id": "side_plank",
+      "icon": "chrono",
+      "disclaimer": "Pictogramme de famille, pas une illustration du protocole."
+    },
+    {
+      "id": "vameval",
+      "icon": "course",
+      "disclaimer": "Pictogramme de famille, pas une illustration du protocole."
+    },
+    {
+      "id": "demi_cooper",
+      "icon": "course",
+      "disclaimer": "Pictogramme de famille, pas une illustration du protocole."
+    },
+    {
+      "id": "pushup",
+      "icon": "force",
+      "disclaimer": "Pictogramme de famille, pas une illustration du protocole."
+    },
+    {
+      "id": "squat_jump",
+      "icon": "gymnastique",
+      "disclaimer": "Pictogramme de famille, pas une illustration du protocole."
+    },
+    {
+      "id": "t_test",
+      "icon": "course",
+      "disclaimer": "Pictogramme de famille, pas une illustration du protocole."
+    }
+  ],
+  "icons": [
+    {
+      "id": "course",
+      "path": "assets/visual-bank/pictograms/course.svg",
+      "author": "OpenMoji",
+      "license": "CC-BY-SA-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source": "https://github.com/hfg-gmuend/openmoji/blob/5acb7f049c45c57a98449122d470de9f09bb6794/color/svg/1F3C3.svg",
+      "use": "Endurance / vitesse",
+      "modified": false,
+      "status": "vendored"
+    },
+    {
+      "id": "force",
+      "path": "assets/visual-bank/pictograms/force.svg",
+      "author": "OpenMoji",
+      "license": "CC-BY-SA-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source": "https://github.com/hfg-gmuend/openmoji/blob/5acb7f049c45c57a98449122d470de9f09bb6794/color/svg/1F3CB.svg",
+      "use": "Force (famille, pas un protocole)",
+      "modified": false,
+      "status": "vendored"
+    },
+    {
+      "id": "gymnastique",
+      "path": "assets/visual-bank/pictograms/gymnastique.svg",
+      "author": "OpenMoji",
+      "license": "CC-BY-SA-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source": "https://github.com/hfg-gmuend/openmoji/blob/5acb7f049c45c57a98449122d470de9f09bb6794/color/svg/1F938.svg",
+      "use": "Gymnastique / mobilité",
+      "modified": false,
+      "status": "vendored"
+    },
+    {
+      "id": "mesure",
+      "path": "assets/visual-bank/pictograms/mesure.svg",
+      "author": "OpenMoji",
+      "license": "CC-BY-SA-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source": "https://github.com/hfg-gmuend/openmoji/blob/5acb7f049c45c57a98449122d470de9f09bb6794/color/svg/1F4CF.svg",
+      "use": "Mesures / mobilité",
+      "modified": false,
+      "status": "vendored"
+    },
+    {
+      "id": "chrono",
+      "path": "assets/visual-bank/pictograms/chrono.svg",
+      "author": "OpenMoji",
+      "license": "CC-BY-SA-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source": "https://github.com/hfg-gmuend/openmoji/blob/5acb7f049c45c57a98449122d470de9f09bb6794/color/svg/23F1.svg",
+      "use": "Temps / maintien",
+      "modified": false,
+      "status": "vendored"
+    },
+    {
+      "id": "observation",
+      "path": "assets/visual-bank/pictograms/observation.svg",
+      "author": "OpenMoji",
+      "license": "CC-BY-SA-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source": "https://github.com/hfg-gmuend/openmoji/blob/5acb7f049c45c57a98449122d470de9f09bb6794/color/svg/1F4CB.svg",
+      "use": "Observation / questionnaire",
+      "modified": false,
+      "status": "vendored"
+    },
+    {
+      "id": "smartphone",
+      "path": "assets/visual-bank/pictograms/smartphone.svg",
+      "author": "OpenMoji",
+      "license": "CC-BY-SA-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source": "https://github.com/hfg-gmuend/openmoji/blob/5acb7f049c45c57a98449122d470de9f09bb6794/color/svg/1F4F1.svg",
+      "use": "Technologie accessible",
+      "modified": false,
+      "status": "vendored"
+    },
+    {
+      "id": "basketball",
+      "path": "assets/visual-bank/pictograms/basketball.svg",
+      "author": "OpenMoji",
+      "license": "CC-BY-SA-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source": "https://github.com/hfg-gmuend/openmoji/blob/5acb7f049c45c57a98449122d470de9f09bb6794/color/svg/1F3C0.svg",
+      "use": "Basket-ball",
+      "modified": false,
+      "status": "vendored"
+    },
+    {
+      "id": "volleyball",
+      "path": "assets/visual-bank/pictograms/volleyball.svg",
+      "author": "OpenMoji",
+      "license": "CC-BY-SA-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source": "https://github.com/hfg-gmuend/openmoji/blob/5acb7f049c45c57a98449122d470de9f09bb6794/color/svg/1F3D0.svg",
+      "use": "Volley-ball",
+      "modified": false,
+      "status": "vendored"
+    },
+    {
+      "id": "badminton",
+      "path": "assets/visual-bank/pictograms/badminton.svg",
+      "author": "OpenMoji",
+      "license": "CC-BY-SA-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source": "https://github.com/hfg-gmuend/openmoji/blob/5acb7f049c45c57a98449122d470de9f09bb6794/color/svg/1F3F8.svg",
+      "use": "Badminton",
+      "modified": false,
+      "status": "vendored"
+    },
+    {
+      "id": "football",
+      "path": "assets/visual-bank/pictograms/football.svg",
+      "author": "OpenMoji",
+      "license": "CC-BY-SA-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source": "https://github.com/hfg-gmuend/openmoji/blob/5acb7f049c45c57a98449122d470de9f09bb6794/color/svg/26BD.svg",
+      "use": "Football",
+      "modified": false,
+      "status": "vendored"
+    },
+    {
+      "id": "tennis_table",
+      "path": "assets/visual-bank/pictograms/tennis_table.svg",
+      "author": "OpenMoji",
+      "license": "CC-BY-SA-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source": "https://github.com/hfg-gmuend/openmoji/blob/5acb7f049c45c57a98449122d470de9f09bb6794/color/svg/1F3D3.svg",
+      "use": "Tennis de table",
+      "modified": false,
+      "status": "vendored"
+    },
+    {
+      "id": "terrain",
+      "path": "assets/visual-bank/pictograms/terrain.svg",
+      "author": "OpenMoji",
+      "license": "CC-BY-SA-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source": "https://github.com/hfg-gmuend/openmoji/blob/5acb7f049c45c57a98449122d470de9f09bb6794/color/svg/1F3DF.svg",
+      "use": "Espace sportif",
+      "modified": false,
+      "status": "vendored"
+    },
+    {
+      "id": "video",
+      "path": "assets/visual-bank/pictograms/video.svg",
+      "author": "OpenMoji",
+      "license": "CC-BY-SA-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source": "https://github.com/hfg-gmuend/openmoji/blob/5acb7f049c45c57a98449122d470de9f09bb6794/color/svg/1F4F9.svg",
+      "use": "Studio vidéo",
+      "modified": false,
+      "status": "vendored"
+    }
+  ],
+  "references": [
+    {
+      "id": "volleyball_court",
+      "title": "Volleyball Court.svg",
+      "source": "https://commons.wikimedia.org/wiki/File:Volleyball_Court.svg",
+      "author": "Koreller",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "use": "Ateliers / Scénarisation",
+      "limit": "Fond de terrain, pas plan de séance à l'échelle.",
+      "status": "reference_only_pending_download_and_visual_review",
+      "checked": "2026-11-25"
+    },
+    {
+      "id": "badminton_court",
+      "title": "Badminton Court.svg",
+      "source": "https://commons.wikimedia.org/wiki/File:Badminton_Court.svg",
+      "author": "Koreller",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "use": "Ateliers / Scénarisation",
+      "limit": "Fond de terrain, adapter à l'espace disponible.",
+      "status": "reference_only_pending_download_and_visual_review",
+      "checked": "2026-11-25"
+    },
+    {
+      "id": "basketball_fiba",
+      "title": "Basketball - FIBA - field diagram -en.svg",
+      "source": "https://commons.wikimedia.org/wiki/File:Basketball_-_FIBA_-_field_diagram_-en.svg",
+      "author": "snater.com",
+      "license": "CC-BY-SA-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "use": "Ateliers / Studio",
+      "limit": "Schéma réglementaire daté de 2016, texte anglais; vérifier les règles et ne pas imposer les dimensions.",
+      "status": "reference_only_pending_download_and_visual_review",
+      "checked": "2026-11-25"
+    },
+    {
+      "id": "handball_court",
+      "title": "Terrain de handball avec dimensions.svg",
+      "source": "https://commons.wikimedia.org/wiki/File:Terrain_de_handball_avec_dimensions.svg",
+      "author": "Pumbaa80 ; Wenflou (dérivé)",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "use": "Ateliers / Scénarisation",
+      "limit": "Schéma français 2018, vérifier droits de l'original et règlement avant réutilisation.",
+      "status": "reference_only_pending_download_and_visual_review",
+      "checked": "2026-11-25"
+    },
+    {
+      "id": "run_cycle",
+      "title": "Run cycle.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Run_cycle.jpg",
+      "author": "BoH",
+      "license": "CC-BY-SA-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "use": "Studio / Laboratoire",
+      "limit": "Cycle de course, texte anglais, pas un protocole sprint.",
+      "status": "reference_only_pending_download_and_visual_review",
+      "checked": "2026-11-25"
+    },
+    {
+      "id": "plank",
+      "title": "Plank exercise.svg",
+      "source": "https://commons.wikimedia.org/wiki/File:Plank_exercise.svg",
+      "author": "Pk0001",
+      "license": "CC-BY-SA-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "use": "Studio / Évaluation formative",
+      "limit": "Posture indicative, contrôle visuel avant usage.",
+      "status": "reference_only_pending_download_and_visual_review",
+      "checked": "2026-11-25"
+    },
+    {
+      "id": "cardboard",
+      "title": "Google-Cardboard.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Google-Cardboard.jpg",
+      "author": "Evan-Amos",
+      "license": "Public domain",
+      "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "use": "Technothèque / Perspectives immersives",
+      "limit": "Visionneur facultatif, pas une mesure sportive.",
+      "status": "reference_only_pending_download_and_visual_review",
+      "checked": "2026-11-25"
+    },
+    {
+      "id": "ar_marker",
+      "title": "3D model with AR.js displayed on marker.png",
+      "source": "https://commons.wikimedia.org/wiki/File:3D_model_with_AR.js_displayed_on_marker.png",
+      "author": "Bert_Niehaus",
+      "license": "CC-BY-SA-3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "use": "Technothèque / Studio",
+      "limit": "Exemple AR.js, pas une application sportive validée.",
+      "status": "reference_only_pending_download_and_visual_review",
+      "checked": "2026-11-25"
+    }
+  ]
+}

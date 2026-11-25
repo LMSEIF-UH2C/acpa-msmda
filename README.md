@@ -1,6 +1,6 @@
 # ACPA/MSMDA — EPS teaching assistant and research engine
 
-**Release v0.2.0 (in preparation):** trilingual EPS technology evaluation and teaching assistant (French, Arabic, English). The consolidated code passed 262 automated tests under Python 3.12 and 3.14, and the Laboratory statistics matched an independent R 4.5.2 computation on 29/29 metrics. A physical iPhone acceptance run and the holder's final approval precede publication. Intended for research and teacher-facing evaluation; institutional production readiness has not been established.
+**Release v0.2.0 (25 November 2026):** trilingual EPS technology evaluation and teaching assistant (French, Arabic, English). The release code passed 264 automated tests under Python 3.12 and 3.14, and the Laboratory statistics matched an independent R 4.5.2 computation on 29/29 metrics. Intended for research and teacher-facing evaluation; institutional production readiness has not been established.
 
 [Public demonstration](https://acpa-msmda.streamlit.app/) · [Release notes](docs/release-v0.2.0.md) · [Scientific status](docs/statut-scientifique-v0.2.0.md) · [Changelog](CHANGELOG.md) · [Privacy and deployment](docs/privacy-deployment.md)
 

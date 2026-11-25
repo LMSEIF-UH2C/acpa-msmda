@@ -2,9 +2,9 @@
 
 Format inspiré de Keep a Changelog. Les numéros renvoient aux pull requests du dépôt. Une fusion ou une CI verte n'est pas une validation scientifique.
 
-## [0.2.0] : en préparation
+## [0.2.0] : 25 novembre 2026
 
-Révision consolidée vérifiée : `96ad264` (262 tests sous Python 3.12 et 3.14 ; R 4.5.2 : 29/29). Date de publication fixée lors du tag.
+Révision consolidée vérifiée : `96ad264` (262 tests sous Python 3.12 et 3.14 ; R 4.5.2 : 29/29) ; après clôture documentaire : 264 tests.
 
 ### Laboratoire EPS
 

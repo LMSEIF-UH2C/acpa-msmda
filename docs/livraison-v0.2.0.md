@@ -1,6 +1,6 @@
 # Dossier de livraison ACPA/MSMDA v0.2.0
 
-Index des preuves, validations, limites et conditions de publication. Statut : clôture documentaire réalisée ; publication en attente de la recette physique iPhone et de l'accord explicite du porteur du projet. Aucun tag, release ni DOI n'est attribué à ce stade.
+Index des preuves, validations, limites et conditions de publication. Statut : publiée le 25 novembre 2026 (tag `v0.2.0`) sur accord explicite du porteur du projet ; la publication a été décidée par le porteur du projet le 25 novembre 2026 ; le résultat de la recette physique iPhone n'est pas consigné dans le dépôt. Le DOI propre à v0.2.0 est attribué par Zenodo à l'archivage.
 
 ## 1. Identification
 
@@ -25,7 +25,7 @@ Index des preuves, validations, limites et conditions de publication. Statut : c
 | Balayage navigateur | 60/60 visites (10 pages, 3 langues, ordinateur et iPhone simulé) | `docs/validation/recette-cloture-v0.2.0-2026-11-25/` |
 | Sauvegardes Excel réenregistrées par un tableur tiers puis restaurées | identiques (évaluation formative, journal, projets de cycle) | audit final indépendant |
 | Banque visuelle | 14 illustrations conformes à leurs empreintes ; 18 pictogrammes | `assets/visual-bank/manifest.json` |
-| Recette physique iPhone | **à réaliser** | `docs/recette-iphone-v0.2.0.md` |
+| Recette physique iPhone | non consignée dans le dépôt ; publication décidée par le porteur | `docs/recette-iphone-v0.2.0.md` |
 
 Les nombres de tests des jalons successifs (188, 205, 211, 262) ne s'additionnent pas.
 

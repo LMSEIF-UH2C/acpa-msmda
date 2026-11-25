@@ -25,6 +25,7 @@ keywords:
   - pedagogical scenarios
   - Morocco
 version: "0.2.0"
+date-released: "2026-11-25"
 abstract: >-
   Trilingual research demonstrator for EPS technology evaluation, contextual
   recommendation, pedagogical scenario design and teaching support. The

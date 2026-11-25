@@ -179,12 +179,17 @@ input,textarea,[data-baseweb="select"] div{font-size:16px!important}
 [data-testid="stSlider"] [role="slider"]{box-shadow:0 0 0 6px rgba(61,107,255,.18)}
 
 /* Barre d'onglets fixe, façon application iPhone */
-.st-key-tabbar{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(.6rem + env(safe-area-inset-bottom));
-  z-index:999;width:min(560px,calc(100% - 1.2rem));background:rgba(255,255,255,.94);
+/* REC-Y002 : centrer avec les deux bords et les marges, sans transform animable.
+   Les marges de sécurité physiques restent identiques en LTR et RTL. */
+.st-key-tabbar{position:fixed;left:max(.6rem,env(safe-area-inset-left,0px));
+  right:max(.6rem,env(safe-area-inset-right,0px));margin-inline:auto;
+  bottom:calc(.6rem + env(safe-area-inset-bottom,0px));
+  z-index:999;width:auto!important;max-width:560px;min-width:0!important;box-sizing:border-box;
+  transform:none!important;animation:none!important;background:rgba(255,255,255,.94);
   -webkit-backdrop-filter:saturate(180%) blur(18px);backdrop-filter:saturate(180%) blur(18px);
   border:1px solid rgba(227,232,246,.9);border-radius:24px;padding:.3rem .35rem;
   box-shadow:0 10px 30px rgba(11,21,51,.14)}
-.st-key-tabbar [data-testid="stHorizontalBlock"]{gap:0!important;flex-wrap:nowrap!important}
+.st-key-tabbar [data-testid="stHorizontalBlock"]{gap:0!important;flex-wrap:nowrap!important;width:100%!important;min-width:0!important}
 .st-key-tabbar [data-testid="stColumn"]{min-width:0!important;flex:1 1 0!important;width:auto!important}
 .st-key-tabbar a[data-testid="stPageLink-NavLink"]{
   display:flex!important;flex-direction:column!important;align-items:center!important;
@@ -200,7 +205,7 @@ input,textarea,[data-baseweb="select"] div{font-size:16px!important}
 }
 .st-key-tabbar a[data-testid="stPageLink-NavLink"] p{
   font-size:.7rem!important;line-height:1.15!important;font-weight:600;
-  color:#5E6A88;white-space:normal;overflow-wrap:normal;word-break:normal;margin:0!important;text-align:center!important
+  color:#5E6A88;white-space:normal;overflow-wrap:anywhere;word-break:normal;max-width:100%;margin:0!important;text-align:center!important
 }
 .st-key-tabbar [data-testid="stIconMaterial"]{
   display:inline-flex!important;align-items:center!important;justify-content:center!important;
@@ -253,11 +258,13 @@ div[class*="st-key-core_"] [data-testid="stCaptionContainer"] p,
 @media(max-width:640px){
   div[class*="st-key-core_"],.st-key-home_eps{padding:.45rem .75rem .85rem}
   .st-key-home_languages{margin-bottom:1.25rem}
-  .block-container,[data-testid="stMainBlockContainer"]{padding-bottom:calc(9rem + env(safe-area-inset-bottom))}
+  .st-key-tabbar a[data-testid="stPageLink-NavLink"]{min-width:0!important;min-height:44px;box-sizing:border-box}
+  .block-container,[data-testid="stMainBlockContainer"]{padding-bottom:calc(9rem + env(safe-area-inset-bottom,0px))}
 }
- /* Apparition douce du contenu */
+/* Apparition douce du contenu. Pas de transform sur un ancêtre possible de la
+   barre fixe : WebKit peut alors prendre cet ancêtre comme containing block. */
 [data-testid="stMainBlockContainer"]>div>div>div{animation:rise .35s ease both}
-@keyframes rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes rise{from{opacity:0}to{opacity:1}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 @media (max-width:640px){
   .block-container,[data-testid="stMainBlockContainer"]{padding-left:.95rem;padding-right:.95rem}

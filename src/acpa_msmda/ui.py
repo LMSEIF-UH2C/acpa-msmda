@@ -250,6 +250,7 @@ div[class*="st-key-core_"] button[data-testid="stBaseButton-secondary"],.st-key-
 div[class*="st-key-core_"] button p,.st-key-home_eps a[data-testid="stPageLink-NavLink"] p{
   color:var(--task-accent)!important;font-size:1.08rem!important;font-weight:750!important;
   line-height:1.2!important;text-align:start!important;margin:0!important}
+.st-key-home_eps a[data-testid="stPageLink-NavLink"] p{color:var(--red-dark)!important}
 div[class*="st-key-core_"] button::after,.st-key-home_eps a[data-testid="stPageLink-NavLink"]::after{
   content:"";position:absolute;inset:0;z-index:2;border-radius:18px;
 }

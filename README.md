@@ -89,7 +89,11 @@ The archived versions and current release preparation are research software arti
 
 ## License and citation
 
-**Archived release:** [v0.1.1 on Zenodo](https://doi.org/10.5281/zenodo.23244629) (version-specific DOI: `10.5281/zenodo.23244629`).
+**Current release:** [v0.2.0 on Zenodo](https://doi.org/10.5281/zenodo.24544420) (version-specific DOI: `10.5281/zenodo.24544420`). All versions: `10.5281/zenodo.23244628` (resolves to the latest version).
+
+Suggested software citation: Moudettir, Y., Ouhrir, S., & Lotfi, S. (2026). *ACPA/MSMDA: EPS Technology Evaluation and Teaching Assistant* (Version v0.2.0) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.24544420
+
+**Earlier archived release:** [v0.1.1 on Zenodo](https://doi.org/10.5281/zenodo.23244629) (version-specific DOI: `10.5281/zenodo.23244629`).
 
 Suggested software citation: Moudettir, Y., Lotfi, S., & Ouhrir, S. (2026). *ACPA/MSMDA: Heuristic EPS Technology Recommendation Engine* (Version v0.1.1) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.23244629
 
@@ -97,6 +101,6 @@ Suggested software citation: Moudettir, Y., Lotfi, S., & Ouhrir, S. (2026). *ACP
 The source code is offered under the accompanying MIT License. The Laboratory illustrations are under CC BY 4.0 to the extent of the rights held, and the OpenMoji pictograms under CC BY-SA 4.0 (see `assets/visual-bank/LICENCE-ILLUSTRATIONS.md`).
 See `NOTICE` for scope and the distinction from any industrial-property
 rights associated with the wider project. See `CITATION.cff` for software
-citation metadata. For reproducibility, cite the archived v0.1.1 release DOI above. Later versions should be cited using their own version-specific identifiers.
+citation metadata. For reproducibility, cite the version-specific DOI of the release you used: v0.2.0 or v0.1.1 above.
 
 

@@ -4,6 +4,8 @@ Format inspiré de Keep a Changelog. Les numéros renvoient aux pull requests du
 
 ## [0.2.0] : 25 novembre 2026
 
+DOI : 10.5281/zenodo.24544420.
+
 Révision consolidée vérifiée : `96ad264` (262 tests sous Python 3.12 et 3.14 ; R 4.5.2 : 29/29) ; après clôture documentaire : 264 tests.
 
 ### Laboratoire EPS

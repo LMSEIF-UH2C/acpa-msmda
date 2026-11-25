@@ -1,6 +1,6 @@
 # Dossier de livraison ACPA/MSMDA v0.2.0
 
-Index des preuves, validations, limites et conditions de publication. Statut : publiée le 25 novembre 2026 (tag `v0.2.0`) sur accord explicite du porteur du projet ; la publication a été décidée par le porteur du projet le 25 novembre 2026 ; le résultat de la recette physique iPhone n'est pas consigné dans le dépôt. Le DOI propre à v0.2.0 est attribué par Zenodo à l'archivage.
+Index des preuves, validations, limites et conditions de publication. Statut : publiée le 25 novembre 2026 (tag `v0.2.0`) sur accord explicite du porteur du projet ; la publication a été décidée par le porteur du projet le 25 novembre 2026 ; le résultat de la recette physique iPhone n'est pas consigné dans le dépôt. Archivée sur Zenodo le 25 novembre 2026 : DOI de version `10.5281/zenodo.24544420`, DOI de concept `10.5281/zenodo.23244628`.
 
 ## 1. Identification
 
@@ -11,6 +11,7 @@ Index des preuves, validations, limites et conditions de publication. Statut : p
 | Démonstration publique | https://acpa-msmda.streamlit.app/ |
 | Dernière révision de code vérifiée | `d265de3` (fusion de la PR #75) ; la PR de clôture documentaire ne modifie aucun code exécuté par l'application |
 | Commit à étiqueter | commit de `main` qui portera la date de publication effective, après CI réussie |
+| DOI v0.2.0 | 10.5281/zenodo.24544420 (concept : 10.5281/zenodo.23244628) |
 | Version archivée précédente | v0.1.1, DOI 10.5281/zenodo.23244629 (moteur heuristique distinct ; DOI à ne pas réutiliser) |
 
 ## 2. Validations

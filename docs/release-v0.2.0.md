@@ -1,6 +1,6 @@
 # ACPA/MSMDA v0.2.0 : notes de version
 
-Publiée le 25 novembre 2026 (tag `v0.2.0`). Code vérifié : 264 tests sous Python 3.12 et 3.14, R 29/29, navigation mobile 30/30, parcours 17/17 ; la publication a été décidée par le porteur du projet le 25 novembre 2026 ; le résultat de la recette physique iPhone n'est pas consigné dans le dépôt. Le DOI propre à v0.2.0 est attribué par Zenodo à l'archivage ; le DOI de v0.1.1 (`10.5281/zenodo.23244629`) ne doit pas être réutilisé.
+Publiée le 25 novembre 2026 (tag `v0.2.0`). Code vérifié : 264 tests sous Python 3.12 et 3.14, R 29/29, navigation mobile 30/30, parcours 17/17 ; la publication a été décidée par le porteur du projet le 25 novembre 2026 ; le résultat de la recette physique iPhone n'est pas consigné dans le dépôt. DOI de version attribué par Zenodo : `10.5281/zenodo.24544420` (DOI de concept, toutes versions : `10.5281/zenodo.23244628`) ; le DOI de v0.1.1 (`10.5281/zenodo.23244629`) ne doit pas être réutilisé.
 
 ## Révision de référence
 

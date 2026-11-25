@@ -1,5 +1,13 @@
 cff-version: 1.2.0
-message: "Please cite this software by version. v0.2.0 receives its own DOI at archiving; do not use the v0.1.1 DOI for v0.2.0."
+message: "Please cite this software using the version-specific DOI of v0.2.0. Do not use the v0.1.1 DOI for v0.2.0."
+doi: "10.5281/zenodo.24544420"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.24544420"
+    description: "Version-specific DOI of v0.2.0"
+  - type: doi
+    value: "10.5281/zenodo.23244628"
+    description: "Concept DOI for all versions"
 type: software
 title: "ACPA/MSMDA: EPS Technology Evaluation and Teaching Assistant"
 authors:

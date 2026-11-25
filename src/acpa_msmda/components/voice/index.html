@@ -13,33 +13,80 @@
 <script>
 // Dictée par la reconnaissance vocale du navigateur. Échange avec Streamlit par postMessage
 // (protocole des composants : componentReady, render, setComponentValue, setFrameHeight).
-let args = {}, rec = null, listening = false;
+let args = {}, rec = null, listening = false, stopping = false;
+let lastAt = 0;
 const B = document.getElementById("b"), L = document.getElementById("l"), M = document.getElementById("m");
 const send = (type, extra) => window.parent.postMessage(Object.assign({isStreamlitMessage: true, type}, extra), "*");
 const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
 function paint() {
   L.textContent = listening ? args.stop : args.start;
   B.className = listening ? "on" : "";
+  B.disabled = stopping;
 }
 function start() {
   if (!SR) { M.textContent = args.unsupported; return; }
-  rec = new SR(); rec.lang = args.lang; rec.interimResults = true; rec.continuous = false;
-  let final = "";
-  rec.onresult = e => {
-    let interim = "";
-    for (let i = e.resultIndex; i < e.results.length; i++) {
-      if (e.results[i].isFinal) final += e.results[i][0].transcript; else interim += e.results[i][0].transcript;
+  const session = new SR();
+  rec = session;
+  session.lang = args.lang;
+  session.interimResults = true;
+  session.continuous = false;
+  let segments = [], latest = "", completed = false, timer = null;
+  const finish = () => {
+    if (completed) return;
+    completed = true;
+    clearTimeout(timer);
+    if (rec !== session) return;
+    rec = null; listening = false; stopping = false; paint();
+    // Safari may end without converting its interim hypotheses into final results.
+    // Preserve the last nonempty complete preview, exactly once per recording.
+    const text = latest.trim();
+    if (text) {
+      lastAt = Math.max(Date.now(), lastAt + 1);
+      M.textContent = text;
+      send("streamlit:setComponentValue", {value: {text, at: lastAt}, dataType: "json"});
     }
-    M.textContent = (final + " " + interim).trim();
   };
-  rec.onerror = e => { M.textContent = e.error === "not-allowed" ? args.denied : args.failed; };
-  rec.onend = () => {
-    listening = false; paint();
-    if (final.trim()) send("streamlit:setComponentValue", {value: {text: final.trim(), at: Date.now()}, dataType: "json"});
+  session.onresult = e => {
+    if (completed) return;
+    // Each event replaces result slots; it does not append the entire hypothesis.
+    segments.length = e.results.length;
+    for (let i = 0; i < e.results.length; i++) {
+      segments[i] = e.results[i][0].transcript.trim();
+    }
+    const preview = segments.filter(Boolean).join(" ").trim();
+    if (preview) latest = preview;
+    M.textContent = latest;
   };
-  listening = true; paint(); M.textContent = args.listening; rec.start();
+  session.onerror = e => {
+    if (completed) return;
+    if (e.error === "not-allowed" || e.error === "service-not-allowed") {
+      latest = "";
+      M.textContent = args.denied;
+      finish();
+    } else {
+      if (!latest) M.textContent = args.failed;
+      finish();
+    }
+  };
+  session.onend = finish;
+  B.onclick = () => {
+    if (rec !== session || !listening) { start(); return; }
+    if (stopping) return;
+    stopping = true; paint();
+    // Give the browser a chance to emit its final hypothesis and end event.
+    timer = setTimeout(() => {
+      finish();
+      try { session.abort(); } catch (_) {}
+    }, 1800);
+    try { session.stop(); } catch (_) { finish(); }
+  };
+  listening = true; stopping = false; paint(); M.textContent = args.listening;
+  try { session.start(); } catch (_) {
+    M.textContent = args.failed;
+    finish();
+  }
 }
-B.onclick = () => { if (listening && rec) rec.stop(); else start(); };
+B.onclick = start;
 window.addEventListener("message", e => {
   if (e.data && e.data.type === "streamlit:render") {
     args = e.data.args || {}; paint();

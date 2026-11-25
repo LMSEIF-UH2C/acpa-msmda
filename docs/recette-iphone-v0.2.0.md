@@ -20,7 +20,7 @@ Utiliser uniquement des données fictives : aucun nom d'élève, code Massar ni 
 - [ ] Autoriser le micro dans Safari ; le refus affiche un message compréhensible.
 - [ ] Dictée en arabe : texte affiché sur plusieurs lignes, de droite à gauche, sans coupure.
 - [ ] Après « Arrêter », le texte est transféré une seule fois dans le champ de recherche (pas de doublon).
-- [ ] Silence prolongé : le transfert intervient après le délai de secours, sans action supplémentaire.
+- [ ] Fin automatique après silence : si Safari émet la fin de reconnaissance, le texte reconnu est transféré une seule fois. Sinon, toucher « Arrêter » ; si Safari n'émet pas de fin, le mécanisme de secours transfère le dernier texte reconnu après environ 1,8 s.
 - [ ] Dictée en français, puis phrase bilingue arabe et français : transfert complet.
 - [ ] La recherche lancée avec le texte dicté renvoie des résultats cohérents.
 

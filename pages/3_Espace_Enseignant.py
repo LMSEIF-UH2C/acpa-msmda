@@ -73,12 +73,14 @@ if ctx.get(S, "devices") == "Aucun":
     advice.append(t("Sans appareil : consignes imprimées, ateliers autonomes et observation directe."))
 context_rows = {t("APS"): t(ctx.get(S, "activity")), t("Niveau"): t(ctx.get(S, "level")), t("Effectif"): class_size,
                 t("Durée (min)"): duration, t("Objectifs"): ctx.get(S, "objectives") or ""}
+from acpa_msmda.teacher_workbooks import MIME, report_xlsx
+
 pdf_col, csv_col = st.columns([2, 1])
 pdf_col.download_button(t("Organisation (PDF)"),
                         organisation_pdf(context_rows, plan["phases"], plan["groups"], plan["rotation"], advice),
                         "organisation_seance_eps.pdf", "application/pdf", type="primary",
                         icon=":material/picture_as_pdf:", use_container_width=True)
-csv_col.download_button(t("Tableur (CSV)"), output.getvalue().encode("utf-8-sig"),
-                        file_name="organisation_seance_eps.csv", mime="text/csv", use_container_width=True)
+csv_col.download_button(t("Tableur (Excel)"), report_xlsx(output.getvalue().encode("utf-8-sig"), numeric_columns=(2,3,6)),
+                        file_name="organisation_seance_eps.xlsx", mime=MIME, use_container_width=True)
 st.caption(t("Répartition indicative : environ 10 % du temps pour l'accueil, le retour au calme et le bilan. "
              "À adapter à votre terrain."))

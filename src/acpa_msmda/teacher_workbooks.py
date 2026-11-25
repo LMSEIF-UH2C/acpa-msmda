@@ -14,6 +14,7 @@ from openpyxl import Workbook, load_workbook
 from openpyxl.cell import WriteOnlyCell
 from openpyxl.styles import Font, PatternFill
 from openpyxl.utils import get_column_letter
+from openpyxl.utils.exceptions import IllegalCharacterError
 from . import formative_backup as fb, journal, curriculum
 
 MIME = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
@@ -24,15 +25,23 @@ LESSONS = ("Séances", ("ID séance","Type","APS","Niveau","Effectif","Cycle","S
 CRITERIA = ("Critères", ("ID séance","ID critère","Dimension","Critère"))
 PUPILS = ("Codes élèves", ("ID séance","Code élève"))
 OBS = ("Observations", ("ID séance","Code élève","ID critère","Niveau observé"))
-CYCLES = ("Cycles", ("number","start","end","activity"))
-ENTRIES = ("Journal", journal.FIELDS)
-SLOTS = ("Créneaux", ("group","level","weekday","duration","start_minute"))
-BREAKS = ("Interruptions", ("start","end"))
-PROJECTS = ("Projets", curriculum.FIELDS)
+CYCLES = ("Cycles", ("Cycle","Début","Fin","APS"))
+ENTRY_FIELDS = journal.FIELDS
+ENTRIES = ("Journal", ("ID","Date","Groupe","APS","Niveau","Cycle","Séance","Durée (min)","Objectifs","Statut","Bilan pédagogique"))
+SLOT_FIELDS = ("group","level","weekday","duration","start_minute")
+SLOTS = ("Créneaux", ("Groupe","Niveau","Jour (0=lundi)","Durée (min)","Début (min depuis minuit)"))
+BREAKS = ("Interruptions", ("Début","Fin"))
+PROJECT_FIELDS = curriculum.FIELDS
+PROJECTS = ("Projets", ("Groupe","Cycle","Niveau","Profil","Classe","Module","Objectifs institutionnels","Référence","Diagnostic","Objectif terminal","Progression","Évaluation"))
 
 
 def _cell(ws, value, header=False):
-    c = WriteOnlyCell(ws, value=value)
+    if isinstance(value, str) and len(value) > 32767:
+        raise ValueError("Excel cell text too long")
+    try:
+        c = WriteOnlyCell(ws, value=value)
+    except IllegalCharacterError as exc:
+        raise ValueError("Invalid Excel cell text") from exc
     if isinstance(value, str):
         c.data_type = "s"  # including strings beginning with =, +, -, @
     if header:
@@ -53,9 +62,9 @@ def _sheet(wb, name, fields, rows):
 
 def _save(kind, tables):
     wb = Workbook(write_only=True)
-    _sheet(wb, META, ("Format","Version"), [(kind, 1)])
     for (name, fields), rows in tables:
         _sheet(wb, name, fields, rows)
+    _sheet(wb, META, ("Format","Version"), [(kind, 1)])
     out = io.BytesIO()
     wb.save(out)
     raw = out.getvalue()
@@ -117,8 +126,8 @@ def _string(v):
 def formative_xlsx(current, history):
     current, history = fb.load_backup(fb.make_backup(current, history))
     lessons, criteria, pupils, observations = [], [], [], []
-    items = ([("active", current)] if current is not None else []) + [
-        ("archive", item) for item in history.values()
+    items = ([("En cours", current)] if current is not None else []) + [
+        ("Archivée", item) for item in history.values()
     ]
     for sid, (kind, item) in enumerate(items, 1):
         lessons.append((sid, kind, *item["context"]))
@@ -135,11 +144,11 @@ def restore_formative_xlsx(raw):
     active = None
     archive = []
     for sid, kind, activity, level, count, cycle, lesson, group in rows[LESSONS[0]]:
-        if type(sid) is not int or sid < 1 or sid in items or kind not in ("active","archive"):
+        if type(sid) is not int or sid < 1 or sid in items or kind not in ("En cours","Archivée"):
             raise ValueError("Invalid lesson key")
         item = {"context":[activity,level,count,cycle,lesson,_string(group)],"criteria":[],"records":{}}
         items[sid] = item
-        if kind == "active":
+        if kind == "En cours":
             if active is not None:
                 raise ValueError("Duplicate active lesson")
             active = item
@@ -175,16 +184,16 @@ def journal_xlsx(cycles, entries, slots, interruptions, projects):
     c,e,s,b,p = journal.restore_workspace(journal.workspace_backup(cycles,entries,slots,interruptions,projects))
     return _save("journal", [
         (CYCLES, [(x["number"],x["start"],x["end"],x["activities"][0]) for x in c]),
-        (ENTRIES, _dict_rows(e,ENTRIES[1])), (SLOTS,_dict_rows(s,SLOTS[1])),
-        (BREAKS,b), (PROJECTS,_dict_rows(p,PROJECTS[1]))])
+        (ENTRIES, _dict_rows(e,ENTRY_FIELDS)), (SLOTS,_dict_rows(s,SLOT_FIELDS)),
+        (BREAKS,b), (PROJECTS,_dict_rows(p,PROJECT_FIELDS))])
 
 
 def restore_journal_xlsx(raw):
     rows = _read(raw,"journal",[CYCLES,ENTRIES,SLOTS,BREAKS,PROJECTS])
     cycles = [{"number":n,"start":a,"end":b,"activities":[activity]} for n,a,b,activity in rows[CYCLES[0]]]
-    entries = _records(rows[ENTRIES[0]],ENTRIES[1],set(ENTRIES[1])-{"cycle","lesson","duration"})
-    slots = _records(rows[SLOTS[0]],SLOTS[1],{"group","level"})
-    projects = _records(rows[PROJECTS[0]],PROJECTS[1],set(PROJECTS[1])-{"cycle"})
+    entries = _records(rows[ENTRIES[0]],ENTRY_FIELDS,set(ENTRY_FIELDS)-{"cycle","lesson","duration"})
+    slots = _records(rows[SLOTS[0]],SLOT_FIELDS,{"group","level"})
+    projects = _records(rows[PROJECTS[0]],PROJECT_FIELDS,set(PROJECT_FIELDS)-{"cycle"})
     payload = {"version":4,"cycles":cycles,"entries":entries,"slots":slots,
                "interruptions":rows[BREAKS[0]],"projects":projects}
     return journal.restore_workspace(json.dumps(payload,ensure_ascii=False).encode())
@@ -192,12 +201,12 @@ def restore_journal_xlsx(raw):
 
 def projects_xlsx(projects, cycles):
     validated = curriculum.validate_projects(projects,cycles)
-    return _save("projects",[(PROJECTS,_dict_rows(validated,PROJECTS[1]))])
+    return _save("projects",[(PROJECTS,_dict_rows(validated,PROJECT_FIELDS))])
 
 
 def restore_projects_xlsx(raw, cycles):
     rows = _read(raw,"projects",[PROJECTS])
-    projects = _records(rows[PROJECTS[0]],PROJECTS[1],set(PROJECTS[1])-{"cycle"})
+    projects = _records(rows[PROJECTS[0]],PROJECT_FIELDS,set(PROJECT_FIELDS)-{"cycle"})
     return curriculum.validate_projects(projects,cycles)
 
 

@@ -1,0 +1,167 @@
+[
+  {
+    "cas": "fr/sargent",
+    "type": "illustration",
+    "epreuve_affichee": "Saut vertical Sargent · Batterie institutionnelle · 8 tests et 3 mesures",
+    "volet_present": true,
+    "volet_replie_par_defaut": true,
+    "image": {
+      "chargee": true,
+      "naturelle": [
+        1400,
+        1050
+      ],
+      "affichee": [
+        326,
+        244
+      ],
+      "fenetre": 390,
+      "source_locale": true
+    },
+    "legendes": [
+      "Le long d'une toise murale : marque bras tendu en position debout, puis marque au sommet du saut ; la flèche indique l'écart entre les deux marques. La flexion préparatoire, à droite, ne fixe pas l'ordre des étapes. Matériel représenté : toise murale graduée.",
+      "Illustration générée par IA, non normative : le protocole écrit fait foi ; vérifier le matériel, les distances et les conditions de mesure."
+    ],
+    "sens_legende": "ltr",
+    "debordement_horizontal": false,
+    "exceptions_streamlit": 0,
+    "erreurs_js": [],
+    "hotes_externes": []
+  },
+  {
+    "cas": "ar/ruffier",
+    "type": "illustration",
+    "epreuve_affichee": "اختبار روفيي-ديكسون · أدوات تكميلية",
+    "volet_present": true,
+    "volet_replie_par_defaut": true,
+    "image": {
+      "chargee": true,
+      "naturelle": [
+        1400,
+        933
+      ],
+      "affichee": [
+        326,
+        217
+      ],
+      "fenetre": 390,
+      "source_locale": true
+    },
+    "legendes": [
+      "تسلسل في خمس صور: P1، نبض القلب في الراحة؛ 30 ثنية للركبتين في 45 ثانية؛ P2، نبض القلب مباشرة بعد الجهد؛ الاسترجاع، دقيقة واحدة؛ P3، نبض القلب بعد الاسترجاع. تظهر قياسات النبض في وضع الجلوس، عند المعصم، بتوقيت من الأستاذ. العتاد الظاهر في الرسم: كرسي، ميقاتية.",
+      "رسم مولد بالذكاء الاصطناعي وغير معياري: البروتوكول المكتوب هو المرجع؛ تحقق من العتاد والمسافات وشروط القياس."
+    ],
+    "sens_legende": "rtl",
+    "debordement_horizontal": false,
+    "exceptions_streamlit": 0,
+    "erreurs_js": [],
+    "hotes_externes": []
+  },
+  {
+    "cas": "en/medecine_ball",
+    "type": "illustration",
+    "epreuve_affichee": "3 kg medicine-ball throw · Institutional battery · 8 tests and 3 measurements",
+    "volet_present": true,
+    "volet_replie_par_defaut": true,
+    "image": {
+      "chargee": true,
+      "naturelle": [
+        1200,
+        900
+      ],
+      "affichee": [
+        326,
+        244
+      ],
+      "fenetre": 390,
+      "source_locale": true
+    },
+    "legendes": [
+      "Throw in three phases, seated with the back against the wall and legs extended: ball against the chest, two-arm push, ball in flight. A tape measure runs from the foot of the wall. Equipment shown: medicine ball, wall, tape measure.",
+      "AI-generated, non-normative illustration: the written protocol prevails; check equipment, distances and measurement conditions."
+    ],
+    "sens_legende": "ltr",
+    "debordement_horizontal": false,
+    "exceptions_streamlit": 0,
+    "erreurs_js": [],
+    "hotes_externes": []
+  },
+  {
+    "cas": "ar/souplesse_assise",
+    "type": "illustration",
+    "epreuve_affichee": "المرونة من الجلوس · البطارية المؤسساتية · 8 اختبارات و3 قياسات",
+    "volet_present": true,
+    "volet_replie_par_defaut": true,
+    "image": {
+      "chargee": true,
+      "naturelle": [
+        1200,
+        900
+      ],
+      "affichee": [
+        326,
+        244
+      ],
+      "fenetre": 390,
+      "source_locale": true
+    },
+    "legendes": [
+      "تلميذ جالس بحذائه، والرجلان ممدودتان والقدمان مستندتان إلى صندوق مدرج؛ يدفع المؤشر بأطراف أصابعه. العتاد الظاهر في الرسم: صندوق مرونة مدرج بمؤشر منزلق.",
+      "رسم مولد بالذكاء الاصطناعي وغير معياري: البروتوكول المكتوب هو المرجع؛ تحقق من العتاد والمسافات وشروط القياس."
+    ],
+    "sens_legende": "rtl",
+    "debordement_horizontal": false,
+    "exceptions_streamlit": 0,
+    "erreurs_js": [],
+    "hotes_externes": []
+  },
+  {
+    "cas": "fr/handgrip",
+    "type": "pictogramme",
+    "epreuve_affichee": "Force de préhension (handgrip) · Instruments complémentaires",
+    "image": {
+      "chargee": true,
+      "affichee": [
+        56,
+        56
+      ],
+      "source_locale": false
+    },
+    "legendes": [
+      "Pictogramme de famille, pas une illustration du protocole. Pictogramme : OpenMoji (openmoji.org), CC BY-SA 4.0."
+    ],
+    "debordement_horizontal": false,
+    "exceptions_streamlit": 0,
+    "erreurs_js": [],
+    "hotes_externes": []
+  },
+  {
+    "cas": "en/killy",
+    "type": "illustration",
+    "epreuve_affichee": "Killy test · Complementary instruments",
+    "volet_present": true,
+    "volet_replie_par_defaut": true,
+    "image": {
+      "chargee": true,
+      "naturelle": [
+        1400,
+        1050
+      ],
+      "affichee": [
+        326,
+        244
+      ],
+      "fenetre": 390,
+      "source_locale": true
+    },
+    "legendes": [
+      "Student with the back against the wall, thighs horizontal and arms crossed, holding the position; the teacher holds the stopwatch. Equipment shown: wall, stopwatch.",
+      "AI-generated, non-normative illustration: the written protocol prevails; check equipment, distances and measurement conditions."
+    ],
+    "sens_legende": "ltr",
+    "debordement_horizontal": false,
+    "exceptions_streamlit": 0,
+    "erreurs_js": [],
+    "hotes_externes": []
+  }
+]

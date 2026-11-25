@@ -28,6 +28,17 @@ Une fusion ou un succès CI ne constitue pas une validation scientifique, ergono
 - [ ] Publication du tag v0.2.0 après réception, sans revendication de production institutionnelle.
 - [ ] Valorisation et archivage distincts après finalisation.
 
+## Clôture v0.2.0 (25 novembre 2026)
+
+- [x] PR #68 réconciliée avec `main` (après #70 à #74) ; traductions fusionnées sans perte ; moteur scientifique inchangé.
+- [x] Contributions des PR #59 et #67 reprises ; #59, #67 et #69 fermées sans fusion, branches conservées.
+- [x] Révision `96ad264` : 262 tests (3.12 et 3.14), démonstration web, R 29/29, navigation mobile : réussis.
+- [x] Recette navigateur : 60/60 visites (10 pages, FR/AR/EN, ordinateur et iPhone simulé) ; banque visuelle et barre d'onglets contrôlées.
+- [x] Documents de livraison, CHANGELOG, CITATION.cff (0.2.0), NOTICE et version du paquet actualisés.
+- [ ] Recette physique iPhone : `docs/recette-iphone-v0.2.0.md`.
+- [ ] Fusion de #68 puis de la PR de préparation ; CI verte sur le commit final de `main`.
+- [ ] Accord final du porteur, puis tag, release GitHub et dépôt Zenodo : `docs/publication-v0.2.0.md`.
+
 ## Après la première version
 
 Bibliothèque de situations plus complète, validation scientifique indépendante, transcription vérifiée des orientations pédagogiques, extension hors ligne et vidéo, IA générative et communauté. Le compagnon terrain et le module vidéo restent expérimentaux jusqu'à leurs essais et leur déploiement. Les objectifs SUS et réussite des tâches nécessitent une évaluation avec des utilisateurs, non une estimation.

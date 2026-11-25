@@ -3,7 +3,7 @@ ACPA/MSMDA — research demonstrator and archived heuristic engine
 Copyright (c) 2026 Youness Moudettir.
 
 The archived v0.1.1 implements an illustrative ranking pipeline with synthetic data.
-The v0.2.0-rc.1 candidate includes a real-app catalogue, descriptive assessments,
+The v0.2.0 release includes a real-app catalogue, descriptive assessments,
 heuristic recommendations and pedagogical preparation tools. Neither version
 establishes empirical educational efficacy.
 

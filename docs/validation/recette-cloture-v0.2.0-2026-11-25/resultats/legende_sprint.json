@@ -1,0 +1,89 @@
+[
+  {
+    "cas": "fr/sprint30",
+    "type": "illustration",
+    "epreuve_affichee": "Sprint 30 m · Batterie institutionnelle · 8 tests et 3 mesures",
+    "volet_present": true,
+    "volet_replie_par_defaut": true,
+    "image": {
+      "chargee": true,
+      "naturelle": [
+        1200,
+        900
+      ],
+      "affichee": [
+        326,
+        244
+      ],
+      "fenetre": 390,
+      "source_locale": true
+    },
+    "legendes": [
+      "Départ individuel d'un sprint dans un couloir balisé, pendant que les autres élèves attendent leur tour ; l'enseignant tient un chronomètre, sur le côté. Matériel représenté : plots, lignes au sol, chronomètre. Nuance de chronométrage : sur l'image, le chronométreur se tient au départ ; les protocoles consultés le placent à l'arrivée, ou en retrait avec une vue sur le départ et l'arrivée. Le chronomètre part au premier mouvement et s'arrête au passage du buste sur la ligne d'arrivée.",
+      "Illustration générée par IA, non normative : le protocole écrit fait foi ; vérifier le matériel, les distances et les conditions de mesure."
+    ],
+    "sens_legende": "ltr",
+    "debordement_horizontal": false,
+    "exceptions_streamlit": 0,
+    "erreurs_js": [],
+    "hotes_externes": []
+  },
+  {
+    "cas": "ar/sprint30",
+    "type": "illustration",
+    "epreuve_affichee": "عدو 30 م · البطارية المؤسساتية · 8 اختبارات و3 قياسات",
+    "volet_present": true,
+    "volet_replie_par_defaut": true,
+    "image": {
+      "chargee": true,
+      "naturelle": [
+        1200,
+        900
+      ],
+      "affichee": [
+        326,
+        244
+      ],
+      "fenetre": 390,
+      "source_locale": true
+    },
+    "legendes": [
+      "انطلاق فردي في عدو داخل رواق محدد، بينما ينتظر باقي التلاميذ دورهم؛ يقف الأستاذ جانبًا حاملًا ميقاتية. العتاد الظاهر في الرسم: أقماع، خطوط على الأرض، ميقاتية. ملاحظة حول التوقيت: في الرسم يقف المسؤول عن التوقيت عند خط الانطلاق، بينما تضعه البروتوكولات التي تمت مراجعتها عند خط الوصول، أو في موقع جانبي يرى منه الانطلاق والوصول معًا. تُشغَّل الميقاتية عند أول حركة وتُوقَف عند عبور الجذع خط الوصول.",
+      "رسم مولد بالذكاء الاصطناعي وغير معياري: البروتوكول المكتوب هو المرجع؛ تحقق من العتاد والمسافات وشروط القياس."
+    ],
+    "sens_legende": "rtl",
+    "debordement_horizontal": false,
+    "exceptions_streamlit": 0,
+    "erreurs_js": [],
+    "hotes_externes": []
+  },
+  {
+    "cas": "en/sprint30",
+    "type": "illustration",
+    "epreuve_affichee": "30 m sprint · Institutional battery · 8 tests and 3 measurements",
+    "volet_present": true,
+    "volet_replie_par_defaut": true,
+    "image": {
+      "chargee": true,
+      "naturelle": [
+        1200,
+        900
+      ],
+      "affichee": [
+        326,
+        244
+      ],
+      "fenetre": 390,
+      "source_locale": true
+    },
+    "legendes": [
+      "Individual sprint start in a marked lane while the other students wait their turn; the teacher holds a stopwatch at the side. Equipment shown: cones, floor lines, stopwatch. Timing note: in the image the timekeeper stands at the start; the protocols consulted place the timekeeper at the finish line, or standing back with a view of both the start and the finish. The stopwatch starts on the first movement and stops when the torso crosses the finish line.",
+      "AI-generated, non-normative illustration: the written protocol prevails; check equipment, distances and measurement conditions."
+    ],
+    "sens_legende": "ltr",
+    "debordement_horizontal": false,
+    "exceptions_streamlit": 0,
+    "erreurs_js": [],
+    "hotes_externes": []
+  }
+]

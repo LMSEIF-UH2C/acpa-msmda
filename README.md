@@ -1,14 +1,14 @@
 # ACPA/MSMDA — EPS teaching assistant and research engine
 
-**Release preparation: v0.2.0** — trilingual EPS technology evaluation and teaching assistant. The candidate code passed 188 automated tests in each of two GitHub Actions workflows. Final visual acceptance and publication remain pending. Intended for research and teacher-facing evaluation; institutional production readiness has not been established.
+**Release v0.2.0 (in preparation):** trilingual EPS technology evaluation and teaching assistant (French, Arabic, English). The consolidated code passed 262 automated tests under Python 3.12 and 3.14, and the Laboratory statistics matched an independent R 4.5.2 computation on 29/29 metrics. A physical iPhone acceptance run and the holder's final approval precede publication. Intended for research and teacher-facing evaluation; institutional production readiness has not been established.
 
-[Public demonstration](https://acpa-msmda.streamlit.app/) · [Release preparation notes](docs/release-v0.2.0.md) · [Privacy and deployment](docs/privacy-deployment.md)
+[Public demonstration](https://acpa-msmda.streamlit.app/) · [Release notes](docs/release-v0.2.0.md) · [Changelog](CHANGELOG.md) · [Privacy and deployment](docs/privacy-deployment.md)
 
 **Archived research engine:** v0.1.1, released separately with the DOI below. Its synthetic catalogue and citation must not be confused with the later application.
 
 ## Current application
 
-The scientific workflow is Evaluate → Explore → Scenario, supported by the EPS Space. The Streamlit interface provides a real-app catalogue with documented and unverified entries, contextual search, a teaching studio, workshop planning, field tools, formative assessment, performance analysis, annual cycle planning and a teaching journal with class projects. The journal uses session storage on the server and portable JSON backups; it is not a persistent school database. A rule-based assistant provides source-linked suggestions, not generative AI or proof of teaching efficacy.
+The scientific workflow is Evaluate → Explore → Scenario, supported by the EPS Space. The Streamlit interface provides a real-app catalogue with documented and unverified entries, contextual search, a teaching studio, workshop planning, field tools, formative assessment, performance analysis, annual cycle planning and a teaching journal with class projects. The Laboratory offers 32 field instruments, optional visual cues (AI-generated illustrations and OpenMoji pictograms) and a three-level restitution of analyses (Understand, Analyse, Investigate). Teacher data stays in the server session (temporary) and is saved as Excel workbooks that can be restored (formulas are rejected); JSON is kept for the Investigate level and technical uses. The application is not a persistent school database. A rule-based assistant provides source-linked suggestions, not generative AI or proof of teaching efficacy.
 
 Start locally:
 
@@ -92,7 +92,7 @@ The archived versions and current release preparation are research software arti
 Suggested software citation: Moudettir, Y., Lotfi, S., & Ouhrir, S. (2026). *ACPA/MSMDA: Heuristic EPS Technology Recommendation Engine* (Version v0.1.1) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.23244629
 
 
-The selected release files are offered under the accompanying MIT License.
+The source code is offered under the accompanying MIT License. The Laboratory illustrations are under CC BY 4.0 to the extent of the rights held, and the OpenMoji pictograms under CC BY-SA 4.0 (see `assets/visual-bank/LICENCE-ILLUSTRATIONS.md`).
 See `NOTICE` for scope and the distinction from any industrial-property
 rights associated with the wider project. See `CITATION.cff` for software
 citation metadata. For reproducibility, cite the archived v0.1.1 release DOI above. Later versions should be cited using their own version-specific identifiers.

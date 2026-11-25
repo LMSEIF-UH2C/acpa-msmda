@@ -1,0 +1,87 @@
+[
+ {
+  "étape": "Évaluer · analyse (fr)",
+  "résultat": "réussi",
+  "détail": "sous-titres=['Vos besoins et priorités', 'Strava'] ; lignes=['<style>\\n:root{\\n  /* Legacy token names retained for selectors; Moroccan palette. */\\n  --blue:#C1272D; --blue-2:#A21B25; --sky:#C9A227; --violet:#006233;\\n  --green:#006233; --"
+ },
+ {
+  "étape": "Évaluer · analyse (ar)",
+  "résultat": "réussi",
+  "détail": "sous-titres=['احتياجاتك وأولوياتك', 'Strava'] ; lignes=['<style>\\n:root{\\n  /* Legacy token names retained for selectors; Moroccan palette. */\\n  --blue:#C1272D; --blue-2:#A21B25; --sky:#C9A227; --violet:#006233;\\n  --green:#006233; --gold:"
+ },
+ {
+  "étape": "Évaluer · analyse (en)",
+  "résultat": "réussi",
+  "détail": "sous-titres=['Your needs and priorities', 'Strava'] ; lignes=['<style>\\n:root{\\n  /* Legacy token names retained for selectors; Moroccan palette. */\\n  --blue:#C1272D; --blue-2:#A21B25; --sky:#C9A227; --violet:#006233;\\n  --green:#006233; -"
+ },
+ {
+  "étape": "Formative · nouvelle grille",
+  "résultat": "réussi",
+  "détail": "exceptions=0"
+ },
+ {
+  "étape": "Formative · exports proposés",
+  "résultat": "échec",
+  "détail": "['Sauvegarder mes évaluations (Excel)', 'Exporter les observations (Excel)']"
+ },
+ {
+  "étape": "Journal · cycle enregistré",
+  "résultat": "réussi",
+  "détail": "tableaux=1 erreurs=[]"
+ },
+ {
+  "étape": "Journal · créneau enregistré",
+  "résultat": "réussi",
+  "détail": "tableaux=2 erreurs=[]"
+ },
+ {
+  "étape": "Journal · génération des séances",
+  "résultat": "réussi",
+  "détail": "exports=['Sauvegarder mes données', 'Journal (Excel)', 'Sauvegarder les projets de cycle']"
+ },
+ {
+  "étape": "Terrain · Chronomètre",
+  "résultat": "réussi",
+  "détail": "exceptions=0"
+ },
+ {
+  "étape": "Terrain · Compteurs",
+  "résultat": "réussi",
+  "détail": "exceptions=0"
+ },
+ {
+  "étape": "Terrain · Scores",
+  "résultat": "réussi",
+  "détail": "exceptions=0"
+ },
+ {
+  "étape": "Terrain · Rotations",
+  "résultat": "réussi",
+  "détail": "exceptions=0"
+ },
+ {
+  "étape": "Terrain · Équipes",
+  "résultat": "réussi",
+  "détail": "exceptions=0"
+ },
+ {
+  "étape": "Terrain · Consignes",
+  "résultat": "réussi",
+  "détail": "exceptions=0"
+ },
+ {
+  "étape": "Espace EPS · liens (fr)",
+  "résultat": "réussi",
+  "détail": "['Cahier journalier', 'Organiser les ateliers', 'Mode terrain', 'Évaluation formative', 'Laboratoire EPS · Mesurer et analyser']"
+ },
+ {
+  "étape": "Espace EPS · liens (ar)",
+  "résultat": "réussi",
+  "détail": "['دفتر النصوص', 'تنظيم الورشات', 'وضع الميدان', 'التقويم التكويني', 'مختبر التربية البدنية · القياس والتحليل']"
+ },
+ {
+  "étape": "Espace EPS · liens (en)",
+  "résultat": "réussi",
+  "détail": "['Teaching journal', 'Organise workshops', 'Field mode', 'Formative assessment', 'PE Lab · Measure and analyse']"
+ }
+]

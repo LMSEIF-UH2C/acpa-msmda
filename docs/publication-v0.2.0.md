@@ -4,8 +4,8 @@ Document préparatoire. Rien n'est publié tant que le porteur du projet n'a pas
 
 ## 1. Préconditions
 
-1. Recette physique iPhone complétée ([grille](recette-iphone-v0.2.0.md)), sans anomalie bloquante.
-2. PR #68 puis la PR de préparation de version fusionnées dans `main`.
+1. PR #68 puis la PR de préparation de version fusionnées dans `main`.
+2. Recette physique iPhone complétée sur le déploiement consolidé ([grille](recette-iphone-v0.2.0.md)), sans anomalie bloquante.
 3. Sur le commit final de `main` : workflows Tests (3.12 et 3.14), Public web demo, Independent R validation et Mobile navigation réussis ; noter le nombre de tests affiché par la CI.
 4. Révision déployée sur Streamlit Community Cloud identique au commit final.
 5. Aucun tag `v0.2.0` ni release du même nom existants (vérifié le 25 novembre 2026 : seuls `v0.1.0`, `v0.1.1` et `v0.2.0-rc.1` existent).

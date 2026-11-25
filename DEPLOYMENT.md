@@ -7,7 +7,8 @@ séparément sur les profils fictifs de `data/synthetic_tools.json`.
 
 ## Lancement local
 
-Pré-requis : **Python 3.12**, la version utilisée par l'intégration continue.
+Pré-requis : **Python 3.12** (version de référence de l'intégration continue ;
+la suite est aussi exécutée sous Python 3.14).
 `requirements.txt` fixe la version exacte de chaque dépendance, y compris les
 dépendances indirectes (Altair, narwhals, pandas…), pour que l'environnement
 local, la CI et l'hébergement soient identiques.
@@ -25,7 +26,7 @@ streamlit run app.py
 3. Choisir **Create app → Yup, I have an app**.
 4. Renseigner le dépôt `LMSEIF-UH2C/acpa-msmda`, la branche `main`
    et le fichier principal `app.py`.
-5. Dans **Advanced settings**, choisir **Python 3.12** (même version que la CI).
+5. Dans **Advanced settings**, choisir **Python 3.12** (version de référence de la CI).
    Pour une application déjà déployée, vérifier la version utilisée dans ses
    réglages ; la changer peut demander de supprimer puis redéployer l'application.
 6. Choisir une adresse d'application et cliquer sur **Deploy**.

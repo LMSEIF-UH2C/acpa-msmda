@@ -1,30 +1,48 @@
-# ACPA/MSMDA v0.2.0 — Préparation de publication
+# ACPA/MSMDA v0.2.0 : notes de version
 
-Statut : stabilisation technique vérifiée, gel définitif, publication et recette réelle restants. Aucun nouveau DOI ni tag stable attribué à ce stade.
+Statut au 25 novembre 2026 : code consolidé et vérifié, en attente de la recette physique iPhone et de l'accord final du porteur du projet. Aucun tag stable ni DOI n'est attribué à ce stade. Le DOI de v0.1.1 (`10.5281/zenodo.23244629`) ne doit pas être réutilisé.
 
 ## Révision de référence
 
-Le commit `48f8d915cc3f63969433fa87944cab5e65b492e0` a passé 188 tests sur chacun des deux workflows GitHub Actions après fusion de la PR #52 : [Tests ACPA MSMDA](https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/45407016207) et [Public web demo](https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/45407016185). La révision documentaire suivante doit également être validée avant publication.
+Révision consolidée : `96ad264` (PR #68 réconciliée avec `main` après les PR #70 à #74). Le tag sera posé sur le commit de `main` résultant de la fusion finale, après vérification que la CI y est verte.
 
-## Révision actualisée au 24 novembre 2026
+| Contrôle | Résultat sur 96ad264 |
+|---|---|
+| Tests automatisés, Python 3.12 et 3.14 | 262 tests, OK |
+| Démonstration web publique | 262 tests, OK |
+| Comparaison indépendante avec R 4.5.2 | 29/29 métriques |
+| Navigation mobile et dictée simulée | succès |
+| Balayage 10 pages × FR/AR/EN × ordinateur/iPhone (Chromium) | 60/60 |
 
-Le commit `90ef033431a0f054437de3f2c303b2c69ab617d1` a passé 211 tests après fusion ([journal](https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/45478536654)), et la démonstration web a réussi. La comparaison indépendante avec R 4.5.2 a confirmé 29/29 métriques sur la PR #60; les trois workflows de la PR #62 ont réussi avant fusion. Voir [registre historique](validation/README.md).
+Détail : [recette de clôture](validation/recette-cloture-v0.2.0-2026-11-25/README.md). Les jalons antérieurs (188, 205, 211 tests) sont des états successifs de la suite : ils ne s'additionnent pas. Historique : [registre des validations](validation/README.md).
 
 ## Périmètre
 
-- Évaluation, recherche contextualisée, technothèque et Studio ; continuité du contexte.
-- Espace EPS : ateliers, terrain, évaluation formative, cahier journalier et sauvegardes portables.
-- Laboratoire : 32 instruments de saisie, 83 pistes documentaires, suivi longitudinal, CSV/XLSX, statistiques usuelles, notices FR/AR/EN et méthodes de fiabilité. Les 83 pistes ne sont pas toutes des tests distincts ni validés.
-- PR #50 : progressivité des usages ; PR #51 : documentation scientifique ; PR #52 : tests supplémentaires de rendu et de test-retest.
+- Évaluer, Explorer, Scénario : technothèque réelle (entrées documentées et non vérifiées), recherche contextualisée, évaluation sur 18 critères, Studio pédagogique.
+- Espace EPS : ateliers, outils de terrain, évaluation formative, cahier journalier annuel avec projets de classe, planification des cycles adaptée à l'emploi du temps marocain.
+- Laboratoire : 32 instruments de saisie, 83 pistes documentaires (pas toutes des tests distincts ni validés), suivi longitudinal, statistiques usuelles et mesures répétées, méthodes de fiabilité, restitution en trois niveaux (Comprendre, Analyser, Investiguer), repères visuels facultatifs.
+- Sauvegardes enseignant en classeurs Excel restaurables ; JSON réservé au niveau Investiguer et aux usages techniques.
+- Interface FR/AR/EN avec RTL, dictée vocale (Safari compris), exports PDF avec police arabe locale.
 
-## Limites et conditions de publication
+## Apports depuis v0.2.0-rc.1
 
-La stabilité logicielle ne signifie pas validation empirique des protocoles, efficacité pédagogique, conformité réglementaire ou aptitude à une production institutionnelle. Les références apparentées et les variantes des instruments restent à confirmer. Les séries sont temporaires ; utiliser des exemples fictifs sur le service public et exporter avant fermeture. Les compagnons hors ligne et vidéo restent expérimentaux.
+Le tag `v0.2.0-rc.1` pointe sur `2da291a` (24 novembre 2026). Les PR fusionnées depuis (#50 à #58, #60 à #66, #70 à #74) et la PR #68 sont résumées dans le [CHANGELOG](../CHANGELOG.md).
 
-Avant publication : contrôler le rendu réel sur ordinateur, iPhone et Android, le RTL, les exports et la restauration ; confirmer la révision déployée ; valider les workflows techniques et R sur la révision finale ; créer la release GitHub v0.2.0 seulement après réception. Ne pas réutiliser le DOI de v0.1.1. Le rapport de valorisation et Zenodo sont reportés.
+## Limites connues, non bloquantes
 
-## Traçabilité du développement
+- Stabilité logicielle n'est pas validation empirique : ni efficacité pédagogique, ni validation scientifique des instruments, ni conformité réglementaire, ni aptitude à une production institutionnelle.
+- Données temporaires côté serveur ; sauvegarder en Excel avant de fermer. Utiliser des données fictives sur le service public.
+- Dictée vocale : la CI simule le micro ; seul l'essai physique iPhone confirme le comportement réel.
+- Illustrations : générées par IA (outil non précisé dans la remise), non normatives ; souplesse assise avec élève chaussé ; sprint 30 m avec nuance de chronométrage en légende ; ressources Wikimedia non intégrées.
+- Certains libellés internes de Streamlit restent en anglais (N2) ; le badge Streamlit Community Cloud peut recouvrir la barre d'onglets sur iPhone (N5, hors code de l'application).
+- Paramètre `use_container_width` encore utilisé dans du code antérieur : sans effet sous Streamlit 1.52.0 épinglé, à remplacer avant toute montée de version.
+- La circulaire 2358/25 est repérée dans la documentation de travail ([audit des références](LAB_REFERENCE_AUDIT.md)) mais son contenu n'a pas été inspecté ; le rattachement des onze instruments institutionnels reste provisoire. Elle n'est pas citée dans l'application.
+- Compagnons hors ligne et vidéo : expérimentaux, non intégrés au service hébergé.
 
-Le rapport ultérieur distinguera les tests distincts, les exécutions cumulées de tests et les workflows réussis ou échoués. Les échecs seront analysés par cause, correction et validation ultérieure, sans assimiler chaque workflow échoué à une anomalie distincte. Sources : [Pull requests](https://github.com/LMSEIF-UH2C/acpa-msmda/pulls?q=is%3Apr), [Actions](https://github.com/LMSEIF-UH2C/acpa-msmda/actions).
+## Propriété industrielle
 
-Voir [checklist](release-checklist.md), [guide](teacher-guide.md) et [confidentialité](privacy-deployment.md).
+Demande de brevet OMPIC n° 74877, 23 avril 2026, non accordée. La licence MIT du code ne comporte pas de concession de brevet. Voir `NOTICE`.
+
+## Conditions de publication
+
+Voir [checklist](release-checklist.md), [recette iPhone](recette-iphone-v0.2.0.md) et [préparation GitHub et Zenodo](publication-v0.2.0.md).

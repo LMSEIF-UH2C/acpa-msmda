@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "Please cite this candidate by version and repository commit. The archived v0.1.1 has its own DOI."
+message: "Please cite this software by version. v0.2.0 receives its own DOI at archiving; do not use the v0.1.1 DOI for v0.2.0."
 type: software
 title: "ACPA/MSMDA: EPS Technology Evaluation and Teaching Assistant"
 authors:
@@ -17,10 +17,13 @@ keywords:
   - context-aware recommendation
   - heuristic ranking
   - pedagogical scenarios
-version: "0.2.0-rc.1"
+  - Morocco
+version: "0.2.0"
 abstract: >-
   Trilingual research demonstrator for EPS technology evaluation, contextual
   recommendation, pedagogical scenario design and teaching support. The
   application uses documented and unverified real-app entries and heuristic
-  matching. This candidate does not establish empirical educational efficacy
-  or production readiness.
+  matching. The Laboratory provides 32 field instruments, descriptive and
+  inferential statistics checked against R (29/29 metrics) and a three-level
+  restitution. This release does not establish empirical educational efficacy,
+  scientific validation of the instruments or institutional production readiness.

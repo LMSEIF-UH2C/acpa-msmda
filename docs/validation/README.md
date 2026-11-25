@@ -26,6 +26,7 @@ Les lignes représentent des identifiants d'exécution de workflow, non des cas 
 | 087145ed | https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/45470077434 | 29/29 comparaisons R 4.5.2 |
 | a55cb572 | https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/45476404977 | 211 tests avant fusion |
 | 90ef0334 | https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/45478536654 | 211 tests après fusion, 41,392 s |
+| 96ad264 | https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/45650091299 | 262 tests (3.12 et 3.14), révision consolidée de clôture ; R 29/29 : run 45650091155 ; voir [recette de clôture](recette-cloture-v0.2.0-2026-11-25/README.md) |
 
 ## Incidents documentés (sélection, non exhaustive)
 

@@ -29,7 +29,7 @@ Créer ensuite la release GitHub `v0.2.0` à partir de ce tag, non marquée « p
 >
 > Highlights since v0.2.0-rc.1: Laboratory with 32 field instruments, common statistics and repeated measures checked against R 4.5.2 (29/29 metrics), three-level restitution (Understand, Analyse, Investigate), optional visual cues; teacher Excel backups that can be restored; Safari Arabic dictation; mobile navigation fixes; Python 3.14 compatibility.
 >
-> Verification: <N> automated tests on the release commit (Python 3.12 and 3.14), independent R comparison, mobile navigation workflow, physical iPhone acceptance run. Details: `docs/release-v0.2.0.md`, `CHANGELOG.md`, `docs/validation/`.
+> Verification: 264 automated tests on the release commit (Python 3.12 and 3.14), independent R comparison (29/29), mobile navigation workflow (30/30 configurations), 17/17 acceptance flows. Publication decided by the project holder on 25 November 2026. Details: `docs/release-v0.2.0.md`, `CHANGELOG.md`, `docs/validation/`.
 >
 > Scientific status: this public implementation is distinct from the doctoral prototype evaluated in the associated research; the prototype's empirical results do not apply to it (`docs/statut-scientifique-v0.2.0.md`).
 >
@@ -39,7 +39,7 @@ Créer ensuite la release GitHub `v0.2.0` à partir de ce tag, non marquée « p
 >
 > Cite this version with its own DOI once assigned. The v0.1.1 DOI (10.5281/zenodo.23244629) refers only to the archived engine.
 
-`<N>` est à remplacer par le nombre affiché par la CI du commit final (262 sur `96ad264`).
+Nombre de tests sur le commit publié : 264 (262 sur `96ad264`, plus 2 tests de concordance de l'en-tête du catalogue).
 
 ## 4. Métadonnées Zenodo proposées
 

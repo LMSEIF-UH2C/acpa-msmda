@@ -35,9 +35,9 @@ Une fusion ou un succès CI ne constitue pas une validation scientifique, ergono
 - [x] Révision `96ad264` : 262 tests (3.12 et 3.14), démonstration web, R 29/29, navigation mobile : réussis.
 - [x] Recette navigateur : 60/60 visites (10 pages, FR/AR/EN, ordinateur et iPhone simulé) ; banque visuelle et barre d'onglets contrôlées.
 - [x] Documents de livraison, CHANGELOG, CITATION.cff (0.2.0), NOTICE et version du paquet actualisés.
-- [ ] Recette physique iPhone : `docs/recette-iphone-v0.2.0.md`.
-- [ ] Fusion de #68 puis de la PR de préparation ; CI verte sur le commit final de `main`.
-- [ ] Accord final du porteur, puis tag, release GitHub et dépôt Zenodo : `docs/publication-v0.2.0.md`.
+- [ ] Recette physique iPhone : `docs/recette-iphone-v0.2.0.md` (la publication a été décidée par le porteur du projet le 25 novembre 2026 ; le résultat de la recette physique iPhone n'est pas consigné dans le dépôt).
+- [x] Fusion de #68, #75 et #76 ; CI verte sur le commit final de `main`.
+- [x] Accord final du porteur (25 novembre 2026), puis tag `v0.2.0` et release GitHub ; dépôt Zenodo à vérifier : `docs/publication-v0.2.0.md`.
 
 ## Après la première version
 

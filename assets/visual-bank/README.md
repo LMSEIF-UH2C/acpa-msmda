@@ -12,7 +12,7 @@ Cette branche prépare des ressources, sans modifier l'interface ni le moteur. L
 - Les 14 JPEG sont identiques à la remise : empreintes SHA-256, tailles et dimensions consignées dans `manifest.json` (`lab_delivery`, `lab_specific`) et vérifiées par les tests. Remise conservée dans `docs/validation/banque-visuelle-2026-11-25/remise/`.
 - Laboratoire : illustration dans un volet « Illustration pédagogique » replié, suivie d'un texte alternatif (ce que montre l'image et matériel représenté) et de l'avertissement non normatif, en français, arabe et anglais. Les légendes de Ruffier sont reproduites dans ce texte. Les 18 autres tests affichent leur pictogramme de famille.
 - Le matériel représenté décrit l'image ; il ne constitue pas la liste du matériel requis par le protocole.
-- Références Wikimedia : toujours non déposées (absentes de la remise, téléchargement refusé avec un code HTTP 429 depuis l'environnement d'intégration).
+- Références Wikimedia : toujours non déposées (absentes de la remise, téléchargement refusé avec un code HTTP 429 depuis l'environnement d'intégration). Elles sont traitées séparément, hors de la PR #68.
 
 ## Affectations proposées
 | Section | Visuels | Usage |
@@ -35,5 +35,7 @@ Cette branche prépare des ressources, sans modifier l'interface ni le moteur. L
 
 ## Licences
 Tous les pictogrammes sont conçus par [OpenMoji](https://openmoji.org/) – projet open source d'emojis et d'icônes, licence [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Ils ne sont pas couverts par MIT. Conserver ces crédits dans l'application et dans toute redistribution. Pour les adaptations, respecter le partage à l'identique. Les images IA : documenter provenance et éventuelles retouches ; décision de licence du porteur avant publication. Ne pas utiliser les photos de mineurs identifiables sans droits appropriés.
+
+Décision du porteur du projet (25 novembre 2026) : illustrations IA sous CC BY 4.0, dans la mesure des droits détenus ; code sous MIT ; pictogrammes OpenMoji sous CC BY-SA 4.0. Logos commerciaux retirés localement sur six illustrations, les huit autres étant gardées intactes. Voir [la licence des illustrations](LICENCE-ILLUSTRATIONS.md).
 
 Voir [manifest.json](manifest.json) et [références visuelles](REFERENCES.md).

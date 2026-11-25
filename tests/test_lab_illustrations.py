@@ -51,6 +51,17 @@ class Licences(unittest.TestCase):
         for svg in (ROOT / "assets/visual-bank/pictograms").glob("*.svg"):
             self.assertIsNone(bad.search(svg.read_text(encoding="utf-8")), svg.name)
 
+    def test_illustrations_licensed_cc_by_within_rights_held(self):
+        for entry in MANIFEST["lab_specific"]:
+            with self.subTest(test_id=entry["id"]):
+                self.assertEqual(entry["license"], "CC-BY-4.0")
+                self.assertIn("droits détenus", entry["license_scope"])
+        self.assertTrue((ROOT / "assets/visual-bank/LICENCE-ILLUSTRATIONS.md").is_file())
+        self.assertTrue(any("CC BY 4.0" in line for line in visual_bank.credits()))
+        notice = (ROOT / "NOTICE").read_text(encoding="utf-8")
+        for licence in ("MIT", "CC BY 4.0", "CC BY-SA 4.0"):
+            self.assertIn(licence, notice)
+
     def test_external_references_not_hotlinked(self):
         source = (ROOT / "src/acpa_msmda/visual_bank.py").read_text(encoding="utf-8")
         self.assertNotIn("wikimedia.org", source)
@@ -72,9 +83,14 @@ class Illustrations(unittest.TestCase):
 
 
 class Provenance(unittest.TestCase):
-    """Les fichiers déposés sont exactement ceux de la remise : empreinte, taille et dimensions vérifiées."""
+    """Fichiers conformes au registre ; empreinte d'origine conservée ; retouches limitées aux images documentées."""
+    EVIDENCE = ROOT / "docs/validation/banque-visuelle-2026-11-25"
 
-    def test_files_match_delivery_record(self):
+    def delivered(self):
+        return {e["id"]: e for e in json.loads((self.EVIDENCE / "remise/manifest.json").read_text(encoding="utf-8"))}
+
+    def test_files_match_record_and_delivery(self):
+        delivered = self.delivered()
         for entry in MANIFEST["lab_specific"]:
             with self.subTest(test_id=entry["id"]):
                 path = ROOT / entry["path"]
@@ -83,9 +99,16 @@ class Provenance(unittest.TestCase):
                 self.assertEqual(len(data), entry["bytes"])
                 with Image.open(path) as image:
                     self.assertEqual(image.size, (entry["width"], entry["height"]))
+                origin = delivered[entry["id"]]
+                self.assertEqual((entry["width"], entry["height"]), (origin["width"], origin["height"]))
+                self.assertEqual((entry["source_sha256"], entry["source_bytes"]), (origin["sha256"], origin["bytes"]))
                 self.assertEqual(entry["status"], "accepted_by_user_imported")
                 self.assertIn("non normative", entry["scientific_status"])
-                self.assertEqual(entry["retouch"], "aucune")
+                if entry["retouch"] == "aucune":
+                    self.assertEqual(entry["sha256"], entry["source_sha256"])
+                else:
+                    self.assertNotEqual(entry["sha256"], entry["source_sha256"])
+                    self.assertTrue((ROOT / entry["retouch_evidence"]).is_file())
 
     def test_delivery_evidence_kept(self):
         delivery = MANIFEST["lab_delivery"]
@@ -93,9 +116,23 @@ class Provenance(unittest.TestCase):
         self.assertEqual(delivery["files"], 14)
         evidence = ROOT / delivery["evidence"]
         self.assertTrue((evidence / "README.md").is_file())
-        received = {e["id"]: e["sha256"] for e in json.loads((evidence / "manifest.json").read_text(encoding="utf-8"))}
-        self.assertEqual(received, {e["id"]: e["sha256"] for e in MANIFEST["lab_specific"]})
+        received = {k: v["sha256"] for k, v in self.delivered().items()}
+        self.assertEqual(received, {e["id"]: e["source_sha256"] for e in MANIFEST["lab_specific"]})
         self.assertNotIn("handgrip", received)
+
+    def test_retouch_limited_to_documented_images(self):
+        stats = json.loads((self.EVIDENCE / "retouche/stats.json").read_text(encoding="utf-8"))
+        zones = json.loads((self.EVIDENCE / "retouche/zones_logos.json").read_text(encoding="utf-8"))
+        retouched = {e["id"] for e in MANIFEST["lab_specific"] if e["retouch"] != "aucune"}
+        self.assertEqual(retouched, {"ruffier", "sargent", "medecine_ball", "saut_horizontal", "front_plank", "killy"})
+        self.assertEqual(set(stats), retouched)
+        self.assertEqual(set(zones), retouched)
+        for entry in MANIFEST["lab_specific"]:
+            if entry["id"] in stats:
+                with self.subTest(test_id=entry["id"]):
+                    record = stats[entry["id"]]
+                    self.assertEqual((record["sha256"], record["source_sha256"]), (entry["sha256"], entry["source_sha256"]))
+                    self.assertLess(record["outside_mask_mean_abs_diff"], 1.0)   # hors masque : bruit de réencodage
 
     def test_no_stray_file_in_lab_folder(self):
         self.assertEqual({p.name for p in (ROOT / "assets/lab").iterdir()}, {i + ".jpg" for i in SPECIFIC})
@@ -162,6 +199,7 @@ class Page(unittest.TestCase):
         captions = [c.value for c in app.caption]
         self.assertTrue(any(c.startswith("Le long d'une toise murale") for c in captions))
         self.assertTrue(any("non normative" in c for c in captions))
+        self.assertTrue(any("CC BY 4.0" in c for c in captions))         # crédit et licence des illustrations
 
     def test_ruffier_legend_in_arabic_and_english(self):
         for lang, label in (("ar", "نبض القلب في الراحة"), ("en", "P1, resting heart rate")):

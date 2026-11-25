@@ -1,0 +1,1572 @@
+{
+ "ruffier": {
+  "zoom": 2,
+  "columns": 4,
+  "radius": 4,
+  "fill": "avg",
+  "se": 9,
+  "regions": [
+   {
+    "poly": [
+     [
+      30,
+      176
+     ],
+     [
+      60,
+      176
+     ],
+     [
+      82,
+      338
+     ],
+     [
+      46,
+      338
+     ]
+    ],
+    "rule": "light",
+    "exclude_edge": [
+     "top"
+    ],
+    "note": "bandes manche P1",
+    "valid": "dark",
+    "close_mask": 7
+   },
+   {
+    "poly": [
+     [
+      44,
+      396
+     ],
+     [
+      78,
+      396
+     ],
+     [
+      56,
+      676
+     ],
+     [
+      18,
+      676
+     ]
+    ],
+    "rule": "light",
+    "exclude": [
+     [
+      [
+       55,
+       520
+      ],
+      [
+       95,
+       520
+      ],
+      [
+       95,
+       700
+      ],
+      [
+       55,
+       700
+      ]
+     ]
+    ],
+    "note": "bandes pantalon P1",
+    "valid": "dark",
+    "close_mask": 7
+   },
+   {
+    "rule": "light",
+    "zoom": 8,
+    "note": "logo poitrine P1",
+    "valid": "dark",
+    "poly": [
+     [
+      72,
+      238
+     ],
+     [
+      80,
+      238
+     ],
+     [
+      80,
+      251
+     ],
+     [
+      72,
+      251
+     ]
+    ]
+   },
+   {
+    "poly": [
+     [
+      551,
+      176
+     ],
+     [
+      572,
+      176
+     ],
+     [
+      582,
+      338
+     ],
+     [
+      551,
+      338
+     ]
+    ],
+    "rule": "light",
+    "exclude_edge": [
+     "top"
+    ],
+    "note": "bandes manche P2",
+    "valid": "dark",
+    "close_mask": 7
+   },
+   {
+    "rule": "light",
+    "zoom": 8,
+    "note": "logo poitrine P2",
+    "valid": "dark",
+    "poly": [
+     [
+      588,
+      239
+     ],
+     [
+      596,
+      239
+     ],
+     [
+      596,
+      251
+     ],
+     [
+      588,
+      251
+     ]
+    ]
+   },
+   {
+    "poly": [
+     [
+      840,
+      176
+     ],
+     [
+      874,
+      176
+     ],
+     [
+      892,
+      338
+     ],
+     [
+      856,
+      338
+     ]
+    ],
+    "rule": "light",
+    "exclude_edge": [
+     "top"
+    ],
+    "note": "bandes manche récup",
+    "valid": "dark",
+    "close_mask": 7
+   },
+   {
+    "poly": [
+     [
+      852,
+      396
+     ],
+     [
+      884,
+      396
+     ],
+     [
+      860,
+      681
+     ],
+     [
+      836,
+      681
+     ],
+     [
+      836,
+      560
+     ]
+    ],
+    "rule": "light",
+    "note": "bandes pantalon récup",
+    "valid": "dark",
+    "close_mask": 7
+   },
+   {
+    "rule": "light",
+    "zoom": 8,
+    "note": "logo poitrine récup",
+    "valid": "dark",
+    "poly": [
+     [
+      879,
+      236
+     ],
+     [
+      894,
+      236
+     ],
+     [
+      894,
+      251
+     ],
+     [
+      879,
+      251
+     ]
+    ]
+   },
+   {
+    "poly": [
+     [
+      1124,
+      176
+     ],
+     [
+      1156,
+      176
+     ],
+     [
+      1176,
+      338
+     ],
+     [
+      1140,
+      338
+     ]
+    ],
+    "rule": "light",
+    "exclude_edge": [
+     "top"
+    ],
+    "note": "bandes manche P3",
+    "valid": "dark",
+    "close_mask": 7
+   },
+   {
+    "poly": [
+     [
+      1136,
+      396
+     ],
+     [
+      1166,
+      396
+     ],
+     [
+      1140,
+      681
+     ],
+     [
+      1114,
+      681
+     ],
+     [
+      1115,
+      560
+     ],
+     [
+      1124,
+      480
+     ]
+    ],
+    "rule": "light",
+    "exclude": [
+     [
+      [
+       1141,
+       560
+      ],
+      [
+       1180,
+       560
+      ],
+      [
+       1180,
+       700
+      ],
+      [
+       1141,
+       700
+      ]
+     ]
+    ],
+    "note": "bandes pantalon P3",
+    "valid": "dark",
+    "close_mask": 7
+   },
+   {
+    "rule": "all",
+    "zoom": 5,
+    "note": "virgule chaussure prof P1",
+    "poly": [
+     [
+      24,
+      688
+     ],
+     [
+      44,
+      691
+     ],
+     [
+      58,
+      686
+     ],
+     [
+      66,
+      686
+     ],
+     [
+      66,
+      709
+     ],
+     [
+      50,
+      709
+     ],
+     [
+      24,
+      697
+     ]
+    ],
+    "dilate": 0,
+    "valid": "light"
+   },
+   {
+    "rule": "all",
+    "zoom": 5,
+    "note": "virgule chaussure prof P2",
+    "poly": [
+     [
+      551,
+      688
+     ],
+     [
+      566,
+      688
+     ],
+     [
+      572,
+      697
+     ],
+     [
+      566,
+      705
+     ],
+     [
+      551,
+      701
+     ]
+    ],
+    "dilate": 0,
+    "valid": "light"
+   },
+   {
+    "rule": "all",
+    "zoom": 5,
+    "note": "virgule chaussure prof récup",
+    "poly": [
+     [
+      838,
+      694
+     ],
+     [
+      860,
+      697
+     ],
+     [
+      874,
+      689
+     ],
+     [
+      884,
+      689
+     ],
+     [
+      884,
+      711
+     ],
+     [
+      866,
+      712
+     ],
+     [
+      838,
+      702
+     ]
+    ],
+    "dilate": 0,
+    "valid": "light"
+   },
+   {
+    "rule": "all",
+    "zoom": 5,
+    "note": "virgule chaussure prof P3",
+    "poly": [
+     [
+      1116,
+      686
+     ],
+     [
+      1140,
+      690
+     ],
+     [
+      1150,
+      683
+     ],
+     [
+      1158,
+      683
+     ],
+     [
+      1158,
+      705
+     ],
+     [
+      1142,
+      706
+     ],
+     [
+      1116,
+      696
+     ]
+    ],
+    "dilate": 0,
+    "valid": "light"
+   },
+   {
+    "rule": "light",
+    "s": 0.35,
+    "v": 140,
+    "zoom": 5,
+    "note": "virgule élève P1 gauche",
+    "valid": "blue",
+    "hyst": {
+     "v": 105,
+     "s": 0.42
+    },
+    "poly": [
+     [
+      163,
+      679
+     ],
+     [
+      176,
+      679
+     ],
+     [
+      176,
+      695
+     ],
+     [
+      163,
+      695
+     ]
+    ]
+   },
+   {
+    "rule": "light",
+    "s": 0.3,
+    "v": 140,
+    "zoom": 5,
+    "note": "virgule élève flexions gauche",
+    "valid": "blue",
+    "hyst": {
+     "v": 105,
+     "s": 0.42
+    },
+    "poly": [
+     [
+      327,
+      665
+     ],
+     [
+      343,
+      665
+     ],
+     [
+      343,
+      682
+     ],
+     [
+      327,
+      682
+     ]
+    ]
+   },
+   {
+    "rule": "all",
+    "dilate": 0,
+    "zoom": 5,
+    "note": "virgule ton sur ton flexions droite",
+    "valid": "blue",
+    "poly": [
+     [
+      420,
+      651
+     ],
+     [
+      444,
+      651
+     ],
+     [
+      444,
+      666
+     ],
+     [
+      420,
+      666
+     ]
+    ]
+   },
+   {
+    "rule": "light",
+    "s": 0.35,
+    "v": 140,
+    "zoom": 5,
+    "note": "virgule élève P2 gauche",
+    "valid": "blue",
+    "hyst": {
+     "v": 105,
+     "s": 0.42
+    },
+    "poly": [
+     [
+      683,
+      680
+     ],
+     [
+      697,
+      680
+     ],
+     [
+      697,
+      694
+     ],
+     [
+      683,
+      694
+     ]
+    ]
+   },
+   {
+    "rule": "all",
+    "dilate": 0,
+    "zoom": 5,
+    "note": "virgule ton sur ton P2 droite",
+    "valid": "blue",
+    "poly": [
+     [
+      758,
+      677
+     ],
+     [
+      778,
+      677
+     ],
+     [
+      778,
+      690
+     ],
+     [
+      758,
+      690
+     ]
+    ]
+   },
+   {
+    "rule": "light",
+    "s": 0.35,
+    "v": 140,
+    "zoom": 5,
+    "note": "virgule élève récup gauche",
+    "valid": "blue",
+    "hyst": {
+     "v": 105,
+     "s": 0.42
+    },
+    "poly": [
+     [
+      992,
+      678
+     ],
+     [
+      1005,
+      678
+     ],
+     [
+      1005,
+      694
+     ],
+     [
+      992,
+      694
+     ]
+    ]
+   },
+   {
+    "rule": "all",
+    "dilate": 0,
+    "zoom": 5,
+    "note": "virgule ton sur ton récup droite",
+    "valid": "blue",
+    "poly": [
+     [
+      1057,
+      678
+     ],
+     [
+      1080,
+      678
+     ],
+     [
+      1080,
+      690
+     ],
+     [
+      1057,
+      690
+     ]
+    ]
+   },
+   {
+    "rule": "light",
+    "s": 0.35,
+    "v": 140,
+    "zoom": 5,
+    "note": "virgule élève P3 gauche",
+    "valid": "blue",
+    "hyst": {
+     "v": 105,
+     "s": 0.42
+    },
+    "poly": [
+     [
+      1258,
+      678
+     ],
+     [
+      1271,
+      678
+     ],
+     [
+      1271,
+      693
+     ],
+     [
+      1258,
+      693
+     ]
+    ]
+   },
+   {
+    "rule": "all",
+    "dilate": 0,
+    "zoom": 5,
+    "note": "virgule ton sur ton P3 droite",
+    "valid": "blue",
+    "poly": [
+     [
+      1334,
+      677
+     ],
+     [
+      1356,
+      677
+     ],
+     [
+      1356,
+      689
+     ],
+     [
+      1334,
+      689
+     ]
+    ]
+   },
+   {
+    "rule": "light",
+    "clip": true,
+    "dilate": 1,
+    "note": "ourlet pantalon P1",
+    "valid": "dark",
+    "close_mask": 5,
+    "v": 100,
+    "s": 0.35,
+    "poly": [
+     [
+      24,
+      648
+     ],
+     [
+      48,
+      648
+     ],
+     [
+      48,
+      683
+     ],
+     [
+      24,
+      683
+     ]
+    ]
+   },
+   {
+    "rule": "light",
+    "clip": true,
+    "dilate": 1,
+    "note": "ourlet pantalon récup",
+    "valid": "dark",
+    "close_mask": 5,
+    "v": 100,
+    "s": 0.35,
+    "poly": [
+     [
+      836,
+      648
+     ],
+     [
+      856,
+      648
+     ],
+     [
+      856,
+      689
+     ],
+     [
+      836,
+      689
+     ]
+    ]
+   },
+   {
+    "rule": "light",
+    "clip": true,
+    "dilate": 1,
+    "note": "ourlet pantalon P3",
+    "valid": "dark",
+    "close_mask": 5,
+    "v": 100,
+    "s": 0.35,
+    "poly": [
+     [
+      1114,
+      648
+     ],
+     [
+      1136,
+      648
+     ],
+     [
+      1136,
+      685
+     ],
+     [
+      1114,
+      685
+     ]
+    ]
+   },
+   {
+    "rule": "all",
+    "dilate": 0,
+    "zoom": 5,
+    "note": "virgule ton sur ton P1 droite",
+    "valid": "blue",
+    "poly": [
+     [
+      223,
+      675
+     ],
+     [
+      242,
+      675
+     ],
+     [
+      242,
+      688
+     ],
+     [
+      223,
+      688
+     ]
+    ]
+   }
+  ]
+ },
+ "sargent": {
+  "zoom": 4,
+  "columns": 2,
+  "fill": "avg",
+  "regions": [
+   {
+    "rule": "light",
+    "exclude_edge": [
+     "top",
+     "bottom"
+    ],
+    "max_w": 60,
+    "note": "virgule chaussure avant gauche",
+    "valid": "blue",
+    "hyst": {
+     "v": 105,
+     "s": 0.38
+    },
+    "poly": [
+     [
+      215,
+      862
+     ],
+     [
+      308,
+      862
+     ],
+     [
+      308,
+      930
+     ],
+     [
+      215,
+      930
+     ]
+    ]
+   },
+   {
+    "rule": "light",
+    "v": 110,
+    "s": 0.32,
+    "note": "virgule chaussure arrière gauche",
+    "exclude_edge": [
+     "top"
+    ],
+    "valid": "blue",
+    "hyst": {
+     "v": 105,
+     "s": 0.38
+    },
+    "poly": [
+     [
+      224,
+      884
+     ],
+     [
+      248,
+      884
+     ],
+     [
+      248,
+      900
+     ],
+     [
+      224,
+      900
+     ]
+    ]
+   },
+   {
+    "rule": "light",
+    "exclude_edge": [
+     "top"
+    ],
+    "max_area": 180,
+    "note": "virgules et talon milieu",
+    "valid": "blue",
+    "hyst": {
+     "v": 105,
+     "s": 0.38
+    },
+    "poly": [
+     [
+      662,
+      715
+     ],
+     [
+      748,
+      715
+     ],
+     [
+      748,
+      790
+     ],
+     [
+      662,
+      790
+     ]
+    ]
+   },
+   {
+    "rule": "light",
+    "exclude_edge": [
+     "top",
+     "bottom"
+    ],
+    "max_w": 60,
+    "note": "virgule chaussure avant droite",
+    "valid": "blue",
+    "hyst": {
+     "v": 105,
+     "s": 0.38
+    },
+    "poly": [
+     [
+      1092,
+      862
+     ],
+     [
+      1203,
+      862
+     ],
+     [
+      1203,
+      932
+     ],
+     [
+      1092,
+      932
+     ]
+    ]
+   },
+   {
+    "rule": "light",
+    "v": 110,
+    "s": 0.32,
+    "note": "virgule chaussure arrière droite",
+    "exclude_edge": [
+     "top"
+    ],
+    "valid": "blue",
+    "hyst": {
+     "v": 105,
+     "s": 0.38
+    },
+    "poly": [
+     [
+      1104,
+      882
+     ],
+     [
+      1128,
+      882
+     ],
+     [
+      1128,
+      902
+     ],
+     [
+      1104,
+      902
+     ]
+    ]
+   },
+   {
+    "rule": "light",
+    "v": 120,
+    "s": 0.3,
+    "note": "virgule short gauche",
+    "valid": "dark",
+    "poly": [
+     [
+      244,
+      676
+     ],
+     [
+      272,
+      676
+     ],
+     [
+      272,
+      694
+     ],
+     [
+      244,
+      694
+     ]
+    ]
+   },
+   {
+    "rule": "light",
+    "v": 120,
+    "s": 0.3,
+    "note": "virgule short milieu",
+    "valid": "dark",
+    "poly": [
+     [
+      652,
+      523
+     ],
+     [
+      683,
+      523
+     ],
+     [
+      683,
+      543
+     ],
+     [
+      652,
+      543
+     ]
+    ]
+   },
+   {
+    "rule": "light",
+    "v": 100,
+    "s": 0.32,
+    "note": "logo short droite",
+    "valid": "dark",
+    "poly": [
+     [
+      1137,
+      706
+     ],
+     [
+      1162,
+      706
+     ],
+     [
+      1162,
+      720
+     ],
+     [
+      1137,
+      720
+     ]
+    ]
+   }
+  ]
+ },
+ "medecine_ball": {
+  "zoom": 4,
+  "columns": 3,
+  "fill": "avg",
+  "regions": [
+   {
+    "rule": "light",
+    "valid": "blue",
+    "note": "virgule chaussure 1",
+    "exclude_edge": [
+     "left",
+     "right",
+     "bottom"
+    ],
+    "poly": [
+     [
+      318,
+      574
+     ],
+     [
+      344,
+      574
+     ],
+     [
+      344,
+      602
+     ],
+     [
+      318,
+      602
+     ]
+    ]
+   },
+   {
+    "rule": "light",
+    "valid": "blue",
+    "note": "virgule chaussure 2",
+    "exclude_edge": [
+     "left",
+     "right",
+     "bottom"
+    ],
+    "poly": [
+     [
+      660,
+      574
+     ],
+     [
+      687,
+      574
+     ],
+     [
+      687,
+      602
+     ],
+     [
+      660,
+      602
+     ]
+    ]
+   },
+   {
+    "rule": "light",
+    "valid": "blue",
+    "note": "virgule chaussure 3",
+    "exclude_edge": [
+     "left",
+     "right",
+     "bottom"
+    ],
+    "poly": [
+     [
+      1027,
+      574
+     ],
+     [
+      1052,
+      574
+     ],
+     [
+      1052,
+      602
+     ],
+     [
+      1027,
+      602
+     ]
+    ]
+   },
+   {
+    "rule": "light",
+    "v": 110,
+    "s": 0.35,
+    "valid": "blue",
+    "dilate": 1,
+    "note": "queue virgule 1",
+    "poly": [
+     [
+      326,
+      592
+     ],
+     [
+      336,
+      592
+     ],
+     [
+      336,
+      606
+     ],
+     [
+      326,
+      606
+     ]
+    ]
+   },
+   {
+    "rule": "light",
+    "v": 110,
+    "s": 0.35,
+    "valid": "blue",
+    "dilate": 1,
+    "note": "queue virgule 2",
+    "poly": [
+     [
+      662,
+      592
+     ],
+     [
+      674,
+      592
+     ],
+     [
+      674,
+      606
+     ],
+     [
+      662,
+      606
+     ]
+    ]
+   },
+   {
+    "rule": "light",
+    "v": 110,
+    "s": 0.35,
+    "valid": "blue",
+    "dilate": 1,
+    "note": "queue virgule 3",
+    "poly": [
+     [
+      1030,
+      592
+     ],
+     [
+      1042,
+      592
+     ],
+     [
+      1042,
+      606
+     ],
+     [
+      1030,
+      606
+     ]
+    ]
+   }
+  ]
+ },
+ "saut_horizontal": {
+  "zoom": 4,
+  "columns": 3,
+  "fill": "avg",
+  "regions": [
+   {
+    "rule": "light",
+    "valid": "blue",
+    "note": "virgule chaussure avant 1",
+    "exclude_edge": [
+     "bottom"
+    ],
+    "hyst": {
+     "v": 105,
+     "s": 0.38
+    },
+    "poly": [
+     [
+      140,
+      624
+     ],
+     [
+      180,
+      624
+     ],
+     [
+      180,
+      644
+     ],
+     [
+      140,
+      644
+     ]
+    ]
+   },
+   {
+    "rule": "light",
+    "v": 110,
+    "s": 0.32,
+    "valid": "blue",
+    "note": "virgule chaussure arrière 1",
+    "exclude_edge": [
+     "top"
+    ],
+    "hyst": {
+     "v": 105,
+     "s": 0.38
+    },
+    "poly": [
+     [
+      178,
+      616
+     ],
+     [
+      196,
+      616
+     ],
+     [
+      196,
+      630
+     ],
+     [
+      178,
+      630
+     ]
+    ]
+   },
+   {
+    "rule": "light",
+    "valid": "blue",
+    "note": "virgule chaussure en vol",
+    "exclude_edge": [
+     "bottom",
+     "right"
+    ],
+    "poly": [
+     [
+      681,
+      484
+     ],
+     [
+      702,
+      484
+     ],
+     [
+      702,
+      503
+     ],
+     [
+      681,
+      503
+     ]
+    ]
+   },
+   {
+    "rule": "light",
+    "valid": "blue",
+    "note": "virgule chaussure avant 3",
+    "exclude_edge": [
+     "bottom"
+    ],
+    "hyst": {
+     "v": 105,
+     "s": 0.38
+    },
+    "poly": [
+     [
+      900,
+      628
+     ],
+     [
+      938,
+      628
+     ],
+     [
+      938,
+      648
+     ],
+     [
+      900,
+      648
+     ]
+    ]
+   }
+  ]
+ },
+ "front_plank": {
+  "zoom": 3,
+  "columns": 1,
+  "fill": "avg",
+  "regions": [
+   {
+    "rule": "light",
+    "valid": "blue",
+    "note": "virgule chaussure",
+    "exclude_edge": [
+     "top"
+    ],
+    "hyst": {
+     "v": 105,
+     "s": 0.38
+    },
+    "poly": [
+     [
+      112,
+      515
+     ],
+     [
+      142,
+      515
+     ],
+     [
+      142,
+      585
+     ],
+     [
+      112,
+      585
+     ]
+    ]
+   }
+  ]
+ },
+ "killy": {
+  "zoom": 3,
+  "columns": 2,
+  "fill": "avg",
+  "regions": [
+   {
+    "rule": "light",
+    "valid": "blue",
+    "note": "virgule chaussure élève avant",
+    "v": 120,
+    "s": 0.32,
+    "exclude_edge": [
+     "top",
+     "bottom"
+    ],
+    "hyst": {
+     "v": 105,
+     "s": 0.38
+    },
+    "poly": [
+     [
+      560,
+      866
+     ],
+     [
+      648,
+      866
+     ],
+     [
+      648,
+      902
+     ],
+     [
+      560,
+      902
+     ]
+    ]
+   },
+   {
+    "rule": "light",
+    "valid": "blue",
+    "note": "virgule chaussure élève arrière",
+    "v": 120,
+    "s": 0.32,
+    "exclude_edge": [
+     "top",
+     "bottom"
+    ],
+    "hyst": {
+     "v": 105,
+     "s": 0.38
+    },
+    "poly": [
+     [
+      660,
+      826
+     ],
+     [
+      748,
+      826
+     ],
+     [
+      748,
+      858
+     ],
+     [
+      660,
+      858
+     ]
+    ]
+   },
+   {
+    "rule": "light",
+    "valid": "blue",
+    "note": "virgule chaussure enseignante gauche",
+    "v": 120,
+    "s": 0.32,
+    "exclude_edge": [
+     "top",
+     "bottom"
+    ],
+    "hyst": {
+     "v": 105,
+     "s": 0.38
+    },
+    "poly": [
+     [
+      1098,
+      800
+     ],
+     [
+      1162,
+      800
+     ],
+     [
+      1162,
+      830
+     ],
+     [
+      1098,
+      830
+     ]
+    ]
+   },
+   {
+    "rule": "light",
+    "valid": "blue",
+    "note": "virgule chaussure enseignante droite",
+    "v": 120,
+    "s": 0.32,
+    "exclude_edge": [
+     "top"
+    ],
+    "hyst": {
+     "v": 105,
+     "s": 0.38
+    },
+    "exclude": [
+     [
+      [
+       1294,
+       802
+      ],
+      [
+       1300,
+       802
+      ],
+      [
+       1300,
+       810
+      ],
+      [
+       1294,
+       810
+      ]
+     ]
+    ],
+    "poly": [
+     [
+      1274,
+      756
+     ],
+     [
+      1297,
+      756
+     ],
+     [
+      1297,
+      806
+     ],
+     [
+      1274,
+      806
+     ]
+    ]
+   },
+   {
+    "rule": "light",
+    "v": 120,
+    "s": 0.32,
+    "valid": "blue",
+    "dilate": 1,
+    "clip": true,
+    "note": "queue virgule enseignante droite",
+    "poly": [
+     [
+      1296,
+      752
+     ],
+     [
+      1305,
+      752
+     ],
+     [
+      1305,
+      772
+     ],
+     [
+      1296,
+      772
+     ]
+    ]
+   }
+  ]
+ }
+}

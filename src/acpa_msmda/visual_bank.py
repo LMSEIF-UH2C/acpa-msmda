@@ -95,6 +95,7 @@ def credits() -> list[str]:
     """Crédits à afficher dans l'application et dans toute redistribution."""
     lines = [t("Pictogrammes : OpenMoji, projet open source d'emojis et d'icônes, licence CC BY-SA 4.0 "
                "(creativecommons.org/licenses/by-sa/4.0), fichiers non modifiés.")]
-    lines.append(t("Illustrations du Laboratoire : générées par IA pour ACPA/MSMDA, acceptées par le porteur du projet, "
-                   "non normatives."))
+    lines.append(t("Illustrations du Laboratoire : générées avec l'IA pour ACPA/MSMDA et retenues par le porteur du "
+                   "projet ; non normatives ; licence CC BY 4.0 (creativecommons.org/licenses/by/4.0), dans la mesure "
+                   "des droits détenus."))
     return lines

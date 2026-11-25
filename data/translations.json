@@ -4731,10 +4731,6 @@
     "ar": "رسم توضيحي تربوي",
     "en": "Educational illustration"
   },
-  "Illustrations du Laboratoire : générées par IA pour ACPA/MSMDA, acceptées par le porteur du projet, non normatives.": {
-    "ar": "رسوم المختبر: مولدة بالذكاء الاصطناعي لـ ACPA/MSMDA، قبلها حامل المشروع، وهي غير معيارية.",
-    "en": "Laboratory illustrations: AI-generated for ACPA/MSMDA, accepted by the project lead, non-normative."
-  },
   "Pictogramme : {credit}.": {
     "ar": "الرمز: {credit}.",
     "en": "Pictogram: {credit}."
@@ -4806,5 +4802,9 @@
   "Gainage sur les avant-bras et la pointe des pieds, corps aligné, sur un tapis ; un chronomètre est posé au sol. Matériel représenté : tapis, chronomètre.": {
     "ar": "ثبات على الساعدين وأطراف القدمين، والجسم مستقيم، فوق بساط؛ ميقاتية موضوعة على الأرض. العتاد الظاهر في الرسم: بساط، ميقاتية.",
     "en": "Plank on the forearms and toes, body aligned, on a mat; a stopwatch lies on the floor. Equipment shown: mat, stopwatch."
+  },
+  "Illustrations du Laboratoire : générées avec l'IA pour ACPA/MSMDA et retenues par le porteur du projet ; non normatives ; licence CC BY 4.0 (creativecommons.org/licenses/by/4.0), dans la mesure des droits détenus.": {
+    "ar": "رسوم المختبر: مولدة بالذكاء الاصطناعي لـ ACPA/MSMDA واعتمدها حامل المشروع؛ غير معيارية؛ مرخصة بموجب CC BY 4.0 (creativecommons.org/licenses/by/4.0) في حدود الحقوق المملوكة.",
+    "en": "Laboratory illustrations: AI-generated for ACPA/MSMDA and selected by the project lead; non-normative; licensed under CC BY 4.0 (creativecommons.org/licenses/by/4.0), to the extent of the rights held."
   }
 }

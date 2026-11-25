@@ -248,9 +248,11 @@ for field, label in (("cycle_number", t("Numéro du cycle")), ("lesson_number", 
 if export_advice:
     metadata[t("Adaptations proposées")] = "\n".join(advice)
     metadata[t("Organisation indicative des groupes")] = " / ".join(map(str, sizes))
+from acpa_msmda.teacher_workbooks import MIME, report_xlsx
+
 pdf_col, csv_col = st.columns([2, 1])
 pdf_col.download_button(t("Scénario (PDF)"), scenario_pdf(metadata, rows, validation, issues, situation=selected_situation(S), photo=photo),
                         "scenario_seance_eps.pdf", "application/pdf", type="primary",
                         icon=":material/picture_as_pdf:", use_container_width=True)
-csv_col.download_button(t("Tableur (CSV)"), export_scenario_csv(metadata, rows),
-                        "scenario_seance_eps.csv", "text/csv", use_container_width=True)
+csv_col.download_button(t("Tableur (Excel)"), report_xlsx(export_scenario_csv(metadata, rows)),
+                        "scenario_seance_eps.xlsx", MIME, use_container_width=True)

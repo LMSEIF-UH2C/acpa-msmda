@@ -308,7 +308,11 @@ _RTL_CSS = """
 [data-testid="stMainBlockContainer"] button>span:first-child{margin:0 0 0 .5rem!important;flex-shrink:0}
 [data-testid="stMainBlockContainer"] button{gap:.4rem}
 [data-testid="stMainBlockContainer"] button p{text-align:center!important}
-[data-testid="stMainBlockContainer"] div[class*="st-key-core_"] button p{text-align:start!important}
+[data-testid="stMainBlockContainer"] div[class*="st-key-core_"] button p{text-align:right!important}
+div[class*="st-key-core_"] button[data-testid="stBaseButton-secondary"],.st-key-home_eps a[data-testid="stPageLink-NavLink"]{direction:rtl!important}
+div[class*="st-key-core_"] button [data-testid="stIconMaterial"],.st-key-home_eps a [data-testid="stIconMaterial"]{
+  left:auto!important;right:.85rem!important;inset-inline-start:auto;inset-inline-end:auto
+}
 div[class*="st-key-core_"]::before,.st-key-home_eps::before{transform:translateY(-50%) rotate(-135deg)}
 /* Streamlit may set direction:ltr on native button/link descendants. Anchor the
    decorative icon to the physical right in Arabic, independently of that direction. */

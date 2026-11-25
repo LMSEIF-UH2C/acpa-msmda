@@ -65,6 +65,29 @@ def check(browser, engine):
     expect(area).to_have_value("كرة القدم, الجري السريع, التوازن", timeout=30000)
     dictate(frames, 1, [["endurance", True]], "normal", auto_end=True)
     expect(area).to_have_value("كرة القدم, الجري السريع, التوازن, endurance", timeout=30000)
+    # Verify actual preview geometry before committing a long Arabic transcript.
+    frame = frames.nth(0).content_frame
+    frame.locator("#b").click()
+    long_text = "أريد تطبيقًا يساعدني على تنظيم أنشطة كرة القدم وتقييم أداء التلاميذ في الحصة دون اتصال بالإنترنت"
+    frame.locator("#b").evaluate("(el, text) => window.mockSpeech.emit([[text, false]])", long_text)
+    expect(frame.locator("#m")).to_have_text(long_text)
+    expect(frame.locator("#m")).to_have_attribute("dir", "rtl")
+    frame.locator("#m").evaluate("""el => {
+      if (el.clientHeight < 60 || el.scrollWidth > el.clientWidth + 1)
+        throw Error('Preview not multiline or overflows horizontally');
+    }""")
+    # Iframe must grow to include the whole visible preview.
+    frame.locator("#m").evaluate("""el => new Promise((resolve, reject) => {
+      let attempts = 0;
+      const verify = () => {
+        if (window.innerHeight >= el.getBoundingClientRect().bottom) resolve(true);
+        else if (++attempts > 100) reject(Error('Iframe clips live transcript'));
+        else setTimeout(verify, 100);
+      };
+      verify();
+    })""")
+    frame.locator("#b").click()
+    expect(area).to_have_value("كرة القدم, الجري السريع, التوازن, endurance, " + long_text, timeout=30000)
     page.close()
     page, area, frames = open_search(browser, "fr")
     dictate(frames, 0, [["course", True], [" rapide", False]], "normal", auto_end=True)

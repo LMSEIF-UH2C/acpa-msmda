@@ -72,12 +72,15 @@ retouche locale, limitée finalement à six images (section 7).
   chronométrage du sprint dans les trois langues ;
 - page du Laboratoire en français, arabe et anglais ; une image manquante ne bloque pas la page.
 
-Suite complète en local (Python 3.12.3, dépendances exactes) : 253 tests réussis après la retouche et la légende du sprint (250 avant). `compileall` et
+Suite complète en local sous Python 3.12.3 et Streamlit 1.52.0, version fixée par `requirements.txt` : 253 tests
+réussis après la retouche et la légende du sprint. Les premières exécutions locales avaient tourné sous Streamlit
+1.47.1, faute d'environnement local aligné après la PR #64 ; la CI, elle, installe les versions fixées. `compileall` et
 `scripts/mutation_check.py` réussis. Les workflows de la PR (Python 3.12 et 3.14, smoke, validation R) font foi.
 
 ## 5. Recette mobile
 
-iPhone 13 émulé (Chromium sans interface, Playwright), application servie localement depuis la branche. Script :
+iPhone 13 émulé (Chromium sans interface, Playwright), application servie localement depuis la branche, sous
+Streamlit 1.52.0. Une première passe sous Streamlit 1.47.1 avait donné des résultats identiques. Script :
 [scripts/recette_banque_visuelle.py](scripts/recette_banque_visuelle.py). Résultats bruts :
 [resultats/recette_iphone.json](resultats/recette_iphone.json). Planche :
 [captures/banque_visuelle_iphone.jpg](captures/banque_visuelle_iphone.jpg).

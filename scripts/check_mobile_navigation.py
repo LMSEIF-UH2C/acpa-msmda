@@ -34,6 +34,7 @@ CHECK = """() => {
 HOME_CHECK = """() => {
   const cards = [...document.querySelectorAll('.st-key-core_evaluate,.st-key-core_find,.st-key-core_prepare,.st-key-home_eps')];
   const rect = e => {const r=e.getBoundingClientRect();return {left:r.left,right:r.right,top:r.top,bottom:r.bottom}};
+  const textRect = e => {const range=document.createRange();range.selectNodeContents(e);const r=range.getBoundingClientRect();return {left:r.left,right:r.right}};
   const hero = document.querySelector('.st-key-hero');
   return {hero: !!hero, colors: {
     red:getComputedStyle(document.documentElement).getPropertyValue('--blue').trim().toLowerCase(),
@@ -42,7 +43,7 @@ HOME_CHECK = """() => {
     const title=c.querySelector('button p,a[data-testid="stPageLink-NavLink"] p');
     const desc=c.querySelector('[data-testid="stCaptionContainer"] p');
     const icon=c.querySelector('[data-testid="stIconMaterial"]');
-    return {card:rect(c), title:title && rect(title), desc:desc && rect(desc),
+    return {card:rect(c), title:title && rect(title), titleText:title && textRect(title), desc:desc && rect(desc),
       icon:icon && rect(icon), direction:getComputedStyle(c).direction};
   })};
 }"""
@@ -60,8 +61,10 @@ def check_home(page, label, lang):
         assert c["top"] <= i["top"] + 1 and i["bottom"] <= c["bottom"] + 1, item
         assert t["bottom"] <= d["top"] + 2, item
         if lang == "ar":
+            assert abs(item["titleText"]["right"] - d["right"]) <= 5, item
             assert t["right"] <= i["left"] + 2 and d["right"] <= i["left"] + 2, item
         else:
+            assert abs(item["titleText"]["left"] - d["left"]) <= 5, item
             assert t["left"] >= i["right"] - 2 and d["left"] >= i["right"] - 2, item
     if label.endswith("-390"):
         target = Path("mobile-home-captures")

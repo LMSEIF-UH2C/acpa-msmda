@@ -6,11 +6,12 @@ from datetime import date
 import streamlit as st
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/"src"))
 from acpa_msmda import session_context as ctx
-from acpa_msmda.journal import STATUSES, MAX_ENTRIES, workspace_backup, restore_workspace, export_csv
+from acpa_msmda.journal import STATUSES, MAX_ENTRIES, export_csv
+from acpa_msmda.teacher_workbooks import MIME, journal_xlsx, restore_journal_xlsx, projects_xlsx, restore_projects_xlsx, report_xlsx
 from acpa_msmda.timetable import generate, timetable_warnings
 from acpa_msmda.cycle_plan import check_journal, cycle_at, allows_session
 from acpa_msmda.i18n import colon, t
-from acpa_msmda.curriculum import profiles, validate_projects, export_projects, import_projects
+from acpa_msmda.curriculum import profiles, validate_projects
 from acpa_msmda.aps_specialties import registry, catalog_category, valid_specialty
 from acpa_msmda.ui import JOURNAL, configure_page, page_header, PRIVACY_NOTE
 
@@ -26,15 +27,15 @@ projects=data.setdefault("cycle_projects",[])
 st.caption(t("Le journal reste en mémoire de session. Téléchargez une sauvegarde pour le conserver."))
 with st.expander(t("Sauvegarder ou restaurer le journal")):
     try:
-        raw=workspace_backup(cycles,entries,slots,interruptions,projects)
+        raw=journal_xlsx(cycles,entries,slots,interruptions,projects)
     except ValueError:
         st.error(t("Fichier de sauvegarde invalide ou incompatible."))
     else:
-        st.download_button(t("Sauvegarder mes données"),raw,"journal_acpa.json","application/json")
-    uploaded=st.file_uploader(t("Restaurer mes données"),type=["json"],key="journal_upload")
+        st.download_button(t("Sauvegarder mes données"),raw,"journal_acpa.xlsx",MIME)
+    uploaded=st.file_uploader(t("Restaurer mes données"),type=["xlsx"],key="journal_upload")
     if uploaded is not None:
         try:
-            restored_cycles,restored,restored_slots,restored_breaks,restored_projects=restore_workspace(uploaded.getvalue())
+            restored_cycles,restored,restored_slots,restored_breaks,restored_projects=restore_journal_xlsx(uploaded.getvalue())
         except ValueError:
             st.error(t("Fichier de sauvegarde invalide ou incompatible."))
         else:
@@ -168,7 +169,7 @@ if entries:
         if st.button(t("Supprimer")):
             entries.remove(entry)
             st.rerun()
-    st.download_button(t("Journal (CSV)"),export_csv(visible),"journal_acpa.csv","text/csv")
+    st.download_button(t("Journal (Excel)"),report_xlsx(export_csv(visible)),"journal_acpa.xlsx",MIME)
 
 
 st.subheader(t("Projets de cycle par classe"))
@@ -199,15 +200,15 @@ if cycles:
             else:
                 st.rerun()
     try:
-        saved=export_projects(projects,cycles)
+        saved=projects_xlsx(projects,cycles)
     except ValueError:
         st.warning(t("Certains projets ne correspondent plus aux cycles actuels."))
     else:
-        st.download_button(t("Sauvegarder les projets de cycle"),saved,"projets_cycles.json","application/json")
-    upload=st.file_uploader(t("Restaurer les projets de cycle"),type=["json"],key="cp_upload")
+        st.download_button(t("Sauvegarder les projets de cycle"),saved,"projets_cycles.xlsx",MIME)
+    upload=st.file_uploader(t("Restaurer les projets de cycle"),type=["xlsx"],key="cp_upload")
     if upload is not None:
         try:
-            imported=import_projects(upload.getvalue(),cycles)
+            imported=restore_projects_xlsx(upload.getvalue(),cycles)
         except ValueError:
             st.error(t("Fichier de sauvegarde invalide ou incompatible."))
         else:

@@ -50,9 +50,9 @@ Si l'intégration GitHub et Zenodo est active, la release crée automatiquement 
 | Type | Software |
 | Titre | ACPA/MSMDA: EPS Technology Evaluation and Teaching Assistant |
 | Version | v0.2.0 |
-| Créateurs | Moudettir, Youness ; Lotfi, Saïd ; Ouhrir, Siham (repris de `CITATION.cff`) |
-| Affiliations | LMSEIF, École Normale Supérieure de Casablanca, Université Hassan II de Casablanca (Moudettir, Lotfi) ; École Normale Supérieure de Casablanca, Université Hassan II de Casablanca (Ouhrir). Rattachement de S. Ouhrir au LMSEIF à confirmer |
-| ORCID | à fournir par chaque auteur ; aucun ORCID n'est inscrit tant qu'il n'est pas confirmé |
+| Créateurs | Moudettir, Youness ; Ouhrir, Siham ; Lotfi, Said (ordre et graphie confirmés par le porteur le 25 novembre 2026 ; repris de `CITATION.cff`) |
+| Affiliations | LMSEIF, École Normale Supérieure de Casablanca, Hassan II University of Casablanca (les trois auteurs ; rattachement au LMSEIF confirmé par le porteur) |
+| ORCID | Moudettir 0000-0002-6793-740X ; Ouhrir 0000-0001-9870-5655 ; Lotfi 0000-0002-0008-6145 |
 | Licence | MIT (code) ; préciser dans la description les licences CC BY 4.0 et CC BY-SA 4.0 des ressources visuelles |
 | Mots-clés | physical education; educational technology; Morocco; context-aware recommendation; field testing; trilingual interface |
 | Description | Texte de la section 3, sans le passage sur la citation |

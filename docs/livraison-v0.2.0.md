@@ -50,7 +50,7 @@ Les échecs, corrections et arbitrages successifs sont conservés tels quels ; i
 ## 5. Contributions
 
 - Porteur du projet (Youness Moudettir) : conception scientifique et pédagogique, choix des instruments et des illustrations, arbitrages, validation de chaque fusion.
-- Encadrement scientifique et co-inventeurs : Saïd Lotfi et Siham Ouhrir.
+- Encadrement scientifique et co-inventeurs : Siham Ouhrir et Said Lotfi.
 - Assistants d'IA (ChatGPT et Claude) : propositions de code, documentation, audits et recettes, soumises par pull request, relues et fusionnées par le porteur. Les commits sont signés au nom du dépôt ou du porteur ; l'attribution d'une contribution ne se déduit pas du seul compte GitHub (`docs/validation/README.md`).
 - Ressources tierces : OpenMoji, Amiri, IBM Plex Sans Arabic, DejaVu.
 
@@ -84,10 +84,6 @@ Plan de levée : lots C (correctif v0.2.1) et D (travaux après la soutenance) d
 ## 8. Conditions restantes avant publication
 
 1. Recette physique iPhone sans anomalie bloquante.
-2. Informations bibliographiques à confirmer par le porteur :
-   - ORCID des trois auteurs ;
-   - rattachement de Siham Ouhrir au LMSEIF ;
-   - graphie « Saïd » ou « Said » ;
-   - ordre des auteurs.
+2. Informations bibliographiques : confirmées par le porteur le 25 novembre 2026 (ordre Moudettir, Ouhrir, Lotfi ; graphie « Said » ; ORCID et affiliations inscrits dans `CITATION.cff`).
 3. Le jour de la publication : `date-released` dans `CITATION.cff`, statut publié dans le README, les notes de version et le CHANGELOG ; CI réussie sur ce commit.
 4. Accord explicite du porteur, puis tag `v0.2.0`, release GitHub et dépôt Zenodo selon `docs/publication-v0.2.0.md`, avec vérification du rattachement à l'enregistrement v0.1.1.

@@ -8,6 +8,7 @@ from __future__ import annotations
 import csv
 import io
 import json
+import math
 import zipfile
 from openpyxl import Workbook, load_workbook
 from openpyxl.cell import WriteOnlyCell
@@ -88,8 +89,8 @@ def _read(raw, kind, specs):
                 # The worksheet dimension supplied by the file is not trusted.
                 ws.reset_dimensions()
                 limit = 362000 if name == OBS[0] else 31000 if name == PUPILS[0] else 4000
-                for row in ws.iter_rows():
-                    if len(rows) > limit or len(row) > len(fields):
+                for index, row in enumerate(ws.iter_rows()):
+                    if index > limit or len(row) > len(fields):
                         raise ValueError("Worksheet limit")
                     if any(c.data_type in ("f", "e", "b", "d") for c in row):
                         raise ValueError("Unsupported cell or formula")
@@ -200,14 +201,25 @@ def restore_projects_xlsx(raw, cycles):
     return curriculum.validate_projects(projects,cycles)
 
 
-def report_xlsx(raw, *, delimiter=","):
-    """Convert existing localized CSV reports into a real workbook, preserving text exactly."""
+def report_xlsx(raw, *, delimiter=",", numeric_columns=(), numeric_start=1):
+    """Convert a localized CSV report; only explicitly numeric columns are converted."""
     wb = Workbook(write_only=True)
     reader = csv.reader(io.StringIO(raw.decode("utf-8-sig")),delimiter=delimiter)
     fields = next(reader, None)
     if not fields:
         raise ValueError("Empty report")
-    _sheet(wb,"Export",fields,reader)
+    def rows():
+        for index, row in enumerate(reader, 1):
+            for col in numeric_columns:
+                if index >= numeric_start and col < len(row) and row[col]:
+                    try:
+                        value = float(row[col])
+                    except ValueError:
+                        continue
+                    if math.isfinite(value):
+                        row[col] = int(value) if value.is_integer() else value
+            yield row
+    _sheet(wb,"Export",fields,rows())
     out = io.BytesIO()
     wb.save(out)
     return out.getvalue()

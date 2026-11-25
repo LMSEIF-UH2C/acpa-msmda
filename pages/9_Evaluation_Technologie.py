@@ -127,4 +127,5 @@ with st.expander(t("Évaluer un nouvel outil")):
         writer.writerow(["Code",t("Critère"),t("Évaluation")])
         for code,label,value in rows:
             writer.writerow([code,t(label),value])
-        st.download_button(t("Télécharger mon évaluation"),buffer.getvalue().encode("utf-8-sig"),"evaluation_technologie.csv","text/csv")
+        from acpa_msmda.teacher_workbooks import MIME, report_xlsx
+        st.download_button(t("Télécharger mon évaluation"),report_xlsx(buffer.getvalue().encode("utf-8-sig")),"evaluation_technologie.xlsx",MIME)

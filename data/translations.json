@@ -4722,5 +4722,33 @@
   "{what} : {n}/{total} points affichés ; les résultats portent sur tous les points.": {
     "ar": "{what}: عرض {n}/{total} نقطة؛ النتائج محسوبة على جميع النقاط.",
     "en": "{what}: {n}/{total} points shown; results cover all points."
+  },
+  "Crédits des visuels": {
+    "ar": "حقوق الصور والرموز",
+    "en": "Visual credits"
+  },
+  "Illustration pédagogique": {
+    "ar": "رسم توضيحي تربوي",
+    "en": "Educational illustration"
+  },
+  "Illustrations du Laboratoire : générées par IA pour ACPA/MSMDA, acceptées par le porteur du projet, non normatives.": {
+    "ar": "رسوم المختبر: مولدة بالذكاء الاصطناعي لـ ACPA/MSMDA، قبلها حامل المشروع، وهي غير معيارية.",
+    "en": "Laboratory illustrations: AI-generated for ACPA/MSMDA, accepted by the project lead, non-normative."
+  },
+  "Pictogramme : {credit}.": {
+    "ar": "الرمز: {credit}.",
+    "en": "Pictogram: {credit}."
+  },
+  "Pictogrammes : OpenMoji, projet open source d'emojis et d'icônes, licence CC BY-SA 4.0 (creativecommons.org/licenses/by-sa/4.0), fichiers non modifiés.": {
+    "ar": "الرموز: OpenMoji، مشروع مفتوح المصدر للرموز التعبيرية والأيقونات، رخصة CC BY-SA 4.0 (creativecommons.org/licenses/by-sa/4.0)، ملفات غير معدلة.",
+    "en": "Pictograms: OpenMoji, open-source emoji and icon project, CC BY-SA 4.0 licence (creativecommons.org/licenses/by-sa/4.0), files unmodified."
+  },
+  "Illustration générée par IA, non normative : le protocole écrit fait foi ; vérifier le matériel, les distances et les conditions de mesure.": {
+    "ar": "رسم مولد بالذكاء الاصطناعي وغير معياري: البروتوكول المكتوب هو المرجع؛ تحقق من العتاد والمسافات وشروط القياس.",
+    "en": "AI-generated, non-normative illustration: the written protocol prevails; check equipment, distances and measurement conditions."
+  },
+  "Pictogramme de famille, pas une illustration du protocole.": {
+    "ar": "رمز يدل على عائلة الاختبار، وليس توضيحا للبروتوكول.",
+    "en": "Family pictogram, not an illustration of the protocol."
   }
 }

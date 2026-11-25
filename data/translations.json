@@ -4722,5 +4722,29 @@
   "{what} : {n}/{total} points affichés ; les résultats portent sur tous les points.": {
     "ar": "{what}: عرض {n}/{total} نقطة؛ النتائج محسوبة على جميع النقاط.",
     "en": "{what}: {n}/{total} points shown; results cover all points."
+  },
+  "Tableur (Excel)": {
+    "ar": "جدول بيانات (Excel)",
+    "en": "Spreadsheet (Excel)"
+  },
+  "Exporter les observations (Excel)": {
+    "ar": "تصدير الملاحظات (Excel)",
+    "en": "Export observations (Excel)"
+  },
+  "Sauvegarder mes évaluations (Excel)": {
+    "ar": "حفظ تقويماتي (Excel)",
+    "en": "Back up my assessments (Excel)"
+  },
+  "Reprendre mes évaluations (Excel)": {
+    "ar": "استعادة تقويماتي (Excel)",
+    "en": "Restore my assessments (Excel)"
+  },
+  "Journal (Excel)": {
+    "ar": "السجل اليومي (Excel)",
+    "en": "Journal (Excel)"
+  },
+  "Données (Excel)": {
+    "ar": "البيانات (Excel)",
+    "en": "Data (Excel)"
   }
 }

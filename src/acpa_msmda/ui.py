@@ -93,7 +93,11 @@ h3{font-size:1.12rem!important;font-weight:650!important}
   margin:.25rem 0 1.1rem;color:#fff;
   background:radial-gradient(500px 250px at 95% -20%,rgba(255,255,255,.14),transparent 65%),
              linear-gradient(135deg,#C1272D 0%,#A20E1C 58%,#BE1724 100%);
-  border:1px solid var(--green);box-shadow:inset 0 0 0 2px #fff,0 8px 20px rgba(98,24,29,.15)}
+  border:1px solid var(--green);box-shadow:0 8px 20px rgba(98,24,29,.15)}
+/* Draw the white inner rim above the decorative gold wave, not beneath it.
+   The outer green border and the original wave geometry stay unchanged. */
+.st-key-hero::before{content:"";position:absolute;inset:0;box-sizing:border-box;
+  border:2px solid #fff;border-radius:inherit;pointer-events:none;z-index:3}
 .st-key-hero::after{content:"";position:absolute;pointer-events:none;z-index:-1;
   inset-inline:-9%;bottom:-1.85rem;height:3.15rem;border-top:5px solid var(--gold);
   border-radius:48% 55% 0 0;transform:rotate(-5deg);background:#B91B25}

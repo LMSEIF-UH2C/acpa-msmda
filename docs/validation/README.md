@@ -47,3 +47,4 @@ Sources : https://github.com/LMSEIF-UH2C/acpa-msmda/actions et https://docs.gith
 
 - [Recette des modules hors Laboratoire, 24 novembre 2026](recette-modules-2026-11-24/README.md)
 - [Restitution des analyses du Laboratoire en trois niveaux, 24-25 novembre 2026](restitution-lab-2026-11-24/README.md)
+- [Banque visuelle du Laboratoire : intégration des 14 illustrations, 25 novembre 2026](banque-visuelle-2026-11-25/README.md)

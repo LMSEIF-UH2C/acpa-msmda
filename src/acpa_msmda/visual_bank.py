@@ -2,7 +2,8 @@
 
 Source unique : ``assets/visual-bank/manifest.json``.
 - 14 épreuves ont une illustration pédagogique (JPEG dans ``assets/lab/``), générée par IA et acceptée par le
-  porteur du projet : non normative, elle ne remplace jamais le protocole écrit.
+  porteur du projet : non normative, elle ne remplace jamais le protocole écrit. Chaque illustration a un texte
+  alternatif (ce que montre l'image et le matériel représenté), affiché sous l'image et traduit en arabe et en anglais.
 - 18 épreuves ont un pictogramme de famille OpenMoji (CC BY-SA 4.0), qui n'illustre pas le protocole.
 
 Une image absente ou illisible n'empêche rien : la page affiche le protocole écrit, seul de référence.
@@ -32,6 +33,7 @@ class Visual:
     path: Path
     note: str              # avertissement affiché sous le visuel (source française, traduit à l'affichage)
     credit: str
+    alt: str = ""          # texte alternatif : ce que montre l'image (source française, traduit à l'affichage)
 
     @property
     def available(self) -> bool:
@@ -53,8 +55,8 @@ def visual_for(test_id: str) -> Visual | None:
     data = manifest()
     specific = next((x for x in data["lab_specific"] if x["id"] == test_id), None)
     if specific:
-        return Visual(test_id, "illustration", ROOT / specific["expected_path"],
-                      ILLUSTRATION_NOTE, "ACPA/MSMDA")
+        return Visual(test_id, "illustration", ROOT / specific["path"],
+                      ILLUSTRATION_NOTE, "ACPA/MSMDA", specific.get("alt", ""))
     generic = next((x for x in data["lab_generic"] if x["id"] == test_id), None)
     if generic:
         path = icon_path(generic["icon"])
@@ -78,8 +80,15 @@ def render(st, test_id: str) -> bool:
         return True
     with st.expander(t("Illustration pédagogique")):
         st.image(str(visual.path), use_container_width=True)
+        if visual.alt:
+            st.caption(t(visual.alt))
         st.caption(t(visual.note))
     return True
+
+
+def alt_texts() -> list[str]:
+    """Textes alternatifs des illustrations (source française), pour le contrôle des traductions."""
+    return [x["alt"] for x in manifest()["lab_specific"] if x.get("alt")]
 
 
 def credits() -> list[str]:

@@ -13,7 +13,12 @@ student records and local state are not included.
 
 The MIT License covers the original included copyrightable software files.
 Third-party fonts retain their own licenses: IBM Plex Sans Arabic under SIL OFL (assets/fonts/IBM-Plex-OFL.txt), Amiri retained under SIL OFL (assets/fonts/OFL.txt),
-DejaVu under its accompanying license. Catalogue links and third-party marks
+DejaVu under its accompanying license. The pictograms in assets/visual-bank/pictograms/
+are unmodified OpenMoji files (openmoji.org) licensed under CC BY-SA 4.0
+(https://creativecommons.org/licenses/by-sa/4.0/), not under the MIT License.
+The AI-generated Laboratory illustrations in assets/lab/ are non-normative teaching
+aids accepted by the project holder; their reuse licence has not yet been set.
+Catalogue links and third-party marks
 are not grants of rights in the linked products. It does
 not contain an express patent grant. Patent-related rights associated with
 the broader project are distinct and are not characterized here.

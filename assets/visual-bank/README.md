@@ -3,10 +3,16 @@
 Cette branche prépare des ressources, sans modifier l'interface ni le moteur. Les images doivent rester facultatives, adaptées aux moyens locaux et ne pas être présentées comme preuves de validation scientifique.
 
 ## Inventaire
-- 14 illustrations IA acceptées par le porteur du projet : à importer depuis le ZIP de remise dans `assets/lab/` ; elles ne sont pas encore présentes dans cette branche. Handgrip exclu du lot illustré, test conservé.
+- 14 illustrations IA acceptées par le porteur du projet : importées sans retouche depuis le ZIP de remise dans `assets/lab/` (PR #68, 25 novembre 2026). Handgrip exclu du lot illustré, test conservé.
 - 18 tests : pictogramme de famille et matériel requis, sans représentation trompeuse d'un autre protocole.
 - 14 SVG OpenMoji réellement copiés, inchangés, depuis le commit 5acb7f049c45c57a98449122d470de9f09bb6794. Ce sont des pictogrammes, pas des démonstrations.
 - 8 références Wikimedia avec licence déclarée et auteur identifiés. Leur fichier original n'est pas copié ici : téléchargement bloqué dans l'environnement de préparation, contrôle visuel et import local par Claude nécessaires.
+
+## État après intégration (PR #68, 25 novembre 2026)
+- Les 14 JPEG sont identiques à la remise : empreintes SHA-256, tailles et dimensions consignées dans `manifest.json` (`lab_delivery`, `lab_specific`) et vérifiées par les tests. Remise conservée dans `docs/validation/banque-visuelle-2026-11-25/remise/`.
+- Laboratoire : illustration dans un volet « Illustration pédagogique » replié, suivie d'un texte alternatif (ce que montre l'image et matériel représenté) et de l'avertissement non normatif, en français, arabe et anglais. Les légendes de Ruffier sont reproduites dans ce texte. Les 18 autres tests affichent leur pictogramme de famille.
+- Le matériel représenté décrit l'image ; il ne constitue pas la liste du matériel requis par le protocole.
+- Références Wikimedia : toujours non déposées (absentes de la remise, téléchargement refusé avec un code HTTP 429 depuis l'environnement d'intégration).
 
 ## Affectations proposées
 | Section | Visuels | Usage |

@@ -258,6 +258,9 @@ div[class*="st-key-core_"] [data-testid="stCaptionContainer"] p,
  /* Apparition douce du contenu */
 [data-testid="stMainBlockContainer"]>div>div>div{animation:rise .35s ease both}
 @keyframes rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+ /* Barre d'onglets fixe : jamais animée. Depuis Streamlit 1.52, elle reçoit l'animation ci-dessus, dont l'état final
+    (transform:none) annule son centrage translateX(-50%) et la décale vers la droite. */
+.st-key-tabbar{animation:none!important}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 @media (max-width:640px){
   .block-container,[data-testid="stMainBlockContainer"]{padding-left:.95rem;padding-right:.95rem}

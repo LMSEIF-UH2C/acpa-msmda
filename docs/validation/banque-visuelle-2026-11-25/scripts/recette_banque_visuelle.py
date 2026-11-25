@@ -93,4 +93,5 @@ async def main():
     (OUT / "resultats.json").write_text(json.dumps(results, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
-asyncio.run(main())
+if __name__ == "__main__":
+    asyncio.run(main())

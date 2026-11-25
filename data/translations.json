@@ -4751,10 +4751,6 @@
     "ar": "مجموعة من التلاميذ يجرون بين خطين محددين بأقماع في ساحة مؤسسة تعليمية؛ يقف الأستاذ حاملًا لوح كتابة قرب مكبر صوت يبث الإشارة الصوتية. العتاد الظاهر في الرسم: أقماع، خطوط على الأرض، مكبر صوت، لوح كتابة.",
     "en": "Group of students running between two lines marked with cones in a school yard; the teacher holds a clipboard next to a speaker playing the audio signal. Equipment shown: cones, floor lines, speaker, clipboard."
   },
-  "Départ individuel d'un sprint dans un couloir balisé, pendant que les autres élèves attendent leur tour ; l'enseignant tient un chronomètre, sur le côté. Matériel représenté : plots, lignes au sol, chronomètre.": {
-    "ar": "انطلاق فردي في عدو داخل رواق محدد، بينما ينتظر باقي التلاميذ دورهم؛ يقف الأستاذ جانبًا حاملًا ميقاتية. العتاد الظاهر في الرسم: أقماع، خطوط على الأرض، ميقاتية.",
-    "en": "Individual sprint start in a marked lane while the other students wait their turn; the teacher holds a stopwatch at the side. Equipment shown: cones, floor lines, stopwatch."
-  },
   "Saut pieds joints sans élan, en trois phases : flexion bras en arrière derrière la ligne, envol, réception. Un ruban de mesure part de la ligne de départ. Matériel représenté : ligne de départ, ruban de mesure.": {
     "ar": "قفز بالقدمين معًا من الثبات في ثلاث مراحل: ثني الركبتين والذراعان إلى الخلف وراء الخط، ثم الطيران، ثم الهبوط. يمتد شريط قياس من خط الانطلاق. العتاد الظاهر في الرسم: خط الانطلاق، شريط قياس.",
     "en": "Two-footed jump without run-up, in three phases: crouch with arms back behind the line, flight, landing. A tape measure runs from the take-off line. Equipment shown: take-off line, tape measure."
@@ -4806,5 +4802,9 @@
   "Illustrations du Laboratoire : générées avec l'IA pour ACPA/MSMDA et retenues par le porteur du projet ; non normatives ; licence CC BY 4.0 (creativecommons.org/licenses/by/4.0), dans la mesure des droits détenus.": {
     "ar": "رسوم المختبر: مولدة بالذكاء الاصطناعي لـ ACPA/MSMDA واعتمدها حامل المشروع؛ غير معيارية؛ مرخصة بموجب CC BY 4.0 (creativecommons.org/licenses/by/4.0) في حدود الحقوق المملوكة.",
     "en": "Laboratory illustrations: AI-generated for ACPA/MSMDA and selected by the project lead; non-normative; licensed under CC BY 4.0 (creativecommons.org/licenses/by/4.0), to the extent of the rights held."
+  },
+  "Départ individuel d'un sprint dans un couloir balisé, pendant que les autres élèves attendent leur tour ; l'enseignant tient un chronomètre, sur le côté. Matériel représenté : plots, lignes au sol, chronomètre. Nuance de chronométrage : sur l'image, le chronométreur se tient au départ ; les protocoles consultés le placent à l'arrivée, ou en retrait avec une vue sur le départ et l'arrivée. Le chronomètre part au premier mouvement et s'arrête au passage du buste sur la ligne d'arrivée.": {
+    "ar": "انطلاق فردي في عدو داخل رواق محدد، بينما ينتظر باقي التلاميذ دورهم؛ يقف الأستاذ جانبًا حاملًا ميقاتية. العتاد الظاهر في الرسم: أقماع، خطوط على الأرض، ميقاتية. ملاحظة حول التوقيت: في الرسم يقف المسؤول عن التوقيت عند خط الانطلاق، بينما تضعه البروتوكولات التي تمت مراجعتها عند خط الوصول، أو في موقع جانبي يرى منه الانطلاق والوصول معًا. تُشغَّل الميقاتية عند أول حركة وتُوقَف عند عبور الجذع خط الوصول.",
+    "en": "Individual sprint start in a marked lane while the other students wait their turn; the teacher holds a stopwatch at the side. Equipment shown: cones, floor lines, stopwatch. Timing note: in the image the timekeeper stands at the start; the protocols consulted place the timekeeper at the finish line, or standing back with a view of both the start and the finish. The stopwatch starts on the first movement and stops when the torso crosses the finish line."
   }
 }

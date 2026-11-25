@@ -25,7 +25,7 @@ Chaque image a été comparée à la fiche du registre (`data/performance_tests.
 | Épreuve | Contenu observé | Écart ou point à décider |
 |---|---|---|
 | Navette Léger 20 m | Groupe en course entre deux lignes balisées, enseignant avec porte-bloc, enceinte | Distance non vérifiable sur l'image (note de remise) |
-| Sprint 30 m | Départ individuel en couloir, groupe en attente, enseignant avec chronomètre sur le côté | Le chronométreur se tient au niveau du départ, alors que les références consultées le placent à l'arrivée ou en retrait (section 7) |
+| Sprint 30 m | Départ individuel en couloir, groupe en attente, enseignant avec chronomètre sur le côté | Le chronométreur se tient au niveau du départ, alors que les références consultées le placent à l'arrivée ou en retrait ; image conservée, nuance ajoutée à la légende (section 7) |
 | Saut horizontal | Pieds joints sans élan, trois phases, ruban depuis la ligne | Modalité d'élan à confirmer (registre) |
 | Saut vertical Sargent | Marque debout, marque au sommet du saut, flèche d'écart ; flexion préparatoire à droite | Lecture gauche-droite non chronologique : précisé dans le texte alternatif |
 | Médecine-ball 3 kg | Assis dos au mur, jambes tendues, trois phases, ruban depuis le mur | Conforme à « position assise dos au mur » |
@@ -61,17 +61,18 @@ retouche locale, limitée finalement à six images (section 7).
 
 ## 4. Tests automatisés
 
-`tests/test_lab_illustrations.py`, 18 tests :
+`tests/test_lab_illustrations.py`, 19 tests :
 - couverture des 32 tests (14 illustrations et 18 pictogrammes, handgrip conservé) ;
 - licences (OpenMoji, CC BY 4.0 des illustrations, NOTICE) et sécurité des SVG ;
 - présence, format et poids des 14 JPEG ;
 - provenance : empreinte actuelle conforme au manifeste, empreinte d'origine conforme à la remise, dimensions
   inchangées, preuve de remise conservée, aucun fichier parasite ;
 - retouches limitées aux six images documentées, avec masques, zones et statistiques cohérents ;
-- textes alternatifs traduits, sans tiret cadratin ; légendes de Ruffier dans les trois langues ;
+- textes alternatifs traduits, sans tiret cadratin ; légendes de Ruffier dans les trois langues ; nuance de
+  chronométrage du sprint dans les trois langues ;
 - page du Laboratoire en français, arabe et anglais ; une image manquante ne bloque pas la page.
 
-Suite complète en local (Python 3.12.3, dépendances exactes) : 252 tests réussis après la retouche (250 avant). `compileall` et
+Suite complète en local (Python 3.12.3, dépendances exactes) : 253 tests réussis après la retouche et la légende du sprint (250 avant). `compileall` et
 `scripts/mutation_check.py` réussis. Les workflows de la PR (Python 3.12 et 3.14, smoke, validation R) font foi.
 
 ## 5. Recette mobile
@@ -90,20 +91,18 @@ iPhone 13 émulé (Chromium sans interface, Playwright), application servie loca
 | en / Killy | chargée | 326 / 390 px | non | ltr | 0, 0 | aucune |
 | fr / handgrip (pictogramme) | chargé, 56 px, SVG intégré à la page | sans objet | non | ltr | 0, 0 | aucune |
 
-Recette refaite après la retouche, avec les images finales. Dans les six cas, le volet est replié à l'ouverture de
+Recette refaite après la retouche, avec les images finales. Légende du sprint contrôlée ensuite en FR, AR et EN (image chargée, aucun débordement, légende de droite à gauche en arabe, aucune erreur ni requête externe) : [resultats/recette_sprint_iphone.json](resultats/recette_sprint_iphone.json), [captures/sprint30_legende_ar_iphone.jpg](captures/sprint30_legende_ar_iphone.jpg). Dans les six cas, le volet est replié à l'ouverture de
 la page. Sur téléphone, les légendes incrustées dans l'image de
 Ruffier sont trop petites pour être lues : le texte alternatif les reproduit dans la langue de l'interface. Limite :
 émulation, pas un appareil réel ; la recette sur iPhone du porteur du projet reste à faire après fusion.
 
-## 6. Points ouverts, à décider par le porteur du projet
+## 6. Points ouverts
 
-1. Souplesse assise : l'élève est chaussé. La correction « sans chaussures » a été demandée, puis la consigne de
-   garder intactes les images non encore retouchées est arrivée ; l'image n'est pas modifiée. Corriger, régénérer ou
-   garder en l'état ?
-2. Sprint 30 m : position du chronométreur (au départ sur l'image) ; garder l'image, le protocole écrit faisant foi,
-   ou la corriger plus tard.
-3. Outil de génération des images : non précisé dans la remise ; à ajouter à la provenance s'il est connu.
-4. Circulaire 2358/25 et son annexe : toujours à vérifier avant toute mention de conformité institutionnelle.
+1. Souplesse assise : l'élève est chaussé. Le porteur du projet a retenu que cette illustration pourra être remplacée
+   par une version sans chaussures. Le fichier n'est pas encore remis ; à sa réception, il sera contrôlé comme les
+   autres (empreinte, format, inspection, texte alternatif FR/AR/EN, tests, recette mobile).
+2. Outil de génération des images : non précisé dans la remise ; à ajouter à la provenance s'il est connu.
+3. Circulaire 2358/25 et son annexe : toujours à vérifier avant toute mention de conformité institutionnelle.
 
 ## 7. Décisions du porteur du projet (25 novembre 2026) et suites
 
@@ -112,9 +111,9 @@ Ruffier sont trop petites pour être lues : le texte alternatif les reproduit da
 | 1. Licence CC BY 4.0 des illustrations IA, dans la mesure des droits détenus ; MIT pour le code ; CC BY-SA 4.0 pour OpenMoji | `NOTICE`, `assets/visual-bank/LICENCE-ILLUSTRATIONS.md` (périmètre, provenance, attribution suggérée), champs `license` du manifeste, crédit affiché dans l'application en FR, AR et EN. La CC BY 4.0 ne porte que sur les droits que le concédant peut concéder et exclut les marques |
 | 2. Retouche locale des logos, sans modifier postures, personnages ni situations | Faite sur six images, puis arrêtée à la demande du porteur du projet : « garde intact ce qui n'est pas encore touché ». Les huit autres images sont identiques à la remise ; la retouche en cours de la navette Léger a été abandonnée et n'est pas livrée |
 | 3. Ruffier-Dickson conservé si la position assise et les durées correspondent au protocole écrit retenu | Conforme à la référence citée par l'application (Bruggeman et al., 2020, PLOS ONE) : repos assis de cinq minutes, 30 flexions en 45 s, récupération assise d'une minute. L'article nomme les prises P0, P1 et P2 ; l'image utilise P1, P2 et P3 pour les mêmes trois moments. L'article ne précise ni la posture de la prise immédiate ni la durée de comptage. Séquence conservée |
-| 4. Souplesse assise sans chaussures | Non modifiée à ce stade (point ouvert 1) |
-| 5. Vérifier le chronométrage du sprint 30 m | Topend Sports : départ du chronomètre au premier mouvement, arrêt au passage de la poitrine sur la ligne d'arrivée, deux essais, meilleur temps retenu ; la position du chronométreur n'y est pas précisée. NSCA : personnel à l'arrivée, ou au départ et à l'arrivée. Topend Sports, 50 m : chronométreur en retrait de la piste, avec une vue sur le premier mouvement et sur l'arrivée. L'article ESA cité par l'application ne décrit pas le protocole dans le texte accessible. L'image place le chronométreur au départ : écart signalé, image non modifiée |
-| 6. Ressources Wikimedia traitées séparément | Hors de la PR #68 ; aucun effet sur les acquis |
+| 4. Souplesse assise sans chaussures | Non modifiée ; remplacement possible par une version sans chaussures, sur décision du porteur du projet (point ouvert 1) |
+| 5. Vérifier le chronométrage du sprint 30 m | Topend Sports : départ du chronomètre au premier mouvement, arrêt au passage de la poitrine sur la ligne d'arrivée, deux essais, meilleur temps retenu ; la position du chronométreur n'y est pas précisée. NSCA : personnel à l'arrivée, ou au départ et à l'arrivée. Topend Sports, 50 m : chronométreur en retrait de la piste, avec une vue sur le premier mouvement et sur l'arrivée. L'article ESA cité par l'application ne décrit pas le protocole dans le texte accessible. L'image place le chronométreur au départ. Décision du porteur du projet : image conservée, nuance de chronométrage ajoutée à la légende pédagogique en français, en arabe et en anglais |
+| 6. Ressources Wikimedia traitées séparément | Hors de la PR #68 ; aucun effet sur les acquis ni obstacle à la fusion |
 
 ### Retouche des logos : méthode et contrôle
 
@@ -145,6 +144,9 @@ Preuves :
 - planche avant/après : [retouche/avant_apres.jpg](retouche/avant_apres.jpg) ;
 - masques : `retouche/masques/` ;
 - statistiques : [retouche/stats.json](retouche/stats.json).
+
+Le porteur du projet a validé ces six retouches et décidé de ne pas lancer d'autre campagne de retouche : les huit
+autres illustrations restent celles de la remise.
 
 Restent visibles, à l'échelle du pixel, quelques fils clairs à l'emplacement de la queue de certaines virgules ; ils ne
 sont pas reconnaissables comme logo.

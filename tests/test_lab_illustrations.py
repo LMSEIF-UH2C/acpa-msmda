@@ -153,6 +153,14 @@ class TextAlternatives(unittest.TestCase):
                 for text in (fr, ar, en):
                     self.assertNotIn("\u2014", text)       # pas de tiret cadratin
 
+    def test_sprint_caption_states_timing_nuance(self):
+        fr = next(e["alt"] for e in MANIFEST["lab_specific"] if e["id"] == "sprint30")
+        self.assertIn("Nuance de chronométrage", fr)
+        self.assertIn("premier mouvement", fr)
+        self.assertIn("ligne d'arrivée", fr)
+        self.assertIn("خط الوصول", self.TRANSLATIONS[fr]["ar"])
+        self.assertIn("finish line", self.TRANSLATIONS[fr]["en"])
+
     def test_ruffier_labels_reproduced_in_three_languages(self):
         fr = next(e["alt"] for e in MANIFEST["lab_specific"] if e["id"] == "ruffier")
         for text in (fr, self.TRANSLATIONS[fr]["ar"], self.TRANSLATIONS[fr]["en"]):

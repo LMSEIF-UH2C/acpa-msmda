@@ -112,7 +112,7 @@ class LabJourneyTests(unittest.TestCase):
         self.assertIn("Variation favorable", text)
         self.assertIn("2 / 3", text)
         self.assertCountEqual([b.proto.label for b in app.get("download_button")],
-                              ["Bilan (PDF)", "Bilan imprimable (HTML)", "Données (CSV)"])
+                              ["Bilan (PDF)", "Bilan imprimable (HTML)", "Données (Excel)"])
 
     def test_scientific_information_in_three_languages(self):
         import json
@@ -152,7 +152,7 @@ class LabJourneyTests(unittest.TestCase):
         self.assertIn("Weir (2005)", text)
         self.assertIn("Bland", text)
         self.assertCountEqual([b.proto.label for b in app.get("download_button")],
-                              ["Bilan (PDF)", "Bilan imprimable (HTML)", "Données (CSV)"])
+                              ["Bilan (PDF)", "Bilan imprimable (HTML)", "Données (Excel)"])
 
     def test_invalid_line_is_reported_not_saved(self):
         app = lab()

@@ -79,7 +79,7 @@ def render(st, test_id: str) -> bool:
         text.caption(t(visual.note) + " " + t("Pictogramme : {credit}.", credit=ltr(visual.credit)))
         return True
     with st.expander(t("Illustration pédagogique")):
-        st.image(str(visual.path), use_container_width=True)
+        st.image(str(visual.path), width="stretch")
         if visual.alt:
             st.caption(t(visual.alt))
         st.caption(t(visual.note))

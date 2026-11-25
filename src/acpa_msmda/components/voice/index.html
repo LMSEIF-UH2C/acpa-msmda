@@ -5,46 +5,121 @@
  button{display:flex;align-items:center;justify-content:center;gap:.5rem;width:100%;height:40px;border-radius:999px;
    border:1px solid #c7d2fe;background:#fff;color:#1d4ed8;font:inherit;cursor:pointer}
  button.on{background:#dc2626;border-color:#dc2626;color:#fff}
- #m{font-size:12px;color:#52606d;min-height:16px;margin-top:4px;text-align:center}
+ #m{box-sizing:border-box;font-size:14px;line-height:1.5;color:#334155;
+   min-height:1.5em;max-height:12em;margin-top:4px;text-align:start;
+   white-space:pre-wrap;overflow-wrap:anywhere;overflow-y:auto;}
+ #m.preview{min-height:4.5em;padding:6px 8px;border:1px solid #E7E2D8;
+   border-radius:10px;background:#fff;}
+ #m:empty{display:none}
+ button{flex-shrink:0;min-height:44px;height:auto;padding:8px 6px}
+ button svg{flex-shrink:0}
+ button span{overflow-wrap:anywhere}
  svg{width:18px;height:18px;fill:currentColor}
 </style></head><body>
 <button id="b" type="button"><svg viewBox="0 0 24 24"><path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.9V21h2v-3.1A7 7 0 0 0 19 11h-2z"/></svg><span id="l"></span></button>
-<div id="m"></div>
+<div id="m" dir="auto"></div>
 <script>
 // Dictée par la reconnaissance vocale du navigateur. Échange avec Streamlit par postMessage
 // (protocole des composants : componentReady, render, setComponentValue, setFrameHeight).
-let args = {}, rec = null, listening = false;
+let args = {}, rec = null, listening = false, stopping = false;
+let lastAt = 0;
 const B = document.getElementById("b"), L = document.getElementById("l"), M = document.getElementById("m");
 const send = (type, extra) => window.parent.postMessage(Object.assign({isStreamlitMessage: true, type}, extra), "*");
 const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+let lastHeight = 0;
+function resizeFrame() {
+  requestAnimationFrame(() => {
+    const height = Math.ceil(document.body.getBoundingClientRect().height) + 4;
+    if (height !== lastHeight) {
+      lastHeight = height;
+      send("streamlit:setFrameHeight", {height});
+    }
+  });
+}
+function showMessage(text, preview = false) {
+  M.classList.toggle("preview", preview);
+  M.dir = preview ? (args.lang?.startsWith("ar") ? "rtl" : "auto") : "auto";
+  M.textContent = text || "";
+  M.scrollTop = M.scrollHeight;
+  resizeFrame();
+}
+if (window.ResizeObserver) new ResizeObserver(resizeFrame).observe(document.body);
+window.addEventListener("resize", resizeFrame);
 function paint() {
   L.textContent = listening ? args.stop : args.start;
   B.className = listening ? "on" : "";
+  B.disabled = stopping;
+  resizeFrame();
 }
 function start() {
-  if (!SR) { M.textContent = args.unsupported; return; }
-  rec = new SR(); rec.lang = args.lang; rec.interimResults = true; rec.continuous = false;
-  let final = "";
-  rec.onresult = e => {
-    let interim = "";
-    for (let i = e.resultIndex; i < e.results.length; i++) {
-      if (e.results[i].isFinal) final += e.results[i][0].transcript; else interim += e.results[i][0].transcript;
+  if (!SR) { showMessage(args.unsupported); return; }
+  const session = new SR();
+  rec = session;
+  session.lang = args.lang;
+  session.interimResults = true;
+  session.continuous = false;
+  let segments = [], latest = "", completed = false, timer = null;
+  const finish = () => {
+    if (completed) return;
+    completed = true;
+    clearTimeout(timer);
+    if (rec !== session) return;
+    rec = null; listening = false; stopping = false; paint();
+    // Safari may end without converting its interim hypotheses into final results.
+    // Preserve the last nonempty complete preview, exactly once per recording.
+    const text = latest.trim();
+    if (text) {
+      lastAt = Math.max(Date.now(), lastAt + 1);
+      showMessage(text, true);
+      send("streamlit:setComponentValue", {value: {text, at: lastAt}, dataType: "json"});
     }
-    M.textContent = (final + " " + interim).trim();
   };
-  rec.onerror = e => { M.textContent = e.error === "not-allowed" ? args.denied : args.failed; };
-  rec.onend = () => {
-    listening = false; paint();
-    if (final.trim()) send("streamlit:setComponentValue", {value: {text: final.trim(), at: Date.now()}, dataType: "json"});
+  session.onresult = e => {
+    if (completed) return;
+    // Each event replaces result slots; it does not append the entire hypothesis.
+    segments.length = e.results.length;
+    for (let i = 0; i < e.results.length; i++) {
+      segments[i] = e.results[i][0].transcript.trim();
+    }
+    const preview = segments.filter(Boolean).join(" ").trim();
+    if (preview) latest = preview;
+    showMessage(latest, true);
   };
-  listening = true; paint(); M.textContent = args.listening; rec.start();
+  session.onerror = e => {
+    if (completed) return;
+    if (e.error === "not-allowed" || e.error === "service-not-allowed") {
+      latest = "";
+      showMessage(args.denied);
+      finish();
+    } else {
+      if (!latest) showMessage(args.failed);
+      finish();
+    }
+  };
+  session.onend = finish;
+  B.onclick = () => {
+    if (rec !== session || !listening) { start(); return; }
+    if (stopping) return;
+    stopping = true; paint();
+    // Give the browser a chance to emit its final hypothesis and end event.
+    timer = setTimeout(() => {
+      finish();
+      try { session.abort(); } catch (_) {}
+    }, 1800);
+    try { session.stop(); } catch (_) { finish(); }
+  };
+  listening = true; stopping = false; paint(); showMessage(args.listening, true);
+  try { session.start(); } catch (_) {
+    showMessage(args.failed);
+    finish();
+  }
 }
-B.onclick = () => { if (listening && rec) rec.stop(); else start(); };
+B.onclick = start;
 window.addEventListener("message", e => {
   if (e.data && e.data.type === "streamlit:render") {
     args = e.data.args || {}; paint();
-    if (!SR && !M.textContent) M.textContent = args.unsupported;
-    send("streamlit:setFrameHeight", {height: 64});
+    if (!SR && !M.textContent) showMessage(args.unsupported);
+    resizeFrame();
   }
 });
 send("streamlit:componentReady", {apiVersion: 1});

@@ -7,7 +7,7 @@ from acpa_msmda import session_context as ctx
 from acpa_msmda.formative import DIMENSIONS, LEVELS, summarize_observations, observation_export, snapshot, compare_lessons
 from acpa_msmda.i18n import colon, t
 from acpa_msmda.pdf import formative_comparison_pdf
-from acpa_msmda.formative_backup import make_backup, load_backup
+from acpa_msmda.teacher_workbooks import MIME, formative_xlsx, restore_formative_xlsx, report_xlsx
 from acpa_msmda.learning_library import load_situations, details
 from acpa_msmda.ui import FORMATIVE, configure_page, page_header, PRIVACY_NOTE
 
@@ -24,14 +24,14 @@ with st.expander(t("Sauvegarder ou restaurer les évaluations")):
     saved_history = data.get("formative_history",{})
     if current is not None or saved_history:
         try:
-            backup = make_backup(current,saved_history)
-            st.download_button(t("Télécharger la sauvegarde (JSON)"),backup,"evaluations_acpa.json","application/json")
+            backup = formative_xlsx(current,saved_history)
+            st.download_button(t("Sauvegarder mes évaluations (Excel)"),backup,"evaluations_acpa.xlsx",MIME)
         except ValueError:
             st.error(t("La sauvegarde dépasse les limites autorisées ou contient des données invalides."))
-    uploaded = st.file_uploader(t("Restaurer une sauvegarde JSON"),type=["json"],key="formative_backup_upload")
+    uploaded = st.file_uploader(t("Reprendre mes évaluations (Excel)"),type=["xlsx"],key="formative_backup_upload")
     if uploaded is not None:
         try:
-            restored, archived = load_backup(uploaded.getvalue())
+            restored, archived = restore_formative_xlsx(uploaded.getvalue())
         except ValueError:
             st.error(t("Fichier de sauvegarde invalide ou incompatible."))
         else:
@@ -63,7 +63,7 @@ if data.get("formative_context") != context:
         data["formative_records"]=deepcopy(existing["records"]) if existing else {}
         st.rerun()
     if data.get("formative_criteria"):
-        st.download_button(t("Exporter les observations (CSV)"),observation_export(data["formative_criteria"],{f"E{i:03d}":data["formative_records"].get(f"E{i:03d}",{}) for i in range(1,data["formative_context"][2]+1)}),"observations.csv","text/csv")
+        st.download_button(t("Exporter les observations (Excel)"),report_xlsx(observation_export(data["formative_criteria"],{f"E{i:03d}":data["formative_records"].get(f"E{i:03d}",{}) for i in range(1,data["formative_context"][2]+1)})),"observations.xlsx",MIME)
     st.stop()
 criteria=data["formative_criteria"]
 records=data["formative_records"]
@@ -103,7 +103,7 @@ for key,dim,label in criteria:
     st.caption(t("{n} élèves observés sur {total}",n=result["observed"],total=result["total"]))
     st.dataframe([{t("Niveau observé"):t(level),t("Élèves"):count} for level,count in result["counts"].items()],hide_index=True)
 all_records={f"E{i:03d}":records.get(f"E{i:03d}",{}) for i in range(1,context[2]+1)}
-st.download_button(t("Exporter les observations (CSV)"),observation_export(criteria,all_records),"observations.csv","text/csv")
+st.download_button(t("Exporter les observations (Excel)"),report_xlsx(observation_export(criteria,all_records)),"observations.xlsx",MIME)
 
 
 st.subheader(t("Suivi du cycle"))

@@ -40,6 +40,8 @@ Couverture ciblée par la suite : exports et restaurations Excel (évaluation fo
 | Barre d'onglets mobile | de 10 à 380 px sur 390 px en FR/AR/EN | `scripts/mesure_tabbar.py` |
 | Parcours AppTest | 16/17 ; le 17e attend encore des libellés « CSV » remplacés par « Excel » à la PR #73 (attente obsolète, non une régression) | `resultats/parcours_apptest.json` |
 
+**Reprise de recette finale :** le résultat historique 16/17 ci-dessus reste conservé tel quel. `scripts/check_release_flows.py` reprend les 17 parcours avec les libellés Excel actuels, vérifie la présence des sauvegardes et les séances effectivement générées ; le workflow Mobile navigation exécute cette reprise et archive `recette-apptest.json`. Son succès est à vérifier sur le commit final (17/17 exigé).
+
 Ces contrôles simulent un iPhone dans Chromium. Ils ne remplacent ni Safari iOS ni un micro réel : voir `docs/recette-iphone-v0.2.0.md`.
 
 ## 5. Branches redondantes

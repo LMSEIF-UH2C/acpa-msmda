@@ -67,7 +67,7 @@ class Pages(unittest.TestCase):
             self.assertFalse(app.exception, page)
             labels = [b.proto.label for b in app.get("download_button")]
             self.assertIn(label, labels, page)
-            self.assertIn("Tableur (CSV)", labels, page)
+            self.assertIn("Tableur (Excel)", labels, page)
 
 
 if __name__ == "__main__":

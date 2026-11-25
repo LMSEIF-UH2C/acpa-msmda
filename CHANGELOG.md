@@ -40,6 +40,8 @@ Révision consolidée vérifiée : `96ad264` (262 tests sous Python 3.12 et 3.14
 - #53 : gel technique et documentation de publication.
 - #63 : registre historique des validations et dossier de livraison.
 - Recette de clôture : `docs/validation/recette-cloture-v0.2.0-2026-11-25/` ; recette physique iPhone : `docs/recette-iphone-v0.2.0.md`.
+- #75 : préparation de la publication, notes de version, métadonnées.
+- Clôture documentaire : statut scientifique des composantes et adaptation de la formule de score (`docs/statut-scientifique-v0.2.0.md`) ; chiffres de cartographie harmonisés (45 676, 40 759, 2 466) ; auteurs et affiliations dans `CITATION.cff` ; `SECURITY.md` actualisé ; en-tête descriptif du catalogue recalculé à partir des fiches, sans modifier les fiches, avec un test de concordance ; dossier de livraison `docs/livraison-v0.2.0.md`.
 
 ### Limites connues
 

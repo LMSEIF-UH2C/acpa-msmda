@@ -2,11 +2,13 @@
 
 **Release v0.2.0 (in preparation):** trilingual EPS technology evaluation and teaching assistant (French, Arabic, English). The consolidated code passed 262 automated tests under Python 3.12 and 3.14, and the Laboratory statistics matched an independent R 4.5.2 computation on 29/29 metrics. A physical iPhone acceptance run and the holder's final approval precede publication. Intended for research and teacher-facing evaluation; institutional production readiness has not been established.
 
-[Public demonstration](https://acpa-msmda.streamlit.app/) · [Release notes](docs/release-v0.2.0.md) · [Changelog](CHANGELOG.md) · [Privacy and deployment](docs/privacy-deployment.md)
+[Public demonstration](https://acpa-msmda.streamlit.app/) · [Release notes](docs/release-v0.2.0.md) · [Scientific status](docs/statut-scientifique-v0.2.0.md) · [Changelog](CHANGELOG.md) · [Privacy and deployment](docs/privacy-deployment.md)
 
 **Archived research engine:** v0.1.1, released separately with the DOI below. Its synthetic catalogue and citation must not be confused with the later application.
 
 ## Current application
+
+This public implementation is distinct from the doctoral ACPA/MSMDA prototype evaluated in the associated research: the prototype's empirical results (context extraction, expert agreement, usability) do not apply to it. The application catalogue of 2,466 entries derives from a mapping of 45,676 store records (40,759 after deduplication). See [scientific status](docs/statut-scientifique-v0.2.0.md).
 
 The scientific workflow is Evaluate → Explore → Scenario, supported by the EPS Space. The Streamlit interface provides a real-app catalogue with documented and unverified entries, contextual search, a teaching studio, workshop planning, field tools, formative assessment, performance analysis, annual cycle planning and a teaching journal with class projects. The Laboratory offers 32 field instruments, optional visual cues (AI-generated illustrations and OpenMoji pictograms) and a three-level restitution of analyses (Understand, Analyse, Investigate). Teacher data stays in the server session (temporary) and is saved as Excel workbooks that can be restored (formulas are rejected); JSON is kept for the Investigate level and technical uses. The application is not a persistent school database. A rule-based assistant provides source-linked suggestions, not generative AI or proof of teaching efficacy.
 

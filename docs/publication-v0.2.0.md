@@ -31,6 +31,8 @@ Créer ensuite la release GitHub `v0.2.0` à partir de ce tag, non marquée « p
 >
 > Verification: <N> automated tests on the release commit (Python 3.12 and 3.14), independent R comparison, mobile navigation workflow, physical iPhone acceptance run. Details: `docs/release-v0.2.0.md`, `CHANGELOG.md`, `docs/validation/`.
 >
+> Scientific status: this public implementation is distinct from the doctoral prototype evaluated in the associated research; the prototype's empirical results do not apply to it (`docs/statut-scientifique-v0.2.0.md`).
+>
 > Limits: software stability is not empirical validation of the instruments, evidence of educational efficacy or institutional production readiness. Teacher data is temporary on the server and must be saved as Excel. Illustrations are AI-generated and non-normative.
 >
 > Licences: code MIT; Laboratory illustrations CC BY 4.0 to the extent of the rights held; OpenMoji pictograms CC BY-SA 4.0; fonts under SIL OFL and their own licences. OMPIC patent application No. 74877 (23 April 2026), not granted; no patent licence is granted.
@@ -48,8 +50,9 @@ Si l'intégration GitHub et Zenodo est active, la release crée automatiquement 
 | Type | Software |
 | Titre | ACPA/MSMDA: EPS Technology Evaluation and Teaching Assistant |
 | Version | v0.2.0 |
-| Créateurs | Moudettir, Youness ; Lotfi, Saïd ; Ouhrir, S. (ordre et prénoms à confirmer par le porteur) |
-| Affiliation | LMSEIF, ENS Casablanca, Université Hassan II de Casablanca (à confirmer) |
+| Créateurs | Moudettir, Youness ; Ouhrir, Siham ; Lotfi, Said (ordre et graphie confirmés par le porteur le 25 novembre 2026 ; repris de `CITATION.cff`) |
+| Affiliations | LMSEIF, École Normale Supérieure de Casablanca, Hassan II University of Casablanca (les trois auteurs ; rattachement au LMSEIF confirmé par le porteur) |
+| ORCID | Moudettir 0000-0002-6793-740X ; Ouhrir 0000-0001-9870-5655 ; Lotfi 0000-0002-0008-6145 |
 | Licence | MIT (code) ; préciser dans la description les licences CC BY 4.0 et CC BY-SA 4.0 des ressources visuelles |
 | Mots-clés | physical education; educational technology; Morocco; context-aware recommendation; field testing; trilingual interface |
 | Description | Texte de la section 3, sans le passage sur la citation |

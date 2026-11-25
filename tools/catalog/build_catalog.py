@@ -142,8 +142,12 @@ def main(work: Path) -> None:
     catalog["source_links_added"] = sum(bool(t.get("source_url")) for t in tools)
     catalog["feature_verified_count"] = status.get("FEATURES_VERIFIED_ON_OFFICIAL_SITE", 0)
     catalog["status_counts"] = dict(sorted(status.items()))
-    catalog["notice"] = ("Répertoire d'outils réels. Seules les fiches dont les fonctions ont été relevées sur une "
-                         "source officielle sont suggérées ; les autres sont identifiées (lien officiel) et restent à documenter.")
+    catalog["notice"] = ("Répertoire d'outils réels issu de la cartographie des applications. Les suggestions portent sur l'ensemble "
+                         "du répertoire ; chaque fiche indique si ses fonctions ont été relevées sur une source officielle (evidence_status). "
+                         "Les notes des 18 critères sont établies selon la méthode propre à chaque fiche (criteria_method) : estimation "
+                         "à partir de la description de l'éditeur, double notation indépendante ou fonctions vérifiées. Ces notes ne sont "
+                         "pas des mesures validées d'efficacité.")
+    catalog["criteria_method_counts"] = dict(sorted(Counter(t["criteria_method"] for t in tools).items()))
     CATALOG.write_text(json.dumps(catalog, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"ajoutées : {len(added)} ; total : {len(tools)}")
     print(Counter(e["origin"] for e in added))

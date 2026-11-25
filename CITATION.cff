@@ -5,10 +5,16 @@ title: "ACPA/MSMDA: EPS Technology Evaluation and Teaching Assistant"
 authors:
   - family-names: "Moudettir"
     given-names: "Youness"
-  - family-names: "Lotfi"
-    given-names: "Saïd"
+    affiliation: "LMSEIF, École Normale Supérieure de Casablanca, Hassan II University of Casablanca"
+    orcid: "https://orcid.org/0000-0002-6793-740X"
   - family-names: "Ouhrir"
-    given-names: "S."
+    given-names: "Siham"
+    affiliation: "LMSEIF, École Normale Supérieure de Casablanca, Hassan II University of Casablanca"
+    orcid: "https://orcid.org/0000-0001-9870-5655"
+  - family-names: "Lotfi"
+    given-names: "Said"
+    affiliation: "LMSEIF, École Normale Supérieure de Casablanca, Hassan II University of Casablanca"
+    orcid: "https://orcid.org/0000-0002-0008-6145"
 repository-code: "https://github.com/LMSEIF-UH2C/acpa-msmda"
 license: "MIT"
 keywords:
@@ -25,5 +31,9 @@ abstract: >-
   application uses documented and unverified real-app entries and heuristic
   matching. The Laboratory provides 32 field instruments, descriptive and
   inferential statistics checked against R (29/29 metrics) and a three-level
-  restitution. This release does not establish empirical educational efficacy,
-  scientific validation of the instruments or institutional production readiness.
+  restitution. The application catalogue (2,466 entries) derives from a mapping
+  of 45,676 store records. This public implementation is distinct from the
+  doctoral prototype evaluated in the associated research; the prototype's
+  empirical results do not apply to it. This release does not establish
+  empirical educational efficacy, scientific validation of the instruments or
+  institutional production readiness.

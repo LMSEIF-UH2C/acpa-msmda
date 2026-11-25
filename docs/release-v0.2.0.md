@@ -28,7 +28,13 @@ Détail : [recette de clôture](validation/recette-cloture-v0.2.0-2026-11-25/REA
 
 Le tag `v0.2.0-rc.1` pointe sur `2da291a` (24 novembre 2026). Les PR fusionnées depuis (#50 à #58, #60 à #66, #70 à #74) et la PR #68 sont résumées dans le [CHANGELOG](../CHANGELOG.md).
 
+## Statut scientifique
+
+L'application publique v0.2.0 est distincte du prototype doctoral évalué ; les résultats empiriques de ce prototype ne lui sont pas transposables. La formule de score a été adaptée aux critères non renseignés, sans modification du moteur pendant la clôture. Le répertoire de 2 466 applications provient d'une cartographie de 45 676 enregistrements identifiés (40 759 après dédoublonnage). Détail, tableau des composantes et formulations à employer : [statut scientifique de v0.2.0](statut-scientifique-v0.2.0.md).
+
 ## Limites connues, non bloquantes
+
+- Notes du répertoire : 2 354 fiches sur 2 466 sont notées par estimation à partir de la description de l'éditeur ; l'indice affiché est heuristique.
 
 - Stabilité logicielle n'est pas validation empirique : ni efficacité pédagogique, ni validation scientifique des instruments, ni conformité réglementaire, ni aptitude à une production institutionnelle.
 - Données temporaires côté serveur ; sauvegarder en Excel avant de fermer. Utiliser des données fictives sur le service public.
@@ -45,4 +51,4 @@ Demande de brevet OMPIC n° 74877, 23 avril 2026, non accordée. La licence MIT 
 
 ## Conditions de publication
 
-Voir [checklist](release-checklist.md), [recette iPhone](recette-iphone-v0.2.0.md) et [préparation GitHub et Zenodo](publication-v0.2.0.md).
+Dossier de livraison : [livraison-v0.2.0.md](livraison-v0.2.0.md). Voir aussi [checklist](release-checklist.md), [recette iPhone](recette-iphone-v0.2.0.md) et [préparation GitHub et Zenodo](publication-v0.2.0.md).

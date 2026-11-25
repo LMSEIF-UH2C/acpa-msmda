@@ -30,6 +30,7 @@ jobs:
           done
           curl -fsS http://127.0.0.1:8501/_stcore/health
           python scripts/check_mobile_navigation.py
+          python scripts/check_voice_dictation.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:

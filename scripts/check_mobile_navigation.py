@@ -4,7 +4,10 @@ Requires a running Streamlit app and Playwright browsers (CI-only dependency).
 Does not emulate Streamlit Cloud's authenticated management overlay.
 """
 import os
+from io import BytesIO
 from pathlib import Path
+
+from PIL import Image
 
 from playwright.sync_api import sync_playwright
 
@@ -49,10 +52,43 @@ HOME_CHECK = """() => {
 }"""
 
 
+
+def check_hero_rim(page):
+    """Check the rendered white rim on all four straight edges of the banner."""
+    hero = page.locator(".st-key-hero")
+    layers = hero.evaluate("""el => {
+      const rim = getComputedStyle(el, '::before');
+      const wave = getComputedStyle(el, '::after');
+      return {width:rim.borderTopWidth, color:rim.borderTopColor,
+        position:rim.position, pointer:rim.pointerEvents,
+        rimZ:Number(rim.zIndex), waveZ:Number(wave.zIndex)};
+    }""")
+    assert layers["width"] == "2px" and layers["color"] == "rgb(255, 255, 255)", layers
+    assert layers["position"] == "absolute" and layers["pointer"] == "none", layers
+    assert layers["rimZ"] > layers["waveZ"], layers
+    # Device scale factor is 2: the 2 CSS-pixel white rim spans about 4 image pixels.
+    # Sample away from rounded corners and tolerate fractional-pixel rasterization.
+    with Image.open(BytesIO(hero.screenshot(scale="device"))) as rendered:
+        img = rendered.convert("RGB")
+    w, h = img.size
+    def white(x, y):
+        return min(img.getpixel((x, y))) >= 240
+    for f in (.2, .35, .5, .65, .8):
+        x, y = round((w - 1) * f), round((h - 1) * f)
+        bands = {
+            "top": sum(white(x, k) for k in range(1, 9)),
+            "bottom": sum(white(x, h - 1 - k) for k in range(1, 9)),
+            "left": sum(white(k, y) for k in range(1, 9)),
+            "right": sum(white(w - 1 - k, y) for k in range(1, 9)),
+        }
+        assert all(n >= 2 for n in bands.values()), (f, bands, img.size)
+
+
 def check_home(page, label, lang):
     page.locator(".st-key-home_eps").wait_for(state="visible", timeout=60000)
     data = page.evaluate(HOME_CHECK)
     assert data["hero"] and len(data["cards"]) == 4, data
+    check_hero_rim(page)
     assert data["colors"] == {"red": "#c1272d", "green": "#006233"}, data
     for item in data["cards"]:
         c, t, d, i = (item[k] for k in ("card", "title", "desc", "icon"))

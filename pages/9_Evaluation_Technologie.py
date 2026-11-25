@@ -128,4 +128,4 @@ with st.expander(t("Évaluer un nouvel outil")):
         for code,label,value in rows:
             writer.writerow([code,t(label),value])
         from acpa_msmda.teacher_workbooks import MIME, report_xlsx
-        st.download_button(t("Télécharger mon évaluation"),report_xlsx(buffer.getvalue().encode("utf-8-sig")),"evaluation_technologie.xlsx",MIME)
+        st.download_button(t("Télécharger mon évaluation"),report_xlsx(buffer.getvalue().encode("utf-8-sig"), numeric_columns=(2,), numeric_start=4),"evaluation_technologie.xlsx",MIME)

@@ -310,6 +310,21 @@ _RTL_CSS = """
 [data-testid="stMainBlockContainer"] button p{text-align:center!important}
 [data-testid="stMainBlockContainer"] div[class*="st-key-core_"] button p{text-align:start!important}
 div[class*="st-key-core_"]::before,.st-key-home_eps::before{transform:translateY(-50%) rotate(-135deg)}
+/* Streamlit may set direction:ltr on native button/link descendants. Anchor the
+   decorative icon to the physical right in Arabic, independently of that direction. */
+div[class*="st-key-core_"] button [data-testid="stIconMaterial"],
+.st-key-home_eps a [data-testid="stIconMaterial"]{
+  inset-inline-start:auto!important;inset-inline-end:auto!important;
+  left:auto!important;right:.85rem!important;
+}
+div[class*="st-key-core_"] button[data-testid="stBaseButton-secondary"],
+.st-key-home_eps a[data-testid="stPageLink-NavLink"]{
+  direction:rtl!important;justify-content:flex-start!important;text-align:right!important;
+}
+div[class*="st-key-core_"] button p,.st-key-home_eps a[data-testid="stPageLink-NavLink"] p{
+  direction:rtl!important;text-align:right!important
+}
+
 textarea,input[type="text"]{direction:rtl;text-align:right}
 input[type="number"],[data-testid="stDateInputField"] input{direction:ltr;text-align:left}
 div[class*="st-key-task_"]{padding:1rem calc(1rem - 1px) .95rem 2.6rem}

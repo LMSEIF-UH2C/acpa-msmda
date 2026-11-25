@@ -251,15 +251,19 @@ div[class*="st-key-core_"] button p,.st-key-home_eps a[data-testid="stPageLink-N
   color:var(--task-accent)!important;font-size:1.08rem!important;font-weight:750!important;
   line-height:1.2!important;text-align:start!important;margin:0!important}
 .st-key-home_eps a[data-testid="stPageLink-NavLink"] p{color:var(--red-dark)!important}
-/* Align the actual native label wrapper, not just its text paragraph. */
-div[class*="st-key-core_"] button :is(div,span):has(p),
-.st-key-home_eps a[data-testid="stPageLink-NavLink"] :is(div,span):has(p){
-  width:100%!important;min-width:0!important;flex:1 1 auto!important;
-  justify-content:flex-start!important;align-items:flex-start!important;
-  text-align:start!important;
+/* Flatten native icon/label wrappers only within the four home cards.
+   The icon is already absolutely positioned; its wrapper must reserve no space. */
+div[class*="st-key-core_"] button[data-testid="stBaseButton-secondary"],
+.st-key-home_eps a[data-testid="stPageLink-NavLink"]{
+  display:block!important;
+}
+div[class*="st-key-core_"] button :is(div,span):is(:has(p),:has([data-testid="stIconMaterial"])),
+.st-key-home_eps a[data-testid="stPageLink-NavLink"] :is(div,span):is(:has(p),:has([data-testid="stIconMaterial"])){
+  display:contents!important;
 }
 div[class*="st-key-core_"] button p,.st-key-home_eps a[data-testid="stPageLink-NavLink"] p{
-  width:100%!important;max-width:none!important;text-align:start!important;
+  display:block!important;width:100%!important;max-width:none!important;
+  margin:0!important;padding:0!important;text-align:start!important;
 }
 
 div[class*="st-key-core_"] button::after,.st-key-home_eps a[data-testid="stPageLink-NavLink"]::after{

@@ -31,7 +31,7 @@ with st.expander(t("Sauvegarder ou restaurer le journal")):
     except ValueError:
         st.error(t("Fichier de sauvegarde invalide ou incompatible."))
     else:
-        st.download_button(t("Sauvegarder mes données"),raw,"journal_acpa.xlsx",MIME)
+        st.download_button(t("Sauvegarder mes données"),raw,"sauvegarde_journal_acpa.xlsx",MIME)
     uploaded=st.file_uploader(t("Restaurer mes données"),type=["xlsx"],key="journal_upload")
     if uploaded is not None:
         try:
@@ -169,7 +169,7 @@ if entries:
         if st.button(t("Supprimer")):
             entries.remove(entry)
             st.rerun()
-    st.download_button(t("Journal (Excel)"),report_xlsx(export_csv(visible)),"journal_acpa.xlsx",MIME)
+    st.download_button(t("Journal (Excel)"),report_xlsx(export_csv(visible), numeric_columns=(4,5,6)),"journal_acpa.xlsx",MIME)
 
 
 st.subheader(t("Projets de cycle par classe"))

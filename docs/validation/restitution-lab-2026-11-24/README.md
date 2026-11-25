@@ -67,3 +67,26 @@ Bland-Altman et ICC étaient déjà restitués sans JSON dans le bilan test-rete
 
 - La restitution AppTest en arabe n'est pas automatisée (les libellés traduits des listes ne sont pas pris en charge par AppTest) : elle est couverte par les tests de contenu et le parcours réel L4.
 - Les textes intégrés de Streamlit (zone de dépôt de fichier) restent en anglais.
+
+## Corrections après audit indépendant (25 novembre 2026)
+
+L'audit de la PR #66 a confirmé la conformité générale et la préservation du moteur. Il a demandé douze corrections ciblées avant la fusion. `lab_statistics.py`, `longitudinal.py` et `requirements.txt` restent inchangés.
+
+| # | Demande | Correction | Test |
+|---|---|---|---|
+| 1 | Corrélation exactement nulle | Coefficient nul : phrase neutre (« aucune tendance commune »), jamais « négative » | `test_zero_correlation_is_not_negative` |
+| 2 | Distributions descriptives | Boîtes calculées sur tous les cas complets (quartiles, minimum–maximum, moyenne) puis tracées ; plus de mélange entre 100 participants affichés et une moyenne sur l'ensemble ; légende explicite | `test_descriptive_boxes_use_all_complete_cases` |
+| 3 | Arrondi de p autour de 0,05 | Décimales ajoutées tant que l'arrondi donnerait 0,050 pour p ≠ 0,05 (p = 0,04996 et non 0,050) ; même règle dans les phrases | `test_p_rounding_stays_on_the_right_side` |
+| 4 | IC post-hoc | Colonne « IC 95 % non corrigé » ; limite : seules les p sont corrigées par Holm | `test_posthoc_and_friedman_notes` |
+| 5 | t appariés après Friedman | Condition ajoutée : différences approximativement normales pour chaque paire, aucune alternative non paramétrique calculée | `test_posthoc_and_friedman_notes` |
+| 6 | Protections de volume (PR #62) | Trajectoires par `trajectory_records` (100 participants, 5 000 lignes au plus) ; nuages limités à 5 000 points ; chaque limitation est signalée sous le graphique | `test_display_limits_are_reported` |
+| 7 | Ordre d'affichage | Carte « Comprendre » d'abord ; tableau des participants ensuite, dans un volet replié après calcul | `test_no_raw_json_by_default` (ordre des volets) |
+| 8 | Libellés explicites | « Force de la relation (r) », « Taille d'effet (dz) », « Proportion de variance expliquée (R²) », « Probabilité (p) », « Statistique F (ddl) », « Concordance de Kendall (W) »… | `test_values_match_engine_for_each_method` |
+| 9 | Avertissements et rôles des variables | Avertissement avant calcul tiré des conditions de la méthode choisie ; sélecteurs « Première / Seconde variable » (corrélation), « Variable expliquée (Y) / Variables explicatives (X) » (régression), « Prédicteur X puis modérateur M » (modération) | `test_precheck_and_labels_follow_method` |
+| 10 | Tests ciblés | 7 tests de cas limites et de correspondance des valeurs pour 10 méthodes | 16 cas dans `tests/test_lab_results.py` |
+| 11 | Preuves et workflows | Captures mises à jour (`captures/corrections_audit_iphone.jpg`, `captures/page_reelle_t_apparie_*.jpg`) ; suite locale : 230 tests réussis (Python 3.12) ; workflows 3.12, 3.14 et R relancés sur la PR | voir ci-dessous |
+| 12 | Description de la PR | Mention automatique retirée de la description | — |
+
+Recette après correction :
+- banc visuel iPhone : 8 méthodes × 3 langues, sans exception ni débordement horizontal ;
+- page réelle (2 880 observations, t apparié) en FR et en AR : carte « Comprendre » affichée, JSON masqué, aucune exception.

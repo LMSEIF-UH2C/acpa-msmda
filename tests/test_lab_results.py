@@ -72,7 +72,7 @@ class Content(unittest.TestCase):
         res = results()["paired_t"]
         r = lr.build("paired_t", res)
         shown = {i.label: i.value for i in r.indicators}
-        self.assertEqual(shown["dz"], f"{res['dz']:.2f}")
+        self.assertEqual(shown["Effect size (dz)"], f"{res['dz']:.2f}")
         self.assertEqual(shown["Mean difference (after − before)"], f"{res['mean_difference']:+.2f}")
 
     def test_cautious_wording(self):
@@ -108,6 +108,79 @@ class Content(unittest.TestCase):
         self.assertEqual(lr.pval(.0234), "0.023")
 
 
+class EdgeCases(unittest.TestCase):
+    def tearDown(self):
+        i18n.use("fr")
+
+    def test_zero_correlation_is_not_negative(self):
+        i18n.use("fr")
+        text = " ".join(lr.build("pearson", {"n": 10, "r": 0.0, "p": 1.0, "ci95": [-.6, .6]}).interpretation)
+        self.assertNotIn("négative", text)
+        self.assertIn("Coefficient nul", text)
+        self.assertIn("négative", " ".join(lr.build("spearman", {"n": 10, "rho": -.4, "p": .2}).interpretation))
+
+    def test_p_rounding_stays_on_the_right_side(self):
+        i18n.use("en")
+        self.assertEqual(lr.pval(.04996), "0.04996")
+        self.assertEqual(lr.pval(.0501), "0.0501")
+        self.assertEqual(lr.pval(.05), "0.050")
+        self.assertEqual(lr.pval(.0234), "0.023")
+        self.assertIn("p = 0.04996", lr._decision(.04996, "différence"))
+        self.assertIn("A statistically significant", lr._decision(.04996, "différence"))
+        self.assertIn("No statistically significant", lr._decision(.05004, "différence"))
+
+    def test_posthoc_and_friedman_notes(self):
+        i18n.use("fr")
+        r = lr.build("paired_posthoc", results()["paired_posthoc"])
+        self.assertTrue(any("ne sont pas ajustés simultanément" in x for x in r.limits))
+        self.assertTrue(any("Après un test de Friedman" in x for x in r.conditions))
+        self.assertIn("IC 95 % non corrigé", r.tables[0][1][0])
+
+    def test_descriptive_boxes_use_all_complete_cases(self):
+        big = (RNG.normal(10, 2, (250, 2))).round(2).tolist()
+        figure, notes = lr.chart("descriptive", {}, panel_values=big, columns=OCC[:2])
+        data = next(iter(figure.to_dict()["datasets"].values()))
+        first = next(d for d in data if d["key"] == "T1")
+        self.assertEqual(first["n"], 250)
+        self.assertAlmostEqual(first["median"], float(np.median([r[0] for r in big])))
+        self.assertAlmostEqual(first["mean"], float(np.mean([r[0] for r in big])))
+
+    def test_display_limits_are_reported(self):
+        big = (RNG.normal(10, 2, (250, 2))).round(2).tolist()
+        _, notes = lr.chart("paired_t", {}, panel_values=big, columns=OCC[:2], participants=list(range(250)))
+        self.assertTrue(any("100/250" in n for n in notes))
+        many = RNG.normal(0, 1, (6000, 2)).tolist()
+        _, notes = lr.chart("pearson", {}, matrix=many, columns=["X", "Y"])
+        self.assertTrue(any("5000/6000" in n for n in notes))
+
+    def test_values_match_engine_for_each_method(self):
+        i18n.use("en")
+        res = results()
+        expect = {"pearson": ("Strength of the relation (r)", res["pearson"]["r"], 2),
+                  "spearman": ("Strength of the relation (ρ)", res["spearman"]["rho"], 2),
+                  "repeated_anova": ("Effect size (η²p)", res["repeated_anova"]["partial_eta2"], 2),
+                  "friedman": ("Kendall's concordance (W)", res["friedman"]["kendall_W"], 2),
+                  "mixed_anova": ("Effect size (η²p)", res["mixed_anova"]["group_time"]["partial_eta2"], 2),
+                  "mann_whitney": ("Effect size (rank-biserial)", res["mann_whitney"]["rank_biserial"], 2),
+                  "one_way": ("Effect size (η²)", res["one_way"]["eta2"], 2),
+                  "regression": ("Proportion of variance explained (R²)", res["regression"]["r2"], 2),
+                  "wilcoxon": ("Wilcoxon statistic (W)", res["wilcoxon"]["W"], 1)}
+        for method, (label, value, digits) in expect.items():
+            shown = {i.label: i.value for i in lr.build(method, res[method]).indicators}
+            self.assertEqual(shown[label], f"{value:.{digits}f}", method)
+        welch = {i.label: i.value for i in lr.build("welch", res["welch"]).indicators}
+        self.assertEqual(welch["Mean difference (A − B)"], f"{res['welch']['mean_difference']:+.2f}")
+        self.assertEqual(welch["95% CI of the difference"], "[{:.2f}, {:.2f}]".format(*res["welch"]["ci95"]))
+
+    def test_precheck_and_labels_follow_method(self):
+        i18n.use("fr")
+        self.assertIn("Relation monotone", lr.precheck("spearman"))
+        self.assertNotIn("Relation monotone", lr.precheck("welch"))
+        self.assertEqual(lr.variable_labels("pearson"), ("Première variable", "Seconde variable"))
+        self.assertIn("modérateur", lr.variable_labels("moderation")[1])
+        self.assertEqual(lr.variable_labels("regression")[0], "Variable expliquée (Y)")
+
+
 class Charts(unittest.TestCase):
     def test_chart_for_each_method(self):
         res = results()
@@ -127,10 +200,12 @@ class Charts(unittest.TestCase):
                 "moderation": {"matrix": x[:, [2, 0, 1]], "columns": ["Y", "X", "M"]}}
         reg = {"regression": ls.regression(x[:, 2], x[:, :2]), "moderation": ls.regression(x[:, 2], x[:, :2], moderation=True)}
         for method, kw in args.items():
-            spec = lr.chart(method, reg.get(method, res.get(method, {})), **kw).to_dict()
+            figure, _ = lr.chart(method, reg.get(method, res.get(method, {})), **kw)
+            spec = figure.to_dict()
             self.assertTrue("layer" in spec or "mark" in spec, method)
-        desc = lr.chart("descriptive", {}, panel_values=PANEL, columns=OCC).to_dict()
-        self.assertIn("layer", desc)
+        desc, notes = lr.chart("descriptive", {}, panel_values=PANEL, columns=OCC)
+        self.assertIn("layer", desc.to_dict())
+        self.assertTrue(any("tous les cas complets" in n for n in notes))
 
 
 def lab_app(method, occasions):
@@ -160,7 +235,7 @@ class Page(unittest.TestCase):
         app.button(key="lab_study_panel").click().run()
         self.assertFalse(app.exception, str(app.exception))
         labels = [m.label for m in app.metric]
-        self.assertIn("dz", labels)
+        self.assertIn("Taille d'effet (dz)", labels)
         self.assertIn("Participants analysés", labels)
         expanders = [e.label for e in app.expander]
         self.assertTrue(any(x.startswith("Analyser") for x in expanders))
@@ -168,6 +243,10 @@ class Page(unittest.TestCase):
         investigate = next(e for e in app.expander if e.label.startswith("Investiguer"))
         self.assertEqual(len(app.json), len(investigate.json))   # JSON seulement dans « Investiguer »
         self.assertGreaterEqual(len(app.get("arrow_vega_lite_chart")), 1)
+        # Carte « Comprendre » d'abord ; le détail des participants vient après, dans un volet replié.
+        order = [e.label for e in app.expander]
+        detail = next(i for i, x in enumerate(order) if x.startswith("Participants complets") or "/" in x)
+        self.assertGreater(detail, next(i for i, x in enumerate(order) if x.startswith("Investiguer")))
 
     def test_chart_failure_keeps_results_and_export(self):
         app = lab_app("repeated_anova", ["T1", "T2", "T3"])
@@ -175,7 +254,7 @@ class Page(unittest.TestCase):
             app.button(key="lab_study_panel").click().run()
         self.assertFalse(app.exception, str(app.exception))
         self.assertTrue(any("Graphique indisponible" in w.value for w in app.warning))
-        self.assertIn("η²p", [m.label for m in app.metric])
+        self.assertIn("Taille d'effet (η²p)", [m.label for m in app.metric])
         self.assertIn("Exporter le résultat (JSON)", [d.proto.label for d in app.get("download_button")])
 
 

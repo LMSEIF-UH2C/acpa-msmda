@@ -4622,5 +4622,101 @@
   "Aucune {what} statistiquement significative n'est détectée au seuil de 5 % ({p}) ; cela ne prouve pas son absence.": {
     "ar": "لم يُرصد {what} ذو دلالة إحصائية عند مستوى 5 % ({p})؛ وهذا لا يثبت غيابه.",
     "en": "No statistically significant {what} is detected at the 5% level ({p}); this does not prove its absence."
+  },
+  "Après un test de Friedman, ces t appariés supposent pour chaque paire des différences approximativement normales, sans valeur extrême ; sinon, les lire avec prudence (aucune comparaison non paramétrique n'est calculée ici).": {
+    "ar": "بعد اختبار فريدمان، تفترض اختبارات ت المترابطة هذه أن الفروق لكل زوج قريبة من التوزيع الطبيعي ودون قيم متطرفة؛ وإلا فتُقرأ بحذر (لا تُحسب هنا مقارنات لا معلمية).",
+    "en": "After a Friedman test, these paired t tests assume approximately normal differences for each pair, with no extreme value; otherwise read them with caution (no non-parametric comparison is computed here)."
+  },
+  "Boîtes : quartiles, extrêmes (minimum–maximum) et moyenne (losange), calculés sur tous les cas complets.": {
+    "ar": "الصناديق: الربيعيات والقيم القصوى (الدنيا–العليا) والمتوسط (المعيّن)، محسوبة على جميع الحالات المكتملة.",
+    "en": "Boxes: quartiles, extremes (minimum–maximum) and mean (diamond), computed on all complete cases."
+  },
+  "Coefficient nul : aucune tendance commune n'apparaît entre les deux mesures dans cet échantillon.": {
+    "ar": "معامل منعدم: لا يظهر اتجاه مشترك بين القياسين في هذه العينة.",
+    "en": "Zero coefficient: no shared trend appears between the two measures in this sample."
+  },
+  "Concordance de Kendall (W)": {
+    "ar": "توافق كندال (W)",
+    "en": "Kendall's concordance (W)"
+  },
+  "Force de la relation ({s})": {
+    "ar": "قوة العلاقة ({s})",
+    "en": "Strength of the relation ({s})"
+  },
+  "IC 95 % non corrigé": {
+    "ar": "مجال الثقة 95 % غير مصحح",
+    "en": "Uncorrected 95% CI"
+  },
+  "Interaction X × M": {
+    "ar": "التفاعل X × M",
+    "en": "X × M interaction"
+  },
+  "Intervalle de confiance à 95 % de {s}": {
+    "ar": "مجال الثقة 95 % لـ{s}",
+    "en": "95% confidence interval of {s}"
+  },
+  "Nuage": {
+    "ar": "سحابة النقاط",
+    "en": "Scatter"
+  },
+  "Première variable": {
+    "ar": "المتغير الأول",
+    "en": "First variable"
+  },
+  "Probabilité (p)": {
+    "ar": "الاحتمال (p)",
+    "en": "Probability (p)"
+  },
+  "Proportion de variance expliquée (R²)": {
+    "ar": "نسبة التباين المفسَّر (R²)",
+    "en": "Proportion of variance explained (R²)"
+  },
+  "Prédicteur X puis modérateur M (2 variables, dans cet ordre)": {
+    "ar": "المتنبئ X ثم المعدِّل M (متغيران، بهذا الترتيب)",
+    "en": "Predictor X then moderator M (2 variables, in this order)"
+  },
+  "Seconde variable": {
+    "ar": "المتغير الثاني",
+    "en": "Second variable"
+  },
+  "Seules les p sont corrigées par Holm : les intervalles de confiance à 95 % de chaque comparaison ne sont pas ajustés simultanément.": {
+    "ar": "تُصحَّح قيم p فقط بطريقة هولم: لا تُعدَّل مجالات الثقة 95 % لكل مقارنة تعديلا متزامنا.",
+    "en": "Only p values are Holm-corrected: the 95% confidence intervals of each comparison are not simultaneously adjusted."
+  },
+  "Statistique F (ddl)": {
+    "ar": "إحصائية F (درجات الحرية)",
+    "en": "F statistic (df)"
+  },
+  "Statistique de Friedman (χ²)": {
+    "ar": "إحصائية فريدمان (χ²)",
+    "en": "Friedman statistic (χ²)"
+  },
+  "Statistique de Mann-Whitney (U)": {
+    "ar": "إحصائية مان ويتني (U)",
+    "en": "Mann-Whitney statistic (U)"
+  },
+  "Statistique de Wilcoxon (W)": {
+    "ar": "إحصائية ويلكوكسون (W)",
+    "en": "Wilcoxon statistic (W)"
+  },
+  "Taille d'effet ({s})": {
+    "ar": "حجم الأثر ({s})",
+    "en": "Effect size ({s})"
+  },
+  "Trajectoires individuelles : {n}/{total} participants affichés ; la moyenne (trait épais) porte sur les {total}.": {
+    "ar": "المسارات الفردية: عرض {n}/{total} مشاركا؛ المتوسط (الخط العريض) محسوب على {total}.",
+    "en": "Individual trajectories: {n}/{total} participants shown; the mean (thick line) covers all {total}."
+  },
+  "Variable expliquée (Y)": {
+    "ar": "المتغير المفسَّر (Y)",
+    "en": "Outcome variable (Y)"
+  },
+  "Variables explicatives (X)": {
+    "ar": "المتغيرات المفسِّرة (X)",
+    "en": "Explanatory variables (X)"
+  },
+  "{what} : {n}/{total} points affichés ; les résultats portent sur tous les points.": {
+    "ar": "{what}: عرض {n}/{total} نقطة؛ النتائج محسوبة على جميع النقاط.",
+    "en": "{what}: {n}/{total} points shown; results cover all points."
   }
 }

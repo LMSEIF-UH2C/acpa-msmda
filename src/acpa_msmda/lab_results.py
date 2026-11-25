@@ -47,11 +47,20 @@ def num(value: Any, digits: int = 2, sign: bool = False) -> str:
     return ltr(_plain(value, digits, sign))
 
 
+def p_digits(p: float) -> int:
+    """Décimales de p : 3 par défaut, davantage si l'arrondi à 3 décimales donnerait 0,050 alors que p ≠ 0,05,
+    pour que la valeur affichée reste du même côté du seuil que la décision (p = 0,0499 et non 0,050)."""
+    digits = 3
+    while digits < 6 and p != ALPHA and round(p, digits) == ALPHA:
+        digits += 1
+    return digits
+
+
 def pval(p: Any) -> str:
-    """p arrondie à 3 décimales ; « < 0,001 » en dessous."""
+    """p arrondie (voir p_digits) ; « < 0,001 » en dessous."""
     if p is None:
         return "–"
-    return ltr("< " + _plain(0.001, 3)) if p < 0.001 else num(p, 3)
+    return ltr("< " + _plain(0.001, 3)) if p < 0.001 else num(p, p_digits(p))
 
 
 def ci(interval: Any, digits: int = 2) -> str | None:
@@ -118,7 +127,8 @@ CONDITIONS = {
                     "Covariances comparables entre groupes ; sphéricité corrigée lorsqu'elle est calculée.",
                     "Résidus approximativement normaux."],
     "paired_posthoc": ["Comparaisons deux à deux par t apparié, correction de Holm sur l'ensemble des comparaisons.",
-                       "À interpréter après un test global (ANOVA répétée ou Friedman)."],
+                       "À interpréter après un test global (ANOVA répétée ou Friedman).",
+                       "Après un test de Friedman, ces t appariés supposent pour chaque paire des différences approximativement normales, sans valeur extrême ; sinon, les lire avec prudence (aucune comparaison non paramétrique n'est calculée ici)."],
     "welch": ["Deux groupes indépendants ; variances inégales acceptées.",
               "Distributions approximativement normales ou effectifs suffisants."],
     "mann_whitney": ["Deux groupes indépendants.",
@@ -136,8 +146,25 @@ LIMITS = {
                 "Un résultat non significatif ne démontre pas l'absence d'effet, surtout avec un petit effectif."],
     "regression": ["Le R² décrit l'ajustement dans cet échantillon ; il surestime en général la performance sur d'autres élèves."],
     "moderation": ["Les droites simples sont tracées à M = moyenne − 1 ET, moyenne et moyenne + 1 ET de l'échantillon."],
-    "paired_posthoc": ["La correction de Holm contrôle le risque d'erreur sur l'ensemble des comparaisons."],
+    "paired_posthoc": ["La correction de Holm contrôle le risque d'erreur sur l'ensemble des comparaisons.",
+                       "Seules les p sont corrigées par Holm : les intervalles de confiance à 95 % de chaque comparaison ne sont pas ajustés simultanément."],
 }
+
+
+def precheck(method: str) -> str:
+    """Avertissement affiché avant le calcul : conditions propres à la méthode, puis rappel non causal."""
+    lines = [t(c) for c in CONDITIONS.get(method, [])]
+    closing = t("Une association ou une différence observée ne prouve pas une relation de cause à effet.")
+    return " ".join(lines + [closing])
+
+
+def variable_labels(method: str) -> tuple[str, str]:
+    """Libellés des deux sélecteurs de variables selon la méthode (corrélation : rôles symétriques)."""
+    if method in ("pearson", "spearman"):
+        return t("Première variable"), t("Seconde variable")
+    if method == "moderation":
+        return t("Variable expliquée (Y)"), t("Prédicteur X puis modérateur M (2 variables, dans cet ordre)")
+    return t("Variable expliquée (Y)"), t("Variables explicatives (X)")
 
 
 def _sample(result: dict) -> list[Indicator]:
@@ -163,7 +190,7 @@ def _decision(p: Any, what: str) -> str:
     """Phrase prudente selon le seuil de 5 %. ``what`` : « différence » ou « association »."""
     if p is None:
         return t("Probabilité non calculée : aucune conclusion de test.")
-    expr = ltr("p < " + _plain(0.001, 3)) if p < 0.001 else ltr("p = " + _plain(p, 3))
+    expr = ltr("p < " + _plain(0.001, 3)) if p < 0.001 else ltr("p = " + _plain(p, p_digits(p)))
     if p < ALPHA:
         return t("Une {what} statistiquement significative est observée au seuil de 5 % ({p}).",
                  what=t(what), p=expr)
@@ -213,13 +240,18 @@ def build(method: str, result: dict, panel_values: Sequence[Sequence[float]] | N
     elif method in ("pearson", "spearman"):
         coef = result.get("r") if method == "pearson" else result.get("rho")
         name = "r" if method == "pearson" else "ρ"
-        r.indicators.append(Indicator(name, num(coef)))
-        r.indicators.append(Indicator("p", pval(result.get("p"))))
+        r.indicators.append(Indicator(t("Force de la relation ({s})", s=name), num(coef)))
+        r.indicators.append(Indicator(t("Probabilité (p)"), pval(result.get("p"))))
         if ci(result.get("ci95")):
-            r.indicators.append(Indicator(t("IC 95 %"), ci(result["ci95"])))
-        direction = t("positive") if coef and coef > 0 else t("négative")
-        r.interpretation.append(t("Association {direction} : quand une mesure est plus élevée, l'autre tend à l'être {sens}.",
-                                  direction=direction, sens=t("aussi") if coef and coef > 0 else t("moins")))
+            r.indicators.append(Indicator(t("Intervalle de confiance à 95 % de {s}", s=name), ci(result["ci95"])))
+        if coef is None:
+            pass
+        elif coef == 0:
+            r.interpretation.append(t("Coefficient nul : aucune tendance commune n'apparaît entre les deux mesures dans cet échantillon."))
+        else:
+            direction = t("positive") if coef > 0 else t("négative")
+            r.interpretation.append(t("Association {direction} : quand une mesure est plus élevée, l'autre tend à l'être {sens}.",
+                                      direction=direction, sens=t("aussi") if coef > 0 else t("moins")))
         r.interpretation.append(_decision(result.get("p"), "association"))
         effect(name, coef, (.1, .3, .5))
         row = {name: num(coef), "p": pval(result.get("p")), "n": result.get("n")}
@@ -229,7 +261,8 @@ def build(method: str, result: dict, panel_values: Sequence[Sequence[float]] | N
     elif method in ("paired_t", "wilcoxon"):
         if method == "paired_t":
             r.indicators += [Indicator(t("Différence moyenne (après − avant)"), num(result.get("mean_difference"), sign=True)),
-                             Indicator("p", pval(result.get("p"))), Indicator("dz", num(result.get("dz")))]
+                             Indicator(t("Probabilité (p)"), pval(result.get("p"))),
+                             Indicator(t("Taille d'effet ({s})", s="dz"), num(result.get("dz")))]
             if ci(result.get("ci95")):
                 r.indicators.append(Indicator(t("IC 95 % de la différence"), ci(result["ci95"])))
             r.tables.append((t("Test t apparié"), [{"t": num(result.get("t")), "ddl": result.get("df"), "p": pval(result.get("p")),
@@ -238,16 +271,17 @@ def build(method: str, result: dict, panel_values: Sequence[Sequence[float]] | N
                                                     "n": result.get("n")}]))
             effect("dz", result.get("dz"), (.2, .5, .8))
         else:
-            r.indicators += [Indicator("W", num(result.get("W"), 1)), Indicator("p", pval(result.get("p")))]
+            r.indicators += [Indicator(t("Statistique de Wilcoxon (W)"), num(result.get("W"), 1)),
+                             Indicator(t("Probabilité (p)"), pval(result.get("p")))]
             r.tables.append((t("Test de Wilcoxon"), [{"W": num(result.get("W"), 1), "p": pval(result.get("p")), "n": result.get("n")}]))
             r.interpretation.append(t("Le moteur ne calcule pas de taille d'effet pour ce test : aucune n'est affichée."))
         r.interpretation.insert(0, _decision(result.get("p"), "différence"))
     elif method in ("repeated_anova", "friedman"):
         if method == "repeated_anova":
             p_main = result.get("p_gg") if result.get("p_gg") is not None else result.get("p")
-            r.indicators += [Indicator("F", ltr(f"{_plain(result.get('F'))} ({result.get('df1')}, {result.get('df2')})")),
-                             Indicator("p" + (" (GG)" if result.get("p_gg") is not None else ""), pval(p_main)),
-                             Indicator("η²p", num(result.get("partial_eta2")))]
+            r.indicators += [Indicator(t("Statistique F (ddl)"), ltr(f"{_plain(result.get('F'))} ({result.get('df1')}, {result.get('df2')})")),
+                             Indicator(t("Probabilité (p)") + (" · GG" if result.get("p_gg") is not None else ""), pval(p_main)),
+                             Indicator(t("Taille d'effet ({s})", s="η²p"), num(result.get("partial_eta2")))]
             r.tables.append((t("ANOVA à mesures répétées"), [{"F": num(result.get("F")), "ddl1": result.get("df1"),
                                                              "ddl2": result.get("df2"), "p": pval(result.get("p")),
                                                              "ε GG": num(result.get("gg_epsilon"), 3),
@@ -256,8 +290,9 @@ def build(method: str, result: dict, panel_values: Sequence[Sequence[float]] | N
             r.interpretation.append(_decision(p_main, "différence entre occasions"))
             effect("η²p", result.get("partial_eta2"), (.01, .06, .14))
         else:
-            r.indicators += [Indicator("χ²", num(result.get("chi2"))), Indicator("p", pval(result.get("p"))),
-                             Indicator("W", num(result.get("kendall_W")))]
+            r.indicators += [Indicator(t("Statistique de Friedman (χ²)"), num(result.get("chi2"))),
+                             Indicator(t("Probabilité (p)"), pval(result.get("p"))),
+                             Indicator(t("Concordance de Kendall (W)"), num(result.get("kendall_W")))]
             r.tables.append((t("Test de Friedman"), [{"χ²": num(result.get("chi2")), "p": pval(result.get("p")),
                                                       "W": num(result.get("kendall_W")), "n": result.get("n"), "k": result.get("k")}]))
             r.interpretation.append(_decision(result.get("p"), "différence entre occasions"))
@@ -275,8 +310,8 @@ def build(method: str, result: dict, panel_values: Sequence[Sequence[float]] | N
         r.tables.append((t("ANOVA mixte"), rows))
         inter = result.get("group_time") or {}
         p_inter = inter.get("p_gg", inter.get("p"))
-        r.indicators += [Indicator(t("Interaction groupe × temps") + " · p", pval(p_inter)),
-                         Indicator("η²p", num(inter.get("partial_eta2")))]
+        r.indicators += [Indicator(t("Interaction groupe × temps") + " · " + t("Probabilité (p)"), pval(p_inter)),
+                         Indicator(t("Taille d'effet ({s})", s="η²p"), num(inter.get("partial_eta2")))]
         r.interpretation.append(_decision(p_inter, "différence d'évolution entre groupes"))
         effect("η²p", inter.get("partial_eta2"), (.01, .06, .14))
     elif method == "paired_posthoc":
@@ -286,7 +321,7 @@ def build(method: str, result: dict, panel_values: Sequence[Sequence[float]] | N
             a = labels[c["first"]] if c["first"] < len(labels) else c["first"]
             b = labels[c["second"]] if c["second"] < len(labels) else c["second"]
             rows.append({t("Comparaison"): f"{b} − {a}", t("Différence moyenne"): num(c.get("mean_difference"), sign=True),
-                         t("IC 95 %"): ci(c.get("ci95")) or "–", "t": num(c.get("t")), "p": pval(c.get("p")),
+                         t("IC 95 % non corrigé"): ci(c.get("ci95")) or "–", "t": num(c.get("t")), "p": pval(c.get("p")),
                          "p Holm": pval(c.get("p_holm")), "dz": num(c.get("dz"))})
         r.tables.append((t("Comparaisons deux à deux (Holm)"), rows))
         n_sig = sum(1 for c in result.get("contrasts", []) if c.get("p_holm") is not None and c["p_holm"] < ALPHA)
@@ -298,7 +333,7 @@ def build(method: str, result: dict, panel_values: Sequence[Sequence[float]] | N
         if method == "welch":
             r.indicators += [Indicator(t("Différence moyenne ({a} − {b})", a=labels[0], b=labels[-1]),
                                        num(result.get("mean_difference"), sign=True)),
-                             Indicator("p", pval(result.get("p")))]
+                             Indicator(t("Probabilité (p)"), pval(result.get("p")))]
             if ci(result.get("ci95")):
                 r.indicators.append(Indicator(t("IC 95 % de la différence"), ci(result["ci95"])))
             r.tables.append((t("Test t de Welch"), [{"t": num(result.get("t")), "ddl": num(result.get("df"), 1), "p": pval(result.get("p")),
@@ -307,24 +342,27 @@ def build(method: str, result: dict, panel_values: Sequence[Sequence[float]] | N
                                                      "n1": result.get("n1"), "n2": result.get("n2")}]))
             r.interpretation.append(t("Le moteur ne calcule pas de taille d'effet pour ce test : aucune n'est affichée."))
         else:
-            r.indicators += [Indicator("U", num(result.get("U"), 1)), Indicator("p", pval(result.get("p"))),
-                             Indicator(t("Corrélation bisériale de rangs"), num(result.get("rank_biserial")))]
+            r.indicators += [Indicator(t("Statistique de Mann-Whitney (U)"), num(result.get("U"), 1)),
+                             Indicator(t("Probabilité (p)"), pval(result.get("p"))),
+                             Indicator(t("Taille d'effet ({s})", s=t("bisériale de rangs")), num(result.get("rank_biserial")))]
             r.tables.append((t("Test de Mann-Whitney"), [{"U": num(result.get("U"), 1), "p": pval(result.get("p")),
                                                           t("Corrélation bisériale de rangs"): num(result.get("rank_biserial")),
                                                           "n1": result.get("n1"), "n2": result.get("n2")}]))
             effect(t("bisériale de rangs"), result.get("rank_biserial"), (.1, .3, .5))
         r.interpretation.insert(0, _decision(result.get("p"), "différence entre groupes"))
     elif method == "one_way":
-        r.indicators += [Indicator("F", ltr(f"{_plain(result.get('F'))} ({result.get('df1')}, {result.get('df2')})")),
-                         Indicator("p", pval(result.get("p"))), Indicator("η²", num(result.get("eta2")))]
+        r.indicators += [Indicator(t("Statistique F (ddl)"), ltr(f"{_plain(result.get('F'))} ({result.get('df1')}, {result.get('df2')})")),
+                         Indicator(t("Probabilité (p)"), pval(result.get("p"))),
+                         Indicator(t("Taille d'effet ({s})", s="η²"), num(result.get("eta2")))]
         r.tables.append((t("ANOVA à un facteur"), [{"F": num(result.get("F")), "ddl1": result.get("df1"), "ddl2": result.get("df2"),
                                                     "p": pval(result.get("p")), "η²": num(result.get("eta2")), "n": result.get("n")}]))
         r.interpretation.append(_decision(result.get("p"), "différence entre groupes"))
         effect("η²", result.get("eta2"), (.01, .06, .14))
         r.interpretation.append(t("Ce test global n'indique pas quels groupes diffèrent."))
     elif method in ("regression", "moderation"):
-        r.indicators += [Indicator("R²", num(result.get("r2"))), Indicator(t("R² ajusté"), num(result.get("adjusted_r2"))),
-                         Indicator(t("Modèle") + " · p", pval(result.get("model_p")))]
+        r.indicators += [Indicator(t("Proportion de variance expliquée (R²)"), num(result.get("r2"))),
+                         Indicator(t("R² ajusté"), num(result.get("adjusted_r2"))),
+                         Indicator(t("Modèle") + " · " + t("Probabilité (p)"), pval(result.get("model_p")))]
         r.tables.append((t("Ajustement du modèle"), [{"R²": num(result.get("r2"), 3), t("R² ajusté"): num(result.get("adjusted_r2"), 3),
                                                       "F": num(result.get("model_F")), "ddl1": result.get("model_df1"),
                                                       "ddl2": result.get("df"), "p": pval(result.get("model_p")),
@@ -342,7 +380,7 @@ def build(method: str, result: dict, panel_values: Sequence[Sequence[float]] | N
         r.interpretation.append(_decision(result.get("model_p"), "association globale"))
         if method == "moderation" and result.get("coefficients"):
             inter = result["coefficients"][-1]
-            r.indicators.append(Indicator("X × M · p", pval(inter.get("p"))))
+            r.indicators.append(Indicator(t("Interaction X × M") + " · " + t("Probabilité (p)"), pval(inter.get("p"))))
             r.interpretation.append(t("Interaction X × M : ") + _decision(inter.get("p"), "modération"))
         if (result.get("max_abs_scaled_residual") or 0) > 3:
             r.interpretation.append(t("Au moins un résidu dépasse 3 écarts-types : vérifiez les valeurs influentes."))
@@ -369,50 +407,98 @@ def metadata(result: dict, method: str) -> list[tuple[str, str]]:
 
 # ---------------------------------------------------------------------------- graphiques
 
+MAX_POINTS = 5000  # limite d'affichage des nuages de points (même ordre que la PR #62)
+
+
+def _quartiles(values: Sequence[float]) -> dict:
+    """Résumé d'une distribution sur toutes les valeurs fournies (cas complets)."""
+    import numpy as np
+
+    v = np.asarray(values, dtype=float)
+    q1, med, q3 = np.percentile(v, [25, 50, 75])
+    return {"min": float(v.min()), "q1": float(q1), "median": float(med), "q3": float(q3), "max": float(v.max()),
+            "mean": float(v.mean()), "n": int(v.size)}
+
+
+def _boxes(alt, pd, groups: Sequence[tuple[str, Sequence[float]]], axis_title: str, value_title: str):
+    """Boîtes à moustaches calculées sur toutes les valeurs : quartiles, extrêmes (minimum–maximum) et moyenne.
+    Le résumé est calculé ici puis tracé : la taille des données n'influence pas l'affichage."""
+    rows = [{"key": k, **_quartiles(v)} for k, v in groups if len(v)]
+    frame = pd.DataFrame(rows)
+    order = [k for k, _ in groups]
+    x = alt.X("key:N", sort=order, title=axis_title)
+    y_scale = alt.Scale(zero=False)
+    tips = [alt.Tooltip("key:N", title=axis_title), alt.Tooltip("n:Q", title="n"),
+            alt.Tooltip("median:Q", format=".2f", title=t("Médiane")), alt.Tooltip("mean:Q", format=".2f", title=t("Moyenne"))]
+    whisker = alt.Chart(frame).mark_rule(strokeWidth=1.5).encode(x=x, y=alt.Y("min:Q", title=value_title, scale=y_scale), y2="max:Q")
+    box = alt.Chart(frame).mark_bar(size=34, opacity=.85, color="#1552F8").encode(x=x, y="q1:Q", y2="q3:Q", tooltip=tips)
+    median_tick = alt.Chart(frame).mark_tick(color="white", size=34, thickness=2).encode(x=x, y="median:Q")
+    mean_mark = alt.Chart(frame).mark_point(shape="diamond", size=80, filled=True, color="#dc2626").encode(x=x, y="mean:Q", tooltip=tips)
+    return whisker + box + median_tick + mean_mark
+
+
 def chart(method: str, result: dict, *, panel_values=None, columns=None, participants=None, samples=None,
           group_labels=None, group_panels=None, matrix=None, unit: str = "", max_subjects: int = 100):
-    """Graphique adapté à la méthode, ou None. Construit uniquement à partir des données analysées
-    et des résultats calculés. À appeler dans ``chart_guard`` : une erreur graphique n'atteint ni
-    les résultats ni les exports."""
+    """(graphique, notes d'affichage) adaptés à la méthode. Le graphique vient uniquement des données analysées
+    et des résultats calculés ; les notes signalent toute limitation d'affichage. À appeler dans
+    ``chart_guard`` : une erreur graphique n'atteint ni les résultats ni les exports."""
     import altair as alt
     import pandas as pd
 
-    value_axis = alt.Y("value:Q", title=t(unit) if unit else t("Valeur"), scale=alt.Scale(zero=False))
+    from .lab_display import trajectory_records
+
+    notes: list[str] = []
+    value_title = t(unit) if unit else t("Valeur")
+    value_axis = alt.Y("value:Q", title=value_title, scale=alt.Scale(zero=False))
+    box_note = t("Boîtes : quartiles, extrêmes (minimum–maximum) et moyenne (losange), calculés sur tous les cas complets.")
+
+    def limit(points: list, what: str) -> list:
+        if len(points) > MAX_POINTS:
+            notes.append(t("{what} : {n}/{total} points affichés ; les résultats portent sur tous les points.",
+                           what=what, n=MAX_POINTS, total=len(points)))
+            return points[:MAX_POINTS]
+        return points
+
     if method in ("descriptive", "paired_t", "wilcoxon", "repeated_anova", "friedman", "paired_posthoc") and panel_values:
         cols = list(columns or [])
-        shown = list(zip(participants or range(len(panel_values)), panel_values))[:max_subjects]
-        records = [{"participant": str(p), "occasion": o, "value": float(v)} for p, row in shown for o, v in zip(cols, row)]
+        if method == "descriptive":
+            notes.append(box_note)
+            return _boxes(alt, pd, [(o, [float(r[j]) for r in panel_values]) for j, o in enumerate(cols)],
+                          t("Occasion"), value_title), notes
+        ids = [str(p) for p in (participants or range(len(panel_values)))]
+        records, shown = trajectory_records(ids, [[float(v) for v in row] for row in panel_values], cols,
+                                            max_subjects=max_subjects)
+        if shown < len(panel_values):
+            notes.append(t("Trajectoires individuelles : {n}/{total} participants affichés ; la moyenne (trait épais) porte sur les {total}.",
+                           n=shown, total=len(panel_values)))
         means = pd.DataFrame([{"occasion": o, "value": mean(float(r[j]) for r in panel_values)} for j, o in enumerate(cols)])
         x = alt.X("occasion:N", sort=cols, title=t("Occasion"))
-        if method == "descriptive":
-            box = alt.Chart(pd.DataFrame(records)).mark_boxplot(size=36).encode(x=x, y=value_axis)
-            return box + alt.Chart(means).mark_point(shape="diamond", size=90, filled=True, color="#dc2626").encode(x=x, y="value:Q")
+        average = alt.Chart(means).mark_line(point=alt.OverlayMarkDef(size=70), strokeWidth=3, color="#1552F8").encode(
+            x=x, y=alt.Y("value:Q", title=value_title, scale=alt.Scale(zero=False)),
+            tooltip=[alt.Tooltip("value:Q", format=".2f", title=t("Moyenne"))])
+        if not records:
+            return average, notes
         lines = alt.Chart(pd.DataFrame(records)).mark_line(opacity=.25, strokeWidth=1).encode(
             x=x, y=value_axis, detail="participant:N")
-        average = alt.Chart(means).mark_line(point=alt.OverlayMarkDef(size=70), strokeWidth=3, color="#1552F8").encode(
-            x=x, y="value:Q", tooltip=[alt.Tooltip("value:Q", format=".2f", title=t("Moyenne"))])
-        return lines + average
+        return lines + average, notes
     if method == "mixed_anova" and group_panels:
         cols = list(columns or [])
         rows = [{"group": g, "occasion": o, "value": mean(float(r[j]) for r in vals)}
                 for g, vals in zip(group_labels or [], group_panels) if vals for j, o in enumerate(cols)]
         return alt.Chart(pd.DataFrame(rows)).mark_line(point=True, strokeWidth=3).encode(
             x=alt.X("occasion:N", sort=cols, title=t("Occasion")), y=alt.Y("value:Q", title=t("Moyenne"), scale=alt.Scale(zero=False)),
-            color=alt.Color("group:N", title=t("Groupe")), tooltip=["group", "occasion", alt.Tooltip("value:Q", format=".2f")])
+            color=alt.Color("group:N", title=t("Groupe")), tooltip=["group", "occasion", alt.Tooltip("value:Q", format=".2f")]), notes
     if method in ("welch", "mann_whitney", "one_way") and samples:
-        rows = [{"group": g, "value": float(v)} for g, vals in zip(group_labels or [], samples) for v in vals]
-        frame = pd.DataFrame(rows)
-        order = list(group_labels or [])
-        box = alt.Chart(frame).mark_boxplot(size=40).encode(x=alt.X("group:N", title=t("Groupe"), sort=order), y=value_axis)
-        dots = alt.Chart(frame).mark_circle(opacity=.35, size=22).encode(x=alt.X("group:N", sort=order), y="value:Q")
-        return box + dots
+        notes.append(box_note)
+        return _boxes(alt, pd, [(g, [float(v) for v in vals]) for g, vals in zip(group_labels or [], samples)],
+                      t("Groupe"), value_title), notes
     if method in ("pearson", "spearman") and (matrix is not None or panel_values):
-        pairs = matrix if matrix is not None else panel_values
-        frame = pd.DataFrame([{"x": float(a[0]), "y": float(a[1])} for a in pairs])
+        pairs = limit([(float(a[0]), float(a[1])) for a in (matrix if matrix is not None else panel_values)], t("Nuage"))
+        frame = pd.DataFrame(pairs, columns=["x", "y"])
         names = list(columns or ["X", "Y"])
         return alt.Chart(frame).mark_circle(size=55, opacity=.7).encode(
             x=alt.X("x:Q", title=names[0], scale=alt.Scale(zero=False)),
-            y=alt.Y("y:Q", title=names[1] if len(names) > 1 else "Y", scale=alt.Scale(zero=False)))
+            y=alt.Y("y:Q", title=names[1] if len(names) > 1 else "Y", scale=alt.Scale(zero=False))), notes
     if method in ("regression", "moderation") and matrix is not None and result.get("coefficients"):
         import numpy as np
 
@@ -420,38 +506,36 @@ def chart(method: str, result: dict, *, panel_values=None, columns=None, partici
         y, xs = m[:, 0], m[:, 1:]
         b = [c["b"] for c in result["coefficients"]]
         names = list(columns or [])
+        keep = limit(list(range(len(y))), t("Nuage"))
         if method == "moderation":
             centers = result.get("predictor_centers") or xs.mean(axis=0).tolist()
             xc = xs[:, 0] - centers[0]
             sd_m = float(np.std(xs[:, 1] - centers[1], ddof=1))
             grid = np.linspace(xc.min(), xc.max(), 20)
-            rows = []
             levels = ((t("M bas (−1 ET)"), -sd_m), (t("M moyen"), 0.0), (t("M haut (+1 ET)"), sd_m))
-            for name, level in levels:
-                for g in grid:
-                    rows.append({"x": float(g + centers[0]), "y": b[0] + b[1] * g + b[2] * level + b[3] * g * level, "M": name})
-            points = alt.Chart(pd.DataFrame({"x": xs[:, 0], "y": y})).mark_circle(opacity=.3, size=25).encode(
+            rows = [{"x": float(g + centers[0]), "y": b[0] + b[1] * g + b[2] * level + b[3] * g * level, "M": name}
+                    for name, level in levels for g in grid]
+            points = alt.Chart(pd.DataFrame({"x": xs[keep, 0], "y": y[keep]})).mark_circle(opacity=.3, size=25).encode(
                 x=alt.X("x:Q", title=names[1] if len(names) > 1 else "X", scale=alt.Scale(zero=False)),
                 y=alt.Y("y:Q", title=names[0] if names else "Y", scale=alt.Scale(zero=False)))
             lines = alt.Chart(pd.DataFrame(rows)).mark_line(strokeWidth=3).encode(
                 x="x:Q", y="y:Q", color=alt.Color("M:N", title="M", sort=[n for n, _ in levels],
                                                   scale=alt.Scale(domain=[n for n, _ in levels],
                                                                   range=["#93c5fd", "#2563eb", "#1e3a8a"])))
-            return points + lines
+            return points + lines, notes
         fitted = b[0] + xs @ np.asarray(b[1:])
         if xs.shape[1] == 1:
-            frame = pd.DataFrame({"x": xs[:, 0], "y": y})
             order = np.argsort(xs[:, 0])
             line = pd.DataFrame({"x": xs[order, 0], "y": fitted[order]})
-            return (alt.Chart(frame).mark_circle(size=50, opacity=.6).encode(
+            return (alt.Chart(pd.DataFrame({"x": xs[keep, 0], "y": y[keep]})).mark_circle(size=50, opacity=.6).encode(
                 x=alt.X("x:Q", title=names[1] if len(names) > 1 else "X", scale=alt.Scale(zero=False)),
                 y=alt.Y("y:Q", title=names[0] if names else "Y", scale=alt.Scale(zero=False)))
-                + alt.Chart(line).mark_line(strokeWidth=3, color="#1552F8").encode(x="x:Q", y="y:Q"))
-        frame = pd.DataFrame({"fitted": fitted, "observed": y})
+                + alt.Chart(line).mark_line(strokeWidth=3, color="#1552F8").encode(x="x:Q", y="y:Q")), notes
+        frame = pd.DataFrame({"fitted": fitted[keep], "observed": y[keep]})
         return alt.Chart(frame).mark_circle(size=50, opacity=.6).encode(
             x=alt.X("fitted:Q", title=t("Valeurs ajustées par le modèle"), scale=alt.Scale(zero=False)),
-            y=alt.Y("observed:Q", title=t("Valeurs observées"), scale=alt.Scale(zero=False)))
-    return None
+            y=alt.Y("observed:Q", title=t("Valeurs observées"), scale=alt.Scale(zero=False))), notes
+    return None, notes
 
 
 # ---------------------------------------------------------------------------- affichage
@@ -476,9 +560,11 @@ def render(st, method: str, method_label: str, result: dict, *, export_key: str,
             for col, card in zip(cols, cards[start:start + 2]):
                 col.metric(card.label, card.value, help=card.help)
         with chart_guard(st, current()):
-            figure = chart(method, result, **(chart_args or {}))
+            figure, display_notes = chart(method, result, **(chart_args or {}))
             if figure is not None:
                 st.altair_chart(figure, use_container_width=True)
+                for note in display_notes:
+                    st.caption(note)
         for line in content.interpretation:
             st.write(line)
         st.caption(t("Lecture prudente : ces résultats décrivent des données observées, sans établir de cause."))

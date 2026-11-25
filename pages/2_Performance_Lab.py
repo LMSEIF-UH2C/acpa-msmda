@@ -140,7 +140,8 @@ with st.expander(study_labels[0]):
             method = st.selectbox({"fr":"Analyse","en":"Analysis","ar":"التحليل"}[current()], methods, format_func=method_names.get, key="lab_study_method")
             assumptions = False
             if method != "descriptive":
-                st.warning({"fr":"Analyse exploratoire : participants indépendants, cas complets, protocole comparable. Vérifiez normalité, valeurs aberrantes, symétrie selon le test et regroupement en classes. Les corrélations ne prouvent pas la causalité.","en":"Exploratory analysis: independent participants, complete cases, comparable protocol. Check normality, outliers, symmetry as applicable and classroom clustering. Correlation is not causation.","ar":"تحليل استكشافي: مشاركون مستقلون وحالات مكتملة وبروتوكول قابل للمقارنة. تحقق من التوزيع والقيم الشاذة والتماثل حسب الاختبار والتجمع داخل الأقسام. الارتباط لا يثبت السببية."}[current()])
+                from acpa_msmda import lab_results as _lr
+                st.warning(_lr.precheck(method))
                 assumptions = st.checkbox({"fr":"J'ai vérifié les conditions du test","en":"I have checked test assumptions","ar":"تحققت من شروط الاختبار"}[current()], key="lab_study_assumptions")
             independent = method in ("welch","mann_whitney","one_way")
             min_occasions = 1 if independent else 2
@@ -152,10 +153,6 @@ with st.expander(study_labels[0]):
                 else:
                     restituted = False
                     chart_args = {}
-                    if not independent:
-                        st.write(f"{study_labels[14]} : {panel['n_complete']} / {panel['n_total']}")
-                        st.dataframe([{ "participant": p, **dict(zip(occasions, vals))}
-                                      for p, vals in zip(panel["participants"], panel["values"])], hide_index=True)
                     if method != "descriptive" and assumptions:
                         from acpa_msmda import lab_statistics as ls
                         try:
@@ -230,6 +227,11 @@ with st.expander(study_labels[0]):
                                                        "columns": occasions, "unit": registry[instrument]["unit"]},
                                            panel_values=panel["values"], columns=occasions)
                         restituted = True
+                    if not independent:
+                        # Détail des participants après la carte « Comprendre ».
+                        with st.expander(f"{study_labels[14]} : {panel['n_complete']} / {panel['n_total']}", expanded=not restituted):
+                            st.dataframe([{ "participant": p, **dict(zip(occasions, vals))}
+                                          for p, vals in zip(panel["participants"], panel["values"])], hide_index=True)
                     if panel["values"] and not restituted:
                         with chart_guard(st, current()):
                             import pandas as pd
@@ -277,9 +279,11 @@ with st.expander(study_labels[0]):
                 available = sorted({(r["instrument"],r["protocol"],r["occasion"]) for r in study_rows if r["group"]==mg})
                 def variable_label(v):
                     return f"{names[v[0]]} · {v[1]} · {v[2]}"
-                y = st.selectbox(ml[2],available,format_func=variable_label,key="lab_mv_y")
-                xs = st.multiselect(ml[3],[v for v in available if v!=y],format_func=variable_label,key="lab_mv_x",max_selections=2 if mm=="moderation" else (1 if mm in ("pearson","spearman") else 10))
-                st.warning(ml[4])
+                from acpa_msmda import lab_results as _lr
+                y_label, x_label = _lr.variable_labels(mm)
+                y = st.selectbox(y_label,available,format_func=variable_label,key="lab_mv_y")
+                xs = st.multiselect(x_label,[v for v in available if v!=y],format_func=variable_label,key="lab_mv_x",max_selections=2 if mm=="moderation" else (1 if mm in ("pearson","spearman") else 10))
+                st.warning(_lr.precheck(mm))
                 checked = st.checkbox(ml[5],key="lab_mv_assumptions")
                 if st.button(ml[6],key="lab_mv_calculate",disabled=not checked or not xs):
                     try:

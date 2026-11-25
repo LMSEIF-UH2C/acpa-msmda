@@ -17,3 +17,7 @@ Les échanges retrouvés du 24 novembre 2026 (10:27 et 13:53 UTC) rapportent des
 Les instantanés antérieurs de 408 workflows (293 succès, 110 échecs, 5 en cours) et 412 workflows rapportés dans le dossier V2 sont des états historiques potentiellement imbriqués dans les 494 identifiants actuellement archivés. Ne jamais les additionner. Les essais locaux, comparaisons interjuges, évaluations empiriques et cas de tests logiciels doivent être comptés séparément. Les chiffres d'une ancienne version de thèse doivent être réconciliés avec V182 avant publication. Aucune donnée individuelle d'élèves ou matrice privée ne doit être publiée dans le dépôt sans examen des droits et de la confidentialité.
 
 Sources à rouvrir: THESE_MOUDETTIR_VERSION_FINALE_V182.docx, ACPA_MSMDA_Rapport_complet_V2.pdf, ACPA_MSMDA_Rapport_contextualisation_Claude.pdf, échanges antérieurs et journaux GitHub. Le registre CI est accessible dans workflow-history-2026-11-24.csv.
+
+## Réconciliation du 25 novembre 2026 : corpus applicatif
+
+La ligne « Plus de 43000 applications rapportées » ci-dessus est conservée comme trace historique des échanges. Elle est remplacée, pour toute communication, par les chiffres du diagramme de flux définitif de la cartographie : 45 676 enregistrements identifiés (App Store 23 194 ; Aptoide 17 456 ; F-Droid 5 026), 40 759 après dédoublonnage et 2 466 applications incluses dans le répertoire. Le chiffre de 43 000 ne correspond à aucune étape du diagramme. Détail : [statut scientifique de v0.2.0](../statut-scientifique-v0.2.0.md), section 3.

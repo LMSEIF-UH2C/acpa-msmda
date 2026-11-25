@@ -1,8 +1,22 @@
 {
   "schema_version": "1.1",
   "dataset_type": "REAL_TOOLS_UNSCORED",
-  "notice": "Répertoire d'outils réels. Seules les fiches dont les fonctions ont été relevées sur une source officielle sont suggérées ; les autres sont identifiées (lien officiel) et restent à documenter.",
+  "dataset_type_note": "Identifiant de schéma historique conservé pour la compatibilité du chargeur ; il ne signifie pas que les fiches sont dépourvues de notes.",
+  "notice": "Répertoire d'outils réels issu de la cartographie des applications. Les suggestions portent sur l'ensemble du répertoire ; chaque fiche indique si ses fonctions ont été relevées sur une source officielle (evidence_status). Les notes des 18 critères sont établies selon la méthode propre à chaque fiche (criteria_method) : estimation à partir de la description de l'éditeur, double notation indépendante ou fonctions vérifiées. Ces notes ne sont pas des mesures validées d'efficacité.",
   "total": 2466,
+  "source_links_added": 2398,
+  "feature_verified_count": 5,
+  "status_counts": {
+    "FEATURES_VERIFIED_ON_OFFICIAL_SITE": 5,
+    "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW": 2386,
+    "OFFICIAL_SOURCE_FEATURES_ONLY": 7,
+    "PENDING_SOURCE_VERIFICATION": 68
+  },
+  "criteria_method_counts": {
+    "double_notation": 100,
+    "estimation": 2354,
+    "fonctions_verifiees": 12
+  },
   "tools": [
     {
       "id": "strava",
@@ -170601,13 +170615,5 @@
         "Tableau tactique"
       ]
     }
-  ],
-  "source_links_added": 2398,
-  "feature_verified_count": 5,
-  "status_counts": {
-    "FEATURES_VERIFIED_ON_OFFICIAL_SITE": 5,
-    "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW": 2344,
-    "OFFICIAL_SOURCE_FEATURES_ONLY": 7,
-    "PENDING_SOURCE_VERIFICATION": 110
-  }
+  ]
 }

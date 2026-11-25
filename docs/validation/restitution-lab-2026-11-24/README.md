@@ -85,7 +85,9 @@ L'audit de la PR #66 a confirmé la conformité générale et la préservation d
 | 9 | Avertissements et rôles des variables | Avertissement avant calcul tiré des conditions de la méthode choisie ; sélecteurs « Première / Seconde variable » (corrélation), « Variable expliquée (Y) / Variables explicatives (X) » (régression), « Prédicteur X puis modérateur M » (modération) | `test_precheck_and_labels_follow_method` |
 | 10 | Tests ciblés | 7 tests de cas limites et de correspondance des valeurs pour 10 méthodes | 16 cas dans `tests/test_lab_results.py` |
 | 11 | Preuves et workflows | Captures mises à jour (`captures/corrections_audit_iphone.jpg`, `captures/page_reelle_t_apparie_*.jpg`) ; suite locale : 230 tests réussis (Python 3.12) ; workflows 3.12, 3.14 et R relancés sur la PR | voir ci-dessous |
-| 12 | Description de la PR | Mention automatique retirée de la description | — |
+| 12 | Description de la PR | Mention automatique ajoutée par l'outil de publication à chaque modification : retrait manuel par le porteur du projet | — |
+
+Intégration continue sur ef5e99b : tests Python 3.12 et 3.14, démonstration publique et validation indépendante avec R réussis (https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/45514670097 et https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/45514669943).
 
 Recette après correction :
 - banc visuel iPhone : 8 méthodes × 3 langues, sans exception ni débordement horizontal ;

@@ -492,7 +492,7 @@ with report:
                                help=t("S'ouvre dans le navigateur ; « Imprimer » permet de l'enregistrer en PDF."))
         with c2:
             from acpa_msmda.teacher_workbooks import MIME, report_xlsx
-            st.download_button(t("Données (Excel)"), report_xlsx(series_csv(mine)), f"mesures_{test_id}.xlsx", MIME,
+            st.download_button(t("Données (Excel)"), report_xlsx(series_csv(mine), numeric_columns=(5,7,8)), f"mesures_{test_id}.xlsx", MIME,
                                use_container_width=True)
 
         with st.expander(t("Gérer les séries")):

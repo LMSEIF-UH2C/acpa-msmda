@@ -92,3 +92,11 @@ Intégration continue sur ef5e99b : tests Python 3.12 et 3.14, démonstration pu
 Recette après correction :
 - banc visuel iPhone : 8 méthodes × 3 langues, sans exception ni débordement horizontal ;
 - page réelle (2 880 observations, t apparié) en FR et en AR : carte « Comprendre » affichée, JSON masqué, aucune exception.
+
+## Synchronisation avec `main` (25 novembre 2026)
+
+Après la fusion de la PR #65 (`main` à da252c1), la branche a été synchronisée. Conflits résolus en conservant les apports des deux PR :
+- `data/translations.json` : union des deux tables, aucune clé en désaccord, 1 041 textes requis tous traduits ;
+- `docs/validation/README.md` : liens vers les deux recettes.
+
+Suite locale : 234 tests réussis (Python 3.12). Intégration continue sur 757585d : tests Python 3.12 et 3.14, démonstration publique et validation indépendante avec R réussis (https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/45517377254 et https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/45517377271).

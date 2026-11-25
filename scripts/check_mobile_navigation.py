@@ -4,6 +4,7 @@ Requires a running Streamlit app and Playwright browsers (CI-only dependency).
 Does not emulate Streamlit Cloud's authenticated management overlay.
 """
 import os
+from pathlib import Path
 
 from playwright.sync_api import sync_playwright
 
@@ -30,12 +31,54 @@ CHECK = """() => {
 }"""
 
 
+HOME_CHECK = """() => {
+  const cards = [...document.querySelectorAll('.st-key-core_evaluate,.st-key-core_find,.st-key-core_prepare,.st-key-home_eps')];
+  const rect = e => {const r=e.getBoundingClientRect();return {left:r.left,right:r.right,top:r.top,bottom:r.bottom}};
+  const textRect = e => {const range=document.createRange();range.selectNodeContents(e);const r=range.getBoundingClientRect();return {left:r.left,right:r.right}};
+  const hero = document.querySelector('.st-key-hero');
+  return {hero: !!hero, colors: {
+    red:getComputedStyle(document.documentElement).getPropertyValue('--blue').trim().toLowerCase(),
+    green:getComputedStyle(document.documentElement).getPropertyValue('--green').trim().toLowerCase()
+  }, cards:cards.map(c => {
+    const title=c.querySelector('button p,a[data-testid="stPageLink-NavLink"] p');
+    const desc=c.querySelector('[data-testid="stCaptionContainer"] p');
+    const icon=c.querySelector('[data-testid="stIconMaterial"]');
+    return {card:rect(c), title:title && rect(title), titleText:title && textRect(title), desc:desc && rect(desc),
+      icon:icon && rect(icon), direction:getComputedStyle(c).direction};
+  })};
+}"""
+
+
+def check_home(page, label, lang):
+    page.locator(".st-key-home_eps").wait_for(state="visible", timeout=60000)
+    data = page.evaluate(HOME_CHECK)
+    assert data["hero"] and len(data["cards"]) == 4, data
+    assert data["colors"] == {"red": "#c1272d", "green": "#006233"}, data
+    for item in data["cards"]:
+        c, t, d, i = (item[k] for k in ("card", "title", "desc", "icon"))
+        assert t and d and i, item
+        assert c["left"] <= i["left"] + 1 and i["right"] <= c["right"] + 1, item
+        assert c["top"] <= i["top"] + 1 and i["bottom"] <= c["bottom"] + 1, item
+        assert t["bottom"] <= d["top"] + 2, item
+        if lang == "ar":
+            assert abs(item["titleText"]["right"] - d["right"]) <= 5, item
+            assert t["right"] <= i["left"] + 2 and d["right"] <= i["left"] + 2, item
+        else:
+            assert abs(item["titleText"]["left"] - d["left"]) <= 5, item
+            assert t["left"] >= i["right"] - 2 and d["left"] >= i["right"] - 2, item
+    if label.endswith("-390"):
+        target = Path("mobile-home-captures")
+        target.mkdir(exist_ok=True)
+        page.screenshot(path=str(target / f"{label}-{lang}.png"))
+
+
 def check(page, label, lang):
     nav = page.locator(".st-key-tabbar")
     nav.wait_for(state="visible", timeout=60000)
     nav.locator('a[data-testid="stPageLink-NavLink"]').nth(4).wait_for(state="visible")
     # Check once after styles settle, and again after scrolling.
     page.wait_for_timeout(600)
+    check_home(page, label, lang)
     for phase in ("initial", "scrolled"):
         if phase == "scrolled":
             page.locator('[data-testid="stMain"]').evaluate(

@@ -1,0 +1,87 @@
+[
+ {
+  "étape": "Évaluer · analyse (fr)",
+  "résultat": "réussi",
+  "détail": "(contenu CSS omis)"
+ },
+ {
+  "étape": "Évaluer · analyse (ar)",
+  "résultat": "réussi",
+  "détail": "(contenu CSS omis)"
+ },
+ {
+  "étape": "Évaluer · analyse (en)",
+  "résultat": "réussi",
+  "détail": "(contenu CSS omis)"
+ },
+ {
+  "étape": "Formative · nouvelle grille",
+  "résultat": "réussi",
+  "détail": "exceptions=0"
+ },
+ {
+  "étape": "Formative · exports proposés",
+  "résultat": "réussi",
+  "détail": "['Télécharger la sauvegarde (JSON)', 'Exporter les observations (CSV)']"
+ },
+ {
+  "étape": "Journal · cycle enregistré",
+  "résultat": "réussi",
+  "détail": "tableaux=1 erreurs=[]"
+ },
+ {
+  "étape": "Journal · créneau enregistré",
+  "résultat": "réussi",
+  "détail": "tableaux=2 erreurs=[]"
+ },
+ {
+  "étape": "Journal · génération des séances",
+  "résultat": "réussi",
+  "détail": "exports=['Sauvegarder mes données', 'Journal (CSV)', 'Sauvegarder les projets de cycle']"
+ },
+ {
+  "étape": "Terrain · Chronomètre",
+  "résultat": "réussi",
+  "détail": "exceptions=0"
+ },
+ {
+  "étape": "Terrain · Compteurs",
+  "résultat": "réussi",
+  "détail": "exceptions=0"
+ },
+ {
+  "étape": "Terrain · Scores",
+  "résultat": "réussi",
+  "détail": "exceptions=0"
+ },
+ {
+  "étape": "Terrain · Rotations",
+  "résultat": "réussi",
+  "détail": "exceptions=0"
+ },
+ {
+  "étape": "Terrain · Équipes",
+  "résultat": "réussi",
+  "détail": "exceptions=0"
+ },
+ {
+  "étape": "Terrain · Consignes",
+  "résultat": "réussi",
+  "détail": "exceptions=0"
+ },
+ {
+  "étape": "Espace EPS · liens (fr)",
+  "résultat": "réussi",
+  "détail": "['Cahier journalier', 'Organiser les ateliers', 'Mode terrain', 'Évaluation formative', 'Laboratoire EPS · Mesurer et analyser']"
+ },
+ {
+  "étape": "Espace EPS · liens (ar)",
+  "résultat": "réussi",
+  "détail": "['دفتر النصوص', 'تنظيم الورشات', 'وضع الميدان', 'التقويم التكويني', 'مختبر التربية البدنية · القياس والتحليل']"
+ },
+ {
+  "étape": "Espace EPS · liens (en)",
+  "résultat": "réussi",
+  "détail": "['Teaching journal', 'Organise workshops', 'Field mode', 'Formative assessment', 'PE Lab · Measure and analyse']"
+ }
+]

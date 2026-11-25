@@ -13,7 +13,7 @@ from pathlib import Path
 from typing import Sequence
 
 from . import i18n
-from .i18n import t
+from .i18n import colon, t
 
 FONTS = Path(__file__).resolve().parents[2] / "assets" / "fonts"
 ARABIC = ("؀", "ۿ")
@@ -273,7 +273,7 @@ def formative_comparison_pdf(context, prior, comparison):
              k.para(t("Les variations sont descriptives ; elles ne démontrent pas à elles seules un apprentissage."),"muted")]
     labels = {"higher":t("Niveau supérieur"),"same":t("Niveau stable"),"lower":t("Niveau inférieur"),"missing":t("Non comparable")}
     for item in comparison:
-        story.append(k.para(t(item["dimension"])+" : "+item["criterion"],"h2"))
+        story.append(k.para(t(item["dimension"])+colon()+item["criterion"],"h2"))
         story.append(k.table([[t("Variation observée"),t("Élèves")]]+
                     [[label,item[key]] for key,label in labels.items()],[k.width*.75,k.width*.25]))
         story.append(k.para(t("Détail par élève"),"h2"))

@@ -14,7 +14,7 @@ from acpa_msmda import session_context as ctx
 from acpa_msmda.scenario_engine import safe_cell
 import csv
 import io
-from acpa_msmda.i18n import t
+from acpa_msmda.i18n import colon, t
 from acpa_msmda.ui import TECH_EVAL,configure_page,page_header
 
 configure_page(TECH_EVAL)
@@ -24,7 +24,7 @@ st.caption(t("Décrivez votre situation d’enseignement pour identifier vos bes
 if st.button(t("Reprendre le contexte de ma séance"),key="eval_use_session"):
     ctx.put(S,"evaluation_context",ctx.search_query(S))
 description=st.text_area(t("Votre situation d’enseignement"),placeholder=t("Ex. endurance, 35 élèves, sans connexion, budget limité"),max_chars=1000,**ctx.bind(S,"evaluation_context",""))
-constraints=st.multiselect(t("Vos besoins et contraintes"),decision.REFINEMENTS,format_func=t,**ctx.bind(S,"evaluation_constraints",[]))
+constraints=st.multiselect(t("Vos besoins et contraintes"),decision.REFINEMENTS,format_func=t,placeholder=t("Choisir dans la liste"),**ctx.bind(S,"evaluation_constraints",[]))
 query_context=decision.refine(description.strip(),constraints) if description.strip() else ", ".join(t(x) for x in constraints)
 if st.button(t("Analyser mon contexte"),key="analyze_context",type="primary",use_container_width=True):
     if not description.strip():
@@ -38,7 +38,7 @@ if analysis_query and analysis_query==query_context:
     items=understand(analysis_query)
     for item in items:
         value=keyword_label(item.value) if item.parameter in ("Activité","Fonction") else t(item.value)
-        st.write(t(item.parameter)+" : "+value)
+        st.write(t(item.parameter)+colon()+value)
     from acpa_msmda.context_engine import CONTEXT_BOOSTS
     boosted={code for flag in analysis.flags for code in CONTEXT_BOOSTS.get(flag,{})}
     if boosted:

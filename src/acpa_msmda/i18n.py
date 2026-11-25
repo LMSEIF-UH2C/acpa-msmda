@@ -25,7 +25,10 @@ RTL = {"ar"}
 SESSION_KEY = "lang"
 PATH = Path(__file__).resolve().parents[2] / "data" / "translations.json"
 
-_current: ContextVar[str] = ContextVar("acpa_lang", default=DEFAULT)
+# None : langue pas encore fixée dans ce contexte d'exécution. C'est le cas d'un fragment Streamlit
+# relancé seul (st.fragment(run_every=...)) : il ne repasse pas par configure_page, la langue est
+# alors relue dans la session de l'utilisateur.
+_current: ContextVar[str | None] = ContextVar("acpa_lang", default=None)
 
 
 @lru_cache(maxsize=1)
@@ -50,7 +53,24 @@ def use(lang: str | None) -> str:
 
 
 def current() -> str:
-    return _current.get()
+    lang = _current.get()
+    if lang is None:
+        lang = _session_language()
+    return lang or DEFAULT
+
+
+def _session_language() -> str | None:
+    """Langue de la session Streamlit en cours, s'il y en a une (sinon None)."""
+    try:
+        from streamlit.runtime.scriptrunner import get_script_run_ctx
+
+        if get_script_run_ctx(suppress_warning=True) is None:
+            return None
+        import streamlit as st
+
+        return from_session(st.session_state, st.query_params)
+    except Exception:  # noqa: BLE001 - hors Streamlit ou session indisponible
+        return None
 
 
 def is_rtl(lang: str | None = None) -> bool:

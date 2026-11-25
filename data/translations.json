@@ -4143,6 +4143,10 @@
     "en": "Repetitions",
     "ar": "التكرارات"
   },
+  "Choisir dans la liste": {
+    "ar": "اختر من القائمة",
+    "en": "Choose from the list"
+  },
   "ANOVA mixte": {
     "ar": "تحليل التباين المختلط",
     "en": "Mixed ANOVA"

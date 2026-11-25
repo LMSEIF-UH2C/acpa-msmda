@@ -1,0 +1,156 @@
+[
+  {
+    "id": "fc_repos",
+    "path": "assets/lab/fc_repos.jpg",
+    "width": 463,
+    "height": 522,
+    "bytes": 49187,
+    "sha256": "5fe1e1e15f71e059215c6e43716c7e6c13a95ab5047b9446c89c2c470a876d92",
+    "origin": "Image générée avec IA, acceptée par le porteur du projet",
+    "scientific_status": "illustration indicative, non normative",
+    "note": "Prise du pouls radial ; standardiser les conditions de repos."
+  },
+  {
+    "id": "flamingo",
+    "path": "assets/lab/flamingo.jpg",
+    "width": 530,
+    "height": 527,
+    "bytes": 44303,
+    "sha256": "ca3a1d1d0cd6714de6645c8a081b0a95ce3b885c02cb48720dba28191b4bfed7",
+    "origin": "Image générée avec IA, acceptée par le porteur du projet",
+    "scientific_status": "illustration indicative, non normative",
+    "note": "Poutre basse et étroite ; dimensions et mode de décompte à confirmer."
+  },
+  {
+    "id": "front_plank",
+    "path": "assets/lab/front_plank.jpg",
+    "width": 1200,
+    "height": 900,
+    "bytes": 102641,
+    "sha256": "46296113599b30c437361b68cf972221c60ab4caadf2044c8abd8dd58a16eeca",
+    "origin": "Image générée avec IA, acceptée par le porteur du projet",
+    "scientific_status": "illustration indicative, non normative",
+    "note": "Posture indicative ; ne pas interpréter le chronomètre dessiné comme une mesure."
+  },
+  {
+    "id": "killy",
+    "path": "assets/lab/killy.jpg",
+    "width": 1400,
+    "height": 1050,
+    "bytes": 154974,
+    "sha256": "f4368b1e244e12e8e9e184e47764d1e8f04a99d56dc767015fca0684eb1b7240",
+    "origin": "Image générée avec IA, acceptée par le porteur du projet",
+    "scientific_status": "illustration indicative, non normative",
+    "note": "Maintien isométrique chronométré, enseignant avec chronomètre ; version sans drapeau."
+  },
+  {
+    "id": "leger20",
+    "path": "assets/lab/leger20.jpg",
+    "width": 1200,
+    "height": 900,
+    "bytes": 294572,
+    "sha256": "9a71de61b8e1ec24d959ad95461a9ef1937d1016a56dbdb179bdc43d31c1822d",
+    "origin": "Image générée avec IA, acceptée par le porteur du projet",
+    "scientific_status": "illustration indicative, non normative",
+    "note": "Organisation collective et signal sonore ; distance non vérifiable sur une illustration."
+  },
+  {
+    "id": "medecine_ball",
+    "path": "assets/lab/medecine_ball.jpg",
+    "width": 1200,
+    "height": 900,
+    "bytes": 121436,
+    "sha256": "2ef2193a45e956d7522cc7f1ab8d1f54cf4ae4a5ddb8defc870f270083951332",
+    "origin": "Image générée avec IA, acceptée par le porteur du projet",
+    "scientific_status": "illustration indicative, non normative",
+    "note": "Variante assise dos au mur ; ne pas lire une mesure sur le ruban dessiné."
+  },
+  {
+    "id": "poids",
+    "path": "assets/lab/poids.jpg",
+    "width": 383,
+    "height": 522,
+    "bytes": 35841,
+    "sha256": "6511768cafe3c2c87a03ee75f99623edef1233d1cda77c7991fb097f3871c6a9",
+    "origin": "Image générée avec IA, acceptée par le porteur du projet",
+    "scientific_status": "illustration indicative, non normative",
+    "note": "Balance, mesure confidentielle sans jugement corporel."
+  },
+  {
+    "id": "ruffier",
+    "path": "assets/lab/ruffier.jpg",
+    "width": 1400,
+    "height": 933,
+    "bytes": 249623,
+    "sha256": "f600e72731410a6bf34c987620d2c0a5fd5a79164c2fff51423c9e3c62460420",
+    "origin": "Image générée avec IA, acceptée par le porteur du projet",
+    "scientific_status": "illustration indicative, non normative",
+    "note": "Séquence acceptée : P1, 30 flexions en 45 s, P2 immédiate, récupération, P3. Légendes FR incrustées ; reproduire les libellés dans l’interface FR/AR/EN et préciser les fenêtres exactes de prise de pouls du protocole retenu."
+  },
+  {
+    "id": "sargent",
+    "path": "assets/lab/sargent.jpg",
+    "width": 1400,
+    "height": 1050,
+    "bytes": 150918,
+    "sha256": "0b7e797b0c9dd07773cc0c4aca0e0b954e770ad0b5621d1951d08aa354c9d300",
+    "origin": "Image générée avec IA, acceptée par le porteur du projet",
+    "scientific_status": "illustration indicative, non normative",
+    "note": "Comparer les deux marques ; la troisième posture ne constitue pas une chronologie normative."
+  },
+  {
+    "id": "saut_horizontal",
+    "path": "assets/lab/saut_horizontal.jpg",
+    "width": 1200,
+    "height": 900,
+    "bytes": 129524,
+    "sha256": "f54f4683ee39a7cd90b2c947041349b197cd217ad65a7a775ec78de0360a16cd",
+    "origin": "Image générée avec IA, acceptée par le porteur du projet",
+    "scientific_status": "illustration indicative, non normative",
+    "note": "Variante sans élan ; modalité institutionnelle à confirmer."
+  },
+  {
+    "id": "souplesse_assise",
+    "path": "assets/lab/souplesse_assise.jpg",
+    "width": 1200,
+    "height": 900,
+    "bytes": 117545,
+    "sha256": "7601b1160b8d4278cd8b7fe138422b7ed250e4c8015d29be3ae191e0057d06b0",
+    "origin": "Image générée avec IA, acceptée par le porteur du projet",
+    "scientific_status": "illustration indicative, non normative",
+    "note": "Vérifier la convention du zéro et la modalité de chaussures."
+  },
+  {
+    "id": "souplesse_debout",
+    "path": "assets/lab/souplesse_debout.jpg",
+    "width": 1200,
+    "height": 900,
+    "bytes": 149577,
+    "sha256": "34fd5daee6182248d2474aa812544f2c771ad3607052743803cb9e951cb446b6",
+    "origin": "Image générée avec IA, acceptée par le porteur du projet",
+    "scientific_status": "illustration indicative, non normative",
+    "note": "Variante sur support stable ; zéro et convention du signe à préciser."
+  },
+  {
+    "id": "sprint30",
+    "path": "assets/lab/sprint30.jpg",
+    "width": 1200,
+    "height": 900,
+    "bytes": 279057,
+    "sha256": "cbba0b2f54651ddfc4b30e4db46aa338eb3f2c700ba92417873fada042bda67b",
+    "origin": "Image générée avec IA, acceptée par le porteur du projet",
+    "scientific_status": "illustration indicative, non normative",
+    "note": "Passage individuel au sein du groupe ; distance non vérifiable sur image."
+  },
+  {
+    "id": "taille",
+    "path": "assets/lab/taille.jpg",
+    "width": 511,
+    "height": 527,
+    "bytes": 41260,
+    "sha256": "e27f98bad8cb61233a310ad7384f9447ec10623ad5bdc1942fad498c67adb7c2",
+    "origin": "Image générée avec IA, acceptée par le porteur du projet",
+    "scientific_status": "illustration indicative, non normative",
+    "note": "Toise, mesure confidentielle sans jugement corporel."
+  }
+]

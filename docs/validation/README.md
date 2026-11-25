@@ -36,6 +36,7 @@ Les lignes représentent des identifiants d'exécution de workflow, non des cas 
 | 59 | Fichiers JPEG non transférés | PR ouverte, tests bloquants; intervention Claude nécessaire |
 | 61 | DOI EMEP classé dans les liens complémentaires | 0dcc739b; trois workflows réussis |
 | 62 | Risque de surcharge graphique et de rerun au téléchargement | Limites de présentation et on_click=ignore; 211 tests après fusion |
+| 68 | JPEG attendus par la PR 59 reçus le 25 novembre ; logos commerciaux sur la plupart des images | Empreintes vérifiées ; six images retouchées localement, huit gardées intactes ([preuves](banque-visuelle-2026-11-25/README.md)) ; intégration et retouche : Claude (Claude Code) ; décisions : porteur du projet |
 
 ## Maintenance
 
@@ -47,3 +48,4 @@ Sources : https://github.com/LMSEIF-UH2C/acpa-msmda/actions et https://docs.gith
 
 - [Recette des modules hors Laboratoire, 24 novembre 2026](recette-modules-2026-11-24/README.md)
 - [Restitution des analyses du Laboratoire en trois niveaux, 24-25 novembre 2026](restitution-lab-2026-11-24/README.md)
+- [Banque visuelle du Laboratoire : intégration des 14 illustrations, 25 novembre 2026](banque-visuelle-2026-11-25/README.md)

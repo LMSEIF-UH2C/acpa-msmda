@@ -44,6 +44,9 @@ if ctx.store(S).get("lab_test") not in {x["id"] for x in choices}:
 test_id = st.selectbox(t("Épreuve"), [x["id"] for x in choices], format_func=choice_labels.get, **ctx.bind(S, "lab_test"))
 test = next(x for x in TESTS if x["id"] == test_id)
 signed = bool(test.get("signed"))
+# Repère visuel facultatif (illustration ou pictogramme de famille) : le protocole écrit reste la référence.
+from acpa_msmda import visual_bank
+visual_bank.render(st, test_id)
 st.caption(t("Mesure : {m} ({u}). Protocole : {p}", m=t(test["measure"]), u=t(test["unit"]), p=t(test["protocol_note"])))
 
 evidence = evidence_by_id[test_id]
@@ -61,6 +64,9 @@ with st.expander("ⓘ " + t("Statut scientifique et sources")):
         st.markdown("[" + ("DOI" if "doi.org/" in url else url) + "](" + url + ")")
     st.write(evidence["teacher_info"][current()])
     st.caption(t(test["protocol_note"]))
+    st.markdown("**" + t("Crédits des visuels") + "**")
+    for line in visual_bank.credits():
+        st.caption(line)
 # Optional discovery library; never feeds unverified instruments into measurement.
 LIBRARY = json.loads((ROOT / "data" / "lab_library.json").read_text(encoding="utf-8"))
 library_labels = {

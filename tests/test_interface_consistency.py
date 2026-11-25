@@ -17,6 +17,13 @@ JARGON = ("Performance Lab", "Studio pédagogique", "Espace enseignant", "moteur
 
 
 class InterfaceConsistencyTests(unittest.TestCase):
+    def test_tab_bar_centred_and_never_animated(self):
+        """Régression Streamlit 1.52 : l'animation d'entrée annulait le centrage de la barre d'onglets fixe."""
+        from acpa_msmda import ui
+        self.assertIn(".st-key-tabbar{position:fixed;left:50%;transform:translateX(-50%)", ui._CSS)
+        self.assertIn(".st-key-tabbar{animation:none!important}", ui._CSS)
+        self.assertLess(ui._CSS.index("@keyframes rise"), ui._CSS.index(".st-key-tabbar{animation:none!important}"))
+
     def test_no_emoji_in_interface_code(self):
         for path in SOURCES:
             with self.subTest(file=path.name):

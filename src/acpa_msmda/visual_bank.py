@@ -21,9 +21,9 @@ from .i18n import t
 ROOT = Path(__file__).resolve().parents[2]
 MANIFEST = ROOT / "assets" / "visual-bank" / "manifest.json"
 OPENMOJI_CREDIT = "OpenMoji (openmoji.org), CC BY-SA 4.0"
-ILLUSTRATION_NOTE = ("Illustration générée par IA, non normative : le protocole écrit fait foi ; vérifier le matériel, "
+ILLUSTRATION_NOTE = ("Repère visuel. Pour réaliser l’épreuve, suivre le protocole et vérifier le matériel, "
                      "les distances et les conditions de mesure.")
-PICTOGRAM_NOTE = "Pictogramme de famille, pas une illustration du protocole."
+PICTOGRAM_NOTE = "Repère de la famille d’épreuves."
 
 
 @dataclass(frozen=True)
@@ -95,7 +95,8 @@ def credits() -> list[str]:
     """Crédits à afficher dans l'application et dans toute redistribution."""
     lines = [t("Pictogrammes : OpenMoji, projet open source d'emojis et d'icônes, licence CC BY-SA 4.0 "
                "(creativecommons.org/licenses/by-sa/4.0), fichiers non modifiés.")]
-    lines.append(t("Illustrations du Laboratoire : générées avec l'IA pour ACPA/MSMDA et retenues par le porteur du "
-                   "projet ; non normatives ; licence CC BY 4.0 (creativecommons.org/licenses/by/4.0), dans la mesure "
-                   "des droits détenus."))
+    lines.append(t("Illustrations pédagogiques : ACPA/MSMDA ; licence CC BY 4.0 "
+                   "(creativecommons.org/licenses/by/4.0), dans la mesure des droits détenus. "
+                   "Provenance et crédits détaillés : "
+                   "https://github.com/LMSEIF-UH2C/acpa-msmda/blob/main/assets/visual-bank/LICENCE-ILLUSTRATIONS.md"))
     return lines

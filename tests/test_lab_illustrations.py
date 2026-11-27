@@ -179,7 +179,7 @@ class Page(unittest.TestCase):
         app = self.lab("handgrip")
         self.assertFalse(app.exception)
         captions = " ".join(c.value for c in app.caption)
-        self.assertIn("Pictogramme de famille", captions)
+        self.assertIn("Repère de la famille d’épreuves", captions)
         self.assertIn("OpenMoji", captions)
 
     def test_missing_illustration_never_blocks(self):
@@ -198,7 +198,7 @@ class Page(unittest.TestCase):
     def test_arabic(self):
         app = self.lab("shirado", "ar")
         self.assertFalse(app.exception)
-        self.assertTrue(any("رمز يدل على عائلة الاختبار" in c.value for c in app.caption))
+        self.assertTrue(any("رمز يدل على فئة الاختبارات" in c.value for c in app.caption))
 
     def test_illustration_with_text_alternative_and_disclaimer(self):
         app = self.lab("sargent")
@@ -206,8 +206,22 @@ class Page(unittest.TestCase):
         self.assertIn("Illustration pédagogique", [e.label for e in app.expander])
         captions = [c.value for c in app.caption]
         self.assertTrue(any(c.startswith("Le long d'une toise murale") for c in captions))
-        self.assertTrue(any("non normative" in c for c in captions))
+        self.assertTrue(any("suivre le protocole" in c for c in captions))
+        self.assertFalse(any("non normative" in c or "générée par IA" in c for c in captions))
         self.assertTrue(any("CC BY 4.0" in c for c in captions))         # crédit et licence des illustrations
+
+    def test_visual_labels_are_neutral_in_all_languages(self):
+        for lang, phrase in (("fr", "Repère visuel"), ("ar", "مرجع بصري"), ("en", "Visual guide")):
+            with self.subTest(lang=lang):
+                app = self.lab("sargent", lang)
+                self.assertFalse(app.exception)
+                captions = " ".join(c.value for c in app.caption)
+                self.assertIn(phrase, captions)
+                self.assertIn("CC BY 4.0", captions)
+                self.assertIn("LICENCE-ILLUSTRATIONS.md", captions)
+                for forbidden in ("générée par IA", "non normative", "AI-generated",
+                                  "non-normative", "مولد بالذكاء الاصطناعي", "غير معياري"):
+                    self.assertNotIn(forbidden, captions)
 
     def test_ruffier_legend_in_arabic_and_english(self):
         for lang, label in (("ar", "نبض القلب في الراحة"), ("en", "P1, resting heart rate")):

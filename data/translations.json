@@ -4763,13 +4763,13 @@
     "ar": "الرموز: OpenMoji، مشروع مفتوح المصدر للرموز التعبيرية والأيقونات، رخصة CC BY-SA 4.0 (creativecommons.org/licenses/by-sa/4.0)، ملفات غير معدلة.",
     "en": "Pictograms: OpenMoji, open-source emoji and icon project, CC BY-SA 4.0 licence (creativecommons.org/licenses/by-sa/4.0), files unmodified."
   },
-  "Illustration générée par IA, non normative : le protocole écrit fait foi ; vérifier le matériel, les distances et les conditions de mesure.": {
-    "ar": "رسم مولد بالذكاء الاصطناعي وغير معياري: البروتوكول المكتوب هو المرجع؛ تحقق من العتاد والمسافات وشروط القياس.",
-    "en": "AI-generated, non-normative illustration: the written protocol prevails; check equipment, distances and measurement conditions."
+  "Repère visuel. Pour réaliser l’épreuve, suivre le protocole et vérifier le matériel, les distances et les conditions de mesure.": {
+    "ar": "مرجع بصري. لإنجاز الاختبار، اتبع البروتوكول وتحقق من العتاد والمسافات وشروط القياس.",
+    "en": "Visual guide. Follow the test protocol and check equipment, distances and measurement conditions."
   },
-  "Pictogramme de famille, pas une illustration du protocole.": {
-    "ar": "رمز يدل على عائلة الاختبار، وليس توضيحا للبروتوكول.",
-    "en": "Family pictogram, not an illustration of the protocol."
+  "Repère de la famille d’épreuves.": {
+    "ar": "رمز يدل على فئة الاختبارات.",
+    "en": "Test family pictogram."
   },
   "Groupe d'élèves en course entre deux lignes balisées par des plots, dans une cour d'établissement ; l'enseignant tient un porte-bloc près d'une enceinte qui diffuse le signal sonore. Matériel représenté : plots, lignes au sol, enceinte, porte-bloc.": {
     "ar": "مجموعة من التلاميذ يجرون بين خطين محددين بأقماع في ساحة مؤسسة تعليمية؛ يقف الأستاذ حاملًا لوح كتابة قرب مكبر صوت يبث الإشارة الصوتية. العتاد الظاهر في الرسم: أقماع، خطوط على الأرض، مكبر صوت، لوح كتابة.",
@@ -4823,9 +4823,9 @@
     "ar": "ثبات على الساعدين وأطراف القدمين، والجسم مستقيم، فوق بساط؛ ميقاتية موضوعة على الأرض. العتاد الظاهر في الرسم: بساط، ميقاتية.",
     "en": "Plank on the forearms and toes, body aligned, on a mat; a stopwatch lies on the floor. Equipment shown: mat, stopwatch."
   },
-  "Illustrations du Laboratoire : générées avec l'IA pour ACPA/MSMDA et retenues par le porteur du projet ; non normatives ; licence CC BY 4.0 (creativecommons.org/licenses/by/4.0), dans la mesure des droits détenus.": {
-    "ar": "رسوم المختبر: مولدة بالذكاء الاصطناعي لـ ACPA/MSMDA واعتمدها حامل المشروع؛ غير معيارية؛ مرخصة بموجب CC BY 4.0 (creativecommons.org/licenses/by/4.0) في حدود الحقوق المملوكة.",
-    "en": "Laboratory illustrations: AI-generated for ACPA/MSMDA and selected by the project lead; non-normative; licensed under CC BY 4.0 (creativecommons.org/licenses/by/4.0), to the extent of the rights held."
+  "Illustrations pédagogiques : ACPA/MSMDA ; licence CC BY 4.0 (creativecommons.org/licenses/by/4.0), dans la mesure des droits détenus. Provenance et crédits détaillés : https://github.com/LMSEIF-UH2C/acpa-msmda/blob/main/assets/visual-bank/LICENCE-ILLUSTRATIONS.md": {
+    "ar": "رسوم توضيحية تربوية: ACPA/MSMDA؛ رخصة CC BY 4.0 (creativecommons.org/licenses/by/4.0) في حدود الحقوق المملوكة. المصدر والحقوق بالتفصيل: https://github.com/LMSEIF-UH2C/acpa-msmda/blob/main/assets/visual-bank/LICENCE-ILLUSTRATIONS.md",
+    "en": "Educational illustrations: ACPA/MSMDA; CC BY 4.0 licence (creativecommons.org/licenses/by/4.0), to the extent of the rights held. Detailed provenance and credits: https://github.com/LMSEIF-UH2C/acpa-msmda/blob/main/assets/visual-bank/LICENCE-ILLUSTRATIONS.md"
   },
   "Départ individuel d'un sprint dans un couloir balisé, pendant que les autres élèves attendent leur tour ; l'enseignant tient un chronomètre, sur le côté. Matériel représenté : plots, lignes au sol, chronomètre. Nuance de chronométrage : sur l'image, le chronométreur se tient au départ ; les protocoles consultés le placent à l'arrivée, ou en retrait avec une vue sur le départ et l'arrivée. Le chronomètre part au premier mouvement et s'arrête au passage du buste sur la ligne d'arrivée.": {
     "ar": "انطلاق فردي في عدو داخل رواق محدد، بينما ينتظر باقي التلاميذ دورهم؛ يقف الأستاذ جانبًا حاملًا ميقاتية. العتاد الظاهر في الرسم: أقماع، خطوط على الأرض، ميقاتية. ملاحظة حول التوقيت: في الرسم يقف المسؤول عن التوقيت عند خط الانطلاق، بينما تضعه البروتوكولات التي تمت مراجعتها عند خط الوصول، أو في موقع جانبي يرى منه الانطلاق والوصول معًا. تُشغَّل الميقاتية عند أول حركة وتُوقَف عند عبور الجذع خط الوصول.",

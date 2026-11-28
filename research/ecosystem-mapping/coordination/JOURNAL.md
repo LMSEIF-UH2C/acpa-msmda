@@ -80,3 +80,5 @@
 | 2026-11-28 | interactive_assistant | INT-APP-A5-0019 | Références BORIS | 6/6 intervalles rapprochés, écart de structure documenté, aucun runtime | [AUDIT_BORIS_REFERENCE_V01.json](../AUDIT_BORIS_REFERENCE_V01.json) | Recette et essai isolé |
 
 | 2026-11-28 | interactive_assistant | INT-APP-A5-0019 | Recette activée et BORIS | CI précédente 8/8, deux nouveaux workflows implémentés | [Commit](https://github.com/LMSEIF-UH2C/acpa-msmda/commit/422a3e992e4897d591a4945c4eda99690bcebe60) | Lire résultats terminaux |
+
+| 2026-11-28 | interactive_assistant | INT-APP-A5-0019 | Recette activée et RET-016 | 12/12 navigateur, BORIS installation OK/export bloqué libEGL, archive vérifiée | [BORIS](https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175483107) | Retest environnement |

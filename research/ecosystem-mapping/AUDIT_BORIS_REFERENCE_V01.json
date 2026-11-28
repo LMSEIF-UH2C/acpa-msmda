@@ -85,7 +85,19 @@
       "commit": "422a3e992e4897d591a4945c4eda99690bcebe60",
       "workflow": ".github/workflows/experimental-boris-runtime.yml",
       "script": "scripts/check_boris_runtime.py",
-      "status": "PENDING_TERMINAL_EVIDENCE"
+      "status": "FAIL_SYSTEM_DEPENDENCY_LIBEGL"
     }
+  },
+  "actual_runtime_attempt": {
+    "run": 46175483107,
+    "artifact": 15274424881,
+    "artifact_sha256": "7ddf070eebdd6e216d855f5ecd5ea2763da44adb744ac6c3360a91e8dcf3ef9a",
+    "archive_verified": true,
+    "python": "3.13.18",
+    "installation": "PASS",
+    "returncode": 1,
+    "generated_files": [],
+    "stderr": "ImportError: libEGL.so.1: cannot open shared object file: No such file or directory",
+    "scope": "failed import before export; no real BORIS export"
   }
 }

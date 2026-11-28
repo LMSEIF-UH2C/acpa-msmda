@@ -1,0 +1,295 @@
+{
+  "schema_version": 1,
+  "revision": 1,
+  "branch": "research/ecosystem-mapping-pilot",
+  "scientific_version": "0.1.40",
+  "scientific_baseline_commit": "d4b8f20533192aad701ad178da71f89a6271bcf0",
+  "lock": null,
+  "last_handoff": {
+    "actor": "interactive_assistant",
+    "intervention_id": "COORD-0001",
+    "completed": "2026-11-28",
+    "summary": "Coordination initialisée à partir du rapport V0.1.40. Premier passage automatique terminé sans changement du dépôt.",
+    "next_task": "P2-06",
+    "evidence": "../AUDIT_GLOBAL_IDENTITY_V01.json"
+  },
+  "priority_queue": [
+    "P2-06",
+    "P2-07",
+    "P2-08",
+    "P2-10",
+    "P2-11",
+    "P1-04",
+    "P2-12"
+  ],
+  "tasks": [
+    {
+      "id": "P1-01",
+      "phase": 1,
+      "title": "Audit des pilotes et du diagramme historique",
+      "status": "TECH_VERIFIED",
+      "owner": "assistant",
+      "deps": [],
+      "evidence": "../AUDIT_APPLE_V02_INDEPENDANT.md",
+      "next": "Pilotes auditables; pas de comparaison exhaustive historique"
+    },
+    {
+      "id": "P1-02",
+      "phase": 1,
+      "title": "Récupérer les archives historiques 45 676 et décisions",
+      "status": "WAIT_HUMAN",
+      "owner": "porteur",
+      "deps": [],
+      "evidence": "../EVIDENCE_REGISTER_V01.md",
+      "next": "Localiser archives et jugements; si introuvables, décision documentée sur périmètre"
+    },
+    {
+      "id": "P1-03",
+      "phase": 1,
+      "title": "Pérennité des preuves prioritaires",
+      "status": "TECH_VERIFIED",
+      "owner": "assistant",
+      "deps": [],
+      "evidence": "../EVIDENCE_REGISTER_V01.md",
+      "next": "10 archives prioritaires vérifiées; inventaire complet et droits encore ouverts"
+    },
+    {
+      "id": "P1-04",
+      "phase": 1,
+      "title": "Inventaire complémentaire et droits de conservation",
+      "status": "READY",
+      "owner": "assistant",
+      "deps": [],
+      "evidence": "../SOURCE_REGISTER.md",
+      "next": "Recenser artefacts restants, vérifier accès et droits; décision équipe distincte"
+    },
+    {
+      "id": "P2-01",
+      "phase": 2,
+      "title": "Audits de couverture mobile, langues, APS et fonctions",
+      "status": "TECH_VERIFIED",
+      "owner": "assistant",
+      "deps": [],
+      "evidence": "../AUDIT_COUVERTURE_V01.md",
+      "next": "288/1592 couples observés dans les pilotes; couverture partielle"
+    },
+    {
+      "id": "P2-02",
+      "phase": 2,
+      "title": "Prospection Web, SILL, Wikidata, matériel et commercial",
+      "status": "TECH_VERIFIED",
+      "owner": "assistant",
+      "deps": [],
+      "evidence": "../AUDIT_PROSPECTION_MATERIEL_COMMERCIAL_V01.json",
+      "next": "17+17 observations documentaires; couverture non exhaustive"
+    },
+    {
+      "id": "P2-03",
+      "phase": 2,
+      "title": "Modèle relationnel et registre persistant",
+      "status": "TECH_VERIFIED",
+      "owner": "assistant",
+      "deps": [],
+      "evidence": "../AUDIT_IDENTITY_REGISTRY_V03.json",
+      "next": "31/31 tests; 34 entités provisoires; aucune identité arbitrée"
+    },
+    {
+      "id": "P2-04",
+      "phase": 2,
+      "title": "Intégration des anciens pilotes et reprise hors ligne",
+      "status": "TECH_VERIFIED",
+      "owner": "assistant",
+      "deps": [],
+      "evidence": "../AUDIT_LEGACY_INTEGRATION_V01.json",
+      "next": "12956 enregistrements et 16245 observations; 83 événements conservés"
+    },
+    {
+      "id": "P2-05",
+      "phase": 2,
+      "title": "Rapprochement global intersource",
+      "status": "TECH_VERIFIED",
+      "owner": "assistant",
+      "deps": [],
+      "evidence": "../AUDIT_GLOBAL_IDENTITY_V01.json",
+      "next": "321 candidats intersources, 656 anciens intra séparés; pas de fusion"
+    },
+    {
+      "id": "P2-06",
+      "phase": 2,
+      "title": "Audit des 2 paires non régénérées, nom court et champs techniques",
+      "status": "READY",
+      "owner": "assistant",
+      "deps": [
+        "P2-05"
+      ],
+      "evidence": "../AUDIT_GLOBAL_IDENTITY_V01.json",
+      "next": "Prochain chantier : expliquer écarts, mapping champs imbriqués sans inférer identité"
+    },
+    {
+      "id": "P2-07",
+      "phase": 2,
+      "title": "Sensibilité blocage et contrôle des groupes différés",
+      "status": "READY",
+      "owner": "assistant",
+      "deps": [
+        "P2-06"
+      ],
+      "evidence": "../GLOBAL_IDENTITY_PROTOCOL_V01.md",
+      "next": "Bloc 63 intra, seuil 30, noms courts; comparer sans arbitrage automatique"
+    },
+    {
+      "id": "P2-08",
+      "phase": 2,
+      "title": "Contrôle indépendant hors candidats et plan confirmatoire",
+      "status": "READY",
+      "owner": "assistant",
+      "deps": [
+        "P2-07"
+      ],
+      "evidence": "../IDENTITY_REVIEW_CODEBOOK_V02.md",
+      "next": "Proposer échantillonnage, critères, limites; pas de jugements humains simulés"
+    },
+    {
+      "id": "P2-09",
+      "phase": 2,
+      "title": "Double calibration identité (57+10 paires)",
+      "status": "WAIT_HUMAN",
+      "owner": "équipe/juges",
+      "deps": [],
+      "evidence": "../AUDIT_IDENTITY_REGISTRY_V03.json",
+      "next": "67 paires vierges par juge; organiser deux juges indépendants et arbitrage"
+    },
+    {
+      "id": "P2-10",
+      "phase": 2,
+      "title": "Essai réel séquentiel moteur et reprise entre runners",
+      "status": "READY",
+      "owner": "assistant",
+      "deps": [],
+      "evidence": "../CHECKPOINT_PROTOCOL.md",
+      "next": "Périmètre autorisé uniquement; preuve de restauration, erreurs et durée"
+    },
+    {
+      "id": "P2-11",
+      "phase": 2,
+      "title": "Saturation prospective et comparateurs",
+      "status": "READY",
+      "owner": "assistant",
+      "deps": [
+        "P2-10"
+      ],
+      "evidence": "../SATURATION_PROTOCOL.md",
+      "next": "Préparer et tester plan exploratoire; seuils soumis à équipe"
+    },
+    {
+      "id": "P2-12",
+      "phase": 2,
+      "title": "Compléments de couverture justifiés et textes EPS",
+      "status": "READY",
+      "owner": "assistant",
+      "deps": [],
+      "evidence": "../COUVERTURE_PEDAGOGIQUE_V01.md",
+      "next": "Lacunes AR motrice, inclusion, contexte, marchés et textes applicables; pas de quota"
+    },
+    {
+      "id": "P2-13",
+      "phase": 2,
+      "title": "Calibration de pertinence (141 fiches)",
+      "status": "WAIT_HUMAN",
+      "owner": "équipe/juges",
+      "deps": [],
+      "evidence": "../CALIBRATION_CASES_V01.json",
+      "next": "Deux évaluateurs, verrouillage, arbitrage et contrôle indépendant"
+    },
+    {
+      "id": "P2-14",
+      "phase": 2,
+      "title": "Validation des ancres 10D/97P",
+      "status": "WAIT_HUMAN",
+      "owner": "experts",
+      "deps": [],
+      "evidence": "../OPERATIONNALISATION_10D97P_PROTOCOL.md",
+      "next": "97 correspondances proposées, validation unités, NR/SO et fiabilité"
+    },
+    {
+      "id": "P2-15",
+      "phase": 2,
+      "title": "Droits, choix des sources et périmètre autorisé",
+      "status": "WAIT_HUMAN",
+      "owner": "équipe",
+      "deps": [
+        "P1-04"
+      ],
+      "evidence": "../SOURCE_REGISTER.md",
+      "next": "Aptoide suspendu, Google Play non confirmé; décisions documentées"
+    },
+    {
+      "id": "P2-16",
+      "phase": 2,
+      "title": "Approbation protocole, seuils, éthique et préenregistrement",
+      "status": "BLOCKED",
+      "owner": "équipe",
+      "deps": [
+        "P1-02",
+        "P1-04",
+        "P2-08",
+        "P2-09",
+        "P2-11",
+        "P2-12",
+        "P2-13",
+        "P2-14",
+        "P2-15"
+      ],
+      "evidence": "../PLAN_FINALISATION.md",
+      "next": "Toutes préconditions résolues par preuve et décision explicite, y compris périmètre historique"
+    },
+    {
+      "id": "P3-01",
+      "phase": 3,
+      "title": "Collecte définitive par blocs et normalisation",
+      "status": "BLOCKED",
+      "owner": "équipe/assistant",
+      "deps": [
+        "P2-16"
+      ],
+      "evidence": "../PLAN_FINALISATION.md",
+      "next": "Collecte seulement après approbation"
+    },
+    {
+      "id": "P4-01",
+      "phase": 4,
+      "title": "Qualification et validation scientifique",
+      "status": "BLOCKED",
+      "owner": "équipe/juges",
+      "deps": [
+        "P3-01"
+      ],
+      "evidence": "../PLAN_FINALISATION.md",
+      "next": "Criblage, 10D/97P, contrôles et arbitrages"
+    },
+    {
+      "id": "P5-01",
+      "phase": 5,
+      "title": "Moteur écosystémique et validation avant intégration",
+      "status": "BLOCKED",
+      "owner": "équipe/assistant",
+      "deps": [
+        "P4-01"
+      ],
+      "evidence": "../PLAN_FINALISATION.md",
+      "next": "Tests comparatifs, contraintes et validation; aucune modification main"
+    },
+    {
+      "id": "P6-01",
+      "phase": 6,
+      "title": "Article, dépôt et clôture",
+      "status": "BLOCKED",
+      "owner": "équipe",
+      "deps": [
+        "P5-01"
+      ],
+      "evidence": "../PLAN_FINALISATION.md",
+      "next": "Article, preuves, relecture et accord avant diffusion"
+    }
+  ]
+}

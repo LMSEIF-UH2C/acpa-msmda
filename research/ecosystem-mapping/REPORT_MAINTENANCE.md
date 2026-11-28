@@ -9,3 +9,6 @@ Le rapport [RAPPORT_SCIENTIFIQUE_EVOLUTIF.md](RAPPORT_SCIENTIFIQUE_EVOLUTIF.md) 
 - La maintenance se réalise au fil des contributions, pas automatiquement entre les conversations. Ne pas annoncer d'exécution autonome si aucun mécanisme n'a été configuré.
 
 - À chaque retour au porteur : travaux effectués, résultats et preuves, analyse critique, mise à jour du rapport si nécessaire, prochaine étape explicite. Se référer au [plan directeur de finalisation](PLAN_FINALISATION.md) et signaler les préconditions non remplies.
+
+## Coordination opérationnelle (28 novembre 2026)
+Avant tout nouveau chantier, appliquer [coordination/README.md](coordination/README.md), lire [ETAT.json](coordination/ETAT.json) et réserver par commit CAS. [Checklist](coordination/CHECKLIST.md) et [journal](coordination/JOURNAL.md) sont mis à jour atomiquement avec état et preuves. Relire seulement le jalon concerné, pas réauditer des résultats acquis sans motif. Le rapport maître conserve son rôle de référence scientifique; aucune validation scientifique par simple changement de statut opérationnel.

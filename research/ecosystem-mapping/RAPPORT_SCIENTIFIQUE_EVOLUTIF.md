@@ -1,6 +1,6 @@
 # Rapport scientifique évolutif — Cartographie technologique écosystémique ACPA/MSMDA
 
-**Version 0.1.6 — 28 novembre 2026.** Dossier de recherche et base de rédaction d'un article méthodologique. Branche `research/ecosystem-mapping-pilot`, [PR 81](https://github.com/LMSEIF-UH2C/acpa-msmda/pull/81). État : exploration et développement méthodologique; collecte définitive et validation empirique non achevées. Ce rapport est rétrospectif pour les pilotes déjà réalisés, prospectif pour les étapes restantes. Il ne constitue pas un préenregistrement rétroactif. Auteur(s), contributions CRediT, financement, déclarations et choix de revue à confirmer par l'équipe scientifique. Code de production et version publiée v0.2.0 préservés.
+**Version 0.1.7 — 28 novembre 2026.** Dossier de recherche et base de rédaction d'un article méthodologique. Branche `research/ecosystem-mapping-pilot`, [PR 81](https://github.com/LMSEIF-UH2C/acpa-msmda/pull/81). État : exploration et développement méthodologique; collecte définitive et validation empirique non achevées. Ce rapport est rétrospectif pour les pilotes déjà réalisés, prospectif pour les étapes restantes. Il ne constitue pas un préenregistrement rétroactif. Auteur(s), contributions CRediT, financement, déclarations et choix de revue à confirmer par l'équipe scientifique. Code de production et version publiée v0.2.0 préservés.
 
 ## 1. Projet d'article
 Titre provisoire FR : **Vers une cartographie systématique, cumulative, adaptative et multidimensionnelle des technologies éducatives : développement et validation méthodologique en éducation physique et sportive.**
@@ -34,7 +34,7 @@ La revue de littérature sur cartographie adaptative, discovery curves, recherch
 
 ## 4. Méthode : architecture et unités
 **Séquence :** périmètre et autorisations → récupération historique → plan de recherche multilingue → collecte par source → vérification des observations → rapprochement des identités → analyse du rendement → décision documentée de couverture/saturation → criblage → extraction/cotation → synthèse → validation des écosystèmes.
-Quatre niveaux distincts : observation (réponse à une requête, date et marché), identifiant source (trackId, package Android, repository ID), produit (rapprochement sur preuves), variante (plateforme/version). Les dépôts GitHub ne sont pas des applications par défaut. Aucun regroupement sur nom seul; états confirmé, ambigu, non rapproché et preuves. La normalisation universelle reste à implémenter et valider. Le cumul des identifiants par plateforme et des dépôts est descriptif uniquement.
+Quatre niveaux distincts : observation (réponse à une requête, date et marché), identifiant source (trackId, package Android, repository ID), produit (rapprochement sur preuves), variante (plateforme/version). Les dépôts GitHub ne sont pas des applications par défaut. Aucun regroupement sur nom seul; états confirmé, ambigu, non rapproché et preuves. La normalisation universelle est amorcée : [protocole d'identité V0.1](IDENTITY_NORMALIZATION_PROTOCOL.md), regroupement exact par source et génération de candidats sans fusion de produits. La validation des liens et le registre complet des variantes restent à construire. Le cumul des identifiants par plateforme et des dépôts est descriptif uniquement.
 L'objet recherché peut avoir une pertinence motrice directe ou une fonction complémentaire (feedback, évaluation, quiz, organisation, bureautique, accessibilité, communication, LMS). Une application connue sert de témoin de couverture, non de quota, ni de preuve de découverte systématique. Les catégories ne sont pas exclusives.
 
 ### 4.1 Stratégie documentaire
@@ -116,6 +116,8 @@ Sources primaires : [audit Apple](AUDIT_APPLE_PILOT.md), [F-Droid](AUDIT_FDROID_
 
 | 28 nov. | V0.1.6 : [audit Apple indépendant](AUDIT_APPLE_V02_INDEPENDANT.md) | 288/288 empreintes, 580 fichiers, résultats et groupes réconciliés; nouvelles courbes et redondance; aucune exclusion automatique. Phase 1 partiellement achevée, archives historiques à récupérer. |
 
+| 28 nov. | V0.1.7 : [normalisation V0.1](IDENTITY_NORMALIZATION_PROTOCOL.md) | Schéma conceptuel, regroupement par ID de source, signaux de candidats et échantillon indépendant à juger; aucun rapprochement automatique de produits. Pilote hors ligne déclenché; résultats à contrôler. |
+
 ## 7. Validation prospective : plan de travail et critères de passage
 Le [plan directeur de finalisation](PLAN_FINALISATION.md) définit six phases avec livrables et critères de passage : consolidation, stabilisation (incluant calibration des juges et préenregistrement avant collecte), collecte définitive, qualification/validation, moteur écosystémique, valorisation et clôture. En cas d'archives historiques irrécupérables, distinguer nouvelle collecte et comparaison documentaire limitée, sans annoncer de gain net historique. Les paramètres de validation et les critères d'arrêt restent à approuver avant exécution confirmatoire. Quatre figures distinctes proposées : flux historique, architecture, flux quantitatif nouveau et modèle écosystémique.
 
@@ -124,7 +126,7 @@ Le [plan directeur de finalisation](PLAN_FINALISATION.md) définit six phases av
 | Archives historiques et droits | Bloqué partiellement | Manifestes, empreintes, effectifs recalculés, autorisations; pas de fusion avant vérification |
 | V0.2 exploratoire | Audit indépendant réussi (288/288 empreintes sur les deux pilotes) | Rapprochement historique après récupération des listes; réponse brute V0.2 non conservée |
 | Moteur et adaptateur | Tests hors ligne réussis | Petit essai réel séquentiel sur plan autorisé, reprise et latence mesurées; comparaison à procédure historique à périmètre égal |
-| Normalisation | À construire | Schéma produit/variante/source/observation; précision des liens et faux rapprochements sur corpus indépendant |
+| Normalisation | Pilote de rapprochement exploratoire développé, tests/exécution à vérifier | Schéma produit/variante/source/observation; précision des liens et faux rapprochements sur corpus indépendant |
 | Saturation | Exploratoire | Règle prospective validée, bloc de contrôle par strates, évaluation des pertes pertinentes, pas d'arrêt sur erreur |
 | Criblage | 141 fiches préparées | Deux juges humains indépendants, arbitrage, révision codebook et échantillon de validation distinct |
 | Référentiel 10D/97P | Codes transcrits | Applicabilité/ancres/preuves validées par experts; fiabilité, traitement NR/SO et couverture de preuve |

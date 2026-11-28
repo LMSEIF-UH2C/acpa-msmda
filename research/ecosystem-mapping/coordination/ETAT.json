@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": 19,
+  "revision": 20,
   "branch": "research/ecosystem-mapping-pilot",
   "scientific_version": "0.1.51",
   "scientific_baseline_commit": "192821c46b19f2689187dabb0e04a914cc8ac5be",
@@ -11,7 +11,7 @@
     "acquired_utc": "2026-11-28",
     "base_head": "9f5d9e646908d480a26e85de9adf95d9719eaff4",
     "run_refs": [],
-    "resume_note": "Contrôle documentaire et complément ciblé des besoins EPS."
+    "resume_note": "Audit structurel ciblé et lexical en cours; contrôler résultats avant clôture."
   },
   "last_handoff": {
     "actor": "interactive_assistant",

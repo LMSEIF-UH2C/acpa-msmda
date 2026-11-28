@@ -23,3 +23,4 @@
 | 2026-11-28 | interactive_assistant | INT-P1-04-0007 | P1-04 | Réservation exclusive | HEAD cdc4aaf98246bddf8713ce9b75e274bea684283b | Inventaire et droits |
 | 2026-11-28 | interactive_assistant | INT-P1-04-0007 | P1-04 | Inventaire 35 artefacts, 2 kits et projection vérifiés, revue droits; clôture préparatoire et verrou libéré | [Inventaire](../EVIDENCE_INVENTORY_V02.csv) | P2-12 |
 | 2026-11-28 | interactive_assistant | INT-P2-12-0008 | P2-12 | Réservation exclusive | HEAD 9f5d9e646908d480a26e85de9adf95d9719eaff4 | Couverture pédagogique |
+| 2026-11-28 | interactive_assistant | INT-P2-12-0008 | P2-12 | Plan scénarios, références et audit hors ligne enregistrés | [Protocole](../COVERAGE_TARGETED_PROTOCOL_V02.md) | Vérifier run |

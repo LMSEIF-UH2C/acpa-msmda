@@ -1,0 +1,16 @@
+name: Ecosystem 10D97P structural validation
+on:
+  push:
+    branches: [research/ecosystem-mapping-pilot]
+    paths: ['research/ecosystem-mapping/OPERATIONNALISATION_10D97P_V01.csv','research/ecosystem-mapping/check_operationalization.py','.github/workflows/ecosystem-10d97p-check.yml']
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python research/ecosystem-mapping/check_operationalization.py

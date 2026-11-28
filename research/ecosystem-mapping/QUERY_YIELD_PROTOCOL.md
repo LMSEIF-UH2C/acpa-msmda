@@ -1,0 +1,9 @@
+# Analyse du rendement des requêtes — V0.3 exploratoire
+
+Planificateur validé : https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46128865538. 118 + 300 - 20 = 398 termes distincts ; 1592 couples terme/marché à limite 200. Cache audité : 48 réponses à limite 50, aucune à limite 200 vérifiée, 1544 couples sans snapshot, 0 erreur de cache. Ne pas convertir 48 réponses exploratoires en 48 requêtes définitives économisées.
+
+Analyseur hors ligne : vérifier le plan et les empreintes de chaque payload avant lecture, conserver les erreurs et requêtes non tentées, calculer gain cumulatif ordonné, contribution exclusive indépendante de l'ordre, plafonds, effectifs par famille et langue/marché, Jaccard des paires de requêtes dans une même phase et à même limite. Aucun appel supplémentaire aux API de recherche. Les résultats ne contiennent pas de descriptions commerciales. Les nouvelles réponses factuelles peuvent être auditées pour leur intégrité, mais pas reconstruites à partir de l'empreinte brute.
+
+Interprétation : un faible gain ou un Jaccard élevé suggère un examen de redondance, pas une exclusion. Préserver les termes rares, la couverture disciplinaire, l'accessibilité et les langues. Pour les futures collectes, définir une règle de saturation avant la phase définitive, après calibration exploratoire, avec un contrôle indépendant de couverture et des faux négatifs. Aucun seuil ni gain temporel inventé. Les temps réseau par requête ne sont pas disponibles séparément pour les anciens pilotes; instrumenter monotonic elapsed, tentatives et temps de pause pour les nouvelles collectes. Ne pas confondre rendement en identifiants et rendement en applications pédagogiquement pertinentes.
+
+La prochaine étape technique est une collecte par blocs avec points de reprise durables et règles d'arrêt sur limitation d'accès, après clarification des archives et droits. Aucun lancement définitif ni modification de main. 

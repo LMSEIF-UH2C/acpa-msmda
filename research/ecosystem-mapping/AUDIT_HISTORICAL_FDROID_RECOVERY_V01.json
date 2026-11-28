@@ -1,0 +1,48 @@
+{
+  "scope": "Offline verification of historical F-Droid index supplied by project owner, 2026-11-28",
+  "original_gzip": {
+    "bytes": 23479143,
+    "sha256": "fdb26c76d1a672115c87e986779b00862ca13dbc0b789d417956a144c62dab95",
+    "private_copy_readback_verified": true,
+    "gzip_integrity": true
+  },
+  "payload_equivalence": "ZIP and GZIP decode to byte-identical JSON",
+  "historical": {
+    "index_timestamp_utc": "2026-11-20T18:31:09.786Z",
+    "registry_acquisition_date": "2026-11-22",
+    "packages": 5026,
+    "registry_ids_matched": 5026,
+    "registry_only": 0,
+    "index_only": 0,
+    "canonical_links_matched": 5026,
+    "recorded_decisions": {
+      "identification_duplicate": 265,
+      "screening_excluded": 2845,
+      "eligibility_excluded": 1804,
+      "double_screen_included": 90,
+      "double_screen_excluded": 22
+    }
+  },
+  "recent_comparison": {
+    "pilot_zip_sha256": "9348a5cee92d30e3621c75a543c2b4ac25900995bbda536734597617819fea85",
+    "pilot_index_timestamp_utc": "2026-11-25T23:14:05.236Z",
+    "pilot_packages": 5057,
+    "common": 5023,
+    "recent_only": 34,
+    "historical_only": 3,
+    "union": 5060
+  },
+  "historical_raw_identifier_coverage": {
+    "apple": 23194,
+    "fdroid": 5026,
+    "total": 28220,
+    "registry_total": 45676,
+    "aptoide_pending": 17456
+  },
+  "limitations": [
+    "Byte equivalence and ID equality, not verification of historical signature or independently replayed acquisition.",
+    "Recorded screening decisions reconcile; semantic validity not reassessed.",
+    "Distinct source IDs are not distinct cross-source products.",
+    "No new collection or integration; raw Aptoide responses, logs and Claude standalone verdict provenance still missing."
+  ]
+}

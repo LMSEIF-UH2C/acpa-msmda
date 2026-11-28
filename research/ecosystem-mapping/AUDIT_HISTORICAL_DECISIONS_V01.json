@@ -1,0 +1,142 @@
+{
+  "scope": "Offline reconciliation of six files supplied by project owner, 2026-11-28; historical AI screening, no human validation",
+  "files": [
+    {
+      "name": "enregistrements_45676_decisions.csv",
+      "rows": 45676,
+      "bytes": 11724863,
+      "sha256": "a1e7602694b83c5970c39ab55bd958f830be4595aba103396f6886b97ba0ed34"
+    },
+    {
+      "name": "candidates_evaluation(1).csv",
+      "rows": 1876,
+      "bytes": 1003111,
+      "sha256": "1ff0ff7f8dfb547a3c16052e7635bc194a15e1e81b48d2e48f4dfc9ad3ed0ae7"
+    },
+    {
+      "name": "evaluation_eps(1).csv",
+      "rows": 1876,
+      "bytes": 93231,
+      "sha256": "f798f3da9ae79229508860b0de83eb4a846fb87c027306e45d32fa12b4b1d589"
+    },
+    {
+      "name": "relecture_criteres_corriges(1).csv",
+      "rows": 207,
+      "bytes": 107136,
+      "sha256": "3723bfc5fcaf6af8f2d219131d944d5e04a3e22683e6b7c642564927d13a855a"
+    },
+    {
+      "name": "relecture_eps_corrigee(1).csv",
+      "rows": 207,
+      "bytes": 10666,
+      "sha256": "f99d2cf8f24d765bd0578e0b45bdf6a7ce82c654234b692ae7c7b40e7c9728a5"
+    },
+    {
+      "name": "panier_acpa_msmda_ia_todo(1).csv",
+      "rows": 1199,
+      "bytes": 292441,
+      "sha256": "9327046ee554f6d57d3029b2317120e61f8fbd9fce490a9c1b5636c7bc970539"
+    }
+  ],
+  "archive": {
+    "bytes": 2253671,
+    "sha256": "d21867bfc0f1337d40fcf0ba97394a2eacd3b338a40b90174f8c13446c85c9c9",
+    "private_readback_sha_crc_and_six_file_hashes_verified": true
+  },
+  "source_counts": {
+    "apple": 23194,
+    "aptoide": 17456,
+    "fdroid": 5026
+  },
+  "native_unique_records": 45676,
+  "apple_exact_archive_id_match": 23194,
+  "aptoide_missing_links": 16908,
+  "flow": {
+    "identification_removed": 4917,
+    "including_empty_normalized_name": 1,
+    "remaining": 40759,
+    "selection_excluded": 30694,
+    "eligible_review": 10065,
+    "eligibility_excluded": 7152,
+    "eligible": 2913,
+    "pre_screen_catalog_duplicates": 137,
+    "version1_included": 900,
+    "double_screen": 1876,
+    "double_screen_excluded": 753,
+    "double_screen_included": 1123,
+    "other_sources": 443,
+    "final_total_arithmetic": 2466
+  },
+  "initial": {
+    "matrix": [
+      [
+        687,
+        131
+      ],
+      [
+        276,
+        782
+      ]
+    ],
+    "agreement": 0.7830490405117271,
+    "kappa": 0.5675725269696572,
+    "ci95_delta": [
+      0.5308273149786074,
+      0.6043177389607071
+    ]
+  },
+  "corrected": {
+    "matrix": [
+      [
+        832,
+        164
+      ],
+      [
+        131,
+        749
+      ]
+    ],
+    "agreement": 0.8427505330490406,
+    "kappa": 0.6849819101678747,
+    "ci95_delta": [
+      0.6520049511980728,
+      0.7179588691376766
+    ]
+  },
+  "matrix_order": [
+    "UTILE",
+    "NON UTILE"
+  ],
+  "matrix_axes": [
+    "ChatGPT",
+    "Claude consolidated"
+  ],
+  "corrections": {
+    "reassessed": 207,
+    "non_utile_to_utile": 178,
+    "unchanged_non_utile": 29,
+    "chatgpt_corrected_matches_master": 1876
+  },
+  "candidate_ids_and_links_match": 1876,
+  "candidate_name_matches": 1875,
+  "name_mismatch_id": "C1134",
+  "positive_union": 1127,
+  "post_screen_exclusions": {
+    "already_catalog": 1,
+    "unavailable_public_link": 3
+  },
+  "fdroid": {
+    "historical": 5026,
+    "recent": 5057,
+    "common": 5023,
+    "recent_only": 34,
+    "historical_only": 3,
+    "union": 5060
+  },
+  "limits": [
+    "Claude decisions recorded in consolidated table only; original separate verdicts, prompts, model versions, dates and independence not confirmed.",
+    "Raw historical Android API/index and logs absent; recorded decisions not independently replayed; 16908 Aptoide links blank.",
+    "No independent human validation; kappa after retrospective correction, delta interval conditional on independent pairs, not model-level or generalization uncertainty.",
+    "Final inclusion counts reconcile but 900/162/77 exact reconstruction not executed. No new collection, product identity or corpus integration."
+  ]
+}

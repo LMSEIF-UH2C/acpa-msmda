@@ -1,0 +1,86 @@
+{
+  "phase": "A1",
+  "scope": "Technical compatibility only, not scientific validation",
+  "base_main": "b4727bf9f200ee58c7b0920f9f153ef4ae05127d",
+  "integration_commit": "105b3c193e663799c173bbe61793711d790bf165",
+  "pr": 82,
+  "branch": "integration/ecosystem-v030",
+  "changed_files": [
+    ".github/workflows/catalogue-bridge.yml",
+    "docs/validation/A1_CATALOGUE_BRIDGE.md",
+    "src/acpa_msmda/catalogue_bridge.py",
+    "src/acpa_msmda/real_catalog.py",
+    "tests/test_catalogue_bridge.py"
+  ],
+  "targeted": {
+    "run_id": 46166042264,
+    "tests_per_environment": {
+      "bridge": 11,
+      "legacy_catalogue": 9,
+      "integrity": 4
+    },
+    "environments": [
+      "3.12",
+      "3.14"
+    ],
+    "executions_passed": 48,
+    "executions_total": 48,
+    "distinct_tests": 24
+  },
+  "snapshot": {
+    "rows": 2466,
+    "records": 2466,
+    "observations": 2466,
+    "entities": 0,
+    "assertions": 0,
+    "sha256": "0460885edcb43bf8501a859e442bbcd3dc12afcc296c6f9ff621a58992dc3b1d",
+    "git_blob": "39b32ebbdf33b49a3fb0bb669f8a0809d0e72995",
+    "bytes": 4629670
+  },
+  "full_regression_status": "PENDING",
+  "checks": [
+    {
+      "name": "reference",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46166052325/job/141043698699"
+    },
+    {
+      "name": "mobile-navigation",
+      "status": "in_progress",
+      "conclusion": null,
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46166052367/job/141043698573"
+    },
+    {
+      "name": "smoke-test",
+      "status": "in_progress",
+      "conclusion": null,
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46166052420/job/141043698460"
+    },
+    {
+      "name": "tests (3.14)",
+      "status": "in_progress",
+      "conclusion": null,
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46166052319/job/141043698374"
+    },
+    {
+      "name": "tests (3.12)",
+      "status": "in_progress",
+      "conclusion": null,
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46166052319/job/141043698230"
+    },
+    {
+      "name": "bridge (3.14)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46166042264/job/141043666682"
+    },
+    {
+      "name": "bridge (3.12)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46166042264/job/141043666447"
+    }
+  ],
+  "limitations": "No persistence, external ingestion, new recommendation, new score, scientific validation or deployment. Full regression must pass before A2. Main unchanged at last verification; draft PR not merged."
+}

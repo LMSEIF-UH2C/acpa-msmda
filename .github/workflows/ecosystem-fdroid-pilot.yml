@@ -1,0 +1,24 @@
+name: Ecosystem mapping F-Droid pilot
+on:
+  push:
+    branches: [research/ecosystem-mapping-pilot]
+    paths: ['research/ecosystem-mapping/collect_fdroid.py', '.github/workflows/ecosystem-fdroid-pilot.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python research/ecosystem-mapping/collect_fdroid.py --output fdroid-pilot-output
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ecosystem-fdroid-pilot-audit
+          path: fdroid-pilot-output/
+          retention-days: 7

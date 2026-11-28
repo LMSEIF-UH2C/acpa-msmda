@@ -1,0 +1,134 @@
+{
+  "audit_job": "verify",
+  "checkpoint_manifest_sha256": "ad4302ded2374ae9beb95958d9c7a017fe52343c922ffe2dd7734b1ec93e4c4e",
+  "distinct_qids": 108,
+  "final_records": 4,
+  "first": {
+    "blocked": false,
+    "complete_success": false,
+    "mode": "wikidata-cc0-checkpoint-v01",
+    "new_attempts": 2,
+    "planned": 4,
+    "recorded": 2,
+    "reused_successes": 0,
+    "status_counts": {
+      "ok": 2
+    },
+    "unattempted": 2
+  },
+  "first_job": "first",
+  "first_records_unchanged": true,
+  "observations": 108,
+  "offline_replay": {
+    "blocked": false,
+    "complete_success": true,
+    "mode": "wikidata-cc0-checkpoint-v01",
+    "new_attempts": 0,
+    "planned": 4,
+    "recorded": 4,
+    "reused_successes": 4,
+    "status_counts": {
+      "ok": 4
+    },
+    "unattempted": 0
+  },
+  "per_query": [
+    {
+      "cap_reached": false,
+      "family": "statistics",
+      "finished_utc": "2026-11-28T14:21:14.009979+00:00",
+      "http_status": 200,
+      "network_elapsed_seconds": 0.21126155999999696,
+      "new_qids_in_order": 23,
+      "returned": 23,
+      "started_utc": "2026-11-28T14:21:13.798749+00:00",
+      "status": "ok"
+    },
+    {
+      "cap_reached": false,
+      "family": "lms",
+      "finished_utc": "2026-11-28T14:21:18.185255+00:00",
+      "http_status": 200,
+      "network_elapsed_seconds": 0.17466637300000798,
+      "new_qids_in_order": 75,
+      "returned": 75,
+      "started_utc": "2026-11-28T14:21:18.010614+00:00",
+      "status": "ok"
+    },
+    {
+      "cap_reached": false,
+      "family": "fitness",
+      "finished_utc": "2026-11-28T14:21:32.581592+00:00",
+      "http_status": 200,
+      "network_elapsed_seconds": 0.30399103300000263,
+      "new_qids_in_order": 9,
+      "returned": 9,
+      "started_utc": "2026-11-28T14:21:32.277637+00:00",
+      "status": "ok"
+    },
+    {
+      "cap_reached": false,
+      "family": "vr_headset",
+      "finished_utc": "2026-11-28T14:21:36.689191+00:00",
+      "http_status": 200,
+      "network_elapsed_seconds": 0.10703014099999564,
+      "new_qids_in_order": 1,
+      "returned": 1,
+      "started_utc": "2026-11-28T14:21:36.582193+00:00",
+      "status": "ok"
+    }
+  ],
+  "plan_sha256": "569c69cb9cd92ad684aa75c2d330238fb5090ec3ddf914b89ff8ac27deb2ef8e",
+  "repeated_qid_observations": 0,
+  "runner_labels": [
+    "GitHub Actions 1000001296",
+    "GitHub Actions 1000001303",
+    "GitHub Actions 1000001304"
+  ],
+  "scope": "Live sequential Wikidata only; different hosted jobs; no claims of reproducibility of mutable remote results, no automatic product merge.",
+  "second": {
+    "blocked": false,
+    "complete_success": true,
+    "mode": "wikidata-cc0-checkpoint-v01",
+    "new_attempts": 2,
+    "planned": 4,
+    "recorded": 4,
+    "reused_successes": 2,
+    "status_counts": {
+      "ok": 4
+    },
+    "unattempted": 0
+  },
+  "second_job": "second",
+  "status": "SUCCESS",
+  "run_id": 46154207305,
+  "job_ids": [
+    141007137906,
+    141007214949,
+    141007293574
+  ],
+  "synthetic_tests_passed": 16,
+  "synthetic_regression_run": 46154207211,
+  "synthetic_regression_status": "success",
+  "archive": {
+    "artifact_id": 15267286680,
+    "bytes": 12085,
+    "sha256": "9e6fb32d85767786dd23d38709e48c1e40938bb8e5101863227944fab962380a",
+    "private_drive_readback_verified": true,
+    "crc_verified": true,
+    "raw_response_hashes_verified": 4
+  },
+  "intermediate_artifacts": [
+    {
+      "id": 15267495242,
+      "bytes": 6980,
+      "sha256_declared": "057f67a217b3d10aa105b3910b82483f943b3c335ec86578a3006d4afd5a09e0"
+    },
+    {
+      "id": 15267032512,
+      "bytes": 11087,
+      "sha256_declared": "b212859d32453c6865e546e072cf9a55b228a4e5767310e0eabc3961a13adb63"
+    }
+  ],
+  "limitations": "Only Wikidata and deliberate planned split in a single workflow, not crash recovery between workflows, other sources or guarantee of exactly-once network requests. Intermediate archives not independently downloaded; final archive preserves record hashes and handoff/resume metadata. No identity/eligibility validation."
+}

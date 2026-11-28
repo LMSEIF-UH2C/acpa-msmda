@@ -1,0 +1,21 @@
+name: Ecosystem independent identity validation metrics
+on:
+  push:
+    branches: [research/ecosystem-mapping-pilot]
+    paths: ['research/ecosystem-mapping/identity_validation_metrics.py','research/ecosystem-mapping/tests/test_identity_validation_metrics.py','.github/workflows/ecosystem-identity-validation.yml']
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s research/ecosystem-mapping/tests -p test_identity_validation_metrics.py -v
+      - name: Prospective design illustrations only
+        run: |
+          cd research/ecosystem-mapping
+          python -c "import json; from identity_validation_metrics import srs_size; print('VALIDATION_DESIGN '+json.dumps({'frame_before_holdout':349,'srs_half_width_0_10':srs_size(349,.10),'srs_half_width_0_05':srs_size(349,.05),'human_judgments':0,'scientific_validation':'NOT_STARTED'}))"

@@ -1,0 +1,38 @@
+name: Ecosystem saturation sensitivity
+on:
+  push:
+    branches: [research/ecosystem-mapping-pilot]
+    paths: ['research/ecosystem-mapping/saturation_sensitivity.py','research/ecosystem-mapping/tests/test_saturation_sensitivity.py','.github/workflows/ecosystem-saturation-sensitivity.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - run: python -m unittest discover -s research/ecosystem-mapping/tests -p test_saturation_sensitivity.py
+      - uses: actions/download-artifact@v4
+        with:
+          name: ecosystem-apple-pilot-audit
+          run-id: 46087551165
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: baseline
+      - name: Analyze available verified data
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          status=$(gh api repos/$GITHUB_REPOSITORY/actions/runs/46128443244 --jq '.status')
+          if [ "$status" = "completed" ] && [ "$(gh api repos/$GITHUB_REPOSITORY/actions/runs/46128443244/artifacts --jq '[.artifacts[] | select(.name == "ecosystem-apple-v02-coverage" and .expired == false)] | length')" -gt 0 ]; then
+            gh run download 46128443244 --name ecosystem-apple-v02-coverage --dir expansion
+            python research/ecosystem-mapping/saturation_sensitivity.py --baseline baseline --expansion expansion --output saturation-output
+          else
+            python research/ecosystem-mapping/saturation_sensitivity.py --baseline baseline --output saturation-output
+          fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ecosystem-saturation-sensitivity
+          path: saturation-output/
+          retention-days: 30

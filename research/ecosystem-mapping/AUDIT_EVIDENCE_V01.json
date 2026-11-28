@@ -1,0 +1,182 @@
+{
+  "sill_count": 672,
+  "sill_active": 615,
+  "sill_status": {
+    "NO_NAME_MATCH": 662,
+    "NAME_CANDIDATE_REVIEW": 4,
+    "AMBIGUOUS_NAME_REVIEW": 6
+  },
+  "sill_nominal_rows_checked": 672,
+  "wikidata_payload_hashes_checked": 10,
+  "wikidata_qids": 547,
+  "wikidata_observations": 549,
+  "wikidata_caps": 2,
+  "wikidata_nominal_rows_checked": 547,
+  "wikidata_labels": {
+    "en": 484,
+    "fr": 254,
+    "ar": 92
+  },
+  "overlap": {
+    "catalog_only": 12,
+    "sill_only": 14,
+    "both": 1,
+    "neither": 520
+  },
+  "witnesses": [
+    {
+      "id": "WD01",
+      "name": "LINCE PLUS",
+      "catalog_ids": [],
+      "sill_ids": [],
+      "wikidata_qids": []
+    },
+    {
+      "id": "WD02",
+      "name": "Kinovea",
+      "catalog_ids": [
+        "kinovea"
+      ],
+      "sill_ids": [],
+      "wikidata_qids": []
+    },
+    {
+      "id": "WD03",
+      "name": "Tracker (Open Source Physics)",
+      "catalog_ids": [],
+      "sill_ids": [],
+      "wikidata_qids": []
+    },
+    {
+      "id": "WD04",
+      "name": "jamovi",
+      "catalog_ids": [],
+      "sill_ids": [],
+      "wikidata_qids": []
+    },
+    {
+      "id": "WD05",
+      "name": "GNU PSPP",
+      "catalog_ids": [],
+      "sill_ids": [],
+      "wikidata_qids": [
+        "Q1848165"
+      ]
+    },
+    {
+      "id": "WD06",
+      "name": "JASP",
+      "catalog_ids": [],
+      "sill_ids": [],
+      "wikidata_qids": []
+    },
+    {
+      "id": "WD07",
+      "name": "LibreOffice Calc",
+      "catalog_ids": [],
+      "sill_ids": [
+        "78"
+      ],
+      "wikidata_qids": [
+        "Q10135"
+      ]
+    },
+    {
+      "id": "WD08",
+      "name": "Lumi Desktop Editor",
+      "catalog_ids": [
+        "directory-0180"
+      ],
+      "sill_ids": [],
+      "wikidata_qids": []
+    },
+    {
+      "id": "WD09",
+      "name": "H5P",
+      "catalog_ids": [
+        "h5p"
+      ],
+      "sill_ids": [],
+      "wikidata_qids": []
+    },
+    {
+      "id": "WD10",
+      "name": "OpenOrienteering Mapper",
+      "catalog_ids": [],
+      "sill_ids": [],
+      "wikidata_qids": []
+    },
+    {
+      "id": "WD11",
+      "name": "OpenBoard",
+      "catalog_ids": [],
+      "sill_ids": [
+        "531"
+      ],
+      "wikidata_qids": []
+    },
+    {
+      "id": "WD12",
+      "name": "ClassQuiz",
+      "catalog_ids": [],
+      "sill_ids": [],
+      "wikidata_qids": []
+    },
+    {
+      "id": "WD13",
+      "name": "Chamilo",
+      "catalog_ids": [],
+      "sill_ids": [
+        "216"
+      ],
+      "wikidata_qids": [
+        "Q423221"
+      ]
+    },
+    {
+      "id": "WD14",
+      "name": "LongoMatch",
+      "catalog_ids": [
+        "directory-0162"
+      ],
+      "sill_ids": [],
+      "wikidata_qids": []
+    },
+    {
+      "id": "WD15",
+      "name": "Dartfish",
+      "catalog_ids": [
+        "candidate-019"
+      ],
+      "sill_ids": [],
+      "wikidata_qids": []
+    },
+    {
+      "id": "WD16",
+      "name": "BORIS",
+      "catalog_ids": [],
+      "sill_ids": [],
+      "wikidata_qids": []
+    },
+    {
+      "id": "WD17",
+      "name": "Excalidraw",
+      "catalog_ids": [],
+      "sill_ids": [],
+      "wikidata_qids": []
+    }
+  ],
+  "witness_nominal_counts": {
+    "catalog_ids": 5,
+    "sill_ids": 3,
+    "wikidata_qids": 3
+  },
+  "failure_preserved": true,
+  "limitations": "Independent code implementation, not independent human reviewer. SILL original HTTP body not archived; SHA of original body cannot be recalculated. Witness sample purposive, name candidates only; no recall or eligibility.",
+  "catalog_blob": "39b32ebbdf33b49a3fb0bb669f8a0809d0e72995",
+  "zip_digests": {
+    "sill": "8bb73ecd9d326547bd93a1db570ab37501a5fec25cba61cc10005ba610f7bc27",
+    "wikidata": "e33bbf0775eabb94329b1d53211397ce3047ff41524b17d997a97821d6dd3c46",
+    "failure": "fae8f68b11fadc359838894220d03ab743a75217470d247f7ad086673f4500c9"
+  }
+}

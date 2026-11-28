@@ -1,0 +1,74 @@
+{
+  "snapshots": [
+    {
+      "artifact_id": 15239399393,
+      "distinct_ids": 1435,
+      "identical_payloads_vs_baseline": 48,
+      "identical_id_sets_vs_baseline": 48,
+      "common_ids_vs_baseline": 1435,
+      "additional_vs_baseline": 0,
+      "missing_vs_baseline": 0,
+      "observations": 1563,
+      "queries": 48,
+      "logs_without_returned_field": 48
+    },
+    {
+      "artifact_id": 15239729300,
+      "distinct_ids": 1437,
+      "identical_payloads_vs_baseline": 6,
+      "identical_id_sets_vs_baseline": 47,
+      "common_ids_vs_baseline": 1423,
+      "additional_vs_baseline": 14,
+      "missing_vs_baseline": 12,
+      "observations": 1564,
+      "queries": 48,
+      "logs_without_returned_field": 48
+    },
+    {
+      "artifact_id": 15240193007,
+      "distinct_ids": 1437,
+      "identical_payloads_vs_baseline": 6,
+      "identical_id_sets_vs_baseline": 47,
+      "common_ids_vs_baseline": 1423,
+      "additional_vs_baseline": 14,
+      "missing_vs_baseline": 12,
+      "observations": 1564,
+      "queries": 48,
+      "logs_without_returned_field": 48
+    },
+    {
+      "artifact_id": 15256282374,
+      "distinct_ids": 1439,
+      "identical_payloads_vs_baseline": 4,
+      "identical_id_sets_vs_baseline": 29,
+      "common_ids_vs_baseline": 1384,
+      "additional_vs_baseline": 55,
+      "missing_vs_baseline": 51,
+      "observations": 1563,
+      "queries": 48,
+      "logs_without_returned_field": 48
+    },
+    {
+      "artifact_id": 15256572578,
+      "distinct_ids": 1437,
+      "identical_payloads_vs_baseline": 10,
+      "identical_id_sets_vs_baseline": 31,
+      "common_ids_vs_baseline": 1387,
+      "additional_vs_baseline": 50,
+      "missing_vs_baseline": 48,
+      "observations": 1563,
+      "queries": 48,
+      "logs_without_returned_field": 48
+    }
+  ],
+  "union_five_snapshots": 1503,
+  "all_five_plus_extension_union": 3772,
+  "additional_vs_frozen_3709": 63,
+  "projection": {
+    "bytes": 46407,
+    "sha256": "f05f2bda0364fb6ac381da38810b8465768d4e054743aafd328cf7445c4b345b",
+    "private_readback_verified": true,
+    "queries": 192
+  },
+  "scope": "Temporal sensitivity only; not integrated. Five archives checked SHA/CRC and 240 raw payload hashes, same 48 queries; initial count check failed because returned absent; checked resultCount, limit, plan instead. Extension hashes checked for comparison. Original additional raw archives expire 2026-12-05; private ID-only projections not exact originals."
+}

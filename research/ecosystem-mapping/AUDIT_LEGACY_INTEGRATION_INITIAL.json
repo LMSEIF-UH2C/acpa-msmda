@@ -1,0 +1,55 @@
+{
+  "archives_verified": 4,
+  "checkpoint_manifest": "97ff2cda862c09d039eb793f714baf394f34cd26874c6f0c4fa4867d3990a6a2",
+  "confirmed_products": null,
+  "database_sha256": "9bcde7df2b2425924a602a5162c9eb13c46f14bb51421e28bec3343647774099",
+  "deferred": [
+    {
+      "rule": "repository_url",
+      "size": 63
+    }
+  ],
+  "existing_candidate_edges": 45,
+  "legacy_candidates": 669,
+  "legacy_cross": 13,
+  "legacy_observations": 12524,
+  "legacy_records": 9237,
+  "legacy_signals": {
+    "name": 192,
+    "repository_url": 483
+  },
+  "legacy_within": 656,
+  "limitations": "Distinct namespaces, not unique products. Legacy signals separate from nominal edges; no new cross-block matching or human adjudication. Local snapshot, not production; DB not uploaded. Date fallback for some historical observations is audit date, not source timestamp.",
+  "new_cross_block_matching": "NOT_RUN",
+  "register": {
+    "chain_head": "dbcc4e3c16c761742f8a7d59b98a162fb4ff12d59fe094e44fe2f6c0596ef65c",
+    "confirmed_attachments": 0,
+    "confirmed_product_count": null,
+    "current_assertions": 49,
+    "states": {
+      "PROPOSED": 3,
+      "REVIEW_REQUIRED": 45,
+      "UNCERTAIN": 1
+    },
+    "tables": {
+      "entity": 0,
+      "event": 49,
+      "observation": 16245,
+      "proof": 36,
+      "record": 12956,
+      "source": 8
+    }
+  },
+  "resume_verified": true,
+  "rollback_verified": true,
+  "source_counts": {
+    "apple": 3709,
+    "catalog": 2466,
+    "doc_target": 17,
+    "doc_web": 17,
+    "fdroid": 5057,
+    "github": 471,
+    "sill": 672,
+    "wikidata": 547
+  }
+}

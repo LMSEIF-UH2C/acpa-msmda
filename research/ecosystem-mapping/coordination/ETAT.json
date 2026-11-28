@@ -1,0 +1,406 @@
+{
+  "schema_version": 1,
+  "revision": 70,
+  "branch": "research/ecosystem-mapping-pilot",
+  "scientific_version": "0.1.58",
+  "scientific_baseline_commit": "c7da29efe69974ebc365dbf0aa942f95ec5846df",
+  "lock": {
+    "actor": "interactive_assistant",
+    "intervention_id": "INT-APP-A5-0019",
+    "task_id": "A5",
+    "acquired_utc": "2026-11-28T18:05:58.979Z",
+    "base_head": "12f6b300aa2d853ae4f5d0412cc52015fcad984c",
+    "run_refs": [
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46192067636",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46192067643",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46192067745",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46192067675",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46192062868"
+    ],
+    "resume_note": "A5 RET-020 : run 46187951357 terminal 6/18 PASS invalid_pin, 12/18 FAIL avant interaction, sélecteur filter(has=checkbox) utilise un locator déjà scoped au panneau au lieu d'un locator relatif. Les quatre régressions sont success. Archive 15281175143 SHA256 déclaré a6f1d62de769c442ff8fc4fa5af158967ed1eb6ee0fef78e8166e37eea0de83a (non recalculé dans cette passe). Correctif script seul 3b00f41168b7f227f0d9aec11b0faab6dcc6df30 : has=page.get_by_role(...) relatif, assert unicité widget, tap et assertions inchangées, 18 cas toujours exigés; résultat non présumé. Nouveau document MATRICE_QUALIFICATION_CALC_F14_V01.md consolide preuves et limites des neuf portes et ressources Calc F14, aucune porte promue, aucun manifeste approuvé, aucun test hors ligne ou scolaire nouveau. A6 sécurité préparée, périmètre inchangé; main stable inchangée."
+  },
+  "last_handoff": {
+    "actor": "interactive_assistant",
+    "intervention_id": "INT-APP-A4-0018",
+    "completed": "2026-11-28",
+    "summary": "Clôture technique A4 limitée au prototype isolé : 5/5 workflows du commit b81690de terminaux success, logs A4 Python 3.12 et 3.14 relus, 26 tests chacun (52/52), mêmes résultats 10 scénarios et 100 pools (graine 20261128), 34/34 liaisons documentaires et 0 admission. Couverture obligatoire complète I 2/10, P≤2 7/10, E 8/10; S01 seul gain E vs P, trois outils; S02 absence de configuration complète (budget), S10 exigence non modélisée; S04 et S06 un outil suffit. Ce sont des fixtures construites, non des effets empiriques. A4 TECH_VERIFIED pour périmètre expérimental uniquement, pas de comparaison réelle appariée, ni qualification opérationnelle des 34 pistes. A5 READY, verrou A4 libéré. A6 recette interne conformément à la décision du porteur; gates confirmatoires inchangées.",
+    "next_task": null,
+    "next_application_task": "A5",
+    "evidence": "../AUDIT_APPLICATION_A4_V01.json"
+  },
+  "priority_queue": [],
+  "tasks": [
+    {
+      "id": "P1-01",
+      "phase": 1,
+      "title": "Audit des pilotes et du diagramme historique",
+      "status": "TECH_VERIFIED",
+      "owner": "assistant",
+      "deps": [],
+      "evidence": "../AUDIT_APPLE_V02_INDEPENDANT.md",
+      "next": "Pilotes auditables; pas de comparaison exhaustive historique"
+    },
+    {
+      "id": "P1-02",
+      "phase": 1,
+      "title": "Récupérer les archives historiques 45 676 et décisions",
+      "status": "WAIT_HUMAN",
+      "owner": "porteur",
+      "deps": [],
+      "evidence": "../AUDIT_FINALISATION_EXPLORATOIRE_V01.json",
+      "next": "Effort de récupération achevé selon porteur; 45676 registre, 28220 IDs contre archives; sélection finale non exactement reproduite, Aptoide/provenance manquants. Décision équipe sur périmètre limité, pas de nouvelles demandes répétitives."
+    },
+    {
+      "id": "P1-03",
+      "phase": 1,
+      "title": "Pérennité des preuves prioritaires",
+      "status": "TECH_VERIFIED",
+      "owner": "assistant",
+      "deps": [],
+      "evidence": "../EVIDENCE_REGISTER_V01.md",
+      "next": "10 archives prioritaires vérifiées; inventaire complet et droits encore ouverts"
+    },
+    {
+      "id": "P1-04",
+      "phase": 1,
+      "title": "Inventaire complémentaire et droits de conservation",
+      "status": "TECH_VERIFIED",
+      "owner": "assistant",
+      "deps": [],
+      "evidence": "../EVIDENCE_INVENTORY_V02.csv",
+      "next": "35 artefacts recensés; 2 kits originaux et projection temporelle privés relus; droits par source documentés, décision P2-15 en attente."
+    },
+    {
+      "id": "P2-01",
+      "phase": 2,
+      "title": "Audits de couverture mobile, langues, APS et fonctions",
+      "status": "TECH_VERIFIED",
+      "owner": "assistant",
+      "deps": [],
+      "evidence": "../AUDIT_COUVERTURE_V01.md",
+      "next": "288/1592 couples observés dans les pilotes; couverture partielle"
+    },
+    {
+      "id": "P2-02",
+      "phase": 2,
+      "title": "Prospection Web, SILL, Wikidata, matériel et commercial",
+      "status": "TECH_VERIFIED",
+      "owner": "assistant",
+      "deps": [],
+      "evidence": "../AUDIT_PROSPECTION_MATERIEL_COMMERCIAL_V01.json",
+      "next": "17+17 observations documentaires; couverture non exhaustive"
+    },
+    {
+      "id": "P2-03",
+      "phase": 2,
+      "title": "Modèle relationnel et registre persistant",
+      "status": "TECH_VERIFIED",
+      "owner": "assistant",
+      "deps": [],
+      "evidence": "../AUDIT_IDENTITY_REGISTRY_V03.json",
+      "next": "31/31 tests; 34 entités provisoires; aucune identité arbitrée"
+    },
+    {
+      "id": "P2-04",
+      "phase": 2,
+      "title": "Intégration des anciens pilotes et reprise hors ligne",
+      "status": "TECH_VERIFIED",
+      "owner": "assistant",
+      "deps": [],
+      "evidence": "../AUDIT_LEGACY_INTEGRATION_V01.json",
+      "next": "12956 enregistrements et 16245 observations; 83 événements conservés"
+    },
+    {
+      "id": "P2-05",
+      "phase": 2,
+      "title": "Rapprochement global intersource",
+      "status": "TECH_VERIFIED",
+      "owner": "assistant",
+      "deps": [],
+      "evidence": "../AUDIT_GLOBAL_IDENTITY_V01.json",
+      "next": "321 candidats intersources, 656 anciens intra séparés; pas de fusion"
+    },
+    {
+      "id": "P2-06",
+      "phase": 2,
+      "title": "Audit des 2 paires non régénérées, nom court et champs techniques",
+      "status": "TECH_VERIFIED",
+      "owner": "assistant",
+      "deps": [
+        "P2-05"
+      ],
+      "evidence": "../AUDIT_RESIDUAL_IDENTITY_V01.json",
+      "next": "Deux paires courtes SILL/Wikidata expliquées et conservées; source_url contient 1795 liens Apple, 90 F-Droid; mapping à valider. 6/6 tests."
+    },
+    {
+      "id": "P2-07",
+      "phase": 2,
+      "title": "Sensibilité blocage et contrôle des groupes différés",
+      "status": "TECH_VERIFIED",
+      "owner": "assistant",
+      "deps": [
+        "P2-06"
+      ],
+      "evidence": "../AUDIT_IDENTITY_SENSITIVITY_V01.json",
+      "next": "204 correspondances de listing, 28 nouvelles paires, union intersources 349; caps 10–100 comparés; groupe 63 conserve 1953 paires de dépôt non arbitrées; 8/8 tests."
+    },
+    {
+      "id": "P2-08",
+      "phase": 2,
+      "title": "Contrôle indépendant hors candidats et plan confirmatoire",
+      "status": "TECH_VERIFIED",
+      "owner": "assistant",
+      "deps": [
+        "P2-07"
+      ],
+      "evidence": "../IDENTITY_INDEPENDENT_VALIDATION_PLAN_V01.md",
+      "next": "Plan prospectif, trois contrôles distincts et métriques 10/10 tests synthétiques; tailles/seuils à approuver, aucune sélection confirmatoire ni jugement humain."
+    },
+    {
+      "id": "P2-09",
+      "phase": 2,
+      "title": "Double calibration identité (57+10 paires)",
+      "status": "WAIT_HUMAN",
+      "owner": "équipe/juges",
+      "deps": [],
+      "evidence": "../AUDIT_IDENTITY_REGISTRY_V03.json",
+      "next": "Lots individuels préparés, 57+10 paires distinctes; désigner deux juges et arbitre, approuver codebooks puis recueillir."
+    },
+    {
+      "id": "P2-10",
+      "phase": 2,
+      "title": "Essai réel séquentiel moteur et reprise entre runners",
+      "status": "TECH_VERIFIED",
+      "owner": "assistant",
+      "deps": [],
+      "evidence": "../AUDIT_LIVE_CHECKPOINT_V01.json",
+      "next": "Wikidata 4/4 requêtes réelles, 2+2 entre jobs, 0 répétition hors ligne, 16/16 tests; archive finale Drive SHA/CRC contrôlés; autres adaptateurs et panne réelle non validés."
+    },
+    {
+      "id": "P2-11",
+      "phase": 2,
+      "title": "Saturation prospective et comparateurs",
+      "status": "TECH_VERIFIED",
+      "owner": "assistant",
+      "deps": [
+        "P2-10"
+      ],
+      "evidence": "../AUDIT_SATURATION_COMPARISON_V01.json",
+      "next": "Rejeu 288 requêtes Apple, 3709 IDs, 10 scénarios, 7/7 tests. 238 appels préservent union observée dans quatre scénarios; 236 perdent 9 IDs; 224/226 perdent 105/64. Aucun seuil adopté."
+    },
+    {
+      "id": "P2-12",
+      "phase": 2,
+      "title": "Compléments de couverture justifiés et textes EPS",
+      "status": "TECH_VERIFIED",
+      "owner": "assistant",
+      "deps": [],
+      "evidence": "../AUDIT_TARGETED_COVERAGE_V02.json",
+      "next": "10 scénarios, 15 fonctions, 12 contextes, 16 familles; 7 témoins, 18 sondes sans correspondance exacte; revue experts et textes authentifiés requise."
+    },
+    {
+      "id": "P2-13",
+      "phase": 2,
+      "title": "Calibration de pertinence (141 fiches)",
+      "status": "WAIT_HUMAN",
+      "owner": "équipe/juges",
+      "deps": [],
+      "evidence": "../CALIBRATION_CASES_V01.json",
+      "next": "Lots individuels 141 fiches préparés; approbation et deux évaluateurs indépendants requis."
+    },
+    {
+      "id": "P2-14",
+      "phase": 2,
+      "title": "Validation des ancres 10D/97P",
+      "status": "WAIT_HUMAN",
+      "owner": "experts",
+      "deps": [],
+      "evidence": "../OPERATIONNALISATION_10D97P_PROTOCOL.md",
+      "next": "97 paramètres par expert, lots prêts; 361 lignes cotation en réserve, sept configurations et ancres à valider."
+    },
+    {
+      "id": "P2-15",
+      "phase": 2,
+      "title": "Droits, choix des sources et périmètre autorisé",
+      "status": "WAIT_HUMAN",
+      "owner": "équipe",
+      "deps": [
+        "P1-04"
+      ],
+      "evidence": "../SOURCE_REGISTER.md",
+      "next": "Aptoide suspendu, Google Play non confirmé; décisions documentées"
+    },
+    {
+      "id": "P2-16",
+      "phase": 2,
+      "title": "Approbation protocole, seuils, éthique et préenregistrement",
+      "status": "BLOCKED",
+      "owner": "équipe",
+      "deps": [
+        "P1-02",
+        "P1-04",
+        "P2-08",
+        "P2-09",
+        "P2-11",
+        "P2-12",
+        "P2-13",
+        "P2-14",
+        "P2-15"
+      ],
+      "evidence": "../PLAN_FINALISATION.md",
+      "next": "Toutes préconditions résolues par preuve et décision explicite, y compris périmètre historique"
+    },
+    {
+      "id": "P3-01",
+      "phase": 3,
+      "title": "Collecte définitive par blocs et normalisation",
+      "status": "BLOCKED",
+      "owner": "équipe/assistant",
+      "deps": [
+        "P2-16"
+      ],
+      "evidence": "../PLAN_FINALISATION.md",
+      "next": "Collecte seulement après approbation"
+    },
+    {
+      "id": "P4-01",
+      "phase": 4,
+      "title": "Qualification et validation scientifique",
+      "status": "BLOCKED",
+      "owner": "équipe/juges",
+      "deps": [
+        "P3-01"
+      ],
+      "evidence": "../PLAN_FINALISATION.md",
+      "next": "Criblage, 10D/97P, contrôles et arbitrages"
+    },
+    {
+      "id": "P5-01",
+      "phase": 5,
+      "title": "Moteur écosystémique et validation avant intégration",
+      "status": "BLOCKED",
+      "owner": "équipe/assistant",
+      "deps": [
+        "P4-01"
+      ],
+      "evidence": "../PLAN_FINALISATION.md",
+      "next": "Tests comparatifs, contraintes et validation; aucune modification main"
+    },
+    {
+      "id": "P6-01",
+      "phase": 6,
+      "title": "Article, dépôt et clôture",
+      "status": "BLOCKED",
+      "owner": "équipe",
+      "deps": [
+        "P5-01"
+      ],
+      "evidence": "../PLAN_FINALISATION.md",
+      "next": "Article, preuves, relecture et accord avant diffusion"
+    }
+  ],
+  "application_track": {
+    "target": "v0.3.0",
+    "branch": "integration/ecosystem-v030",
+    "base_main": "b4727bf9f200ee58c7b0920f9f153ef4ae05127d",
+    "scope": "Technical prototype only; no scientific gate changed; no collection, release, or merge.",
+    "tasks": [
+      {
+        "id": "A1",
+        "status": "TECH_VERIFIED",
+        "scope": "Legacy bridge implemented; targeted tests verified",
+        "evidence": "../AUDIT_APPLICATION_A1_V01.json",
+        "next": "7/7 CI succeeded; A2"
+      },
+      {
+        "id": "A2",
+        "status": "TECH_VERIFIED",
+        "deps": [
+          "A1"
+        ],
+        "scope": "Persistence and optional entry implemented; 38/38 targeted tests",
+        "evidence": "../AUDIT_APPLICATION_A2_BROWSER_V01.json",
+        "next": "A3"
+      },
+      {
+        "id": "A3",
+        "status": "TECH_VERIFIED",
+        "deps": [
+          "A2"
+        ],
+        "next": "A4",
+        "evidence": "../AUDIT_APPLICATION_A3_V01.json"
+      },
+      {
+        "id": "A4",
+        "status": "TECH_VERIFIED",
+        "deps": [
+          "A3"
+        ],
+        "next": "A5",
+        "evidence": "../AUDIT_APPLICATION_A4_V01.json",
+        "scope": "Verified fictional solver, documentary read-only diagnostics and descriptive native historical comparator; no real paired comparison or admission."
+      },
+      {
+        "id": "A5",
+        "status": "IN_PROGRESS",
+        "deps": [
+          "A4"
+        ],
+        "next": "Verify terminal 18-case retest and integrity hash. Review Calc F14 contextual matrix; validate target context and necessary evidence or abstain. No real admission without explicit approved dossier; A6 security remains prepared.",
+        "evidence": "../AUDIT_APPLICATION_A5_V01.json"
+      },
+      {
+        "id": "A6",
+        "status": "BLOCKED",
+        "deps": [
+          "A5"
+        ],
+        "scope": "Recette interne documentée, contrôles techniques et pédagogiques sur preuves, acceptation explicite du porteur; pas de panel expert supplémentaire obligatoire pour la version expérimentale.",
+        "security_preparation": {
+          "status": "PLAN_AND_LIMITED_STATIC_PREAUDIT_ONLY",
+          "evidence": "../PLAN_AUDIT_SECURITE_A6_V01.md",
+          "scope": "contextualized security and scientific integrity, no certification; A6 still blocked"
+        }
+      },
+      {
+        "id": "A7",
+        "status": "BLOCKED",
+        "deps": [
+          "A6",
+          "release approval"
+        ]
+      }
+    ],
+    "integration_commit": "3b00f41168b7f227f0d9aec11b0faab6dcc6df30",
+    "pr": 82,
+    "regression_status": "PENDING_RELATIVE_CHECKBOX_LOCATOR_RETEST",
+    "next_task": "A5",
+    "dual_entry": {
+      "stable": "v0.2.0 baseline, default",
+      "experimental": "opt-in separate route; no automatic switch or promotion before documented owner acceptance and applicable evidence gates"
+    },
+    "acceptance_policy": {
+      "decision_date": "2026-11-28",
+      "authority": "project_owner_communicating_laboratory_team_orientations",
+      "scope": "experimental application v0.3.0",
+      "original_framework": "reuse existing study 3 validation; no repeat expert panel",
+      "A6": "documented internal acceptance by project owner communicating team orientations, with AI assistance; no claim of independent external validation",
+      "scientific_confirmatory_gates": "unchanged; separate research scope",
+      "publication": "explicit owner approval and applicable evidence/rights requirements"
+    }
+  },
+  "documentation_policy": {
+    "negative_results": "append_only_events_and_retests",
+    "register": "../REGISTRE_ECHECS_ANOMALIES_LIMITES_V01.md",
+    "scope": "all technical and scientific passes, retain original failures and distinguish limitations",
+    "requested_on": "2026-11-28"
+  },
+  "governance": {
+    "date": "2026-11-28",
+    "decision_channel": "project owner communicating team orientations after consultation with co-supervisors and laboratory colleagues, as stated by owner",
+    "scope": "project operational and scientific steering decisions",
+    "attribution": "owner-reported team orientation; not independently verified institutional authorization",
+    "rule": "Do not request duplicate approval of explicit decisions; preserve decision evidence and distinguish empirical validation and formal approvals."
+  }
+}

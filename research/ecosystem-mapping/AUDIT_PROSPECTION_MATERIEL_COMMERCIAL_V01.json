@@ -1,0 +1,250 @@
+{
+  "rows": [
+    {
+      "id": "T01",
+      "name": "Polar GoFit",
+      "axis": "mesure",
+      "unit": "systeme",
+      "candidates": {
+        "catalog": [],
+        "sill": [],
+        "wikidata": []
+      },
+      "eligibility": "NOT_ASSESSED"
+    },
+    {
+      "id": "T02",
+      "name": "Polar H10",
+      "axis": "mesure",
+      "unit": "materiel",
+      "candidates": {
+        "catalog": [],
+        "sill": [],
+        "wikidata": []
+      },
+      "eligibility": "NOT_ASSESSED"
+    },
+    {
+      "id": "T03",
+      "name": "Vernier Go Direct Force and Acceleration",
+      "axis": "mesure",
+      "unit": "materiel",
+      "candidates": {
+        "catalog": [],
+        "sill": [],
+        "wikidata": []
+      },
+      "eligibility": "NOT_ASSESSED"
+    },
+    {
+      "id": "T04",
+      "name": "phyphox",
+      "axis": "mesure",
+      "unit": "logiciel",
+      "candidates": {
+        "catalog": [
+          "phyphox"
+        ],
+        "sill": [],
+        "wikidata": []
+      },
+      "eligibility": "NOT_ASSESSED"
+    },
+    {
+      "id": "T05",
+      "name": "Freelap",
+      "axis": "chronometrage",
+      "unit": "systeme",
+      "candidates": {
+        "catalog": [
+          "candidate-043"
+        ],
+        "sill": [],
+        "wikidata": []
+      },
+      "eligibility": "NOT_ASSESSED"
+    },
+    {
+      "id": "T06",
+      "name": "SmartSpeed",
+      "axis": "chronometrage",
+      "unit": "systeme",
+      "candidates": {
+        "catalog": [
+          "candidate-044"
+        ],
+        "sill": [],
+        "wikidata": []
+      },
+      "eligibility": "NOT_ASSESSED"
+    },
+    {
+      "id": "T07",
+      "name": "ForceDecks",
+      "axis": "mesure",
+      "unit": "systeme",
+      "candidates": {
+        "catalog": [
+          "candidate-036"
+        ],
+        "sill": [],
+        "wikidata": []
+      },
+      "eligibility": "NOT_ASSESSED"
+    },
+    {
+      "id": "T08",
+      "name": "ClassVR",
+      "axis": "immersion",
+      "unit": "systeme",
+      "candidates": {
+        "catalog": [],
+        "sill": [],
+        "wikidata": []
+      },
+      "eligibility": "NOT_ASSESSED"
+    },
+    {
+      "id": "T09",
+      "name": "Merge Cube / Merge 3D",
+      "axis": "immersion",
+      "unit": "systeme",
+      "candidates": {
+        "catalog": [],
+        "sill": [],
+        "wikidata": []
+      },
+      "eligibility": "NOT_ASSESSED"
+    },
+    {
+      "id": "T10",
+      "name": "Open Brush",
+      "axis": "immersion",
+      "unit": "logiciel",
+      "candidates": {
+        "catalog": [],
+        "sill": [],
+        "wikidata": []
+      },
+      "eligibility": "NOT_ASSESSED"
+    },
+    {
+      "id": "T11",
+      "name": "MagicSchool",
+      "axis": "ia",
+      "unit": "plateforme",
+      "candidates": {
+        "catalog": [],
+        "sill": [],
+        "wikidata": []
+      },
+      "eligibility": "NOT_ASSESSED"
+    },
+    {
+      "id": "T12",
+      "name": "MediaPipe Pose Landmarker",
+      "axis": "ia",
+      "unit": "composant",
+      "candidates": {
+        "catalog": [],
+        "sill": [],
+        "wikidata": []
+      },
+      "eligibility": "NOT_ASSESSED"
+    },
+    {
+      "id": "T13",
+      "name": "CoachNow Analyze",
+      "axis": "commercial",
+      "unit": "logiciel",
+      "candidates": {
+        "catalog": [
+          "candidate-030"
+        ],
+        "sill": [],
+        "wikidata": []
+      },
+      "eligibility": "NOT_ASSESSED"
+    },
+    {
+      "id": "T14",
+      "name": "Hudl Sportscode",
+      "axis": "commercial",
+      "unit": "logiciel",
+      "candidates": {
+        "catalog": [],
+        "sill": [],
+        "wikidata": []
+      },
+      "eligibility": "NOT_ASSESSED"
+    },
+    {
+      "id": "T15",
+      "name": "Tracker Online",
+      "axis": "accessibilite",
+      "unit": "variante_logicielle",
+      "candidates": {
+        "catalog": [],
+        "sill": [],
+        "wikidata": []
+      },
+      "eligibility": "NOT_ASSESSED"
+    },
+    {
+      "id": "T16",
+      "name": "Moodle App",
+      "axis": "accessibilite",
+      "unit": "logiciel_client",
+      "candidates": {
+        "catalog": [
+          "moodle"
+        ],
+        "sill": [
+          "208"
+        ],
+        "wikidata": [
+          "Q190434"
+        ]
+      },
+      "eligibility": "NOT_ASSESSED"
+    },
+    {
+      "id": "T17",
+      "name": "OpenSim",
+      "axis": "recherche",
+      "unit": "logiciel",
+      "candidates": {
+        "catalog": [],
+        "sill": [],
+        "wikidata": []
+      },
+      "eligibility": "NOT_ASSESSED"
+    }
+  ],
+  "count": 17,
+  "by_axis": {
+    "mesure": 5,
+    "chronometrage": 2,
+    "immersion": 3,
+    "ia": 2,
+    "commercial": 2,
+    "accessibilite": 2,
+    "recherche": 1
+  },
+  "by_unit": {
+    "systeme": 6,
+    "materiel": 2,
+    "logiciel": 5,
+    "plateforme": 1,
+    "composant": 1,
+    "variante_logicielle": 1,
+    "logiciel_client": 1
+  },
+  "with_name_candidates": {
+    "catalog": 6,
+    "sill": 1,
+    "wikidata": 1
+  },
+  "without_any_name_candidate": 11,
+  "note": "Name probes include family/component/variant names; not proof of same entity or new product. Purposive sample not recall estimation."
+}

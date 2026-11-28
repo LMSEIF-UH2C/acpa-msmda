@@ -1,0 +1,539 @@
+{
+  "cases": [
+    {
+      "id": "S01",
+      "aps": "Course de relais",
+      "level": "2AC",
+      "objective": "Coordonner transmission, observer et corriger sans réduire pratique",
+      "functions": [
+        "F04",
+        "F05",
+        "F06",
+        "F07"
+      ],
+      "contexts": [
+        "K01",
+        "K02",
+        "K04",
+        "K08",
+        "K12"
+      ],
+      "families": [
+        "video",
+        "motor",
+        "measurement"
+      ],
+      "constraints": "Un téléphone enseignant hors réseau; zone de transmission matérialisée",
+      "fallback": "Démonstration locale, chronométrage manuel, grille papier",
+      "verification": "Vidéo autorisée, repères et temps d'attente; pas de caméra pendant déplacement",
+      "status": "PROPOSED_NOT_CURRICULUM_VALIDATED"
+    },
+    {
+      "id": "S02",
+      "aps": "Course d’orientation",
+      "level": "TC",
+      "objective": "Préparer et suivre parcours de balises sans réseau",
+      "functions": [
+        "F01",
+        "F02",
+        "F08",
+        "F13"
+      ],
+      "contexts": [
+        "K01",
+        "K02",
+        "K04",
+        "K07",
+        "K11",
+        "K12"
+      ],
+      "families": [
+        "orientation",
+        "organization",
+        "collaboration"
+      ],
+      "constraints": "Carte préparée, itinéraire validé; pas de localisation individuelle imposée",
+      "fallback": "Carte papier et boussole",
+      "verification": "Carte locale téléchargée et vérifiée hors ligne; limites, encadrement et secours",
+      "status": "PROPOSED_NOT_CURRICULUM_VALIDATED"
+    },
+    {
+      "id": "S03",
+      "aps": "Activités motrices adaptées",
+      "level": "1AC",
+      "objective": "Comprendre consigne et exprimer choix ou besoin d'aide",
+      "functions": [
+        "F04",
+        "F05",
+        "F09",
+        "F13"
+      ],
+      "contexts": [
+        "K02",
+        "K05",
+        "K06",
+        "K07",
+        "K08"
+      ],
+      "families": [
+        "inclusion",
+        "creation",
+        "motor"
+      ],
+      "constraints": "Supports multimodaux, FR/AR, aucun diagnostic ou compte requis",
+      "fallback": "Pictogrammes imprimés licites, démonstration par pairs",
+      "verification": "Essai de l'accessibilité avec personnes concernées; pas de prescription; droits des symboles",
+      "status": "PROPOSED_NOT_CURRICULUM_VALIDATED"
+    },
+    {
+      "id": "S04",
+      "aps": "Gymnastique au sol",
+      "level": "1BAC",
+      "objective": "Visualiser un repère spatial avant exécution",
+      "functions": [
+        "F04",
+        "F05",
+        "F07"
+      ],
+      "contexts": [
+        "K02",
+        "K03",
+        "K04",
+        "K08",
+        "K12"
+      ],
+      "families": [
+        "immersion",
+        "video",
+        "motor"
+      ],
+      "constraints": "AR facultative sur appareil enseignant hors aire motrice, marker imprimé",
+      "fallback": "Schéma papier, démonstration et parade",
+      "verification": "Vérifier navigateur, caméra, coût, disponibilité des assets, délai et sécurité; aucune utilisation immersive pendant mouvement",
+      "status": "PROPOSED_NOT_CURRICULUM_VALIDATED"
+    },
+    {
+      "id": "S05",
+      "aps": "Course de vitesse",
+      "level": "2BAC",
+      "objective": "Observer repères articulaires avec analyse locale",
+      "functions": [
+        "F03",
+        "F06",
+        "F07",
+        "F10"
+      ],
+      "contexts": [
+        "K01",
+        "K02",
+        "K07",
+        "K08",
+        "K12"
+      ],
+      "families": [
+        "video",
+        "measurement",
+        "research",
+        "assessment"
+      ],
+      "constraints": "Appareil local, consentement/autorisation, aucun upload d'image",
+      "fallback": "Observation manuelle et chronométrage",
+      "verification": "Confronter estimations à référence; occlusion, angle, précision et confidentialité; SDK non application prête",
+      "status": "PROPOSED_NOT_CURRICULUM_VALIDATED"
+    },
+    {
+      "id": "S06",
+      "aps": "Badminton",
+      "level": "3AC",
+      "objective": "Consulter consignes et ressources préparées sans Internet",
+      "functions": [
+        "F04",
+        "F11",
+        "F12"
+      ],
+      "contexts": [
+        "K01",
+        "K02",
+        "K06",
+        "K07",
+        "K10",
+        "K11"
+      ],
+      "families": [
+        "continuity",
+        "creation",
+        "quiz"
+      ],
+      "constraints": "Serveur local ou ressources préchargées; accès élève non obligatoire",
+      "fallback": "Fiches imprimées et retour oral",
+      "verification": "Tester réseau local vs hors réseau, langue du contenu et interface, droits des ressources",
+      "status": "PROPOSED_NOT_CURRICULUM_VALIDATED"
+    },
+    {
+      "id": "S07",
+      "aps": "Basketball",
+      "level": "1BAC",
+      "objective": "Organiser rôles, arbitrage et tournoi scolaire",
+      "functions": [
+        "F02",
+        "F08",
+        "F15"
+      ],
+      "contexts": [
+        "K02",
+        "K03",
+        "K08",
+        "K10",
+        "K11"
+      ],
+      "families": [
+        "organization",
+        "tactics",
+        "communication",
+        "collaboration"
+      ],
+      "constraints": "Un appareil enseignant, règles de départage préétablies, aucune diffusion nominative",
+      "fallback": "Tableau de score et feuilles d'arbitrage",
+      "verification": "Tester calcul des résultats et conflits, temps moteur, export anonymisé",
+      "status": "PROPOSED_NOT_CURRICULUM_VALIDATED"
+    },
+    {
+      "id": "S08",
+      "aps": "Course en durée",
+      "level": "3AC",
+      "objective": "Suivre temps/allure et progression sans capteur imposé",
+      "functions": [
+        "F03",
+        "F06",
+        "F10"
+      ],
+      "contexts": [
+        "K02",
+        "K03",
+        "K07",
+        "K12"
+      ],
+      "families": [
+        "measurement",
+        "assessment",
+        "research"
+      ],
+      "constraints": "Mesure adaptée et données minimales; pas d'interprétation médicale",
+      "fallback": "Chronomètre, repères de distance et grille",
+      "verification": "Comparer exactitude au protocole, unités et cas manquants; dispositif validé si nécessaire",
+      "status": "PROPOSED_NOT_CURRICULUM_VALIDATED"
+    },
+    {
+      "id": "S09",
+      "aps": "Volleyball",
+      "level": "TC",
+      "objective": "Analyser sa séance et ajuster le cycle",
+      "functions": [
+        "F01",
+        "F10",
+        "F14"
+      ],
+      "contexts": [
+        "K01",
+        "K02",
+        "K07",
+        "K08",
+        "K09"
+      ],
+      "families": [
+        "research",
+        "assessment",
+        "organization"
+      ],
+      "constraints": "Données agrégées et observation de temps moteur",
+      "fallback": "Grille papier, tableur local",
+      "verification": "Export, traçabilité, contrôles de calcul et observation fiable; pas de gain causal inféré",
+      "status": "PROPOSED_NOT_CURRICULUM_VALIDATED"
+    },
+    {
+      "id": "S10",
+      "aps": "Jeux traditionnels et coopératifs",
+      "level": "1AC",
+      "objective": "Créer et communiquer un défi collectif en contexte limité",
+      "functions": [
+        "F01",
+        "F02",
+        "F05",
+        "F09",
+        "F11",
+        "F12"
+      ],
+      "contexts": [
+        "K01",
+        "K02",
+        "K03",
+        "K05",
+        "K06",
+        "K08",
+        "K09",
+        "K10"
+      ],
+      "families": [
+        "game",
+        "collaboration",
+        "creation",
+        "motor",
+        "communication",
+        "quiz"
+      ],
+      "constraints": "Pas de téléphone élève; FR/AR, diversité culturelle",
+      "fallback": "Cartes de défis, affichage papier et échanges oraux",
+      "verification": "Vérifier compréhension, participation, sécurité et accès sans réseau",
+      "status": "PROPOSED_NOT_CURRICULUM_VALIDATED"
+    }
+  ],
+  "witnesses": [
+    {
+      "id": "C01",
+      "name": "AR.js",
+      "unit": "component",
+      "official_evidence_url": "https://ar-js-org.github.io/AR.js-Docs/marker-based/",
+      "alias_probes": [
+        "AR.js",
+        "AR JS"
+      ],
+      "scenarios": [
+        "S04"
+      ],
+      "declared_function": "Bibliothèque Web permettant le suivi de marqueurs et l'affichage de contenu AR.",
+      "limits": "Caméra, navigateur, chargement de ressources; vérifier fonctionnement local et droits; pas de preuve motrice.",
+      "evidence_date": "2026-11-28",
+      "eligibility": "NOT_ASSESSED"
+    },
+    {
+      "id": "C02",
+      "name": "ML Kit Pose Detection",
+      "unit": "component",
+      "official_evidence_url": "https://developers.google.com/ml-kit/vision/pose-detection/",
+      "alias_probes": [
+        "ML Kit Pose Detection",
+        "ML Kit"
+      ],
+      "scenarios": [
+        "S05"
+      ],
+      "declared_function": "SDK de détection de points de posture dans images/vidéos, traitement sur appareil documenté.",
+      "limits": "Pas une application EPS; vérifier modèle, SDK, appareil, précision, autorisations et éventuels transferts.",
+      "evidence_date": "2026-11-28",
+      "eligibility": "NOT_ASSESSED"
+    },
+    {
+      "id": "C03",
+      "name": "Kolibri",
+      "unit": "platform",
+      "official_evidence_url": "https://learningequality.org/kolibri/about-kolibri/",
+      "alias_probes": [
+        "Kolibri",
+        "Kolibri Learning Platform"
+      ],
+      "scenarios": [
+        "S06"
+      ],
+      "declared_function": "Plateforme d'apprentissage conçue pour fonctionner avec accès Internet limité et import de ressources.",
+      "limits": "Préparation initiale, réseau local éventuel, droits des contenus, langue du contenu; essai réel requis.",
+      "evidence_date": "2026-11-28",
+      "eligibility": "NOT_ASSESSED"
+    },
+    {
+      "id": "C04",
+      "name": "Organic Maps",
+      "unit": "software",
+      "official_evidence_url": "https://f-droid.org/packages/app.organicmaps/",
+      "alias_probes": [
+        "Organic Maps"
+      ],
+      "scenarios": [
+        "S02"
+      ],
+      "declared_function": "Cartographie et navigation hors ligne selon la documentation de distribution; listing marocain https://apps.apple.com/ma/app/organic-maps-offline-map-gps/id1567437057.",
+      "limits": "Télécharger zone avant sortie, contrôler couverture et sécurité; respecter licence carte; disponibilité réelle non testée.",
+      "evidence_date": "2026-11-28",
+      "eligibility": "NOT_ASSESSED"
+    },
+    {
+      "id": "C05",
+      "name": "ARASAAC",
+      "unit": "resource",
+      "official_evidence_url": "https://arasaac.org/terms-of-use",
+      "alias_probes": [
+        "ARASAAC"
+      ],
+      "scenarios": [
+        "S03"
+      ],
+      "declared_function": "Ressources pictographiques pour communication alternative et augmentée, utilisables pour supports préparés.",
+      "limits": "Licence BY-NC-SA et attribution selon conditions; ne pas incorporer les images dans catalogue MIT; vérifier adéquation culturelle.",
+      "evidence_date": "2026-11-28",
+      "eligibility": "NOT_ASSESSED"
+    },
+    {
+      "id": "C06",
+      "name": "Azure AI Immersive Reader",
+      "unit": "component",
+      "official_evidence_url": "https://learn.microsoft.com/en-us/azure/ai-services/immersive-reader/overview",
+      "alias_probes": [
+        "Azure AI Immersive Reader",
+        "Immersive Reader"
+      ],
+      "scenarios": [
+        "S03",
+        "S06"
+      ],
+      "declared_function": "Composant de lecture assistée, lecture à voix haute et traduction documentées.",
+      "limits": "Dépendance cloud, coût, langues par fonction, données; exclure si connexion absente et ne pas imposer comptes élèves.",
+      "evidence_date": "2026-11-28",
+      "eligibility": "NOT_ASSESSED"
+    },
+    {
+      "id": "C07",
+      "name": "Project Core Universal Core Vocabulary",
+      "unit": "resource",
+      "official_evidence_url": "https://project-core.com/communication-systems/",
+      "alias_probes": [
+        "Project Core",
+        "Universal Core Vocabulary"
+      ],
+      "scenarios": [
+        "S03"
+      ],
+      "declared_function": "Ressources de communication avec planches et livrets, supports imprimables possibles.",
+      "limits": "Licence de chaque ressource et adaptation langue/contexte à vérifier; ne pas supposer outil logiciel ni effet individuel.",
+      "evidence_date": "2026-11-28",
+      "eligibility": "NOT_ASSESSED"
+    }
+  ],
+  "probes": [
+    {
+      "case_id": "S04",
+      "family": "immersion",
+      "language": "en",
+      "term": "marker based augmented reality",
+      "status": "PROPOSED_SEMANTIC_REVIEW_REQUIRED"
+    },
+    {
+      "case_id": "S04",
+      "family": "immersion",
+      "language": "fr",
+      "term": "réalité augmentée par marqueurs",
+      "status": "PROPOSED_SEMANTIC_REVIEW_REQUIRED"
+    },
+    {
+      "case_id": "S04",
+      "family": "immersion",
+      "language": "ar",
+      "term": "واقع معزز بالعلامات",
+      "status": "PROPOSED_SEMANTIC_REVIEW_REQUIRED"
+    },
+    {
+      "case_id": "S05",
+      "family": "video",
+      "language": "en",
+      "term": "on device pose estimation",
+      "status": "PROPOSED_SEMANTIC_REVIEW_REQUIRED"
+    },
+    {
+      "case_id": "S05",
+      "family": "video",
+      "language": "fr",
+      "term": "estimation de posture sur appareil",
+      "status": "PROPOSED_SEMANTIC_REVIEW_REQUIRED"
+    },
+    {
+      "case_id": "S05",
+      "family": "video",
+      "language": "ar",
+      "term": "تقدير وضعية الجسم على الجهاز",
+      "status": "PROPOSED_SEMANTIC_REVIEW_REQUIRED"
+    },
+    {
+      "case_id": "S06",
+      "family": "continuity",
+      "language": "en",
+      "term": "offline learning platform",
+      "status": "PROPOSED_SEMANTIC_REVIEW_REQUIRED"
+    },
+    {
+      "case_id": "S06",
+      "family": "continuity",
+      "language": "fr",
+      "term": "plateforme apprentissage hors ligne",
+      "status": "PROPOSED_SEMANTIC_REVIEW_REQUIRED"
+    },
+    {
+      "case_id": "S06",
+      "family": "continuity",
+      "language": "ar",
+      "term": "منصة تعلم دون إنترنت",
+      "status": "PROPOSED_SEMANTIC_REVIEW_REQUIRED"
+    },
+    {
+      "case_id": "S03",
+      "family": "inclusion",
+      "language": "en",
+      "term": "augmentative alternative communication board",
+      "status": "PROPOSED_SEMANTIC_REVIEW_REQUIRED"
+    },
+    {
+      "case_id": "S03",
+      "family": "inclusion",
+      "language": "fr",
+      "term": "tableau communication alternative augmentée",
+      "status": "PROPOSED_SEMANTIC_REVIEW_REQUIRED"
+    },
+    {
+      "case_id": "S03",
+      "family": "inclusion",
+      "language": "ar",
+      "term": "لوحة التواصل المعزز والبديل",
+      "status": "PROPOSED_SEMANTIC_REVIEW_REQUIRED"
+    },
+    {
+      "case_id": "S02",
+      "family": "orientation",
+      "language": "en",
+      "term": "offline topographic maps",
+      "status": "PROPOSED_SEMANTIC_REVIEW_REQUIRED"
+    },
+    {
+      "case_id": "S02",
+      "family": "orientation",
+      "language": "fr",
+      "term": "cartes topographiques hors ligne",
+      "status": "PROPOSED_SEMANTIC_REVIEW_REQUIRED"
+    },
+    {
+      "case_id": "S02",
+      "family": "orientation",
+      "language": "ar",
+      "term": "خرائط طبوغرافية دون إنترنت",
+      "status": "PROPOSED_SEMANTIC_REVIEW_REQUIRED"
+    },
+    {
+      "case_id": "S09",
+      "family": "research",
+      "language": "en",
+      "term": "offline data export",
+      "status": "PROPOSED_SEMANTIC_REVIEW_REQUIRED"
+    },
+    {
+      "case_id": "S09",
+      "family": "research",
+      "language": "fr",
+      "term": "export données hors ligne",
+      "status": "PROPOSED_SEMANTIC_REVIEW_REQUIRED"
+    },
+    {
+      "case_id": "S09",
+      "family": "research",
+      "language": "ar",
+      "term": "تصدير البيانات دون إنترنت",
+      "status": "PROPOSED_SEMANTIC_REVIEW_REQUIRED"
+    }
+  ],
+  "note": "Purposive scenarios and documentary witnesses, not product counts or approved new searches. No user data."
+}

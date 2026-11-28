@@ -1,0 +1,33 @@
+name: Ecosystem pilot comparison
+on:
+  push:
+    branches: [research/ecosystem-mapping-pilot]
+    paths: ['research/ecosystem-mapping/compare_pilots.py', '.github/workflows/ecosystem-pilot-comparison.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: ecosystem-apple-pilot-audit
+          run-id: 46087551165
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: apple
+      - uses: actions/download-artifact@v4
+        with:
+          name: ecosystem-fdroid-pilot-audit
+          run-id: 46088447913
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: fdroid
+      - run: python research/ecosystem-mapping/compare_pilots.py --apple apple --fdroid fdroid --catalog data/real_tools_catalog.json --output comparison
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ecosystem-calibration-sample
+          path: comparison/
+          retention-days: 30

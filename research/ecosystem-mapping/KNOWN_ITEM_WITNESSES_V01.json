@@ -1,0 +1,134 @@
+[
+  {
+    "id": "W01",
+    "name": "Onform",
+    "source": "apple",
+    "key": "1490334045",
+    "url": "https://apps.apple.com/us/app/onform-video-analysis-app/id1490334045",
+    "family": "video",
+    "role": "Analyse du geste",
+    "selection": "discussed_before",
+    "reference_checked": "2026-11-28"
+  },
+  {
+    "id": "W02",
+    "name": "Plickers",
+    "source": "apple",
+    "key": "701184049",
+    "url": "https://apps.apple.com/us/app/plickers/id701184049",
+    "family": "quiz",
+    "role": "Quiz avec cartes",
+    "selection": "known_from_pilot",
+    "reference_checked": "2026-11-28"
+  },
+  {
+    "id": "W03",
+    "name": "Microsoft Excel",
+    "source": "apple",
+    "key": "586683407",
+    "url": "https://apps.apple.com/us/app/microsoft-excel/id586683407",
+    "family": "research",
+    "role": "Tableur",
+    "selection": "discussed_before",
+    "reference_checked": "2026-11-28"
+  },
+  {
+    "id": "W04",
+    "name": "Google Sheets",
+    "source": "apple",
+    "key": "842849113",
+    "url": "https://apps.apple.com/us/app/google-sheets/id842849113",
+    "family": "research",
+    "role": "Tableur collaboratif",
+    "selection": "discussed_before",
+    "reference_checked": "2026-11-28"
+  },
+  {
+    "id": "W05",
+    "name": "Bleep Test Lite",
+    "source": "apple",
+    "key": "428100189",
+    "url": "https://apps.apple.com/us/app/bleep-test-lite/id428100189",
+    "family": "measurement",
+    "role": "Test navette",
+    "selection": "selected_from_official_page",
+    "reference_checked": "2026-11-28"
+  },
+  {
+    "id": "W06",
+    "name": "phyphox",
+    "source": "fdroid",
+    "key": "de.rwth_aachen.phyphox",
+    "url": "https://f-droid.org/packages/de.rwth_aachen.phyphox/",
+    "family": "measurement",
+    "role": "Capteurs",
+    "selection": "discussed_before",
+    "reference_checked": "2026-11-28"
+  },
+  {
+    "id": "W07",
+    "name": "Organic Maps",
+    "source": "fdroid",
+    "key": "app.organicmaps",
+    "url": "https://f-droid.org/packages/app.organicmaps/",
+    "family": "orientation",
+    "role": "Cartes hors ligne",
+    "selection": "selected_from_official_page",
+    "reference_checked": "2026-11-28"
+  },
+  {
+    "id": "W08",
+    "name": "AnkiDroid",
+    "source": "fdroid",
+    "key": "com.ichi2.anki",
+    "url": "https://f-droid.org/en/packages/com.ichi2.anki/",
+    "family": "quiz",
+    "role": "Cartes mémoire",
+    "selection": "selected_from_official_page",
+    "reference_checked": "2026-11-28"
+  },
+  {
+    "id": "W09",
+    "name": "OpenTracks (Reproducible build)",
+    "source": "fdroid",
+    "key": "de.dennisguse.opentracks.playstore",
+    "url": "https://f-droid.org/en/packages/de.dennisguse.opentracks.playstore/",
+    "family": "orientation",
+    "role": "Suivi parcours",
+    "selection": "selected_from_official_page",
+    "reference_checked": "2026-11-28"
+  },
+  {
+    "id": "W10",
+    "name": "Kinovea",
+    "source": "github",
+    "key": "kinovea/kinovea",
+    "url": "https://github.com/Kinovea/Kinovea",
+    "family": "video",
+    "role": "Analyse vidéo bureau",
+    "selection": "discussed_before",
+    "reference_checked": "2026-11-28"
+  },
+  {
+    "id": "W11",
+    "name": "jamovi",
+    "source": "github",
+    "key": "jamovi/jamovi",
+    "url": "https://github.com/jamovi/jamovi",
+    "family": "research",
+    "role": "Analyse statistique bureau",
+    "selection": "discussed_before",
+    "reference_checked": "2026-11-28"
+  },
+  {
+    "id": "W12",
+    "name": "Moodle",
+    "source": "github",
+    "key": "moodle/moodle",
+    "url": "https://github.com/moodle/moodle",
+    "family": "continuity",
+    "role": "Plateforme Web",
+    "selection": "discussed_before",
+    "reference_checked": "2026-11-28"
+  }
+]

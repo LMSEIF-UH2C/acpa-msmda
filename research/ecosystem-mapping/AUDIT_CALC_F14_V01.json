@@ -1,0 +1,132 @@
+{
+  "date": "2026-11-28",
+  "status": "PASS_BOUNDED_FUNCTIONAL_TEST",
+  "scenario": "REAL-S09-02_PROPOSED",
+  "scope": "F14: after-class descriptive analysis of teacher practice, time motor/waiting in simplified two-category constructed control data; no pupil or school observations, not ALT-PE validated coding, not an effectiveness result.",
+  "application": "LibreOffice Calc 25.2.3.2 520(Build:2), local Linux headless",
+  "input_rows": [
+    [
+      "S01",
+      180,
+      120
+    ],
+    [
+      "S02",
+      240,
+      60
+    ],
+    [
+      "S03",
+      null,
+      60
+    ],
+    [
+      "S04",
+      0,
+      0
+    ],
+    [
+      "S05",
+      90,
+      210
+    ]
+  ],
+  "input_columns": [
+    "Séance",
+    "Moteur_s",
+    "Attente_s",
+    "Total_s",
+    "Moteur_pct",
+    "Statut"
+  ],
+  "formulas": {
+    "D": "=IF(COUNT(Bi:Ci)=2,SUM(Bi:Ci),\"\")",
+    "E": "=IF(AND(ISNUMBER(Di),Di>0),Bi/Di,\"\")",
+    "F": "=IF(COUNT(Bi:Ci)<2,\"INCOMPLET\",IF(Di=0,\"DUREE_NULLE\",\"VALIDE\"))",
+    "summary": [
+      "=COUNTIF(Observations!F2:F6,\"VALIDE\")",
+      "=COUNTIF(Observations!F2:F6,\"INCOMPLET\")",
+      "=COUNTIF(Observations!F2:F6,\"DUREE_NULLE\")",
+      "=SUMIF(Observations!F2:F6,\"VALIDE\",Observations!B2:B6)",
+      "=SUMIF(Observations!F2:F6,\"VALIDE\",Observations!D2:D6)",
+      "=IF(B6>0,B5/B6,\"\")"
+    ]
+  },
+  "actual_rows": [
+    [
+      "S01",
+      180,
+      120,
+      300,
+      0.6,
+      "VALIDE"
+    ],
+    [
+      "S02",
+      240,
+      60,
+      300,
+      0.8,
+      "VALIDE"
+    ],
+    [
+      "S03",
+      null,
+      60,
+      null,
+      null,
+      "INCOMPLET"
+    ],
+    [
+      "S04",
+      0,
+      0,
+      0,
+      null,
+      "DUREE_NULLE"
+    ],
+    [
+      "S05",
+      90,
+      210,
+      300,
+      0.3,
+      "VALIDE"
+    ]
+  ],
+  "expected_summary": {
+    "valid": 3,
+    "incomplete": 1,
+    "zero_duration": 1,
+    "motor_s": 510,
+    "total_s": 900,
+    "weighted_proportion": 0.5666666666666667
+  },
+  "observed_summary": {
+    "valid": 3,
+    "incomplete": 1,
+    "zero_duration": 1,
+    "motor_s": 510,
+    "total_s": 900,
+    "weighted_proportion": 0.566666666666667
+  },
+  "command": "libreoffice -env:UserInstallation=file://<tmp>/profile --headless --convert-to xlsx --outdir <tmp>/out <tmp>/pilot.xlsx",
+  "verification": "Workbook generated with openpyxl 3.1.5; actual Calc recalculation, openpyxl data_only caches checked with independent expected values and 1e-12 tolerance. Temporary files removed; hashes not a claim of byte-reproducible ZIP.",
+  "input_sha256": "3af9be8d7bb9af8a45d6bafc123ac9da1aa9dc4106729cea3cf08fcdd2581fce",
+  "output_sha256": "aa09ae1f72fa7b3cf2c5046d353ece8f0e5514f06535b6e3762f893ed71887df",
+  "source_unchanged": true,
+  "exit_code": 0,
+  "limitations": [
+    "Only nonnegative durations in this control data; negative durations, nonnumeric text, overlaps and additional activity categories not tested.",
+    "Two categories assumed exhaustive for the constructed example only; no claim of full ALT-PE measurement.",
+    "No empirical effectiveness, no F10 individual student progression established.",
+    "Linux headless actual execution; target Windows, school equipment/accessibility/cost and data policy not confirmed.",
+    "Network namespace isolation attempt denied by environment; no verified offline test.",
+    "No admission, context draft only."
+  ],
+  "sources": [
+    "https://books.libreoffice.org/en/CG262/CG26201-Introduction.html",
+    "https://help.libreoffice.org/latest/en-US/text/scalc/01/func_sumif.html",
+    "COUVERTURE_FONCTIONS_V01.csv"
+  ]
+}

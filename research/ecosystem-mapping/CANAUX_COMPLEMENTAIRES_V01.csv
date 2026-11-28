@@ -1,0 +1,7 @@
+"channel";"scope";"access_documentation";"status";"limit_or_condition"
+"Wikidata";"Identités logiciels, plateformes, éditeurs et liens";"https://www.wikidata.org/wiki/Wikidata:Data_access";"PILOTE_FACTUEL_A_PREPARER";"CC0 données structurées; lacunes contributives; requêtes ciblées et limites service; pas preuve fonctionnelle"
+"Flathub/AppStream";"Logiciels Linux et métadonnées de distribution";"https://docs.flathub.org/docs/for-app-authors/metainfo-guidelines";"CANAL_DOCUMENTE_DROITS_A_VERIFIER";"Métadonnées et licences par composant; ne pas republier descriptions et images; accès via mécanisme documenté"
+"Snap Store";"Logiciels Linux distribués en snaps";"https://snapcraft.io/docs/tutorials/get-started/";"CANAL_DOCUMENTE_DROITS_A_VERIFIER";"Recherche snap find documentée; pas d'autorisation générale de collecte massive présumée"
+"Microsoft Store";"Logiciels Windows et variantes";"https://learn.microsoft.com/en-us/windows/apps/publish/get-started";"ACCES_CATALOGUE_NON_CONFIRME";"Documentation publication n'établit pas accès global; éditeurs/annuaire autorisé"
+"Sites éditeurs/associations";"Web, SaaS, desktop, matériel, capteurs";"https://www.wikidata.org/wiki/Wikidata:Data_access";"PROSPECTION_DOCUMENTAIRE_A_DEFINIR";"Liens sources officielles au cas par cas; pas de scraping massif"
+"Littérature scientifique";"Mesures, validité, interventions, technologies de recherche";"https://doi.org/10.1136/bmjopen-2023-073283";"STRATEGIE_BIBLIOGRAPHIQUE_A_DEFINIR";"Distinguer identification de produit et niveau de preuve; ne pas assimiler citation à validation"

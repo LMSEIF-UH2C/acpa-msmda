@@ -1,0 +1,181 @@
+{
+  "automatic_merges": 0,
+  "confirmed_products": null,
+  "deferred_repository_groups": [
+    {
+      "additional_if_expanded": 1953,
+      "already_candidate": 0,
+      "distinct_native_ids": 63,
+      "group_sha256": "88c1949b273ca5ffbd3c3adc7e90fc0a8095589e68294840088413acc76e3735",
+      "ids_with_publisher_label": 63,
+      "pair_upper_bound": 1953,
+      "pairs_with_shared_normalized_name": 0,
+      "pairs_with_shared_publisher_label": 1953,
+      "size": 63,
+      "source_counts": {
+        "fdroid": 63
+      },
+      "status": "DEFERRED_REVIEW_REQUIRED"
+    }
+  ],
+  "extended_candidate_manifest_sha256": "b45ac548e74e5799fd66707fe452df5b115e3d996fae9db8a0eeb0c0c8ea7ee0",
+  "extended_union": 349,
+  "limitations": "Same listing identifier only, not product identity; source_url may be stale or refer to a different entry, no live URL checks. Strict syntax may omit valid alternate paths. Names and publisher labels are supporting signals only. No human truth labels, no recall or precision. Threshold analysis on fixed observed pilots, not optimized threshold. Deferred group expansion is a sensitivity scenario, not adopted.",
+  "listing_by_namespace": {
+    "apple": {
+      "already_in_candidate_union": 86,
+      "catalog_duplicate_listing_groups": 7,
+      "catalog_pairs_same_listing": 7,
+      "catalog_rows_not_observed_in_pilots": 1681,
+      "catalog_rows_with_strict_link": 1795,
+      "distinct_listing_ids": 1788,
+      "native_listing_pairs": 114,
+      "new_native_listing_pairs": 28,
+      "shared_normalized_name": 86,
+      "shared_publisher_label": 114
+    },
+    "fdroid": {
+      "already_in_candidate_union": 90,
+      "catalog_duplicate_listing_groups": 0,
+      "catalog_pairs_same_listing": 0,
+      "catalog_rows_with_strict_link": 90,
+      "distinct_listing_ids": 90,
+      "native_listing_pairs": 90,
+      "new_native_listing_pairs": 0,
+      "shared_normalized_name": 90,
+      "shared_publisher_label": 76
+    }
+  },
+  "metadata_field_distributions": {
+    "apple/origin": {
+      "App Store (recherche publique Apple, filtrée sur la pertinence EPS)": 900,
+      "App Store, présélection automatique sur la description (critères EPS)": 689,
+      "App Store, recherche par nom exact (au moins 20 avis)": 42,
+      "Liste de prospection, confirmée sur l'App Store": 162,
+      "missing_or_nonscalar": 2
+    },
+    "apple/store": {
+      "missing_or_nonscalar": 1795
+    },
+    "fdroid/origin": {
+      "F-Droid (Android), présélection automatique sur la description (critères EPS)": 90
+    },
+    "fdroid/store": {
+      "missing_or_nonscalar": 90
+    }
+  },
+  "native_listing_overlap_prior": 176,
+  "native_listing_pairs": 204,
+  "new_native_listing_pairs": 28,
+  "prior_manifest_verified": true,
+  "prior_union": 321,
+  "scope": "12956 records; source_url listing syntax, six verified archives, frozen catalogue; exploratory",
+  "sensitivity": [
+    {
+      "cap": 10,
+      "global_cross_pairs": 319,
+      "global_deferred_cross_groups": 0,
+      "global_lost_vs_30": 0,
+      "global_new_vs_30": 0,
+      "legacy_cross": 13,
+      "legacy_deferred_groups": [
+        {
+          "rule": "repository_url",
+          "size": 63
+        },
+        {
+          "rule": "repository_url",
+          "size": 16
+        },
+        {
+          "rule": "repository_url",
+          "size": 23
+        }
+      ],
+      "legacy_lost_vs_30": 373,
+      "legacy_new_vs_30": 0,
+      "legacy_pairs": 296
+    },
+    {
+      "cap": 20,
+      "global_cross_pairs": 319,
+      "global_deferred_cross_groups": 0,
+      "global_lost_vs_30": 0,
+      "global_new_vs_30": 0,
+      "legacy_cross": 13,
+      "legacy_deferred_groups": [
+        {
+          "rule": "repository_url",
+          "size": 63
+        },
+        {
+          "rule": "repository_url",
+          "size": 23
+        }
+      ],
+      "legacy_lost_vs_30": 253,
+      "legacy_new_vs_30": 0,
+      "legacy_pairs": 416
+    },
+    {
+      "cap": 30,
+      "global_cross_pairs": 319,
+      "global_deferred_cross_groups": 0,
+      "global_lost_vs_30": 0,
+      "global_new_vs_30": 0,
+      "legacy_cross": 13,
+      "legacy_deferred_groups": [
+        {
+          "rule": "repository_url",
+          "size": 63
+        }
+      ],
+      "legacy_lost_vs_30": 0,
+      "legacy_new_vs_30": 0,
+      "legacy_pairs": 669
+    },
+    {
+      "cap": 60,
+      "global_cross_pairs": 319,
+      "global_deferred_cross_groups": 0,
+      "global_lost_vs_30": 0,
+      "global_new_vs_30": 0,
+      "legacy_cross": 13,
+      "legacy_deferred_groups": [
+        {
+          "rule": "repository_url",
+          "size": 63
+        }
+      ],
+      "legacy_lost_vs_30": 0,
+      "legacy_new_vs_30": 0,
+      "legacy_pairs": 669
+    },
+    {
+      "cap": 63,
+      "global_cross_pairs": 319,
+      "global_deferred_cross_groups": 0,
+      "global_lost_vs_30": 0,
+      "global_new_vs_30": 0,
+      "legacy_cross": 13,
+      "legacy_deferred_groups": [],
+      "legacy_lost_vs_30": 0,
+      "legacy_new_vs_30": 1953,
+      "legacy_pairs": 2622
+    },
+    {
+      "cap": 100,
+      "global_cross_pairs": 319,
+      "global_deferred_cross_groups": 0,
+      "global_lost_vs_30": 0,
+      "global_new_vs_30": 0,
+      "legacy_cross": 13,
+      "legacy_deferred_groups": [],
+      "legacy_lost_vs_30": 0,
+      "legacy_new_vs_30": 1953,
+      "legacy_pairs": 2622
+    }
+  ],
+  "short_cross_pairs": 2,
+  "short_cross_pairs_already_preserved": 2
+}

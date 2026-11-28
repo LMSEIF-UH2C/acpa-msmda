@@ -1,0 +1,303 @@
+{
+  "phase": "A4 initial technical prototype",
+  "commit": "01b83f778138a5c4a189ae8e85e5bd100566a15d",
+  "pr": 82,
+  "mode": "fictional fixture solver only; no operational promotion",
+  "tests": {
+    "run_id": 46171946898,
+    "distinct": 18,
+    "executions": 36,
+    "passed": 36,
+    "python": [
+      "3.12",
+      "3.14"
+    ],
+    "small_oracle_budgets": 9
+  },
+  "real_boundary": {
+    "documentary_records": 34,
+    "admitted": 0,
+    "recommended": 0
+  },
+  "checks": [
+    {
+      "name": "tests (3.14)",
+      "status": "in_progress",
+      "conclusion": null,
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171951231/job/141062119984"
+    },
+    {
+      "name": "reference",
+      "status": "in_progress",
+      "conclusion": null,
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171951217/job/141062119859"
+    },
+    {
+      "name": "smoke-test",
+      "status": "in_progress",
+      "conclusion": null,
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171951248/job/141062119819"
+    },
+    {
+      "name": "tests (3.12)",
+      "status": "in_progress",
+      "conclusion": null,
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171951231/job/141062119776"
+    },
+    {
+      "name": "mobile-navigation",
+      "status": "in_progress",
+      "conclusion": null,
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171951207/job/141062119769"
+    },
+    {
+      "name": "ecosystem (3.14)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171946898/job/141062105994"
+    },
+    {
+      "name": "qualification (3.14)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171946842/job/141062105692"
+    },
+    {
+      "name": "ecosystem (3.12)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171946898/job/141062105631"
+    },
+    {
+      "name": "qualification (3.12)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171946842/job/141062105484"
+    },
+    {
+      "name": "register (3.14)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171946844/job/141062105468"
+    },
+    {
+      "name": "dual-entry",
+      "status": "in_progress",
+      "conclusion": null,
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171946829/job/141062105338"
+    },
+    {
+      "name": "register (3.12)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171946844/job/141062105205"
+    }
+  ],
+  "main_unchanged": true,
+  "limitations": [
+    "All admissibility assertions supplied as fictitious fixtures; no actual context evidence adapter or real operational recommendation.",
+    "Coarse before/during/after device slots, integer MAD same period, no fine scheduling or independently verified interoperability.",
+    "Best feasible set at most two is a prototype comparator, not a validated simple baseline; historical engine comparator not implemented.",
+    "Independent bitmask oracle tests only small cost/coverage examples, not all constraints.",
+    "Incomplete search returns no selected set; partial comparator serialization and explicit scope on incomplete search need hardening before A5.",
+    "Optional coverage reported, not optimized. No scientific weights, no external validation, no source enlargement, no UI or release."
+  ],
+  "full_regression_status": "PENDING",
+  "terminal_recheck": {
+    "commit": "01b83f778138a5c4a189ae8e85e5bd100566a15d",
+    "jobs_passed": 12,
+    "jobs_total": 12,
+    "all_eight_runs_terminal": true,
+    "verified_on": "2026-11-28",
+    "scope": "Initial A4 commit only; original pending snapshot preserved."
+  },
+  "ret013_retest": {
+    "commit": "78771bb10eb721f014bcf0fd3a1c5cdffaa7a40f",
+    "status": "PENDING",
+    "run_refs": [
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46172421780",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46172421767",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46172421770",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46172421714",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46172415360",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46172415369",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46172415377",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46172415303"
+    ],
+    "change": "Suppress all unfinalized comparator and coverage outputs; test explicit bounds, feasible prefix, JSON, exact terminal boundary."
+  },
+  "ret013_terminal_retest": {
+    "commit": "78771bb10eb721f014bcf0fd3a1c5cdffaa7a40f",
+    "workflows": 8,
+    "successful": 8,
+    "mobile_run": 46172421767,
+    "dual_entry_run": 46172415360
+  },
+  "documentary_adapter_and_historical_native": {
+    "commit": "5857b0f4bef45ee7c3709bae890c265aa099648f",
+    "scope": "Read-only documentary diagnostics, actual historical ranking descriptive only",
+    "additional_tests": 5,
+    "workflows": [
+      {
+        "id": 46173022815,
+        "name": "Independent R validation",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173022815"
+      },
+      {
+        "id": 46173022907,
+        "name": "Tests ACPA MSMDA",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173022907"
+      },
+      {
+        "id": 46173022808,
+        "name": "Public web demo",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173022808"
+      },
+      {
+        "id": 46173022812,
+        "name": "Mobile navigation REC-Y002",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173022812"
+      },
+      {
+        "id": 46173017975,
+        "name": "A2 isolated experimental technology register",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173017975"
+      },
+      {
+        "id": 46173017967,
+        "name": "A3 documentary qualification",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173017967"
+      },
+      {
+        "id": 46173017986,
+        "name": "A4 isolated ecosystem solver",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173017986"
+      },
+      {
+        "id": 46173018008,
+        "name": "A2 dual-entry browser acceptance",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173018008"
+      }
+    ],
+    "results_verified": true,
+    "limitations": [
+      "No operational admission or validated common function mapping",
+      "Local record digest, not remote content or independent review",
+      "No common-pool empirical comparison, no validated cost/coverage/violations/load metrics"
+    ]
+  },
+  "common_pool_protocol": {
+    "path": "PLAN_APPLICATION_A4_COMMON_POOL_V01.md",
+    "status": "EXECUTED_TECHNICAL_ONLY",
+    "scenarios": 10
+  },
+  "common_pool_oracle": {
+    "commit": "b81690de34e135d5f5d23df66d9c5a7de9073706",
+    "additional_tests": 2,
+    "scenarios": 10,
+    "seeded_pools": 100,
+    "seed": 20261128,
+    "workflows": [
+      {
+        "id": 46173330855,
+        "name": "Tests ACPA MSMDA",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173330855"
+      },
+      {
+        "id": 46173330858,
+        "name": "Independent R validation",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173330858"
+      },
+      {
+        "id": 46173330869,
+        "name": "Public web demo",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173330869"
+      },
+      {
+        "id": 46173330951,
+        "name": "Mobile navigation REC-Y002",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173330951"
+      },
+      {
+        "id": 46173324214,
+        "name": "A4 isolated ecosystem solver",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173324214"
+      }
+    ],
+    "results_verified": true,
+    "tests_each_python": 26,
+    "total_test_executions": 52,
+    "complete_coverage": {
+      "individual": 2,
+      "up_to_two": 7,
+      "ecosystem": 8,
+      "denominator": 10
+    },
+    "selected_sizes": {
+      "S01": 3,
+      "S03": 2,
+      "S04": 1,
+      "S05": 2,
+      "S06": 1,
+      "S07": 2,
+      "S08": 2,
+      "S09": 2
+    },
+    "abstentions": {
+      "S02": "NO_COMPLETE_SET",
+      "S10": "UNSUPPORTED_REQUIREMENT"
+    },
+    "documentary": {
+      "records": 34,
+      "linked": 34,
+      "admitted": 0
+    }
+  },
+  "technical_closure": {
+    "status": "TECH_VERIFIED",
+    "scope": "fictional optimization and read-only documentary diagnostics; native historical descriptive only",
+    "next": "A5"
+  },
+  "scientific_highlight_ASC01": {
+    "owner_selected": true,
+    "principle": "Contextual decision abstention rather than inadequate recommendation",
+    "evidence": {
+      "S02": "NO_COMPLETE_SET",
+      "S10": "UNSUPPORTED_REQUIREMENT",
+      "RET013": "INCOMPLETE_SEARCH",
+      "documentary": {
+        "records": 34,
+        "linked": 34,
+        "admitted": 0
+      }
+    },
+    "scope": "technical behavior only; no empirical effect or absolute novelty claim",
+    "report": "RAPPORT_SCIENTIFIQUE_EVOLUTIF.md"
+  }
+}

@@ -1,0 +1,17 @@
+name: Ecosystem Apple adapter tests
+on:
+  push:
+    branches: [research/ecosystem-mapping-pilot]
+    paths: ['research/ecosystem-mapping/apple_checkpoint_adapter.py','research/ecosystem-mapping/tests/test_apple_checkpoint_adapter.py','.github/workflows/ecosystem-apple-adapter-tests.yml']
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s research/ecosystem-mapping/tests

@@ -1,0 +1,22 @@
+name: Ecosystem targeted documentary comparison
+on:
+  push:
+    branches: [research/ecosystem-mapping-pilot]
+    paths: ['research/ecosystem-mapping/PROSPECTION_MATERIEL_COMMERCIAL_V01.json','research/ecosystem-mapping/audit_documentary_pilot.py','.github/workflows/ecosystem-documentary-pilot.yml']
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python research/ecosystem-mapping/audit_documentary_pilot.py --catalog data/real_tools_catalog.json --output documentary-output
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ecosystem-targeted-documentary-audit
+          path: documentary-output/
+          retention-days: 30

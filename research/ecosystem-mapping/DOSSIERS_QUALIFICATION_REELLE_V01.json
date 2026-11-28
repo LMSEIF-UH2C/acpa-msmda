@@ -1,0 +1,353 @@
+{
+  "status": "INTERNAL_REVIEW_DRAFT_ONLY",
+  "date": "2026-11-28",
+  "scope": "Evidence dossiers, not executable approval manifest. Do not pin or admit; unknown gates retained.",
+  "dossiers": [
+    {
+      "id": "doc_web:WD16",
+      "name": "BORIS",
+      "variant": "desktop, installed version not verified",
+      "scenario": "REAL-S09-01 proposed, one pre-existing Windows computer, sequential after-class use, data without pupil identifiers",
+      "proposed_functions": [
+        "F06",
+        "F14"
+      ],
+      "claims": [
+        {
+          "kind": "OFFICIAL_DOCUMENTATION",
+          "finding": "Event logging, STATE/POINT distinction, time-budget analysis and CSV exports are described; unpaired STATE events are flagged.",
+          "locators": [
+            "https://www.boris.unito.it/features/",
+            "https://www.boris.unito.it/user_guide/analysis/",
+            "https://www.boris.unito.it/user_guide/export_events/"
+          ]
+        },
+        {
+          "kind": "ACTUAL_TEST",
+          "finding": "Native BORIS 10.0.2 export passed on public test project; actual output transferred through Calc. CLI failed.",
+          "locators": [
+            "AUDIT_TRANSFERT_BORIS_CALC_V01.json",
+            "AUDIT_BORIS_REFERENCE_V01.json"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.boris.unito.it/download/"
+      ],
+      "gate_review": {
+        "connectivity": {
+          "status": "NOT_ESTABLISHED",
+          "reason": "Actual offline behavior for selected installed version not tested"
+        },
+        "equipment": {
+          "status": "NOT_ESTABLISHED",
+          "reason": "Availability and OS/device suitability of actual school computer not confirmed"
+        },
+        "age_privacy": {
+          "status": "NOT_ESTABLISHED",
+          "reason": "Local data governance and application behavior not fully verified; no pupil data in tests"
+        },
+        "accessibility": {
+          "status": "NOT_ESTABLISHED",
+          "reason": "Required accessibility and user needs not tested"
+        },
+        "physical_safety": {
+          "status": "NOT_ESTABLISHED",
+          "reason": "After-class use proposed; actual context not confirmed"
+        },
+        "morocco_availability": {
+          "status": "NOT_ESTABLISHED",
+          "reason": "Download/install and local access not confirmed in Morocco"
+        },
+        "identity": {
+          "status": "NOT_ESTABLISHED",
+          "reason": "Product variant and installed version need adjudication in target setting"
+        },
+        "source_current": {
+          "status": "NOT_ESTABLISHED",
+          "reason": "Documentation reviewed 2026-11-28; version applicability not fully established"
+        },
+        "transfer": {
+          "status": "NOT_ESTABLISHED",
+          "reason": "Bounded actual BORIS-Calc manual file transfer tested under specified Linux environments; full target context and pair review not established."
+        }
+      },
+      "resources": {
+        "cost": "Free software documented where stated; mandatory total cost in target context not established",
+        "load": "NOT_ESTABLISHED",
+        "device_slots": "NOT_ESTABLISHED",
+        "relations": "NOT_ESTABLISHED",
+        "offline": "NOT_ESTABLISHED"
+      },
+      "review_status": "DRAFT_NOT_APPROVED",
+      "admitted": false
+    },
+    {
+      "id": "doc_web:WD07",
+      "name": "LibreOffice Calc",
+      "variant": "actual Linux test binary 25.2.3.2; proposed Windows use not tested",
+      "scenario": "REAL-S09-01 proposed, one pre-existing Windows computer, sequential after-class use, data without pupil identifiers",
+      "proposed_functions": [
+        "F10",
+        "F14"
+      ],
+      "claims": [
+        {
+          "kind": "OFFICIAL_DOCUMENTATION",
+          "finding": "CSV import/export and column format configuration documented.",
+          "locators": [
+            "https://books.libreoffice.org/en/CG262/CG26201-Introduction.html",
+            "https://help.libreoffice.org/latest/fr/text/shared/guide/csv_params.html"
+          ]
+        },
+        {
+          "kind": "ACTUAL_TEST",
+          "finding": "5x6 constructed CSV: default import changed five IDs; explicit text columns preserved 30/30 parsed fields.",
+          "locators": [
+            "AUDIT_TRANSFERT_CSV_REEL_V02.json"
+          ]
+        },
+        {
+          "kind": "ACTUAL_TEST",
+          "finding": "Actual BORIS native CSV imported and re-exported in Calc; 168/168 semantic values under explicit policy, 144/144 nonempty types; exact strings 130/168.",
+          "locators": [
+            "AUDIT_TRANSFERT_BORIS_CALC_V01.json",
+            "AUDIT_BORIS_REFERENCE_V01.json"
+          ]
+        },
+        {
+          "kind": "ACTUAL_TEST",
+          "finding": "F14 after-class descriptive time analysis on constructed control data: 3 valid rows, 2 exclusions, 510/900 seconds, 56.6667% weighted ratio. F10 individual progression not demonstrated.",
+          "locators": [
+            "AUDIT_CALC_F14_V01.json"
+          ]
+        },
+        {
+          "kind": "ACTUAL_TEST",
+          "finding": "F14 robustness: 11/11 constructed cases classified, 6 invalid rows excluded, 5 valid, correct totals and proportion; no school data or offline proof.",
+          "locators": [
+            "AUDIT_CALC_F14_ROBUSTESSE_V02.json"
+          ]
+        }
+      ],
+      "sources": [
+        "https://help.libreoffice.org/latest/en-US/text/scalc/guide/csv_files.html"
+      ],
+      "gate_review": {
+        "connectivity": {
+          "status": "NOT_ESTABLISHED",
+          "reason": "Actual offline behavior for selected installed version not tested"
+        },
+        "equipment": {
+          "status": "NOT_ESTABLISHED",
+          "reason": "Availability and OS/device suitability of actual school computer not confirmed"
+        },
+        "age_privacy": {
+          "status": "NOT_ESTABLISHED",
+          "reason": "Local data governance and application behavior not fully verified; no pupil data in tests"
+        },
+        "accessibility": {
+          "status": "NOT_ESTABLISHED",
+          "reason": "Required accessibility and user needs not tested"
+        },
+        "physical_safety": {
+          "status": "NOT_ESTABLISHED",
+          "reason": "After-class use proposed; actual context not confirmed"
+        },
+        "morocco_availability": {
+          "status": "NOT_ESTABLISHED",
+          "reason": "Download/install and local access not confirmed in Morocco"
+        },
+        "identity": {
+          "status": "NOT_ESTABLISHED",
+          "reason": "Product variant and installed version need adjudication in target setting"
+        },
+        "source_current": {
+          "status": "NOT_ESTABLISHED",
+          "reason": "Documentation reviewed 2026-11-28; version applicability not fully established"
+        },
+        "transfer": {
+          "status": "NOT_ESTABLISHED",
+          "reason": "Bounded actual BORIS-Calc manual file transfer tested under specified Linux environments; full target context and pair review not established."
+        }
+      },
+      "resources": {
+        "cost": "Free software documented where stated; mandatory total cost in target context not established",
+        "load": "NOT_ESTABLISHED",
+        "device_slots": "NOT_ESTABLISHED",
+        "relations": "NOT_ESTABLISHED",
+        "offline": "NOT_ESTABLISHED"
+      },
+      "review_status": "DRAFT_NOT_APPROVED",
+      "admitted": false,
+      "additional_context_draft": {
+        "id": "REAL-S09-02_PROPOSED",
+        "required_functions": [
+          "F14"
+        ],
+        "optional_functions": [],
+        "scope": "One existing teacher computer; after-class analysis of aggregate anonymous counts and durations; no claim of individual evaluation or full S09; no transfer between applications required if manual data entry.",
+        "status": "DRAFT_NOT_APPROVED",
+        "unresolved": [
+          "school platform and availability",
+          "offline runtime",
+          "actual total mandatory cost and implementation load",
+          "accessibility and data governance",
+          "identity and current version applicability",
+          "explicit context review and owner decision"
+        ]
+      },
+      "context_matrix": "MATRICE_QUALIFICATION_CALC_F14_V01.md"
+    },
+    {
+      "id": "doc_web:WD04",
+      "name": "jamovi",
+      "variant": "desktop, not cloud; installed version not verified",
+      "scenario": "REAL-S09-01 proposed, one pre-existing Windows computer, sequential after-class use, data without pupil identifiers",
+      "proposed_functions": [
+        "F10",
+        "F14"
+      ],
+      "claims": [
+        {
+          "kind": "OFFICIAL_DOCUMENTATION",
+          "finding": "CSV import, local desktop analyses and offline use with online exceptions for updates/modules; missing codes require explicit definition.",
+          "locators": [
+            "https://www.jamovi.org/getting-started.html",
+            "https://www.jamovi.org/troubleshooting.html",
+            "https://docs.jamovi.org/data/data_1_overview_data_variables.html"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.jamovi.org/features.html"
+      ],
+      "gate_review": {
+        "connectivity": {
+          "status": "NOT_ESTABLISHED",
+          "reason": "Actual offline behavior for selected installed version not tested"
+        },
+        "equipment": {
+          "status": "NOT_ESTABLISHED",
+          "reason": "Availability and OS/device suitability of actual school computer not confirmed"
+        },
+        "age_privacy": {
+          "status": "NOT_ESTABLISHED",
+          "reason": "Local data governance and application behavior not fully verified; no pupil data in tests"
+        },
+        "accessibility": {
+          "status": "NOT_ESTABLISHED",
+          "reason": "Required accessibility and user needs not tested"
+        },
+        "physical_safety": {
+          "status": "NOT_ESTABLISHED",
+          "reason": "After-class use proposed; actual context not confirmed"
+        },
+        "morocco_availability": {
+          "status": "NOT_ESTABLISHED",
+          "reason": "Download/install and local access not confirmed in Morocco"
+        },
+        "identity": {
+          "status": "NOT_ESTABLISHED",
+          "reason": "Product variant and installed version need adjudication in target setting"
+        },
+        "source_current": {
+          "status": "NOT_ESTABLISHED",
+          "reason": "Documentation reviewed 2026-11-28; version applicability not fully established"
+        },
+        "transfer": {
+          "status": "NOT_ESTABLISHED",
+          "reason": "No complete contextual chain tested; pair compatibility not established"
+        }
+      },
+      "resources": {
+        "cost": "Free software documented where stated; mandatory total cost in target context not established",
+        "load": "NOT_ESTABLISHED",
+        "device_slots": "NOT_ESTABLISHED",
+        "relations": "NOT_ESTABLISHED",
+        "offline": "NOT_ESTABLISHED"
+      },
+      "review_status": "DRAFT_NOT_APPROVED",
+      "admitted": false
+    },
+    {
+      "id": "doc_web:WD02",
+      "name": "Kinovea",
+      "variant": "Windows desktop, manual 0.9.5; installed version not verified",
+      "scenario": "REAL-S09-01 proposed, one pre-existing Windows computer, sequential after-class use, data without pupil identifiers",
+      "proposed_functions": [
+        "F06",
+        "F07"
+      ],
+      "claims": [
+        {
+          "kind": "OFFICIAL_DOCUMENTATION",
+          "finding": "Motion annotation, measures, tabular CSV exports; Windows support and no cost stated.",
+          "locators": [
+            "https://www.kinovea.org/features",
+            "https://kinovea.org/help/en/export/data.html",
+            "https://www.kinovea.org/help/en/misc/faq.html"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.kinovea.org/help/en/index.html"
+      ],
+      "gate_review": {
+        "connectivity": {
+          "status": "NOT_ESTABLISHED",
+          "reason": "Actual offline behavior for selected installed version not tested"
+        },
+        "equipment": {
+          "status": "NOT_ESTABLISHED",
+          "reason": "Availability and OS/device suitability of actual school computer not confirmed"
+        },
+        "age_privacy": {
+          "status": "NOT_ESTABLISHED",
+          "reason": "Local data governance and application behavior not fully verified; no pupil data in tests"
+        },
+        "accessibility": {
+          "status": "NOT_ESTABLISHED",
+          "reason": "Required accessibility and user needs not tested"
+        },
+        "physical_safety": {
+          "status": "NOT_ESTABLISHED",
+          "reason": "After-class use proposed; actual context not confirmed"
+        },
+        "morocco_availability": {
+          "status": "NOT_ESTABLISHED",
+          "reason": "Download/install and local access not confirmed in Morocco"
+        },
+        "identity": {
+          "status": "NOT_ESTABLISHED",
+          "reason": "Product variant and installed version need adjudication in target setting"
+        },
+        "source_current": {
+          "status": "NOT_ESTABLISHED",
+          "reason": "Documentation reviewed 2026-11-28; version applicability not fully established"
+        },
+        "transfer": {
+          "status": "NOT_ESTABLISHED",
+          "reason": "No complete contextual chain tested; pair compatibility not established"
+        }
+      },
+      "resources": {
+        "cost": "Free software documented where stated; mandatory total cost in target context not established",
+        "load": "NOT_ESTABLISHED",
+        "device_slots": "NOT_ESTABLISHED",
+        "relations": "NOT_ESTABLISHED",
+        "offline": "NOT_ESTABLISHED"
+      },
+      "review_status": "DRAFT_NOT_APPROVED",
+      "admitted": false
+    }
+  ],
+  "real_admitted": 0,
+  "transfer_protocol": [
+    "Freeze source and destination versions and context; preserve raw export separately.",
+    "Compare counts, typed identifiers, decimal convention, encoding, missing values, units, point/state semantics, duplicate keys and joins.",
+    "Use known reference data and expected values; retain failed default import and retest.",
+    "Test actual endpoint export/import; document manual workflow, time/load and limitations before pair admission."
+  ],
+  "next": "Actual BORIS/jamovi endpoint tests; school context confirmation, per-claim adjudication and explicit decision before pinning."
+}

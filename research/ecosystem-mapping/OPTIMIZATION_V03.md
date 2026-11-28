@@ -1,0 +1,19 @@
+# Amélioration cumulative de la collecte — plan V0.3 proposé
+
+Audit des scripts: tools/catalog/collect_appstore.py, select_relevant.py (historique) et collect_apple_coverage_v02.py (nouveau). 118 termes historiques, 300 nouveaux, intersection exacte 20; 98 historiques absents à l'identique. Union 398 expressions, 1592 couples terme/marché si toutes les expressions sont croisées sur MA/FR/US/GB à limit=200. C'est un espace de planification, non un objectif de requêtes à exécuter ni d'applications à retenir. Les variantes historiques sportives sont conservées. Aucune équivalence sémantique présumée. L'extension V0.2 déjà lancée n'est pas modifiée.
+
+Gains déjà implémentés dans ce commit :
+- Planificateur hors ligne; une requête physique unique pour chaque combinaison terme exact normalisé NFC, pays, entité software, limite. Toutes les étiquettes famille/langue/origine conservées. Pas de répétition liée aux catégories.
+- Contrôle des empreintes de cache et comptage des snapshots exacts, limit=50 exploratoires, et manquants. Ne pas assimiler un cache de 50 à une recherche de 200; vérifier date, champs, droits et comparabilité avant réemploi.
+- Tests de régression; déclencheurs Apple restreints aux changements du collecteur/matrice concernés, non aux modifications documentaires ou aux nouveaux tests d'autres modules. Groupe de concurrence commun pour les futures exécutions Apple; n'affecte pas les jobs antérieurs déjà actifs. Les workflows historiques restent distincts et leurs résultats inchangés.
+
+Gains à implémenter avant collecte définitive:
+1. Manifestes versionnés pour chaque source, accès/licences, paramètres exacts, dates, coûts, quota et autorisation; espace privé durable pour les données nécessaires. Les archives historiques demeurent non récupérées.
+2. Ordonnancer en blocs séquentiels avec point de reprise durable entre jobs, export des journaux et rapports partiels sur arrêt/échec; ne pas présenter la simple reprise dans un dossier local comme reprise entre runners. Respecter cadence, backoff, arrêt sur limitation d'accès. Les anciens pilotes n'ont pas ce mécanisme durable.
+3. Mesurer rendement marginal cumulatif (nouveaux IDs par requête/bloc et par seconde), plafonds, chevauchements par terme et marché, taux de requêtes réussies et champs manquants; distinguer nouveauté par ID et pertinence confirmée. Comparer à la base brute historique lorsqu'elle sera disponible, pas seulement au catalogue filtré.
+4. Évaluer redondance par Jaccard et contribution exclusive; termes à faible rendement ne sont pas automatiquement éliminés (niches EPS, arabe, handicap, hors ligne); conserver un ensemble de contrôle stratifié et documenter toute suppression. Définir et préenregistrer une règle de saturation par famille/source, avec garde-fou de couverture et tests des faux négatifs. Pas de seuil arbitraire fixé a posteriori.
+5. Identifiants: source/plateforme/produit/version, preuve de rapprochement, table de correspondance, états ambigu/incertain; ne pas fusionner par nom seul. Ne pas interpréter un dépôt GitHub comme une application.
+6. Criblage indépendant puis cotation des paramètres applicables du 10D/97P; calibration sur les 141 fiches existantes, contrôle indépendant ensuite. Les risques et l'adéquation contextuelle restent séparés de la pertinence documentaire.
+7. Vérifier sur un ensemble de requêtes ou données témoin la couverture des usages historiques et nouveaux (sport, généralistes, accessibilité) et mesurer temps, précision/accord, erreurs et reprise. Aucun gain chiffré de vitesse ou qualité n'est encore démontré.
+
+Sources méthodologiques: https://doi.org/10.1136/bmjopen-2023-073283 ; https://doi.org/10.2196/16525 ; https://doi.org/10.1109/TSE.2016.2630689 ; https://performance-partners.apple.com/search-api. Ce document est un amendement après les pilotes, avant collecte définitive.

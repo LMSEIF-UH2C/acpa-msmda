@@ -1,0 +1,492 @@
+{
+  "source": "ANNEXE E3 - PROTOCOLE DE COTATION ET GRILLE 10D/97P, pp. 2–6",
+  "original_scale": "1–5",
+  "scope_note": "scope proposed, not original instrument",
+  "parameters": [
+    {
+      "code": "D1_01",
+      "label": "Clarté de la présentation de l’information",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D1_02",
+      "label": "Organisation et hiérarchie de l’information",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D1_03",
+      "label": "Gestion de la charge cognitive",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D1_04",
+      "label": "Attention et focalisation",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D1_05",
+      "label": "Soutien aux stratégies d’apprentissage",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D1_06",
+      "label": "Minimisation des distractions",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D1_07",
+      "label": "Retour et gestion des erreurs",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D1_08",
+      "label": "Flexibilité cognitive",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D1_09",
+      "label": "Soutien à la mémoire",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D1_10",
+      "label": "Guidage métacognitif",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D2_01",
+      "label": "Intuitivité de la navigation et de l’interface",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D2_02",
+      "label": "Clarté et lisibilité",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D2_03",
+      "label": "Cohérence et harmonie visuelle",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D2_04",
+      "label": "Interactivité et réactivité",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D2_05",
+      "label": "Exécution efficace des tâches",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D2_06",
+      "label": "Prévention et gestion des erreurs",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D2_07",
+      "label": "Personnalisation par l’utilisateur",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D2_08",
+      "label": "Engagement et motivation",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D2_09",
+      "label": "Adaptabilité entre appareils",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D2_10",
+      "label": "Accessibilité pour des utilisateurs divers",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D3_01",
+      "label": "Alignement avec les objectifs d’apprentissage",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D3_02",
+      "label": "Intégration de stratégies d’apprentissage actif",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D3_03",
+      "label": "Mécanismes d’évaluation et de retour",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D3_04",
+      "label": "Différenciation et personnalisation",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D3_05",
+      "label": "Contextualisation en situation réelle",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D3_06",
+      "label": "Opportunités d’apprentissage collaboratif",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D3_07",
+      "label": "Étayage et guidage",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D3_08",
+      "label": "Contenu authentique et pertinent",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D3_09",
+      "label": "Intégration de ressources multimodales",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D3_10",
+      "label": "Transférabilité des connaissances et compétences",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D4_01",
+      "label": "Prise en compte des styles d’apprentissage",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D4_02",
+      "label": "Soutien aux intelligences multiples",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D4_03",
+      "label": "Inclusion d’un soutien multilingue",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D4_04",
+      "label": "Adaptation aux rythmes d’apprentissage",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D4_05",
+      "label": "Adaptation aux niveaux de compétence",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D4_06",
+      "label": "Prise en compte des préférences d’apprentissage",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D4_07",
+      "label": "Sensibilité culturelle",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D4_08",
+      "label": "Options d’accessibilité",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D4_09",
+      "label": "Promotion de l’équité de genre",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D4_10",
+      "label": "Inclusivité des origines diverses",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D5_01",
+      "label": "Respect des standards d’accessibilité",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D5_02",
+      "label": "Interaction multimodale",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D5_03",
+      "label": "Formats alternatifs",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D5_04",
+      "label": "Facilité de navigation",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D5_05",
+      "label": "Personnalisation et adaptabilité",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D5_06",
+      "label": "Accessibilité au clavier",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D5_07",
+      "label": "Mise en page claire et cohérente",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D5_08",
+      "label": "Compatibilité avec les technologies d’assistance",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D5_09",
+      "label": "Pratiques de conception inclusive",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D5_10",
+      "label": "Mécanismes de retour",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D6_01",
+      "label": "Chiffrement et stockage des données",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D6_02",
+      "label": "Authentification et autorisation",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D6_03",
+      "label": "Contrôle d’accès selon les rôles",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D6_04",
+      "label": "Minimisation des données",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D6_05",
+      "label": "Transparence et consentement",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D6_06",
+      "label": "Canaux de communication sécurisés",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D6_07",
+      "label": "Audits de sécurité réguliers",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D6_08",
+      "label": "Propriété et portabilité des données",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D6_09",
+      "label": "Réponse et récupération après incident",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D7_01",
+      "label": "Sélection et recrutement des participants",
+      "scope": "processus_cadre_systeme_a_preciser"
+    },
+    {
+      "code": "D7_02",
+      "label": "Sélection et préparation de l’outil",
+      "scope": "processus_cadre_systeme_a_preciser"
+    },
+    {
+      "code": "D7_03",
+      "label": "Formation et familiarisation",
+      "scope": "processus_cadre_systeme_a_preciser"
+    },
+    {
+      "code": "D7_04",
+      "label": "Exécution de l’évaluation",
+      "scope": "processus_cadre_systeme_a_preciser"
+    },
+    {
+      "code": "D7_05",
+      "label": "Collecte et analyse des données",
+      "scope": "processus_cadre_systeme_a_preciser"
+    },
+    {
+      "code": "D7_06",
+      "label": "Revue par experts et intégration des retours",
+      "scope": "processus_cadre_systeme_a_preciser"
+    },
+    {
+      "code": "D7_07",
+      "label": "Triangulation des résultats",
+      "scope": "processus_cadre_systeme_a_preciser"
+    },
+    {
+      "code": "D7_08",
+      "label": "Garantie de fiabilité et de validité",
+      "scope": "processus_cadre_systeme_a_preciser"
+    },
+    {
+      "code": "D7_09",
+      "label": "Établissement de l’applicabilité du cadre",
+      "scope": "processus_cadre_systeme_a_preciser"
+    },
+    {
+      "code": "D8_01",
+      "label": "Intégration itérative des retours",
+      "scope": "processus_cadre_systeme_a_preciser"
+    },
+    {
+      "code": "D8_02",
+      "label": "Consultation et collaboration d’experts",
+      "scope": "processus_cadre_systeme_a_preciser"
+    },
+    {
+      "code": "D8_03",
+      "label": "Alignement sur les standards ISO",
+      "scope": "processus_cadre_systeme_a_preciser"
+    },
+    {
+      "code": "D8_04",
+      "label": "Incorporation d’expertise interdisciplinaire",
+      "scope": "processus_cadre_systeme_a_preciser"
+    },
+    {
+      "code": "D8_05",
+      "label": "Optimisation des paramètres du cadre",
+      "scope": "processus_cadre_systeme_a_preciser"
+    },
+    {
+      "code": "D8_06",
+      "label": "Garantie de la pertinence des critères",
+      "scope": "processus_cadre_systeme_a_preciser"
+    },
+    {
+      "code": "D8_07",
+      "label": "Renforcement de l’applicabilité du cadre",
+      "scope": "processus_cadre_systeme_a_preciser"
+    },
+    {
+      "code": "D8_08",
+      "label": "Promotion de l’amélioration continue",
+      "scope": "processus_cadre_systeme_a_preciser"
+    },
+    {
+      "code": "D8_09",
+      "label": "Prise en compte des tendances émergentes",
+      "scope": "processus_cadre_systeme_a_preciser"
+    },
+    {
+      "code": "D8_10",
+      "label": "Reflet des contextes éducatifs évolutifs",
+      "scope": "processus_cadre_systeme_a_preciser"
+    },
+    {
+      "code": "D9_01",
+      "label": "Cartographie dimensionnelle",
+      "scope": "processus_cadre_systeme_a_preciser"
+    },
+    {
+      "code": "D9_02",
+      "label": "Interaction inter-dimensionnelle",
+      "scope": "processus_cadre_systeme_a_preciser"
+    },
+    {
+      "code": "D9_03",
+      "label": "Synergie du cadre",
+      "scope": "processus_cadre_systeme_a_preciser"
+    },
+    {
+      "code": "D9_04",
+      "label": "Alignement exhaustif des critères",
+      "scope": "processus_cadre_systeme_a_preciser"
+    },
+    {
+      "code": "D9_05",
+      "label": "Expertise interdisciplinaire",
+      "scope": "processus_cadre_systeme_a_preciser"
+    },
+    {
+      "code": "D9_06",
+      "label": "Synthèse et interprétation des données",
+      "scope": "processus_cadre_systeme_a_preciser"
+    },
+    {
+      "code": "D9_07",
+      "label": "Recommandations intégrées",
+      "scope": "processus_cadre_systeme_a_preciser"
+    },
+    {
+      "code": "D9_08",
+      "label": "Prise de décision renforcée",
+      "scope": "processus_cadre_systeme_a_preciser"
+    },
+    {
+      "code": "D9_09",
+      "label": "Adaptation continue",
+      "scope": "processus_cadre_systeme_a_preciser"
+    },
+    {
+      "code": "D10_01",
+      "label": "Intégration des résultats multidimensionnels",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D10_02",
+      "label": "Promotion d’expériences d’apprentissage positives",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D10_03",
+      "label": "Renforcement de l’engagement des apprenants",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D10_04",
+      "label": "Promotion de compétences d’apprentissage tout au long de la vie",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D10_05",
+      "label": "Adaptation de l’apprentissage aux besoins individuels",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D10_06",
+      "label": "Contribution au développement intégral des compétences",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D10_07",
+      "label": "Alignement sur les tendances éducatives actuelles",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D10_08",
+      "label": "Autonomisation des enseignants et apprenants",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D10_09",
+      "label": "Facilitation de la construction active des connaissances",
+      "scope": "outil_ou_usage_a_preciser"
+    },
+    {
+      "code": "D10_10",
+      "label": "Enrichissement du parcours éducatif pour tous",
+      "scope": "outil_ou_usage_a_preciser"
+    }
+  ]
+}

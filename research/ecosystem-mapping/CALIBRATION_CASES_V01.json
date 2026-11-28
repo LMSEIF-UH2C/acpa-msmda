@@ -1,0 +1,70 @@
+[
+  {
+    "id": "C01",
+    "label": "Chronométrage simple",
+    "candidate": "Chronomètre natif ou application à identifier",
+    "scenario": "Sprint 30 m, enseignant chronométreur, un téléphone, aucun Internet, aucune donnée nominative. Déclencher/arrêter, lire et reporter un temps fictif.",
+    "units": [
+      "PRODUIT_VARIANTE",
+      "USAGE_PEDAGOGIQUE"
+    ]
+  },
+  {
+    "id": "C02",
+    "label": "Analyse vidéo",
+    "candidate": "Kinovea ou solution de vidéo à identifier",
+    "scenario": "Saut vertical : observer et commenter une vidéo de démonstration autorisée, sans filmer d'élèves. Ordinateur, hors ligne à vérifier, deux essais de repérage.",
+    "units": [
+      "PRODUIT_VARIANTE",
+      "USAGE_PEDAGOGIQUE"
+    ]
+  },
+  {
+    "id": "C03",
+    "label": "Tableur",
+    "candidate": "Excel, Sheets ou tableur à identifier",
+    "scenario": "Saisir 10 résultats fictifs de navette, vérifier unités et calculs, filtrer, représenter une progression, exporter. Vérifier fonctionnement et données selon configuration.",
+    "units": [
+      "PRODUIT_VARIANTE",
+      "USAGE_PEDAGOGIQUE"
+    ]
+  },
+  {
+    "id": "C04",
+    "label": "Plateforme éducative",
+    "candidate": "Moodle ou LMS à identifier",
+    "scenario": "Préparer une consigne EPS, une ressource et une remise fictive avec rôles enseignant/apprenant. Connexion disponible, comptes de test autorisés uniquement.",
+    "units": [
+      "PRODUIT_VARIANTE",
+      "USAGE_PEDAGOGIQUE"
+    ]
+  },
+  {
+    "id": "C05",
+    "label": "Collaboration et quiz",
+    "candidate": "Padlet, Plickers ou outil équivalent à identifier",
+    "scenario": "Basketball, concevoir une activité de feedback tactique ou de quiz en groupes, avec un téléphone enseignant et accès limité; utiliser contenus fictifs, prévoir alternative sans écran.",
+    "units": [
+      "PRODUIT_VARIANTE",
+      "USAGE_PEDAGOGIQUE"
+    ]
+  },
+  {
+    "id": "C06",
+    "label": "Processus d'évaluation",
+    "candidate": "Protocole de cartographie ACPA/MSMDA, version figée à préciser",
+    "scenario": "Examiner plan, journaux, contrôles, procédure de jugement, arbitrage, versions et preuves disponibles. Les étapes non réalisées restent non documentées.",
+    "units": [
+      "PROCESSUS_CADRE"
+    ]
+  },
+  {
+    "id": "C07",
+    "label": "Écosystème pédagogique",
+    "candidate": "Combinaison à définir et figer avant jugement",
+    "scenario": "Basketball au collège, 24 élèves, connexion intermittente, un appareil enseignant, budget et droits à préciser. Couvrir observation, feedback, évaluation et continuité avec une combinaison minimale; vérifier les contraintes et comparer à un choix individuel.",
+    "units": [
+      "SYSTEME_ECOSYSTEME"
+    ]
+  }
+]

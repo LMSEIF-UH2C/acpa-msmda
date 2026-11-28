@@ -1,0 +1,25 @@
+name: Ecosystem SILL public export pilot
+on:
+  push:
+    branches: [research/ecosystem-mapping-pilot]
+    paths: ['research/ecosystem-mapping/collect_sill.py','research/ecosystem-mapping/tests/test_collect_sill.py','.github/workflows/ecosystem-sill-pilot.yml']
+permissions:
+  contents: read
+jobs:
+  pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s research/ecosystem-mapping/tests -p test_collect_sill.py -v
+      - run: python research/ecosystem-mapping/collect_sill.py --catalog data/real_tools_catalog.json --output sill-output
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ecosystem-sill-pilot-audit
+          path: sill-output/
+          retention-days: 30
+          if-no-files-found: warn

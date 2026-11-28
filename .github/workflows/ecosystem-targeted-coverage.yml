@@ -1,0 +1,22 @@
+name: Ecosystem targeted coverage design audit
+on:
+  push:
+    branches: [research/ecosystem-mapping-pilot]
+    paths: ['research/ecosystem-mapping/COVERAGE_TARGETED_PLAN_V02.json','research/ecosystem-mapping/audit_targeted_coverage.py','.github/workflows/ecosystem-targeted-coverage.yml']
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python research/ecosystem-mapping/audit_targeted_coverage.py --catalog data/real_tools_catalog.json --output targeted-output
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ecosystem-targeted-coverage-audit
+          path: targeted-output/targeted_coverage.json
+          retention-days: 30

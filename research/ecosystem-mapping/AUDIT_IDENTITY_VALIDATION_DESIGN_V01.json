@@ -1,0 +1,13 @@
+{
+  "frame_before_holdout": 349,
+  "srs_half_width_0_10": 76,
+  "srs_half_width_0_05": 184,
+  "human_judgments": 0,
+  "scientific_validation": "NOT_STARTED",
+  "tests_passed": 10,
+  "tests_total": 10,
+  "run_id": 46153948988,
+  "job_id": 141006366487,
+  "scope": "Synthetic metric tests and prospective SRS illustrations; no real sample drawn, no human judgments, no confirmed identity.",
+  "plan_status": "PROPOSED_PENDING_TEAM_APPROVAL"
+}

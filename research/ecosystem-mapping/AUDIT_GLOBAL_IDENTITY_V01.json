@@ -1,0 +1,83 @@
+{
+  "archives_verified": 6,
+  "automatic_merges": 0,
+  "candidate_manifest_sha256": "ba7263d05159785b76b293c934db041b0140315ce4036fc01495bb445f4374ca",
+  "catalog_explicit_field_counts": {},
+  "confirmed_products": null,
+  "coverage_by_signal": {
+    "identifier_string": {
+      "apple": 3709,
+      "fdroid": 5057
+    },
+    "name": {
+      "apple": 3708,
+      "catalog": 2466,
+      "doc_target": 17,
+      "doc_web": 17,
+      "fdroid": 5045,
+      "github": 470,
+      "sill": 668,
+      "wikidata": 500
+    },
+    "repository_url": {
+      "doc_web": 1,
+      "fdroid": 4134,
+      "github": 471
+    },
+    "short_name": {
+      "apple": 1,
+      "fdroid": 28,
+      "github": 1,
+      "sill": 4,
+      "wikidata": 2
+    }
+  },
+  "cross_source_generated": 319,
+  "cross_source_union": 321,
+  "deferred_groups": [],
+  "deferred_pair_upper_bound": 0,
+  "legacy_within_source_preserved": 656,
+  "limitations": "Exact names including aliases and documentary probes; explicit identifier strings and exact GitHub root URLs only. Names and code links are signals, not identity. Deferred/short pair counts may overlap and do not measure missed links. Previously imported 656 within-source candidates retained, no new within-source scan. No fuzzy matching, external link verification, human judgments or recall estimate. No raw names or IDs in public report.",
+  "new_between_blocks": 257,
+  "new_by_block": {
+    "between_blocks": 257,
+    "recent": 6
+  },
+  "new_by_signal": {
+    "name": 263
+  },
+  "new_by_source_pair": {
+    "apple/catalog": 103,
+    "apple/doc_target": 1,
+    "apple/sill": 2,
+    "apple/wikidata": 7,
+    "catalog/fdroid": 99,
+    "catalog/github": 3,
+    "doc_target/fdroid": 1,
+    "doc_web/sill": 3,
+    "doc_web/wikidata": 3,
+    "fdroid/sill": 30,
+    "fdroid/wikidata": 2,
+    "github/sill": 7,
+    "github/wikidata": 2
+  },
+  "new_candidates": 263,
+  "new_multi_signal": 0,
+  "previous_cross_source_candidates": 58,
+  "previous_not_regenerated_preserved": 2,
+  "previous_regenerated": 56,
+  "short_name_groups": [
+    {
+      "cross_source_pairs_upper_bound": 2,
+      "rule": "short_name",
+      "size": 3,
+      "source_counts": {
+        "sill": 1,
+        "wikidata": 2
+      }
+    }
+  ],
+  "short_pair_upper_bound": 2,
+  "source_records": 12956,
+  "source_spaces": 8
+}

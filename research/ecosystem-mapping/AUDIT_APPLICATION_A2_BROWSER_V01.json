@@ -1,0 +1,96 @@
+{
+  "phase": "A2 browser acceptance checkpoint",
+  "previous_application_commit": "104949240d3758f687105b0e1481bb55219b9d42",
+  "previous_ci": "7/7 success",
+  "application_commit": "984fd2e4c642ee12ad3f8d1b7cf549b83962a74e",
+  "pr": 82,
+  "run_id": 46170522696,
+  "job_id": 141057669846,
+  "planned_cases": {
+    "engines": [
+      "chromium",
+      "webkit"
+    ],
+    "languages": [
+      "fr",
+      "ar",
+      "en"
+    ],
+    "modes": [
+      "disabled",
+      "enabled",
+      "missing"
+    ],
+    "total": 18
+  },
+  "checks": [
+    {
+      "name": "tests (3.12)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46170527331/job/141057684105"
+    },
+    {
+      "name": "mobile-navigation",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46170527366/job/141057684055"
+    },
+    {
+      "name": "reference",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46170527338/job/141057683942"
+    },
+    {
+      "name": "tests (3.14)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46170527331/job/141057683903"
+    },
+    {
+      "name": "smoke-test",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46170527335/job/141057683840"
+    },
+    {
+      "name": "dual-entry",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46170522696/job/141057669846"
+    }
+  ],
+  "status": "completed",
+  "conclusion": "success",
+  "verified_browser_cases": 18,
+  "limits": "Browser simulation only. Disabled deep-link test verifies no experimental content; stable navigation after opening root, not dialog dismissal. No physical device, external validation, merge or deployment.",
+  "attempt_1": {
+    "commit": "84eaf07310cf93e029d25c7493df9cbbb70cf55d",
+    "run_id": 46169706644,
+    "job_id": 141055117332,
+    "conclusion": "failure",
+    "general_checks": "5/5 success",
+    "completed_cases": 0,
+    "artifact": {
+      "id": 15272727682,
+      "bytes": 811,
+      "sha256": "28fb8d08de47be7f316dc55f4b3b30a4cac4770c76274313bbeda323d34e16c9",
+      "readback_verified": true
+    },
+    "failure": "Chromium FR disabled: after direct disabled URL fallback, click on stable home button intercepted by overlay; exact overlay not established; no application exception in server logs. No completed cases."
+  },
+  "correction": "Test only: separately verify direct disabled URL exposes no experimental content, screenshot, reopen valid root before stable route check; center scroll and click without force, verify actual text area and preserve screenshots. Does not prove modal dismissal; direct URL recovery by opening root is the tested route.",
+  "stable_route_pass": 18,
+  "sqlite_sha_check": "PASS",
+  "artifact": {
+    "id": 15273563136,
+    "bytes": 8994655,
+    "sha256": "a2e2eea388b82a621ad60517251c76eec8f0da567f0afe892e4c7773734a5f54",
+    "readback_verified": true,
+    "crc_verified": true,
+    "entries": 40,
+    "screenshots": 36,
+    "result_rows": 18
+  }
+}

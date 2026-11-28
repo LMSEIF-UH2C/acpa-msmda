@@ -1,0 +1,261 @@
+{
+  "scenarios": 10,
+  "functions_covered_in_proposed_design": 15,
+  "contexts_covered_in_proposed_design": 12,
+  "families_linked_in_proposed_design": 16,
+  "probes": 18,
+  "probes_exact_absent_from_398": 18,
+  "lexical_results": [
+    {
+      "case_id": "S04",
+      "family": "immersion",
+      "language": "en",
+      "term": "marker based augmented reality",
+      "status": "PROPOSED_SEMANTIC_REVIEW_REQUIRED",
+      "exact_historical": false,
+      "exact_modern": false
+    },
+    {
+      "case_id": "S04",
+      "family": "immersion",
+      "language": "fr",
+      "term": "réalité augmentée par marqueurs",
+      "status": "PROPOSED_SEMANTIC_REVIEW_REQUIRED",
+      "exact_historical": false,
+      "exact_modern": false
+    },
+    {
+      "case_id": "S04",
+      "family": "immersion",
+      "language": "ar",
+      "term": "واقع معزز بالعلامات",
+      "status": "PROPOSED_SEMANTIC_REVIEW_REQUIRED",
+      "exact_historical": false,
+      "exact_modern": false
+    },
+    {
+      "case_id": "S05",
+      "family": "video",
+      "language": "en",
+      "term": "on device pose estimation",
+      "status": "PROPOSED_SEMANTIC_REVIEW_REQUIRED",
+      "exact_historical": false,
+      "exact_modern": false
+    },
+    {
+      "case_id": "S05",
+      "family": "video",
+      "language": "fr",
+      "term": "estimation de posture sur appareil",
+      "status": "PROPOSED_SEMANTIC_REVIEW_REQUIRED",
+      "exact_historical": false,
+      "exact_modern": false
+    },
+    {
+      "case_id": "S05",
+      "family": "video",
+      "language": "ar",
+      "term": "تقدير وضعية الجسم على الجهاز",
+      "status": "PROPOSED_SEMANTIC_REVIEW_REQUIRED",
+      "exact_historical": false,
+      "exact_modern": false
+    },
+    {
+      "case_id": "S06",
+      "family": "continuity",
+      "language": "en",
+      "term": "offline learning platform",
+      "status": "PROPOSED_SEMANTIC_REVIEW_REQUIRED",
+      "exact_historical": false,
+      "exact_modern": false
+    },
+    {
+      "case_id": "S06",
+      "family": "continuity",
+      "language": "fr",
+      "term": "plateforme apprentissage hors ligne",
+      "status": "PROPOSED_SEMANTIC_REVIEW_REQUIRED",
+      "exact_historical": false,
+      "exact_modern": false
+    },
+    {
+      "case_id": "S06",
+      "family": "continuity",
+      "language": "ar",
+      "term": "منصة تعلم دون إنترنت",
+      "status": "PROPOSED_SEMANTIC_REVIEW_REQUIRED",
+      "exact_historical": false,
+      "exact_modern": false
+    },
+    {
+      "case_id": "S03",
+      "family": "inclusion",
+      "language": "en",
+      "term": "augmentative alternative communication board",
+      "status": "PROPOSED_SEMANTIC_REVIEW_REQUIRED",
+      "exact_historical": false,
+      "exact_modern": false
+    },
+    {
+      "case_id": "S03",
+      "family": "inclusion",
+      "language": "fr",
+      "term": "tableau communication alternative augmentée",
+      "status": "PROPOSED_SEMANTIC_REVIEW_REQUIRED",
+      "exact_historical": false,
+      "exact_modern": false
+    },
+    {
+      "case_id": "S03",
+      "family": "inclusion",
+      "language": "ar",
+      "term": "لوحة التواصل المعزز والبديل",
+      "status": "PROPOSED_SEMANTIC_REVIEW_REQUIRED",
+      "exact_historical": false,
+      "exact_modern": false
+    },
+    {
+      "case_id": "S02",
+      "family": "orientation",
+      "language": "en",
+      "term": "offline topographic maps",
+      "status": "PROPOSED_SEMANTIC_REVIEW_REQUIRED",
+      "exact_historical": false,
+      "exact_modern": false
+    },
+    {
+      "case_id": "S02",
+      "family": "orientation",
+      "language": "fr",
+      "term": "cartes topographiques hors ligne",
+      "status": "PROPOSED_SEMANTIC_REVIEW_REQUIRED",
+      "exact_historical": false,
+      "exact_modern": false
+    },
+    {
+      "case_id": "S02",
+      "family": "orientation",
+      "language": "ar",
+      "term": "خرائط طبوغرافية دون إنترنت",
+      "status": "PROPOSED_SEMANTIC_REVIEW_REQUIRED",
+      "exact_historical": false,
+      "exact_modern": false
+    },
+    {
+      "case_id": "S09",
+      "family": "research",
+      "language": "en",
+      "term": "offline data export",
+      "status": "PROPOSED_SEMANTIC_REVIEW_REQUIRED",
+      "exact_historical": false,
+      "exact_modern": false
+    },
+    {
+      "case_id": "S09",
+      "family": "research",
+      "language": "fr",
+      "term": "export données hors ligne",
+      "status": "PROPOSED_SEMANTIC_REVIEW_REQUIRED",
+      "exact_historical": false,
+      "exact_modern": false
+    },
+    {
+      "case_id": "S09",
+      "family": "research",
+      "language": "ar",
+      "term": "تصدير البيانات دون إنترنت",
+      "status": "PROPOSED_SEMANTIC_REVIEW_REQUIRED",
+      "exact_historical": false,
+      "exact_modern": false
+    }
+  ],
+  "witnesses": [
+    {
+      "id": "C01",
+      "nominal_candidates": {
+        "catalog": 0,
+        "sill": 0,
+        "wikidata": 0,
+        "prior_documentary": 0
+      },
+      "status": "NOT_ASSESSED"
+    },
+    {
+      "id": "C02",
+      "nominal_candidates": {
+        "catalog": 0,
+        "sill": 0,
+        "wikidata": 0,
+        "prior_documentary": 0
+      },
+      "status": "NOT_ASSESSED"
+    },
+    {
+      "id": "C03",
+      "nominal_candidates": {
+        "catalog": 0,
+        "sill": 0,
+        "wikidata": 0,
+        "prior_documentary": 0
+      },
+      "status": "NOT_ASSESSED"
+    },
+    {
+      "id": "C04",
+      "nominal_candidates": {
+        "catalog": 1,
+        "sill": 0,
+        "wikidata": 0,
+        "prior_documentary": 0
+      },
+      "status": "NOT_ASSESSED"
+    },
+    {
+      "id": "C05",
+      "nominal_candidates": {
+        "catalog": 0,
+        "sill": 0,
+        "wikidata": 0,
+        "prior_documentary": 0
+      },
+      "status": "NOT_ASSESSED"
+    },
+    {
+      "id": "C06",
+      "nominal_candidates": {
+        "catalog": 0,
+        "sill": 0,
+        "wikidata": 0,
+        "prior_documentary": 0
+      },
+      "status": "NOT_ASSESSED"
+    },
+    {
+      "id": "C07",
+      "nominal_candidates": {
+        "catalog": 0,
+        "sill": 0,
+        "wikidata": 0,
+        "prior_documentary": 0
+      },
+      "status": "NOT_ASSESSED"
+    }
+  ],
+  "nominal_match_counts": {
+    "catalog": 1,
+    "sill": 0,
+    "wikidata": 0,
+    "prior_documentary": 0
+  },
+  "limitations": "Structural design and documentary declarations, exact name signals only, no confirmed product identity, no new network collection or curriculum validation. No coverage proportion of market. No probes adopted.",
+  "run_id": 46158365439,
+  "job_id": 141019913176,
+  "artifact": {
+    "id": 15269020751,
+    "bytes": 1200,
+    "sha256_declared": "f86bc67e7185a00f014180b1b1fe6e58d6e35a08c8e734c14c3c0ab7aafbf77e",
+    "independent_readback": false
+  },
+  "curriculum_status": "INSTITUTIONAL_REFERENCES_FOUND_FULL_AUTHENTICATED_TEXT_PENDING",
+  "scope_status": "PREPARATION_ONLY"
+}

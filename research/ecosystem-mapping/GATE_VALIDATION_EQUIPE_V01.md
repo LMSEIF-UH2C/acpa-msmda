@@ -14,3 +14,5 @@ Après clôture des cinq préconditions, valider le périmètre pédagogique des
 Une fois les preuves humaines disponibles, réserver le chantier correspondant selon coordination, enregistrer décisions et preuves (références privées non publiées), actualiser ETAT, CHECKLIST, JOURNAL, rapport maître et matrice. Pas de changement de statut par simple approbation orale non documentée. P3–P6 restent BLOCKED. Si les juges ou archives ne sont pas disponibles, proposer limitation méthodologique explicite à l'équipe et ne pas contourner l'indépendance. Agent horaire : lecture seule si aucun READY autorisé; pas de notifications répétées sans changement.
 
 Complément V0.1.54 : [lots et récupération historique](PREPARATION_VALIDATION_HUMAINE_V01.md). Aucun changement des préconditions ni approbation; dossier organisateur disponible sur Drive privé.
+
+V0.1.55 : original Apple récupéré et audit réussi; P1-02 demande désormais surtout les archives Android historiques, les verdicts originaux et la réconciliation finale. Voir AUDIT_HISTORICAL_APPLE_RECOVERY_V01.json.

@@ -46,3 +46,5 @@ V0.1.50 : P2-11 préparation technique vérifiée, 7/7 tests, 288 requêtes Appl
 V0.1.51 : P1-04 inventaire 35 artefacts, kits et projection temporelle privés relus, droits documentés. P2-15 et archives historiques restent ouverts; P2-12 suite.
 
 V0.1.53 : P2-12 préparation auditée (10 scénarios, 18 sondes, 7 témoins, aucun ajout), 14 jalons techniques, 0 READY; 5 interventions humaines et 5 étapes bloquées. Voir GATE_VALIDATION_EQUIPE_V01.md. Les chantiers scientifiques P0 demeurent ouverts jusqu'aux preuves humaines et décision équipe. Aucune collecte définitive.
+
+V0.1.55 : archive historique Apple fournie, intégrité et copie privée vérifiées, filtrage 23194→2412 reproduit exactement. Union brute Apple avec pilotes 26319, sans intégration ni preuve d'identité produit. P1-02 partiellement résolu, Android et verdicts manquants; P2-15 droits à approuver.

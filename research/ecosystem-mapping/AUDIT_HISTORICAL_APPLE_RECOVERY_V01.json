@@ -1,0 +1,112 @@
+{
+  "date_utc": "2026-11-28",
+  "scope": "Original historical Apple archive supplied by project owner; offline audit, no network collection or new identities",
+  "archive": {
+    "filename": "collecte_catalogue_2026-11-22.tar.gz",
+    "bytes": 5681789,
+    "sha256": "dee36d1829afab27cdc3b92186ae1b63de4b4bbc07c493a6974e724a1aaf7f3a",
+    "matches_previously_documented_prefix": "dee36d18",
+    "gzip_integrity": true,
+    "private_drive_readback_sha256_verified": true,
+    "members": 21,
+    "regular_files": 18,
+    "directories": 3,
+    "uncompressed_file_bytes": 22485096
+  },
+  "historical_apple": {
+    "distinct_track_ids": 23194,
+    "records": 23194,
+    "terms": 118,
+    "families": 16,
+    "markets": [
+      "us",
+      "fr",
+      "gb"
+    ],
+    "planned_requests": 354,
+    "limit": 200,
+    "country_count_distribution": {
+      "1": 12392,
+      "2": 5636,
+      "3": 5166
+    },
+    "zero_ratings": 7643,
+    "retained_category_hit_occurrences": 51161
+  },
+  "screening": [
+    {
+      "stage": "genre_filtered_archive",
+      "n": 23194
+    },
+    {
+      "stage": "ratings_at_least_100",
+      "n": 4976
+    },
+    {
+      "stage": "description_available",
+      "n": 4913
+    },
+    {
+      "stage": "retained_genre",
+      "n": 4620
+    },
+    {
+      "stage": "exclude_17_plus",
+      "n": 4254
+    },
+    {
+      "stage": "blocked_terms_and_social",
+      "n": 4136
+    },
+    {
+      "stage": "lexical_relevance",
+      "n": 2412
+    }
+  ],
+  "exact_reconstructed_relevant_list_equal": true,
+  "description_ids_outside_archive": 0,
+  "other_files": {
+    "basket_found": 240,
+    "basket_resolved": 16,
+    "basket_missing": 959,
+    "web_results": 173,
+    "web_results_ok": 113,
+    "web_verified": 102
+  },
+  "script_git_blobs": {
+    "collect_appstore.py": "5d27e854348aab67ce84e3cb8b2f30eda0c74211",
+    "select_relevant.py": "d88c519d7fbac6f3a8d3687d92120e39bdc7e775",
+    "lookup_details.py": "7143db138a50088fcc83f76248137c63144cc0b7",
+    "resolve_names.py": "cd05e7eba6815dd09aaa076269a91df7a5299832",
+    "verify_candidates.py": "2fb6060a73a81d0f2c3ac13660e18864b34c21f9"
+  },
+  "recent_apple_comparison": {
+    "baseline": {
+      "distinct_ids": 1435,
+      "common_historical": 452,
+      "outside_historical": 983,
+      "historical_lexical_subset": 84
+    },
+    "extension": {
+      "distinct_ids": 2362,
+      "common_historical": 154,
+      "outside_historical": 2208,
+      "historical_lexical_subset": 22
+    },
+    "union_recent": 3709,
+    "common": 584,
+    "recent_outside_historical": 3125,
+    "historical_only": 22610,
+    "combined_distinct_track_ids": 26319,
+    "common_with_historical_lexical_subset": 102,
+    "recent_zip_sha256_verified": true,
+    "recent_zip_crc_verified": true
+  },
+  "limitations": [
+    "Historical archive already genre-filtered and deduplicated; missing raw per-query response logs, ranks, prefilter counts and exact failed attempts. Script returns empty after repeated exceptions, so 354 planned requests do not prove 354 successful calls.",
+    "Comparison uses observed native track IDs only; different dates, query plans, markets, limits and filters. Not unique products, no eligibility conclusion, no causal gain or complete market coverage.",
+    "Final 900/162/77 selections not independently reconstructed here; archived counts of candidate pools are not final inclusions.",
+    "No original Aptoide 17456, F-Droid 5026, or two 1876 decision files in this archive; historical 45676 and kappa remain not fully auditable.",
+    "No raw commercial descriptions or private links published; retention decision remains P2-15."
+  ]
+}

@@ -1,11 +1,11 @@
 # Checklist de coordination — 28/11/2026
-Référence V0.1.54 (préparation administrative); [état machine](ETAT.json) faisant foi. [Règles](README.md) · [Journal](JOURNAL.md).
-**Verrou : LIBRE. Aucun chantier READY; décision équipe nécessaire.** [Dossier de passage](../GATE_VALIDATION_EQUIPE_V01.md) · [Préparation des lots](../PREPARATION_VALIDATION_HUMAINE_V01.md).
-14 acquis techniques, 5 interventions humaines, 5 bloqués. Aucun passage confirmatoire autorisé.
+Référence V0.1.55; [état machine](ETAT.json) faisant foi. [Règles](README.md) · [Journal](JOURNAL.md).
+**Verrou : LIBRE. Aucun chantier READY; décision équipe nécessaire.** [Dossier de passage](../GATE_VALIDATION_EQUIPE_V01.md).
+14 acquis techniques, 5 interventions humaines, 5 bloqués. P1-02 partiellement résolu par récupération de l'archive Apple; aucun passage confirmatoire autorisé.
 | ID | Phase | Jalon | État | Responsable | Dépendances | Preuve / suite |
 |---|---:|---|---|---|---|---|
 | P1-01 | 1 | Audit des pilotes et du diagramme historique | Acquis technique vérifié | assistant | — | [Preuve](../AUDIT_APPLE_V02_INDEPENDANT.md) — Pilotes auditables; pas de comparaison exhaustive historique |
-| P1-02 | 1 | Récupérer les archives historiques 45 676 et décisions | Intervention humaine | porteur | — | [Preuve](../EVIDENCE_REGISTER_V01.md) — 207 descriptions historiques retrouvées sans décisions; archive brute et 1876 verdicts encore requis; vérifier nature humain/IA des évaluateurs. |
+| P1-02 | 1 | Récupérer les archives historiques 45 676 et décisions | Intervention humaine | porteur | — | [Preuve](../AUDIT_HISTORICAL_APPLE_RECOVERY_V01.json) — Apple historique original 23 194 et filtrage 2 412 exactement reproduits, copie privée vérifiée; Aptoide 17 456, F-Droid 5 026 et deux fichiers de décisions 1 876 encore requis; 900/162/77 à réconcilier. |
 | P1-03 | 1 | Pérennité des preuves prioritaires | Acquis technique vérifié | assistant | — | [Preuve](../EVIDENCE_REGISTER_V01.md) — 10 archives prioritaires vérifiées; inventaire complet et droits encore ouverts |
 | P1-04 | 1 | Inventaire complémentaire et droits de conservation | Acquis technique vérifié | assistant | — | [Preuve](../EVIDENCE_INVENTORY_V02.csv) — 35 artefacts recensés; 2 kits originaux et projection temporelle privés relus; droits par source documentés, décision P2-15 en attente. |
 | P2-01 | 2 | Audits de couverture mobile, langues, APS et fonctions | Acquis technique vérifié | assistant | — | [Preuve](../AUDIT_COUVERTURE_V01.md) — 288/1592 couples observés dans les pilotes; couverture partielle |

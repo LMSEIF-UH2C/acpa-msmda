@@ -1,0 +1,47 @@
+name: Ecosystem checkpoint cross-runner proof
+on:
+  push:
+    branches: [research/ecosystem-mapping-pilot]
+    paths: ['research/ecosystem-mapping/checkpoint_blocks.py', 'research/ecosystem-mapping/tests/test_checkpoint_blocks.py', '.github/workflows/ecosystem-checkpoint-proof.yml']
+permissions:
+  contents: read
+  actions: read
+jobs:
+  first:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python -m unittest discover -s research/ecosystem-mapping/tests -p test_checkpoint_blocks.py
+      - uses: actions/download-artifact@v4
+        with:
+          name: ecosystem-v03-offline-plan
+          run-id: 46128865538
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: plan-source
+      - run: |
+          python -c "import json; p=json.load(open('plan-source/candidate_plan.json')); json.dump(p[:12],open('fixture-plan.json','w'),ensure_ascii=False)"
+          python research/ecosystem-mapping/checkpoint_blocks.py --plan fixture-plan.json --output checkpoint --budget 5
+      - uses: actions/upload-artifact@v4
+        with:
+          name: checkpoint-fixture-part1
+          path: |
+            checkpoint/
+            fixture-plan.json
+          retention-days: 30
+  resume:
+    needs: first
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: checkpoint-fixture-part1
+          path: restored
+      - run: |
+          python research/ecosystem-mapping/checkpoint_blocks.py --plan restored/fixture-plan.json --output restored/checkpoint --budget 7
+          python -c "import json; r=json.load(open('restored/checkpoint/progress.json')); assert r['reused_successes']==5 and r['new_attempts']==7 and r['complete_success'] and r['unattempted']==0; print('Cross-runner resume verified: 5 reused, 7 new, 12 total')"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: checkpoint-fixture-complete
+          path: restored/
+          retention-days: 30

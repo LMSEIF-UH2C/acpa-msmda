@@ -155,27 +155,6 @@
     "commit": "c272cafb88548655404a7bda3aba15f6a0872b98",
     "workflows": [
       {
-        "id": 46176977596,
-        "name": "Independent R validation",
-        "status": "in_progress",
-        "conclusion": null,
-        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46176977596"
-      },
-      {
-        "id": 46176977573,
-        "name": "Public web demo",
-        "status": "in_progress",
-        "conclusion": null,
-        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46176977573"
-      },
-      {
-        "id": 46176977608,
-        "name": "Tests ACPA MSMDA",
-        "status": "in_progress",
-        "conclusion": null,
-        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46176977608"
-      },
-      {
         "id": 46176977581,
         "name": "Mobile navigation REC-Y002",
         "status": "in_progress",
@@ -183,14 +162,45 @@
         "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46176977581"
       },
       {
+        "id": 46176977608,
+        "name": "Tests ACPA MSMDA",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46176977608"
+      },
+      {
+        "id": 46176977573,
+        "name": "Public web demo",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46176977573"
+      },
+      {
+        "id": 46176977596,
+        "name": "Independent R validation",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46176977596"
+      },
+      {
         "id": 46176972870,
         "name": "A5 isolated BORIS runtime evidence",
-        "status": "in_progress",
-        "conclusion": null,
+        "status": "completed",
+        "conclusion": "failure",
         "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46176972870"
       }
     ],
-    "status": "PENDING_TERMINAL_EVIDENCE",
-    "acceptance_unchanged": true
-  }
+    "status": "SYSTEM_IMPORTS_PASS_CLI_ATTRIBUTE_ERROR",
+    "acceptance_unchanged": true,
+    "result": {
+      "returncode": 1,
+      "generated_files": [],
+      "qt_import": "PASS",
+      "mpv_import": "PASS",
+      "error": "AttributeError: module 'boris.export_observation' has no attribute 'export_events'",
+      "artifact": 15276011679,
+      "artifact_sha256_reported": "e3d9826a3e3c198fc2b7cb42bf4861b1a8406e1294b7bc4f6f11b1fe5f31918e"
+    }
+  },
+  "native_export_plan": "PLAN_RETEST_BORIS_EXPORT_NATIF_V01.md"
 }

@@ -33,10 +33,15 @@ def main():
                             if mode in ("empty","positive"):
                                 action=panel.get_by_role("button",name=labels[3],exact=True)
                                 expect(action).to_be_disabled()
-                                # Exercise the accessible checkbox itself, not its text node.
+                                # Streamlit uses a visually hidden input and a visible indicator.
+                                # Use the actual visible control, as a touch user would.
                                 checkbox=panel.get_by_role("checkbox",name=labels[2],exact=True)
                                 expect(checkbox).not_to_be_checked(timeout=15000)
-                                checkbox.check(timeout=15000)
+                                widget=panel.get_by_test_id("stCheckbox").filter(has=checkbox)
+                                indicator=widget.locator('label[data-baseweb="checkbox"] > span').first
+                                expect(indicator).to_be_visible(timeout=15000)
+                                indicator.scroll_into_view_if_needed(timeout=15000)
+                                indicator.tap(timeout=15000)
                                 expect(checkbox).to_be_checked(timeout=15000)
                                 expect(action).to_be_enabled(timeout=15000)
                                 action.click()

@@ -1,31 +1,22 @@
 {
   "schema_version": 1,
-  "revision": 9,
+  "revision": 10,
   "branch": "research/ecosystem-mapping-pilot",
-  "scientific_version": "0.1.44",
-  "scientific_baseline_commit": "1266592bfc429f1b5a68460e6c9c21bfd712992e",
-  "lock": {
-    "actor": "interactive_assistant",
-    "intervention_id": "INT-P2-08-0004",
-    "task_id": "P2-08",
-    "acquired_utc": "2026-11-28T14:16:00Z",
-    "base_head": "0341fdadc65e7c18e94b5abce1adb0103d380df2",
-    "run_refs": [],
-    "resume_note": "Plan P2-08 et métriques soumis à tests synthétiques; aucune collecte ni jugement."
-  },
+  "scientific_version": "0.1.46",
+  "scientific_baseline_commit": "09ea4e24861931836d6bc44a49d957d160266ae6",
+  "lock": null,
   "last_handoff": {
     "actor": "interactive_assistant",
-    "intervention_id": "INT-P2-07-0003",
+    "intervention_id": "INT-P2-08-0004",
     "completed": "2026-11-28",
-    "summary": "P2-07 vérifié : 204 correspondances de listing, 28 nouvelles, union 349; sensibilité et groupe 63 documentés, 8/8 tests, aucune fusion.",
-    "next_task": "P2-08",
-    "evidence": "../AUDIT_IDENTITY_SENSITIVITY_V01.json",
+    "summary": "P2-08 préparation vérifiée : plan indépendant et 10/10 tests métriques; aucun résultat humain, 67 paires de calibration inchangées.",
+    "next_task": "P2-10",
+    "evidence": "../IDENTITY_INDEPENDENT_VALIDATION_PLAN_V01.md",
     "run_refs": [
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46151743685"
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46153948988"
     ]
   },
   "priority_queue": [
-    "P2-08",
     "P2-10",
     "P2-11",
     "P1-04",
@@ -150,13 +141,13 @@
       "id": "P2-08",
       "phase": 2,
       "title": "Contrôle indépendant hors candidats et plan confirmatoire",
-      "status": "IN_PROGRESS",
+      "status": "TECH_VERIFIED",
       "owner": "assistant",
       "deps": [
         "P2-07"
       ],
-      "evidence": "../IDENTITY_REVIEW_CODEBOOK_V02.md",
-      "next": "Proposer échantillonnage, critères, limites; pas de jugements humains simulés"
+      "evidence": "../IDENTITY_INDEPENDENT_VALIDATION_PLAN_V01.md",
+      "next": "Plan prospectif, trois contrôles distincts et métriques 10/10 tests synthétiques; tailles/seuils à approuver, aucune sélection confirmatoire ni jugement humain."
     },
     {
       "id": "P2-09",

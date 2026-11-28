@@ -25,3 +25,4 @@
 | 2026-11-28 | interactive_assistant | INT-P2-12-0008 | P2-12 | Réservation exclusive | HEAD 9f5d9e646908d480a26e85de9adf95d9719eaff4 | Couverture pédagogique |
 | 2026-11-28 | interactive_assistant | INT-P2-12-0008 | P2-12 | Plan scénarios, références et audit hors ligne enregistrés | [Protocole](../COVERAGE_TARGETED_PROTOCOL_V02.md) | Vérifier run |
 | 2026-11-28 | interactive_assistant | INT-P2-12-0008 | P2-12 | Audit structurel réussi, préparation clôturée; verrou libéré, plus de READY | [Run 46158365439](https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46158365439) · [dossier de décision](../GATE_VALIDATION_EQUIPE_V01.md) | Équipe, cinq préconditions |
+| 2026-11-28 | interactive_assistant | INT-PREP-HUM-0009 | préparation humaine | Récupération partielle 207 descriptions; dossier organisateur et huit lots, aucun verdict; commit administratif CAS, verrou libre | [Note](../PREPARATION_VALIDATION_HUMAINE_V01.md) | Équipe, préconditions humaines |

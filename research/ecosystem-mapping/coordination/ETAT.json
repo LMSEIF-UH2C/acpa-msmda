@@ -1,20 +1,17 @@
 {
   "schema_version": 1,
-  "revision": 21,
+  "revision": 22,
   "branch": "research/ecosystem-mapping-pilot",
-  "scientific_version": "0.1.53",
+  "scientific_version": "0.1.54",
   "scientific_baseline_commit": "c7da29efe69974ebc365dbf0aa942f95ec5846df",
   "lock": null,
   "last_handoff": {
     "actor": "interactive_assistant",
-    "intervention_id": "INT-P2-12-0008",
+    "intervention_id": "INT-PREP-HUM-0009",
     "completed": "2026-11-28",
-    "summary": "Dernier jalon autonome initial préparé et vérifié structurellement. 14 acquis techniques, 5 WAIT_HUMAN, 5 BLOCKED. Aucune collecte définitive autorisée.",
+    "summary": "Dossier organisateur privé préparé (8 lots, 2 cotations en réserve); 207 descriptions historiques récupérées sans jugements; identité 67 paires distinctes, aucune décision. Les 5 préconditions humaines restent ouvertes.",
     "next_task": null,
-    "evidence": "../GATE_VALIDATION_EQUIPE_V01.md",
-    "run_refs": [
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46158365439"
-    ]
+    "evidence": "../PREPARATION_VALIDATION_HUMAINE_V01.md"
   },
   "priority_queue": [],
   "tasks": [
@@ -36,7 +33,7 @@
       "owner": "porteur",
       "deps": [],
       "evidence": "../EVIDENCE_REGISTER_V01.md",
-      "next": "Localiser archives et jugements; si introuvables, décision documentée sur périmètre"
+      "next": "207 descriptions historiques retrouvées sans décisions; archive brute et 1876 verdicts encore requis; vérifier nature humain/IA des évaluateurs."
     },
     {
       "id": "P1-03",
@@ -152,7 +149,7 @@
       "owner": "équipe/juges",
       "deps": [],
       "evidence": "../AUDIT_IDENTITY_REGISTRY_V03.json",
-      "next": "67 paires vierges par juge; organiser deux juges indépendants et arbitrage"
+      "next": "Lots individuels préparés, 57+10 paires distinctes; désigner deux juges et arbitre, approuver codebooks puis recueillir."
     },
     {
       "id": "P2-10",
@@ -194,7 +191,7 @@
       "owner": "équipe/juges",
       "deps": [],
       "evidence": "../CALIBRATION_CASES_V01.json",
-      "next": "Deux évaluateurs, verrouillage, arbitrage et contrôle indépendant"
+      "next": "Lots individuels 141 fiches préparés; approbation et deux évaluateurs indépendants requis."
     },
     {
       "id": "P2-14",
@@ -204,7 +201,7 @@
       "owner": "experts",
       "deps": [],
       "evidence": "../OPERATIONNALISATION_10D97P_PROTOCOL.md",
-      "next": "97 correspondances proposées, validation unités, NR/SO et fiabilité"
+      "next": "97 paramètres par expert, lots prêts; 361 lignes cotation en réserve, sept configurations et ancres à valider."
     },
     {
       "id": "P2-15",

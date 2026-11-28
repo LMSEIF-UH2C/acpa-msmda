@@ -1,0 +1,30 @@
+name: Ecosystem V03 offline planning
+on:
+  push:
+    branches: [research/ecosystem-mapping-pilot]
+    paths: ['research/ecosystem-mapping/plan_collection_v03.py', 'research/ecosystem-mapping/tests/test_plan_collection_v03.py', '.github/workflows/ecosystem-v03-offline-plan.yml']
+permissions:
+  contents: read
+  actions: read
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s research/ecosystem-mapping/tests -p test_plan_collection_v03.py
+      - uses: actions/download-artifact@v4
+        with:
+          name: ecosystem-apple-pilot-audit
+          run-id: 46087551165
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: baseline
+      - run: python research/ecosystem-mapping/plan_collection_v03.py --cache baseline --output v03-plan
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ecosystem-v03-offline-plan
+          path: v03-plan/
+          retention-days: 30

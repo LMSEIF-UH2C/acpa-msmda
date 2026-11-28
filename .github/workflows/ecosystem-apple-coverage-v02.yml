@@ -2,13 +2,13 @@ name: Ecosystem Apple V02 coverage
 on:
   push:
     branches: [research/ecosystem-mapping-pilot]
-    paths: ['research/ecosystem-mapping/collect_apple_coverage_v02.py', '.github/workflows/ecosystem-apple-coverage-v02.yml']
+    paths: ['research/ecosystem-mapping/collect_apple_coverage_v02.py']
   workflow_dispatch:
 permissions:
   contents: read
   actions: read
 concurrency:
-  group: ecosystem-apple-v02-coverage
+  group: ecosystem-apple-api-serial
   cancel-in-progress: false
 jobs:
   coverage:

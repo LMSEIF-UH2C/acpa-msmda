@@ -2,10 +2,13 @@ name: Ecosystem mapping pilot
 on:
   push:
     branches: [research/ecosystem-mapping-pilot]
-    paths: ['research/ecosystem-mapping/collect_apple.py', 'research/ecosystem-mapping/query_matrix.json', 'research/ecosystem-mapping/tests/**', 'research/ecosystem-mapping/framework_10d97p.json', '.github/workflows/ecosystem-mapping-pilot.yml']
+    paths: ['research/ecosystem-mapping/collect_apple.py', 'research/ecosystem-mapping/query_matrix.json']
   workflow_dispatch:
 permissions:
   contents: read
+concurrency:
+  group: ecosystem-apple-api-serial
+  cancel-in-progress: false
 jobs:
   pilot:
     runs-on: ubuntu-latest

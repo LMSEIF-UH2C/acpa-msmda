@@ -16,3 +16,6 @@ Le script vérifie unicité/exhaustivité, concordance exacte des codes/libellé
 
 ## Résultat du contrôle structurel (28/11/2026, 10:15 UTC)
 [Exécution réussie](https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46134275451), job 140945985327. 97 paramètres, 34 produit/variante, 32 usage, 26 processus/cadre, 5 système/écosystème; 54 tests/scénarios, 35 audits, 8 preuves empiriques. Tous les contrôles structurels passent. Prochaine étape : préparer la revue experte et la calibration des ancres sur des cas diversifiés, avec fiches vierges et comparaison indépendante; la qualification de milliers d'outils n'est pas encore autorisée par ce résultat technique.
+
+## Clarification du porteur — 28/11/2026
+Le cadre E3 validé est réutilisé sans refaire le Delphi. Les nouvelles ancres et correspondances peuvent être travaillées et examinées en interne par le porteur assisté par IA, à titre exploratoire; la section Validation concerne les revendications confirmatoires nouvelles et ne constitue pas une obligation de recruter un panel pour développer la version expérimentale. Ne pas assimiler cet examen interne à une évaluation indépendante.

@@ -58,3 +58,5 @@
 | 2026-11-28 | interactive_assistant | INT-APP-A4-0018 | A4 préparation oracle | 8/8 workflows réussis au contrôle, plan prospectif commun | [Protocole](../PLAN_APPLICATION_A4_COMMON_POOL_V01.md) | Exécuter après CI terminale |
 
 | 2026-11-28 | interactive_assistant | INT-APP-A4-0018 | A4 oracle | 8/8 CI précédente; tests communs 10 scénarios +100 pools implémentés, résultats à vérifier | [Commit](https://github.com/LMSEIF-UH2C/acpa-msmda/commit/b81690de34e135d5f5d23df66d9c5a7de9073706) | Lire résultats et limites |
+
+| 2026-11-28 | interactive_assistant | INT-APP-A4-0018 | Décision porteur | Réutilisation validation E3; A6 recette interne documentée, pas de nouveau panel pour piste applicative | Rapport maître et ETAT.json | Continuer A4 puis A5 |

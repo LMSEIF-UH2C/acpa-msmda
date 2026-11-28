@@ -1,11 +1,11 @@
 # Checklist de coordination — 28/11/2026
-Référence V0.1.56; [état machine](ETAT.json) faisant foi. [Règles](README.md) · [Journal](JOURNAL.md).
+Référence V0.1.57; [état machine](ETAT.json) faisant foi. [Règles](README.md) · [Journal](JOURNAL.md).
 **Verrou : LIBRE. Aucun chantier READY; décision équipe nécessaire.** [Dossier de passage](../GATE_VALIDATION_EQUIPE_V01.md).
-14 acquis techniques, 5 interventions humaines, 5 bloqués. P1-02 largement documenté mais non clos; aucun passage confirmatoire autorisé.
+14 acquis techniques, 5 interventions humaines, 5 bloqués. P1-02 partiellement résolu; aucun passage confirmatoire autorisé.
 | ID | Phase | Jalon | État | Responsable | Dépendances | Preuve / suite |
 |---|---:|---|---|---|---|---|
 | P1-01 | 1 | Audit des pilotes et du diagramme historique | Acquis technique vérifié | assistant | — | [Preuve](../AUDIT_APPLE_V02_INDEPENDANT.md) — Pilotes auditables; pas de comparaison exhaustive historique |
-| P1-02 | 1 | Récupérer les archives historiques 45 676 et décisions | Intervention humaine | porteur | — | [Preuve](../AUDIT_HISTORICAL_DECISIONS_V01.json) — Registre 45676 et flux réconciliés, accord IA-IA κ=.685 IC95 [.652,.718] reproduit; Apple exact. Restent bruts/logs Android, verdicts Claude séparés et provenance; 900/162/77 à reproduire ou limiter. |
+| P1-02 | 1 | Récupérer les archives historiques 45 676 et décisions | Intervention humaine | porteur | — | [Preuve](../AUDIT_HISTORICAL_FDROID_RECOVERY_V01.json) — Registre 45676, flux, κ IA-IA reproduits; archives Apple/F-Droid et 28220 IDs concordants. Reste brut Aptoide 17456, logs, provenance/export Claude; sélection 900/162/77 à reproduire ou limiter. |
 | P1-03 | 1 | Pérennité des preuves prioritaires | Acquis technique vérifié | assistant | — | [Preuve](../EVIDENCE_REGISTER_V01.md) — 10 archives prioritaires vérifiées; inventaire complet et droits encore ouverts |
 | P1-04 | 1 | Inventaire complémentaire et droits de conservation | Acquis technique vérifié | assistant | — | [Preuve](../EVIDENCE_INVENTORY_V02.csv) — 35 artefacts recensés; 2 kits originaux et projection temporelle privés relus; droits par source documentés, décision P2-15 en attente. |
 | P2-01 | 2 | Audits de couverture mobile, langues, APS et fonctions | Acquis technique vérifié | assistant | — | [Preuve](../AUDIT_COUVERTURE_V01.md) — 288/1592 couples observés dans les pilotes; couverture partielle |

@@ -26,3 +26,5 @@ https://code.gouv.fr/sill/ ; https://code.gouv.fr/sill/terms : données JSON pub
 Export public documenté https://code.gouv.fr/sill/api/v2/catalogi.json ; contrat https://code.gouv.fr/sill/api/docs ; licence et attribution DINUM. Ancien export trop volumineux pour lecture directe; pilote GitHub Actions préparé, état réseau non vérifié. Données partiellement issues de Wikidata; dépendance intersource. Voir SILL_PILOT_PROTOCOL.md. Aucun brut publié avant revue des champs.
 
 SILL v2 : HTTP 500 au run 46139236521, six tests réussis, aucun résultat réseau. Export historique public /api/catalogi.json testé séparément après amendement; résultats à vérifier.
+
+SILL export historique : run 46139311316 réussi, 672 entrées dont 615 non déréférencées, 57 déréférencées. Inventaire et empreintes disponibles dans l'artefact 15260778228; données brutes non conservées. Voir AUDIT_SILL_PILOT_V01.md. Aucune qualification pédagogique ni fusion.

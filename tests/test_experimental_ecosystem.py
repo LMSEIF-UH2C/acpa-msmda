@@ -1,6 +1,7 @@
 import json
 import hashlib
 import sqlite3
+import random
 from pathlib import Path
 import sys
 import tempfile
@@ -181,3 +182,121 @@ class EcosystemTests(unittest.TestCase):
             compare_historical_native("course",catalogue_path=DEFAULT_PATH,expected_sha256="0"*64)
         with self.assertRaises(ValueError):
             compare_historical_native("course",catalogue_path=DEFAULT_PATH,expected_sha256=digest,limit=0)
+
+    def _independent_oracle(self, context, candidates):
+        # Separate bitmask implementation, not calling any solver internals.
+        if context["unsupported_requirements"]:
+            return (None,None,None)
+        req=set(context["required"])
+        valid=[]
+        for mask in range(1,1<<len(candidates)):
+            items=[t for i,t in enumerate(candidates) if mask & (1<<i)]
+            ids=sorted(t["id"] for t in items)
+            if len({t["product"] for t in items}) != len(items):
+                continue
+            if any(t["mode"]!="TEST_FIXTURE" or t["review"]!="FIXTURE_APPROVED"
+                   or not t["product"]
+                   or any(t["gates"].get(g)!="COMPATIBLE" for g in GATES)
+                   or (context["offline"] and t["offline"] is not True)
+                   or type(t["cost"]) is not int or t["cost"]<0
+                   or t["period"]!=context["period"] or t["currency"]!="MAD"
+                   or type(t["load"]) is not int or t["load"]<0
+                   or not t["functions"] or not t["device_slots"]
+                   or not set(t["requires"]).issubset(ids)
+                   or set(t["incompatible"]).intersection(set(ids)-{t["id"]})
+                   for t in items):
+                continue
+            cost=sum(t["cost"] for t in items)
+            if cost>context["budget_mad"]:
+                continue
+            if any(sum(t["device_slots"].get(phase,0) for t in items)>context["devices"]
+                   for phase in ("before","during","after")):
+                continue
+            covered={f for t in items for f in t["functions"]}
+            rank=(-len(req & covered),len(items),sum(t["load"] for t in items),cost,ids)
+            valid.append((rank,covered))
+        def choose(max_n=None,complete=False):
+            ranks=[rank for rank,cov in valid if (max_n is None or rank[1]<=max_n)
+                   and (not complete or req.issubset(cov))]
+            return min(ranks)[-1] if ranks else None
+        return choose(1),choose(2),choose(complete=True)
+
+    def _check_common_pool(self, context, candidates):
+        observed=self.runset(candidates,context)
+        keys=("best_individual","simple_pair","selected")
+        ids=tuple(observed[k]["ids"] if observed[k] else None for k in keys)
+        self.assertEqual(ids,self._independent_oracle(context,candidates))
+        self.assertEqual(observed,self.runset(list(reversed(candidates)),context))
+        for k in keys:
+            result=observed[k]
+            if result is None: continue
+            subset=[t for t in candidates if t["id"] in result["ids"]]
+            coverage={f for t in subset for f in t["functions"]}
+            self.assertEqual(result["covered_required"],sorted(set(context["required"])&coverage))
+            self.assertEqual(result["covered_optional"],sorted(set(context["optional"])&coverage))
+            self.assertEqual(result["uncovered_required"],sorted(set(context["required"])-coverage))
+            self.assertEqual(result["cost_mad"],sum(t["cost"] for t in subset))
+            self.assertEqual(result["load"],sum(t["load"] for t in subset))
+        return observed
+
+    def test_ten_pedagogical_common_pool_scenarios(self):
+        # Conventions from the prospective protocol; all tools and values invented.
+        def gate(t,g):
+            t["gates"][g]="UNKNOWN"
+            return t
+        cases=[
+            ("S01",ctx(required=["F04","F06","F07"],optional=["F05"]),
+             [tool("a",["F04"],device_slots={"before":1}),tool("b",["F06"],device_slots={"during":1}),
+              tool("c",["F07"],device_slots={"after":1}),tool("d",["F04","F06","F07"],offline=None)],["a","b","c"]),
+            ("S02",ctx(required=["F01","F02","F08","F13"],optional=[],budget_mad=20),
+             [tool("a",["F01","F02"],cost=15),tool("b",["F08","F13"],cost=10),
+              tool("c",["F01","F02","F08","F13"],offline=None)],None),
+            ("S03",ctx(required=["F04","F09","F13"],optional=["F05"]),
+             [gate(tool("a",["F04","F09","F13"]),"accessibility"),tool("b",["F04","F09"]),tool("c",["F13"])],["b","c"]),
+            ("S04",ctx(required=["F04","F05"],optional=["F07"]),
+             [gate(tool("a",["F04","F05","F07"]),"physical_safety"),tool("b",["F04","F05"])],["b"]),
+            ("S05",ctx(required=["F03","F06","F07"],optional=["F10"]),
+             [gate(tool("a",["F03","F06","F07"]),"age_privacy"),tool("b",["F03","F06"],requires=["c"]),tool("c",["F07"])],["b","c"]),
+            ("S06",ctx(required=["F04","F11","F12"],optional=[]),
+             [tool("a",["F04","F11","F12"],period="year"),tool("b",["F04","F11","F12"],offline=False),
+              tool("c",["F04","F11","F12"],cost=5)],["c"]),
+            ("S07",ctx(required=["F02","F08","F15"],optional=[]),
+             [tool("a",["F02"],product="same"),tool("b",["F08"],product="same"),
+              tool("c",["F15"],incompatible=["b"]),tool("d",["F02","F08"],cost=5)],["c","d"]),
+            ("S08",ctx(required=["F03","F06"],optional=["F10"],devices=0),
+             [tool("a",["F03","F06"],device_slots={"during":1}),tool("b",["F03"]),tool("c",["F06"])],["b","c"]),
+            ("S09",ctx(required=["F01","F10","F14"],optional=[]),
+             [tool("a",["F01"],device_slots={"before":1}),tool("b",["F10"],device_slots={"after":1}),
+              tool("c",["F14"],device_slots={"after":1}),tool("d",["F10","F14"],device_slots={"after":1},cost=5)],["a","d"]),
+            ("S10",ctx(required=["F01","F02","F05","F09"],optional=["F11","F12"],unsupported_requirements=["unmodelled"]),
+             [tool("a",["F01","F02","F05","F09"])],None),
+        ]
+        report=[]
+        for case,context,pool,expected in cases:
+            with self.subTest(case=case):
+                r=self._check_common_pool(context,pool)
+                self.assertEqual(r["selected"]["ids"] if r["selected"] else None,expected)
+                report.append(dict(case=case,status=r["status"],
+                    **{k:r[k] for k in ("best_individual","simple_pair","selected")}))
+        print("A4_COMMON_POOL "+json.dumps(report,sort_keys=True))
+
+    def test_full_constraint_oracle_seeded(self):
+        rng=random.Random(20261128)
+        for trial in range(100):
+            n=rng.randint(1,6)
+            context=ctx(devices=rng.randint(0,2),budget_mad=rng.randint(0,20),offline=rng.choice([True,False]))
+            ids=[str(i) for i in range(n)]
+            pool=[]
+            for i in ids:
+                t=tool(i,rng.sample(["F04","F06","F07"],rng.randint(1,3)),
+                       cost=rng.randint(0,10),load=rng.randint(0,4),offline=rng.choice([True,False,None]),
+                       device_slots={rng.choice(["before","during","after"]):rng.randint(0,2)},
+                       product=rng.choice(ids),requires=rng.sample(ids,rng.randint(0,1)),
+                       incompatible=rng.sample(ids,rng.randint(0,1)))
+                if rng.random()<0.15: t["gates"][rng.choice(GATES)]="UNKNOWN"
+                if rng.random()<0.10: t["period"]="year"
+                if rng.random()<0.10: t["review"]="NOT_ASSESSED"
+                pool.append(t)
+            with self.subTest(trial=trial):
+                self._check_common_pool(context,pool)
+        print("A4_FULL_ORACLE "+json.dumps({"seed":20261128,"trials":100,"max_candidates":6,"comparators":3}))

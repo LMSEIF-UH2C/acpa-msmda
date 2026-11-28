@@ -26,45 +26,45 @@
   "checks": [
     {
       "name": "tests (3.12)",
-      "status": "in_progress",
-      "conclusion": null,
+      "status": "completed",
+      "conclusion": "success",
       "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46170527331/job/141057684105"
     },
     {
       "name": "mobile-navigation",
-      "status": "in_progress",
-      "conclusion": null,
+      "status": "completed",
+      "conclusion": "success",
       "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46170527366/job/141057684055"
     },
     {
       "name": "reference",
-      "status": "in_progress",
-      "conclusion": null,
+      "status": "completed",
+      "conclusion": "success",
       "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46170527338/job/141057683942"
     },
     {
       "name": "tests (3.14)",
-      "status": "in_progress",
-      "conclusion": null,
+      "status": "completed",
+      "conclusion": "success",
       "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46170527331/job/141057683903"
     },
     {
       "name": "smoke-test",
-      "status": "in_progress",
-      "conclusion": null,
+      "status": "completed",
+      "conclusion": "success",
       "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46170527335/job/141057683840"
     },
     {
       "name": "dual-entry",
-      "status": "in_progress",
-      "conclusion": null,
+      "status": "completed",
+      "conclusion": "success",
       "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46170522696/job/141057669846"
     }
   ],
-  "status": "in_progress",
-  "conclusion": null,
-  "verified_browser_cases": null,
-  "limits": "Test launch is not a pass. New commit adds tests/workflow only; stable main not changed. A3 remains blocked until browser acceptance and terminal CI review. No physical mobile test or external deployment.",
+  "status": "completed",
+  "conclusion": "success",
+  "verified_browser_cases": 18,
+  "limits": "Browser simulation only. Disabled deep-link test verifies no experimental content; stable navigation after opening root, not dialog dismissal. No physical device, external validation, merge or deployment.",
   "attempt_1": {
     "commit": "84eaf07310cf93e029d25c7493df9cbbb70cf55d",
     "run_id": 46169706644,
@@ -80,5 +80,17 @@
     },
     "failure": "Chromium FR disabled: after direct disabled URL fallback, click on stable home button intercepted by overlay; exact overlay not established; no application exception in server logs. No completed cases."
   },
-  "correction": "Test only: separately verify direct disabled URL exposes no experimental content, screenshot, reopen valid root before stable route check; center scroll and click without force, verify actual text area and preserve screenshots. Does not prove modal dismissal; direct URL recovery by opening root is the tested route."
+  "correction": "Test only: separately verify direct disabled URL exposes no experimental content, screenshot, reopen valid root before stable route check; center scroll and click without force, verify actual text area and preserve screenshots. Does not prove modal dismissal; direct URL recovery by opening root is the tested route.",
+  "stable_route_pass": 18,
+  "sqlite_sha_check": "PASS",
+  "artifact": {
+    "id": 15273563136,
+    "bytes": 8994655,
+    "sha256": "a2e2eea388b82a621ad60517251c76eec8f0da567f0afe892e4c7773734a5f54",
+    "readback_verified": true,
+    "crc_verified": true,
+    "entries": 40,
+    "screenshots": 36,
+    "result_rows": 18
+  }
 }

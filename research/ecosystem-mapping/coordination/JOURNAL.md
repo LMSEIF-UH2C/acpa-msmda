@@ -37,3 +37,4 @@
 | 2026-11-28 | interactive_assistant | INT-APP-A2-0016 | A2 recette | CI précédente 7/7; réservation navigateur et note de perspective | PR82 | Test trois modes |
 | 2026-11-28 | interactive_assistant | INT-APP-A2-0016 | A2 recette | Test navigateur lancé, résultats non encore vérifiés | run 46169706644 | Reprendre au résultat terminal |
 | 2026-11-28 | interactive_assistant | INT-APP-A2-0016 | A2 reprise | Premier run en échec, correction test-only, relance 46170522696 | Audit navigateur | Résultats terminaux avant A3 |
+| 2026-11-28 | interactive_assistant | INT-APP-A2-0016 | A2 clôture | 18/18 navigateur, 5/5 CI, artefact relu, verrou libéré | run 46170522696 | A3 READY |

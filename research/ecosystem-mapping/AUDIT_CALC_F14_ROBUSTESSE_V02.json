@@ -1,0 +1,171 @@
+{
+  "date": "2026-11-28",
+  "status": "PASS_BOUNDED_FUNCTIONAL_TEST",
+  "scenario": "REAL-S09-02_PROPOSED",
+  "application": "LibreOffice Calc 25.2.3.2 520(Build:2), Linux headless",
+  "input_columns": [
+    "Seance",
+    "Moteur_s",
+    "Attente_s"
+  ],
+  "output_columns": [
+    "Seance",
+    "Moteur_s",
+    "Attente_s",
+    "Statut",
+    "Total_s",
+    "Moteur_proportion"
+  ],
+  "actual_rows": [
+    [
+      "A",
+      180,
+      120,
+      "VALIDE",
+      300,
+      0.6
+    ],
+    [
+      "B",
+      240,
+      60,
+      "VALIDE",
+      300,
+      0.8
+    ],
+    [
+      "C",
+      null,
+      60,
+      "INCOMPLET",
+      null,
+      null
+    ],
+    [
+      "D",
+      0,
+      0,
+      "DUREE_NULLE",
+      null,
+      null
+    ],
+    [
+      "E",
+      90,
+      210,
+      "VALIDE",
+      300,
+      0.3
+    ],
+    [
+      "F",
+      -5,
+      60,
+      "NEGATIF",
+      null,
+      null
+    ],
+    [
+      "G",
+      "abc",
+      20,
+      "NON_NUMERIQUE",
+      null,
+      null
+    ],
+    [
+      "H",
+      0,
+      80,
+      "VALIDE",
+      80,
+      0
+    ],
+    [
+      "I",
+      50,
+      0,
+      "VALIDE",
+      50,
+      1
+    ],
+    [
+      "J",
+      20,
+      -5,
+      "NEGATIF",
+      null,
+      null
+    ],
+    [
+      "K",
+      null,
+      null,
+      "INCOMPLET",
+      null,
+      null
+    ]
+  ],
+  "expected_statuses": [
+    "VALIDE",
+    "VALIDE",
+    "INCOMPLET",
+    "DUREE_NULLE",
+    "VALIDE",
+    "NEGATIF",
+    "NON_NUMERIQUE",
+    "VALIDE",
+    "VALIDE",
+    "NEGATIF",
+    "INCOMPLET"
+  ],
+  "status_matches": 11,
+  "total_cases": 11,
+  "expected_summary": [
+    5,
+    560,
+    1030,
+    0.5436893203883495
+  ],
+  "observed_summary": [
+    5,
+    560,
+    1030,
+    0.54368932038835
+  ],
+  "summary_labels": [
+    "valid rows",
+    "motor seconds",
+    "total seconds",
+    "weighted proportion"
+  ],
+  "formulas_row_2": [
+    "=IF(OR(ISBLANK(B2),ISBLANK(C2)),\"INCOMPLET\",IF(COUNT(B2:C2)<>2,\"NON_NUMERIQUE\",IF(OR(B2<0,C2<0),\"NEGATIF\",IF(SUM(B2:C2)=0,\"DUREE_NULLE\",\"VALIDE\"))))",
+    "=IF(D2=\"VALIDE\",SUM(B2:C2),\"\")",
+    "=IF(D2=\"VALIDE\",B2/E2,\"\")"
+  ],
+  "summary_formulas": [
+    "=COUNTIF(D2:D12,\"VALIDE\")",
+    "=SUMIF(D2:D12,\"VALIDE\",B2:B12)",
+    "=SUMIF(D2:D12,\"VALIDE\",E2:E12)",
+    "=IF(B15>0,B14/B15,\"\")"
+  ],
+  "command": "libreoffice -env:UserInstallation=file://<tmp>/profile --headless --convert-to xlsx --outdir <tmp>/out <tmp>/pilot.xlsx",
+  "verification": "openpyxl 3.1.5 workbook construction, actual Calc execution, read data_only caches, assert eleven expected statuses, valid row counts and sums, weighted proportion tolerance 1e-12, missing result for invalid rows and original input SHA unchanged.",
+  "input_sha256": "e6341b2af67d3c7fa843273f9d3e692ff68d09c108f14d63d08af3c5f37bc509",
+  "output_sha256": "e7113d72c86541d2375bd9c2546edccea227162bc17791b6403065ff9ad9aff4",
+  "source_unchanged": true,
+  "exit_code": 0,
+  "limitations": [
+    "Constructed data only, not actual sessions or ALT-PE validation.",
+    "Only two categories assumed exhaustive in the example; overlaps, unit mismatch, formula errors in input, additional categories not tested.",
+    "No actual offline isolation, no school Windows execution, no operational context review.",
+    "Temporary files removed; hashes describe execution, not byte-reproducibility of XLSX ZIP.",
+    "No admission."
+  ],
+  "sources": [
+    "AUDIT_CALC_F14_V01.json",
+    "COUVERTURE_FONCTIONS_V01.csv",
+    "https://help.libreoffice.org/latest/en-US/text/scalc/01/func_sumif.html"
+  ]
+}

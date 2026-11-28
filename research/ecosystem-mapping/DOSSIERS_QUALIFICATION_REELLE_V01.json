@@ -121,6 +121,13 @@
           "locators": [
             "AUDIT_CALC_F14_V01.json"
           ]
+        },
+        {
+          "kind": "ACTUAL_TEST",
+          "finding": "F14 robustness: 11/11 constructed cases classified, 6 invalid rows excluded, 5 valid, correct totals and proportion; no school data or offline proof.",
+          "locators": [
+            "AUDIT_CALC_F14_ROBUSTESSE_V02.json"
+          ]
         }
       ],
       "sources": [

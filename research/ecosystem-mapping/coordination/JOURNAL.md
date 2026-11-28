@@ -96,3 +96,5 @@
 | 2026-11-28 | interactive_assistant | INT-APP-A5-0019 | ASC-03 | Observation du porteur capitalisée : diagnostic reproductible des technologies tierces, rétroaction potentielle; aucune amélioration amont revendiquée | [Rapport](../RAPPORT_SCIENTIFIQUE_EVOLUTIF.md#asc-03--fonction-diagnostique-et-rétroaction-vers-les-technologies-évaluées-contribution-émergente-exploratoire) | A5 inchangée |
 
 | 2026-11-28 | interactive_assistant | INT-APP-A5-0019 | F14 Calc + recette positive | Recalcul réel sur données de contrôle, dossier positif synthétique temporaire, 18 cas navigateur prévus | [AUDIT_CALC_F14_V01.json](../AUDIT_CALC_F14_V01.json) | CI puis qualification réelle |
+
+| 2026-11-28 | interactive_assistant | INT-APP-A5-0019 | RET-020 + robustesse Calc | 14/18 navigateur, 11/11 classifications Calc, retest ciblé | [AUDIT_CALC_F14_ROBUSTESSE_V02.json](../AUDIT_CALC_F14_ROBUSTESSE_V02.json) | Vérifier 18 cas puis qualification |

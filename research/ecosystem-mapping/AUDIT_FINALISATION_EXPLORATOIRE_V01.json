@@ -1,0 +1,54 @@
+{
+  "scope": "Offline exploratory closure; no human validation; private detailed dossier.",
+  "historical_selection": {
+    "published_commit": "41b04d3f1c1163bc7a82b187eeb255ad4de28e1f",
+    "base_commit": "9e83a98d8934bde13a031cc3a1b12f0b24ebd731",
+    "build_script_blob": "9994936bcac01c3fc5bed114e495f8674da87ec2",
+    "published": {
+      "initial": 204,
+      "prospection": 162,
+      "web": 77,
+      "apple": 900,
+      "total": 1343
+    },
+    "replay": {
+      "initial": 204,
+      "prospection": 172,
+      "web": 75,
+      "apple": 899,
+      "total": 1350
+    },
+    "replay_vs_registry_apple": {
+      "common": 851,
+      "replay_only": 48,
+      "registry_only": 49
+    },
+    "registry_apple_vs_published": "Different non-cryptographic fingerprints of sorted IDs; exact intersection not calculated",
+    "status": "NOT_EXACTLY_REPRODUCED",
+    "base_projection_fingerprint_matches": true
+  },
+  "documentary_qualification": {
+    "historical_100_pair_series": 5,
+    "full_historical_v2_rows": 25,
+    "technical_prototype_tests": {
+      "passed": 16,
+      "total": 16,
+      "synthetic": true
+    },
+    "coverage_60_percent_v2": 0,
+    "score_status": "PROVISIONAL_NOT_VALIDATED"
+  },
+  "private_evidence": {
+    "bytes": 139550,
+    "sha256": "f4cc758d1f2cec386b5e597c008d8cadfd6579684302c44c964cc413d7393b69",
+    "entries": 18,
+    "manifest_entries_verified": 17,
+    "private_drive_readback_verified": true
+  },
+  "limitations": [
+    "Aptoide 17456 recorded but no historical raw source; Claude standalone provenance missing",
+    "Selection replay divergence retained, no post hoc fitting",
+    "No human validation, no new collection, no engine publication, no adopted weights or thresholds",
+    "Project owner indicates all available files supplied; propose explicit limited historical scope for team approval"
+  ]
+}

@@ -20,3 +20,5 @@ V0.1.55 : original Apple récupéré et audit réussi; P1-02 demande désormais 
 V0.1.56 : les listes historiques et décisions consolidées sont récupérées, ChatGPT avant/après réconcilié, κ .685 IA-IA. [Audit](AUDIT_HISTORICAL_DECISIONS_V01.json). Demande résiduelle : originaux Android, export Claude et provenance ou limitation explicite; validations humaines prospectives inchangées.
 
 V0.1.57 : index F-Droid historique retrouvé et 5026/5026 IDs concordants; Apple + F-Droid 28220/45676. Aptoide brut et journaux/provenance restent requis ou limitation explicite. Aucun changement de précondition.
+
+V0.1.58 : porteur indique avoir transmis les preuves disponibles. Ne plus demander la recherche répétitive des archives. Proposition de périmètre historique limité : registre consolidé, Apple/F-Droid vérifiés, Aptoide non réauditable, accord IA-IA, sélection finale non exactement reproduite. Approbation explicite de l'équipe requise; validations humaines distinctes. [Audit](AUDIT_FINALISATION_EXPLORATOIRE_V01.json).

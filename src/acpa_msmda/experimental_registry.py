@@ -15,6 +15,7 @@ from pathlib import Path
 from urllib.parse import urlsplit
 
 from .catalogue_bridge import catalogue_snapshot
+from .experimental_qualification import validate as validate_qualification
 
 DOCUMENTARY_SOURCES = {"doc_web", "doc_target"}
 SCHEMA = """
@@ -23,6 +24,10 @@ CREATE TABLE IF NOT EXISTS record(
     id TEXT PRIMARY KEY, source TEXT NOT NULL, native TEXT NOT NULL,
     kind TEXT NOT NULL, UNIQUE(source,native));
 CREATE TABLE IF NOT EXISTS observation(
+    id TEXT PRIMARY KEY, record_id TEXT NOT NULL REFERENCES record(id),
+    observed_on TEXT NOT NULL, locator TEXT NOT NULL, payload_sha256 TEXT NOT NULL,
+    payload TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS qualification(
     id TEXT PRIMARY KEY, record_id TEXT NOT NULL REFERENCES record(id),
     observed_on TEXT NOT NULL, locator TEXT NOT NULL, payload_sha256 TEXT NOT NULL,
     payload TEXT NOT NULL);
@@ -40,7 +45,8 @@ def _day(value):
 
 def _add(db, table, values):
     columns = {"record":("id","source","native","kind"),
-               "observation":("id","record_id","observed_on","locator","payload_sha256","payload")}[table]
+               "observation":("id","record_id","observed_on","locator","payload_sha256","payload"),
+               "qualification":("id","record_id","observed_on","locator","payload_sha256","payload")}[table]
     previous = db.execute("SELECT "+",".join(columns)+" FROM "+table+" WHERE id=?", (values[0],)).fetchone()
     if previous is not None:
         if tuple(previous)!=tuple(values):
@@ -78,20 +84,21 @@ def _documentary_rows(manifest):
                       ("obs:"+key+":"+day+":"+digest,key,day,row["url"],digest,_canon(payload))))
     return result
 
-def import_snapshot(db_path, catalogue_path, manifest, *, observed_on):
+def import_snapshot(db_path, catalogue_path, manifest, *, observed_on, qualification=None):
     """One transactional import; same input idempotent, changes append observations."""
     snapshot=catalogue_snapshot(catalogue_path,observed_on=observed_on)
     documentary=_documentary_rows(manifest)
+    proposals=[] if qualification is None else validate_qualification(qualification,manifest)
     path=Path(db_path).resolve()
     if path==Path(catalogue_path).resolve():
         raise ValueError("Cannot overwrite catalogue")
     with closing(sqlite3.connect(path)) as db:
         db.executescript(SCHEMA)
-        for table in ("record","observation"):
+        for table in ("record","observation","qualification"):
             for event in ("UPDATE","DELETE"):
                 db.execute(f"CREATE TRIGGER IF NOT EXISTS no_{table}_{event.lower()} BEFORE {event} ON {table} BEGIN SELECT RAISE(ABORT,'append only'); END")
         db.commit()
-        nr=no=0
+        nr=no=nq=0
         with db:
             db.execute("BEGIN IMMEDIATE")
             for key,r in snapshot["records"].items():
@@ -101,12 +108,18 @@ def import_snapshot(db_path, catalogue_path, manifest, *, observed_on):
             for record,observation in documentary:
                 nr+=_add(db,"record",record)
                 no+=_add(db,"observation",observation)
-        return {"new_records":nr,"new_observations":no,**_summary(db)}
+            for proposal in proposals:
+                nq+=_add(db,"qualification",proposal)
+        return {"new_records":nr,"new_observations":no,"new_qualifications":nq,**_summary(db)}
+
+def _has_qualification(db):
+    return db.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name='qualification'").fetchone() is not None
 
 def _summary(db):
     sources=dict(db.execute("SELECT source,COUNT(*) FROM record GROUP BY source"))
     return {"records":sum(sources.values()),"observations":db.execute("SELECT COUNT(*) FROM observation").fetchone()[0],
             "sources":sources,"documentary_leads":sum(sources.get(s,0) for s in DOCUMENTARY_SOURCES),
+            "qualification_observations":db.execute("SELECT COUNT(*) FROM qualification").fetchone()[0] if _has_qualification(db) else 0,
             "new_recommendable":0}
 
 def read_preview(db_path):
@@ -119,4 +132,13 @@ def read_preview(db_path):
             WHERE r.source IN ('doc_web','doc_target')
             AND o.id=(SELECT i.id FROM observation i WHERE i.record_id=r.id ORDER BY i.observed_on DESC,i.rowid DESC LIMIT 1)
             ORDER BY r.id""").fetchall()
-        return {**summary,"leads":[{"id":r,"kind":k,"date":d,**json.loads(payload)} for r,k,d,payload in rows]}
+        leads=[{"id":r,"kind":k,"date":d,**json.loads(payload)} for r,k,d,payload in rows]
+        if _has_qualification(db):
+            for lead in leads:
+                # Only show the proposal for the currently displayed source observation.
+                # A newer observation or changed link requires a new review.
+                q=db.execute("""SELECT payload FROM qualification WHERE record_id=? AND observed_on=? AND locator=?
+                    ORDER BY rowid DESC LIMIT 1""",(lead["id"],lead["date"],lead["url"])).fetchone()
+                if q:
+                    lead["qualification_proposal"]=json.loads(q[0])
+        return {**summary,"leads":leads}

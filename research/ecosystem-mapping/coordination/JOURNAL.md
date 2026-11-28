@@ -17,3 +17,4 @@
 | 2026-11-28 | interactive_assistant | INT-P2-10-0005 | P2-10 | Réservation exclusive | HEAD 50b23624488871a3e830974ed0762302926cd5d1 | Essai réel et reprise inter-runners |
 | 2026-11-28 | interactive_assistant | INT-P2-10-0005 | P2-10 | Pilote borné et workflow inter-jobs enregistrés | [Protocole](../LIVE_CHECKPOINT_PROTOCOL_V01.md) | Vérifier run |
 | 2026-11-28 | interactive_assistant | INT-P2-10-0005 | P2-10 | Clôture : 4 requêtes réelles, reprise 2+2, 0 nouvel appel en vérification, archive relue, verrou libéré | [Run 46154207305](https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46154207305) · [audit](../AUDIT_LIVE_CHECKPOINT_V01.json) | P2-11 |
+| 2026-11-28 | interactive_assistant | INT-P2-11-0006 | P2-11 | Réservation exclusive | HEAD 656df3884ba0a650e6ee9cd824c0a68990b4990b | Comparateurs et saturation |

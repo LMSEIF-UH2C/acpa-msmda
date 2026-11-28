@@ -1,10 +1,18 @@
 {
   "schema_version": 1,
-  "revision": 13,
+  "revision": 14,
   "branch": "research/ecosystem-mapping-pilot",
   "scientific_version": "0.1.48",
   "scientific_baseline_commit": "b868d0ee007d50ef5e2fc154de7d5c87e5f7ef78",
-  "lock": null,
+  "lock": {
+    "actor": "interactive_assistant",
+    "intervention_id": "INT-P2-11-0006",
+    "task_id": "P2-11",
+    "acquired_utc": "2026-11-28",
+    "base_head": "656df3884ba0a650e6ee9cd824c0a68990b4990b",
+    "run_refs": [],
+    "resume_note": "Comparaison hors ligne, règles de suspension prospectives et contrôle des pertes."
+  },
   "last_handoff": {
     "actor": "interactive_assistant",
     "intervention_id": "INT-P2-10-0005",
@@ -173,7 +181,7 @@
       "id": "P2-11",
       "phase": 2,
       "title": "Saturation prospective et comparateurs",
-      "status": "READY",
+      "status": "IN_PROGRESS",
       "owner": "assistant",
       "deps": [
         "P2-10"

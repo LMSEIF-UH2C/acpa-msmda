@@ -1,6 +1,6 @@
 # Rapport scientifique évolutif — Cartographie technologique écosystémique ACPA/MSMDA
 
-**Version 0.1.7 — 28 novembre 2026.** Dossier de recherche et base de rédaction d'un article méthodologique. Branche `research/ecosystem-mapping-pilot`, [PR 81](https://github.com/LMSEIF-UH2C/acpa-msmda/pull/81). État : exploration et développement méthodologique; collecte définitive et validation empirique non achevées. Ce rapport est rétrospectif pour les pilotes déjà réalisés, prospectif pour les étapes restantes. Il ne constitue pas un préenregistrement rétroactif. Auteur(s), contributions CRediT, financement, déclarations et choix de revue à confirmer par l'équipe scientifique. Code de production et version publiée v0.2.0 préservés.
+**Version 0.1.8 — 28 novembre 2026.** Dossier de recherche et base de rédaction d'un article méthodologique. Branche `research/ecosystem-mapping-pilot`, [PR 81](https://github.com/LMSEIF-UH2C/acpa-msmda/pull/81). État : exploration et développement méthodologique; collecte définitive et validation empirique non achevées. Ce rapport est rétrospectif pour les pilotes déjà réalisés, prospectif pour les étapes restantes. Il ne constitue pas un préenregistrement rétroactif. Auteur(s), contributions CRediT, financement, déclarations et choix de revue à confirmer par l'équipe scientifique. Code de production et version publiée v0.2.0 préservés.
 
 ## 1. Projet d'article
 Titre provisoire FR : **Vers une cartographie systématique, cumulative, adaptative et multidimensionnelle des technologies éducatives : développement et validation méthodologique en éducation physique et sportive.**
@@ -91,6 +91,9 @@ Sources primaires : [audit Apple](AUDIT_APPLE_PILOT.md), [F-Droid](AUDIT_FDROID_
 ### Audit indépendant Apple V0.2 (V0.1.6)
 [Rapport d'audit complet](AUDIT_APPLE_V02_INDEPENDANT.md). Deux archives, 580 fichiers, 288 journaux et payloads contrôlés, concordance exacte des résultats par terme/famille/langue-marché. V0.2: 38 requêtes vides valides, 96 sans gain marginal dans l'ordre du plan, 121 sans apport nouveau exclusif, perte maximale 25 IDs en omettant une seule requête, 2 observations sans prix. Sur 500 permutations conditionnelles aux 1 435 IDs initiaux, couverture médiane des 2 274 IDs supplémentaires observés : 42,370 % à 60; 69,371 % à 120; 87,731 % à 180; 95,646 % à 216; 100 % à 240. Gain marginal final médian 0, vs 29 dans pilote initial; ne démontre pas saturation du marché ni pertinence. 176 IDs exclusifs à l'arabe dans V0.2, 150 exclusifs au marché MA. Aucun total historique fusionné. SHA-256 du diagramme historique recalculé conforme. Prochaine étape : normalisation intersource, récupération des listes historiques et préparation des contrôles de rapprochement.
 
+### Pilote de normalisation intersource (V0.1.8)
+[Audit](AUDIT_IDENTITY_NORMALIZATION.md) : 9 237 identifiants de source, 669 paires candidates (656 intrasources, 13 intersources), 192 signal nom, 483 URL dépôt (6 communs); 230 Apple et 684 F-Droid à noms multiples. Groupe de 63 IDs différé; zéro fusion de produit; nombre de produits uniques inconnu. 57 paires de calibration vérifiées dans deux CSV vierges et identiques, dont 13 intersources. [Codebook de relations](IDENTITY_REVIEW_CODEBOOK.md) proposé; liens directionnels, vérification documentaire, arbitrage et contrôle indépendant hors candidats. Pas d'accord ou rappel mesurés. L'artefact de calibration est vérifié, non les identités elles-mêmes.
+
 ## 6. Chronologie et registre des décisions (UTC, 28 novembre 2026)
 | Heure | Commit / preuve | Décision, résultat et justification |
 |---|---|---|
@@ -118,6 +121,8 @@ Sources primaires : [audit Apple](AUDIT_APPLE_PILOT.md), [F-Droid](AUDIT_FDROID_
 
 | 28 nov. | V0.1.7 : [normalisation V0.1](IDENTITY_NORMALIZATION_PROTOCOL.md) | Schéma conceptuel, regroupement par ID de source, signaux de candidats et échantillon indépendant à juger; aucun rapprochement automatique de produits. Pilote hors ligne déclenché; résultats à contrôler. |
 
+| 28 nov. | V0.1.8 : [audit de normalisation](AUDIT_IDENTITY_NORMALIZATION.md) | Pilote 8/8 réussi, 669 candidats, kit 57 paires contrôlé, codebook relationnel proposé; aucune fusion, validation humaine et contrôle hors candidats à mener. |
+
 ## 7. Validation prospective : plan de travail et critères de passage
 Le [plan directeur de finalisation](PLAN_FINALISATION.md) définit six phases avec livrables et critères de passage : consolidation, stabilisation (incluant calibration des juges et préenregistrement avant collecte), collecte définitive, qualification/validation, moteur écosystémique, valorisation et clôture. En cas d'archives historiques irrécupérables, distinguer nouvelle collecte et comparaison documentaire limitée, sans annoncer de gain net historique. Les paramètres de validation et les critères d'arrêt restent à approuver avant exécution confirmatoire. Quatre figures distinctes proposées : flux historique, architecture, flux quantitatif nouveau et modèle écosystémique.
 
@@ -126,7 +131,7 @@ Le [plan directeur de finalisation](PLAN_FINALISATION.md) définit six phases av
 | Archives historiques et droits | Bloqué partiellement | Manifestes, empreintes, effectifs recalculés, autorisations; pas de fusion avant vérification |
 | V0.2 exploratoire | Audit indépendant réussi (288/288 empreintes sur les deux pilotes) | Rapprochement historique après récupération des listes; réponse brute V0.2 non conservée |
 | Moteur et adaptateur | Tests hors ligne réussis | Petit essai réel séquentiel sur plan autorisé, reprise et latence mesurées; comparaison à procédure historique à périmètre égal |
-| Normalisation | Pilote de rapprochement exploratoire développé, tests/exécution à vérifier | Schéma produit/variante/source/observation; précision des liens et faux rapprochements sur corpus indépendant |
+| Normalisation | Pilote réussi : 8 tests, 669 candidats, 57 paires de calibration | Schéma produit/variante/source/observation; précision des liens et faux rapprochements sur corpus indépendant |
 | Saturation | Exploratoire | Règle prospective validée, bloc de contrôle par strates, évaluation des pertes pertinentes, pas d'arrêt sur erreur |
 | Criblage | 141 fiches préparées | Deux juges humains indépendants, arbitrage, révision codebook et échantillon de validation distinct |
 | Référentiel 10D/97P | Codes transcrits | Applicabilité/ancres/preuves validées par experts; fiabilité, traitement NR/SO et couverture de preuve |

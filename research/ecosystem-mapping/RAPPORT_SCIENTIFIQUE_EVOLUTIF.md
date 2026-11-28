@@ -1,6 +1,6 @@
 # Rapport scientifique évolutif — Cartographie technologique écosystémique ACPA/MSMDA
 
-**Version 0.1.5 — 28 novembre 2026.** Dossier de recherche et base de rédaction d'un article méthodologique. Branche `research/ecosystem-mapping-pilot`, [PR 81](https://github.com/LMSEIF-UH2C/acpa-msmda/pull/81). État : exploration et développement méthodologique; collecte définitive et validation empirique non achevées. Ce rapport est rétrospectif pour les pilotes déjà réalisés, prospectif pour les étapes restantes. Il ne constitue pas un préenregistrement rétroactif. Auteur(s), contributions CRediT, financement, déclarations et choix de revue à confirmer par l'équipe scientifique. Code de production et version publiée v0.2.0 préservés.
+**Version 0.1.6 — 28 novembre 2026.** Dossier de recherche et base de rédaction d'un article méthodologique. Branche `research/ecosystem-mapping-pilot`, [PR 81](https://github.com/LMSEIF-UH2C/acpa-msmda/pull/81). État : exploration et développement méthodologique; collecte définitive et validation empirique non achevées. Ce rapport est rétrospectif pour les pilotes déjà réalisés, prospectif pour les étapes restantes. Il ne constitue pas un préenregistrement rétroactif. Auteur(s), contributions CRediT, financement, déclarations et choix de revue à confirmer par l'équipe scientifique. Code de production et version publiée v0.2.0 préservés.
 
 ## 1. Projet d'article
 Titre provisoire FR : **Vers une cartographie systématique, cumulative, adaptative et multidimensionnelle des technologies éducatives : développement et validation méthodologique en éducation physique et sportive.**
@@ -68,7 +68,7 @@ Cotation : 97 paramètres originaux en 10 dimensions, échelle 1–5. Évaluer l
 | Comparaison | 6 492 IDs mobiles, 170 correspondances exactes au catalogue de 2 466, 6 322 sans correspondance exacte | Ni 6 322 nouveaux produits ni inclusions |
 | GitHub | 16/16 succès, 480 observations, 471 dépôts, 16 plafonnées; 175 licences inconnues/NOASSERTION | Dépôts ≠ produits; licence déclarée non vérifiée |
 | Échantillon | 141 fiches, décisions vierges | Pas de kappa observé |
-| V0.2 | 240/240 succès; 5 424 observations, 2 362 trackId distincts, 88 communs au premier pilote, 2 274 supplémentaires, union des deux pilotes 3 709; 0 plafonnée selon rapport | Résultat d'exécution vérifié dans les journaux, audit indépendant de l'artefact encore à faire; comparaison au premier pilote, pas aux 23 194 Apple historiques |
+| V0.2 | 240/240 succès; 5 424 observations, 2 362 trackId distincts, 88 communs au premier pilote, 2 274 supplémentaires, union des deux pilotes 3 709; 0 plafonnée selon rapport | Audit indépendant des archives réussi; 38 requêtes valides vides, 2 observations sans prix; comparaison au premier pilote, pas aux 23 194 Apple historiques |
 | Plan V0.3 | 398 expressions, 1 592 couples; 48 snapshots à 50, 0 snapshot à 200 vérifié, 1 544 sans snapshot, 0 erreur cache | Ne pas prétendre avoir économisé 48 requêtes définitives |
 | Rendement initial | 1 128 paires, 47 avec chevauchement, 1 requête sans apport exclusif, toutes avec gain dans l'ordre du plan; Jaccard max 0,25 | Sur 48 requêtes observées |
 | Reprise | 12/12 opérations synthétiques; 5 récupérées, 7 nouvelles, 0 répétition | Deux runners, pas de performance réseau réelle |
@@ -87,6 +87,9 @@ Couverture observée médiane et quantiles 5–95% :
 Extension Apple V0.2 : [run 46128443244](https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46128443244), job 140928142662, artefact 15256204849. Rapport imprimé le 28/11 à 09:19 UTC. Par famille, identifiants supplémentaires par rapport au premier pilote : recherche/données 793, continuité 622, communication 569, organisation 543 (ensembles non disjoints, ne pas sommer). Les 2 274 nouveaux trackId par rapport au pilote démontrent un élargissement de ce corpus exploratoire, pas encore une croissance nette des 45 676 enregistrements historiques. F-Droid actuel 5 057 vs historique 5 026 : écart de stock +31, pas mesure des entrées nouvelles sans comparaison des listes. GitHub reste une unité de dépôt distincte. Aucun total fusionné n'est annoncé.
 
 Sources primaires : [audit Apple](AUDIT_APPLE_PILOT.md), [F-Droid](AUDIT_FDROID_PILOT.md), [comparaison](AUDIT_COMPARISON.md), [GitHub](AUDIT_GITHUB_PILOT.md), [rendement](QUERY_YIELD_PROTOCOL.md), [saturation](SATURATION_PROTOCOL.md), [adaptateur](APPLE_ADAPTER_PROTOCOL.md). Les rapports d'audit documentent les empreintes, les artefacts et les paramètres. Les résultats sont descriptifs, non des estimations de prévalence ou de qualité pédagogique. Les anciens rapports restent des instantanés datés; leurs états intermédiaires ne prévalent pas sur la présente synthèse.
+
+### Audit indépendant Apple V0.2 (V0.1.6)
+[Rapport d'audit complet](AUDIT_APPLE_V02_INDEPENDANT.md). Deux archives, 580 fichiers, 288 journaux et payloads contrôlés, concordance exacte des résultats par terme/famille/langue-marché. V0.2: 38 requêtes vides valides, 96 sans gain marginal dans l'ordre du plan, 121 sans apport nouveau exclusif, perte maximale 25 IDs en omettant une seule requête, 2 observations sans prix. Sur 500 permutations conditionnelles aux 1 435 IDs initiaux, couverture médiane des 2 274 IDs supplémentaires observés : 42,370 % à 60; 69,371 % à 120; 87,731 % à 180; 95,646 % à 216; 100 % à 240. Gain marginal final médian 0, vs 29 dans pilote initial; ne démontre pas saturation du marché ni pertinence. 176 IDs exclusifs à l'arabe dans V0.2, 150 exclusifs au marché MA. Aucun total historique fusionné. SHA-256 du diagramme historique recalculé conforme. Prochaine étape : normalisation intersource, récupération des listes historiques et préparation des contrôles de rapprochement.
 
 ## 6. Chronologie et registre des décisions (UTC, 28 novembre 2026)
 | Heure | Commit / preuve | Décision, résultat et justification |
@@ -111,13 +114,15 @@ Sources primaires : [audit Apple](AUDIT_APPLE_PILOT.md), [F-Droid](AUDIT_FDROID_
 
 | 28 nov. | V0.1.5 : [plan directeur](PLAN_FINALISATION.md) | Formalisation des six phases, livrables, critères de passage, dépendances et responsabilités proposées; aucun nouveau résultat empirique. |
 
+| 28 nov. | V0.1.6 : [audit Apple indépendant](AUDIT_APPLE_V02_INDEPENDANT.md) | 288/288 empreintes, 580 fichiers, résultats et groupes réconciliés; nouvelles courbes et redondance; aucune exclusion automatique. Phase 1 partiellement achevée, archives historiques à récupérer. |
+
 ## 7. Validation prospective : plan de travail et critères de passage
 Le [plan directeur de finalisation](PLAN_FINALISATION.md) définit six phases avec livrables et critères de passage : consolidation, stabilisation (incluant calibration des juges et préenregistrement avant collecte), collecte définitive, qualification/validation, moteur écosystémique, valorisation et clôture. En cas d'archives historiques irrécupérables, distinguer nouvelle collecte et comparaison documentaire limitée, sans annoncer de gain net historique. Les paramètres de validation et les critères d'arrêt restent à approuver avant exécution confirmatoire. Quatre figures distinctes proposées : flux historique, architecture, flux quantitatif nouveau et modèle écosystémique.
 
 | Chantier | Statut | Critère de passage / preuve attendue |
 |---|---|---|
 | Archives historiques et droits | Bloqué partiellement | Manifestes, empreintes, effectifs recalculés, autorisations; pas de fusion avant vérification |
-| V0.2 exploratoire | Exécution réussie (240/240) | Audit indépendant des faits/empreintes, rendement par langue/marché/famille; contrôle des plafonds/erreurs et rapprochement historique |
+| V0.2 exploratoire | Audit indépendant réussi (288/288 empreintes sur les deux pilotes) | Rapprochement historique après récupération des listes; réponse brute V0.2 non conservée |
 | Moteur et adaptateur | Tests hors ligne réussis | Petit essai réel séquentiel sur plan autorisé, reprise et latence mesurées; comparaison à procédure historique à périmètre égal |
 | Normalisation | À construire | Schéma produit/variante/source/observation; précision des liens et faux rapprochements sur corpus indépendant |
 | Saturation | Exploratoire | Règle prospective validée, bloc de contrôle par strates, évaluation des pertes pertinentes, pas d'arrêt sur erreur |

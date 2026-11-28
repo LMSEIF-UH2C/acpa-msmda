@@ -1,25 +1,25 @@
 {
   "schema_version": 1,
-  "revision": 27,
+  "revision": 28,
   "branch": "research/ecosystem-mapping-pilot",
   "scientific_version": "0.1.58",
   "scientific_baseline_commit": "c7da29efe69974ebc365dbf0aa942f95ec5846df",
-  "lock": {
-    "actor": "interactive_assistant",
-    "intervention_id": "INT-APP-A1-0014",
-    "task_id": "A1",
-    "acquired_utc": "2026-11-28T16:34:00Z",
-    "base_head": "ba09fc99c279a0678e273503aa738ce62121da48",
-    "run_refs": [],
-    "resume_note": "Separate application technical track requested by owner; legacy bridge and regressions; preserve scientific gates."
-  },
+  "lock": null,
   "last_handoff": {
     "actor": "interactive_assistant",
-    "intervention_id": "INT-PREP-FINAL-0013",
+    "intervention_id": "INT-APP-A1-0014",
     "completed": "2026-11-28",
-    "summary": "Clôture exploratoire préparée, rejeu final non conforme 1350 vs 1343, 16 tests synthétiques réussis; dossier privé relu. Aucun nouveau jalon scientifique clos.",
+    "summary": "A1 implemented; 48/48 targeted executions, 2466 rows unchanged; full regression PENDING; draft PR82. Science gates unchanged.",
     "next_task": null,
-    "evidence": "../AUDIT_FINALISATION_EXPLORATOIRE_V01.json"
+    "next_application_task": "A1",
+    "evidence": "../AUDIT_APPLICATION_A1_V01.json",
+    "run_refs": [
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46166042264",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46166052319",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46166052420",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46166052325",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46166052367"
+    ]
   },
   "priority_queue": [],
   "tasks": [
@@ -300,7 +300,10 @@
     "tasks": [
       {
         "id": "A1",
-        "status": "IN_PROGRESS"
+        "status": "READY",
+        "scope": "Legacy bridge implemented; targeted tests verified",
+        "evidence": "../AUDIT_APPLICATION_A1_V01.json",
+        "next": "Read terminal PR82 regression jobs, resolve failures before A2"
       },
       {
         "id": "A2",
@@ -345,6 +348,10 @@
           "release approval"
         ]
       }
-    ]
+    ],
+    "integration_commit": "105b3c193e663799c173bbe61793711d790bf165",
+    "pr": 82,
+    "regression_status": "PENDING",
+    "next_task": "A1"
   }
 }

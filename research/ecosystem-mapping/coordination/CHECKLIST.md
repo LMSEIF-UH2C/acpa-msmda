@@ -1,6 +1,6 @@
 # Checklist de coordination — 28/11/2026
 Référence V0.1.58; [état machine](ETAT.json) faisant foi. [Règles](README.md) · [Journal](JOURNAL.md).
-**Verrou : OCCUPÉ — INT-APP-A1-0014, piste application. Aucun chantier scientifique READY.** [Dossier de passage](../GATE_VALIDATION_EQUIPE_V01.md).
+**Verrou : LIBRE. Aucun chantier scientifique READY. Piste application distincte ci-dessous.** [Dossier de passage](../GATE_VALIDATION_EQUIPE_V01.md).
 14 acquis techniques, 5 interventions humaines, 5 bloqués. Récupération historique terminée au périmètre disponible; proposition de limitation à approuver, aucun passage confirmatoire autorisé.
 | ID | Phase | Jalon | État | Responsable | Dépendances | Preuve / suite |
 |---|---:|---|---|---|---|---|
@@ -30,3 +30,6 @@ Référence V0.1.58; [état machine](ETAT.json) faisant foi. [Règles](README.md
 | P6-01 | 6 | Article, dépôt et clôture | Bloqué par préconditions | équipe | P5-01 | [Preuve](../PLAN_FINALISATION.md) — Article, preuves, relecture et accord avant diffusion |
 
 Piste application v0.3.0 : A1 EN COURS, A2–A7 dépendants. Aucun changement des 24 jalons scientifiques.
+
+## Piste application — v0.3.0
+PR82 brouillon, A1 : implémenté et 48/48 tests ciblés réussis; régression complète PENDING. A2 bloqué jusqu'à vérification des régressions complètes. A3–A7 dépendent des étapes précédentes. [Audit](../AUDIT_APPLICATION_A1_V01.json). Aucun statut scientifique modifié.

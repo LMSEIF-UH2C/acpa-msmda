@@ -7,3 +7,6 @@ Comparer hors ligne les identifiants exacts Apple trackId et F-Droid package, UR
 ## Limites et suite
 Pour chaque non-observation, examiner séparément disponibilité à la date/marché, requêtes pertinentes, limite, type de source et correspondance d'identité. N'attribuer aucune cause sans preuve. Les cas connus peuvent guider une recherche complémentaire ciblée et un examen des sources Web/bureau; pour évaluer le rappel, constituer ensuite un jeu de contrôle indépendant à partir de sources extérieures avec experts, figé avant collecte, inclure cas rares et non-candidats. Les contrôles négatifs techniques synthétiques testent absence et homonymie, pas la pertinence. 
 Aucune symétrie imposée aux résultats; pas de seuil d'acceptation fixé avant choix d'un plan confirmatoire. L'objectif est de documenter les limites, de tester la couverture utile et de justifier les décisions. Les archives historiques restent indisponibles; ne pas assimiler absence dans les pilotes à absence dans le corpus historique. 
+
+## Résultats
+Voir [audit du pilote](AUDIT_KNOWN_ITEMS_V01.md). Exécution réussie, 4 tests, 9/12 témoins retrouvés, pas d'estimation de rappel.

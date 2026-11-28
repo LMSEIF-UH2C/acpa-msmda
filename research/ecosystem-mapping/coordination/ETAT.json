@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": 38,
+  "revision": 39,
   "branch": "research/ecosystem-mapping-pilot",
   "scientific_version": "0.1.58",
   "scientific_baseline_commit": "c7da29efe69974ebc365dbf0aa942f95ec5846df",
@@ -26,7 +26,7 @@
       "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171528029",
       "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171528008"
     ],
-    "resume_note": "A3 prior CI 10/10 success. Schema v2 binds proposal to full local pointer SHA256. 34/34 targeted executions passed, UI expanded acceptance run 46171523423 and general CI pending review. Keep lock until terminal results."
+    "resume_note": "A3 prior CI 10/10 success. Schema v2 binds proposal to full local pointer SHA256. 34/34 targeted executions passed, UI expanded acceptance run 46171523423 and general CI pending review. Keep lock until terminal results.; contrat A4 préparé sans implémentation, 16 cas de référence proposés; ne pas démarrer avant clôture A3."
   },
   "last_handoff": {
     "actor": "interactive_assistant",

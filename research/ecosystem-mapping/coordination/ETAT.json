@@ -1,31 +1,19 @@
 {
   "schema_version": 1,
-  "revision": 17,
+  "revision": 18,
   "branch": "research/ecosystem-mapping-pilot",
-  "scientific_version": "0.1.50",
-  "scientific_baseline_commit": "2fbc942db6fa46f439c02116cb9fb9f53de60ae6",
-  "lock": {
-    "actor": "interactive_assistant",
-    "intervention_id": "INT-P1-04-0007",
-    "task_id": "P1-04",
-    "acquired_utc": "2026-11-28",
-    "base_head": "cdc4aaf98246bddf8713ce9b75e274bea684283b",
-    "run_refs": [],
-    "resume_note": "Inventaire complémentaire, droits et décisions à soumettre."
-  },
+  "scientific_version": "0.1.51",
+  "scientific_baseline_commit": "192821c46b19f2689187dabb0e04a914cc8ac5be",
+  "lock": null,
   "last_handoff": {
     "actor": "interactive_assistant",
-    "intervention_id": "INT-P2-11-0006",
+    "intervention_id": "INT-P1-04-0007",
     "completed": "2026-11-28",
-    "summary": "P2-11 préparation vérifiée : comparateurs et sensibilité hors ligne, 7/7 tests, 10 scénarios, aucun seuil de saturation validé. Prochaine priorité P1-04 inventaire et droits.",
-    "next_task": "P1-04",
-    "evidence": "../AUDIT_SATURATION_COMPARISON_V01.json",
-    "run_refs": [
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46157245970"
-    ]
+    "summary": "Inventaire et droits documentés, deux kits et projection sécurisés; variabilité 63 IDs supplémentaires hors cadre gelé, aucun ajout.",
+    "next_task": "P2-12",
+    "evidence": "../EVIDENCE_INVENTORY_V02.csv"
   },
   "priority_queue": [
-    "P1-04",
     "P2-12"
   ],
   "tasks": [
@@ -63,11 +51,11 @@
       "id": "P1-04",
       "phase": 1,
       "title": "Inventaire complémentaire et droits de conservation",
-      "status": "IN_PROGRESS",
+      "status": "TECH_VERIFIED",
       "owner": "assistant",
       "deps": [],
-      "evidence": "../SOURCE_REGISTER.md",
-      "next": "Recenser artefacts restants, vérifier accès et droits; décision équipe distincte"
+      "evidence": "../EVIDENCE_INVENTORY_V02.csv",
+      "next": "35 artefacts recensés; 2 kits originaux et projection temporelle privés relus; droits par source documentés, décision P2-15 en attente."
     },
     {
       "id": "P2-01",

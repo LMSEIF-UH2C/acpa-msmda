@@ -42,3 +42,5 @@ V0.1.46 : P2-08 préparation vérifiée (10/10 tests synthétiques), plan indép
 V0.1.48 : P2-10 pilote réel Wikidata réussi, 16/16 tests, 4 appels 2+2, 108 QID, 4 succès réutilisés sans réseau par troisième job, archive finale privée relue. Reprise inter-jobs démontrée; inter-workflows/panne réelle/autres adaptateurs non validés. P0 moteur reste ouvert pour périmètre définitif. Suite P2-11.
 
 V0.1.50 : P2-11 préparation technique vérifiée, 7/7 tests, 288 requêtes Apple à 50, 3709 IDs, 10 scénarios. Cumul fixe 240 appels hypothétiques, scénario à 238 sans perte observée; 236 perdent 9 IDs, 224/226 perdent 105/64. Seuils prospectifs non validés, protection des niches et témoins indépendants requis; P0 saturation ouvert. Prochaine priorité P1-04.
+
+V0.1.51 : P1-04 inventaire 35 artefacts, kits et projection temporelle privés relus, droits documentés. P2-15 et archives historiques restent ouverts; P2-12 suite.

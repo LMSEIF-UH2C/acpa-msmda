@@ -32,3 +32,4 @@
 | 2026-11-28 | interactive_assistant | INT-PREP-FINAL-0013 | clôture exploratoire | Rejeu final non conforme, 16 tests synthétiques, dossier privé relu; fin recherche répétitive, aucun nouveau jalon scientifique clos | [Audit](../AUDIT_FINALISATION_EXPLORATOIRE_V01.json) | Décision équipe et juges |
 | 2026-11-28 | interactive_assistant | INT-APP-A1-0014 | A1 application | Réservation explicite du porteur, branche intégration distincte, aucun passage confirmatoire | HEAD ba09fc99c279a0678e273503aa738ce62121da48 | Adaptateur et régression |
 | 2026-11-28 | interactive_assistant | INT-APP-A1-0014 | A1 application | PR82, 48/48 ciblés, régression PENDING; verrou libéré | [Audit](../AUDIT_APPLICATION_A1_V01.json) | A1 |
+| 2026-11-28 | interactive_assistant | INT-APP-A2-0015 | A2 | A1 CI 7/7, réservation A2 distincte, deux entrées | PR82 | Persistance et quarantaine |

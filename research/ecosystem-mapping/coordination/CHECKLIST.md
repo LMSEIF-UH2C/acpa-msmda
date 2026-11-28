@@ -33,3 +33,5 @@ Piste application v0.3.0 : A1 EN COURS, A2–A7 dépendants. Aucun changement de
 
 ## Piste application — v0.3.0
 PR82 brouillon, A1 : implémenté et 48/48 tests ciblés réussis; régression complète PENDING. A2 bloqué jusqu'à vérification des régressions complètes. A3–A7 dépendent des étapes précédentes. [Audit](../AUDIT_APPLICATION_A1_V01.json). Aucun statut scientifique modifié.
+
+A1 : 7/7 contrôles terminaux réussis. A2 réservé INT-APP-A2-0015, coexistence stable/expérimental sans bascule.

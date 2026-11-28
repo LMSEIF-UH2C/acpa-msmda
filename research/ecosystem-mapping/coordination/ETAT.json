@@ -1,10 +1,18 @@
 {
   "schema_version": 1,
-  "revision": 28,
+  "revision": 29,
   "branch": "research/ecosystem-mapping-pilot",
   "scientific_version": "0.1.58",
   "scientific_baseline_commit": "c7da29efe69974ebc365dbf0aa942f95ec5846df",
-  "lock": null,
+  "lock": {
+    "actor": "interactive_assistant",
+    "intervention_id": "INT-APP-A2-0015",
+    "task_id": "A2",
+    "acquired_utc": "2026-11-28T16:48:58.577Z",
+    "base_head": "9f5af5fe21f8d17880391f4ea1bb1805dc743e76",
+    "run_refs": [],
+    "resume_note": "A1 seven checks terminal success. A2 independent persistence and quarantined documentary leads, dual entry opt-in. No scientific gate changes."
+  },
   "last_handoff": {
     "actor": "interactive_assistant",
     "intervention_id": "INT-APP-A1-0014",
@@ -300,14 +308,14 @@
     "tasks": [
       {
         "id": "A1",
-        "status": "READY",
+        "status": "TECH_VERIFIED",
         "scope": "Legacy bridge implemented; targeted tests verified",
         "evidence": "../AUDIT_APPLICATION_A1_V01.json",
-        "next": "Read terminal PR82 regression jobs, resolve failures before A2"
+        "next": "7/7 CI succeeded; A2"
       },
       {
         "id": "A2",
-        "status": "BLOCKED",
+        "status": "IN_PROGRESS",
         "deps": [
           "A1"
         ]
@@ -351,7 +359,11 @@
     ],
     "integration_commit": "105b3c193e663799c173bbe61793711d790bf165",
     "pr": 82,
-    "regression_status": "PENDING",
-    "next_task": "A1"
+    "regression_status": "SUCCESS",
+    "next_task": "A2",
+    "dual_entry": {
+      "stable": "v0.2.0 baseline, default",
+      "experimental": "opt-in separate route; no automatic switch, no promotion before external acceptance"
+    }
   }
 }

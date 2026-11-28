@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": 41,
+  "revision": 42,
   "branch": "research/ecosystem-mapping-pilot",
   "scientific_version": "0.1.58",
   "scientific_baseline_commit": "c7da29efe69974ebc365dbf0aa942f95ec5846df",
@@ -10,8 +10,17 @@
     "task_id": "A4",
     "acquired_utc": "2026-11-28T17:42:00.259Z",
     "base_head": "a3723cbab35b0302ff09343920315fe776a40b75",
-    "run_refs": [],
-    "resume_note": "A4 technical solver on explicitly fictional fixtures, real A3 proposals remain inadmissible. No promotion, no interface or stable changes."
+    "run_refs": [
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171951231",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171951217",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171951248",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171951207",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171946898",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171946842",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171946844",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171946829"
+    ],
+    "resume_note": "A4 initial fictional solver implemented, 36/36 targeted executions, actual 34 leads excluded from operational use. General CI pending. Incomplete search output comparator structure needs hardening; real evidence adapter and historical comparison remain absent. No A5 yet."
   },
   "last_handoff": {
     "actor": "interactive_assistant",
@@ -331,7 +340,8 @@
         "deps": [
           "A3"
         ],
-        "next": "Implement technical prototype on fictional fixtures and fail-closed real proposals; no scientific promotion"
+        "next": "Read all terminal checks; harden incomplete-search comparator output and evidence adapter contract; distinguish baseline and actual historical comparator; no A5 before A4 acceptance.",
+        "evidence": "../AUDIT_APPLICATION_A4_V01.json"
       },
       {
         "id": "A5",
@@ -356,9 +366,9 @@
         ]
       }
     ],
-    "integration_commit": "651a3b2c0bdb61d7a49f5cad42daac2897a1aec9",
+    "integration_commit": "01b83f778138a5c4a189ae8e85e5bd100566a15d",
     "pr": 82,
-    "regression_status": "SUCCESS",
+    "regression_status": "PENDING",
     "next_task": "A4",
     "dual_entry": {
       "stable": "v0.2.0 baseline, default",

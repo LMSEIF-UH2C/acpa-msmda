@@ -1,0 +1,106 @@
+{
+  "phase": "A4 initial technical prototype",
+  "commit": "01b83f778138a5c4a189ae8e85e5bd100566a15d",
+  "pr": 82,
+  "mode": "fictional fixture solver only; no operational promotion",
+  "tests": {
+    "run_id": 46171946898,
+    "distinct": 18,
+    "executions": 36,
+    "passed": 36,
+    "python": [
+      "3.12",
+      "3.14"
+    ],
+    "small_oracle_budgets": 9
+  },
+  "real_boundary": {
+    "documentary_records": 34,
+    "admitted": 0,
+    "recommended": 0
+  },
+  "checks": [
+    {
+      "name": "tests (3.14)",
+      "status": "in_progress",
+      "conclusion": null,
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171951231/job/141062119984"
+    },
+    {
+      "name": "reference",
+      "status": "in_progress",
+      "conclusion": null,
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171951217/job/141062119859"
+    },
+    {
+      "name": "smoke-test",
+      "status": "in_progress",
+      "conclusion": null,
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171951248/job/141062119819"
+    },
+    {
+      "name": "tests (3.12)",
+      "status": "in_progress",
+      "conclusion": null,
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171951231/job/141062119776"
+    },
+    {
+      "name": "mobile-navigation",
+      "status": "in_progress",
+      "conclusion": null,
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171951207/job/141062119769"
+    },
+    {
+      "name": "ecosystem (3.14)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171946898/job/141062105994"
+    },
+    {
+      "name": "qualification (3.14)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171946842/job/141062105692"
+    },
+    {
+      "name": "ecosystem (3.12)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171946898/job/141062105631"
+    },
+    {
+      "name": "qualification (3.12)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171946842/job/141062105484"
+    },
+    {
+      "name": "register (3.14)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171946844/job/141062105468"
+    },
+    {
+      "name": "dual-entry",
+      "status": "in_progress",
+      "conclusion": null,
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171946829/job/141062105338"
+    },
+    {
+      "name": "register (3.12)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171946844/job/141062105205"
+    }
+  ],
+  "main_unchanged": true,
+  "limitations": [
+    "All admissibility assertions supplied as fictitious fixtures; no actual context evidence adapter or real operational recommendation.",
+    "Coarse before/during/after device slots, integer MAD same period, no fine scheduling or independently verified interoperability.",
+    "Best feasible set at most two is a prototype comparator, not a validated simple baseline; historical engine comparator not implemented.",
+    "Independent bitmask oracle tests only small cost/coverage examples, not all constraints.",
+    "Incomplete search returns no selected set; partial comparator serialization and explicit scope on incomplete search need hardening before A5.",
+    "Optional coverage reported, not optimized. No scientific weights, no external validation, no source enlargement, no UI or release."
+  ],
+  "full_regression_status": "PENDING"
+}

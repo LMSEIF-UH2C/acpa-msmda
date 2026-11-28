@@ -92,3 +92,5 @@
 | 2026-11-28 | interactive_assistant | INT-APP-A5-0019 | RET-018 voie native | 4/4 régressions précédentes; test natif déclenché, aucun succès présumé | [Commit](https://github.com/LMSEIF-UH2C/acpa-msmda/commit/b13e9cbd4cf4a375a7e653b02a93637f9704b783) | Lire preuve et diversifier |
 
 | 2026-11-28 | interactive_assistant | INT-APP-A5-0019 | BORIS natif + transfert réel Calc | 8/8 événements, 4/4 intervalles, 168/168 valeurs, 144/144 types sous politique explicite | [AUDIT_TRANSFERT_BORIS_CALC_V01.json](../AUDIT_TRANSFERT_BORIS_CALC_V01.json) | Qualification et recette positive |
+
+| 2026-11-28 | interactive_assistant | INT-APP-A5-0019 | ASC-03 | Observation du porteur capitalisée : diagnostic reproductible des technologies tierces, rétroaction potentielle; aucune amélioration amont revendiquée | [Rapport](../RAPPORT_SCIENTIFIQUE_EVOLUTIF.md#asc-03--fonction-diagnostique-et-rétroaction-vers-les-technologies-évaluées-contribution-émergente-exploratoire) | A5 inchangée |

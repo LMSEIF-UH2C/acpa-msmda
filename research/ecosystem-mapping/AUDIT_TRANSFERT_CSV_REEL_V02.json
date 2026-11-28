@@ -54,5 +54,25 @@
     "No actual BORIS or jamovi runtime available locally; no full chain tested.",
     "No network isolation, Windows test or accessibility test.",
     "Equal parsed strings do not establish preservation of data types in jamovi or semantic equivalence of point/state events."
-  ]
+  ],
+  "reproduction": {
+    "date": "2026-11-28",
+    "status": "PASS_EXACT_REPRODUCTION",
+    "application": "LibreOffice 25.2.3.2 520(Build:2)",
+    "input_sha256": "fe04334f778086d4dfea08cd226d140a881997ede97d3773138b834bf97f80a0",
+    "default_output_sha256": "84feac0d265d1eda9d87d579a25c87c4715af39de629dc0d4ff71c4b28f98d89",
+    "explicit_output_sha256": "f5b3c742aa084cc2c9c63340673141ac9b8c1a4703d619b6424185afa47d154c",
+    "preserved": [
+      25,
+      30
+    ],
+    "total": 30,
+    "command_exit_codes": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "endpoint_limits": "BORIS, jamovi and Flatpak absent; DNS resolution for PyPI and Flathub unavailable in this local environment; no endpoint execution."
+  }
 }

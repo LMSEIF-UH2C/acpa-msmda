@@ -74,3 +74,5 @@
 | 2026-11-28 | interactive_assistant | INT-APP-A5-0019 | Admission réelle | 7/7 CI interface; contrat admission réelle implémenté, nouvelle CI en cours | [Code](https://github.com/LMSEIF-UH2C/acpa-msmda/commit/d00f75afb6ecc16d14cbc7558de945b51aa7f367) | Recette puis dossier réel |
 
 | 2026-11-28 | interactive_assistant | INT-APP-A5-0019 | RET-014 et dossiers | Calc réel 25/30→30/30; quatre dossiers brouillons; aucune admission | [AUDIT_TRANSFERT_CSV_REEL_V02.json](../AUDIT_TRANSFERT_CSV_REEL_V02.json) | Recette et tests extrémités |
+
+| 2026-11-28 | interactive_assistant | INT-APP-A5-0019 | Rejeu RET-014 et UI interne | 8/8 CI antérieure, mêmes SHA Calc, panneau conditionnel et contrôle transfert réel | [Commit](https://github.com/LMSEIF-UH2C/acpa-msmda/commit/65aab6dac578688e89ba3259e8fb48eb38c1fecc) | CI puis recette mode activé |

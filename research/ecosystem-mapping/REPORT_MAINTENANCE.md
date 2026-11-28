@@ -7,3 +7,5 @@ Le rapport [RAPPORT_SCIENTIFIQUE_EVOLUTIF.md](RAPPORT_SCIENTIFIQUE_EVOLUTIF.md) 
 - Avant nouvelle rédaction : relire rapport maître et documents sources; vérifier le HEAD de la PR 81 et le statut des runs; préserver main et publication. Pas de collecte ou de workflow réseau déclenché par simple modification du rapport.
 - À chaque jalon : produire une version numérotée et préparer un manifeste de preuves autorisées; conserver les données brutes soumises à droits hors dépôt public. Le rapport ne doit pas contenir de données privées, secrets, descriptions commerciales intégrales ou images non autorisées.
 - La maintenance se réalise au fil des contributions, pas automatiquement entre les conversations. Ne pas annoncer d'exécution autonome si aucun mécanisme n'a été configuré.
+
+- À chaque retour au porteur : travaux effectués, résultats et preuves, analyse critique, mise à jour du rapport si nécessaire, prochaine étape explicite. Se référer au [plan directeur de finalisation](PLAN_FINALISATION.md) et signaler les préconditions non remplies.

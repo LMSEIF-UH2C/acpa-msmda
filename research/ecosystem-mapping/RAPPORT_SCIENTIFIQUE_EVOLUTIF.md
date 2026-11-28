@@ -1,6 +1,6 @@
 # Rapport scientifique évolutif — Cartographie technologique écosystémique ACPA/MSMDA
 
-**Version 0.1.12 — 28 novembre 2026.** Dossier de recherche et base de rédaction d'un article méthodologique. Branche `research/ecosystem-mapping-pilot`, [PR 81](https://github.com/LMSEIF-UH2C/acpa-msmda/pull/81). État : exploration et développement méthodologique; collecte définitive et validation empirique non achevées. Ce rapport est rétrospectif pour les pilotes déjà réalisés, prospectif pour les étapes restantes. Il ne constitue pas un préenregistrement rétroactif. Auteur(s), contributions CRediT, financement, déclarations et choix de revue à confirmer par l'équipe scientifique. Code de production et version publiée v0.2.0 préservés.
+**Version 0.1.14 — 28 novembre 2026.** Dossier de recherche et base de rédaction d'un article méthodologique. Branche `research/ecosystem-mapping-pilot`, [PR 81](https://github.com/LMSEIF-UH2C/acpa-msmda/pull/81). État : exploration et développement méthodologique; collecte définitive et validation empirique non achevées. Ce rapport est rétrospectif pour les pilotes déjà réalisés, prospectif pour les étapes restantes. Il ne constitue pas un préenregistrement rétroactif. Auteur(s), contributions CRediT, financement, déclarations et choix de revue à confirmer par l'équipe scientifique. Code de production et version publiée v0.2.0 préservés.
 
 ## 1. Projet d'article
 Titre provisoire FR : **Vers une cartographie systématique, cumulative, adaptative et multidimensionnelle des technologies éducatives : développement et validation méthodologique en éducation physique et sportive.**
@@ -15,6 +15,9 @@ Questions proposées, à fixer avant la phase confirmatoire :
 - Q4 : comment opérationnaliser le 10D/97P pour distinguer la qualité d'un outil, celle de son usage et celle d'un système technopédagogique, puis valider une recommandation contextualisée ?
 
 Hypothèses à tester (non résultats) : la prospection élargie peut révéler des ressources complémentaires; la reprise peut éviter des appels redondants; la recherche adaptative pourrait réduire le coût de collecte à couverture comparable; un écosystème pourrait mieux couvrir des besoins multiples qu'un classement unidimensionnel. Aucun effet pédagogique n'est présumé.
+
+### Clarification de l'objectif directeur (28 novembre 2026)
+Le porteur précise que l'objectif est la rigueur et le fait d'avoir systématiquement considéré les dimensions pertinentes, non le chiffre. Les 45 676 enregistrements historiques sont un jalon, jamais une cible. Couverture documentée des familles, fonctions, sources, plateformes, langues, contextes et contraintes; documenter les lacunes et accès impossibles, limiter les biais, sans revendiquer l'exhaustivité absolue. Une base finale plus petite peut être scientifiquement meilleure. Les nombres d'observations, IDs, produits et inclusions restent des résultats descriptifs distincts.
 
 ## 2. Origine et continuité du programme
 Le projet prolonge ACPA/MSMDA et le référentiel original 10D/97P (annexe E3 du doctorat; codes transcrits dans [framework_10d97p.json](framework_10d97p.json)). Il ne remplace ni les résultats de la thèse ni la grille historique à 18 critères. Le catalogue de référence contient 2 466 fiches au moment du branchement; une fiche n'est pas nécessairement une application évaluée. La v0.2.0 publiée est distincte de cette recherche ([version GitHub](https://github.com/LMSEIF-UH2C/acpa-msmda/releases/tag/v0.2.0), [Zenodo](https://doi.org/10.5281/zenodo.24544420)). Le point de départ de la branche est [b4727bf](https://github.com/LMSEIF-UH2C/acpa-msmda/commit/b4727bf9f200ee58c7b0920f9f153ef4ae05127d).
@@ -100,6 +103,9 @@ Annexe E3 relue intégralement (pp.1–6; 12 experts × 5 OTP, échelle 1–5). 
 ### Calibration 10D/97P (V0.1.11)
 [Protocole de calibration](CALIBRATION_10D97P_PROTOCOL.md), sept cas proposés, 97 lignes de revue experte et 361 lignes d'applicabilité/cotation par juge (5 × 66 + 26 + 5), aucune décision. Les cas, versions et preuves communes doivent être figés; ancres spécifiques 1/3/5 à examiner par experts avant cotation. Accord nominal sur applicabilité, kappa linéairement pondéré sur notes conjointement documentées, couverture et discordances par unité/cas; pas d'IC naïf sur lignes dépendantes. Tests de cohérence et génération CI réussis : [run 46134488121](https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46134488121), job 140946634524, 7 tests réussis, artefact 15259361246 (28 263 octets), manifeste SHA-256 et empreintes identiques pour les formulaires A/B selon le journal. Aucun jugement réel. Les calibrations de 57 paires et 141 fiches demeurent distinctes. Pas de validation humaine ni collecte définitive lancée.
 
+### Audit de couverture (V0.1.14)
+[Registre et audit](AUDIT_COUVERTURE_V01.md) : confrontation des trois archives du plan et des pilotes. 288/1 200 couples modernes examinés à 50, 912 non examinés dans ces pilotes; 38 réponses vides, 4 plafonnées. Seize familles abordées, 12 seulement 3/60 chacune; 252 requêtes dans quatre familles approfondies. 12 cellules langue-marché partielles; 1 304/1 592 couples candidats non observés dans ces deux pilotes; aucun à 200. 3 couples également historiques, aucun exclusivement historique. Ne pas interpréter comme couverture du marché ni absence historique; aucune obligation de réaliser toutes les requêtes. Matrices CSV, script de recalcul et registre des axes. Prochaine étape : couverture pédagogique APS × besoins × fonctions et contraintes, et canaux Web/desktop autorisés.
+
 ## 6. Chronologie et registre des décisions (UTC, 28 novembre 2026)
 | Heure | Commit / preuve | Décision, résultat et justification |
 |---|---|---|
@@ -136,6 +142,8 @@ Annexe E3 relue intégralement (pp.1–6; 12 experts × 5 OTP, échelle 1–5). 
 | 28 nov. | V0.1.11 : [calibration 10D/97P](CALIBRATION_10D97P_PROTOCOL.md) | Sept cas, générateur de fiches vierges, contrôle de cotation et mesures d'accord ordinal; aucune validation empirique. |
 
 | 28 nov. | V0.1.12 : [preuve de génération du kit](https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46134488121) | 7 tests réussis, 7 cas, 361 lignes par juge, 97 par expert, formulaires vierges générés. Prochaine condition : revue experte, fixation des cas, puis cotation indépendante; en parallèle récupération historique et droits. |
+
+| 28 nov. | V0.1.13–0.1.14 : clarification et [audit de couverture](AUDIT_COUVERTURE_V01.md) | Priorité à la rigueur et à la diversité; 288 couples vérifiés à 50, déséquilibre entre familles, registre de lacunes; pas de nouveau résultat de pertinence ou collecte réseau. |
 
 ## 7. Validation prospective : plan de travail et critères de passage
 Le [plan directeur de finalisation](PLAN_FINALISATION.md) définit six phases avec livrables et critères de passage : consolidation, stabilisation (incluant calibration des juges et préenregistrement avant collecte), collecte définitive, qualification/validation, moteur écosystémique, valorisation et clôture. En cas d'archives historiques irrécupérables, distinguer nouvelle collecte et comparaison documentaire limitée, sans annoncer de gain net historique. Les paramètres de validation et les critères d'arrêt restent à approuver avant exécution confirmatoire. Quatre figures distinctes proposées : flux historique, architecture, flux quantitatif nouveau et modèle écosystémique.

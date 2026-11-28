@@ -72,6 +72,22 @@ def run(browser,engine,lang,mode):
             panel.get_by_text(proposal["scenario"],exact=True).scroll_into_view_if_needed()
             page.screenshot(path=str(OUT/f"{engine}-{lang}-qualification.png"))
             print("A3_PANEL_PASS "+json.dumps({"engine":engine,"language":lang,"record":"doc_web:WD04"}),flush=True)
+            labels={
+                "fr":("Diagnostic documentaire réel","Analyser les preuves","Aucune recommandation opérationnelle","Simulation fictive — relais","Lancer la simulation","Configuration fictive complète"),
+                "ar":("التشخيص الوثائقي الحقيقي","تحليل الأدلة","لا توجد توصية تشغيلية","محاكاة افتراضية — التتابع","تشغيل المحاكاة","منظومة افتراضية كاملة"),
+                "en":("Real documentary diagnosis","Analyze evidence","No operational recommendation","Fictional simulation — relay","Run simulation","Complete fictional configuration"),
+            }[lang]
+            real=page.get_by_test_id("stExpander").filter(has=page.get_by_text(labels[0],exact=True))
+            centered_click(real.locator("summary"))
+            centered_click(real.get_by_role("button",name=labels[1],exact=True))
+            expect(real.get_by_text(labels[2],exact=True)).to_be_visible(timeout=60000)
+            page.screenshot(path=str(OUT/f"{engine}-{lang}-a5-real.png"))
+            demo=page.get_by_test_id("stExpander").filter(has=page.get_by_text(labels[3],exact=True))
+            centered_click(demo.locator("summary"))
+            centered_click(demo.get_by_role("button",name=labels[4],exact=True))
+            expect(demo.get_by_text(labels[5],exact=True)).to_be_visible(timeout=60000)
+            page.screenshot(path=str(OUT/f"{engine}-{lang}-a5-demo.png"))
+            print("A5_DECISION_PASS "+json.dumps({"engine":engine,"language":lang}),flush=True)
         else:
             expect(page.get_by_text(missing,exact=False)).to_be_visible()
             expect(page.get_by_test_id("stMetric")).to_have_count(0)

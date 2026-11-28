@@ -1,0 +1,102 @@
+{
+  "automatic_merges": 0,
+  "field_audit": {
+    "explicit_identifier_field_record_counts": {},
+    "limitations": "URL syntax only; links may be evidence, store listings, dependencies or obsolete. Do not treat nested links as official product identity or convert catalogue IDs by guess. Counts of paths/types can overlap.",
+    "multi_identifier_records_by_type": {},
+    "recognized_link_occurrences": {
+      "apple": 1797,
+      "fdroid": 90,
+      "other_url": 516
+    },
+    "recognized_link_records_by_type": {
+      "apple": 1795,
+      "fdroid": 90
+    },
+    "top_level_field_presence": {
+      "activities": 2466,
+      "category": 2466,
+      "caution": 2466,
+      "criteria_method": 2466,
+      "criteria_scores": 2466,
+      "evidence_status": 2466,
+      "feature_evidence": 5,
+      "features": 5,
+      "features_announced": 2229,
+      "id": 2466,
+      "keywords": 2466,
+      "name": 2466,
+      "offline": 5,
+      "offline_hint": 2466,
+      "origin": 2304,
+      "platforms": 5,
+      "pricing": 5,
+      "publisher": 2229,
+      "requirement": 2466,
+      "retrieved_at": 2304,
+      "screening_use": 1123,
+      "source_url": 2466,
+      "store": 2229,
+      "title_keywords": 2466,
+      "uses": 2466
+    },
+    "url_path_type_record_counts": {
+      "feature_evidence.[].url | apple": 2,
+      "feature_evidence.[].url | other_url": 3,
+      "source_url | apple": 1795,
+      "source_url | fdroid": 90,
+      "source_url | other_url": 513
+    },
+    "url_paths_record_counts": {
+      "feature_evidence.[].url": 5,
+      "source_url": 2398
+    }
+  },
+  "identity_adjudicated": 0,
+  "legacy_not_replayed": true,
+  "missing_previous_pairs": [
+    {
+      "common_signal_metadata": [
+        {
+          "group_size": 3,
+          "key_length": 1,
+          "rule": "short_name"
+        }
+      ],
+      "pair_sha256": "563150e56c73f29928191955701d28bd40478a76e5bbdfd905a323ec99fd530f",
+      "reason": "SHORT_NAME",
+      "source_pair": "sill/wikidata",
+      "status": "PRESERVED_REVIEW_REQUIRED"
+    },
+    {
+      "common_signal_metadata": [
+        {
+          "group_size": 3,
+          "key_length": 1,
+          "rule": "short_name"
+        }
+      ],
+      "pair_sha256": "43f169fc1a4c9f34fc59cec39fd83ebb2d5f2a1222e9a34a653527eece439ed7",
+      "reason": "SHORT_NAME",
+      "source_pair": "sill/wikidata",
+      "status": "PRESERVED_REVIEW_REQUIRED"
+    }
+  ],
+  "next": "Review candidate link fields semantically, then sensitivity analysis and independent sampling. No change to the earlier candidate union.",
+  "recent_prior_pairs": 45,
+  "recent_records": 3719,
+  "recent_regenerated": 43,
+  "short_cross_pairs": 2,
+  "short_groups": [
+    {
+      "cross_source_pairs_upper_bound": 2,
+      "rule": "short_name",
+      "size": 3,
+      "source_counts": {
+        "sill": 1,
+        "wikidata": 2
+      }
+    }
+  ],
+  "short_pairs_previously_preserved": 2
+}

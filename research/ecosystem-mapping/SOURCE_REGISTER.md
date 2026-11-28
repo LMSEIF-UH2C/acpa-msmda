@@ -32,3 +32,5 @@ SILL export historique : run 46139311316 réussi, 672 entrées dont 615 non dér
 Wikidata : pilote P31 direct sur dix classes, accès CC0, WDQS borné et arrêt sur erreur; plan et protocole versionnés. Résultats non vérifiés au lancement. QID SILL non présents dans projection, aucune indépendance présumée.
 
 Wikidata : run 46139718701 réussi, 10/10 requêtes, 549 observations, 547 QID distincts, 2 plafonds; artefact 15261401982, CC0, audit AUDIT_WIKIDATA_PILOT_V01.md. Couverture P31 directe limitée, provenance SILL/Wikidata non résolue.
+
+Complément documentaire 28 novembre : 17 observations issues de documentation officielle éditeurs et manuels, accès public ponctuel; registre PROSPECTION_MATERIEL_COMMERCIAL_V01.json. Fonctions déclarées, droits par source, pas de reproduction intégrale ni scraping. Validation indépendante et disponibilité Maroc non établies.

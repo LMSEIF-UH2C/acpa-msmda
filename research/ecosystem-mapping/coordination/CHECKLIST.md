@@ -1,7 +1,7 @@
 # Checklist de coordination — état initial du 28/11/2026
 Référence scientifique V0.1.40, commit d4b8f20533192aad701ad178da71f89a6271bcf0. [État machine](ETAT.json) faisant foi; cette checklist est sa projection lisible à actualiser dans le même commit. [Règles](README.md) · [Journal](JOURNAL.md).
 **Verrou : LIBRE. Prochain chantier prioritaire : P2-06.**
-Avancement des 22 jalons de pilotage : 7 acquis techniques vérifiés, 7 à traiter (avec dépendances), 5 interventions humaines, 5 bloqués. Ces jalons sont une décomposition de travail, pas une estimation de pourcentage scientifique, ni une pondération des phases. Aucun chantier scientifique P0 déclaré clos par ce découpage; aucune collecte définitive autorisée.
+Avancement des 24 jalons de pilotage : 7 acquis techniques vérifiés, 7 à traiter (avec dépendances), 5 interventions humaines, 5 bloqués. Ces jalons sont une décomposition de travail, pas une estimation de pourcentage scientifique, ni une pondération des phases. Aucun chantier scientifique P0 déclaré clos par ce découpage; aucune collecte définitive autorisée.
 | ID | Phase | Jalon | État | Responsable | Dépendances | Preuve / suite |
 |---|---:|---|---|---|---|---|
 | P1-01 | 1 | Audit des pilotes et du diagramme historique | Acquis technique vérifié | assistant | — | [Preuve de référence](../AUDIT_APPLE_V02_INDEPENDANT.md) — Pilotes auditables; pas de comparaison exhaustive historique |

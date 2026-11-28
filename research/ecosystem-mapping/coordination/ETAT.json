@@ -1,17 +1,17 @@
 {
   "schema_version": 1,
-  "revision": 23,
+  "revision": 24,
   "branch": "research/ecosystem-mapping-pilot",
-  "scientific_version": "0.1.55",
+  "scientific_version": "0.1.56",
   "scientific_baseline_commit": "c7da29efe69974ebc365dbf0aa942f95ec5846df",
   "lock": null,
   "last_handoff": {
     "actor": "interactive_assistant",
-    "intervention_id": "INT-RECOVERY-HIST-0010",
+    "intervention_id": "INT-RECOVERY-HIST-0011",
     "completed": "2026-11-28",
-    "summary": "Archive Apple historique récupérée et filtrage 2412 exactement reproduit; 584 IDs communs avec pilote récent, 3125 hors archive initiale; P1-02 reste WAIT_HUMAN pour Android/verdicts.",
+    "summary": "45676 IDs et flux réconciliés, 1876 décisions ChatGPT corrigées concordantes, kappa IA-IA recalculé; six fichiers privés relus. P1-02 reste WAIT_HUMAN pour preuves brutes/provenance.",
     "next_task": null,
-    "evidence": "../AUDIT_HISTORICAL_APPLE_RECOVERY_V01.json"
+    "evidence": "../AUDIT_HISTORICAL_DECISIONS_V01.json"
   },
   "priority_queue": [],
   "tasks": [
@@ -32,8 +32,8 @@
       "status": "WAIT_HUMAN",
       "owner": "porteur",
       "deps": [],
-      "evidence": "../AUDIT_HISTORICAL_APPLE_RECOVERY_V01.json",
-      "next": "Apple historique original 23 194 et filtrage 2 412 exactement reproduits, copie privée vérifiée; Aptoide 17 456, F-Droid 5 026 et deux fichiers de décisions 1 876 encore requis; 900/162/77 à réconcilier."
+      "evidence": "../AUDIT_HISTORICAL_DECISIONS_V01.json",
+      "next": "Registre 45676 et flux réconciliés, accord IA-IA κ=.685 IC95 [.652,.718] reproduit; Apple exact. Restent bruts/logs Android, verdicts Claude séparés et provenance; 900/162/77 à reproduire ou limiter."
     },
     {
       "id": "P1-03",

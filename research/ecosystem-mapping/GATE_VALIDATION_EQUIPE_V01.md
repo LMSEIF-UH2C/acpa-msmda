@@ -16,3 +16,5 @@ Une fois les preuves humaines disponibles, réserver le chantier correspondant s
 Complément V0.1.54 : [lots et récupération historique](PREPARATION_VALIDATION_HUMAINE_V01.md). Aucun changement des préconditions ni approbation; dossier organisateur disponible sur Drive privé.
 
 V0.1.55 : original Apple récupéré et audit réussi; P1-02 demande désormais surtout les archives Android historiques, les verdicts originaux et la réconciliation finale. Voir AUDIT_HISTORICAL_APPLE_RECOVERY_V01.json.
+
+V0.1.56 : les listes historiques et décisions consolidées sont récupérées, ChatGPT avant/après réconcilié, κ .685 IA-IA. [Audit](AUDIT_HISTORICAL_DECISIONS_V01.json). Demande résiduelle : originaux Android, export Claude et provenance ou limitation explicite; validations humaines prospectives inchangées.

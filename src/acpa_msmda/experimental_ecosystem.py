@@ -27,6 +27,9 @@ def _context(c):
 def _reason(t,c):
     if t.get("mode")!="TEST_FIXTURE" or t.get("review")!="FIXTURE_APPROVED":
         return "UNASSESSED_REAL_OR_UNAPPROVED"
+    return _resource_reason(t,c)
+
+def _resource_reason(t,c):
     if not isinstance(t.get("product"),str) or not t["product"]:
         return "IDENTITY_UNKNOWN"
     gates=t.get("gates")
@@ -71,6 +74,10 @@ def solve_fixture(context,candidates,*,max_combinations=10000):
     """Enumerate bounded feasible sets; minimize count, load, cost, then IDs.
     All returned combinations are synthetic, never a real recommendation.
     """
+    return _solve(context,candidates,max_combinations=max_combinations,reason_fn=_reason,
+                  pair_fn=None,mode="TEST_FIXTURE_ONLY",complete_status="COMPLETE_FIXTURE_SET")
+
+def _solve(context,candidates,*,max_combinations,reason_fn,pair_fn,mode,complete_status):
     req,opt=_context(context)
     if not _natural(max_combinations) or max_combinations==0:
         raise ValueError("Invalid search bound")
@@ -78,13 +85,13 @@ def solve_fixture(context,candidates,*,max_combinations=10000):
         raise ValueError("Invalid candidates")
     if len({t["id"] for t in candidates})!=len(candidates):
         raise ValueError("Duplicate candidate IDs")
-    out={"mode":"TEST_FIXTURE_ONLY","status":"NO_COMPLETE_SET","selected":None,"best_individual":None,"simple_pair":None,"excluded":{},"combination_rejections":{},"evaluated":0,"uncovered_required":sorted(req)}
+    out={"mode":mode,"status":"NO_COMPLETE_SET","selected":None,"best_individual":None,"simple_pair":None,"excluded":{},"combination_rejections":{},"evaluated":0,"uncovered_required":sorted(req)}
     if context["unsupported_requirements"]:
         out["status"]="UNSUPPORTED_REQUIREMENT"
         return out
     pool=[]
     for t in sorted(candidates,key=lambda t:t["id"]):
-        reason=_reason(t,context)
+        reason=reason_fn(t,context)
         if reason: out["excluded"][t["id"]]=reason
         else: pool.append(t)
     best=None
@@ -99,6 +106,8 @@ def solve_fixture(context,candidates,*,max_combinations=10000):
                 return out
             out["evaluated"]+=1
             reason=_combination(items,context)
+            if reason is None and pair_fn is not None:
+                reason=pair_fn(items)
             if reason:
                 counts=out["combination_rejections"]
                 counts[reason]=counts.get(reason,0)+1
@@ -112,7 +121,7 @@ def solve_fixture(context,candidates,*,max_combinations=10000):
     for key in ("best_individual","simple_pair"):
         if out[key] is not None: out[key]=out[key][1]
     if best:
-        out["status"]="COMPLETE_FIXTURE_SET"
+        out["status"]=complete_status
         out["selected"]=best[1]
         out["uncovered_required"]=[]
     elif partial:

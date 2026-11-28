@@ -4,6 +4,7 @@ on:
     branches: [integration/ecosystem-v030]
     paths:
       - 'src/acpa_msmda/experimental_ecosystem.py'
+      - 'src/acpa_msmda/experimental_real_admission.py'
       - 'tests/test_experimental_ecosystem.py'
       - '.github/workflows/experimental-ecosystem.yml'
 permissions:

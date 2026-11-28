@@ -300,3 +300,50 @@ class EcosystemTests(unittest.TestCase):
             with self.subTest(trial=trial):
                 self._check_common_pool(context,pool)
         print("A4_FULL_ORACLE "+json.dumps({"seed":20261128,"trials":100,"max_candidates":6,"comparators":3}))
+
+    def test_real_admission_pinned_review_and_pair_gate(self):
+        # Synthetic test reviews in a disposable directory, never operational approvals.
+        from acpa_msmda.experimental_real_admission import evaluate_real,context_digest
+        with tempfile.TemporaryDirectory() as d:
+            doc=json.loads((ROOT/"data/experimental_documentary_leads.json").read_text())
+            qual=json.loads((ROOT/"data/experimental_qualification_proposals.json").read_text())
+            db=Path(d)/"fixture.sqlite"
+            import_snapshot(db,DEFAULT_PATH,doc,observed_on="2026-11-28",qualification=qual)
+            c=ctx(); scenario={"id":"TEST_ONLY","platform":"test","data_policy":"no personal data","setting":"test"}
+            diag=inspect_documentary_register(db,c)["diagnostics"]
+            digest=context_digest(c,scenario)
+            claim=[{"kind":"ACTUAL_TEST","locator":"TEST_ONLY_NOT_REAL","finding":"test assertion only"}]
+            def review(d,func):
+                key=d["id"]; candidate=tool(key,[func])
+                for k in ("mode","review"): candidate.pop(k)
+                keys={"function:"+func}|{"gate:"+g for g in GATES}|{"cost","load","device_slots","relations","offline"}
+                return dict(id=key,source_observation=d["source_observation"],qualification_observation=d["qualification_observation"],
+                            review_status="OWNER_APPROVED_INTERNAL",context_sha256=digest,decision_ref="TEST_ONLY",
+                            reviewed_on="2026-11-28",valid_until="2026-12-01",candidate=candidate,proofs=dict.fromkeys(keys,claim))
+            rows=[review(diag[0],"F04"),review(diag[1],"F06")]
+            path=Path(d)/"reviews.json"
+            manifest={"schema_version":1,"records":rows,"pairs":[]}
+            def run(m=manifest,**kw):
+                raw=json.dumps(m).encode();path.write_bytes(raw)
+                return evaluate_real(db,c,scenario,manifest_path=path,approved_sha256=hashlib.sha256(raw).hexdigest(),as_of=kw.get("as_of","2026-11-28"),max_combinations=kw.get("bound",10000))
+            self.assertEqual(evaluate_real(db,c,scenario,as_of="2026-11-28")["status"],"NO_APPROVED_MANIFEST")
+            r=run();self.assertEqual(r["admitted"],2);self.assertEqual(r["recommended"],[])
+            self.assertEqual(r["combination_rejections"]["PAIR_COMPATIBILITY_NOT_ESTABLISHED"],1)
+            manifest["pairs"]=[dict(ids=[x["id"] for x in rows],context_sha256=digest,decision_ref="TEST_ONLY",
+                review_status="OWNER_APPROVED_INTERNAL",reviewed_on="2026-11-28",valid_until="2026-12-01",
+                transfer="MANUAL_TRANSFER_TESTED",proofs={"pair_compatibility":claim,"transfer":claim})]
+            r=run();self.assertEqual(r["status"],"COMPLETE_INTERNAL_CONFIGURATION")
+            self.assertEqual(r["recommended"],sorted(x["id"] for x in rows))
+            self.assertEqual(run(bound=1)["recommended"],[])
+            self.assertEqual(run(as_of="2026-12-02")["admitted"],0)
+            self.assertEqual(evaluate_real(db,c,scenario,manifest_path=path,approved_sha256="0"*64,as_of="2026-11-28")["status"],"APPROVED_DIGEST_MISMATCH")
+            changed=dict(c,budget_mad=99)
+            self.assertEqual(evaluate_real(db,changed,scenario,manifest_path=path,approved_sha256=hashlib.sha256(path.read_bytes()).hexdigest(),as_of="2026-11-28")["admitted"],0)
+            rows[0]["proofs"].pop("gate:identity")
+            self.assertEqual(run()["diagnostics"][rows[0]["id"]],"MISSING_CLAIM_EVIDENCE")
+            rows[0]["proofs"]["gate:identity"]=claim
+            rows[0]["source_observation"]={"id":"stale"}
+            self.assertEqual(run()["diagnostics"][rows[0]["id"]],"STALE_OR_UNLINKED_OBSERVATION")
+            rows[0]["source_observation"]=diag[0]["source_observation"]
+            rows[0]["candidate"]["mode"]="TEST_FIXTURE"
+            self.assertEqual(run()["diagnostics"][rows[0]["id"]],"INVALID_REAL_CANDIDATE")

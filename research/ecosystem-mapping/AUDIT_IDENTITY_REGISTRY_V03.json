@@ -1,0 +1,28 @@
+{
+  "chain_head": "43d45bc28faafbb1502b4160e36aef207092e247ac686cd0998a3230b6e50398",
+  "confirmed_attachments": 0,
+  "confirmed_product_count": null,
+  "current_assertions": 83,
+  "database_sha256": "76181cb5a7d68b5dfb9e304de042cc079cfc9d98943f57c2071a5826bec5ac32",
+  "kit": {
+    "cases": 10,
+    "complex": 4,
+    "judges_blank_identical": true,
+    "outside_imported_candidates": 6
+  },
+  "reopen_verified": true,
+  "scope": "Five spaces V0.2; 34 provisional documentary entities, not unique confirmed products. No prior Apple/F-Droid/GitHub ingestion. No real judgments.",
+  "states": {
+    "PROPOSED": 37,
+    "REVIEW_REQUIRED": 45,
+    "UNCERTAIN": 1
+  },
+  "tables": {
+    "entity": 34,
+    "event": 83,
+    "observation": 3721,
+    "proof": 36,
+    "record": 3719,
+    "source": 5
+  }
+}

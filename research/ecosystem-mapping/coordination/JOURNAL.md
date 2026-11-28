@@ -88,3 +88,5 @@
 | 2026-11-28 | interactive_assistant | INT-APP-A5-0019 | RET-016/017 | QtWidgets OK; export arrêté par MPV, code 5; correctif libmpv2 | [Retest EGL](https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175844527) | Retest MPV |
 
 | 2026-11-28 | interactive_assistant | INT-APP-A5-0019 | RET-018 | EGL/MPV chargés; CLI appelle une fonction absente; protocole natif distinct | [Run](https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46176972870) | Retest natif puis diversification |
+
+| 2026-11-28 | interactive_assistant | INT-APP-A5-0019 | RET-018 voie native | 4/4 régressions précédentes; test natif déclenché, aucun succès présumé | [Commit](https://github.com/LMSEIF-UH2C/acpa-msmda/commit/b13e9cbd4cf4a375a7e653b02a93637f9704b783) | Lire preuve et diversifier |

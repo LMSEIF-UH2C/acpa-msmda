@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": 63,
+  "revision": 64,
   "branch": "research/ecosystem-mapping-pilot",
   "scientific_version": "0.1.58",
   "scientific_baseline_commit": "c7da29efe69974ebc365dbf0aa942f95ec5846df",
@@ -11,13 +11,13 @@
     "acquired_utc": "2026-11-28T18:05:58.979Z",
     "base_head": "12f6b300aa2d853ae4f5d0412cc52015fcad984c",
     "run_refs": [
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46176977581",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46176977608",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46176977573",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46176977596",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46176972870"
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46177389621",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46177389630",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46177389613",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46177389680",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46177384827"
     ],
-    "resume_note": "A5 RET-017 retest 46176972870 : libegl1 et libgl1 1.7.0-1build1, libmpv2 0.37.0-1ubuntu4 ; QT_WIDGETS_IMPORT_OK, MPV_LOAD_OK libmpv.so.2. CLI atteint export_events puis AttributeError module boris.export_observation has no attribute export_events, retour 1, zéro CSV. RET-018 défaut précis de la CLI v10.0.2, non preuve d'échec de l'export natif. Archive 15276011679, SHA256 déclaré GitHub e3d9826a3e3c198fc2b7cb42bf4861b1a8406e1294b7bc4f6f11b1fe5f31918e (non recalculé ici). Source amont relue : export_tabular_events est présente, test amont utilise TIME_EVENTS et attend 6 événements; protocole distinct PLAN_RETEST_BORIS_EXPORT_NATIF_V01.md fixe intervalle 0–60 s et 8 événements, Behavior type plutôt que Status, sans modifier BORIS. Une tentative native ciblée puis diversification si échec; pas de simulation de réussite. CI actuelle 3/5 succès, 1 échec BORIS, 1 non terminal. Aucun changement applicatif dans ce checkpoint. A5 reste ouverte; aucune admission réelle."
+    "resume_note": "A5 : workflows c272caf terminaux (4 régressions success, échec CLI BORIS RET-018 conservé). Accord du porteur de poursuivre avec l'outil officiel. Nouveau commit b13e9cbd4cf4a375a7e653b02a93637f9704b783 : exécution native séparée via export_tabular_events non modifiée, même version officielle v10.0.2 épinglée, même projet public, intervalle explicite 0–60 s. Contrôle prospectif des huit triplets temps/sujet/comportement et quatre intervalles START/STOP, totaux 16.875 et 7.675 s, empreintes CSV et projet et intégrité de la source. Aucun résultat présumé. Le précédent script CLI reste dans le dépôt; workflow retest natif distinct par commit. Aucun changement moteur/interface, aucun manifeste ni admission réelle, aucun changement main. En cas d'échec, diversification sans multiplier les retests BORIS."
   },
   "last_handoff": {
     "actor": "interactive_assistant",
@@ -347,7 +347,7 @@
         "deps": [
           "A4"
         ],
-        "next": "After all current CI terminal, execute separate native BORIS export plan; preserve CLI failure; diversify to simpler Calc context if blocked; positive UI acceptance pending.",
+        "next": "Read terminal native export evidence and archive; distinguish actual native result from CLI; diversify next to simpler qualified Calc context and positive internal UI test.",
         "evidence": "../AUDIT_APPLICATION_A5_V01.json"
       },
       {
@@ -367,9 +367,9 @@
         ]
       }
     ],
-    "integration_commit": "c272cafb88548655404a7bda3aba15f6a0872b98",
+    "integration_commit": "b13e9cbd4cf4a375a7e653b02a93637f9704b783",
     "pr": 82,
-    "regression_status": "BORIS_CLI_DEFECT_NATIVE_EXPORT_PLAN",
+    "regression_status": "PENDING_NATIVE_BORIS_EXPORT",
     "next_task": "A5",
     "dual_entry": {
       "stable": "v0.2.0 baseline, default",

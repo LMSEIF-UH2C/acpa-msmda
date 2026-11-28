@@ -155,13 +155,6 @@
     "commit": "c272cafb88548655404a7bda3aba15f6a0872b98",
     "workflows": [
       {
-        "id": 46176977581,
-        "name": "Mobile navigation REC-Y002",
-        "status": "in_progress",
-        "conclusion": null,
-        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46176977581"
-      },
-      {
         "id": 46176977608,
         "name": "Tests ACPA MSMDA",
         "status": "completed",
@@ -183,6 +176,13 @@
         "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46176977596"
       },
       {
+        "id": 46176977581,
+        "name": "Mobile navigation REC-Y002",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46176977581"
+      },
+      {
         "id": 46176972870,
         "name": "A5 isolated BORIS runtime evidence",
         "status": "completed",
@@ -202,5 +202,48 @@
       "artifact_sha256_reported": "e3d9826a3e3c198fc2b7cb42bf4861b1a8406e1294b7bc4f6f11b1fe5f31918e"
     }
   },
-  "native_export_plan": "PLAN_RETEST_BORIS_EXPORT_NATIF_V01.md"
+  "native_export_plan": "PLAN_RETEST_BORIS_EXPORT_NATIF_V01.md",
+  "native_export_retest": {
+    "commit": "b13e9cbd4cf4a375a7e653b02a93637f9704b783",
+    "workflows": [
+      {
+        "id": 46177389621,
+        "name": "Independent R validation",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46177389621"
+      },
+      {
+        "id": 46177389630,
+        "name": "Mobile navigation REC-Y002",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46177389630"
+      },
+      {
+        "id": 46177389613,
+        "name": "Public web demo",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46177389613"
+      },
+      {
+        "id": 46177389680,
+        "name": "Tests ACPA MSMDA",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46177389680"
+      },
+      {
+        "id": 46177384827,
+        "name": "A5 isolated BORIS runtime evidence",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46177384827"
+      }
+    ],
+    "status": "PENDING_TERMINAL_EVIDENCE",
+    "script": "scripts/check_boris_native_export.py",
+    "route": "UNMODIFIED_NATIVE_EXPORT_NOT_CLI"
+  }
 }

@@ -1,0 +1,25 @@
+name: Ecosystem mapping pilot
+on:
+  push:
+    branches: [research/ecosystem-mapping-pilot]
+    paths: ['research/ecosystem-mapping/**', '.github/workflows/ecosystem-mapping-pilot.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s research/ecosystem-mapping/tests
+      - run: python research/ecosystem-mapping/collect_apple.py --mode pilot --output pilot-output
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ecosystem-apple-pilot-audit
+          path: pilot-output/
+          retention-days: 7

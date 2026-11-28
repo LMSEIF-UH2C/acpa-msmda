@@ -1,0 +1,444 @@
+{
+  "version": "0.1-pilot",
+  "purpose": "Prospection large; les familles sont des axes de recherche, non des verdicts d'éligibilité ni des dimensions Delphi.",
+  "countries": [
+    "ma",
+    "fr",
+    "us",
+    "gb"
+  ],
+  "families": [
+    {
+      "id": "motor",
+      "label": "Motricité et activité physique",
+      "queries": {
+        "en": [
+          "physical activity",
+          "exercise instruction",
+          "motor skills",
+          "movement games",
+          "fitness training"
+        ],
+        "fr": [
+          "activité physique",
+          "exercices physiques",
+          "motricité",
+          "jeux moteurs",
+          "entraînement sportif"
+        ],
+        "ar": [
+          "نشاط بدني",
+          "تمارين رياضية",
+          "مهارات حركية",
+          "ألعاب حركية",
+          "تدريب رياضي"
+        ]
+      }
+    },
+    {
+      "id": "video",
+      "label": "Analyse du mouvement et feedback",
+      "queries": {
+        "en": [
+          "sports video analysis",
+          "slow motion replay",
+          "movement analysis",
+          "video feedback",
+          "motion tracking"
+        ],
+        "fr": [
+          "analyse vidéo sportive",
+          "ralenti vidéo",
+          "analyse du mouvement",
+          "feedback vidéo",
+          "suivi du mouvement"
+        ],
+        "ar": [
+          "تحليل فيديو رياضي",
+          "تصوير بطيء",
+          "تحليل الحركة",
+          "تغذية راجعة بالفيديو",
+          "تتبع الحركة"
+        ]
+      }
+    },
+    {
+      "id": "measurement",
+      "label": "Mesure et performance",
+      "queries": {
+        "en": [
+          "fitness test",
+          "sports stopwatch",
+          "heart rate monitor",
+          "accelerometer sensor",
+          "jump test"
+        ],
+        "fr": [
+          "test physique",
+          "chronomètre sportif",
+          "fréquence cardiaque",
+          "capteur accéléromètre",
+          "test saut"
+        ],
+        "ar": [
+          "اختبار لياقة",
+          "مؤقت رياضي",
+          "قياس نبض القلب",
+          "مستشعر التسارع",
+          "اختبار القفز"
+        ]
+      }
+    },
+    {
+      "id": "tactics",
+      "label": "Tactique et arbitrage",
+      "queries": {
+        "en": [
+          "tactical board",
+          "basketball coaching",
+          "football tactics",
+          "sports referee",
+          "scoreboard"
+        ],
+        "fr": [
+          "tableau tactique",
+          "basketball entraînement",
+          "tactique football",
+          "arbitrage sportif",
+          "tableau de score"
+        ],
+        "ar": [
+          "لوحة تكتيكية",
+          "تدريب كرة السلة",
+          "تكتيك كرة القدم",
+          "تحكيم رياضي",
+          "لوحة النتائج"
+        ]
+      }
+    },
+    {
+      "id": "quiz",
+      "label": "Quiz et défis",
+      "queries": {
+        "en": [
+          "quiz maker",
+          "classroom quiz",
+          "trivia challenge",
+          "formative quiz",
+          "flashcards"
+        ],
+        "fr": [
+          "créateur quiz",
+          "quiz classe",
+          "défi connaissances",
+          "quiz formatif",
+          "cartes mémoire"
+        ],
+        "ar": [
+          "إنشاء اختبار",
+          "مسابقة صفية",
+          "تحدي المعرفة",
+          "اختبار تكويني",
+          "بطاقات تعليمية"
+        ]
+      }
+    },
+    {
+      "id": "game",
+      "label": "Gamification",
+      "queries": {
+        "en": [
+          "educational games",
+          "learning challenge",
+          "classroom gamification",
+          "learning badges",
+          "team missions"
+        ],
+        "fr": [
+          "jeux éducatifs",
+          "défi pédagogique",
+          "ludification classe",
+          "badges apprentissage",
+          "missions en équipe"
+        ],
+        "ar": [
+          "ألعاب تعليمية",
+          "تحدي تعلم",
+          "تلعيب الفصل",
+          "شارات تعليمية",
+          "مهام جماعية"
+        ]
+      }
+    },
+    {
+      "id": "collaboration",
+      "label": "Collaboration et coopération",
+      "queries": {
+        "en": [
+          "collaborative learning",
+          "shared whiteboard",
+          "group projects",
+          "peer feedback",
+          "shared document"
+        ],
+        "fr": [
+          "apprentissage collaboratif",
+          "tableau blanc partagé",
+          "projet collectif",
+          "évaluation entre pairs",
+          "document partagé"
+        ],
+        "ar": [
+          "تعلم تعاوني",
+          "سبورة مشتركة",
+          "مشروع جماعي",
+          "تقييم الأقران",
+          "وثيقة مشتركة"
+        ]
+      }
+    },
+    {
+      "id": "communication",
+      "label": "Communication",
+      "queries": {
+        "en": [
+          "group messaging",
+          "classroom communication",
+          "school parent messaging",
+          "video meeting",
+          "secure messaging"
+        ],
+        "fr": [
+          "messagerie groupe",
+          "communication scolaire",
+          "messagerie parents",
+          "visioconférence",
+          "messagerie sécurisée"
+        ],
+        "ar": [
+          "مراسلة جماعية",
+          "تواصل مدرسي",
+          "تواصل مع الآباء",
+          "اجتماع بالفيديو",
+          "مراسلة آمنة"
+        ]
+      }
+    },
+    {
+      "id": "continuity",
+      "label": "Continuité pédagogique",
+      "queries": {
+        "en": [
+          "learning management system",
+          "homework assignment",
+          "classroom resources",
+          "online course",
+          "school learning platform"
+        ],
+        "fr": [
+          "plateforme apprentissage",
+          "devoir scolaire",
+          "ressources de classe",
+          "cours en ligne",
+          "espace numérique éducatif"
+        ],
+        "ar": [
+          "منصة تعلم",
+          "واجب مدرسي",
+          "موارد الفصل",
+          "درس عبر الإنترنت",
+          "منصة تعليمية"
+        ]
+      }
+    },
+    {
+      "id": "assessment",
+      "label": "Évaluation",
+      "queries": {
+        "en": [
+          "formative assessment",
+          "rubric assessment",
+          "student portfolio",
+          "classroom polling",
+          "student feedback"
+        ],
+        "fr": [
+          "évaluation formative",
+          "grille évaluation",
+          "portfolio élève",
+          "sondage classe",
+          "retour pédagogique"
+        ],
+        "ar": [
+          "تقييم تكويني",
+          "شبكة تقييم",
+          "ملف إنجاز",
+          "استطلاع صفي",
+          "تغذية راجعة"
+        ]
+      }
+    },
+    {
+      "id": "creation",
+      "label": "Production pédagogique",
+      "queries": {
+        "en": [
+          "interactive content",
+          "video editor",
+          "presentation maker",
+          "screen recorder",
+          "infographic maker"
+        ],
+        "fr": [
+          "contenu interactif",
+          "montage vidéo",
+          "création présentation",
+          "capture écran",
+          "infographie"
+        ],
+        "ar": [
+          "محتوى تفاعلي",
+          "مونتاج فيديو",
+          "إنشاء عرض",
+          "تسجيل الشاشة",
+          "تصميم إنفوجرافيك"
+        ]
+      }
+    },
+    {
+      "id": "inclusion",
+      "label": "Accessibilité et inclusion",
+      "queries": {
+        "en": [
+          "assistive technology",
+          "text to speech",
+          "speech to text",
+          "sign language",
+          "visual timer"
+        ],
+        "fr": [
+          "technologie assistance",
+          "synthèse vocale",
+          "dictée vocale",
+          "langue des signes",
+          "minuteur visuel"
+        ],
+        "ar": [
+          "تقنيات مساعدة",
+          "تحويل النص إلى كلام",
+          "تحويل الكلام إلى نص",
+          "لغة الإشارة",
+          "مؤقت بصري"
+        ]
+      }
+    },
+    {
+      "id": "orientation",
+      "label": "Orientation et pleine nature",
+      "queries": {
+        "en": [
+          "orienteering",
+          "offline maps",
+          "compass navigation",
+          "treasure hunt",
+          "GPS route"
+        ],
+        "fr": [
+          "course orientation",
+          "cartes hors ligne",
+          "boussole",
+          "chasse au trésor",
+          "parcours GPS"
+        ],
+        "ar": [
+          "سباق التوجيه",
+          "خرائط دون إنترنت",
+          "بوصلة",
+          "البحث عن الكنز",
+          "مسار GPS"
+        ]
+      }
+    },
+    {
+      "id": "immersion",
+      "label": "Immersion",
+      "queries": {
+        "en": [
+          "virtual reality education",
+          "augmented reality education",
+          "sports VR",
+          "3D anatomy",
+          "interactive simulation"
+        ],
+        "fr": [
+          "réalité virtuelle éducative",
+          "réalité augmentée éducative",
+          "sport VR",
+          "anatomie 3D",
+          "simulation interactive"
+        ],
+        "ar": [
+          "واقع افتراضي تعليمي",
+          "واقع معزز تعليمي",
+          "رياضة افتراضية",
+          "تشريح ثلاثي الأبعاد",
+          "محاكاة تفاعلية"
+        ]
+      }
+    },
+    {
+      "id": "organization",
+      "label": "Organisation et planification",
+      "queries": {
+        "en": [
+          "classroom management",
+          "lesson planning",
+          "attendance tracker",
+          "team randomizer",
+          "sports tournament"
+        ],
+        "fr": [
+          "gestion classe",
+          "planification cours",
+          "suivi présence",
+          "tirage équipes",
+          "tournoi sportif"
+        ],
+        "ar": [
+          "إدارة الفصل",
+          "تخطيط الدروس",
+          "تتبع الحضور",
+          "توزيع الفرق",
+          "بطولة رياضية"
+        ]
+      }
+    },
+    {
+      "id": "research",
+      "label": "Recherche et données",
+      "queries": {
+        "en": [
+          "data collection",
+          "statistical analysis",
+          "survey maker",
+          "spreadsheet",
+          "research tools"
+        ],
+        "fr": [
+          "collecte données",
+          "analyse statistique",
+          "création questionnaire",
+          "tableur",
+          "outils recherche"
+        ],
+        "ar": [
+          "جمع البيانات",
+          "تحليل إحصائي",
+          "إنشاء استبيان",
+          "جدول بيانات",
+          "أدوات البحث"
+        ]
+      }
+    }
+  ]
+}

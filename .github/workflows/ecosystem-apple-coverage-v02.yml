@@ -1,0 +1,35 @@
+name: Ecosystem Apple V02 coverage
+on:
+  push:
+    branches: [research/ecosystem-mapping-pilot]
+    paths: ['research/ecosystem-mapping/collect_apple_coverage_v02.py', '.github/workflows/ecosystem-apple-coverage-v02.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: ecosystem-apple-v02-coverage
+  cancel-in-progress: false
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s research/ecosystem-mapping/tests -p test_apple_coverage_v02.py
+      - uses: actions/download-artifact@v4
+        with:
+          name: ecosystem-apple-pilot-audit
+          run-id: 46087551165
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: baseline
+      - run: python research/ecosystem-mapping/collect_apple_coverage_v02.py --baseline baseline --output coverage-output
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ecosystem-apple-v02-coverage
+          path: coverage-output/
+          retention-days: 30

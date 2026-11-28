@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": 45,
+  "revision": 46,
   "branch": "research/ecosystem-mapping-pilot",
   "scientific_version": "0.1.58",
   "scientific_baseline_commit": "c7da29efe69974ebc365dbf0aa942f95ec5846df",
@@ -11,16 +11,16 @@
     "acquired_utc": "2026-11-28T17:42:00.259Z",
     "base_head": "a3723cbab35b0302ff09343920315fe776a40b75",
     "run_refs": [
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46172421780",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46172421767",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46172421770",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46172421714",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46172415360",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46172415369",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46172415377",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46172415303"
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173022815",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173022907",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173022808",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173022812",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173017967",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173018008",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173017986",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173017975"
     ],
-    "resume_note": "Reprise A4 : contrôle du commit 78771bb10eb721f014bcf0fd3a1c5cdffaa7a40f : 6/8 workflows terminaux réussis (tests généraux, R, démo Web, moteur A4, qualification A3, registre A2); mobile 46172421767 et double entrée 46172415360 encore en cours au contrôle. Audit en lecture seule des deux manifestes à ce commit : 34/34 correspondances ID/URL/date, 17 Web et 17 matériel/spécialisé, rôles proposés 17 directs, 16 complémentaires, 1 incertain; 34 non évalués, 34 identités non résolues, 34 scénarios non testés, 238 contraintes UNKNOWN (7×34). Aucun nouveau contrôle du contenu distant ni jugement humain, aucune admission. Le véritable moteur historique est real_catalog.recommend(context, votes=None, path=DEFAULT_PATH), classement individuel par adéquation et pertinence; distinguer sa sortie native d'un comparateur contraint sur pool commun. Les scores et indices historiques ne sont pas des preuves de compatibilité; une fonction/contrainte sans preuve reste inconnue. Prévoir même contexte, catalogue/version figés, votes neutralisés, couverture obligatoire/facultative, coût cumulé, violations et inconnues séparés, nombre d'outils et charge; pas de comparaison empirique avant un mapping F01–F15 et des preuves admissibles. Adaptateur et comparateur non implémentés dans cette reprise; attendre les deux recettes terminales avant modification applicative. A4 IN_PROGRESS, verrou conservé, aucun gate scientifique modifié."
+    "resume_note": "A4 reprise : huit workflows du commit RET-013 78771bb10eb721f014bcf0fd3a1c5cdffaa7a40f vérifiés terminaux success, dont mobile 46172421767 et double entrée 46172415360. Nouvelle implémentation PR82 5857b0f4bef45ee7c3709bae890c265aa099648f : lecture SQLite cohérente et seule, reconstruction SHA de la fiche locale courante, contrôle de l'ID et du hash d'observation source et qualification A3, diagnostics par fiche, distinction proposition liée/absente/incohérente; aucune conversion en candidat, aucun mapping F01–F15 ni couverture réelle établie, aucune recommandation. Comparateur historique descriptif appelle real_catalog.recommend sur copie temporaire des octets du catalogue dont SHA attendu est vérifié, votes neutres, classement natif et limite explicite, métriques communes nulles. Cinq nouveaux tests distincts (lien réel 34, modification locale, hash qualification corrompu, équivalence classement natif sur deux textes, garde empreinte/limite). Huit workflows du nouveau commit identifiés, résultats à vérifier. A4 IN_PROGRESS, verrou conservé, main et catalogue non modifiés; aucun gate scientifique levé. La comparaison sur pool commun, validation des fonctions et preuve externe restent absentes."
   },
   "last_handoff": {
     "actor": "interactive_assistant",
@@ -340,7 +340,7 @@
         "deps": [
           "A3"
         ],
-        "next": "Verify terminal mobile and dual-entry workflows, then implement fail-closed documentary evidence adapter and compare historical native output separately from common-pool baseline; no A5 yet.",
+        "next": "Verify terminal CI and actual documentary lineage / historical native outputs; prepare common-pool comparison, independent oracle across constraints; no A5 until acceptance.",
         "evidence": "../AUDIT_APPLICATION_A4_V01.json"
       },
       {
@@ -366,9 +366,9 @@
         ]
       }
     ],
-    "integration_commit": "78771bb10eb721f014bcf0fd3a1c5cdffaa7a40f",
+    "integration_commit": "5857b0f4bef45ee7c3709bae890c265aa099648f",
     "pr": 82,
-    "regression_status": "PENDING_RET013_BROWSER_RETEST",
+    "regression_status": "PENDING_A4_ADAPTER_COMPARATOR",
     "next_task": "A4",
     "dual_entry": {
       "stable": "v0.2.0 baseline, default",

@@ -52,3 +52,5 @@
 | 2026-11-28 | interactive_assistant | INT-APP-A4-0018 | A4 RET-013 | Correction implémentée, huit workflows non terminaux; verrou conservé | [Commit](https://github.com/LMSEIF-UH2C/acpa-msmda/commit/78771bb10eb721f014bcf0fd3a1c5cdffaa7a40f) · [retest](https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46172415369) | Vérifier les résultats |
 
 | 2026-11-28 | interactive_assistant | INT-APP-A4-0018 | A4 reprise | 6/8 workflows réussis, 2 en cours au contrôle; audit des 34 propositions et identification du moteur historique; verrou conservé | [Commit](https://github.com/LMSEIF-UH2C/acpa-msmda/commit/78771bb10eb721f014bcf0fd3a1c5cdffaa7a40f) | Recettes terminales puis adaptateur |
+
+| 2026-11-28 | interactive_assistant | INT-APP-A4-0018 | A4 adaptateur et comparateur | RET-013 8/8 workflows réussis; adaptateur de lignée et appel natif implémentés, nouveaux tests en cours | [Commit](https://github.com/LMSEIF-UH2C/acpa-msmda/commit/5857b0f4bef45ee7c3709bae890c265aa099648f) | Vérifier les résultats terminaux |

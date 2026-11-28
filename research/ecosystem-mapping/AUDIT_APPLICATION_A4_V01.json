@@ -125,5 +125,81 @@
       "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46172415303"
     ],
     "change": "Suppress all unfinalized comparator and coverage outputs; test explicit bounds, feasible prefix, JSON, exact terminal boundary."
+  },
+  "ret013_terminal_retest": {
+    "commit": "78771bb10eb721f014bcf0fd3a1c5cdffaa7a40f",
+    "workflows": 8,
+    "successful": 8,
+    "mobile_run": 46172421767,
+    "dual_entry_run": 46172415360
+  },
+  "documentary_adapter_and_historical_native": {
+    "commit": "5857b0f4bef45ee7c3709bae890c265aa099648f",
+    "scope": "Read-only documentary diagnostics, actual historical ranking descriptive only",
+    "additional_tests": 5,
+    "workflows": [
+      {
+        "id": 46173022815,
+        "name": "Independent R validation",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173022815"
+      },
+      {
+        "id": 46173022907,
+        "name": "Tests ACPA MSMDA",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173022907"
+      },
+      {
+        "id": 46173022808,
+        "name": "Public web demo",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173022808"
+      },
+      {
+        "id": 46173022812,
+        "name": "Mobile navigation REC-Y002",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173022812"
+      },
+      {
+        "id": 46173017967,
+        "name": "A3 documentary qualification",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173017967"
+      },
+      {
+        "id": 46173018008,
+        "name": "A2 dual-entry browser acceptance",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173018008"
+      },
+      {
+        "id": 46173017986,
+        "name": "A4 isolated ecosystem solver",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173017986"
+      },
+      {
+        "id": 46173017975,
+        "name": "A2 isolated experimental technology register",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173017975"
+      }
+    ],
+    "results_verified": false,
+    "limitations": [
+      "No operational admission or validated common function mapping",
+      "Local record digest, not remote content or independent review",
+      "No common-pool empirical comparison, no validated cost/coverage/violations/load metrics"
+    ]
   }
 }

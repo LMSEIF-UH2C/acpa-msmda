@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": 14,
+  "revision": 15,
   "branch": "research/ecosystem-mapping-pilot",
   "scientific_version": "0.1.48",
   "scientific_baseline_commit": "b868d0ee007d50ef5e2fc154de7d5c87e5f7ef78",
@@ -11,7 +11,7 @@
     "acquired_utc": "2026-11-28",
     "base_head": "656df3884ba0a650e6ee9cd824c0a68990b4990b",
     "run_refs": [],
-    "resume_note": "Comparaison hors ligne, règles de suspension prospectives et contrôle des pertes."
+    "resume_note": "Workflow ecosystem-saturation-comparison; comparer 10 scénarios sur archives Apple, aucune nouvelle collecte."
   },
   "last_handoff": {
     "actor": "interactive_assistant",

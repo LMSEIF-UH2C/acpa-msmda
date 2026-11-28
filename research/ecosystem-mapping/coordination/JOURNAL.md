@@ -39,3 +39,4 @@
 | 2026-11-28 | interactive_assistant | INT-APP-A2-0016 | A2 reprise | Premier run en échec, correction test-only, relance 46170522696 | Audit navigateur | Résultats terminaux avant A3 |
 | 2026-11-28 | interactive_assistant | INT-APP-A2-0016 | A2 clôture | 18/18 navigateur, 5/5 CI, artefact relu, verrou libéré | run 46170522696 | A3 READY |
 | 2026-11-28 | interactive_assistant | INT-APP-A3-0017 | A3 | Réservation, A2 accepté | PR82 | Qualification documentaire |
+| 2026-11-28 | interactive_assistant | INT-APP-A3-0017 | A3 | 34 propositions documentaires, 30/30 ciblés; CI générale en cours | run 46171020031 | Liaison preuve et recette UI |

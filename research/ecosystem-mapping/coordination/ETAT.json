@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": 35,
+  "revision": 36,
   "branch": "research/ecosystem-mapping-pilot",
   "scientific_version": "0.1.58",
   "scientific_baseline_commit": "c7da29efe69974ebc365dbf0aa942f95ec5846df",
@@ -10,8 +10,16 @@
     "task_id": "A3",
     "acquired_utc": "2026-11-28T17:31:06.368Z",
     "base_head": "22d80407294ca8b005adac8de2ff2591c5551a3e",
-    "run_refs": [],
-    "resume_note": "Technical qualification of 34 existing documentary leads, no confirmed rating or promotion; preserve stable route."
+    "run_refs": [
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171020031",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171019965",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171019952",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171024771",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171024719",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171024722",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171024721"
+    ],
+    "resume_note": "A3 30/30 targeted test executions passed; general regression still active. Read terminal results, add source payload hash binding and explicit expanded UI tests before A3 closure."
   },
   "last_handoff": {
     "actor": "interactive_assistant",
@@ -322,7 +330,8 @@
         "deps": [
           "A2"
         ],
-        "next": "Implement documentary qualification prototype; no scientific gate change or automatic promotion"
+        "next": "Check terminal CI and specifically verify displayed proposal fields in browser, strengthen binding to full source payload hash; no A4 before closure.",
+        "evidence": "../AUDIT_APPLICATION_A3_V01.json"
       },
       {
         "id": "A4",
@@ -354,9 +363,9 @@
         ]
       }
     ],
-    "integration_commit": "984fd2e4c642ee12ad3f8d1b7cf549b83962a74e",
+    "integration_commit": "7ffd26ccac44c851284f2981a73b787dc0f8fa7d",
     "pr": 82,
-    "regression_status": "SUCCESS",
+    "regression_status": "PENDING",
     "next_task": "A3",
     "dual_entry": {
       "stable": "v0.2.0 baseline, default",

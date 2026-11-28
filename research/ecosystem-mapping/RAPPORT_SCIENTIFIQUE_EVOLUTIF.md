@@ -1,6 +1,6 @@
 # Rapport scientifique évolutif — Cartographie technologique écosystémique ACPA/MSMDA
 
-**Version 0.1.36 — 28 novembre 2026.** Dossier de recherche et base de rédaction d'un article méthodologique. Branche `research/ecosystem-mapping-pilot`, [PR 81](https://github.com/LMSEIF-UH2C/acpa-msmda/pull/81). État : exploration et développement méthodologique; collecte définitive et validation empirique non achevées. Ce rapport est rétrospectif pour les pilotes déjà réalisés, prospectif pour les étapes restantes. Il ne constitue pas un préenregistrement rétroactif. Auteur(s), contributions CRediT, financement, déclarations et choix de revue à confirmer par l'équipe scientifique. Code de production et version publiée v0.2.0 préservés.
+**Version 0.1.37 — 28 novembre 2026.** Dossier de recherche et base de rédaction d'un article méthodologique. Branche `research/ecosystem-mapping-pilot`, [PR 81](https://github.com/LMSEIF-UH2C/acpa-msmda/pull/81). État : exploration et développement méthodologique; collecte définitive et validation empirique non achevées. Ce rapport est rétrospectif pour les pilotes déjà réalisés, prospectif pour les étapes restantes. Il ne constitue pas un préenregistrement rétroactif. Auteur(s), contributions CRediT, financement, déclarations et choix de revue à confirmer par l'équipe scientifique. Code de production et version publiée v0.2.0 préservés.
 
 ## 1. Projet d'article
 Titre provisoire FR : **Vers une cartographie systématique, cumulative, adaptative et multidimensionnelle des technologies éducatives : développement et validation méthodologique en éducation physique et sportive.**
@@ -294,3 +294,5 @@ P0 identité : persistance/révision des assertions et rattachements provisoires
 
 ## 17. Intégration des anciens pilotes — lancement
 [Protocole](LEGACY_INTEGRATION_PROTOCOL_V01.md) : quatre ZIP, empreintes, 9237 identifiants et 12524 observations à réconcilier, 669 signaux candidats séparés. Reprise transactionnelle testée sur interruption simulée; aucun résultat anticipé. Pas de nouveau rapprochement inter-bloc, aucune fusion, aucun jugement humain ni modification main. Phase 2 ouverte.
+
+Amendement technique avant clôture : reconstruire strictement V0.3 (34 entités, 83 événements) et vérifier sa tête de chaîne et effectifs par AUDIT_IDENTITY_REGISTRY_V03.json avant import, au lieu du seul graphe V0.2. Première exécution conservée (46143264330), nouvel essai nécessaire. Aucun résultat anticipé.

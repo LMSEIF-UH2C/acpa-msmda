@@ -99,7 +99,15 @@ def main():
     with tempfile.TemporaryDirectory() as temp:
         root=pathlib.Path(temp);extract(x.archives,root);data,old=build(root)
     path=x.output/"integrated.sqlite";need(not path.exists(),"Refuse overwrite")
-    r=Register(path,True);r.load(pilot(x.catalog));before=r.audit()
+    g=pilot(x.catalog);r=Register(path,True);r.load(g)
+    for s,rows in (("doc_web",read(P/"PROSPECTION_WEB_BUREAU_V01.json")["records_detail"]),("doc_target",read(P/"PROSPECTION_MATERIEL_COMMERCIAL_V01.json")["records"])):
+        for row in rows:
+            k=s+":"+row["id"];ent="provisional:"+k
+            r.add_entity(ent,g.records[k]["kind_hint"],row["name"])
+            r.append("attachment:"+k,{"category":"attachment","a":k,"b":ent,"relation":"REFERS_TO","state":"PROPOSED","evidence":["proof:"+k],"rationale":"Documentary hypothesis only; no adjudicated identity.","decision":None,"date":"2026-11-28","actor":"pilot_import"},0)
+    before=r.audit()
+    expected=read(P/"AUDIT_IDENTITY_REGISTRY_V03.json")
+    need(all(before[k]==expected[k] for k in ("tables","chain_head","states","confirmed_attachments","current_assertions")),"V0.3 base drift")
     # Simulate interruption of atomic legacy import; no partial rows or marker may survive.
     try:integrate(r,data,True)
     except RuntimeError as e:need(str(e)=="Injected interruption","Unexpected interruption")
@@ -110,7 +118,7 @@ def main():
     counts=dict(r.db.execute("SELECT source_id,count(*) FROM record GROUP BY source_id").fetchall())
     n=r.db.execute("SELECT count(*) FROM legacy_candidate").fetchone()[0];r.close()
     need(sum(counts.values())==12956 and after["tables"]["observation"]==16245 and n==669,"Integrated totals")
-    result={"register":after,"source_counts":counts,"legacy_records":9237,"legacy_observations":12524,"legacy_candidates":n,"legacy_cross":old["cross_source_pairs"],"legacy_within":old["within_source_pairs"],"legacy_signals":old["pairs_by_signal"],"deferred":old["deferred_large_groups"],"existing_candidate_edges":45,"new_cross_block_matching":"NOT_RUN","archives_verified":4,"rollback_verified":True,"resume_verified":True,"checkpoint_manifest":digest(data),"confirmed_products":None,"database_sha256":sha(path),"limitations":"Distinct namespaces, not unique products. Legacy signals separate from nominal edges; no new cross-block matching or human adjudication. Local snapshot, not production; DB not uploaded. Date fallback for some historical observations is audit date, not source timestamp."}
+    result={"register":after,"v03_base_verified":True,"source_counts":counts,"legacy_records":9237,"legacy_observations":12524,"legacy_candidates":n,"legacy_cross":old["cross_source_pairs"],"legacy_within":old["within_source_pairs"],"legacy_signals":old["pairs_by_signal"],"deferred":old["deferred_large_groups"],"existing_candidate_edges":45,"new_cross_block_matching":"NOT_RUN","archives_verified":4,"rollback_verified":True,"resume_verified":True,"checkpoint_manifest":digest(data),"confirmed_products":None,"database_sha256":sha(path),"limitations":"Distinct namespaces, not unique products. Legacy signals separate from nominal edges; no new cross-block matching or human adjudication. Local snapshot, not production; DB not uploaded. Date fallback for some historical observations is audit date, not source timestamp."}
     (x.output/"integration_report.json").write_text(json.dumps(result,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     print("INTEGRATION_RESULT "+canon(result))
 if __name__=="__main__":main()

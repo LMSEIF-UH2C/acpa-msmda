@@ -2,7 +2,7 @@ name: Ecosystem mapping pilot
 on:
   push:
     branches: [research/ecosystem-mapping-pilot]
-    paths: ['research/ecosystem-mapping/**', '.github/workflows/ecosystem-mapping-pilot.yml']
+    paths: ['research/ecosystem-mapping/collect_apple.py', 'research/ecosystem-mapping/query_matrix.json', 'research/ecosystem-mapping/tests/**', 'research/ecosystem-mapping/framework_10d97p.json', '.github/workflows/ecosystem-mapping-pilot.yml']
   workflow_dispatch:
 permissions:
   contents: read

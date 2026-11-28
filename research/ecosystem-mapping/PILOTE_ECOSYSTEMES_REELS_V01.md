@@ -40,3 +40,6 @@ LibreOffice Calc 25.2.3.2, mode headless, profil temporaire isolé : CSV→XLSX�
 1. Contrôler variantes installées, coûts obligatoires, disponibilité locale, accessibilité, autorisation de données, exigences hors ligne et ressources de la situation.
 2. Tester export BORIS réel sur une démonstration sans données personnelles, import direct jamovi et passage facultatif par Calc; comparer nombres de lignes, unités, valeurs, types et résultats attendus. Consigner le cas où Calc est inutile.
 3. Construire la fiche d'évidence explicite par fonction et contrainte, revue du porteur assisté par IA, puis adapter le moteur à une admission réelle contrôlée, distincte des fixtures. Garder ASC-01 : si une exigence manque, abstention motivée.
+
+## Relecture fonctionnelle — parcimonie
+Le manuel officiel [analyse BORIS](https://www.boris.unito.it/user_guide/analysis/) documente déjà nombres d'occurrences, durées et pourcentages. BORIS seul peut couvrir un descriptif simple; l'ajout de Calc et jamovi doit satisfaire une exigence supplémentaire démontrable. Voir [CONTRAT_ADMISSION_REELLE_V01.md](CONTRAT_ADMISSION_REELLE_V01.md). Aucun essai BORIS ni jamovi exécuté dans cette passe.

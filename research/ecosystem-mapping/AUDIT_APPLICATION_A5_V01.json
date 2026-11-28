@@ -39,22 +39,22 @@
       "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174064072"
     },
     {
-      "id": 46174064076,
-      "name": "A2 dual-entry browser acceptance",
-      "status": "in_progress",
-      "conclusion": null,
-      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174064076"
-    },
-    {
       "id": 46174064042,
       "name": "A3 documentary qualification",
       "status": "completed",
       "conclusion": "success",
       "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174064042"
+    },
+    {
+      "id": 46174064076,
+      "name": "A2 dual-entry browser acceptance",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174064076"
     }
   ],
   "browser_cases_planned": 6,
-  "results_verified": false,
+  "results_verified": true,
   "limitations": [
     "Fixed fictional simulation",
     "No real operational admission",
@@ -68,5 +68,83 @@
     "status": "EXPLORATORY_DOCUMENTARY_PILOT",
     "actual_binary_test": "Calc roundtrip PASS",
     "real_admission": 0
+  },
+  "browser_results": {
+    "dual_entry": 18,
+    "A5": 6,
+    "engines": [
+      "chromium",
+      "webkit"
+    ],
+    "languages": [
+      "fr",
+      "ar",
+      "en"
+    ]
+  },
+  "real_admission": {
+    "commit": "d00f75afb6ecc16d14cbc7558de945b51aa7f367",
+    "contract": "CONTRAT_ADMISSION_REELLE_V01.md",
+    "workflows": [
+      {
+        "id": 46174578625,
+        "name": "Mobile navigation REC-Y002",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174578625"
+      },
+      {
+        "id": 46174578592,
+        "name": "Tests ACPA MSMDA",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174578592"
+      },
+      {
+        "id": 46174578639,
+        "name": "Public web demo",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174578639"
+      },
+      {
+        "id": 46174578824,
+        "name": "Independent R validation",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174578824"
+      },
+      {
+        "id": 46174574540,
+        "name": "A2 dual-entry browser acceptance",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174574540"
+      },
+      {
+        "id": 46174574520,
+        "name": "A4 isolated ecosystem solver",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174574520"
+      },
+      {
+        "id": 46174574423,
+        "name": "A3 documentary qualification",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174574423"
+      },
+      {
+        "id": 46174574457,
+        "name": "A2 isolated experimental technology register",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174574457"
+      }
+    ],
+    "results_verified": false,
+    "real_admission": 0,
+    "ui_connected": false
   }
 }

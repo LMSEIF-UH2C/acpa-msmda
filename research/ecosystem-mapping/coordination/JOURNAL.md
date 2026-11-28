@@ -70,3 +70,5 @@
 | 2026-11-28 | interactive_assistant | INT-APP-A5-0019 | A5 implémentation et ASC-01 | Interface trilingue, recette en cours; encadré permanent abstention décisionnelle à la demande du porteur | [Code](https://github.com/LMSEIF-UH2C/acpa-msmda/commit/d3bc403532a6bf775ea7b01b88db86d28246609c) | Recette et preuves |
 
 | 2026-11-28 | interactive_assistant | INT-APP-A5-0019 | Pilote réel | 4 technologies documentées; Calc réel PASS; chaîne non testée | [PILOTE_ECOSYSTEMES_REELS_V01.md](../PILOTE_ECOSYSTEMES_REELS_V01.md) | Recette et qualification réelle |
+
+| 2026-11-28 | interactive_assistant | INT-APP-A5-0019 | Admission réelle | 7/7 CI interface; contrat admission réelle implémenté, nouvelle CI en cours | [Code](https://github.com/LMSEIF-UH2C/acpa-msmda/commit/d00f75afb6ecc16d14cbc7558de945b51aa7f367) | Recette puis dossier réel |

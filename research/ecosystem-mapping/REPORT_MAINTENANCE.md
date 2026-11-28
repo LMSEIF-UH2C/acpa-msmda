@@ -12,3 +12,5 @@ Le rapport [RAPPORT_SCIENTIFIQUE_EVOLUTIF.md](RAPPORT_SCIENTIFIQUE_EVOLUTIF.md) 
 
 ## Coordination opérationnelle (28 novembre 2026)
 Avant tout nouveau chantier, appliquer [coordination/README.md](coordination/README.md), lire [ETAT.json](coordination/ETAT.json) et réserver par commit CAS. [Checklist](coordination/CHECKLIST.md) et [journal](coordination/JOURNAL.md) sont mis à jour atomiquement avec état et preuves. Relire seulement le jalon concerné, pas réauditer des résultats acquis sans motif. Le rapport maître conserve son rôle de référence scientifique; aucune validation scientifique par simple changement de statut opérationnel.
+
+Exigence du porteur du 28/11/2026 : actualiser le [registre des échecs, anomalies et limites](REGISTRE_ECHECS_ANOMALIES_LIMITES_V01.md) à chaque jalon pertinent, avec la preuve de l'essai original et des retests. Conserver également les résultats négatifs et désaccords; ne pas assimiler un test non fait à un échec. Utiliser les constats à bon escient dans méthodes, résultats, discussion et annexes.

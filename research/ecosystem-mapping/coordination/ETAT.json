@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": 36,
+  "revision": 37,
   "branch": "research/ecosystem-mapping-pilot",
   "scientific_version": "0.1.58",
   "scientific_baseline_commit": "c7da29efe69974ebc365dbf0aa942f95ec5846df",
@@ -19,7 +19,7 @@
       "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171024722",
       "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171024721"
     ],
-    "resume_note": "A3 30/30 targeted test executions passed; general regression still active. Read terminal results, add source payload hash binding and explicit expanded UI tests before A3 closure."
+    "resume_note": "A3 30/30 targeted test executions passed; general regression still active. Read terminal results, add source payload hash binding and explicit expanded UI tests before A3 closure.; register RET-001–012 added on owner request; A3 work and gate unchanged."
   },
   "last_handoff": {
     "actor": "interactive_assistant",
@@ -371,5 +371,11 @@
       "stable": "v0.2.0 baseline, default",
       "experimental": "opt-in separate route; no automatic switch, no promotion before external acceptance"
     }
+  },
+  "documentation_policy": {
+    "negative_results": "append_only_events_and_retests",
+    "register": "../REGISTRE_ECHECS_ANOMALIES_LIMITES_V01.md",
+    "scope": "all technical and scientific passes, retain original failures and distinguish limitations",
+    "requested_on": "2026-11-28"
   }
 }

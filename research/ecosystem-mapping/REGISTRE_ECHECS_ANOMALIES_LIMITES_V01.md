@@ -47,3 +47,6 @@ RET-013 — complément : RET-013 : correction implémentée sur PR82 au commit 
 RET-014 : exécution réelle Calc 25.2.3.2 sous Linux, CSV→XLSX→CSV, 5 lignes × 6 champs, identifiants 001–004, texte FR/AR, décimales et champs vides. Import standard : 25/30 champs exacts, cinq identifiants altérés (zéros initiaux perdus). Import avec types de colonnes explicites : 30/30 champs exacts dans ce cas. Les deux commandes terminent avec code 0; le succès de la commande n'est pas un contrôle d'intégrité. [Audit intégral](AUDIT_TRANSFERT_CSV_REEL_V02.json). Ce résultat est borné à un fichier construit et une version, ne prouve ni un échange BORIS/jamovi ni la préservation des types et significations dans tous les logiciels. L'échec et le retest sont conservés. Ne pas élargir la revendication à une validation scientifique externe.
 
 Statut : CORRECTION_CIBLEE_REUSSIE, chaîne complète et variantes non testées.
+
+### RET-015 — Écart de structure des références BORIS
+Le CSV stocké à v10.0.2 contient métadonnées et huit événements; le test source actuel attend en-tête plat et six événements. Aucune exécution amont, aucune conclusion de bug. Six intervalles de références concordants avec le projet. Exécuter le runtime épinglé et contrôler schéma réellement produit. [AUDIT_BORIS_REFERENCE_V01.json](AUDIT_BORIS_REFERENCE_V01.json). Statut : LIMITE_DOCUMENTAIRE_OUVERTE.

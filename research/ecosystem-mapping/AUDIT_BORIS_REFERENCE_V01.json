@@ -1,0 +1,85 @@
+{
+  "date": "2026-11-28",
+  "status": "PASS_REFERENCE_FILE_RECONCILIATION_NOT_RUNTIME",
+  "source_repository": "https://github.com/olivierfriard/BORIS/tree/v10.0.2",
+  "source_ref": "v10.0.2",
+  "source_blobs": {
+    "project": {
+      "path": "tests/files/test.boris",
+      "git_blob_sha": "3c8536a966fe061c56d843c4267eb1aeb12f13a1"
+    },
+    "tabular": {
+      "path": "tests/files/test_export_events_tabular.csv",
+      "git_blob_sha": "a0bad94895b68ee8e5e8e4ba3efb7a49fee68db5"
+    },
+    "aggregated": {
+      "path": "tests/files/test_export_aggregated_events_test_full_2.tsv",
+      "git_blob_sha": "1c8900f339da729d6977f835f31d27be2fb5c18d"
+    }
+  },
+  "method": "Independent JS integer-millisecond pairing by subject, behavior and modifiers of STATE events in the project; compare source start/stop and computed duration to tabular START/STOP pairs and aggregate reference rows. CSV parsed by comma split only for this known unquoted fixture; TSV by tab. No general importer validated.",
+  "tabular": {
+    "observation": "observation #1",
+    "metadata_lines_before_event_header": 18,
+    "events": 8,
+    "intervals_ms": {
+      "subject1": [
+        [
+          3300,
+          7750,
+          4450
+        ],
+        [
+          9900,
+          16200,
+          6300
+        ],
+        [
+          18350,
+          24475,
+          6125
+        ]
+      ],
+      "subject2": [
+        [
+          38425,
+          46100,
+          7675
+        ]
+      ]
+    },
+    "totals_ms": {
+      "subject1": 16875,
+      "subject2": 7675
+    }
+  },
+  "aggregated": {
+    "observation": "observation #2",
+    "subject": "subject1",
+    "intervals_ms": [
+      [
+        266165,
+        276690,
+        10525
+      ],
+      [
+        280965,
+        294215,
+        13250
+      ]
+    ],
+    "total_ms": 23775
+  },
+  "matched_intervals": 6,
+  "total_intervals": 6,
+  "limits": [
+    "Upstream stored reference files, not newly generated BORIS output.",
+    "Current upstream test source assert_tabular_events_file expects a flat header and six events; checked legacy stored CSV has metadata and eight events. Not a demonstrated upstream defect: fixtures and current test expectations may differ; execute pinned runtime and inspect actual schema before generalizing.",
+    "No jamovi or BORIS runtime executed; local binaries absent and DNS resolution for github.com, pypi.org, flathub.org unavailable.",
+    "No school or personal data; no ALT-PE or pedagogical inference."
+  ],
+  "runtime_plan": {
+    "boris": "Pinned release v10.0.2; Python >=3.13,<3.14 from pyproject.toml. Separate environment from ACPA CI; fetch source from official tag, record commit SHA, dependencies and version. Run upstream test_export_observation.py in its intended tests directory; generate actual export in temporary folder; inspect output schema and reconcile against project. No fallback to reference file claimed as runtime output.",
+    "jamovi": "Desktop version and platform documented; import actual exported/normalized table; explicitly set identifiers to text, missing values, numeric columns and units, compare counts and independently calculated totals; R/jmv package tests are not desktop execution."
+  }
+}

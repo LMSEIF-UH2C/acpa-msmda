@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": 57,
+  "revision": 58,
   "branch": "research/ecosystem-mapping-pilot",
   "scientific_version": "0.1.58",
   "scientific_baseline_commit": "c7da29efe69974ebc365dbf0aa942f95ec5846df",
@@ -12,15 +12,15 @@
     "base_head": "12f6b300aa2d853ae4f5d0412cc52015fcad984c",
     "run_refs": [
       "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175133937",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175133869",
       "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175133864",
       "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175133881",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175133869",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175129765",
       "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175129717",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175129743",
       "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175129735",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175129765"
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175129743"
     ],
-    "resume_note": "A5 : CI admission d00f75a terminée 8/8 success. Rejeu local indépendant RET-014, même binaire Calc 25.2.3.2, empreintes entrée et deux sorties identiques à l'audit; défaut 25/30, explicite 30/30. BORIS, jamovi et Flatpak absents du conteneur; résolution DNS PyPI/Flathub en échec; aucun essai BORIS/jamovi réalisé. Nouveau commit 65aab6dac578688e89ba3259e8fb48eb38c1fecc : panneau FR/AR/EN de revue réelle interne opt-in, contexte exact affiché et confirmé, config serveur et manifeste épinglés SHA256, date UTC serveur; résultats limités au dossier, abstention sinon. Configuration désactivée par défaut; flag n'est pas un contrôle d'accès, déploiement privé indispensable. Porte transfert manuel exige désormais au moins une preuve ACTUAL_TEST (déclaration éditeur seule refusée). Tests config/pin et absence panneau par défaut ajoutés; recette navigateur du mode activé reste à réaliser. Aucun manifeste réel approuvé, aucune admission réelle, aucune mise en production. CI nouvelle en cours; ASC-01/ASC-02 préservés."
+    "resume_note": "A5 reprise : CI 65aab6d 8/8 réussis au contrôle. Rapprochement indépendant des références amont BORIS v10.0.2 (trois blobs Git exacts, audit AUDIT_BORIS_REFERENCE_V01.json) : 8 événements START/STOP → 4 intervalles dans observation #1, 2 intervalles agrégés dans observation #2, 6/6 concordance exacte en ms. CSV historique comporte 18 lignes de métadonnées et 8 événements, alors que le test source actuel attend en-tête plat et 6 événements : écart documentaire à vérifier par exécution, pas un échec amont démontré. Python 3.13 requis pour BORIS v10.0.2, prévoir environnement séparé; jamovi/R distinction maintenue. Conteneur : BORIS/jamovi absents, DNS github/pypi/flathub indisponible, pas de runtime ni de chaîne complète testée. Aucun nouveau changement applicatif, aucune admission. Prochaine étape recette mode interne activé et essai runtime isolé, après CI terminale; ASC-01/02 préservés."
   },
   "last_handoff": {
     "actor": "interactive_assistant",
@@ -350,7 +350,7 @@
         "deps": [
           "A4"
         ],
-        "next": "Verify all CI and run private enabled panel browser acceptance with empty/test-only dossier; qualify first real context and endpoint tests, owner decision/pinned manifest before real admission.",
+        "next": "After terminal CI, run enabled private panel browser acceptance and isolated BORIS pinned runtime export; confirm jamovi desktop separately; qualify contextual evidence before admission.",
         "evidence": "../AUDIT_APPLICATION_A5_V01.json"
       },
       {
@@ -372,7 +372,7 @@
     ],
     "integration_commit": "65aab6dac578688e89ba3259e8fb48eb38c1fecc",
     "pr": 82,
-    "regression_status": "PENDING_INTERNAL_REVIEW_UI_CI",
+    "regression_status": "SUCCESS_INTERNAL_REVIEW_UI_CI",
     "next_task": "A5",
     "dual_entry": {
       "stable": "v0.2.0 baseline, default",

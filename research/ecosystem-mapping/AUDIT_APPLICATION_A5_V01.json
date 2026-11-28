@@ -164,30 +164,37 @@
       {
         "id": 46175133937,
         "name": "Independent R validation",
-        "status": "in_progress",
-        "conclusion": null,
+        "status": "completed",
+        "conclusion": "success",
         "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175133937"
-      },
-      {
-        "id": 46175133869,
-        "name": "Mobile navigation REC-Y002",
-        "status": "in_progress",
-        "conclusion": null,
-        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175133869"
       },
       {
         "id": 46175133864,
         "name": "Public web demo",
-        "status": "in_progress",
-        "conclusion": null,
+        "status": "completed",
+        "conclusion": "success",
         "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175133864"
       },
       {
         "id": 46175133881,
         "name": "Tests ACPA MSMDA",
-        "status": "in_progress",
-        "conclusion": null,
+        "status": "completed",
+        "conclusion": "success",
         "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175133881"
+      },
+      {
+        "id": 46175133869,
+        "name": "Mobile navigation REC-Y002",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175133869"
+      },
+      {
+        "id": 46175129765,
+        "name": "A4 isolated ecosystem solver",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175129765"
       },
       {
         "id": 46175129717,
@@ -197,13 +204,6 @@
         "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175129717"
       },
       {
-        "id": 46175129743,
-        "name": "A2 dual-entry browser acceptance",
-        "status": "in_progress",
-        "conclusion": null,
-        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175129743"
-      },
-      {
         "id": 46175129735,
         "name": "A3 documentary qualification",
         "status": "completed",
@@ -211,18 +211,24 @@
         "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175129735"
       },
       {
-        "id": 46175129765,
-        "name": "A4 isolated ecosystem solver",
+        "id": 46175129743,
+        "name": "A2 dual-entry browser acceptance",
         "status": "completed",
         "conclusion": "success",
-        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175129765"
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175129743"
       }
     ],
-    "results_verified": false,
+    "results_verified": true,
     "default_disabled": true,
     "private_deployment_required": true,
     "real_admission": 0,
     "enabled_browser_acceptance": "PENDING",
     "transfer_actual_test_required": true
+  },
+  "boris_reference": {
+    "file": "AUDIT_BORIS_REFERENCE_V01.json",
+    "matched_intervals": 6,
+    "total_intervals": 6,
+    "runtime_executed": false
   }
 }

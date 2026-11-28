@@ -76,3 +76,5 @@
 | 2026-11-28 | interactive_assistant | INT-APP-A5-0019 | RET-014 et dossiers | Calc réel 25/30→30/30; quatre dossiers brouillons; aucune admission | [AUDIT_TRANSFERT_CSV_REEL_V02.json](../AUDIT_TRANSFERT_CSV_REEL_V02.json) | Recette et tests extrémités |
 
 | 2026-11-28 | interactive_assistant | INT-APP-A5-0019 | Rejeu RET-014 et UI interne | 8/8 CI antérieure, mêmes SHA Calc, panneau conditionnel et contrôle transfert réel | [Commit](https://github.com/LMSEIF-UH2C/acpa-msmda/commit/65aab6dac578688e89ba3259e8fb48eb38c1fecc) | CI puis recette mode activé |
+
+| 2026-11-28 | interactive_assistant | INT-APP-A5-0019 | Références BORIS | 6/6 intervalles rapprochés, écart de structure documenté, aucun runtime | [AUDIT_BORIS_REFERENCE_V01.json](../AUDIT_BORIS_REFERENCE_V01.json) | Recette et essai isolé |

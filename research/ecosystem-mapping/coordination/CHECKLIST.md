@@ -58,3 +58,5 @@ A3 renforcement 28/11/2026 : les 10 contrôles du commit 7ffd26c ont tous réuss
 Préparation A4 : [contrat de décision et 16 cas de référence](PLAN_APPLICATION_A4_V01.md), avant implémentation, sans lever les gates scientifiques. Au contrôle A3 9/10 contrôles réussis; mobile-navigation. Aucun résultat navigateur nouveau revendiqué. A3 verrou conservé jusqu'à lecture des résultats terminaux et artefact. Aucun changement application dans cette intervention.
 
 A3 clôture technique : 10/10 contrôles CI, 18/18 parcours navigateur, 6/6 panneaux jamovi (FR/AR/EN × Chromium/WebKit), SHA SQLite inchangé. Artefact 15273777004 relu, SHA256 1ed611f2ecad1cb9e737767ac839b973070c578afb249fbab55b593a949506f1, CRC valide, 42 captures et 18 résultats uniques. Qualification documentaire non validée scientifiquement, zéro nouvelle recommandation. RET-011 correction ciblée et recette terminées; hash de fiche locale, pas du site éditeur. A4 READY, verrou libéré.
+
+A4 réservé INT-APP-A4-0018, prototype technique isolé; A3 accepté.

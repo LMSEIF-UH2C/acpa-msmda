@@ -1,10 +1,18 @@
 {
   "schema_version": 1,
-  "revision": 40,
+  "revision": 41,
   "branch": "research/ecosystem-mapping-pilot",
   "scientific_version": "0.1.58",
   "scientific_baseline_commit": "c7da29efe69974ebc365dbf0aa942f95ec5846df",
-  "lock": null,
+  "lock": {
+    "actor": "interactive_assistant",
+    "intervention_id": "INT-APP-A4-0018",
+    "task_id": "A4",
+    "acquired_utc": "2026-11-28T17:42:00.259Z",
+    "base_head": "a3723cbab35b0302ff09343920315fe776a40b75",
+    "run_refs": [],
+    "resume_note": "A4 technical solver on explicitly fictional fixtures, real A3 proposals remain inadmissible. No promotion, no interface or stable changes."
+  },
   "last_handoff": {
     "actor": "interactive_assistant",
     "intervention_id": "INT-APP-A3-0017",
@@ -319,7 +327,7 @@
       },
       {
         "id": "A4",
-        "status": "READY",
+        "status": "IN_PROGRESS",
         "deps": [
           "A3"
         ],

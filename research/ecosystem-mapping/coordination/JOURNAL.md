@@ -44,3 +44,4 @@
 | 2026-11-28 | interactive_assistant | INT-APP-A3-0017 | A3 renforcement | 10/10 CI précédente; liaison SHA locale, 34/34 tests, recette navigateur en cours | run 46171523523 | Vérifier recette avant A4 |
 | 2026-11-28 | interactive_assistant | INT-APP-A3-0017 | Préparation A4 | Contrat et 16 cas proposés, non exécutés; A3 9/10 CI réussis | [Plan](../PLAN_APPLICATION_A4_V01.md) | Recette A3 terminale |
 | 2026-11-28 | interactive_assistant | INT-APP-A3-0017 | A3 clôture | 10/10 CI, 18/18 parcours, 6/6 panneaux, archive relue | [Audit](../AUDIT_APPLICATION_A3_V01.json) | A4 READY |
+| 2026-11-28 | interactive_assistant | INT-APP-A4-0018 | A4 réservation | A3 accepté, prototype de décision isolé | [Plan](../PLAN_APPLICATION_A4_V01.md) | Implémenter et tester |

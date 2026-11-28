@@ -38,3 +38,5 @@ V0.1.42 : P2-06 technique vérifié (6/6 tests). Les 2 écarts SILL/Wikidata cor
 V0.1.44 : P2-07 technique vérifié, 8/8 tests. 204 paires par listing (114 Apple, 90 F-Droid), 28 nouvelles, union intersource 349; sept groupes locaux Apple de listing partagé à examiner. Caps 10–100 comparés : 319 paires intersources générées constantes; groupe 63 F-Droid, 1953 paires dépôt/éditeur sans nom commun, reste différé. Pas d'adoption de nouveau seuil, pas de fusion ni validation scientifique. P2-08 contrôle indépendant et plan confirmatoire requis.
 
 V0.1.46 : P2-08 préparation vérifiée (10/10 tests synthétiques), plan indépendant à trois contrôles, 67 paires de calibration réutilisées. Aucun tirage confirmatoire ni jugement; validation des unités, tailles, seuils et arbitrage reste requise. P0 identité ouvert; prochaine tâche indépendante P2-10.
+
+V0.1.48 : P2-10 pilote réel Wikidata réussi, 16/16 tests, 4 appels 2+2, 108 QID, 4 succès réutilisés sans réseau par troisième job, archive finale privée relue. Reprise inter-jobs démontrée; inter-workflows/panne réelle/autres adaptateurs non validés. P0 moteur reste ouvert pour périmètre définitif. Suite P2-11.

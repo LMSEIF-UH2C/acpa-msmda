@@ -1,31 +1,23 @@
 {
   "schema_version": 1,
-  "revision": 12,
+  "revision": 13,
   "branch": "research/ecosystem-mapping-pilot",
-  "scientific_version": "0.1.46",
-  "scientific_baseline_commit": "09ea4e24861931836d6bc44a49d957d160266ae6",
-  "lock": {
-    "actor": "interactive_assistant",
-    "intervention_id": "INT-P2-10-0005",
-    "task_id": "P2-10",
-    "acquired_utc": "2026-11-28",
-    "base_head": "50b23624488871a3e830974ed0762302926cd5d1",
-    "run_refs": [],
-    "resume_note": "Pilote Wikidata 4 requêtes, workflow ecosystem-live-checkpoint; vérifier trois jobs et conserver artefacts CC0. Stop si erreur."
-  },
+  "scientific_version": "0.1.48",
+  "scientific_baseline_commit": "b868d0ee007d50ef5e2fc154de7d5c87e5f7ef78",
+  "lock": null,
   "last_handoff": {
     "actor": "interactive_assistant",
-    "intervention_id": "INT-P2-08-0004",
+    "intervention_id": "INT-P2-10-0005",
     "completed": "2026-11-28",
-    "summary": "P2-08 préparation vérifiée : plan indépendant et 10/10 tests métriques; aucun résultat humain, 67 paires de calibration inchangées.",
-    "next_task": "P2-10",
-    "evidence": "../IDENTITY_INDEPENDENT_VALIDATION_PLAN_V01.md",
+    "summary": "P2-10 pilote borné réussi : 4 requêtes WDQS, 108 QID, reprise inter-jobs, quatre succès réutilisés hors ligne, preuve durable vérifiée, 16/16 tests.",
+    "next_task": "P2-11",
+    "evidence": "../AUDIT_LIVE_CHECKPOINT_V01.json",
     "run_refs": [
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46153948988"
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46154207305",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46154207211"
     ]
   },
   "priority_queue": [
-    "P2-10",
     "P2-11",
     "P1-04",
     "P2-12"
@@ -171,11 +163,11 @@
       "id": "P2-10",
       "phase": 2,
       "title": "Essai réel séquentiel moteur et reprise entre runners",
-      "status": "IN_PROGRESS",
+      "status": "TECH_VERIFIED",
       "owner": "assistant",
       "deps": [],
-      "evidence": "../CHECKPOINT_PROTOCOL.md",
-      "next": "Périmètre autorisé uniquement; preuve de restauration, erreurs et durée"
+      "evidence": "../AUDIT_LIVE_CHECKPOINT_V01.json",
+      "next": "Wikidata 4/4 requêtes réelles, 2+2 entre jobs, 0 répétition hors ligne, 16/16 tests; archive finale Drive SHA/CRC contrôlés; autres adaptateurs et panne réelle non validés."
     },
     {
       "id": "P2-11",

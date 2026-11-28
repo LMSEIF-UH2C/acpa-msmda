@@ -1,7 +1,7 @@
 # Checklist de coordination — 28/11/2026
-Référence scientifique V0.1.46; [état machine](ETAT.json) faisant foi; actualiser ensemble. [Règles](README.md) · [Journal](JOURNAL.md).
-**Verrou : OCCUPÉ — assistant interactif, INT-P2-10-0005 (P2-10).**
-Avancement des 24 jalons de pilotage : 10 acquis techniques vérifiés, 3 à traiter (avec dépendances), 1 en cours, 5 interventions humaines, 5 bloqués. Décomposition opérationnelle, pas pourcentage scientifique ni pondération des phases. Aucun passage confirmatoire autorisé.
+Référence scientifique V0.1.48; [état machine](ETAT.json) faisant foi; actualiser ensemble. [Règles](README.md) · [Journal](JOURNAL.md).
+**Verrou : LIBRE. Prochain chantier prioritaire : P2-11.**
+Avancement des 24 jalons de pilotage : 11 acquis techniques vérifiés, 3 à traiter (avec dépendances), 5 interventions humaines, 5 bloqués. Décomposition opérationnelle, pas pourcentage scientifique ni pondération des phases. Aucun passage confirmatoire autorisé.
 | ID | Phase | Jalon | État | Responsable | Dépendances | Preuve / suite |
 |---|---:|---|---|---|---|---|
 | P1-01 | 1 | Audit des pilotes et du diagramme historique | Acquis technique vérifié | assistant | — | [Preuve de référence](../AUDIT_APPLE_V02_INDEPENDANT.md) — Pilotes auditables; pas de comparaison exhaustive historique |
@@ -17,7 +17,7 @@ Avancement des 24 jalons de pilotage : 10 acquis techniques vérifiés, 3 à tra
 | P2-07 | 2 | Sensibilité blocage et contrôle des groupes différés | Acquis technique vérifié | assistant | P2-06 | [Preuve de référence](../AUDIT_IDENTITY_SENSITIVITY_V01.json) — 204 correspondances de listing, 28 nouvelles paires, union intersources 349; caps 10–100 comparés; groupe 63 conserve 1953 paires de dépôt non arbitrées; 8/8 tests. |
 | P2-08 | 2 | Contrôle indépendant hors candidats et plan confirmatoire | Acquis technique vérifié | assistant | P2-07 | [Preuve de référence](../IDENTITY_INDEPENDENT_VALIDATION_PLAN_V01.md) — Plan prospectif, trois contrôles distincts et métriques 10/10 tests synthétiques; tailles/seuils à approuver, aucune sélection confirmatoire ni jugement humain. |
 | P2-09 | 2 | Double calibration identité (57+10 paires) | Intervention humaine | équipe/juges | — | [Preuve de référence](../AUDIT_IDENTITY_REGISTRY_V03.json) — 67 paires vierges par juge; organiser deux juges indépendants et arbitrage |
-| P2-10 | 2 | Essai réel séquentiel moteur et reprise entre runners | En cours | assistant | — | [Preuve de référence](../CHECKPOINT_PROTOCOL.md) — Périmètre autorisé uniquement; preuve de restauration, erreurs et durée |
+| P2-10 | 2 | Essai réel séquentiel moteur et reprise entre runners | Acquis technique vérifié | assistant | — | [Preuve de référence](../AUDIT_LIVE_CHECKPOINT_V01.json) — Wikidata 4/4 requêtes réelles, 2+2 entre jobs, 0 répétition hors ligne, 16/16 tests; archive finale Drive SHA/CRC contrôlés; autres adaptateurs et panne réelle non validés. |
 | P2-11 | 2 | Saturation prospective et comparateurs | Prêt (sous réserve des dépendances) | assistant | P2-10 | [Preuve de référence](../SATURATION_PROTOCOL.md) — Préparer et tester plan exploratoire; seuils soumis à équipe |
 | P2-12 | 2 | Compléments de couverture justifiés et textes EPS | Prêt (sous réserve des dépendances) | assistant | — | [Preuve de référence](../COUVERTURE_PEDAGOGIQUE_V01.md) — Lacunes AR motrice, inclusion, contexte, marchés et textes applicables; pas de quota |
 | P2-13 | 2 | Calibration de pertinence (141 fiches) | Intervention humaine | équipe/juges | — | [Preuve de référence](../CALIBRATION_CASES_V01.json) — Deux évaluateurs, verrouillage, arbitrage et contrôle indépendant |

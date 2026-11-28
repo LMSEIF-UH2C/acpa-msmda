@@ -1,13 +1,13 @@
 # Checklist de coordination — 28/11/2026
 Référence scientifique V0.1.50; [état machine](ETAT.json) faisant foi; actualiser ensemble. [Règles](README.md) · [Journal](JOURNAL.md).
-**Verrou : LIBRE. Prochain chantier prioritaire : P1-04.**
-Avancement des 24 jalons de pilotage : 12 acquis techniques vérifiés, 2 à traiter (avec dépendances), 5 interventions humaines, 5 bloqués. Décomposition opérationnelle, pas pourcentage scientifique ni pondération des phases. Aucun passage confirmatoire autorisé.
+**Verrou : OCCUPÉ — assistant interactif, INT-P1-04-0007 (P1-04).**
+Avancement des 24 jalons de pilotage : 12 acquis techniques vérifiés, 1 à traiter (avec dépendances), 1 en cours, 5 interventions humaines, 5 bloqués. Décomposition opérationnelle, pas pourcentage scientifique ni pondération des phases. Aucun passage confirmatoire autorisé.
 | ID | Phase | Jalon | État | Responsable | Dépendances | Preuve / suite |
 |---|---:|---|---|---|---|---|
 | P1-01 | 1 | Audit des pilotes et du diagramme historique | Acquis technique vérifié | assistant | — | [Preuve de référence](../AUDIT_APPLE_V02_INDEPENDANT.md) — Pilotes auditables; pas de comparaison exhaustive historique |
 | P1-02 | 1 | Récupérer les archives historiques 45 676 et décisions | Intervention humaine | porteur | — | [Preuve de référence](../EVIDENCE_REGISTER_V01.md) — Localiser archives et jugements; si introuvables, décision documentée sur périmètre |
 | P1-03 | 1 | Pérennité des preuves prioritaires | Acquis technique vérifié | assistant | — | [Preuve de référence](../EVIDENCE_REGISTER_V01.md) — 10 archives prioritaires vérifiées; inventaire complet et droits encore ouverts |
-| P1-04 | 1 | Inventaire complémentaire et droits de conservation | Prêt (sous réserve des dépendances) | assistant | — | [Preuve de référence](../SOURCE_REGISTER.md) — Recenser artefacts restants, vérifier accès et droits; décision équipe distincte |
+| P1-04 | 1 | Inventaire complémentaire et droits de conservation | En cours | assistant | — | [Preuve de référence](../SOURCE_REGISTER.md) — Recenser artefacts restants, vérifier accès et droits; décision équipe distincte |
 | P2-01 | 2 | Audits de couverture mobile, langues, APS et fonctions | Acquis technique vérifié | assistant | — | [Preuve de référence](../AUDIT_COUVERTURE_V01.md) — 288/1592 couples observés dans les pilotes; couverture partielle |
 | P2-02 | 2 | Prospection Web, SILL, Wikidata, matériel et commercial | Acquis technique vérifié | assistant | — | [Preuve de référence](../AUDIT_PROSPECTION_MATERIEL_COMMERCIAL_V01.json) — 17+17 observations documentaires; couverture non exhaustive |
 | P2-03 | 2 | Modèle relationnel et registre persistant | Acquis technique vérifié | assistant | — | [Preuve de référence](../AUDIT_IDENTITY_REGISTRY_V03.json) — 31/31 tests; 34 entités provisoires; aucune identité arbitrée |

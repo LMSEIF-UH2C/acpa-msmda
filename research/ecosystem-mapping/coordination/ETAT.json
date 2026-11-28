@@ -1,10 +1,18 @@
 {
   "schema_version": 1,
-  "revision": 16,
+  "revision": 17,
   "branch": "research/ecosystem-mapping-pilot",
   "scientific_version": "0.1.50",
   "scientific_baseline_commit": "2fbc942db6fa46f439c02116cb9fb9f53de60ae6",
-  "lock": null,
+  "lock": {
+    "actor": "interactive_assistant",
+    "intervention_id": "INT-P1-04-0007",
+    "task_id": "P1-04",
+    "acquired_utc": "2026-11-28",
+    "base_head": "cdc4aaf98246bddf8713ce9b75e274bea684283b",
+    "run_refs": [],
+    "resume_note": "Inventaire complémentaire, droits et décisions à soumettre."
+  },
   "last_handoff": {
     "actor": "interactive_assistant",
     "intervention_id": "INT-P2-11-0006",
@@ -55,7 +63,7 @@
       "id": "P1-04",
       "phase": 1,
       "title": "Inventaire complémentaire et droits de conservation",
-      "status": "READY",
+      "status": "IN_PROGRESS",
       "owner": "assistant",
       "deps": [],
       "evidence": "../SOURCE_REGISTER.md",

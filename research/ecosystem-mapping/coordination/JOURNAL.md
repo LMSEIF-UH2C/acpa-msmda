@@ -20,3 +20,4 @@
 | 2026-11-28 | interactive_assistant | INT-P2-11-0006 | P2-11 | Réservation exclusive | HEAD 656df3884ba0a650e6ee9cd824c0a68990b4990b | Comparateurs et saturation |
 | 2026-11-28 | interactive_assistant | INT-P2-11-0006 | P2-11 | Protocole et tests enregistrés | [Protocole](../SATURATION_COMPARISON_PROTOCOL_V01.md) | Vérifier run |
 | 2026-11-28 | interactive_assistant | INT-P2-11-0006 | P2-11 | Clôture préparatoire : 7/7 tests, 10 scénarios, pertes et protections documentées, aucun seuil adopté; verrou libéré | [Run 46157245970](https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46157245970) · [audit](../AUDIT_SATURATION_COMPARISON_V01.json) | P1-04 |
+| 2026-11-28 | interactive_assistant | INT-P1-04-0007 | P1-04 | Réservation exclusive | HEAD cdc4aaf98246bddf8713ce9b75e274bea684283b | Inventaire et droits |

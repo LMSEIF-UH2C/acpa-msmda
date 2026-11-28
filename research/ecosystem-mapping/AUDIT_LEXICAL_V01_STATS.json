@@ -1,0 +1,31 @@
+{
+  "rows": 180,
+  "aps": 30,
+  "functions": 15,
+  "transversal": 15,
+  "distinct_existing_terms": 398,
+  "exact_absent_rows": 124,
+  "distinct_candidate_terms": 124,
+  "counts": {
+    "APS/en/HISTORIQUE_SEUL": 12,
+    "APS/fr/ABSENT_EXACT_A_EXAMINER": 26,
+    "APS/ar/ABSENT_EXACT_A_EXAMINER": 26,
+    "APS/en/ABSENT_EXACT_A_EXAMINER": 14,
+    "APS/en/MODERNE": 3,
+    "APS/fr/MODERNE": 4,
+    "APS/ar/MODERNE": 4,
+    "APS/en/MODERNE_ET_HISTORIQUE": 1,
+    "FONCTION/en/MODERNE": 7,
+    "FONCTION/fr/MODERNE": 9,
+    "FONCTION/ar/MODERNE": 9,
+    "FONCTION/en/MODERNE_ET_HISTORIQUE": 2,
+    "FONCTION/en/ABSENT_EXACT_A_EXAMINER": 3,
+    "FONCTION/fr/ABSENT_EXACT_A_EXAMINER": 6,
+    "FONCTION/ar/ABSENT_EXACT_A_EXAMINER": 6,
+    "FONCTION/en/HISTORIQUE_SEUL": 3,
+    "CONTEXTE_TRANSVERSAL/en/ABSENT_EXACT_A_EXAMINER": 13,
+    "CONTEXTE_TRANSVERSAL/fr/ABSENT_EXACT_A_EXAMINER": 15,
+    "CONTEXTE_TRANSVERSAL/ar/ABSENT_EXACT_A_EXAMINER": 15,
+    "CONTEXTE_TRANSVERSAL/en/HISTORIQUE_SEUL": 2
+  }
+}

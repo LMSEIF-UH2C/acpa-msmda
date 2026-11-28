@@ -15,3 +15,6 @@ Le registre ne constitue pas une autorisation de redistribution. Pour chaque sou
 ## Mise à jour du 28 novembre — autorisations et audit
 GitHub: pilote réussi, 471 dépôts distincts, 16 requêtes tronquées; voir AUDIT_GITHUB_PILOT.md.
 Aptoide: API v7 apps/search documentée comme Public (https://ws75.aptoide.com/api/7/apps/search?info=1), mais les conditions générales https://en.aptoide.com/company/legal restreignent l'accès automatisé. Ne pas conclure que Public signifie autorisation de collecte massive ou de redistribution. Suspendre les appels automatisés jusqu'à clarification écrite ou licence/conditions spécifiques applicables. Documentation partenaires https://partners-center-be.aptoide.com/partners_api_doc/en. Aucune nouvelle requête de collecte Aptoide n'a été lancée ici. Préparer demande précisant finalité scientifique, champs, volumes, cadence, conservation et publication d'agrégats, pas d'APK ni de logos sans droit. Même exigence de vérification des droits et conservation pour les autres sources.
+
+## Canaux complémentaires — 28 novembre
+Voir [registre Web/desktop et preuves](CANAUX_COMPLEMENTAIRES_V01.csv). Wikidata CC0 pour données structurées; Flathub/AppStream et Snap recherche documentée, droits à vérifier; Microsoft Store accès catalogue non confirmé. Aucun pilote réseau supplémentaire.

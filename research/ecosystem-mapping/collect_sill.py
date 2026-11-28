@@ -1,7 +1,7 @@
-"""SILL v2 public export pilot. No automatic identity or eligibility decisions."""
+"""SILL legacy public export pilot. No automatic identity or eligibility decisions."""
 import argparse, collections, csv, datetime, hashlib, json, pathlib, re, unicodedata, urllib.request
 
-URL = "https://code.gouv.fr/sill/api/v2/catalogi.json"
+URL = "https://code.gouv.fr/sill/api/catalogi.json"
 LICENSE = "Licence Ouverte 2.0"
 MAX_BYTES = 30 * 1024 * 1024
 CATALOG_BLOB = "39b32ebbdf33b49a3fb0bb669f8a0809d0e72995"
@@ -36,9 +36,9 @@ def catalog_rows(obj):
 
 def compare(rows, catalog):
     if not isinstance(rows,list) or not rows:
-        raise ValueError("SILL v2 must be a nonempty array")
+        raise ValueError("SILL export must be a nonempty array")
     if any(not isinstance(r,dict) or type(r.get("id")) is not int or not names(r.get("name")) or not isinstance(r.get("license"),str) for r in rows):
-        raise ValueError("SILL v2 required fields missing")
+        raise ValueError("SILL export required fields missing")
     if len({r["id"] for r in rows})!=len(rows):
         raise ValueError("Duplicate SILL IDs")
     index=collections.defaultdict(set)
@@ -53,7 +53,7 @@ def compare(rows, catalog):
         partial=set().union(*(ids for key,ids in index.items() if key not in probes and any(" "+n+" " in " "+key+" " or " "+key+" " in " "+n+" " for n in probes))) if probes else set()
         state="NAME_CANDIDATE_REVIEW" if exact else "AMBIGUOUS_NAME_REVIEW" if partial else "NO_NAME_MATCH"
         result.append({"sill_id":r["id"],"names":labels,"active":r.get("dereferencing") is None,"software_license":r["license"],
-                       "runtime_platforms":r.get("runtimePlatforms",[]),"categories":r.get("applicationCategories",[]),
+                       "runtime_platforms":r.get("runtimePlatforms",[]),"categories":r.get("categories",[]),
                        "exact_catalog_ids":sorted(exact),"partial_match_count":len(partial-exact),"comparison_status":state,"eligibility":"NOT_ASSESSED"})
     return result
 

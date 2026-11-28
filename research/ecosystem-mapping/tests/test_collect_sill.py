@@ -14,6 +14,10 @@ class SillTest(unittest.TestCase):
         r=compare([{"id":1,"name":"Zeta","license":"MIT","dereferencing":{"time":"x"}}],[{"id":"a","name":"Other"}])
         self.assertFalse(r[0]["active"])
         self.assertEqual(r[0]["comparison_status"],"NO_NAME_MATCH")
+    def test_legacy_categories(self):
+        r=compare([{"id":1,"name":"X","license":"MIT","categories":["education"],"runtimePlatforms":["desktop"]}],[])
+        self.assertEqual(r[0]["categories"],["education"])
+        self.assertEqual(r[0]["runtime_platforms"],["desktop"])
     def test_duplicate_rejected(self):
         r={"id":1,"name":"X","license":"MIT"}
         with self.assertRaises(ValueError): compare([r,r],[])

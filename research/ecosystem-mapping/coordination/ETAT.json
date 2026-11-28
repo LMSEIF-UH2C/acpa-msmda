@@ -1,29 +1,22 @@
 {
   "schema_version": 1,
-  "revision": 20,
+  "revision": 21,
   "branch": "research/ecosystem-mapping-pilot",
-  "scientific_version": "0.1.51",
-  "scientific_baseline_commit": "192821c46b19f2689187dabb0e04a914cc8ac5be",
-  "lock": {
-    "actor": "interactive_assistant",
-    "intervention_id": "INT-P2-12-0008",
-    "task_id": "P2-12",
-    "acquired_utc": "2026-11-28",
-    "base_head": "9f5d9e646908d480a26e85de9adf95d9719eaff4",
-    "run_refs": [],
-    "resume_note": "Audit structurel ciblé et lexical en cours; contrôler résultats avant clôture."
-  },
+  "scientific_version": "0.1.53",
+  "scientific_baseline_commit": "c7da29efe69974ebc365dbf0aa942f95ec5846df",
+  "lock": null,
   "last_handoff": {
     "actor": "interactive_assistant",
-    "intervention_id": "INT-P1-04-0007",
+    "intervention_id": "INT-P2-12-0008",
     "completed": "2026-11-28",
-    "summary": "Inventaire et droits documentés, deux kits et projection sécurisés; variabilité 63 IDs supplémentaires hors cadre gelé, aucun ajout.",
-    "next_task": "P2-12",
-    "evidence": "../EVIDENCE_INVENTORY_V02.csv"
+    "summary": "Dernier jalon autonome initial préparé et vérifié structurellement. 14 acquis techniques, 5 WAIT_HUMAN, 5 BLOCKED. Aucune collecte définitive autorisée.",
+    "next_task": null,
+    "evidence": "../GATE_VALIDATION_EQUIPE_V01.md",
+    "run_refs": [
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46158365439"
+    ]
   },
-  "priority_queue": [
-    "P2-12"
-  ],
+  "priority_queue": [],
   "tasks": [
     {
       "id": "P1-01",
@@ -187,11 +180,11 @@
       "id": "P2-12",
       "phase": 2,
       "title": "Compléments de couverture justifiés et textes EPS",
-      "status": "IN_PROGRESS",
+      "status": "TECH_VERIFIED",
       "owner": "assistant",
       "deps": [],
-      "evidence": "../COUVERTURE_PEDAGOGIQUE_V01.md",
-      "next": "Lacunes AR motrice, inclusion, contexte, marchés et textes applicables; pas de quota"
+      "evidence": "../AUDIT_TARGETED_COVERAGE_V02.json",
+      "next": "10 scénarios, 15 fonctions, 12 contextes, 16 familles; 7 témoins, 18 sondes sans correspondance exacte; revue experts et textes authentifiés requise."
     },
     {
       "id": "P2-13",

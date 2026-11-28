@@ -44,3 +44,5 @@ V0.1.48 : P2-10 pilote réel Wikidata réussi, 16/16 tests, 4 appels 2+2, 108 QI
 V0.1.50 : P2-11 préparation technique vérifiée, 7/7 tests, 288 requêtes Apple à 50, 3709 IDs, 10 scénarios. Cumul fixe 240 appels hypothétiques, scénario à 238 sans perte observée; 236 perdent 9 IDs, 224/226 perdent 105/64. Seuils prospectifs non validés, protection des niches et témoins indépendants requis; P0 saturation ouvert. Prochaine priorité P1-04.
 
 V0.1.51 : P1-04 inventaire 35 artefacts, kits et projection temporelle privés relus, droits documentés. P2-15 et archives historiques restent ouverts; P2-12 suite.
+
+V0.1.53 : P2-12 préparation auditée (10 scénarios, 18 sondes, 7 témoins, aucun ajout), 14 jalons techniques, 0 READY; 5 interventions humaines et 5 étapes bloquées. Voir GATE_VALIDATION_EQUIPE_V01.md. Les chantiers scientifiques P0 demeurent ouverts jusqu'aux preuves humaines et décision équipe. Aucune collecte définitive.

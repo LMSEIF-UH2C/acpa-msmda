@@ -27,3 +27,5 @@ Méthodes : décisions de conception, modifications de protocole et critères d'
 
 ### RET-011 — complément du 28/11/2026
 Faiblesse initiale conservée dans l'entrée ci-dessus. Correction implémentée au commit 651a3b2c0bdb61d7a49f5cad42daac2897a1aec9 : liaison SHA256 canonique à la fiche locale complète, rejet des propositions liées à une ancienne version même si URL/date inchangées, anciennes propositions non liées conservées mais masquées. Retest ciblé 34/34 exécutions réussies ([run](https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171523523)). Statut : CORRECTION_TECHNIQUE_CIBLEE_REUSSIE, recette générale et navigateur non encore confirmées. Limite : ni hash du document distant ni contrôle automatique d'évolution du site; aucune validation scientifique.
+
+RET-011 : retest général 10/10 et navigateur 18/18 +6/6 panneaux réussis. Limite de preuve distante inchangée; correction locale techniquement acceptée. [Audit A3](AUDIT_APPLICATION_A3_V01.json).

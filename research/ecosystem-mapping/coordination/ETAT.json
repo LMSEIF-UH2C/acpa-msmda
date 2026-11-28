@@ -1,41 +1,18 @@
 {
   "schema_version": 1,
-  "revision": 39,
+  "revision": 40,
   "branch": "research/ecosystem-mapping-pilot",
   "scientific_version": "0.1.58",
   "scientific_baseline_commit": "c7da29efe69974ebc365dbf0aa942f95ec5846df",
-  "lock": {
-    "actor": "interactive_assistant",
-    "intervention_id": "INT-APP-A3-0017",
-    "task_id": "A3",
-    "acquired_utc": "2026-11-28T17:31:06.368Z",
-    "base_head": "22d80407294ca8b005adac8de2ff2591c5551a3e",
-    "run_refs": [
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171020031",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171019965",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171019952",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171024771",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171024719",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171024722",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171024721",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171523523",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171523402",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171523423",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171528063",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171528018",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171528029",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171528008"
-    ],
-    "resume_note": "A3 prior CI 10/10 success. Schema v2 binds proposal to full local pointer SHA256. 34/34 targeted executions passed, UI expanded acceptance run 46171523423 and general CI pending review. Keep lock until terminal results.; contrat A4 préparé sans implémentation, 16 cas de référence proposés; ne pas démarrer avant clôture A3."
-  },
+  "lock": null,
   "last_handoff": {
     "actor": "interactive_assistant",
-    "intervention_id": "INT-APP-A2-0016",
+    "intervention_id": "INT-APP-A3-0017",
     "completed": "2026-11-28",
-    "summary": "A2 browser retry 18/18 and general checks 5/5; artifact SHA CRC and 18 rows verified, DB unchanged. A3 READY.",
+    "summary": "A3 10/10 CI, 18/18 browser and 6/6 expanded panel, artifact SHA/CRC readback, 42 screenshots. A4 READY.",
     "next_task": null,
-    "next_application_task": "A3",
-    "evidence": "../AUDIT_APPLICATION_A2_BROWSER_V01.json"
+    "next_application_task": "A4",
+    "evidence": "../AUDIT_APPLICATION_A3_V01.json"
   },
   "priority_queue": [],
   "tasks": [
@@ -333,19 +310,20 @@
       },
       {
         "id": "A3",
-        "status": "IN_PROGRESS",
+        "status": "TECH_VERIFIED",
         "deps": [
           "A2"
         ],
-        "next": "Read terminal CI at 651a3b2, verify 18 browser cases and 6 expanded qualification panels, artifact and DB SHA. Close A3 only if all succeed; retain RET-011 limits. Then A4.",
+        "next": "A4",
         "evidence": "../AUDIT_APPLICATION_A3_V01.json"
       },
       {
         "id": "A4",
-        "status": "BLOCKED",
+        "status": "READY",
         "deps": [
           "A3"
-        ]
+        ],
+        "next": "Implement technical prototype on fictional fixtures and fail-closed real proposals; no scientific promotion"
       },
       {
         "id": "A5",
@@ -372,8 +350,8 @@
     ],
     "integration_commit": "651a3b2c0bdb61d7a49f5cad42daac2897a1aec9",
     "pr": 82,
-    "regression_status": "PENDING",
-    "next_task": "A3",
+    "regression_status": "SUCCESS",
+    "next_task": "A4",
     "dual_entry": {
       "stable": "v0.2.0 baseline, default",
       "experimental": "opt-in separate route; no automatic switch, no promotion before external acceptance"

@@ -21,3 +21,6 @@ Voir [registre Web/desktop et preuves](CANAUX_COMPLEMENTAIRES_V01.csv). Wikidata
 
 ## SILL / DINUM — 28 novembre 2026
 https://code.gouv.fr/sill/ ; https://code.gouv.fr/sill/terms : données JSON publiées sous Licence Ouverte 2.0; accès aux fiches complètes réservé, export public à identifier et tester. Biais institutionnel français et libre. Pas de collecte effectuée à ce stade.
+
+## SILL v2 — protocole de lancement 28 novembre 2026
+Export public documenté https://code.gouv.fr/sill/api/v2/catalogi.json ; contrat https://code.gouv.fr/sill/api/docs ; licence et attribution DINUM. Ancien export trop volumineux pour lecture directe; pilote GitHub Actions préparé, état réseau non vérifié. Données partiellement issues de Wikidata; dépendance intersource. Voir SILL_PILOT_PROTOCOL.md. Aucun brut publié avant revue des champs.

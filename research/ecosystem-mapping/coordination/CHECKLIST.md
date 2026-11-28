@@ -35,3 +35,6 @@ Piste application v0.3.0 : A1 EN COURS, A2–A7 dépendants. Aucun changement de
 PR82 brouillon, A1 : implémenté et 48/48 tests ciblés réussis; régression complète PENDING. A2 bloqué jusqu'à vérification des régressions complètes. A3–A7 dépendent des étapes précédentes. [Audit](../AUDIT_APPLICATION_A1_V01.json). Aucun statut scientifique modifié.
 
 A1 : 7/7 contrôles terminaux réussis. A2 réservé INT-APP-A2-0015, coexistence stable/expérimental sans bascule.
+
+## Piste application — A2
+A1 TECH_VERIFIED (7/7 CI). A2 développé, 38/38 ciblés; registre 2500 dont 34 pistes, 0 recommandation nouvelle. CI générale PENDING; recette navigateur mode activé/désactivé à faire. A2 READY pour recette, A3–A7 bloqués. Main intact, PR82 brouillon. [Audit](../AUDIT_APPLICATION_A2_V01.json). Verrou LIBRE.

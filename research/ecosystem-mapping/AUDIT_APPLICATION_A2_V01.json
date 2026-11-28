@@ -1,0 +1,93 @@
+{
+  "phase": "A2",
+  "integration_commit": "104949240d3758f687105b0e1481bb55219b9d42",
+  "pr": 82,
+  "stable_catalogue": 2466,
+  "prototype": {
+    "source_records": 2500,
+    "observations": 2500,
+    "sources": {
+      "catalog": 2466,
+      "doc_web": 17,
+      "doc_target": 17
+    },
+    "documentary_leads": 34,
+    "new_recommendable": 0
+  },
+  "tests": {
+    "run_id": 46167268989,
+    "distinct": 19,
+    "executions": 38,
+    "passed": 38,
+    "first_import": {
+      "records": 2500,
+      "observations": 2500
+    },
+    "repeat_import": {
+      "records": 0,
+      "observations": 0
+    },
+    "python": [
+      "3.12",
+      "3.14"
+    ]
+  },
+  "a1": {
+    "full_ci": "7/7 success",
+    "commit": "105b3c193e663799c173bbe61793711d790bf165"
+  },
+  "full_regression_status": "PENDING",
+  "checks": [
+    {
+      "name": "reference",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46167273848/job/141047486857"
+    },
+    {
+      "name": "tests (3.14)",
+      "status": "in_progress",
+      "conclusion": null,
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46167273792/job/141047486790"
+    },
+    {
+      "name": "mobile-navigation",
+      "status": "in_progress",
+      "conclusion": null,
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46167273824/job/141047486590"
+    },
+    {
+      "name": "smoke-test",
+      "status": "in_progress",
+      "conclusion": null,
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46167273801/job/141047486568"
+    },
+    {
+      "name": "tests (3.12)",
+      "status": "in_progress",
+      "conclusion": null,
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46167273792/job/141047486551"
+    },
+    {
+      "name": "register (3.14)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46167268989/job/141047472536"
+    },
+    {
+      "name": "register (3.12)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46167268989/job/141047472327"
+    }
+  ],
+  "activation": {
+    "default": false,
+    "flag": "ACPA_EXPERIMENTAL_ECOSYSTEM=1",
+    "db": "ACPA_EXPERIMENTAL_DB",
+    "isolation": "read-only preview, separate SQLite, no legacy writes or automatic switch",
+    "ui_enabled_test": "NOT_PERFORMED",
+    "public_deployment": false
+  },
+  "limitations": "34 project-authored minimal documentary pointers, not unique new products. No external raw ingestion, identity resolution or scientific validation. 12956 research records not imported. Flag is not authentication. SQLite local durability requires retained storage. Full regression and actual enabled route browser test required before A3."
+}

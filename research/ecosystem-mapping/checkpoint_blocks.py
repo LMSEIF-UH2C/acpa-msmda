@@ -24,8 +24,8 @@ def validate_plan(plan):
         raise ValueError("Request identity mismatch")
     return ids
 
-def recover(plan,out,mode):
-    ids=validate_plan(plan)
+def recover(plan,out,mode,validator=validate_plan):
+    ids=validator(plan)
     manifest={"schema":1,"mode":mode,"plan_sha256":digest(plan)}
     path=out/"manifest.json"
     if path.exists():
@@ -46,16 +46,17 @@ def recover(plan,out,mode):
         records[i]=rec
     return records
 
-def block(plan,out,provider,budget,mode="fixture"):
+def block(plan,out,provider,budget,mode="fixture",validator=validate_plan,stop_on_error=False):
     if budget<1:raise ValueError("Positive request budget required")
     out.mkdir(parents=True,exist_ok=True)
-    records=recover(plan,out,mode)
+    records=recover(plan,out,mode,validator)
     reused=sum(x["status"]=="ok" for x in records.values())
     attempts=0
     # A blocked response is a hard stop, not an invitation to retry.
     blocked=any(x["status"]=="blocked" for x in records.values())
+    halted=stop_on_error and any(x["status"]=="error" for x in records.values())
     for q in plan:
-        if blocked or attempts>=budget:break
+        if blocked or halted or attempts>=budget:break
         i=q["request_id"]
         if i in records:continue # errors require explicit documented adjudication; do not silently retry
         start=time.monotonic()
@@ -66,6 +67,7 @@ def block(plan,out,provider,budget,mode="fixture"):
         save(out/(i+".record.json"),rec)
         records[i]=rec;attempts+=1
         if status=="blocked":blocked=True
+        if stop_on_error and status=="error":halted=True
     counts=collections.Counter(x["status"] for x in records.values())
     report={"mode":mode,"planned":len(plan),"new_attempts":attempts,"reused_successes":reused,"recorded":len(records),"status_counts":dict(counts),"unattempted":len(plan)-len(records),"blocked":blocked,"complete_success":counts["ok"]==len(plan)}
     save(out/"progress.json",report);print(json.dumps(report,indent=2))

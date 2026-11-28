@@ -1,0 +1,65 @@
+name: Ecosystem live checkpoint cross-runner pilot
+on:
+  push:
+    branches: [research/ecosystem-mapping-pilot]
+    paths: ['research/ecosystem-mapping/wikidata_checkpoint_adapter.py','research/ecosystem-mapping/WIKIDATA_CHECKPOINT_PLAN_V01.json','.github/workflows/ecosystem-live-checkpoint.yml']
+permissions:
+  contents: read
+concurrency:
+  group: ecosystem-wikidata-live-pilot
+  cancel-in-progress: false
+jobs:
+  first:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: |
+          python -m unittest discover -s research/ecosystem-mapping/tests -p 'test_*checkpoint*.py' -v
+      - run: python research/ecosystem-mapping/wikidata_checkpoint_adapter.py --stage 1 --output wd-checkpoint --approved-bounded-pilot
+      - uses: actions/upload-artifact@v4
+        with:
+          name: wd-checkpoint-first
+          path: wd-checkpoint/
+          retention-days: 30
+  second:
+    needs: first
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          name: wd-checkpoint-first
+          path: wd-checkpoint
+      - run: python research/ecosystem-mapping/wikidata_checkpoint_adapter.py --stage 2 --output wd-checkpoint --approved-bounded-pilot
+      - uses: actions/upload-artifact@v4
+        with:
+          name: wd-checkpoint-second
+          path: wd-checkpoint/
+          retention-days: 30
+  verify:
+    needs: second
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          name: wd-checkpoint-second
+          path: wd-checkpoint
+      - run: python research/ecosystem-mapping/wikidata_checkpoint_adapter.py --stage audit --output wd-checkpoint
+      - uses: actions/upload-artifact@v4
+        with:
+          name: wd-checkpoint-verified
+          path: wd-checkpoint/
+          retention-days: 30

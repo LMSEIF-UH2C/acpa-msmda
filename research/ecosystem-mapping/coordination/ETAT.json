@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": 11,
+  "revision": 12,
   "branch": "research/ecosystem-mapping-pilot",
   "scientific_version": "0.1.46",
   "scientific_baseline_commit": "09ea4e24861931836d6bc44a49d957d160266ae6",
@@ -11,7 +11,7 @@
     "acquired_utc": "2026-11-28",
     "base_head": "50b23624488871a3e830974ed0762302926cd5d1",
     "run_refs": [],
-    "resume_note": "Inspecter moteur/checkpoint et préparer petit essai séquentiel réel entre jobs distincts."
+    "resume_note": "Pilote Wikidata 4 requêtes, workflow ecosystem-live-checkpoint; vérifier trois jobs et conserver artefacts CC0. Stop si erreur."
   },
   "last_handoff": {
     "actor": "interactive_assistant",

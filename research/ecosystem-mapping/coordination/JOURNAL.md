@@ -15,3 +15,4 @@
 | 2026-11-28 | interactive_assistant | INT-P2-08-0004 | P2-08 | Plan et métriques préparés; tests synthétiques déclenchés | [Plan](../IDENTITY_INDEPENDENT_VALIDATION_PLAN_V01.md) | Vérifier exécution |
 | 2026-11-28 | interactive_assistant | INT-P2-08-0004 | P2-08 | Clôture préparatoire : plan indépendant, 10/10 tests métriques; aucune sélection ni jugement humain; verrou libéré | [Run 46153948988](https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46153948988) · [plan](../IDENTITY_INDEPENDENT_VALIDATION_PLAN_V01.md) | P2-10 |
 | 2026-11-28 | interactive_assistant | INT-P2-10-0005 | P2-10 | Réservation exclusive | HEAD 50b23624488871a3e830974ed0762302926cd5d1 | Essai réel et reprise inter-runners |
+| 2026-11-28 | interactive_assistant | INT-P2-10-0005 | P2-10 | Pilote borné et workflow inter-jobs enregistrés | [Protocole](../LIVE_CHECKPOINT_PROTOCOL_V01.md) | Vérifier run |

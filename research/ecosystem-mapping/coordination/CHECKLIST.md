@@ -1,7 +1,7 @@
 # Checklist de coordination — 28/11/2026
-Référence scientifique V0.1.42; [état machine](ETAT.json) faisant foi; actualiser ensemble. [Règles](README.md) · [Journal](JOURNAL.md).
-**Verrou : OCCUPÉ — assistant interactif, INT-P2-07-0003 (P2-07).**
-Avancement des 24 jalons de pilotage : 8 acquis techniques vérifiés, 5 à traiter (avec dépendances), 1 en cours, 5 interventions humaines, 5 bloqués. Décomposition opérationnelle, pas pourcentage scientifique ni pondération des phases. Aucun passage confirmatoire autorisé.
+Référence scientifique V0.1.44; [état machine](ETAT.json) faisant foi; actualiser ensemble. [Règles](README.md) · [Journal](JOURNAL.md).
+**Verrou : LIBRE. Prochain chantier prioritaire : P2-08.**
+Avancement des 24 jalons de pilotage : 9 acquis techniques vérifiés, 5 à traiter (avec dépendances), 5 interventions humaines, 5 bloqués. Décomposition opérationnelle, pas pourcentage scientifique ni pondération des phases. Aucun passage confirmatoire autorisé.
 | ID | Phase | Jalon | État | Responsable | Dépendances | Preuve / suite |
 |---|---:|---|---|---|---|---|
 | P1-01 | 1 | Audit des pilotes et du diagramme historique | Acquis technique vérifié | assistant | — | [Preuve de référence](../AUDIT_APPLE_V02_INDEPENDANT.md) — Pilotes auditables; pas de comparaison exhaustive historique |
@@ -14,7 +14,7 @@ Avancement des 24 jalons de pilotage : 8 acquis techniques vérifiés, 5 à trai
 | P2-04 | 2 | Intégration des anciens pilotes et reprise hors ligne | Acquis technique vérifié | assistant | — | [Preuve de référence](../AUDIT_LEGACY_INTEGRATION_V01.json) — 12956 enregistrements et 16245 observations; 83 événements conservés |
 | P2-05 | 2 | Rapprochement global intersource | Acquis technique vérifié | assistant | — | [Preuve de référence](../AUDIT_GLOBAL_IDENTITY_V01.json) — 321 candidats intersources, 656 anciens intra séparés; pas de fusion |
 | P2-06 | 2 | Audit des 2 paires non régénérées, nom court et champs techniques | Acquis technique vérifié | assistant | P2-05 | [Preuve de référence](../AUDIT_RESIDUAL_IDENTITY_V01.json) — Deux paires courtes SILL/Wikidata expliquées et conservées; source_url contient 1795 liens Apple, 90 F-Droid; mapping à valider. 6/6 tests. |
-| P2-07 | 2 | Sensibilité blocage et contrôle des groupes différés | En cours | assistant | P2-06 | [Preuve de référence](../GLOBAL_IDENTITY_PROTOCOL_V01.md) — Bloc 63 intra, seuil 30, noms courts; comparer sans arbitrage automatique |
+| P2-07 | 2 | Sensibilité blocage et contrôle des groupes différés | Acquis technique vérifié | assistant | P2-06 | [Preuve de référence](../AUDIT_IDENTITY_SENSITIVITY_V01.json) — 204 correspondances de listing, 28 nouvelles paires, union intersources 349; caps 10–100 comparés; groupe 63 conserve 1953 paires de dépôt non arbitrées; 8/8 tests. |
 | P2-08 | 2 | Contrôle indépendant hors candidats et plan confirmatoire | Prêt (sous réserve des dépendances) | assistant | P2-07 | [Preuve de référence](../IDENTITY_REVIEW_CODEBOOK_V02.md) — Proposer échantillonnage, critères, limites; pas de jugements humains simulés |
 | P2-09 | 2 | Double calibration identité (57+10 paires) | Intervention humaine | équipe/juges | — | [Preuve de référence](../AUDIT_IDENTITY_REGISTRY_V03.json) — 67 paires vierges par juge; organiser deux juges indépendants et arbitrage |
 | P2-10 | 2 | Essai réel séquentiel moteur et reprise entre runners | Prêt (sous réserve des dépendances) | assistant | — | [Preuve de référence](../CHECKPOINT_PROTOCOL.md) — Périmètre autorisé uniquement; preuve de restauration, erreurs et durée |

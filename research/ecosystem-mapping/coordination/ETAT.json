@@ -1,31 +1,22 @@
 {
   "schema_version": 1,
-  "revision": 6,
+  "revision": 7,
   "branch": "research/ecosystem-mapping-pilot",
-  "scientific_version": "0.1.42",
-  "scientific_baseline_commit": "75ca748f9145cec0a74d08ced0a8ea1abb2d387d",
-  "lock": {
-    "actor": "interactive_assistant",
-    "intervention_id": "INT-P2-07-0003",
-    "task_id": "P2-07",
-    "acquired_utc": "2026-11-28",
-    "base_head": "29f3ffa9bbb60c3489dcd547954b446df3d5692d",
-    "run_refs": [],
-    "resume_note": "Workflow ecosystem-identity-sensitivity en cours de lancement; vérifier run terminal, rapport et préserver résultats."
-  },
+  "scientific_version": "0.1.44",
+  "scientific_baseline_commit": "1266592bfc429f1b5a68460e6c9c21bfd712992e",
+  "lock": null,
   "last_handoff": {
     "actor": "interactive_assistant",
-    "intervention_id": "INT-P2-06-0002",
-    "completed": "2026-11-28T13:43:33Z",
-    "summary": "P2-06 vérifié : 2 paires non régénérées expliquées par longueur 1, schéma source_url diagnostiqué, 6/6 tests; aucun produit confirmé.",
-    "next_task": "P2-07",
-    "evidence": "../AUDIT_RESIDUAL_IDENTITY_V01.json",
+    "intervention_id": "INT-P2-07-0003",
+    "completed": "2026-11-28",
+    "summary": "P2-07 vérifié : 204 correspondances de listing, 28 nouvelles, union 349; sensibilité et groupe 63 documentés, 8/8 tests, aucune fusion.",
+    "next_task": "P2-08",
+    "evidence": "../AUDIT_IDENTITY_SENSITIVITY_V01.json",
     "run_refs": [
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46151020904"
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46151743685"
     ]
   },
   "priority_queue": [
-    "P2-07",
     "P2-08",
     "P2-10",
     "P2-11",
@@ -139,13 +130,13 @@
       "id": "P2-07",
       "phase": 2,
       "title": "Sensibilité blocage et contrôle des groupes différés",
-      "status": "IN_PROGRESS",
+      "status": "TECH_VERIFIED",
       "owner": "assistant",
       "deps": [
         "P2-06"
       ],
-      "evidence": "../GLOBAL_IDENTITY_PROTOCOL_V01.md",
-      "next": "Bloc 63 intra, seuil 30, noms courts; comparer sans arbitrage automatique"
+      "evidence": "../AUDIT_IDENTITY_SENSITIVITY_V01.json",
+      "next": "204 correspondances de listing, 28 nouvelles paires, union intersources 349; caps 10–100 comparés; groupe 63 conserve 1953 paires de dépôt non arbitrées; 8/8 tests."
     },
     {
       "id": "P2-08",

@@ -1,4 +1,4 @@
-"""A5 browser acceptance: empty approved test dossier, no real admission."""
+"""A5 browser acceptance: empty, invalid pin and positive synthetic dossier; no real admission."""
 import hashlib
 import json
 import os
@@ -19,7 +19,7 @@ def main():
             for engine in (p.chromium,p.webkit):
                 browser=engine.launch()
                 for lang,labels in LABELS.items():
-                    for mode,port in (("empty",8504),("invalid_pin",8505)):
+                    for mode,port in (("empty",8504),("invalid_pin",8505),("positive",8506)):
                         page=browser.new_page(viewport={"width":390,"height":844},is_mobile=True,has_touch=True)
                         page.goto(f"http://127.0.0.1:{port}/?lang={lang}",wait_until="domcontentloaded")
                         button=page.get_by_role("button",name=labels[0],exact=True)
@@ -29,14 +29,26 @@ def main():
                         expect(panel).to_be_visible(timeout=60000)
                         panel.locator("summary").scroll_into_view_if_needed()
                         panel.locator("summary").click()
-                        if mode=="empty":
+                        if mode in ("empty","positive"):
                             action=panel.get_by_role("button",name=labels[3],exact=True)
                             expect(action).to_be_disabled()
                             panel.get_by_text(labels[2],exact=True).click()
                             expect(action).to_be_enabled()
                             action.click()
-                            expect(panel.get_by_text(labels[4],exact=True)).to_be_visible(timeout=60000)
-                            expect(panel.get_by_text(labels[5],exact=True)).to_be_visible()
+                            if mode=="empty":
+                                expect(panel.get_by_text(labels[4],exact=True)).to_be_visible(timeout=60000)
+                                expect(panel.get_by_text(labels[5],exact=True)).to_be_visible()
+                            else:
+                                warning,success,role,coverage={
+                                    "fr":("Dossier synthétique de test — aucune admission réelle.","Configuration de test complète — résultat synthétique","Candidat de test 1","Couverture obligatoire : 1/1"),
+                                    "ar":("ملف اختبار اصطناعي — لا قبول حقيقي.","منظومة اختبار كاملة — نتيجة اصطناعية","مرشح اختبار 1","التغطية الإلزامية : 1/1"),
+                                    "en":("Synthetic test dossier — no real admission.","Complete test configuration — synthetic result","Test candidate 1","Required coverage : 1/1"),
+                                }[lang]
+                                expect(panel.get_by_text(warning,exact=True)).to_be_visible()
+                                expect(panel.get_by_text(success,exact=True)).to_be_visible(timeout=60000)
+                                expect(panel.get_by_text(role,exact=False)).to_be_visible()
+                                expect(panel.get_by_text(coverage,exact=True)).to_be_visible()
+                                expect(panel.get_by_text("LibreOffice Calc",exact=False)).to_have_count(0)
                         else:
                             expect(panel.get_by_text(labels[6],exact=True)).to_be_visible()
                             expect(panel.get_by_role("button",name=labels[3],exact=True)).to_have_count(0)
@@ -49,6 +61,6 @@ def main():
                 browser.close()
     finally:
         (OUT/"results.json").write_text(json.dumps(results,indent=2),encoding="utf-8")
-    assert len(results)==12
+    assert len(results)==18
 if __name__=="__main__":
     main()

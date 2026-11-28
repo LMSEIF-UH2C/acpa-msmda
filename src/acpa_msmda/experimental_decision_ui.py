@@ -127,6 +127,9 @@ def render_internal_review(path, lang, leads):
         if config is None:
             return
         scenario=config["scenario"]; context=config["context"]
+        test_only=scenario["id"].startswith("TEST_ONLY")
+        if test_only:
+            st.warning(msg("Dossier synthétique de test — aucune admission réelle.","ملف اختبار اصطناعي — لا قبول حقيقي.","Synthetic test dossier — no real admission."))
         for k,title in (("id",msg("Scénario","السيناريو","Scenario")),("platform",msg("Plateforme","المنصة","Platform")),
                         ("setting",msg("Cadre","السياق","Setting")),("data_policy",msg("Politique de données","سياسة البيانات","Data policy"))):
             st.text(title+": "+scenario[k])
@@ -145,7 +148,8 @@ def render_internal_review(path, lang, leads):
         except (OSError,ValueError,RuntimeError,SQLiteError,KeyError,TypeError):
             st.warning(msg("Abstention : dossier interne non vérifiable.","امتناع: الملف الداخلي غير قابل للتحقق.","Abstention: internal dossier unverifiable."))
             return
-        st.write(msg("Technologies admises en interne","تقنيات مقبولة داخليا","Internally admitted technologies")+f" : {result['admitted']}")
+        count_label=msg("Candidats de test","مرشحو الاختبار","Test candidates") if test_only else msg("Technologies admises en interne","تقنيات مقبولة داخليا","Internally admitted technologies")
+        st.write(count_label+f" : {result['admitted']}")
         selected=result["selected"]
         if result["status"]!="COMPLETE_INTERNAL_CONFIGURATION" or selected is None:
             st.warning(msg("Abstention : aucune configuration complète admise.","امتناع: لا توجد منظومة كاملة مقبولة.","Abstention: no complete admitted configuration."))
@@ -159,13 +163,18 @@ def render_internal_review(path, lang, leads):
             }
             st.caption(labels.get(result["status"],msg("Décision non concluante","قرار غير حاسم","Inconclusive decision")))
             return
-        st.success(msg("Configuration admise pour ce contexte interne","منظومة مقبولة لهذا السياق الداخلي","Configuration admitted for this internal context"))
+        if test_only:
+            st.success(msg("Configuration de test complète — résultat synthétique","منظومة اختبار كاملة — نتيجة اصطناعية","Complete test configuration — synthetic result"))
+        else:
+            st.success(msg("Configuration admise pour ce contexte interne","منظومة مقبولة لهذا السياق الداخلي","Configuration admitted for this internal context"))
         names={r["id"]:r["name"] for r in leads}
-        for key in selected["ids"]:
-            st.text(names.get(key,key)+" ["+key+"] : "+", ".join(fn(x) for x in selected["roles"][key]))
+        for i,key in enumerate(selected["ids"],1):
+            name=(msg("Candidat de test","مرشح اختبار","Test candidate")+f" {i}") if test_only else names.get(key,key)+" ["+key+"]"
+            st.text(name+" : "+", ".join(fn(x) for x in selected["roles"][key]))
         st.text(msg("Couverture obligatoire","التغطية الإلزامية","Required coverage")+f" : {len(selected['covered_required'])}/{len(context['required'])}")
         st.text(msg("Couverture facultative","التغطية الاختيارية","Optional coverage")+f" : {len(selected['covered_optional'])}/{len(context['optional'])}")
-        st.text(msg("Coût total documenté (DH)","الكلفة الإجمالية الموثقة (درهم)","Documented total cost (MAD)")+f" : {selected['cost_mad']}")
+        cost_label=msg("Coût fictif (DH)","كلفة افتراضية (درهم)","Synthetic cost (MAD)") if test_only else msg("Coût total documenté (DH)","الكلفة الإجمالية الموثقة (درهم)","Documented total cost (MAD)")
+        st.text(cost_label+f" : {selected['cost_mad']}")
         st.caption(msg("Validité limitée au dossier, aux variantes et au contexte approuvés. Aucun effet pédagogique démontré.",
                        "الصلاحية محصورة في الملف والنسخ والسياق المعتمد. لم تثبت فعالية تربوية.",
                        "Validity limited to the approved dossier, variants and context. No demonstrated pedagogical effect."))

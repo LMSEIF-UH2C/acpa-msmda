@@ -99,5 +99,49 @@
     "generated_files": [],
     "stderr": "ImportError: libEGL.so.1: cannot open shared object file: No such file or directory",
     "scope": "failed import before export; no real BORIS export"
+  },
+  "egl_retest": {
+    "commit": "97e62c66d337f797327fbcfdbbc1b54aea86fb31",
+    "run": 46175844527,
+    "workflows": [
+      {
+        "id": 46175848651,
+        "name": "Independent R validation",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175848651"
+      },
+      {
+        "id": 46175848654,
+        "name": "Public web demo",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175848654"
+      },
+      {
+        "id": 46175848656,
+        "name": "Mobile navigation REC-Y002",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175848656"
+      },
+      {
+        "id": 46175848648,
+        "name": "Tests ACPA MSMDA",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175848648"
+      },
+      {
+        "id": 46175844527,
+        "name": "A5 isolated BORIS runtime evidence",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175844527"
+      }
+    ],
+    "status": "PENDING_TERMINAL_EVIDENCE",
+    "upstream_commit": "01143a7bd3ba9375cda03539d76d3e56391e8084",
+    "acceptance_unchanged": true
   }
 }

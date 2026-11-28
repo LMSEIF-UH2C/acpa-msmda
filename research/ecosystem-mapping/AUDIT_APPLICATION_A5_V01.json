@@ -235,13 +235,6 @@
     "commit": "422a3e992e4897d591a4945c4eda99690bcebe60",
     "workflows": [
       {
-        "id": 46175486423,
-        "name": "Mobile navigation REC-Y002",
-        "status": "in_progress",
-        "conclusion": null,
-        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175486423"
-      },
-      {
         "id": 46175486421,
         "name": "Independent R validation",
         "status": "completed",
@@ -263,6 +256,13 @@
         "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175486520"
       },
       {
+        "id": 46175486423,
+        "name": "Mobile navigation REC-Y002",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175486423"
+      },
+      {
         "id": 46175483107,
         "name": "A5 isolated BORIS runtime evidence",
         "status": "completed",
@@ -277,7 +277,7 @@
         "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175483084"
       }
     ],
-    "results_verified": false,
+    "results_verified": true,
     "planned_panel_cases": 12,
     "upstream_boris_commit": "01143a7bd3ba9375cda03539d76d3e56391e8084",
     "actual_runtime_status": "FAIL_SYSTEM_DEPENDENCY_LIBEGL",
@@ -290,5 +290,48 @@
       "positive_configuration_tested": false
     },
     "failure_artifact_id": 15274424881
+  },
+  "boris_egl_retest": {
+    "commit": "97e62c66d337f797327fbcfdbbc1b54aea86fb31",
+    "workflows": [
+      {
+        "id": 46175848651,
+        "name": "Independent R validation",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175848651"
+      },
+      {
+        "id": 46175848654,
+        "name": "Public web demo",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175848654"
+      },
+      {
+        "id": 46175848656,
+        "name": "Mobile navigation REC-Y002",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175848656"
+      },
+      {
+        "id": 46175848648,
+        "name": "Tests ACPA MSMDA",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175848648"
+      },
+      {
+        "id": 46175844527,
+        "name": "A5 isolated BORIS runtime evidence",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175844527"
+      }
+    ],
+    "results_verified": false,
+    "change": "Install libegl1, verify QtWidgets import and expose CLI stdout/stderr",
+    "real_admission": 0
   }
 }

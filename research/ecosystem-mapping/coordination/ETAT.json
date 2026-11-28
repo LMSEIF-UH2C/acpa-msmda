@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": 60,
+  "revision": 61,
   "branch": "research/ecosystem-mapping-pilot",
   "scientific_version": "0.1.58",
   "scientific_baseline_commit": "c7da29efe69974ebc365dbf0aa942f95ec5846df",
@@ -11,14 +11,13 @@
     "acquired_utc": "2026-11-28T18:05:58.979Z",
     "base_head": "12f6b300aa2d853ae4f5d0412cc52015fcad984c",
     "run_refs": [
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175486423",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175486421",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175486394",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175486520",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175483107",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175483084"
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175848651",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175848654",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175848656",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175848648",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175844527"
     ],
-    "resume_note": "A5 recette activée 46175483084 : 12/12 cas réussis (FR/AR/EN × Chromium/WebKit × dossier vide/empreinte invalide), registre et deux fichiers de configuration SHA256 inchangés; archive 15275218298. Pas de test navigateur d'une configuration positive, aucun candidat réel admis. BORIS 46175483107 : source épinglée et installation Python 3.13.18 réussies, commande export code 1, zéro CSV; archive 15274424881 téléchargée et SHA256 recalculé identique au journal (7ddf070eebdd6e216d855f5ecd5ea2763da44adb744ac6c3360a91e8dcf3ef9a). stderr : ImportError: libEGL.so.1: cannot open shared object file: No such file or directory, import PySide6.QtWidgets depuis project_functions.py. RET-016 blocage environnemental constaté, pas incompatibilité BORIS démontrée. Retest à préparer : dépendance système libegl1 et vérification import QtWidgets, journal stderr visible en cas d'échec, même commit amont et mêmes exigences de rapprochement. CI générale : 4/6 succès, un échec BORIS, 1 en cours. Stable/main/catalogue inchangés; A5 reste ouverte."
+    "resume_note": "A5 RET-016 : tous les workflows du commit 422a3e9 sont terminaux (5 success, 1 failure BORIS conservé). Correction de l'environnement de test au commit 97e62c66d337f797327fbcfdbbc1b54aea86fb31 : installation libegl1, inventaire libegl1/libgl1, contrôle explicite import PySide6.QtWidgets, stdout/stderr de la commande export visibles dans les logs. Même source BORIS épinglée, projet et critères de comparaison inchangés. Retest déclenché 46175844527 ; résultat à vérifier sur ce SHA. Aucun changement du moteur ou de l'interface, aucun candidat réel admis, aucune publication. Les résultats antérieurs ne sont pas assimilés aux résultats du nouveau commit."
   },
   "last_handoff": {
     "actor": "interactive_assistant",
@@ -348,7 +347,7 @@
         "deps": [
           "A4"
         ],
-        "next": "After all current workflows terminal, retest pinned BORIS with libegl1 and QtWidgets import check; retain failure and original artifact; verify positive internal UI separately and qualify real contextual evidence.",
+        "next": "Read terminal retest logs and archive; distinguish Qt import, CLI execution and source reconciliation; preserve any further failure; then test positive internal UI with explicitly test-only data and qualify real context.",
         "evidence": "../AUDIT_APPLICATION_A5_V01.json"
       },
       {
@@ -368,9 +367,9 @@
         ]
       }
     ],
-    "integration_commit": "422a3e992e4897d591a4945c4eda99690bcebe60",
+    "integration_commit": "97e62c66d337f797327fbcfdbbc1b54aea86fb31",
     "pr": 82,
-    "regression_status": "BORIS_RUNTIME_BLOCKED_SYSTEM_DEPENDENCY",
+    "regression_status": "PENDING_BORIS_EGL_RETEST",
     "next_task": "A5",
     "dual_entry": {
       "stable": "v0.2.0 baseline, default",

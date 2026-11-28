@@ -82,3 +82,5 @@
 | 2026-11-28 | interactive_assistant | INT-APP-A5-0019 | Recette activée et BORIS | CI précédente 8/8, deux nouveaux workflows implémentés | [Commit](https://github.com/LMSEIF-UH2C/acpa-msmda/commit/422a3e992e4897d591a4945c4eda99690bcebe60) | Lire résultats terminaux |
 
 | 2026-11-28 | interactive_assistant | INT-APP-A5-0019 | Recette activée et RET-016 | 12/12 navigateur, BORIS installation OK/export bloqué libEGL, archive vérifiée | [BORIS](https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175483107) | Retest environnement |
+
+| 2026-11-28 | interactive_assistant | INT-APP-A5-0019 | RET-016 retest | 5/6 succès antérieurs; correctif EGL et diagnostic CLI | [Retest](https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175844527) | Lire preuves terminales |

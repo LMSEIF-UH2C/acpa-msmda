@@ -1,6 +1,6 @@
 # Rapport scientifique évolutif — Cartographie technologique écosystémique ACPA/MSMDA
 
-**Version 0.1.14 — 28 novembre 2026.** Dossier de recherche et base de rédaction d'un article méthodologique. Branche `research/ecosystem-mapping-pilot`, [PR 81](https://github.com/LMSEIF-UH2C/acpa-msmda/pull/81). État : exploration et développement méthodologique; collecte définitive et validation empirique non achevées. Ce rapport est rétrospectif pour les pilotes déjà réalisés, prospectif pour les étapes restantes. Il ne constitue pas un préenregistrement rétroactif. Auteur(s), contributions CRediT, financement, déclarations et choix de revue à confirmer par l'équipe scientifique. Code de production et version publiée v0.2.0 préservés.
+**Version 0.1.15 — 28 novembre 2026.** Dossier de recherche et base de rédaction d'un article méthodologique. Branche `research/ecosystem-mapping-pilot`, [PR 81](https://github.com/LMSEIF-UH2C/acpa-msmda/pull/81). État : exploration et développement méthodologique; collecte définitive et validation empirique non achevées. Ce rapport est rétrospectif pour les pilotes déjà réalisés, prospectif pour les étapes restantes. Il ne constitue pas un préenregistrement rétroactif. Auteur(s), contributions CRediT, financement, déclarations et choix de revue à confirmer par l'équipe scientifique. Code de production et version publiée v0.2.0 préservés.
 
 ## 1. Projet d'article
 Titre provisoire FR : **Vers une cartographie systématique, cumulative, adaptative et multidimensionnelle des technologies éducatives : développement et validation méthodologique en éducation physique et sportive.**
@@ -106,6 +106,9 @@ Annexe E3 relue intégralement (pp.1–6; 12 experts × 5 OTP, échelle 1–5). 
 ### Audit de couverture (V0.1.14)
 [Registre et audit](AUDIT_COUVERTURE_V01.md) : confrontation des trois archives du plan et des pilotes. 288/1 200 couples modernes examinés à 50, 912 non examinés dans ces pilotes; 38 réponses vides, 4 plafonnées. Seize familles abordées, 12 seulement 3/60 chacune; 252 requêtes dans quatre familles approfondies. 12 cellules langue-marché partielles; 1 304/1 592 couples candidats non observés dans ces deux pilotes; aucun à 200. 3 couples également historiques, aucun exclusivement historique. Ne pas interpréter comme couverture du marché ni absence historique; aucune obligation de réaliser toutes les requêtes. Matrices CSV, script de recalcul et registre des axes. Prochaine étape : couverture pédagogique APS × besoins × fonctions et contraintes, et canaux Web/desktop autorisés.
 
+### Couverture pédagogique EPS (V0.1.15)
+[Protocole](COUVERTURE_PEDAGOGIQUE_V01.md) : conservation des 24 APS illustratives de l'application (7 groupes), six extensions non curriculaires proposées, 15 fonctions avant/pendant/après et 12 axes contextuels. Toutes les lignes sont à valider. Traduction archivée OP2007 consultée, tableau et cycle p.14–15 vérifiés visuellement; OP2009 et authenticité/applicabilité des textes à confirmer. Codes 10D/97P indicatifs. Contrôle structurel CI prévu. Pas de produit ni couverture empirique confirmés. Prochaine étape : audit lexical et sources complémentaires selon besoins, validation des cellules pertinentes et récupération historique.
+
 ## 6. Chronologie et registre des décisions (UTC, 28 novembre 2026)
 | Heure | Commit / preuve | Décision, résultat et justification |
 |---|---|---|
@@ -144,6 +147,8 @@ Annexe E3 relue intégralement (pp.1–6; 12 experts × 5 OTP, échelle 1–5). 
 | 28 nov. | V0.1.12 : [preuve de génération du kit](https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46134488121) | 7 tests réussis, 7 cas, 361 lignes par juge, 97 par expert, formulaires vierges générés. Prochaine condition : revue experte, fixation des cas, puis cotation indépendante; en parallèle récupération historique et droits. |
 
 | 28 nov. | V0.1.13–0.1.14 : clarification et [audit de couverture](AUDIT_COUVERTURE_V01.md) | Priorité à la rigueur et à la diversité; 288 couples vérifiés à 50, déséquilibre entre familles, registre de lacunes; pas de nouveau résultat de pertinence ou collecte réseau. |
+
+| 28 nov. | V0.1.15 : [couverture pédagogique](COUVERTURE_PEDAGOGIQUE_V01.md) | 24 APS préservées + 6 propositions, 15 fonctions, 12 contextes; sources curriculaires distinguées des propositions, pas de revendication de conformité. Contrôle structurel déclenché. |
 
 ## 7. Validation prospective : plan de travail et critères de passage
 Le [plan directeur de finalisation](PLAN_FINALISATION.md) définit six phases avec livrables et critères de passage : consolidation, stabilisation (incluant calibration des juges et préenregistrement avant collecte), collecte définitive, qualification/validation, moteur écosystémique, valorisation et clôture. En cas d'archives historiques irrécupérables, distinguer nouvelle collecte et comparaison documentaire limitée, sans annoncer de gain net historique. Les paramètres de validation et les critères d'arrêt restent à approuver avant exécution confirmatoire. Quatre figures distinctes proposées : flux historique, architecture, flux quantitatif nouveau et modèle écosystémique.

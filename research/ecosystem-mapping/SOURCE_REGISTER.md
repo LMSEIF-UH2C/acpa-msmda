@@ -30,3 +30,5 @@ SILL v2 : HTTP 500 au run 46139236521, six tests réussis, aucun résultat rése
 SILL export historique : run 46139311316 réussi, 672 entrées dont 615 non déréférencées, 57 déréférencées. Inventaire et empreintes disponibles dans l'artefact 15260778228; données brutes non conservées. Voir AUDIT_SILL_PILOT_V01.md. Aucune qualification pédagogique ni fusion.
 
 Wikidata : pilote P31 direct sur dix classes, accès CC0, WDQS borné et arrêt sur erreur; plan et protocole versionnés. Résultats non vérifiés au lancement. QID SILL non présents dans projection, aucune indépendance présumée.
+
+Wikidata : run 46139718701 réussi, 10/10 requêtes, 549 observations, 547 QID distincts, 2 plafonds; artefact 15261401982, CC0, audit AUDIT_WIKIDATA_PILOT_V01.md. Couverture P31 directe limitée, provenance SILL/Wikidata non résolue.

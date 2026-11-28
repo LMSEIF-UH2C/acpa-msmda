@@ -1,4 +1,6 @@
 import json
+import hashlib
+import sqlite3
 from pathlib import Path
 import sys
 import tempfile
@@ -6,7 +8,7 @@ import unittest
 from itertools import combinations
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/"src"))
-from acpa_msmda.experimental_ecosystem import GATES,solve_fixture,inspect_real_proposals
+from acpa_msmda.experimental_ecosystem import GATES,solve_fixture,inspect_real_proposals,inspect_documentary_register,compare_historical_native
 from acpa_msmda.experimental_registry import import_snapshot,read_preview
 from acpa_msmda.real_catalog import DEFAULT_PATH
 
@@ -113,3 +115,69 @@ class EcosystemTests(unittest.TestCase):
         self.assertEqual(self.runset([tool("a",["F04","F06"])],ctx(unsupported_requirements=["other"]))["status"],"UNSUPPORTED_REQUIREMENT")
     def test_unapproved(self):
         self.assertIsNone(self.runset([tool("a",["F04","F06"],review="NOT_ASSESSED")])["selected"])
+
+    def test_documentary_adapter_exact_lineage(self):
+        with tempfile.TemporaryDirectory() as d:
+            doc=json.loads((ROOT/"data/experimental_documentary_leads.json").read_text())
+            qual=json.loads((ROOT/"data/experimental_qualification_proposals.json").read_text())
+            db=Path(d)/"fixture.sqlite"
+            import_snapshot(db,DEFAULT_PATH,doc,observed_on="2026-11-28",qualification=qual)
+            digest=hashlib.sha256(db.read_bytes()).hexdigest()
+            r=inspect_documentary_register(db,ctx())
+            self.assertEqual((r["records"],r["linked_proposals"],r["admitted"],r["recommended"]),(34,34,0,[]))
+            self.assertFalse(r["coverage_assessed"])
+            self.assertEqual(r["uncovered_required"],["F04","F06"])
+            self.assertTrue(all(x["status"]=="DOCUMENTARY_PROPOSAL_ONLY" and not x["admissible"]
+                                and x["function_ids"] is None and set(x["constraints"].values())=={"UNKNOWN"}
+                                for x in r["diagnostics"]))
+            self.assertEqual(digest,hashlib.sha256(db.read_bytes()).hexdigest())
+            print("A4_DOCUMENTARY_ADAPTER "+json.dumps({"records":r["records"],"linked":r["linked_proposals"],"admitted":r["admitted"]}))
+    def test_documentary_adapter_stale_proposal(self):
+        with tempfile.TemporaryDirectory() as d:
+            doc=json.loads((ROOT/"data/experimental_documentary_leads.json").read_text())
+            qual=json.loads((ROOT/"data/experimental_qualification_proposals.json").read_text())
+            db=Path(d)/"fixture.sqlite"
+            import_snapshot(db,DEFAULT_PATH,doc,observed_on="2026-11-28",qualification=qual)
+            doc["records"][0]["name"]+=" (changed local record)"
+            import_snapshot(db,DEFAULT_PATH,doc,observed_on="2026-11-28")
+            r=inspect_documentary_register(db,ctx())
+            self.assertEqual(r["linked_proposals"],33)
+            self.assertEqual(sum(x["status"]=="NO_CURRENT_PROPOSAL" for x in r["diagnostics"]),1)
+            self.assertEqual(r["admitted"],0)
+    def test_documentary_adapter_rejects_tampered_hash(self):
+        with tempfile.TemporaryDirectory() as d:
+            doc=json.loads((ROOT/"data/experimental_documentary_leads.json").read_text())
+            qual=json.loads((ROOT/"data/experimental_qualification_proposals.json").read_text())
+            db=Path(d)/"fixture.sqlite"
+            import_snapshot(db,DEFAULT_PATH,doc,observed_on="2026-11-28",qualification=qual)
+            # Deliberately corrupt disposable test copy; no mutation of real registry.
+            with sqlite3.connect(db) as conn:
+                conn.execute("DROP TRIGGER no_qualification_update")
+                conn.execute("UPDATE qualification SET payload_sha256=? WHERE record_id=?",
+                             ("0"*64,qual["records"][0]["record_id"]))
+            r=inspect_documentary_register(db,ctx())
+            self.assertEqual(r["linked_proposals"],33)
+            self.assertEqual(sum(x["status"]=="PROPOSAL_LINEAGE_MISMATCH" for x in r["diagnostics"]),1)
+            self.assertEqual(r["recommended"],[])
+    def test_historical_native_calls_actual_ranking(self):
+        from acpa_msmda.real_catalog import recommend
+        digest=hashlib.sha256(DEFAULT_PATH.read_bytes()).hexdigest()
+        for text in ("course relais chronometrage sans connexion","basketball video"):
+            with self.subTest(context=text):
+                native=recommend(text,votes={},path=DEFAULT_PATH)
+                r=compare_historical_native(text,catalogue_path=DEFAULT_PATH,expected_sha256=digest,limit=5)
+                self.assertEqual(r["matched_count"],len(native["matches"]))
+                self.assertEqual([x["id"] for x in r["results"]],[x["id"] for x in native["matches"][:5]])
+                self.assertEqual([x["fit"] for x in r["results"]],[x["fit"] for x in native["matches"][:5]])
+                self.assertFalse(r["common_pool_comparison"])
+                self.assertIsNone(r["coverage"])
+                self.assertIsNone(r["constraint_violations"])
+                self.assertFalse(r["ranking_validated"])
+                print("A4_HISTORICAL_NATIVE "+json.dumps({"context":text,"count":r["matched_count"],"results":r["results"],"catalogue_sha256":digest},ensure_ascii=False))
+        self.assertEqual(digest,hashlib.sha256(DEFAULT_PATH.read_bytes()).hexdigest())
+    def test_historical_snapshot_and_limit_guard(self):
+        digest=hashlib.sha256(DEFAULT_PATH.read_bytes()).hexdigest()
+        with self.assertRaises(ValueError):
+            compare_historical_native("course",catalogue_path=DEFAULT_PATH,expected_sha256="0"*64)
+        with self.assertRaises(ValueError):
+            compare_historical_native("course",catalogue_path=DEFAULT_PATH,expected_sha256=digest,limit=0)

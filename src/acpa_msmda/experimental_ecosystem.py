@@ -124,3 +124,87 @@ def inspect_real_proposals(leads):
     return {"mode":"REAL_DOCUMENTARY_ONLY","status":"NO_OPERATIONAL_RECOMMENDATION",
             "records":len(leads),"admitted":0,"recommended":[],
             "reason":"INDEPENDENT_REVIEW_AND_CONTEXT_EVIDENCE_REQUIRED"}
+
+def inspect_documentary_register(db_path, context):
+    """Read current A3 observations, validate their exact local lineage, and abstain.
+    
+    No documentary record can be converted to a solver fixture or a real
+    candidate. No inference of F01–F15, hard constraints or independent review.
+    """
+    from .experimental_registry import read_preview
+    from .experimental_qualification import canonical, validate, CONSTRAINTS
+    import hashlib
+    req, opt = _context(context)
+    leads = read_preview(db_path, include_provenance=True)["leads"]
+    result = inspect_real_proposals(leads)
+    result.update({"required":sorted(req), "optional":sorted(opt),
+                   "uncovered_required":sorted(req), "coverage_assessed":False,
+                   "unsupported_requirements":list(context["unsupported_requirements"]),
+                   "diagnostics":[]})
+    for lead in leads:
+        source, native = lead["id"].split(":",1)
+        row = dict(source=source,id=native,name=lead["name"],category=lead["category"],
+                   kind=lead["kind"],url=lead["url"],date=lead["date"])
+        digest = hashlib.sha256(canonical(row).encode("utf-8")).hexdigest()
+        obs = lead["source_observation"]
+        valid_source = (obs["sha256"] == digest and obs["locator"] == row["url"]
+                        and obs["id"] == "obs:"+lead["id"]+":"+row["date"]+":"+digest)
+        proposal = lead.get("qualification_proposal")
+        qobs = lead.get("qualification_observation")
+        status = "SOURCE_LINEAGE_MISMATCH" if not valid_source else "NO_CURRENT_PROPOSAL"
+        linked = False
+        if valid_source and proposal is not None:
+            try:
+                validated = validate({"schema_version":2,"records":[proposal]},
+                                     {"records":[row]})[0]
+                linked = (qobs == {"id":validated[0],"sha256":validated[4]})
+            except (ValueError, KeyError, TypeError):
+                linked = False
+            status = "DOCUMENTARY_PROPOSAL_ONLY" if linked else "PROPOSAL_LINEAGE_MISMATCH"
+        result["diagnostics"].append({
+            "id":lead["id"], "source_observation":obs,
+            "qualification_observation":qobs if linked else None,
+            "status":status, "documented_function":proposal["documented_function"] if linked else None,
+            "proposed_role":proposal["proposed_role"] if linked else None,
+            "review_status":"NOT_ASSESSED" if linked else "UNKNOWN",
+            "identity_status":"UNRESOLVED" if linked else "UNKNOWN",
+            "constraints":dict.fromkeys(CONSTRAINTS,"UNKNOWN"),
+            "function_ids":None, "admissible":False,
+            "reasons":[status,"INDEPENDENT_REVIEW_REQUIRED","CONTEXT_EVIDENCE_REQUIRED",
+                       "FUNCTION_MAPPING_NOT_VALIDATED","IDENTITY_NOT_RESOLVED"]})
+    result["linked_proposals"] = sum(d["status"]=="DOCUMENTARY_PROPOSAL_ONLY" for d in result["diagnostics"])
+    return result
+
+def compare_historical_native(context_text, *, catalogue_path, expected_sha256, limit=5):
+    """Call the actual legacy ranking with neutral votes on exact snapshot bytes.
+    
+    Native scores/keywords are descriptive, not comparable coverage or evidence.
+    No conversion of historic ranks to admissible tools; no claim of superiority.
+    """
+    import hashlib
+    from pathlib import Path
+    from tempfile import TemporaryDirectory
+    from .real_catalog import recommend
+    if not isinstance(context_text,str) or not context_text.strip():
+        raise ValueError("Context text required")
+    if type(limit) is not int or not 1 <= limit <= 50:
+        raise ValueError("Limit must be 1..50")
+    raw = Path(catalogue_path).read_bytes()
+    digest = hashlib.sha256(raw).hexdigest()
+    if digest != expected_sha256:
+        raise ValueError("Historical catalogue snapshot hash mismatch")
+    with TemporaryDirectory() as tmp:
+        frozen = Path(tmp)/"catalogue.json"
+        frozen.write_bytes(raw)
+        native = recommend(context_text, votes={}, path=frozen)
+    matches = native["matches"]
+    return {"mode":"HISTORICAL_NATIVE_DESCRIPTIVE_ONLY","catalogue_sha256":digest,
+            "context_text":context_text,"votes":"NEUTRAL","method":native["method"],
+            "ranking_validated":native["ranking_validated"],"matched_count":len(matches),
+            "limit":limit,"context_flags":native["context_flags"],
+            "results":[{"rank":i,"id":t["id"],"fit":t["fit"],
+                        "matched_terms":t["matched_terms"],"verified_features":t["verified"]}
+                       for i,t in enumerate(matches[:limit],1)],
+            "common_pool_comparison":False,"coverage":None,"cost_mad":None,
+            "constraint_violations":None,"load":None,
+            "limitation":"NO_VALIDATED_COMMON_FUNCTION_MAPPING_OR_CONTEXT_EVIDENCE"}

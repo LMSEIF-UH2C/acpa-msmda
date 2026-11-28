@@ -122,26 +122,32 @@ def _summary(db):
             "qualification_observations":db.execute("SELECT COUNT(*) FROM qualification").fetchone()[0] if _has_qualification(db) else 0,
             "new_recommendable":0}
 
-def read_preview(db_path):
+def read_preview(db_path, *, include_provenance=False):
     """Read-only, no writes and no legacy score or user/session data."""
     uri=Path(db_path).resolve().as_uri()+"?mode=ro"
     with closing(sqlite3.connect(uri,uri=True)) as db:
+        db.execute("BEGIN")  # consistent read snapshot for observations and qualifications
         summary=_summary(db)
-        rows=db.execute("""SELECT r.id,r.kind,o.observed_on,o.payload,o.payload_sha256 FROM record r
+        rows=db.execute("""SELECT r.id,r.kind,o.observed_on,o.payload,o.payload_sha256,o.id,o.locator FROM record r
             JOIN observation o ON o.record_id=r.id
             WHERE r.source IN ('doc_web','doc_target')
             AND o.id=(SELECT i.id FROM observation i WHERE i.record_id=r.id ORDER BY i.observed_on DESC,i.rowid DESC LIMIT 1)
             ORDER BY r.id""").fetchall()
-        leads=[{"id":r,"kind":k,"date":d,**json.loads(payload)} for r,k,d,payload,_ in rows]
+        leads=[{"id":r,"kind":k,"date":d,**json.loads(payload)} for r,k,d,payload,_,_,_ in rows]
+        if include_provenance:
+            for lead, (_,_,_,_,digest,obs_id,locator) in zip(leads,rows):
+                lead["source_observation"]={"id":obs_id,"sha256":digest,"locator":locator}
         if _has_qualification(db):
-            for lead, (_,_,_,_,source_digest) in zip(leads,rows):
+            for lead, (_,_,_,_,source_digest,_,_) in zip(leads,rows):
                 # Only show the proposal for the currently displayed source observation.
                 # A newer observation or changed link requires a new review.
-                proposals=db.execute("""SELECT payload FROM qualification WHERE record_id=? AND observed_on=? AND locator=?
+                proposals=db.execute("""SELECT payload,id,payload_sha256 FROM qualification WHERE record_id=? AND observed_on=? AND locator=?
                     ORDER BY rowid DESC""",(lead["id"],lead["date"],lead["url"])).fetchall()
                 for q in proposals:
                     proposal=json.loads(q[0])
                     if proposal.get("source_payload_sha256")==source_digest:
                         lead["qualification_proposal"]=proposal
+                        if include_provenance:
+                            lead["qualification_observation"]={"id":q[1],"sha256":q[2]}
                         break
         return {**summary,"leads":leads}

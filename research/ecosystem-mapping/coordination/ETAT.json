@@ -1,32 +1,22 @@
 {
   "schema_version": 1,
-  "revision": 15,
+  "revision": 16,
   "branch": "research/ecosystem-mapping-pilot",
-  "scientific_version": "0.1.48",
-  "scientific_baseline_commit": "b868d0ee007d50ef5e2fc154de7d5c87e5f7ef78",
-  "lock": {
-    "actor": "interactive_assistant",
-    "intervention_id": "INT-P2-11-0006",
-    "task_id": "P2-11",
-    "acquired_utc": "2026-11-28",
-    "base_head": "656df3884ba0a650e6ee9cd824c0a68990b4990b",
-    "run_refs": [],
-    "resume_note": "Workflow ecosystem-saturation-comparison; comparer 10 scénarios sur archives Apple, aucune nouvelle collecte."
-  },
+  "scientific_version": "0.1.50",
+  "scientific_baseline_commit": "2fbc942db6fa46f439c02116cb9fb9f53de60ae6",
+  "lock": null,
   "last_handoff": {
     "actor": "interactive_assistant",
-    "intervention_id": "INT-P2-10-0005",
+    "intervention_id": "INT-P2-11-0006",
     "completed": "2026-11-28",
-    "summary": "P2-10 pilote borné réussi : 4 requêtes WDQS, 108 QID, reprise inter-jobs, quatre succès réutilisés hors ligne, preuve durable vérifiée, 16/16 tests.",
-    "next_task": "P2-11",
-    "evidence": "../AUDIT_LIVE_CHECKPOINT_V01.json",
+    "summary": "P2-11 préparation vérifiée : comparateurs et sensibilité hors ligne, 7/7 tests, 10 scénarios, aucun seuil de saturation validé. Prochaine priorité P1-04 inventaire et droits.",
+    "next_task": "P1-04",
+    "evidence": "../AUDIT_SATURATION_COMPARISON_V01.json",
     "run_refs": [
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46154207305",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46154207211"
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46157245970"
     ]
   },
   "priority_queue": [
-    "P2-11",
     "P1-04",
     "P2-12"
   ],
@@ -181,13 +171,13 @@
       "id": "P2-11",
       "phase": 2,
       "title": "Saturation prospective et comparateurs",
-      "status": "IN_PROGRESS",
+      "status": "TECH_VERIFIED",
       "owner": "assistant",
       "deps": [
         "P2-10"
       ],
-      "evidence": "../SATURATION_PROTOCOL.md",
-      "next": "Préparer et tester plan exploratoire; seuils soumis à équipe"
+      "evidence": "../AUDIT_SATURATION_COMPARISON_V01.json",
+      "next": "Rejeu 288 requêtes Apple, 3709 IDs, 10 scénarios, 7/7 tests. 238 appels préservent union observée dans quatre scénarios; 236 perdent 9 IDs; 224/226 perdent 105/64. Aucun seuil adopté."
     },
     {
       "id": "P2-12",

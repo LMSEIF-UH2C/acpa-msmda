@@ -1,0 +1,618 @@
+{
+  "adaptive_scenarios": [
+    {
+      "by_family": {
+        "communication": {
+          "attempted": 48,
+          "new_ids": 569
+        },
+        "continuity": {
+          "attempted": 72,
+          "new_ids": 555
+        },
+        "organization": {
+          "attempted": 48,
+          "new_ids": 445
+        },
+        "research": {
+          "attempted": 72,
+          "new_ids": 705
+        }
+      },
+      "deferred_queries": 0,
+      "difference_vs_fixed_prefix": 0,
+      "events": {
+        "control_calls": 48,
+        "control_new_ids": 410,
+        "reopened_by_control": 1,
+        "suspensions": 5
+      },
+      "lost_ids_by_family_nonadditive": {},
+      "lost_observed_ids": 0,
+      "matched_budget_fixed_prefix_ids": 3709,
+      "minimum_attempted_per_stratum": 3,
+      "new_calls": 240,
+      "observed_coverage": 1,
+      "protected_strata": 33,
+      "retained_observed_ids": 3709,
+      "scheduled_controls": 48,
+      "skipped_capped": 0,
+      "skipped_non_ok": 0,
+      "threshold": 0,
+      "total_strata": 48,
+      "trace_sha256": "995441b05aff4af333e427bcadbee23141a545aeec2367974dc21644bb8b0050",
+      "window": 2
+    },
+    {
+      "by_family": {
+        "communication": {
+          "attempted": 48,
+          "new_ids": 569
+        },
+        "continuity": {
+          "attempted": 72,
+          "new_ids": 555
+        },
+        "organization": {
+          "attempted": 48,
+          "new_ids": 445
+        },
+        "research": {
+          "attempted": 72,
+          "new_ids": 705
+        }
+      },
+      "deferred_queries": 0,
+      "difference_vs_fixed_prefix": 0,
+      "events": {
+        "control_calls": 48,
+        "control_new_ids": 410,
+        "reopened_by_control": 1,
+        "suspensions": 1
+      },
+      "lost_ids_by_family_nonadditive": {},
+      "lost_observed_ids": 0,
+      "matched_budget_fixed_prefix_ids": 3709,
+      "minimum_attempted_per_stratum": 3,
+      "new_calls": 240,
+      "observed_coverage": 1,
+      "protected_strata": 33,
+      "retained_observed_ids": 3709,
+      "scheduled_controls": 48,
+      "skipped_capped": 0,
+      "skipped_non_ok": 0,
+      "threshold": 0,
+      "total_strata": 48,
+      "trace_sha256": "40a1aabc098adbc5cac5f73dc72616a1e196a3ea9cf08e91ac348a5a6e3db0b4",
+      "window": 3
+    },
+    {
+      "by_family": {
+        "communication": {
+          "attempted": 48,
+          "new_ids": 569
+        },
+        "continuity": {
+          "attempted": 72,
+          "new_ids": 555
+        },
+        "organization": {
+          "attempted": 48,
+          "new_ids": 445
+        },
+        "research": {
+          "attempted": 70,
+          "lost_ids_in_skipped_response": 0,
+          "new_ids": 705,
+          "skipped": 2
+        }
+      },
+      "deferred_queries": 2,
+      "difference_vs_fixed_prefix": 0,
+      "events": {
+        "control_calls": 48,
+        "control_new_ids": 410,
+        "suspensions": 4
+      },
+      "lost_ids_by_family_nonadditive": {
+        "research": 0
+      },
+      "lost_observed_ids": 0,
+      "matched_budget_fixed_prefix_ids": 3709,
+      "minimum_attempted_per_stratum": 3,
+      "new_calls": 238,
+      "observed_coverage": 1,
+      "protected_strata": 33,
+      "retained_observed_ids": 3709,
+      "scheduled_controls": 48,
+      "skipped_capped": 0,
+      "skipped_non_ok": 0,
+      "threshold": 2,
+      "total_strata": 48,
+      "trace_sha256": "fd791ffacc9e78efe902a3a52376fe55a3134510516c1a917bc80e4eda3665a3",
+      "window": 2
+    },
+    {
+      "by_family": {
+        "communication": {
+          "attempted": 48,
+          "new_ids": 569
+        },
+        "continuity": {
+          "attempted": 72,
+          "new_ids": 555
+        },
+        "organization": {
+          "attempted": 48,
+          "new_ids": 445
+        },
+        "research": {
+          "attempted": 70,
+          "lost_ids_in_skipped_response": 0,
+          "new_ids": 705,
+          "skipped": 2
+        }
+      },
+      "deferred_queries": 2,
+      "difference_vs_fixed_prefix": 0,
+      "events": {
+        "control_calls": 48,
+        "control_new_ids": 410,
+        "suspensions": 1
+      },
+      "lost_ids_by_family_nonadditive": {
+        "research": 0
+      },
+      "lost_observed_ids": 0,
+      "matched_budget_fixed_prefix_ids": 3709,
+      "minimum_attempted_per_stratum": 3,
+      "new_calls": 238,
+      "observed_coverage": 1,
+      "protected_strata": 33,
+      "retained_observed_ids": 3709,
+      "scheduled_controls": 48,
+      "skipped_capped": 0,
+      "skipped_non_ok": 0,
+      "threshold": 2,
+      "total_strata": 48,
+      "trace_sha256": "89db2eba6c34f82cce92cd4755de9bbce5069d09bac2c05573a44c46a92f3c40",
+      "window": 3
+    },
+    {
+      "by_family": {
+        "communication": {
+          "attempted": 48,
+          "new_ids": 569
+        },
+        "continuity": {
+          "attempted": 72,
+          "new_ids": 555
+        },
+        "organization": {
+          "attempted": 48,
+          "new_ids": 445
+        },
+        "research": {
+          "attempted": 70,
+          "lost_ids_in_skipped_response": 0,
+          "new_ids": 705,
+          "skipped": 2
+        }
+      },
+      "deferred_queries": 2,
+      "difference_vs_fixed_prefix": 0,
+      "events": {
+        "control_calls": 48,
+        "control_new_ids": 410,
+        "suspensions": 5
+      },
+      "lost_ids_by_family_nonadditive": {
+        "research": 0
+      },
+      "lost_observed_ids": 0,
+      "matched_budget_fixed_prefix_ids": 3709,
+      "minimum_attempted_per_stratum": 3,
+      "new_calls": 238,
+      "observed_coverage": 1,
+      "protected_strata": 33,
+      "retained_observed_ids": 3709,
+      "scheduled_controls": 48,
+      "skipped_capped": 0,
+      "skipped_non_ok": 0,
+      "threshold": 5,
+      "total_strata": 48,
+      "trace_sha256": "6e4c1d1b897d7c06bb5c9ef92e791a9a6fcaf9cc84f19eb6609faeaf828e73ae",
+      "window": 2
+    },
+    {
+      "by_family": {
+        "communication": {
+          "attempted": 48,
+          "new_ids": 569
+        },
+        "continuity": {
+          "attempted": 72,
+          "new_ids": 555
+        },
+        "organization": {
+          "attempted": 48,
+          "new_ids": 445
+        },
+        "research": {
+          "attempted": 70,
+          "lost_ids_in_skipped_response": 0,
+          "new_ids": 705,
+          "skipped": 2
+        }
+      },
+      "deferred_queries": 2,
+      "difference_vs_fixed_prefix": 0,
+      "events": {
+        "control_calls": 48,
+        "control_new_ids": 410,
+        "suspensions": 1
+      },
+      "lost_ids_by_family_nonadditive": {
+        "research": 0
+      },
+      "lost_observed_ids": 0,
+      "matched_budget_fixed_prefix_ids": 3709,
+      "minimum_attempted_per_stratum": 3,
+      "new_calls": 238,
+      "observed_coverage": 1,
+      "protected_strata": 33,
+      "retained_observed_ids": 3709,
+      "scheduled_controls": 48,
+      "skipped_capped": 0,
+      "skipped_non_ok": 0,
+      "threshold": 5,
+      "total_strata": 48,
+      "trace_sha256": "89db2eba6c34f82cce92cd4755de9bbce5069d09bac2c05573a44c46a92f3c40",
+      "window": 3
+    },
+    {
+      "by_family": {
+        "communication": {
+          "attempted": 48,
+          "new_ids": 569
+        },
+        "continuity": {
+          "attempted": 72,
+          "new_ids": 555
+        },
+        "organization": {
+          "attempted": 48,
+          "new_ids": 445
+        },
+        "research": {
+          "attempted": 68,
+          "lost_ids_in_skipped_response": 9,
+          "new_ids": 696,
+          "skipped": 4
+        }
+      },
+      "deferred_queries": 4,
+      "difference_vs_fixed_prefix": 12,
+      "events": {
+        "control_calls": 48,
+        "control_new_ids": 410,
+        "suspensions": 9
+      },
+      "lost_ids_by_family_nonadditive": {
+        "research": 9
+      },
+      "lost_observed_ids": 9,
+      "matched_budget_fixed_prefix_ids": 3688,
+      "minimum_attempted_per_stratum": 3,
+      "new_calls": 236,
+      "observed_coverage": 0.9975734699379887,
+      "protected_strata": 33,
+      "retained_observed_ids": 3700,
+      "scheduled_controls": 48,
+      "skipped_capped": 0,
+      "skipped_non_ok": 0,
+      "threshold": 10,
+      "total_strata": 48,
+      "trace_sha256": "5f0a4ef22a56e512d5e00ec2b192d6556641cc5b184bae3d0ac38835a3a17eb6",
+      "window": 2
+    },
+    {
+      "by_family": {
+        "communication": {
+          "attempted": 48,
+          "new_ids": 569
+        },
+        "continuity": {
+          "attempted": 72,
+          "new_ids": 555
+        },
+        "organization": {
+          "attempted": 48,
+          "new_ids": 445
+        },
+        "research": {
+          "attempted": 68,
+          "lost_ids_in_skipped_response": 9,
+          "new_ids": 696,
+          "skipped": 4
+        }
+      },
+      "deferred_queries": 4,
+      "difference_vs_fixed_prefix": 12,
+      "events": {
+        "control_calls": 48,
+        "control_new_ids": 410,
+        "suspensions": 2
+      },
+      "lost_ids_by_family_nonadditive": {
+        "research": 9
+      },
+      "lost_observed_ids": 9,
+      "matched_budget_fixed_prefix_ids": 3688,
+      "minimum_attempted_per_stratum": 3,
+      "new_calls": 236,
+      "observed_coverage": 0.9975734699379887,
+      "protected_strata": 33,
+      "retained_observed_ids": 3700,
+      "scheduled_controls": 48,
+      "skipped_capped": 0,
+      "skipped_non_ok": 0,
+      "threshold": 10,
+      "total_strata": 48,
+      "trace_sha256": "ff6b5245ae67b2d9c093dfdcec23b188ee92a4b462b59ac49ff51886e4e78c4d",
+      "window": 3
+    },
+    {
+      "by_family": {
+        "communication": {
+          "attempted": 48,
+          "new_ids": 569
+        },
+        "continuity": {
+          "attempted": 66,
+          "lost_ids_in_skipped_response": 31,
+          "new_ids": 523,
+          "skipped": 6
+        },
+        "organization": {
+          "attempted": 48,
+          "new_ids": 446
+        },
+        "research": {
+          "attempted": 62,
+          "lost_ids_in_skipped_response": 102,
+          "new_ids": 631,
+          "skipped": 10
+        }
+      },
+      "deferred_queries": 16,
+      "difference_vs_fixed_prefix": -20,
+      "events": {
+        "control_calls": 48,
+        "control_new_ids": 411,
+        "reopened_by_control": 1,
+        "suspensions": 13
+      },
+      "lost_ids_by_family_nonadditive": {
+        "continuity": 31,
+        "research": 74
+      },
+      "lost_observed_ids": 105,
+      "matched_budget_fixed_prefix_ids": 3624,
+      "minimum_attempted_per_stratum": 3,
+      "new_calls": 224,
+      "observed_coverage": 0.9716904826098679,
+      "protected_strata": 33,
+      "retained_observed_ids": 3604,
+      "scheduled_controls": 48,
+      "skipped_capped": 0,
+      "skipped_non_ok": 0,
+      "threshold": 20,
+      "total_strata": 48,
+      "trace_sha256": "5f8a3b92c5122be2c101cc75003fd8245af9c6e1c57afd597364465a0f0cf655",
+      "window": 2
+    },
+    {
+      "by_family": {
+        "communication": {
+          "attempted": 48,
+          "new_ids": 569
+        },
+        "continuity": {
+          "attempted": 66,
+          "lost_ids_in_skipped_response": 31,
+          "new_ids": 523,
+          "skipped": 6
+        },
+        "organization": {
+          "attempted": 48,
+          "new_ids": 446
+        },
+        "research": {
+          "attempted": 64,
+          "lost_ids_in_skipped_response": 34,
+          "new_ids": 672,
+          "skipped": 8
+        }
+      },
+      "deferred_queries": 14,
+      "difference_vs_fixed_prefix": -20,
+      "events": {
+        "control_calls": 48,
+        "control_new_ids": 411,
+        "reopened_by_control": 1,
+        "suspensions": 8
+      },
+      "lost_ids_by_family_nonadditive": {
+        "continuity": 31,
+        "research": 33
+      },
+      "lost_observed_ids": 64,
+      "matched_budget_fixed_prefix_ids": 3665,
+      "minimum_attempted_per_stratum": 3,
+      "new_calls": 226,
+      "observed_coverage": 0.9827446751145862,
+      "protected_strata": 33,
+      "retained_observed_ids": 3645,
+      "scheduled_controls": 48,
+      "skipped_capped": 0,
+      "skipped_non_ok": 0,
+      "threshold": 20,
+      "total_strata": 48,
+      "trace_sha256": "7e7f4e2cc6d7bd75b6ff407d95b446b7348e0a487c00888448de571cbb8a85dd",
+      "window": 3
+    }
+  ],
+  "additional_ids": 2274,
+  "baseline_ids": 1435,
+  "baseline_queries": 48,
+  "by_family": [
+    {
+      "capped": 0,
+      "exclusive_among_families": 37,
+      "family": "assessment",
+      "observed_ids": 42,
+      "queries": 3
+    },
+    {
+      "capped": 0,
+      "exclusive_among_families": 21,
+      "family": "collaboration",
+      "observed_ids": 50,
+      "queries": 3
+    },
+    {
+      "capped": 0,
+      "exclusive_among_families": 522,
+      "family": "communication",
+      "observed_ids": 683,
+      "queries": 51
+    },
+    {
+      "capped": 2,
+      "exclusive_among_families": 635,
+      "family": "continuity",
+      "observed_ids": 760,
+      "queries": 75
+    },
+    {
+      "capped": 0,
+      "exclusive_among_families": 64,
+      "family": "creation",
+      "observed_ids": 66,
+      "queries": 3
+    },
+    {
+      "capped": 0,
+      "exclusive_among_families": 109,
+      "family": "game",
+      "observed_ids": 110,
+      "queries": 3
+    },
+    {
+      "capped": 0,
+      "exclusive_among_families": 69,
+      "family": "immersion",
+      "observed_ids": 73,
+      "queries": 3
+    },
+    {
+      "capped": 0,
+      "exclusive_among_families": 137,
+      "family": "inclusion",
+      "observed_ids": 138,
+      "queries": 3
+    },
+    {
+      "capped": 0,
+      "exclusive_among_families": 90,
+      "family": "measurement",
+      "observed_ids": 93,
+      "queries": 3
+    },
+    {
+      "capped": 0,
+      "exclusive_among_families": 113,
+      "family": "motor",
+      "observed_ids": 114,
+      "queries": 3
+    },
+    {
+      "capped": 0,
+      "exclusive_among_families": 518,
+      "family": "organization",
+      "observed_ids": 682,
+      "queries": 51
+    },
+    {
+      "capped": 0,
+      "exclusive_among_families": 84,
+      "family": "orientation",
+      "observed_ids": 84,
+      "queries": 3
+    },
+    {
+      "capped": 0,
+      "exclusive_among_families": 81,
+      "family": "quiz",
+      "observed_ids": 87,
+      "queries": 3
+    },
+    {
+      "capped": 0,
+      "exclusive_among_families": 809,
+      "family": "research",
+      "observed_ids": 906,
+      "queries": 75
+    },
+    {
+      "capped": 2,
+      "exclusive_among_families": 108,
+      "family": "tactics",
+      "observed_ids": 108,
+      "queries": 3
+    },
+    {
+      "capped": 0,
+      "exclusive_among_families": 64,
+      "family": "video",
+      "observed_ids": 65,
+      "queries": 3
+    }
+  ],
+  "capped_queries": 4,
+  "common_ids": 88,
+  "comparators": {
+    "cumulative_fixed": {
+      "additional_ids": 2274,
+      "hypothetical_new_calls": 240,
+      "observed_ids": 3709,
+      "reuse_condition": "Only if snapshot date, fields, rights and exact scope compatible; not actual saved calls or time.",
+      "reused_archived_queries": 48
+    },
+    "restart_fixed": {
+      "hypothetical_new_calls": 288,
+      "observed_ids": 3709
+    }
+  },
+  "expansion_ids": 2362,
+  "expansion_queries": 240,
+  "limitations": "Replay on known observations, not prospective validation. Same fixed order and frozen corpus, no relevance or rare-product truth labels, no inference beyond limit 50. Cache hypothetical, rights and temporal compatibility not established. No threshold selected. Control queries in same pilot are not independent external validation. Lost family counts may overlap. No actual latency or cost estimates.",
+  "observations": 6987,
+  "scope": "Apple two archived pilots, limit 50, descriptive retrospective replay; no new network",
+  "union_ids": 3709,
+  "unique_physical_queries": 288,
+  "valid_empty_queries": 38,
+  "zero_exclusive_queries": 122,
+  "run_id": 46157245970,
+  "job_id": 141016504471,
+  "tests_passed": 7,
+  "tests_total": 7,
+  "artifact": {
+    "id": 15268127246,
+    "bytes": 2213,
+    "sha256_declared": "20511c67102f8a294f1c2c6b6a4294ed140b8895c98a97edd2b76a0ea88aeac7",
+    "independent_zip_readback": false
+  },
+  "threshold_status": "EXPLORATORY_NOT_SELECTED"
+}

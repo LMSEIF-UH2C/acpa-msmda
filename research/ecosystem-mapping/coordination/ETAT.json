@@ -1,10 +1,18 @@
 {
   "schema_version": 1,
-  "revision": 26,
+  "revision": 27,
   "branch": "research/ecosystem-mapping-pilot",
   "scientific_version": "0.1.58",
   "scientific_baseline_commit": "c7da29efe69974ebc365dbf0aa942f95ec5846df",
-  "lock": null,
+  "lock": {
+    "actor": "interactive_assistant",
+    "intervention_id": "INT-APP-A1-0014",
+    "task_id": "A1",
+    "acquired_utc": "2026-11-28T16:34:00Z",
+    "base_head": "ba09fc99c279a0678e273503aa738ce62121da48",
+    "run_refs": [],
+    "resume_note": "Separate application technical track requested by owner; legacy bridge and regressions; preserve scientific gates."
+  },
   "last_handoff": {
     "actor": "interactive_assistant",
     "intervention_id": "INT-PREP-FINAL-0013",
@@ -283,5 +291,60 @@
       "evidence": "../PLAN_FINALISATION.md",
       "next": "Article, preuves, relecture et accord avant diffusion"
     }
-  ]
+  ],
+  "application_track": {
+    "target": "v0.3.0",
+    "branch": "integration/ecosystem-v030",
+    "base_main": "b4727bf9f200ee58c7b0920f9f153ef4ae05127d",
+    "scope": "Technical prototype only; no scientific gate changed; no collection, release, or merge.",
+    "tasks": [
+      {
+        "id": "A1",
+        "status": "IN_PROGRESS"
+      },
+      {
+        "id": "A2",
+        "status": "BLOCKED",
+        "deps": [
+          "A1"
+        ]
+      },
+      {
+        "id": "A3",
+        "status": "BLOCKED",
+        "deps": [
+          "A2"
+        ]
+      },
+      {
+        "id": "A4",
+        "status": "BLOCKED",
+        "deps": [
+          "A3"
+        ]
+      },
+      {
+        "id": "A5",
+        "status": "BLOCKED",
+        "deps": [
+          "A4"
+        ]
+      },
+      {
+        "id": "A6",
+        "status": "BLOCKED",
+        "deps": [
+          "A5"
+        ]
+      },
+      {
+        "id": "A7",
+        "status": "BLOCKED",
+        "deps": [
+          "A6",
+          "release approval"
+        ]
+      }
+    ]
+  }
 }

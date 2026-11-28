@@ -1,6 +1,6 @@
 # Checklist de coordination — 28/11/2026
 Référence V0.1.58; [état machine](ETAT.json) faisant foi. [Règles](README.md) · [Journal](JOURNAL.md).
-**Verrou : LIBRE. Aucun chantier READY; décision équipe nécessaire.** [Dossier de passage](../GATE_VALIDATION_EQUIPE_V01.md).
+**Verrou : OCCUPÉ — INT-APP-A1-0014, piste application. Aucun chantier scientifique READY.** [Dossier de passage](../GATE_VALIDATION_EQUIPE_V01.md).
 14 acquis techniques, 5 interventions humaines, 5 bloqués. Récupération historique terminée au périmètre disponible; proposition de limitation à approuver, aucun passage confirmatoire autorisé.
 | ID | Phase | Jalon | État | Responsable | Dépendances | Preuve / suite |
 |---|---:|---|---|---|---|---|
@@ -28,3 +28,5 @@ Référence V0.1.58; [état machine](ETAT.json) faisant foi. [Règles](README.md
 | P4-01 | 4 | Qualification et validation scientifique | Bloqué par préconditions | équipe/juges | P3-01 | [Preuve](../PLAN_FINALISATION.md) — Criblage, 10D/97P, contrôles et arbitrages |
 | P5-01 | 5 | Moteur écosystémique et validation avant intégration | Bloqué par préconditions | équipe/assistant | P4-01 | [Preuve](../PLAN_FINALISATION.md) — Tests comparatifs, contraintes et validation; aucune modification main |
 | P6-01 | 6 | Article, dépôt et clôture | Bloqué par préconditions | équipe | P5-01 | [Preuve](../PLAN_FINALISATION.md) — Article, preuves, relecture et accord avant diffusion |
+
+Piste application v0.3.0 : A1 EN COURS, A2–A7 dépendants. Aucun changement des 24 jalons scientifiques.

@@ -37,7 +37,11 @@ def main():
                                 # Use the actual visible control, as a touch user would.
                                 checkbox=panel.get_by_role("checkbox",name=labels[2],exact=True)
                                 expect(checkbox).not_to_be_checked(timeout=15000)
-                                widget=panel.get_by_test_id("stCheckbox").filter(has=checkbox)
+                                # Playwright has= locator must be relative to each widget,
+                                # not an already panel-scoped locator.
+                                widget=panel.get_by_test_id("stCheckbox").filter(
+                                    has=page.get_by_role("checkbox",name=labels[2],exact=True))
+                                expect(widget).to_have_count(1,timeout=15000)
                                 indicator=widget.locator('label[data-baseweb="checkbox"] > span').first
                                 expect(indicator).to_be_visible(timeout=15000)
                                 indicator.scroll_into_view_if_needed(timeout=15000)

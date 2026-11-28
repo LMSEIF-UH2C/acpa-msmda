@@ -76,6 +76,24 @@ class EcosystemTests(unittest.TestCase):
         r=self.runset([tool("a",["F04"]),tool("b",["F06"])],max_combinations=1)
         self.assertEqual(r["status"],"INCOMPLETE_SEARCH")
         self.assertIsNone(r["selected"])
+    def test_incomplete_search_discards_partial_comparators(self):
+        # A complete feasible singleton may already have been seen; it is not a final optimum.
+        pool=[tool("a",["F04","F06"]),tool("b",["F04"]),tool("c",["F06"])]
+        for bound in (1,3,6):
+            with self.subTest(bound=bound):
+                r=self.runset(pool,max_combinations=bound)
+                self.assertEqual(r["status"],"INCOMPLETE_SEARCH")
+                self.assertEqual(r["evaluated"],bound)
+                for key in ("selected","best_individual","simple_pair","uncovered_required"):
+                    self.assertIsNone(r[key])
+                self.assertNotIn("best_partial",r)
+                self.assertEqual(json.loads(json.dumps(r)),r)
+        terminal=self.runset(pool,max_combinations=7)
+        self.assertEqual(terminal["status"],"COMPLETE_FIXTURE_SET")
+        self.assertEqual(terminal["selected"]["ids"],["a"])
+        self.assertIsInstance(terminal["best_individual"],dict)
+        self.assertIsInstance(terminal["simple_pair"],dict)
+        self.assertEqual(terminal["uncovered_required"],[])
     def test_small_oracle(self):
         # Independent explicit oracle for cost and coverage on a bounded fixture.
         pool=[tool("a",["F04"],cost=2),tool("b",["F06"],cost=3),tool("c",["F04","F06"],cost=7),tool("d",["F06"],cost=1)]

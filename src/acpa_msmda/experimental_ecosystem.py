@@ -93,7 +93,9 @@ def solve_fixture(context,candidates,*,max_combinations=10000):
         for items in combinations(pool,n):
             if out["evaluated"]>=max_combinations:
                 out["status"]="INCOMPLETE_SEARCH"
-                out["selected"]=None
+                # A prefix of the search cannot establish an optimum or definitive coverage.
+                for key in ("selected", "best_individual", "simple_pair", "uncovered_required"):
+                    out[key]=None
                 return out
             out["evaluated"]+=1
             reason=_combination(items,context)

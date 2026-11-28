@@ -1,6 +1,6 @@
 # Rapport scientifique évolutif — Cartographie technologique écosystémique ACPA/MSMDA
 
-**Version 0.1.23 — 28 novembre 2026.** Dossier de recherche et base de rédaction d'un article méthodologique. Branche `research/ecosystem-mapping-pilot`, [PR 81](https://github.com/LMSEIF-UH2C/acpa-msmda/pull/81). État : exploration et développement méthodologique; collecte définitive et validation empirique non achevées. Ce rapport est rétrospectif pour les pilotes déjà réalisés, prospectif pour les étapes restantes. Il ne constitue pas un préenregistrement rétroactif. Auteur(s), contributions CRediT, financement, déclarations et choix de revue à confirmer par l'équipe scientifique. Code de production et version publiée v0.2.0 préservés.
+**Version 0.1.24 — 28 novembre 2026.** Dossier de recherche et base de rédaction d'un article méthodologique. Branche `research/ecosystem-mapping-pilot`, [PR 81](https://github.com/LMSEIF-UH2C/acpa-msmda/pull/81). État : exploration et développement méthodologique; collecte définitive et validation empirique non achevées. Ce rapport est rétrospectif pour les pilotes déjà réalisés, prospectif pour les étapes restantes. Il ne constitue pas un préenregistrement rétroactif. Auteur(s), contributions CRediT, financement, déclarations et choix de revue à confirmer par l'équipe scientifique. Code de production et version publiée v0.2.0 préservés.
 
 ## 1. Projet d'article
 Titre provisoire FR : **Vers une cartographie systématique, cumulative, adaptative et multidimensionnelle des technologies éducatives : développement et validation méthodologique en éducation physique et sportive.**
@@ -218,3 +218,6 @@ Prochaine étape : pilote Wikidata borné, requêtes SPARQL datées et archivée
 
 ## 12. Pilote Wikidata — lancement prospectif
 [Protocole](WIKIDATA_PILOT_PROTOCOL.md) et [plan](WIKIDATA_PLAN_V01.json) : dix classes vérifiées, P31 direct, plafond 101, requêtes séquentielles bornées, labels EN/FR/AR et QID. Comparaison nominale au catalogue et SILL; QID SILL absents de la projection, provenance à résoudre. Six tests prévus, aucun résultat anticipé. Pas de fusion ni éligibilité. Clôture sur preuve puis matrice globale des conditions de passage de phase 2.
+
+## Matrice de clôture phase 2
+[Matrice V0.1](MATRICE_CLOTURE_PHASE2_V01.md) : 13 chantiers et preuves de passage, priorités proposées P0/P1 sans cible numérique. Wikidata run 46139718701 déclenché; six tests synthétiques réussis, récupération de l'inventaire SILL réussie, collecte réseau en cours au contrôle. Aucun résultat réseau anticipé. Préconditions humaines, droits, archives, protocole prospectif demeurent ouvertes. Phase 3 non lancée.

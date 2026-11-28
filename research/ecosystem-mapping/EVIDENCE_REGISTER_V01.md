@@ -17,3 +17,17 @@ Les ZIP sont les octets des artefacts originaux récupérés via GitHub Actions,
 Ces cinq archives n'ont pas été téléchargées ni pérennisées dans ce passage. Vérifier droits et emplacement privé autorisé avant stockage des réponses brutes, ou conserver projection autorisée et preuve d'écart. Priorité aux trois expirant le 5 décembre. Pas de prétention de récupération des listes historiques 45 676.
 
 Contrôle post-dépôt : relecture des trois blobs ZIP au commit 1bc558eb9cc7c8d57266dde32e23e946ea0261b7, comparaison exacte des encodages base64 aux octets émis par le job d'audit après SHA-256/CRC : 3/3 identiques. La conservation dans Git est vérifiée pour ces trois archives; les cinq autres restent temporaires. Pas de changement du catalogue ni de main.
+
+
+## Sauvegarde privée vérifiée des cinq anciens pilotes — 28 novembre 2026 UTC
+Les cinq ZIP temporaires du registre ont été téléchargés depuis GitHub Actions et vérifiés localement (SHA-256 identiques aux digests publiés, CRC ZIP sans erreur). Copiés dans un dossier privé dédié du Drive ACPA-MSMDA du porteur, permissions vérifiées avant/après (propriétaire uniquement, aucun partage). Les cinq copies relues depuis Drive donnent exactement les mêmes SHA-256 et CRC. Aucun appel aux sources d'origine. Aucune donnée brute supplémentaire publiée sur GitHub. Les liens privés de stockage ne sont pas exposés dans le dépôt public; le porteur dispose du dossier.
+| Archive | Octets | Fichiers internes | Contrôle après transfert |
+|---|---:|---:|---|
+| Apple initial 15239399393 | 2888117 | 98 | SHA-256/CRC conformes |
+| F-Droid 15240162575 | 24060112 | 2 | SHA-256/CRC conformes |
+| GitHub 15257215003 | 277558 | 34 | SHA-256/CRC conformes |
+| Apple V0.2 15256204849 | 645040 | 482 | SHA-256/CRC conformes |
+| Plan V0.3 15256269877 | 79307 | 2 | SHA-256/CRC conformes |
+| Total | 27950134 | 618 | 5/5 conformes |
+Le transfert direct entre connecteurs a échoué (contrat de référence incompatible); la voie de copie du fichier exact via la bibliothèque connectée a réussi, puis relecture des cinq objets. Les empreintes du registre précédent restent valables. La conservation privée à des fins d'audit ne constitue pas une autorisation de redistribution, ni une validation générale des conditions de rétention; revue des droits et politique de conservation à confirmer par l'équipe. Les trois ZIP SILL/Wikidata déjà vérifiés dans Git complètent ces cinq sauvegardes, soit huit preuves prioritaires sécurisées. La ligne P0 pérennité avance, mais l'inventaire global des autres artefacts, la sauvegarde redondante et les archives historiques restent à traiter. La réponse brute SILL initialement non conservée demeure non récupérée.
+Recherche ciblée dans Drive de collecte_catalogue_2026-11-22 et collecte_catalogue : aucune correspondance remontée; ne prouve pas l'absence de l'archive sur d'autres supports. Le corpus historique 45676 n'est pas réaudité. Prochaine étape : recherche de l'archive historique auprès du porteur et complément borné matériel/capteurs, IA, VR/AR et solutions commerciales, selon lacunes et sources autorisées, puis stabilisation du modèle d'identité. Phase 2 non close.

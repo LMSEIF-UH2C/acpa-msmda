@@ -1,10 +1,18 @@
 {
   "schema_version": 1,
-  "revision": 18,
+  "revision": 19,
   "branch": "research/ecosystem-mapping-pilot",
   "scientific_version": "0.1.51",
   "scientific_baseline_commit": "192821c46b19f2689187dabb0e04a914cc8ac5be",
-  "lock": null,
+  "lock": {
+    "actor": "interactive_assistant",
+    "intervention_id": "INT-P2-12-0008",
+    "task_id": "P2-12",
+    "acquired_utc": "2026-11-28",
+    "base_head": "9f5d9e646908d480a26e85de9adf95d9719eaff4",
+    "run_refs": [],
+    "resume_note": "Contrôle documentaire et complément ciblé des besoins EPS."
+  },
   "last_handoff": {
     "actor": "interactive_assistant",
     "intervention_id": "INT-P1-04-0007",
@@ -179,7 +187,7 @@
       "id": "P2-12",
       "phase": 2,
       "title": "Compléments de couverture justifiés et textes EPS",
-      "status": "READY",
+      "status": "IN_PROGRESS",
       "owner": "assistant",
       "deps": [],
       "evidence": "../COUVERTURE_PEDAGOGIQUE_V01.md",

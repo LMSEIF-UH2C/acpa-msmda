@@ -1,7 +1,7 @@
 # Checklist de coordination — 28/11/2026
 Référence scientifique V0.1.51; [état machine](ETAT.json) faisant foi. [Règles](README.md) · [Journal](JOURNAL.md).
-**Verrou : LIBRE. Prochain chantier prioritaire : P2-12.**
-Avancement des 24 jalons : 13 acquis techniques vérifiés, 1 à traiter, 5 interventions humaines, 5 bloqués. Pas un pourcentage de validation scientifique.
+**Verrou : OCCUPÉ — assistant interactif, INT-P2-12-0008 (P2-12).**
+Avancement des 24 jalons : 13 acquis techniques vérifiés, 0 à traiter, 1 en cours, 5 interventions humaines, 5 bloqués. Pas un pourcentage de validation scientifique.
 | ID | Phase | Jalon | État | Responsable | Dépendances | Preuve / suite |
 |---|---:|---|---|---|---|---|
 | P1-01 | 1 | Audit des pilotes et du diagramme historique | Acquis technique vérifié | assistant | — | [Preuve](../AUDIT_APPLE_V02_INDEPENDANT.md) — Pilotes auditables; pas de comparaison exhaustive historique |
@@ -19,7 +19,7 @@ Avancement des 24 jalons : 13 acquis techniques vérifiés, 1 à traiter, 5 inte
 | P2-09 | 2 | Double calibration identité (57+10 paires) | Intervention humaine | équipe/juges | — | [Preuve](../AUDIT_IDENTITY_REGISTRY_V03.json) — 67 paires vierges par juge; organiser deux juges indépendants et arbitrage |
 | P2-10 | 2 | Essai réel séquentiel moteur et reprise entre runners | Acquis technique vérifié | assistant | — | [Preuve](../AUDIT_LIVE_CHECKPOINT_V01.json) — Wikidata 4/4 requêtes réelles, 2+2 entre jobs, 0 répétition hors ligne, 16/16 tests; archive finale Drive SHA/CRC contrôlés; autres adaptateurs et panne réelle non validés. |
 | P2-11 | 2 | Saturation prospective et comparateurs | Acquis technique vérifié | assistant | P2-10 | [Preuve](../AUDIT_SATURATION_COMPARISON_V01.json) — Rejeu 288 requêtes Apple, 3709 IDs, 10 scénarios, 7/7 tests. 238 appels préservent union observée dans quatre scénarios; 236 perdent 9 IDs; 224/226 perdent 105/64. Aucun seuil adopté. |
-| P2-12 | 2 | Compléments de couverture justifiés et textes EPS | Prêt (sous réserve des dépendances) | assistant | — | [Preuve](../COUVERTURE_PEDAGOGIQUE_V01.md) — Lacunes AR motrice, inclusion, contexte, marchés et textes applicables; pas de quota |
+| P2-12 | 2 | Compléments de couverture justifiés et textes EPS | En cours | assistant | — | [Preuve](../COUVERTURE_PEDAGOGIQUE_V01.md) — Lacunes AR motrice, inclusion, contexte, marchés et textes applicables; pas de quota |
 | P2-13 | 2 | Calibration de pertinence (141 fiches) | Intervention humaine | équipe/juges | — | [Preuve](../CALIBRATION_CASES_V01.json) — Deux évaluateurs, verrouillage, arbitrage et contrôle indépendant |
 | P2-14 | 2 | Validation des ancres 10D/97P | Intervention humaine | experts | — | [Preuve](../OPERATIONNALISATION_10D97P_PROTOCOL.md) — 97 correspondances proposées, validation unités, NR/SO et fiabilité |
 | P2-15 | 2 | Droits, choix des sources et périmètre autorisé | Intervention humaine | équipe | P1-04 | [Preuve](../SOURCE_REGISTER.md) — Aptoide suspendu, Google Play non confirmé; décisions documentées |

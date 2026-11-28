@@ -27,6 +27,15 @@ jobs:
           python --version | tee boris-runtime-evidence/python.txt
           python -m pip install /tmp/boris-upstream 2>&1 | tee boris-runtime-evidence/install.log
           python -m pip freeze > boris-runtime-evidence/dependencies.txt
+      - name: Install missing Qt system dependency and verify import
+        shell: bash
+        env:
+          QT_QPA_PLATFORM: offscreen
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends libegl1
+          dpkg-query -W libegl1 libgl1 | tee boris-runtime-evidence/system-dependencies.txt
+          python -c 'from PySide6 import QtWidgets; print("QT_WIDGETS_IMPORT_OK")' 2>&1 | tee boris-runtime-evidence/qt-import.txt
       - name: Execute actual upstream export and independent reconciliation
         shell: bash
         env:

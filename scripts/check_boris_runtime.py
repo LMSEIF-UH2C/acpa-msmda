@@ -26,6 +26,9 @@ def run(root, output):
             proc=subprocess.run(cmd,cwd=d,text=True,capture_output=True,timeout=120)
             (output/"cli.stdout.txt").write_text(proc.stdout,encoding="utf-8")
             (output/"cli.stderr.txt").write_text(proc.stderr,encoding="utf-8")
+            # Preserve and expose the actual diagnostic, even if export fails.
+            print(proc.stdout,flush=True)
+            print(proc.stderr,file=sys.stderr,flush=True)
             report["returncode"]=proc.returncode
             paths=list(Path(d).glob("*.csv"))
             report["generated_files"]=[p.name for p in paths]

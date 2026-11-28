@@ -1,0 +1,403 @@
+{
+  "method": "purposive targeted documentary pilot; no exhaustive market search; no quota",
+  "catalog_blob": "39b32ebbdf33b49a3fb0bb669f8a0809d0e72995",
+  "records": [
+    {
+      "id": "T01",
+      "name": "Polar GoFit",
+      "axis": "mesure",
+      "unit": "systeme",
+      "alias_probes": [
+        "Polar GoFit"
+      ],
+      "official_url": "https://support.polar.com/fr/polar-gofit-presentation",
+      "observed_date": "2026-11-28",
+      "declared_function": "Fréquence cardiaque et condition physique en EPS",
+      "functions": [
+        "F03",
+        "F06",
+        "F07",
+        "F10"
+      ],
+      "proposed_scenario": "Suivi de l'intensité avec matériel disponible",
+      "limits": "Capteurs compatibles, tablette et comptes; données mineurs; prix, fonctionnement hors ligne et disponibilité Maroc inconnus",
+      "eligibility": "NOT_ASSESSED",
+      "evidence": "DOCUMENTARY_PUBLISHER",
+      "school_test": "NOT_PERFORMED",
+      "identity": "UNRESOLVED"
+    },
+    {
+      "id": "T02",
+      "name": "Polar H10",
+      "axis": "mesure",
+      "unit": "materiel",
+      "alias_probes": [
+        "Polar H10"
+      ],
+      "official_url": "https://support.polar.com/e_manuals/Polar-GoFit/Polar-GoFit-user-manual-English/Content/sensors-in-polargofit.com.htm",
+      "observed_date": "2026-11-28",
+      "declared_function": "Capteur cardiaque listé parmi les appareils compatibles",
+      "functions": [
+        "F06",
+        "F07"
+      ],
+      "proposed_scenario": "Observer la réponse cardiaque",
+      "limits": "Compatibilité exacte/version à vérifier; contradiction apparente avec https://support.polar.com/fr/what-if-there-are-gaps-in-students-heart-rate-data ; ne pas confondre connexion pendant séance et synchronisation ultérieure",
+      "eligibility": "NOT_ASSESSED",
+      "evidence": "DOCUMENTARY_PUBLISHER",
+      "school_test": "NOT_PERFORMED",
+      "identity": "UNRESOLVED"
+    },
+    {
+      "id": "T03",
+      "name": "Vernier Go Direct Force and Acceleration",
+      "axis": "mesure",
+      "unit": "materiel",
+      "alias_probes": [
+        "Go Direct Force and Acceleration Sensor",
+        "Vernier Go Direct Force and Acceleration"
+      ],
+      "official_url": "https://www.vernier.com/manuals/gdx-for/",
+      "observed_date": "2026-11-28",
+      "declared_function": "Capteur de force, accélération et rotation",
+      "functions": [
+        "F04",
+        "F06"
+      ],
+      "proposed_scenario": "Illustration de principes mécaniques du mouvement",
+      "limits": "Usage scientifique transversal; pas de protocole de force maximale humaine validé ici; logiciel et matériel requis",
+      "eligibility": "NOT_ASSESSED",
+      "evidence": "DOCUMENTARY_PUBLISHER",
+      "school_test": "NOT_PERFORMED",
+      "identity": "UNRESOLVED"
+    },
+    {
+      "id": "T04",
+      "name": "phyphox",
+      "axis": "mesure",
+      "unit": "logiciel",
+      "alias_probes": [
+        "phyphox"
+      ],
+      "official_url": "https://phyphox.org/",
+      "observed_date": "2026-11-28",
+      "declared_function": "Acquisition capteurs du téléphone et export de données",
+      "functions": [
+        "F04",
+        "F06",
+        "F14"
+      ],
+      "proposed_scenario": "Étudier un signal d'accélération simple",
+      "limits": "Capteurs variables selon téléphone; montage sécurisé; hors ligne intégral non testé; validité des mesures à établir",
+      "eligibility": "NOT_ASSESSED",
+      "evidence": "DOCUMENTARY_PUBLISHER",
+      "school_test": "NOT_PERFORMED",
+      "identity": "UNRESOLVED"
+    },
+    {
+      "id": "T05",
+      "name": "Freelap",
+      "axis": "chronometrage",
+      "unit": "systeme",
+      "alias_probes": [
+        "Freelap",
+        "MyFreelap"
+      ],
+      "official_url": "https://freelap.com/documentation-and-support/get-started/understanding-the-components/",
+      "observed_date": "2026-11-28",
+      "declared_function": "Chronométrage par émetteurs, transpondeur et application/relais",
+      "functions": [
+        "F06",
+        "F10"
+      ],
+      "proposed_scenario": "Sprint et temps intermédiaires",
+      "limits": "Matériel dédié, version, prix et disponibilité à vérifier; MyFreelap est une application composante, pas un alias d'identité",
+      "eligibility": "NOT_ASSESSED",
+      "evidence": "DOCUMENTARY_PUBLISHER",
+      "school_test": "NOT_PERFORMED",
+      "identity": "UNRESOLVED"
+    },
+    {
+      "id": "T06",
+      "name": "SmartSpeed",
+      "axis": "chronometrage",
+      "unit": "systeme",
+      "alias_probes": [
+        "SmartSpeed",
+        "SmartSpeed Plus",
+        "SmartSpeed Dash"
+      ],
+      "official_url": "https://www.valdperformance.com/products/smartspeed",
+      "observed_date": "2026-11-28",
+      "declared_function": "Cellules de chronométrage pour mesurer la vitesse",
+      "functions": [
+        "F03",
+        "F06",
+        "F10"
+      ],
+      "proposed_scenario": "Sprint et mesure des temps",
+      "limits": "Variantes et nombre de cellules selon protocole; coût et conditions locales inconnus",
+      "eligibility": "NOT_ASSESSED",
+      "evidence": "DOCUMENTARY_PUBLISHER",
+      "school_test": "NOT_PERFORMED",
+      "identity": "UNRESOLVED"
+    },
+    {
+      "id": "T07",
+      "name": "ForceDecks",
+      "axis": "mesure",
+      "unit": "systeme",
+      "alias_probes": [
+        "ForceDecks"
+      ],
+      "official_url": "https://www.valdperformance.com/products/forcedecks",
+      "observed_date": "2026-11-28",
+      "declared_function": "Plateformes de force et analyse de mouvements dont les sauts",
+      "functions": [
+        "F03",
+        "F06",
+        "F10"
+      ],
+      "proposed_scenario": "Exploration avancée de la performance du saut",
+      "limits": "Matériel spécialisé; pas nécessaire au test scolaire standard; preuves de validité distinctes à rechercher",
+      "eligibility": "NOT_ASSESSED",
+      "evidence": "DOCUMENTARY_PUBLISHER",
+      "school_test": "NOT_PERFORMED",
+      "identity": "UNRESOLVED"
+    },
+    {
+      "id": "T08",
+      "name": "ClassVR",
+      "axis": "immersion",
+      "unit": "systeme",
+      "alias_probes": [
+        "ClassVR"
+      ],
+      "official_url": "https://www.classvr.com/us/how-classvr-works/",
+      "observed_date": "2026-11-28",
+      "declared_function": "Casques et portail de contrôle enseignant",
+      "functions": [
+        "F04",
+        "F09",
+        "F12"
+      ],
+      "proposed_scenario": "Présentation immersive ponctuelle d'un environnement",
+      "limits": "Équipement, supervision, hygiène, âge, sécurité, alternative non immersive; pas d'efficacité EPS établie",
+      "eligibility": "NOT_ASSESSED",
+      "evidence": "DOCUMENTARY_PUBLISHER",
+      "school_test": "NOT_PERFORMED",
+      "identity": "UNRESOLVED"
+    },
+    {
+      "id": "T09",
+      "name": "Merge Cube / Merge 3D",
+      "axis": "immersion",
+      "unit": "systeme",
+      "alias_probes": [
+        "Merge Cube",
+        "Merge EDU",
+        "Merge 3D"
+      ],
+      "official_url": "https://support.mergeedu.com/hc/en-us/articles/46784890657293-Welcome-to-Merge-3D",
+      "observed_date": "2026-11-28",
+      "declared_function": "Manipulation d'objets 3D en réalité augmentée",
+      "functions": [
+        "F04",
+        "F12"
+      ],
+      "proposed_scenario": "Observer des représentations spatiales ou anatomiques si contenus disponibles",
+      "limits": "Smartphone/tablette compatible; licence/contenus à vérifier; cube papier pour essai éducatif https://support.mergeedu.com/hc/en-us/articles/360027088632-What-is-a-Merge-Paper-Cube-Can-I-use-one",
+      "eligibility": "NOT_ASSESSED",
+      "evidence": "DOCUMENTARY_PUBLISHER",
+      "school_test": "NOT_PERFORMED",
+      "identity": "UNRESOLVED"
+    },
+    {
+      "id": "T10",
+      "name": "Open Brush",
+      "axis": "immersion",
+      "unit": "logiciel",
+      "alias_probes": [
+        "Open Brush"
+      ],
+      "official_url": "https://docs.openbrush.app/user-guide/get-started-with-open-brush",
+      "observed_date": "2026-11-28",
+      "declared_function": "Dessin dans un espace 3D en VR",
+      "functions": [
+        "F04",
+        "F05",
+        "F12"
+      ],
+      "proposed_scenario": "Exploration spatiale et coordination en scénario adapté",
+      "limits": "Casque compatible, espace dégagé, supervision; activité motrice réelle et transfert non démontrés",
+      "eligibility": "NOT_ASSESSED",
+      "evidence": "DOCUMENTARY_PUBLISHER",
+      "school_test": "NOT_PERFORMED",
+      "identity": "UNRESOLVED"
+    },
+    {
+      "id": "T11",
+      "name": "MagicSchool",
+      "axis": "ia",
+      "unit": "plateforme",
+      "alias_probes": [
+        "MagicSchool",
+        "MagicSchool AI"
+      ],
+      "official_url": "https://www.magicschool.ai/magicschool",
+      "observed_date": "2026-11-28",
+      "declared_function": "Assistance à la planification, évaluation et différenciation",
+      "functions": [
+        "F01",
+        "F09",
+        "F10"
+      ],
+      "proposed_scenario": "Aide à la préparation de fiches de séance",
+      "limits": "Contrôle enseignant, pas de données identifiantes des élèves, validation des contenus et conditions d'accès",
+      "eligibility": "NOT_ASSESSED",
+      "evidence": "DOCUMENTARY_PUBLISHER",
+      "school_test": "NOT_PERFORMED",
+      "identity": "UNRESOLVED"
+    },
+    {
+      "id": "T12",
+      "name": "MediaPipe Pose Landmarker",
+      "axis": "ia",
+      "unit": "composant",
+      "alias_probes": [
+        "MediaPipe Pose Landmarker",
+        "MediaPipe"
+      ],
+      "official_url": "https://developers.google.com/edge/mediapipe/solutions/vision/pose_landmarker",
+      "observed_date": "2026-11-28",
+      "declared_function": "Détection de points corporels dans images et vidéos",
+      "functions": [
+        "F06",
+        "F07",
+        "F14"
+      ],
+      "proposed_scenario": "Prototype d'observation du mouvement",
+      "limits": "SDK, non application prête à l'emploi; validation biomécanique, biais, occlusions, protection des images",
+      "eligibility": "NOT_ASSESSED",
+      "evidence": "DOCUMENTARY_PUBLISHER",
+      "school_test": "NOT_PERFORMED",
+      "identity": "UNRESOLVED"
+    },
+    {
+      "id": "T13",
+      "name": "CoachNow Analyze",
+      "axis": "commercial",
+      "unit": "logiciel",
+      "alias_probes": [
+        "CoachNow Analyze",
+        "CoachNow"
+      ],
+      "official_url": "https://coachnow.com/analyze",
+      "observed_date": "2026-11-28",
+      "declared_function": "Analyse vidéo/image et commentaire vocal",
+      "functions": [
+        "F06",
+        "F07",
+        "F11"
+      ],
+      "proposed_scenario": "Retour vidéo individualisé",
+      "limits": "Offres/versions, données vidéo et stockage, consentement et conditions scolaires à vérifier",
+      "eligibility": "NOT_ASSESSED",
+      "evidence": "DOCUMENTARY_PUBLISHER",
+      "school_test": "NOT_PERFORMED",
+      "identity": "UNRESOLVED"
+    },
+    {
+      "id": "T14",
+      "name": "Hudl Sportscode",
+      "axis": "commercial",
+      "unit": "logiciel",
+      "alias_probes": [
+        "Hudl Sportscode",
+        "Sportscode"
+      ],
+      "official_url": "https://www.hudl.com/products/sportscode",
+      "observed_date": "2026-11-28",
+      "declared_function": "Analyse vidéo et données de performance",
+      "functions": [
+        "F06",
+        "F07",
+        "F08"
+      ],
+      "proposed_scenario": "Observation tactique collective",
+      "limits": "Licence, matériel, flux de travail exact et coût; pas de validité scolaire déduite",
+      "eligibility": "NOT_ASSESSED",
+      "evidence": "DOCUMENTARY_PUBLISHER",
+      "school_test": "NOT_PERFORMED",
+      "identity": "UNRESOLVED"
+    },
+    {
+      "id": "T15",
+      "name": "Tracker Online",
+      "axis": "accessibilite",
+      "unit": "variante_logicielle",
+      "alias_probes": [
+        "Tracker Online"
+      ],
+      "official_url": "https://opensourcephysics.github.io/tracker-online/",
+      "observed_date": "2026-11-28",
+      "declared_function": "Analyse vidéo dans navigateur et ressources hors ligne après première visite",
+      "functions": [
+        "F04",
+        "F06",
+        "F07"
+      ],
+      "proposed_scenario": "Observation vidéo sur équipement existant",
+      "limits": "Variante du Tracker OSP déjà documenté WD03; pas une nouvelle famille; hors ligne annoncé, non testé",
+      "eligibility": "NOT_ASSESSED",
+      "evidence": "DOCUMENTARY_PUBLISHER",
+      "school_test": "NOT_PERFORMED",
+      "identity": "UNRESOLVED"
+    },
+    {
+      "id": "T16",
+      "name": "Moodle App",
+      "axis": "accessibilite",
+      "unit": "logiciel_client",
+      "alias_probes": [
+        "Moodle App",
+        "Moodle"
+      ],
+      "official_url": "https://docs.moodle.org/403/en/Moodle_app_offline_features",
+      "observed_date": "2026-11-28",
+      "declared_function": "Accès à certains contenus et activités hors ligne avec synchronisation ultérieure",
+      "functions": [
+        "F11",
+        "F12"
+      ],
+      "proposed_scenario": "Continuité pédagogique à connexion intermittente",
+      "limits": "Serveur Moodle et préparation en ligne; restrictions sur activités et médias; version documentée 4.3, actuelle à vérifier",
+      "eligibility": "NOT_ASSESSED",
+      "evidence": "DOCUMENTARY_PUBLISHER",
+      "school_test": "NOT_PERFORMED",
+      "identity": "UNRESOLVED"
+    },
+    {
+      "id": "T17",
+      "name": "OpenSim",
+      "axis": "recherche",
+      "unit": "logiciel",
+      "alias_probes": [
+        "OpenSim"
+      ],
+      "official_url": "https://opensim.stanford.edu/",
+      "observed_date": "2026-11-28",
+      "declared_function": "Modélisation musculosquelettique et simulation",
+      "functions": [
+        "F04",
+        "F14"
+      ],
+      "proposed_scenario": "Exploration scientifique du geste par enseignant avancé",
+      "limits": "Complexité et données d'entrée; usage indirect; modèle et hypothèses à vérifier",
+      "eligibility": "NOT_ASSESSED",
+      "evidence": "DOCUMENTARY_PUBLISHER",
+      "school_test": "NOT_PERFORMED",
+      "identity": "UNRESOLVED"
+    }
+  ]
+}

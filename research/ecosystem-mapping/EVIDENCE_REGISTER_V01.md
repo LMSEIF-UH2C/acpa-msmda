@@ -1,0 +1,17 @@
+# Inventaire des preuves — 28 novembre 2026 UTC
+## Archives pérennisées dans Git (branche de recherche)
+Les ZIP sont les octets des artefacts originaux récupérés via GitHub Actions, SHA-256 et CRC recalculés avant transfert, tailles et ordre des fragments vérifiés au transfert. Vérification après dépôt à compléter. Pas de données brutes SILL : projection factuelle et manifeste seulement. Source SILL : DINUM, [SILL](https://code.gouv.fr/sill/), [Licence Ouverte 2.0](https://www.etalab.gouv.fr/licence-ouverte-open-licence/), extraction 28/11/2026; ne pas appliquer MIT aux données. Wikidata : [données structurées CC0](https://www.wikidata.org/wiki/Wikidata:Copyright), requêtes et réponses bornées, extraction 28/11/2026. Le ZIP d'échec contient seulement le manifeste technique. Aucun logo, description commerciale, donnée de participant ou réponse brute SILL ajouté.
+| Archive | Run / artefact | Octets | SHA-256 | Blob Git |
+|---|---|---:|---|---|
+| [sill.zip](evidence/2026-11-28/sill.zip) | 46139311316 / 15260778228 | 13679 | 8bb73ecd9d326547bd93a1db570ab37501a5fec25cba61cc10005ba610f7bc27 | 71d677b654376025f4005f12645ba8289cb9cd6e |
+| [wikidata.zip](evidence/2026-11-28/wikidata.zip) | 46139718701 / 15261401982 | 31782 | e33bbf0775eabb94329b1d53211397ce3047ff41524b17d997a97821d6dd3c46 | 7933908b21de139bbc1ae05a4380a7e5c5f93bb7 |
+| [failure.zip](evidence/2026-11-28/failure.zip) | 46139236521 / 15261211517 | 446 | fae8f68b11fadc359838894220d03ab743a75217470d247f7ad086673f4500c9 | 8bc68ac390f6a37b8e4d239e8229962c12172623 |
+## Autres preuves encore temporaires — contrôle des métadonnées
+| Source | Run / artefact | Expiration UTC | SHA-256 déclaré | État |
+|---|---|---|---|---|
+| Apple initial | 46087551165 / 15239399393 | 2026-12-05 00:26:21 | 7ae8e6d9b0bff727a2bfd322b30fb0f66d3aa0b8ae2ecda4cf82c764c7c50a4d | Disponible, urgent |
+| F-Droid | 46088447913 / 15240162575 | 2026-12-05 00:32:51 | 9348a5cee92d30e3621c75a543c2b4ac25900995bbda536734597617819fea85 | Disponible, urgent |
+| GitHub | 46128023711 / 15257215003 | 2026-12-05 08:57:22 | 7e1ce5956d457f121bbc832f6171f77697ca783772092c294a023cbb079ec082 | Disponible, urgent |
+| Apple extension | 46128443244 / 15256204849 | 2026-12-28 09:19:11 | 98657812ca3201aba2a0d9ad392d828db1600bef2ab32b387565e227339ba471 | Disponible |
+| Plan V0.3 | 46128865538 / 15256269877 | 2026-12-28 09:06:17 | 9cb9cc034141cdcd140cf770745f45fed6e93b7b5a95c17b1dd6ca70170eb885 | Disponible |
+Ces cinq archives n'ont pas été téléchargées ni pérennisées dans ce passage. Vérifier droits et emplacement privé autorisé avant stockage des réponses brutes, ou conserver projection autorisée et preuve d'écart. Priorité aux trois expirant le 5 décembre. Pas de prétention de récupération des listes historiques 45 676.

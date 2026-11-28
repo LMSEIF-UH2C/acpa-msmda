@@ -11,3 +11,4 @@
 | 2026-11-28 | interactive_assistant | INT-P2-07-0003 | P2-07 | Réservation exclusive | HEAD 29f3ffa9bbb60c3489dcd547954b446df3d5692d | Sensibilité et identifiants de listing |
 | 2026-11-28 | interactive_assistant | INT-P2-07-0003 | P2-07 | Programme et protocole enregistrés | [Protocole](../IDENTITY_SENSITIVITY_PROTOCOL_V01.md) | Vérifier exécution |
 | 2026-11-28 | interactive_assistant | INT-P2-07-0003 | P2-07 | Clôture : 8/8 tests, 204 correspondances listing, union 349, groupe 63 différé; verrou libéré | [Run 46151743685](https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46151743685) · [audit](../AUDIT_IDENTITY_SENSITIVITY_V01.json) | P2-08 |
+| 2026-11-28 14:16 UTC | interactive_assistant | INT-P2-08-0004 | P2-08 | Réservation exclusive | HEAD 0341fdadc65e7c18e94b5abce1adb0103d380df2 | Plan indépendant et contrôle hors candidats |

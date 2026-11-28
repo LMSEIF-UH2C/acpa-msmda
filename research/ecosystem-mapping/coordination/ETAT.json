@@ -1,10 +1,18 @@
 {
   "schema_version": 1,
-  "revision": 7,
+  "revision": 8,
   "branch": "research/ecosystem-mapping-pilot",
   "scientific_version": "0.1.44",
   "scientific_baseline_commit": "1266592bfc429f1b5a68460e6c9c21bfd712992e",
-  "lock": null,
+  "lock": {
+    "actor": "interactive_assistant",
+    "intervention_id": "INT-P2-08-0004",
+    "task_id": "P2-08",
+    "acquired_utc": "2026-11-28T14:16:00Z",
+    "base_head": "0341fdadc65e7c18e94b5abce1adb0103d380df2",
+    "run_refs": [],
+    "resume_note": "Plan prospectif de validation indépendante; réutiliser les kits, distinguer rappel de recherche et précision de rapprochement."
+  },
   "last_handoff": {
     "actor": "interactive_assistant",
     "intervention_id": "INT-P2-07-0003",
@@ -142,7 +150,7 @@
       "id": "P2-08",
       "phase": 2,
       "title": "Contrôle indépendant hors candidats et plan confirmatoire",
-      "status": "READY",
+      "status": "IN_PROGRESS",
       "owner": "assistant",
       "deps": [
         "P2-07"

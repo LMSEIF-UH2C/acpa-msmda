@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": 43,
+  "revision": 44,
   "branch": "research/ecosystem-mapping-pilot",
   "scientific_version": "0.1.58",
   "scientific_baseline_commit": "c7da29efe69974ebc365dbf0aa942f95ec5846df",
@@ -11,16 +11,16 @@
     "acquired_utc": "2026-11-28T17:42:00.259Z",
     "base_head": "a3723cbab35b0302ff09343920315fe776a40b75",
     "run_refs": [
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171951231",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171951217",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171951248",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171951207",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171946898",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171946842",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171946844",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171946829"
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46172421780",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46172421767",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46172421770",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46172421714",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46172415360",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46172415369",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46172415377",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46172415303"
     ],
-    "resume_note": "A4 reprise du 28/11/2026 : huit runs du commit applicatif 01b83f7 terminaux, 12/12 jobs réussis. Reprise par le même propriétaire logique INT-APP-A4-0018 après clôture du précédent échange et vérification des runs. RET-013, adaptateur de preuves et comparateur historique restent ouverts. Aucun gate scientifique levé."
+    "resume_note": "RET-013 : correction implémentée sur PR82 au commit 78771bb10eb721f014bcf0fd3a1c5cdffaa7a40f ; INCOMPLETE_SEARCH renvoie selected, best_individual, simple_pair et uncovered_required à null, sans comparateur partiel ni optimum revendiqué. Test ajouté (bornes 1,3,6,7, sérialisation JSON et cas singleton déjà observé). Huit workflows lancés, résultats non encore validés. Les 12/12 contrôles du commit antérieur restent acquis pour cette version seulement. A4 IN_PROGRESS, verrou conservé; prochain contrôle des runs puis adaptateur de preuve et comparateur historique."
   },
   "last_handoff": {
     "actor": "interactive_assistant",
@@ -340,7 +340,7 @@
         "deps": [
           "A3"
         ],
-        "next": "Correct RET-013 with explicit tests, then evidence adapter and actual historical comparator; A5 blocked.",
+        "next": "Read terminal checks for RET-013 correction, then evidence adapter and historical comparator; no A5 yet.",
         "evidence": "../AUDIT_APPLICATION_A4_V01.json"
       },
       {
@@ -366,9 +366,9 @@
         ]
       }
     ],
-    "integration_commit": "01b83f778138a5c4a189ae8e85e5bd100566a15d",
+    "integration_commit": "78771bb10eb721f014bcf0fd3a1c5cdffaa7a40f",
     "pr": 82,
-    "regression_status": "SUCCESS_ON_01b83f7_ONLY",
+    "regression_status": "PENDING_RET013_RETEST",
     "next_task": "A4",
     "dual_entry": {
       "stable": "v0.2.0 baseline, default",

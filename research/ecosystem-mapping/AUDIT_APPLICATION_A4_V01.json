@@ -110,5 +110,20 @@
     "all_eight_runs_terminal": true,
     "verified_on": "2026-11-28",
     "scope": "Initial A4 commit only; original pending snapshot preserved."
+  },
+  "ret013_retest": {
+    "commit": "78771bb10eb721f014bcf0fd3a1c5cdffaa7a40f",
+    "status": "PENDING",
+    "run_refs": [
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46172421780",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46172421767",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46172421770",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46172421714",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46172415360",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46172415369",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46172415377",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46172415303"
+    ],
+    "change": "Suppress all unfinalized comparator and coverage outputs; test explicit bounds, feasible prefix, JSON, exact terminal boundary."
   }
 }

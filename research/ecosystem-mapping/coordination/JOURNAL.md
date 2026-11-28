@@ -48,3 +48,5 @@
 | 2026-11-28 | interactive_assistant | INT-APP-A4-0018 | A4 prototype | 36/36 ciblés; 34 pistes non admises; limites et CI à contrôler | [Audit](../AUDIT_APPLICATION_A4_V01.json) | Durcissement A4 |
 
 | 2026-11-28 | interactive_assistant | INT-APP-A4-0018 | A4 reprise | A4 reprise du 28/11/2026 : huit runs du commit applicatif 01b83f7 terminaux, 12/12 jobs réussis. Reprise par le même propriétaire logique INT-APP-A4-0018 après clôture du précédent échange et vérification des runs. RET-013, adaptateur de preuves et comparateur historique restent ouverts. Aucun gate scientifique levé. | [Audit A4](../AUDIT_APPLICATION_A4_V01.json) | RET-013 |
+
+| 2026-11-28 | interactive_assistant | INT-APP-A4-0018 | A4 RET-013 | Correction implémentée, huit workflows non terminaux; verrou conservé | [Commit](https://github.com/LMSEIF-UH2C/acpa-msmda/commit/78771bb10eb721f014bcf0fd3a1c5cdffaa7a40f) · [retest](https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46172415369) | Vérifier les résultats |

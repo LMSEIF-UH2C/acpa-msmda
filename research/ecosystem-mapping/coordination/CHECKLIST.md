@@ -38,3 +38,5 @@ A1 : 7/7 contrôles terminaux réussis. A2 réservé INT-APP-A2-0015, coexistenc
 
 ## Piste application — A2
 A1 TECH_VERIFIED (7/7 CI). A2 développé, 38/38 ciblés; registre 2500 dont 34 pistes, 0 recommandation nouvelle. CI générale PENDING; recette navigateur mode activé/désactivé à faire. A2 READY pour recette, A3–A7 bloqués. Main intact, PR82 brouillon. [Audit](../AUDIT_APPLICATION_A2_V01.json). Verrou LIBRE.
+
+A2 : CI générale 7/7 au commit 1049492; verrou réservé INT-APP-A2-0016 pour recette opt-in. A3 bloqué jusqu'au test navigateur.

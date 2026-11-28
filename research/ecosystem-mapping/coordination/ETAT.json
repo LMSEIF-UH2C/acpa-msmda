@@ -1,10 +1,18 @@
 {
   "schema_version": 1,
-  "revision": 30,
+  "revision": 31,
   "branch": "research/ecosystem-mapping-pilot",
   "scientific_version": "0.1.58",
   "scientific_baseline_commit": "c7da29efe69974ebc365dbf0aa942f95ec5846df",
-  "lock": null,
+  "lock": {
+    "actor": "interactive_assistant",
+    "intervention_id": "INT-APP-A2-0016",
+    "task_id": "A2",
+    "acquired_utc": "2026-11-28T17:17:09.502Z",
+    "base_head": "d5394b57d6bbcbfff76fd17e8d09d3857dee56d1",
+    "run_refs": [],
+    "resume_note": "A2 general CI terminal 7/7. Test actual browser route in opt-in/disabled/missing-db modes. Reserve scientific perspective for defense, no new scientific claims."
+  },
   "last_handoff": {
     "actor": "interactive_assistant",
     "intervention_id": "INT-APP-A2-0015",
@@ -307,7 +315,7 @@
       },
       {
         "id": "A2",
-        "status": "READY",
+        "status": "IN_PROGRESS",
         "deps": [
           "A1"
         ],
@@ -354,7 +362,7 @@
     ],
     "integration_commit": "104949240d3758f687105b0e1481bb55219b9d42",
     "pr": 82,
-    "regression_status": "PENDING",
+    "regression_status": "SUCCESS",
     "next_task": "A2",
     "dual_entry": {
       "stable": "v0.2.0 baseline, default",

@@ -34,3 +34,4 @@
 | 2026-11-28 | interactive_assistant | INT-APP-A1-0014 | A1 application | PR82, 48/48 ciblés, régression PENDING; verrou libéré | [Audit](../AUDIT_APPLICATION_A1_V01.json) | A1 |
 | 2026-11-28 | interactive_assistant | INT-APP-A2-0015 | A2 | A1 CI 7/7, réservation A2 distincte, deux entrées | PR82 | Persistance et quarantaine |
 | 2026-11-28 | interactive_assistant | INT-APP-A2-0015 | A2 | 2500 enregistrements, 34 pistes, 38/38 tests, CI générale PENDING; verrou libéré | [Audit](../AUDIT_APPLICATION_A2_V01.json) | Recette double entrée |
+| 2026-11-28 | interactive_assistant | INT-APP-A2-0016 | A2 recette | CI précédente 7/7; réservation navigateur et note de perspective | PR82 | Test trois modes |

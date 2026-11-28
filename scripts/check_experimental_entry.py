@@ -23,6 +23,10 @@ def home(page):
     expect(page.locator(".st-key-tabbar a[data-testid='stPageLink-NavLink']")).to_have_count(5)
 def no_exception(page):
     expect(page.get_by_test_id("stException")).to_have_count(0)
+def centered_click(locator):
+    locator.evaluate("(el) => el.scrollIntoView({block: 'center', inline: 'nearest'})")
+    locator.click()
+
 def run(browser,engine,lang,mode):
     page=browser.new_page(viewport={"width":390,"height":844},device_scale_factor=2,
                           is_mobile=True,has_touch=True)
@@ -38,9 +42,16 @@ def run(browser,engine,lang,mode):
         home(page)
         expect(button).to_have_count(0)
         expect(page.get_by_text("MagicSchool",exact=True)).to_have_count(0)
+        expect(page.get_by_role("heading",name=label,exact=True)).to_have_count(0)
+        # Streamlit may display its own missing-page dialog over the fallback home.
+        # Preserve evidence; explicitly open the valid root URL before testing stable navigation.
+        page.screenshot(path=str(OUT/f"{engine}-{lang}-disabled-direct.png"))
+        page.goto(f"{base}/?lang={lang}",wait_until="domcontentloaded")
+        home(page)
+        expect(button).to_have_count(0)
     else:
         expect(button).to_be_visible()
-        button.click()
+        centered_click(button)
         expect(page.get_by_role("heading",name=label,exact=True)).to_be_visible(timeout=60000)
         if mode=="enabled":
             expect(page.get_by_text(metric,exact=True)).to_be_visible()
@@ -58,10 +69,12 @@ def run(browser,engine,lang,mode):
         expect(button).to_be_visible()
     no_exception(page)
     # A stable route must remain usable in every mode.
-    page.locator(".st-key-core_find button").click()
+    centered_click(page.locator(".st-key-core_find button"))
     expect(page.locator(".st-key-core_find")).to_have_count(0,timeout=60000)
+    expect(page.get_by_test_id("stTextArea").first).to_be_visible(timeout=60000)
     expect(page.locator(".st-key-tabbar a[data-testid='stPageLink-NavLink']")).to_have_count(5)
     no_exception(page)
+    page.screenshot(path=str(OUT/f"{engine}-{lang}-{mode}-stable.png"))
     page.close()
     return {"engine":engine,"language":lang,"mode":mode,"stable_route":"PASS","result":"PASS"}
 

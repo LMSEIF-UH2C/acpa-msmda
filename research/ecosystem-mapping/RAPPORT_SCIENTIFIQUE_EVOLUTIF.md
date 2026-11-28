@@ -1,6 +1,6 @@
 # Rapport scientifique évolutif — Cartographie technologique écosystémique ACPA/MSMDA
 
-**Version 0.1.40 — 28 novembre 2026.** Dossier de recherche et base de rédaction d'un article méthodologique. Branche `research/ecosystem-mapping-pilot`, [PR 81](https://github.com/LMSEIF-UH2C/acpa-msmda/pull/81). État : exploration et développement méthodologique; collecte définitive et validation empirique non achevées. Ce rapport est rétrospectif pour les pilotes déjà réalisés, prospectif pour les étapes restantes. Il ne constitue pas un préenregistrement rétroactif. Auteur(s), contributions CRediT, financement, déclarations et choix de revue à confirmer par l'équipe scientifique. Code de production et version publiée v0.2.0 préservés.
+**Version 0.1.41 — 28 novembre 2026.** Dossier de recherche et base de rédaction d'un article méthodologique. Branche `research/ecosystem-mapping-pilot`, [PR 81](https://github.com/LMSEIF-UH2C/acpa-msmda/pull/81). État : exploration et développement méthodologique; collecte définitive et validation empirique non achevées. Ce rapport est rétrospectif pour les pilotes déjà réalisés, prospectif pour les étapes restantes. Il ne constitue pas un préenregistrement rétroactif. Auteur(s), contributions CRediT, financement, déclarations et choix de revue à confirmer par l'équipe scientifique. Code de production et version publiée v0.2.0 préservés.
 
 ## 1. Projet d'article
 Titre provisoire FR : **Vers une cartographie systématique, cumulative, adaptative et multidimensionnelle des technologies éducatives : développement et validation méthodologique en éducation physique et sportive.**
@@ -314,3 +314,6 @@ Prochaine étape : examiner précisément les deux paires non régénérées et 
 
 ## Coordination des interventions — 28 novembre 2026
 Ajout d'un tableau de bord opérationnel commun [coordination](coordination/README.md), [état](coordination/ETAT.json), [checklist](coordination/CHECKLIST.md), [journal](coordination/JOURNAL.md). Réservation coopérative par commit avec expected_sha et force:false, checkpoint/handoff, reprise sans réaudit des acquis sauf motif. Etat de départ V0.1.40, 24 jalons de pilotage (7 acquis techniques, 7 prêts sous dépendances, 5 interventions humaines, 5 bloqués). Aucune nouvelle preuve scientifique, version scientifique inchangée. Prochain chantier P2-06. Pas de garantie contre un intervenant qui contourne les règles; aucun changement des permissions ni de main.
+
+## 19. Audit résiduel P2-06 — lancement
+Réservation coordination INT-P2-06-0002. [Protocole](RESIDUAL_IDENTITY_PROTOCOL_V01.md). Diagnostic ciblé des deux anciennes paires, groupe court et schéma imbriqué catalogue; pas de rejeu des quatre anciens ZIP. Tests et audit à vérifier, aucune fusion ni résultat anticipé.

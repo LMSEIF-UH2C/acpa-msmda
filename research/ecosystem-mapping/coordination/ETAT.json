@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": 2,
+  "revision": 3,
   "branch": "research/ecosystem-mapping-pilot",
   "scientific_version": "0.1.40",
   "scientific_baseline_commit": "d4b8f20533192aad701ad178da71f89a6271bcf0",
@@ -11,7 +11,7 @@
     "acquired_utc": "2026-11-28T13:40:51Z",
     "base_head": "1412afe6a87103429b3bde61d1af95c252d1d357",
     "run_refs": [],
-    "resume_note": "Audit ciblé des écarts et champs techniques; aucune fusion."
+    "resume_note": "Audit ciblé récent et schéma catalogue, workflow ecosystem-residual-identity; vérifier résultat avant libération."
   },
   "last_handoff": {
     "actor": "interactive_assistant",

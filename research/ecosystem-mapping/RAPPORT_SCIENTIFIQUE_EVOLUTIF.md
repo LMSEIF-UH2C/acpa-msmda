@@ -1,6 +1,6 @@
 # Rapport scientifique évolutif — Cartographie technologique écosystémique ACPA/MSMDA
 
-**Version 0.1.9 — 28 novembre 2026.** Dossier de recherche et base de rédaction d'un article méthodologique. Branche `research/ecosystem-mapping-pilot`, [PR 81](https://github.com/LMSEIF-UH2C/acpa-msmda/pull/81). État : exploration et développement méthodologique; collecte définitive et validation empirique non achevées. Ce rapport est rétrospectif pour les pilotes déjà réalisés, prospectif pour les étapes restantes. Il ne constitue pas un préenregistrement rétroactif. Auteur(s), contributions CRediT, financement, déclarations et choix de revue à confirmer par l'équipe scientifique. Code de production et version publiée v0.2.0 préservés.
+**Version 0.1.10 — 28 novembre 2026.** Dossier de recherche et base de rédaction d'un article méthodologique. Branche `research/ecosystem-mapping-pilot`, [PR 81](https://github.com/LMSEIF-UH2C/acpa-msmda/pull/81). État : exploration et développement méthodologique; collecte définitive et validation empirique non achevées. Ce rapport est rétrospectif pour les pilotes déjà réalisés, prospectif pour les étapes restantes. Il ne constitue pas un préenregistrement rétroactif. Auteur(s), contributions CRediT, financement, déclarations et choix de revue à confirmer par l'équipe scientifique. Code de production et version publiée v0.2.0 préservés.
 
 ## 1. Projet d'article
 Titre provisoire FR : **Vers une cartographie systématique, cumulative, adaptative et multidimensionnelle des technologies éducatives : développement et validation méthodologique en éducation physique et sportive.**
@@ -95,7 +95,7 @@ Sources primaires : [audit Apple](AUDIT_APPLE_PILOT.md), [F-Droid](AUDIT_FDROID_
 [Audit](AUDIT_IDENTITY_NORMALIZATION.md) : 9 237 identifiants de source, 669 paires candidates (656 intrasources, 13 intersources), 192 signal nom, 483 URL dépôt (6 communs); 230 Apple et 684 F-Droid à noms multiples. Groupe de 63 IDs différé; zéro fusion de produit; nombre de produits uniques inconnu. 57 paires de calibration vérifiées dans deux CSV vierges et identiques, dont 13 intersources. [Codebook de relations](IDENTITY_REVIEW_CODEBOOK.md) proposé; liens directionnels, vérification documentaire, arbitrage et contrôle indépendant hors candidats. Pas d'accord ou rappel mesurés. L'artefact de calibration est vérifié, non les identités elles-mêmes.
 
 ### Opérationnalisation 10D/97P (V0.1.9)
-Annexe E3 relue intégralement (pp.1–6; 12 experts × 5 OTP, échelle 1–5). [Matrice 97 lignes](OPERATIONNALISATION_10D97P_V01.csv), [protocole](OPERATIONNALISATION_10D97P_PROTOCOL.md) : unité principale proposée, indicateur, vérification et preuve minimale, codes/libellés originaux conservés. Répartition proposée : PRODUIT_VARIANTE 34; USAGE_PEDAGOGIQUE 32; PROCESSUS_CADRE 26; SYSTEME_ECOSYSTEME 5. NR/SO/incertain distincts des scores, ancres générales à calibrer, aucun score ni agrégation automatique. Correspondances à soumettre à experts et juges; pas de nouvelle validation empirique. Contrôle structurel GitHub déclenché.
+Annexe E3 relue intégralement (pp.1–6; 12 experts × 5 OTP, échelle 1–5). [Matrice 97 lignes](OPERATIONNALISATION_10D97P_V01.csv), [protocole](OPERATIONNALISATION_10D97P_PROTOCOL.md) : unité principale proposée, indicateur, vérification et preuve minimale, codes/libellés originaux conservés. Répartition proposée : PRODUIT_VARIANTE 34; USAGE_PEDAGOGIQUE 32; PROCESSUS_CADRE 26; SYSTEME_ECOSYSTEME 5. NR/SO/incertain distincts des scores, ancres générales à calibrer, aucun score ni agrégation automatique. Correspondances à soumettre à experts et juges; pas de nouvelle validation empirique. Contrôle structurel GitHub réussi : [run 46134275451](https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46134275451), job 140945985327. Les 97 lignes, codes, libellés, pages et catégories de preuves/unités concordent avec le schéma et la transcription d'E3; aucun score observé.
 
 ## 6. Chronologie et registre des décisions (UTC, 28 novembre 2026)
 | Heure | Commit / preuve | Décision, résultat et justification |
@@ -128,6 +128,8 @@ Annexe E3 relue intégralement (pp.1–6; 12 experts × 5 OTP, échelle 1–5). 
 
 | 28 nov. | V0.1.9 : [opérationnalisation 10D/97P](OPERATIONNALISATION_10D97P_PROTOCOL.md) | Relecture de l'annexe, 97 correspondances proposées, preuves et unités, règles NR/SO; contrôle structurel prévu, calibration experte requise. |
 
+| 28 nov. | V0.1.10 : [contrôle structurel 10D/97P](https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46134275451) | 97/97 correspondances conformes à la transcription et au schéma; validation experte des unités, indicateurs, preuves et ancres encore requise. |
+
 ## 7. Validation prospective : plan de travail et critères de passage
 Le [plan directeur de finalisation](PLAN_FINALISATION.md) définit six phases avec livrables et critères de passage : consolidation, stabilisation (incluant calibration des juges et préenregistrement avant collecte), collecte définitive, qualification/validation, moteur écosystémique, valorisation et clôture. En cas d'archives historiques irrécupérables, distinguer nouvelle collecte et comparaison documentaire limitée, sans annoncer de gain net historique. Les paramètres de validation et les critères d'arrêt restent à approuver avant exécution confirmatoire. Quatre figures distinctes proposées : flux historique, architecture, flux quantitatif nouveau et modèle écosystémique.
 
@@ -139,7 +141,7 @@ Le [plan directeur de finalisation](PLAN_FINALISATION.md) définit six phases av
 | Normalisation | Pilote réussi : 8 tests, 669 candidats, 57 paires de calibration | Schéma produit/variante/source/observation; précision des liens et faux rapprochements sur corpus indépendant |
 | Saturation | Exploratoire | Règle prospective validée, bloc de contrôle par strates, évaluation des pertes pertinentes, pas d'arrêt sur erreur |
 | Criblage | 141 fiches préparées | Deux juges humains indépendants, arbitrage, révision codebook et échantillon de validation distinct |
-| Référentiel 10D/97P | Matrice de 97 correspondances proposée (V0.1), contrôle structurel à vérifier | Applicabilité/ancres/preuves validées par experts; fiabilité, traitement NR/SO et couverture de preuve |
+| Référentiel 10D/97P | Matrice de 97 correspondances proposée (V0.1), contrôle structurel réussi | Applicabilité/ancres/preuves validées par experts; fiabilité, traitement NR/SO et couverture de preuve |
 | Préenregistrement | Non réalisé | Protocole final daté et figé avant collecte définitive, critères et analyses précisés |
 | Collecte définitive | Non lancée | Accès autorisés, stockage pérenne, plan versionné, journal exhaustif des opérations |
 | Écosystèmes | Concept | Validation des contraintes et scénarios, comparaison aux baselines, validation empirique éventuelle |

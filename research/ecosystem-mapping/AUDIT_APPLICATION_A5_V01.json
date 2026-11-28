@@ -87,32 +87,32 @@
     "contract": "CONTRAT_ADMISSION_REELLE_V01.md",
     "workflows": [
       {
-        "id": 46174578625,
-        "name": "Mobile navigation REC-Y002",
-        "status": "in_progress",
-        "conclusion": null,
-        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174578625"
-      },
-      {
-        "id": 46174578592,
-        "name": "Tests ACPA MSMDA",
-        "status": "in_progress",
-        "conclusion": null,
-        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174578592"
-      },
-      {
-        "id": 46174578639,
-        "name": "Public web demo",
-        "status": "in_progress",
-        "conclusion": null,
-        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174578639"
-      },
-      {
         "id": 46174578824,
         "name": "Independent R validation",
         "status": "completed",
         "conclusion": "success",
         "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174578824"
+      },
+      {
+        "id": 46174578639,
+        "name": "Public web demo",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174578639"
+      },
+      {
+        "id": 46174578592,
+        "name": "Tests ACPA MSMDA",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174578592"
+      },
+      {
+        "id": 46174578625,
+        "name": "Mobile navigation REC-Y002",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174578625"
       },
       {
         "id": 46174574540,
@@ -145,6 +145,17 @@
     ],
     "results_verified": false,
     "real_admission": 0,
-    "ui_connected": false
+    "ui_connected": false,
+    "targeted_tests": {
+      "distinct": 27,
+      "executions": 54,
+      "run": 46174574520
+    }
+  },
+  "real_evidence_drafts": {
+    "file": "DOSSIERS_QUALIFICATION_REELLE_V01.json",
+    "count": 4,
+    "admitted": 0,
+    "transfer_audit": "AUDIT_TRANSFERT_CSV_REEL_V02.json"
   }
 }

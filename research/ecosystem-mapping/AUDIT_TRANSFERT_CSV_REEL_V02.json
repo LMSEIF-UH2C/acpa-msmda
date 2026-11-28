@@ -1,0 +1,58 @@
+{
+  "id": "RET-014",
+  "date": "2026-11-28",
+  "application": "LibreOffice Calc 25.2.3.2 520(Build:2)",
+  "environment": "local Linux container, actual headless binary, temporary separate profiles",
+  "scope": "synthetic control input; actual software; no BORIS export, no jamovi import, no personal data",
+  "input": {
+    "text": "Observation,Behavior,Start,Stop,Duration,Note\n001,MOTOR,0,12.5,12.5,\"مرحلة, حركة\"\n001,WAIT,12.5,18,5.5,\"attente\"\n002,MOTOR,18,30,12,\"élève fictif\"\n003,POINT,30,30,0,\"\"\n004,UNKNOWN,,,,\"absent\"\n",
+    "sha256": "fe04334f778086d4dfea08cd226d140a881997ede97d3773138b834bf97f80a0",
+    "data_rows": 5,
+    "fields": 6
+  },
+  "commands": {
+    "common": "libreoffice -env:UserInstallation=file://<tmp>/profile-<mode> --headless",
+    "import_default": "--convert-to xlsx --outdir <tmp>/xlsx <tmp>/input/events.csv",
+    "import_explicit": "--infilter=Text - txt - csv (StarCalc):44,34,76,1,1/2/2/2/3/1/4/1/5/1/6/2,1033,true --convert-to xlsx --outdir <tmp>/xlsx <tmp>/input/events.csv",
+    "export": "--convert-to csv:Text - txt - csv (StarCalc):44,34,76,1 --outdir <tmp>/output <tmp>/xlsx/events.xlsx"
+  },
+  "verification": "Python csv.DictReader, exact field string equality, excluding header; empty quoted field and unquoted empty field parsed equivalently. Both imports and exports exit code 0. Separate profiles and deletion of outputs between tests.",
+  "results": [
+    {
+      "mode": "default",
+      "status": "FAIL_SEMANTIC_INTEGRITY",
+      "preserved": 25,
+      "total": 30,
+      "output": "\"Observation\",\"Behavior\",\"Start\",\"Stop\",\"Duration\",\"Note\"\n1,\"MOTOR\",0,12.5,12.5,\"مرحلة, حركة\"\n1,\"WAIT\",12.5,18,5.5,\"attente\"\n2,\"MOTOR\",18,30,12,\"élève fictif\"\n3,\"POINT\",30,30,0,\n4,\"UNKNOWN\",,,,\"absent\"\n",
+      "sha256": "84feac0d265d1eda9d87d579a25c87c4715af39de629dc0d4ff71c4b28f98d89",
+      "differences": [
+        "001→1",
+        "001→1",
+        "002→2",
+        "003→3",
+        "004→4"
+      ]
+    },
+    {
+      "mode": "explicit",
+      "status": "PASS_FOR_TEST_INPUT",
+      "preserved": 30,
+      "total": 30,
+      "output": "\"Observation\",\"Behavior\",\"Start\",\"Stop\",\"Duration\",\"Note\"\n\"001\",\"MOTOR\",0,12.5,12.5,\"مرحلة, حركة\"\n\"001\",\"WAIT\",12.5,18,5.5,\"attente\"\n\"002\",\"MOTOR\",18,30,12,\"élève fictif\"\n\"003\",\"POINT\",30,30,0,\n\"004\",\"UNKNOWN\",,,,\"absent\"\n",
+      "sha256": "f5b3c742aa084cc2c9c63340673141ac9b8c1a4703d619b6424185afa47d154c",
+      "differences": []
+    }
+  ],
+  "sources": [
+    "https://help.libreoffice.org/latest/en-US/text/scalc/guide/csv_files.html",
+    "https://help.libreoffice.org/latest/fr/text/shared/guide/csv_params.html",
+    "https://www.boris.unito.it/user_guide/export_events/",
+    "https://docs.jamovi.org/data/data_1_overview_data_variables.html"
+  ],
+  "limitations": [
+    "One constructed input, one binary version, no inference of general transfer integrity.",
+    "No actual BORIS or jamovi runtime available locally; no full chain tested.",
+    "No network isolation, Windows test or accessibility test.",
+    "Equal parsed strings do not establish preservation of data types in jamovi or semantic equivalence of point/state events."
+  ]
+}

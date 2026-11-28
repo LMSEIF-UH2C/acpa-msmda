@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": 55,
+  "revision": 56,
   "branch": "research/ecosystem-mapping-pilot",
   "scientific_version": "0.1.58",
   "scientific_baseline_commit": "c7da29efe69974ebc365dbf0aa942f95ec5846df",
@@ -11,16 +11,16 @@
     "acquired_utc": "2026-11-28T18:05:58.979Z",
     "base_head": "12f6b300aa2d853ae4f5d0412cc52015fcad984c",
     "run_refs": [
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174578625",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174578592",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174578639",
       "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174578824",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174578639",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174578592",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174578625",
       "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174574540",
       "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174574520",
       "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174574423",
       "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174574457"
     ],
-    "resume_note": "A5 interface initiale d3bc403 : 7/7 workflows terminaux success; logs dual-entry 18/18, A5 diagnostic et simulation 6/6 (Chromium/WebKit ×FR/AR/EN). Nouveau commit d00f75afb6ecc16d14cbc7558de945b51aa7f367 : mécanisme distinct d'admission réelle interne, manifeste externe épinglé SHA256, observation/qualification A3 exactes, contexte et scénario empreintés, revue explicite datée, preuves par fonction/porte/ressource, compatibilité et transfert par paire; moteur combinatoire commun sans promotion de fixture. Test de contrôle synthétique positif/négatif, aucun manifeste réel approuvé, aucune admission réelle ni UI connectée. Contrat CONTRAT_ADMISSION_REELLE_V01.md ; sources BORIS analyse/export relues, possible suffisance de BORIS seul pour descriptifs, Calc/jamovi seulement si exigence supplémentaire. Limites : preuve textuelle/empreinte ne vérifie pas véracité/mandat, interactions supérieures et séquences fines non modélisées, date et pin de confiance requis. Nouveau CI 4/8 au contrôle; résultats non tous vérifiés. ASC-01 maintenu, stable/main/catalogue inchangés."
+    "resume_note": "Passe réelle A5 : nouvelle exécution Calc RET-014, défaut 25/30 vs import explicite 30/30 sur données techniques sans personnes; 5 identifiants altérés puis préservés. Audit avec contenus/empreintes/commandes et dossiers de qualification brouillon pour quatre technologies : fonctions déclarées, neuf portes non établies dans contexte cible, aucune approbation ni admission; BORIS/jamovi absents localement, chaîne non exécutée. ASC-02 proposé dans rapport maître. CI admission réelle 7/8 réussis au contrôle; 27 tests ×2 déjà confirmés. Aucun changement applicatif dans cette passe, stable/main/catalogue inchangés; prochaine étape terminer recette, réaliser tests des extrémités et vérifier contexte, puis raccordement interface."
   },
   "last_handoff": {
     "actor": "interactive_assistant",
@@ -350,7 +350,7 @@
         "deps": [
           "A4"
         ],
-        "next": "Verify real-admission CI terminal evidence, prepare actual evidence dossier and owner decision/pinned manifest, then connect internal UI; no unverified real admission.",
+        "next": "Finish terminal CI, execute BORIS/jamovi endpoint tests or document unavailable, review exact context and real evidence, then connect approved internal path; retain RET-014 and ASC-01.",
         "evidence": "../AUDIT_APPLICATION_A5_V01.json"
       },
       {

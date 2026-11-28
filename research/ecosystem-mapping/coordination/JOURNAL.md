@@ -72,3 +72,5 @@
 | 2026-11-28 | interactive_assistant | INT-APP-A5-0019 | Pilote réel | 4 technologies documentées; Calc réel PASS; chaîne non testée | [PILOTE_ECOSYSTEMES_REELS_V01.md](../PILOTE_ECOSYSTEMES_REELS_V01.md) | Recette et qualification réelle |
 
 | 2026-11-28 | interactive_assistant | INT-APP-A5-0019 | Admission réelle | 7/7 CI interface; contrat admission réelle implémenté, nouvelle CI en cours | [Code](https://github.com/LMSEIF-UH2C/acpa-msmda/commit/d00f75afb6ecc16d14cbc7558de945b51aa7f367) | Recette puis dossier réel |
+
+| 2026-11-28 | interactive_assistant | INT-APP-A5-0019 | RET-014 et dossiers | Calc réel 25/30→30/30; quatre dossiers brouillons; aucune admission | [AUDIT_TRANSFERT_CSV_REEL_V02.json](../AUDIT_TRANSFERT_CSV_REEL_V02.json) | Recette et tests extrémités |

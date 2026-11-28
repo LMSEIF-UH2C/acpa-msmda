@@ -43,3 +43,11 @@ LibreOffice Calc 25.2.3.2, mode headless, profil temporaire isolé : CSV→XLSX�
 
 ## Relecture fonctionnelle — parcimonie
 Le manuel officiel [analyse BORIS](https://www.boris.unito.it/user_guide/analysis/) documente déjà nombres d'occurrences, durées et pourcentages. BORIS seul peut couvrir un descriptif simple; l'ajout de Calc et jamovi doit satisfaire une exigence supplémentaire démontrable. Voir [CONTRAT_ADMISSION_REELLE_V01.md](CONTRAT_ADMISSION_REELLE_V01.md). Aucun essai BORIS ni jamovi exécuté dans cette passe.
+
+## ASC-02 — Intégrité sémantique des transferts (proposition à capitaliser)
+
+> La compatibilité des formats ne garantit pas l'intégrité des données transférées. La complémentarité technique doit être démontrée au niveau des données et de leur interprétation, pas seulement au niveau de l'extension du fichier.
+
+RET-014 : exécution réelle Calc 25.2.3.2 sous Linux, CSV→XLSX→CSV, 5 lignes × 6 champs, identifiants 001–004, texte FR/AR, décimales et champs vides. Import standard : 25/30 champs exacts, cinq identifiants altérés (zéros initiaux perdus). Import avec types de colonnes explicites : 30/30 champs exacts dans ce cas. Les deux commandes terminent avec code 0; le succès de la commande n'est pas un contrôle d'intégrité. [Audit intégral](AUDIT_TRANSFERT_CSV_REEL_V02.json). Ce résultat est borné à un fichier construit et une version, ne prouve ni un échange BORIS/jamovi ni la préservation des types et significations dans tous les logiciels. L'échec et le retest sont conservés. Ne pas élargir la revendication à une validation scientifique externe.
+
+Dossiers par technologie : [DOSSIERS_QUALIFICATION_REELLE_V01.json](DOSSIERS_QUALIFICATION_REELLE_V01.json), brouillons de revue, non manifestes d'approbation. Aucun résultat opérationnel nouveau.

@@ -38,3 +38,12 @@ RET-013 — complément : RET-013 : correction implémentée sur PR82 au commit 
 - RET-013 — retest terminal du commit 78771bb10eb721f014bcf0fd3a1c5cdffaa7a40f : 8/8 workflows réussis, y compris mobile et double entrée. Correction technique vérifiée pour cette version; l'historique initial reste conservé. Nouvelle implémentation 5857b0f4bef45ee7c3709bae890c265aa099648f : preuve documentaire locale et comparateur descriptif, CI distincte à vérifier, aucune validation de couverture réelle ni de compatibilité.
 
 - A4 oracle final : S02 budget insuffisant, S10 exigence non modélisée; deux abstentions attendues, S04/S06 aucun gain d'ajout, seul S01 gain E contre P. Limite : cas synthétiques conçus, aucune généralisation empirique. [Run](https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173324214).
+
+### RET-014 — perte de zéros initiaux lors du transfert CSV
+## ASC-02 — Intégrité sémantique des transferts (proposition à capitaliser)
+
+> La compatibilité des formats ne garantit pas l'intégrité des données transférées. La complémentarité technique doit être démontrée au niveau des données et de leur interprétation, pas seulement au niveau de l'extension du fichier.
+
+RET-014 : exécution réelle Calc 25.2.3.2 sous Linux, CSV→XLSX→CSV, 5 lignes × 6 champs, identifiants 001–004, texte FR/AR, décimales et champs vides. Import standard : 25/30 champs exacts, cinq identifiants altérés (zéros initiaux perdus). Import avec types de colonnes explicites : 30/30 champs exacts dans ce cas. Les deux commandes terminent avec code 0; le succès de la commande n'est pas un contrôle d'intégrité. [Audit intégral](AUDIT_TRANSFERT_CSV_REEL_V02.json). Ce résultat est borné à un fichier construit et une version, ne prouve ni un échange BORIS/jamovi ni la préservation des types et significations dans tous les logiciels. L'échec et le retest sont conservés. Ne pas élargir la revendication à une validation scientifique externe.
+
+Statut : CORRECTION_CIBLEE_REUSSIE, chaîne complète et variantes non testées.

@@ -33,9 +33,10 @@ jobs:
           QT_QPA_PLATFORM: offscreen
         run: |
           sudo apt-get update
-          sudo apt-get install -y --no-install-recommends libegl1
-          dpkg-query -W libegl1 libgl1 | tee boris-runtime-evidence/system-dependencies.txt
+          sudo apt-get install -y --no-install-recommends libegl1 libmpv2
+          dpkg-query -W libegl1 libgl1 libmpv2 | tee boris-runtime-evidence/system-dependencies.txt
           python -c 'from PySide6 import QtWidgets; print("QT_WIDGETS_IMPORT_OK")' 2>&1 | tee boris-runtime-evidence/qt-import.txt
+          python -c 'import ctypes, ctypes.util; lib=ctypes.util.find_library("mpv"); assert lib, "MPV library not found"; ctypes.CDLL(lib); print("MPV_LOAD_OK", lib)' 2>&1 | tee boris-runtime-evidence/mpv-import.txt
       - name: Execute actual upstream export and independent reconciliation
         shell: bash
         env:

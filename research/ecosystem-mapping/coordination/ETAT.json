@@ -1,10 +1,18 @@
 {
   "schema_version": 1,
-  "revision": 4,
+  "revision": 5,
   "branch": "research/ecosystem-mapping-pilot",
   "scientific_version": "0.1.42",
   "scientific_baseline_commit": "75ca748f9145cec0a74d08ced0a8ea1abb2d387d",
-  "lock": null,
+  "lock": {
+    "actor": "interactive_assistant",
+    "intervention_id": "INT-P2-07-0003",
+    "task_id": "P2-07",
+    "acquired_utc": "2026-11-28",
+    "base_head": "29f3ffa9bbb60c3489dcd547954b446df3d5692d",
+    "run_refs": [],
+    "resume_note": "Sensibilité et rapprochement par identifiants natifs, hors ligne."
+  },
   "last_handoff": {
     "actor": "interactive_assistant",
     "intervention_id": "INT-P2-06-0002",
@@ -131,7 +139,7 @@
       "id": "P2-07",
       "phase": 2,
       "title": "Sensibilité blocage et contrôle des groupes différés",
-      "status": "READY",
+      "status": "IN_PROGRESS",
       "owner": "assistant",
       "deps": [
         "P2-06"

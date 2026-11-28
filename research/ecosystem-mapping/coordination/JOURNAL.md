@@ -8,3 +8,4 @@
 | 2026-11-28 | interactive_assistant | INT-P2-06-0002 | P2-06 | Réservation exclusive avant audit ciblé | HEAD 1412afe6a87103429b3bde61d1af95c252d1d357 | Diagnostic des écarts |
 | 2026-11-28 | interactive_assistant | INT-P2-06-0002 | P2-06 | Programme et protocole enregistrés, exécution déclenchée | [Protocole](../RESIDUAL_IDENTITY_PROTOCOL_V01.md) | Vérifier run |
 | 2026-11-28 13:43 UTC | interactive_assistant | INT-P2-06-0002 | P2-06 | Clôture : 6/6 tests, deux écarts expliqués, source_url diagnostiqué, aucune fusion; verrou libéré | [Run 46151020904](https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46151020904) · [audit](../AUDIT_RESIDUAL_IDENTITY_V01.json) | P2-07 |
+| 2026-11-28 | interactive_assistant | INT-P2-07-0003 | P2-07 | Réservation exclusive | HEAD 29f3ffa9bbb60c3489dcd547954b446df3d5692d | Sensibilité et identifiants de listing |

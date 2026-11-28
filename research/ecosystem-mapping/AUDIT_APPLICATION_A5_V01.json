@@ -557,27 +557,6 @@
     "commit": "d5199bb10d7c8df6f6d74c038ea385c81607060b",
     "workflows": [
       {
-        "id": 46178699816,
-        "name": "Mobile navigation REC-Y002",
-        "status": "in_progress",
-        "conclusion": null,
-        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46178699816"
-      },
-      {
-        "id": 46178699770,
-        "name": "Tests ACPA MSMDA",
-        "status": "in_progress",
-        "conclusion": null,
-        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46178699770"
-      },
-      {
-        "id": 46178699760,
-        "name": "Public web demo",
-        "status": "in_progress",
-        "conclusion": null,
-        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46178699760"
-      },
-      {
         "id": 46178699730,
         "name": "Independent R validation",
         "status": "completed",
@@ -585,20 +564,93 @@
         "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46178699730"
       },
       {
+        "id": 46178699770,
+        "name": "Tests ACPA MSMDA",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46178699770"
+      },
+      {
+        "id": 46178699760,
+        "name": "Public web demo",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46178699760"
+      },
+      {
+        "id": 46178699816,
+        "name": "Mobile navigation REC-Y002",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46178699816"
+      },
+      {
         "id": 46178695648,
         "name": "A5 internal review panel acceptance",
-        "status": "in_progress",
-        "conclusion": null,
+        "status": "completed",
+        "conclusion": "failure",
         "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46178695648"
       }
     ],
     "planned_cases": 18,
-    "results_verified": false
+    "results_verified": true,
+    "actual_result": {
+      "passed": 6,
+      "failed": 12,
+      "not_executed": 0,
+      "positive_passed": 0,
+      "artifact": 15276454409,
+      "archive_sha256_verified": true,
+      "hash_check_reached": false,
+      "failure": "Locator.check on visually hidden input"
+    }
   },
   "calc_f14_robustness": {
     "file": "AUDIT_CALC_F14_ROBUSTESSE_V02.json",
     "cases": 11,
     "pass": 11,
     "admitted": 0
+  },
+  "visible_checkbox_retest": {
+    "commit": "decea5f4154e2d1df6d03042983ef351f235ab81",
+    "workflows": [
+      {
+        "id": 46187956709,
+        "name": "Mobile navigation REC-Y002",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46187956709"
+      },
+      {
+        "id": 46187956694,
+        "name": "Tests ACPA MSMDA",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46187956694"
+      },
+      {
+        "id": 46187956685,
+        "name": "Public web demo",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46187956685"
+      },
+      {
+        "id": 46187956682,
+        "name": "Independent R validation",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46187956682"
+      },
+      {
+        "id": 46187951357,
+        "name": "A5 internal review panel acceptance",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46187951357"
+      }
+    ],
+    "planned_cases": 18,
+    "results_verified": false
   }
 }

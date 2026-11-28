@@ -98,3 +98,5 @@
 | 2026-11-28 | interactive_assistant | INT-APP-A5-0019 | F14 Calc + recette positive | Recalcul réel sur données de contrôle, dossier positif synthétique temporaire, 18 cas navigateur prévus | [AUDIT_CALC_F14_V01.json](../AUDIT_CALC_F14_V01.json) | CI puis qualification réelle |
 
 | 2026-11-28 | interactive_assistant | INT-APP-A5-0019 | RET-020 + robustesse Calc | 14/18 navigateur, 11/11 classifications Calc, retest ciblé | [AUDIT_CALC_F14_ROBUSTESSE_V02.json](../AUDIT_CALC_F14_ROBUSTESSE_V02.json) | Vérifier 18 cas puis qualification |
+
+| 2026-11-28 | interactive_assistant | INT-APP-A5-0019 | RET-020 + préparation sécurité A6 | 6/18 au retest input masqué; correction script; plan sécurité en lecture seule | [PLAN_AUDIT_SECURITE_A6_V01.md](../PLAN_AUDIT_SECURITE_A6_V01.md) | A5 prioritaire |

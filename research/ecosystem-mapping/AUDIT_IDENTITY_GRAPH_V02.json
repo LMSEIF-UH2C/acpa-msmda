@@ -1,0 +1,80 @@
+{
+  "sources": 5,
+  "source_records": {
+    "catalog": 2466,
+    "sill": 672,
+    "wikidata": 547,
+    "doc_web": 17,
+    "doc_target": 17
+  },
+  "records_total": 3719,
+  "observations_total": 3721,
+  "observations_by_source": {
+    "catalog": 2466,
+    "sill": 672,
+    "wikidata": 549,
+    "doc_web": 17,
+    "doc_target": 17
+  },
+  "candidate_edges": 45,
+  "candidate_by_source_pair": {
+    "catalog/sill": 4,
+    "sill/wikidata": 15,
+    "catalog/wikidata": 13,
+    "catalog/doc_web": 5,
+    "catalog/doc_target": 6,
+    "doc_target/sill": 1,
+    "doc_target/wikidata": 1
+  },
+  "documentary_proposals": [
+    {
+      "a": "doc_target:T01",
+      "relation": "COMPATIBLE_WITH",
+      "b": "doc_target:T02",
+      "state": "UNCERTAIN",
+      "evidence": [
+        "proof:doc_target:T02"
+      ],
+      "rationale": "Documentation compatible selon version; contradiction apparente sur synchronisation.",
+      "decision": null
+    },
+    {
+      "a": "doc_target:T15",
+      "relation": "VARIANT_OF",
+      "b": "doc_web:WD03",
+      "state": "PROPOSED",
+      "evidence": [
+        "proof:doc_target:T15",
+        "proof:doc_web:WD03"
+      ],
+      "rationale": "Tracker Online et Tracker OSP; continuité à arbitrer.",
+      "decision": null
+    },
+    {
+      "a": "doc_target:T16",
+      "relation": "CLIENT_OF",
+      "b": "wikidata:Q190434",
+      "state": "PROPOSED",
+      "evidence": [
+        "proof:doc_target:T16"
+      ],
+      "rationale": "Moodle App client; cible QID candidate, identité à arbitrer.",
+      "decision": null
+    },
+    {
+      "a": "doc_target:T16",
+      "relation": "CLIENT_OF",
+      "b": "catalog:moodle",
+      "state": "PROPOSED",
+      "evidence": [
+        "proof:doc_target:T16"
+      ],
+      "rationale": "Moodle App client; fiche catalogue à contrôler.",
+      "decision": null
+    }
+  ],
+  "adjudicated_relations": 0,
+  "confirmed_product_count": null,
+  "identity_groups": [],
+  "scope": "Catalog + SILL + Wikidata + two documentary pilots. Earlier Apple/F-Droid/GitHub identity pilot remains separate; no sum of products."
+}

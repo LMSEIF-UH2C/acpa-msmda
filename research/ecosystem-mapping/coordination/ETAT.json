@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": 31,
+  "revision": 32,
   "branch": "research/ecosystem-mapping-pilot",
   "scientific_version": "0.1.58",
   "scientific_baseline_commit": "c7da29efe69974ebc365dbf0aa942f95ec5846df",
@@ -10,8 +10,14 @@
     "task_id": "A2",
     "acquired_utc": "2026-11-28T17:17:09.502Z",
     "base_head": "d5394b57d6bbcbfff76fd17e8d09d3857dee56d1",
-    "run_refs": [],
-    "resume_note": "A2 general CI terminal 7/7. Test actual browser route in opt-in/disabled/missing-db modes. Reserve scientific perspective for defense, no new scientific claims."
+    "run_refs": [
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46169706644",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46169712076",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46169712017",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46169712028",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46169711976"
+    ],
+    "resume_note": "Browser acceptance run launched; inspect terminal result and artifact before release. No A3 until acceptance."
   },
   "last_handoff": {
     "actor": "interactive_assistant",
@@ -320,8 +326,8 @@
           "A1"
         ],
         "scope": "Persistence and optional entry implemented; 38/38 targeted tests",
-        "evidence": "../AUDIT_APPLICATION_A2_V01.json",
-        "next": "Verify terminal PR82 regression and test enabled/disabled experimental route in browser before A3"
+        "evidence": "../AUDIT_APPLICATION_A2_BROWSER_V01.json",
+        "next": "Read terminal run 46169706644 and logs/artifact, verify all 18 cases and DB SHA; check general CI. Resume same intervention only once previous execution ended."
       },
       {
         "id": "A3",
@@ -360,9 +366,9 @@
         ]
       }
     ],
-    "integration_commit": "104949240d3758f687105b0e1481bb55219b9d42",
+    "integration_commit": "84eaf07310cf93e029d25c7493df9cbbb70cf55d",
     "pr": 82,
-    "regression_status": "SUCCESS",
+    "regression_status": "PENDING",
     "next_task": "A2",
     "dual_entry": {
       "stable": "v0.2.0 baseline, default",

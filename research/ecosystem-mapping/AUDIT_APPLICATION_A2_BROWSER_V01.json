@@ -1,0 +1,68 @@
+{
+  "phase": "A2 browser acceptance checkpoint",
+  "previous_application_commit": "104949240d3758f687105b0e1481bb55219b9d42",
+  "previous_ci": "7/7 success",
+  "application_commit": "84eaf07310cf93e029d25c7493df9cbbb70cf55d",
+  "pr": 82,
+  "run_id": 46169706644,
+  "job_id": 141055117332,
+  "planned_cases": {
+    "engines": [
+      "chromium",
+      "webkit"
+    ],
+    "languages": [
+      "fr",
+      "ar",
+      "en"
+    ],
+    "modes": [
+      "disabled",
+      "enabled",
+      "missing"
+    ],
+    "total": 18
+  },
+  "checks": [
+    {
+      "name": "mobile-navigation",
+      "status": "in_progress",
+      "conclusion": null,
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46169712076/job/141055135273"
+    },
+    {
+      "name": "tests (3.14)",
+      "status": "in_progress",
+      "conclusion": null,
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46169712017/job/141055135265"
+    },
+    {
+      "name": "tests (3.12)",
+      "status": "in_progress",
+      "conclusion": null,
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46169712017/job/141055135005"
+    },
+    {
+      "name": "smoke-test",
+      "status": "in_progress",
+      "conclusion": null,
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46169712028/job/141055134932"
+    },
+    {
+      "name": "reference",
+      "status": "in_progress",
+      "conclusion": null,
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46169711976/job/141055134715"
+    },
+    {
+      "name": "dual-entry",
+      "status": "in_progress",
+      "conclusion": null,
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46169706644/job/141055117332"
+    }
+  ],
+  "status": "in_progress",
+  "conclusion": null,
+  "verified_browser_cases": null,
+  "limits": "Test launch is not a pass. New commit adds tests/workflow only; stable main not changed. A3 remains blocked until browser acceptance and terminal CI review. No physical mobile test or external deployment."
+}

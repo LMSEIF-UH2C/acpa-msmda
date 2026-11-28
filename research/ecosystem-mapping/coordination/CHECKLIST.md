@@ -40,3 +40,5 @@ A1 : 7/7 contrôles terminaux réussis. A2 réservé INT-APP-A2-0015, coexistenc
 A1 TECH_VERIFIED (7/7 CI). A2 développé, 38/38 ciblés; registre 2500 dont 34 pistes, 0 recommandation nouvelle. CI générale PENDING; recette navigateur mode activé/désactivé à faire. A2 READY pour recette, A3–A7 bloqués. Main intact, PR82 brouillon. [Audit](../AUDIT_APPLICATION_A2_V01.json). Verrou LIBRE.
 
 A2 : CI générale 7/7 au commit 1049492; verrou réservé INT-APP-A2-0016 pour recette opt-in. A3 bloqué jusqu'au test navigateur.
+
+Recette dédiée A2 : 18 cas prévus (2 navigateurs × 3 langues × 3 modes), commit 84eaf07310cf93e029d25c7493df9cbbb70cf55d, run 46169706644. Résultats non encore vérifiés; verrou INT-APP-A2-0016 conservé. A3 non démarré.

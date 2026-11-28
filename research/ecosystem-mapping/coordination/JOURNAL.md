@@ -35,3 +35,4 @@
 | 2026-11-28 | interactive_assistant | INT-APP-A2-0015 | A2 | A1 CI 7/7, réservation A2 distincte, deux entrées | PR82 | Persistance et quarantaine |
 | 2026-11-28 | interactive_assistant | INT-APP-A2-0015 | A2 | 2500 enregistrements, 34 pistes, 38/38 tests, CI générale PENDING; verrou libéré | [Audit](../AUDIT_APPLICATION_A2_V01.json) | Recette double entrée |
 | 2026-11-28 | interactive_assistant | INT-APP-A2-0016 | A2 recette | CI précédente 7/7; réservation navigateur et note de perspective | PR82 | Test trois modes |
+| 2026-11-28 | interactive_assistant | INT-APP-A2-0016 | A2 recette | Test navigateur lancé, résultats non encore vérifiés | run 46169706644 | Reprendre au résultat terminal |

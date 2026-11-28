@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": 47,
+  "revision": 48,
   "branch": "research/ecosystem-mapping-pilot",
   "scientific_version": "0.1.58",
   "scientific_baseline_commit": "c7da29efe69974ebc365dbf0aa942f95ec5846df",
@@ -11,16 +11,13 @@
     "acquired_utc": "2026-11-28T17:42:00.259Z",
     "base_head": "a3723cbab35b0302ff09343920315fe776a40b75",
     "run_refs": [
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173022815",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173022907",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173022808",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173022812",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173017967",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173018008",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173017986",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173017975"
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173330855",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173330951",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173330869",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173330858",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173324214"
     ],
-    "resume_note": "A4 préparation de consolidation : 8/8 workflows du commit 5857b0f4bef45ee7c3709bae890c265aa099648f réussis au contrôle; en cours : aucun. Protocole prospectif [pool commun et oracle étendu](PLAN_APPLICATION_A4_COMMON_POOL_V01.md) enregistré avant implémentation : dix scénarios S01–S10, comparateurs I/P/E sur fixtures fictives et sortie historique H native séparée, oracle bitmask indépendant sur toutes contraintes modélisées, métriques communes réelles non disponibles. Les choix obligatoires/facultatifs sont conventions de test. Aucun nouveau test exécuté par cette préparation, aucune recommandation réelle ni gate scientifique modifié."
+    "resume_note": "A4 consolidation : CI précédente adaptateur 8/8 workflows terminaux réussis (5857b0f). Protocole prospectif pool commun enregistré au commit 2b58a20; nouveau commit applicatif b81690de34e135d5f5d23df66d9c5a7de9073706 uniquement tests : deux tests distincts, dix situations EPS fictives et 100 petits pools pseudo-aléatoires (graine 20261128, 1–6 candidats), comparaison des trois sorties individuel/≤2/écosystème avec oracle bitmask indépendant pour contraintes modélisées et vérification métriques/permutation. L'oracle couvre des entrées structurées valides, pas toute la validation de schéma. Sortie native historique reste séparée; aucune comparaison empirique ni admission réelle. Nouveau run A4 46173324214 et quatre régressions générales identifiés; résultats terminaux non encore vérifiés. A4 IN_PROGRESS, verrou conservé. Main et catalogue inchangés."
   },
   "last_handoff": {
     "actor": "interactive_assistant",
@@ -340,7 +337,7 @@
         "deps": [
           "A3"
         ],
-        "next": "Execute prospective common-pool fixture protocol and independent full-constraint oracle after terminal adapter CI; no historical paired empirical claim.",
+        "next": "Verify exact common-pool oracle run and general regressions, read scenario metrics and limitations, then assess A4 technical acceptance before A5.",
         "evidence": "../AUDIT_APPLICATION_A4_V01.json"
       },
       {
@@ -366,9 +363,9 @@
         ]
       }
     ],
-    "integration_commit": "5857b0f4bef45ee7c3709bae890c265aa099648f",
+    "integration_commit": "b81690de34e135d5f5d23df66d9c5a7de9073706",
     "pr": 82,
-    "regression_status": "ADAPTER_CI_SUCCESS",
+    "regression_status": "PENDING_A4_COMMON_POOL_ORACLE",
     "next_task": "A4",
     "dual_entry": {
       "stable": "v0.2.0 baseline, default",

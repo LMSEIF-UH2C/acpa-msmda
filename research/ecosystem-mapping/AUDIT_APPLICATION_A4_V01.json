@@ -204,7 +204,52 @@
   },
   "common_pool_protocol": {
     "path": "PLAN_APPLICATION_A4_COMMON_POOL_V01.md",
-    "status": "PROSPECTIVE_NOT_EXECUTED",
+    "status": "IMPLEMENTED_TESTS_PENDING",
     "scenarios": 10
+  },
+  "common_pool_oracle": {
+    "commit": "b81690de34e135d5f5d23df66d9c5a7de9073706",
+    "additional_tests": 2,
+    "scenarios": 10,
+    "seeded_pools": 100,
+    "seed": 20261128,
+    "workflows": [
+      {
+        "id": 46173330855,
+        "name": "Tests ACPA MSMDA",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173330855"
+      },
+      {
+        "id": 46173330951,
+        "name": "Mobile navigation REC-Y002",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173330951"
+      },
+      {
+        "id": 46173330869,
+        "name": "Public web demo",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173330869"
+      },
+      {
+        "id": 46173330858,
+        "name": "Independent R validation",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173330858"
+      },
+      {
+        "id": 46173324214,
+        "name": "A4 isolated ecosystem solver",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173324214"
+      }
+    ],
+    "results_verified": false
   }
 }

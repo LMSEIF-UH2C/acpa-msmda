@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": 5,
+  "revision": 6,
   "branch": "research/ecosystem-mapping-pilot",
   "scientific_version": "0.1.42",
   "scientific_baseline_commit": "75ca748f9145cec0a74d08ced0a8ea1abb2d387d",
@@ -11,7 +11,7 @@
     "acquired_utc": "2026-11-28",
     "base_head": "29f3ffa9bbb60c3489dcd547954b446df3d5692d",
     "run_refs": [],
-    "resume_note": "Sensibilité et rapprochement par identifiants natifs, hors ligne."
+    "resume_note": "Workflow ecosystem-identity-sensitivity en cours de lancement; vérifier run terminal, rapport et préserver résultats."
   },
   "last_handoff": {
     "actor": "interactive_assistant",

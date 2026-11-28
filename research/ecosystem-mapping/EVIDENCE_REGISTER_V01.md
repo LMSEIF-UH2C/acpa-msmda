@@ -15,3 +15,5 @@ Les ZIP sont les octets des artefacts originaux récupérés via GitHub Actions,
 | Apple extension | 46128443244 / 15256204849 | 2026-12-28 09:19:11 | 98657812ca3201aba2a0d9ad392d828db1600bef2ab32b387565e227339ba471 | Disponible |
 | Plan V0.3 | 46128865538 / 15256269877 | 2026-12-28 09:06:17 | 9cb9cc034141cdcd140cf770745f45fed6e93b7b5a95c17b1dd6ca70170eb885 | Disponible |
 Ces cinq archives n'ont pas été téléchargées ni pérennisées dans ce passage. Vérifier droits et emplacement privé autorisé avant stockage des réponses brutes, ou conserver projection autorisée et preuve d'écart. Priorité aux trois expirant le 5 décembre. Pas de prétention de récupération des listes historiques 45 676.
+
+Contrôle post-dépôt : relecture des trois blobs ZIP au commit 1bc558eb9cc7c8d57266dde32e23e946ea0261b7, comparaison exacte des encodages base64 aux octets émis par le job d'audit après SHA-256/CRC : 3/3 identiques. La conservation dans Git est vérifiée pour ces trois archives; les cinq autres restent temporaires. Pas de changement du catalogue ni de main.

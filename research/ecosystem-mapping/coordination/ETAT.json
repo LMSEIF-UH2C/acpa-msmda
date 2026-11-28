@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": 69,
+  "revision": 70,
   "branch": "research/ecosystem-mapping-pilot",
   "scientific_version": "0.1.58",
   "scientific_baseline_commit": "c7da29efe69974ebc365dbf0aa942f95ec5846df",
@@ -11,13 +11,13 @@
     "acquired_utc": "2026-11-28T18:05:58.979Z",
     "base_head": "12f6b300aa2d853ae4f5d0412cc52015fcad984c",
     "run_refs": [
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46187956709",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46187956694",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46187956685",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46187956682",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46187951357"
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46192067636",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46192067643",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46192067745",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46192067675",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46192062868"
     ],
-    "resume_note": "A5 RET-020 : retest d5199bb terminal, 4/4 régressions success, panneau 6/18 PASS (invalid_pin), 12/18 FAIL au Locator.check avant évaluation car input invisible. Archive 15276454409 SHA256 recalculé conforme 49fc10e707d5d5a5d3e42c33a117353166dda6ad5c4292fc52ba0a3def7782b2; HTML WebKit AR positif montre stCheckbox > label[data-baseweb=checkbox] > span visible attendu et input masqué. Nouveau commit decea5f4154e2d1df6d03042983ef351f235ab81 : script seul, tap sur indicateur visible et assertions état conservées; tous les 18 cas et seuil inchangés, aucune correction moteur. Retest à vérifier. Préparation sécurité A6 demandée par porteur : PLAN_AUDIT_SECURITE_A6_V01.md ; pré-audit statique ciblé au SHA d5199bb, 12 domaines contextualisés OWASP ASVS 5.0.0, aucune vulnérabilité confirmée ni sécurité exhaustive revendiquée; aucun test production ou correction sécurité. A6 reste bloquée par A5. Aucune admission réelle; Calc F14 contextuel à finaliser."
+    "resume_note": "A5 RET-020 : run 46187951357 terminal 6/18 PASS invalid_pin, 12/18 FAIL avant interaction, sélecteur filter(has=checkbox) utilise un locator déjà scoped au panneau au lieu d'un locator relatif. Les quatre régressions sont success. Archive 15281175143 SHA256 déclaré a6f1d62de769c442ff8fc4fa5af158967ed1eb6ee0fef78e8166e37eea0de83a (non recalculé dans cette passe). Correctif script seul 3b00f41168b7f227f0d9aec11b0faab6dcc6df30 : has=page.get_by_role(...) relatif, assert unicité widget, tap et assertions inchangées, 18 cas toujours exigés; résultat non présumé. Nouveau document MATRICE_QUALIFICATION_CALC_F14_V01.md consolide preuves et limites des neuf portes et ressources Calc F14, aucune porte promue, aucun manifeste approuvé, aucun test hors ligne ou scolaire nouveau. A6 sécurité préparée, périmètre inchangé; main stable inchangée."
   },
   "last_handoff": {
     "actor": "interactive_assistant",
@@ -347,7 +347,7 @@
         "deps": [
           "A4"
         ],
-        "next": "Verify all 18 visible checkbox retest cases and database hash; finish Calc F14 context review; keep A6 security audit preparation separate until A5 closure.",
+        "next": "Verify terminal 18-case retest and integrity hash. Review Calc F14 contextual matrix; validate target context and necessary evidence or abstain. No real admission without explicit approved dossier; A6 security remains prepared.",
         "evidence": "../AUDIT_APPLICATION_A5_V01.json"
       },
       {
@@ -372,9 +372,9 @@
         ]
       }
     ],
-    "integration_commit": "decea5f4154e2d1df6d03042983ef351f235ab81",
+    "integration_commit": "3b00f41168b7f227f0d9aec11b0faab6dcc6df30",
     "pr": 82,
-    "regression_status": "PENDING_VISIBLE_CHECKBOX_RETEST",
+    "regression_status": "PENDING_RELATIVE_CHECKBOX_LOCATOR_RETEST",
     "next_task": "A5",
     "dual_entry": {
       "stable": "v0.2.0 baseline, default",

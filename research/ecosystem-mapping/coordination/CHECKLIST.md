@@ -1,7 +1,7 @@
 # Checklist de coordination — état initial du 28/11/2026
 Référence scientifique V0.1.40, commit d4b8f20533192aad701ad178da71f89a6271bcf0. [État machine](ETAT.json) faisant foi; cette checklist est sa projection lisible à actualiser dans le même commit. [Règles](README.md) · [Journal](JOURNAL.md).
-**Verrou : LIBRE. Prochain chantier prioritaire : P2-06.**
-Avancement des 24 jalons de pilotage : 7 acquis techniques vérifiés, 7 à traiter (avec dépendances), 5 interventions humaines, 5 bloqués. Ces jalons sont une décomposition de travail, pas une estimation de pourcentage scientifique, ni une pondération des phases. Aucun chantier scientifique P0 déclaré clos par ce découpage; aucune collecte définitive autorisée.
+**Verrou : OCCUPÉ — assistant interactif, INT-P2-06-0002 (P2-06).**
+Avancement des 24 jalons de pilotage : 7 acquis techniques vérifiés, 6 à traiter (avec dépendances), 1 en cours, 5 interventions humaines, 5 bloqués. Ces jalons sont une décomposition de travail, pas une estimation de pourcentage scientifique, ni une pondération des phases. Aucun chantier scientifique P0 déclaré clos par ce découpage; aucune collecte définitive autorisée.
 | ID | Phase | Jalon | État | Responsable | Dépendances | Preuve / suite |
 |---|---:|---|---|---|---|---|
 | P1-01 | 1 | Audit des pilotes et du diagramme historique | Acquis technique vérifié | assistant | — | [Preuve de référence](../AUDIT_APPLE_V02_INDEPENDANT.md) — Pilotes auditables; pas de comparaison exhaustive historique |
@@ -13,7 +13,7 @@ Avancement des 24 jalons de pilotage : 7 acquis techniques vérifiés, 7 à trai
 | P2-03 | 2 | Modèle relationnel et registre persistant | Acquis technique vérifié | assistant | — | [Preuve de référence](../AUDIT_IDENTITY_REGISTRY_V03.json) — 31/31 tests; 34 entités provisoires; aucune identité arbitrée |
 | P2-04 | 2 | Intégration des anciens pilotes et reprise hors ligne | Acquis technique vérifié | assistant | — | [Preuve de référence](../AUDIT_LEGACY_INTEGRATION_V01.json) — 12956 enregistrements et 16245 observations; 83 événements conservés |
 | P2-05 | 2 | Rapprochement global intersource | Acquis technique vérifié | assistant | — | [Preuve de référence](../AUDIT_GLOBAL_IDENTITY_V01.json) — 321 candidats intersources, 656 anciens intra séparés; pas de fusion |
-| P2-06 | 2 | Audit des 2 paires non régénérées, nom court et champs techniques | Prêt (sous réserve des dépendances) | assistant | P2-05 | [Preuve de référence](../AUDIT_GLOBAL_IDENTITY_V01.json) — Prochain chantier : expliquer écarts, mapping champs imbriqués sans inférer identité |
+| P2-06 | 2 | Audit des 2 paires non régénérées, nom court et champs techniques | En cours | assistant | P2-05 | [Preuve de référence](../AUDIT_GLOBAL_IDENTITY_V01.json) — Prochain chantier : expliquer écarts, mapping champs imbriqués sans inférer identité |
 | P2-07 | 2 | Sensibilité blocage et contrôle des groupes différés | Prêt (sous réserve des dépendances) | assistant | P2-06 | [Preuve de référence](../GLOBAL_IDENTITY_PROTOCOL_V01.md) — Bloc 63 intra, seuil 30, noms courts; comparer sans arbitrage automatique |
 | P2-08 | 2 | Contrôle indépendant hors candidats et plan confirmatoire | Prêt (sous réserve des dépendances) | assistant | P2-07 | [Preuve de référence](../IDENTITY_REVIEW_CODEBOOK_V02.md) — Proposer échantillonnage, critères, limites; pas de jugements humains simulés |
 | P2-09 | 2 | Double calibration identité (57+10 paires) | Intervention humaine | équipe/juges | — | [Preuve de référence](../AUDIT_IDENTITY_REGISTRY_V03.json) — 67 paires vierges par juge; organiser deux juges indépendants et arbitrage |

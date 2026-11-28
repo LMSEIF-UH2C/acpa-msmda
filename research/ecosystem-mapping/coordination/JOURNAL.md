@@ -5,3 +5,4 @@
 | 2026-11-28 13:14 UTC | scheduled_agent | FIRST-RUN | — | Activation terminée selon historique; aucun résultat vérifié ni changement déclaré; pas de validation technique supplémentaire | Historique de la tâche ChatGPT, état HEAD inchangé constaté lors de coordination | P2-06 |
 | 2026-11-28 | interactive_assistant | COORD-0001 | coordination | Initialisation de l'état partagé, checklist et règles de réservation, sans nouvelle collecte. Verrou libre. | [ETAT.json](ETAT.json) · [README.md](README.md) | P2-06 |
 | 2026-11-28 | interactive_assistant | COORD-0001 | coordination | Correction du total de jalons : 24, contrôlé sur les IDs de l'état machine; 7/7/5/5, aucune modification scientifique | [ETAT.json](ETAT.json) | P2-06 |
+| 2026-11-28 | interactive_assistant | INT-P2-06-0002 | P2-06 | Réservation exclusive avant audit ciblé | HEAD 1412afe6a87103429b3bde61d1af95c252d1d357 | Diagnostic des écarts |

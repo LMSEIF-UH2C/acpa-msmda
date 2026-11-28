@@ -1,10 +1,18 @@
 {
   "schema_version": 1,
-  "revision": 1,
+  "revision": 2,
   "branch": "research/ecosystem-mapping-pilot",
   "scientific_version": "0.1.40",
   "scientific_baseline_commit": "d4b8f20533192aad701ad178da71f89a6271bcf0",
-  "lock": null,
+  "lock": {
+    "actor": "interactive_assistant",
+    "intervention_id": "INT-P2-06-0002",
+    "task_id": "P2-06",
+    "acquired_utc": "2026-11-28T13:40:51Z",
+    "base_head": "1412afe6a87103429b3bde61d1af95c252d1d357",
+    "run_refs": [],
+    "resume_note": "Audit ciblé des écarts et champs techniques; aucune fusion."
+  },
   "last_handoff": {
     "actor": "interactive_assistant",
     "intervention_id": "COORD-0001",
@@ -117,7 +125,7 @@
       "id": "P2-06",
       "phase": 2,
       "title": "Audit des 2 paires non régénérées, nom court et champs techniques",
-      "status": "READY",
+      "status": "IN_PROGRESS",
       "owner": "assistant",
       "deps": [
         "P2-05"

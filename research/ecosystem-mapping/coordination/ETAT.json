@@ -1,10 +1,18 @@
 {
   "schema_version": 1,
-  "revision": 34,
+  "revision": 35,
   "branch": "research/ecosystem-mapping-pilot",
   "scientific_version": "0.1.58",
   "scientific_baseline_commit": "c7da29efe69974ebc365dbf0aa942f95ec5846df",
-  "lock": null,
+  "lock": {
+    "actor": "interactive_assistant",
+    "intervention_id": "INT-APP-A3-0017",
+    "task_id": "A3",
+    "acquired_utc": "2026-11-28T17:31:06.368Z",
+    "base_head": "22d80407294ca8b005adac8de2ff2591c5551a3e",
+    "run_refs": [],
+    "resume_note": "Technical qualification of 34 existing documentary leads, no confirmed rating or promotion; preserve stable route."
+  },
   "last_handoff": {
     "actor": "interactive_assistant",
     "intervention_id": "INT-APP-A2-0016",
@@ -310,7 +318,7 @@
       },
       {
         "id": "A3",
-        "status": "READY",
+        "status": "IN_PROGRESS",
         "deps": [
           "A2"
         ],

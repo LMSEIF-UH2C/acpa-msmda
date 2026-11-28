@@ -59,6 +59,19 @@ def run(browser,engine,lang,mode):
             expect(page.get_by_test_id("stMetricValue").nth(1)).to_have_text("2500")
             expect(page.get_by_text("MagicSchool",exact=True)).to_be_visible()
             expect(page.get_by_text("jamovi",exact=True)).to_be_visible()
+            proposal=json.loads((Path(__file__).resolve().parents[1]/"data/experimental_qualification_proposals.json").read_text(encoding="utf-8"))["records"][3]
+            assert proposal["record_id"]=="doc_web:WD04"
+            panel=page.get_by_test_id("stExpander").filter(has=page.get_by_text("jamovi",exact=True))
+            centered_click(panel.locator("summary"))
+            for field in ("documented_function","variant","scenario","documented_limits"):
+                expect(panel.get_by_text(proposal[field],exact=True)).to_be_visible()
+            warning={"fr":"Toutes les contraintes contextuelles restent à vérifier. Aucun score attribué.","ar":"جميع القيود السياقية تحتاج إلى تحقق. لم يتم إسناد أي درجة.","en":"All contextual constraints require verification. No score assigned."}[lang]
+            expect(panel.get_by_text(warning,exact=True)).to_be_visible()
+            role={"fr":"Usage complémentaire envisagé","ar":"استخدام تكميلي مقترح","en":"Proposed complementary use"}[lang]
+            expect(panel.get_by_text(role,exact=True)).to_be_visible()
+            panel.get_by_text(proposal["scenario"],exact=True).scroll_into_view_if_needed()
+            page.screenshot(path=str(OUT/f"{engine}-{lang}-qualification.png"))
+            print("A3_PANEL_PASS "+json.dumps({"engine":engine,"language":lang,"record":"doc_web:WD04"}),flush=True)
         else:
             expect(page.get_by_text(missing,exact=False)).to_be_visible()
             expect(page.get_by_test_id("stMetric")).to_have_count(0)

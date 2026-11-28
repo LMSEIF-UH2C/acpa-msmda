@@ -54,6 +54,10 @@ def render():
                 st.text(role_labels[proposal["proposed_role"]])
                 st.caption(msg("Documentation originale en français","التوثيق الأصلي بالفرنسية","Original documentation in French"))
                 st.text(proposal["documented_function"])
+                st.text(proposal["variant"])
+                st.caption(msg("Preuve documentaire : déclaration éditeur rapportée, scénario non testé.",
+                               "دليل وثائقي: تصريح الناشر المنقول، سيناريو غير مختبر.",
+                               "Documentary evidence: reported publisher declaration, untested scenario."))
                 st.text(proposal["scenario"])
                 st.text(proposal["documented_limits"])
                 st.caption(msg("Toutes les contraintes contextuelles restent à vérifier. Aucun score attribué.",

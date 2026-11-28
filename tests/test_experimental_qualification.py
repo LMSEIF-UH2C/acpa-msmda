@@ -1,4 +1,5 @@
 import copy
+import hashlib
 import json
 from pathlib import Path
 import sqlite3
@@ -7,7 +8,7 @@ import tempfile
 import unittest
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/"src"))
-from acpa_msmda.experimental_qualification import validate,CONSTRAINTS
+from acpa_msmda.experimental_qualification import validate,CONSTRAINTS,canonical
 from acpa_msmda.experimental_registry import import_snapshot,read_preview
 from acpa_msmda.real_catalog import DEFAULT_PATH,load_real_tools
 
@@ -75,3 +76,30 @@ class QualificationTests(unittest.TestCase):
         with sqlite3.connect(self.db) as db:
             db.execute("DROP TABLE qualification")
         self.assertEqual(read_preview(self.db)["qualification_observations"],0)
+
+    def test_same_date_url_changed_payload_hides_stale_proposal(self):
+        self.imp(self.qual)
+        self.doc["records"][0]["category"]="revised"
+        with self.assertRaises(ValueError):
+            self.imp(self.qual)
+        self.imp()
+        lead=next(x for x in read_preview(self.db)["leads"] if x["id"]=="doc_web:WD01")
+        self.assertNotIn("qualification_proposal",lead)
+        q=copy.deepcopy(self.qual)
+        q["records"][0]["source_payload_sha256"]=hashlib.sha256(canonical(self.doc["records"][0]).encode("utf-8")).hexdigest()
+        self.assertEqual(self.imp(q)["new_qualifications"],1)
+        lead=next(x for x in read_preview(self.db)["leads"] if x["id"]=="doc_web:WD01")
+        self.assertEqual(lead["qualification_proposal"]["source_payload_sha256"],q["records"][0]["source_payload_sha256"])
+
+    def test_old_unbound_proposal_preserved_but_not_displayed(self):
+        self.imp()
+        old=copy.deepcopy(self.qual["records"][0])
+        old.pop("source_payload_sha256")
+        payload=canonical(old)
+        digest=hashlib.sha256(payload.encode()).hexdigest()
+        with sqlite3.connect(self.db) as db:
+            db.execute("INSERT INTO qualification VALUES (?,?,?,?,?,?)",("qual:old:"+digest,old["record_id"],old["date"],old["url"],digest,payload))
+        lead=next(x for x in read_preview(self.db)["leads"] if x["id"]=="doc_web:WD01")
+        self.assertNotIn("qualification_proposal",lead)
+        self.assertEqual(self.imp(self.qual)["qualification_observations"],35)
+        self.assertIn("qualification_proposal",next(x for x in read_preview(self.db)["leads"] if x["id"]=="doc_web:WD01"))

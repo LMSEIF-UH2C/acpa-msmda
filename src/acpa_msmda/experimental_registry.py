@@ -127,18 +127,21 @@ def read_preview(db_path):
     uri=Path(db_path).resolve().as_uri()+"?mode=ro"
     with closing(sqlite3.connect(uri,uri=True)) as db:
         summary=_summary(db)
-        rows=db.execute("""SELECT r.id,r.kind,o.observed_on,o.payload FROM record r
+        rows=db.execute("""SELECT r.id,r.kind,o.observed_on,o.payload,o.payload_sha256 FROM record r
             JOIN observation o ON o.record_id=r.id
             WHERE r.source IN ('doc_web','doc_target')
             AND o.id=(SELECT i.id FROM observation i WHERE i.record_id=r.id ORDER BY i.observed_on DESC,i.rowid DESC LIMIT 1)
             ORDER BY r.id""").fetchall()
-        leads=[{"id":r,"kind":k,"date":d,**json.loads(payload)} for r,k,d,payload in rows]
+        leads=[{"id":r,"kind":k,"date":d,**json.loads(payload)} for r,k,d,payload,_ in rows]
         if _has_qualification(db):
-            for lead in leads:
+            for lead, (_,_,_,_,source_digest) in zip(leads,rows):
                 # Only show the proposal for the currently displayed source observation.
                 # A newer observation or changed link requires a new review.
-                q=db.execute("""SELECT payload FROM qualification WHERE record_id=? AND observed_on=? AND locator=?
-                    ORDER BY rowid DESC LIMIT 1""",(lead["id"],lead["date"],lead["url"])).fetchone()
-                if q:
-                    lead["qualification_proposal"]=json.loads(q[0])
+                proposals=db.execute("""SELECT payload FROM qualification WHERE record_id=? AND observed_on=? AND locator=?
+                    ORDER BY rowid DESC""",(lead["id"],lead["date"],lead["url"])).fetchall()
+                for q in proposals:
+                    proposal=json.loads(q[0])
+                    if proposal.get("source_payload_sha256")==source_digest:
+                        lead["qualification_proposal"]=proposal
+                        break
         return {**summary,"leads":leads}

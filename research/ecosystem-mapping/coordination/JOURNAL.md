@@ -62,3 +62,5 @@
 | 2026-11-28 | interactive_assistant | INT-APP-A4-0018 | Décision porteur | Réutilisation validation E3; A6 recette interne documentée, pas de nouveau panel pour piste applicative | Rapport maître et ETAT.json | Continuer A4 puis A5 |
 
 | 2026-11-28 | interactive_assistant | INT-APP-A4-0018 | Gouvernance | Orientations d'équipe communiquées par le porteur après consultation, selon sa déclaration; éviter les approbations redondantes | ETAT.json et rapport maître | Appliquer aux prochaines décisions |
+
+| 2026-11-28 | interactive_assistant | INT-APP-A4-0018 | A4 clôture | 5/5 CI; 52/52 tests; I 2/10, P 7/10, E 8/10; verrou libéré | [Run](https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173324214) | A5 READY |

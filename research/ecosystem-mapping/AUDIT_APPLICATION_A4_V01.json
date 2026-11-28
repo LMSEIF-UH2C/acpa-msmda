@@ -204,7 +204,7 @@
   },
   "common_pool_protocol": {
     "path": "PLAN_APPLICATION_A4_COMMON_POOL_V01.md",
-    "status": "IMPLEMENTED_TESTS_PENDING",
+    "status": "EXECUTED_TECHNICAL_ONLY",
     "scenarios": 10
   },
   "common_pool_oracle": {
@@ -217,30 +217,30 @@
       {
         "id": 46173330855,
         "name": "Tests ACPA MSMDA",
-        "status": "in_progress",
-        "conclusion": null,
+        "status": "completed",
+        "conclusion": "success",
         "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173330855"
-      },
-      {
-        "id": 46173330951,
-        "name": "Mobile navigation REC-Y002",
-        "status": "in_progress",
-        "conclusion": null,
-        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173330951"
-      },
-      {
-        "id": 46173330869,
-        "name": "Public web demo",
-        "status": "in_progress",
-        "conclusion": null,
-        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173330869"
       },
       {
         "id": 46173330858,
         "name": "Independent R validation",
-        "status": "in_progress",
-        "conclusion": null,
+        "status": "completed",
+        "conclusion": "success",
         "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173330858"
+      },
+      {
+        "id": 46173330869,
+        "name": "Public web demo",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173330869"
+      },
+      {
+        "id": 46173330951,
+        "name": "Mobile navigation REC-Y002",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173330951"
       },
       {
         "id": 46173324214,
@@ -250,6 +250,38 @@
         "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173324214"
       }
     ],
-    "results_verified": false
+    "results_verified": true,
+    "tests_each_python": 26,
+    "total_test_executions": 52,
+    "complete_coverage": {
+      "individual": 2,
+      "up_to_two": 7,
+      "ecosystem": 8,
+      "denominator": 10
+    },
+    "selected_sizes": {
+      "S01": 3,
+      "S03": 2,
+      "S04": 1,
+      "S05": 2,
+      "S06": 1,
+      "S07": 2,
+      "S08": 2,
+      "S09": 2
+    },
+    "abstentions": {
+      "S02": "NO_COMPLETE_SET",
+      "S10": "UNSUPPORTED_REQUIREMENT"
+    },
+    "documentary": {
+      "records": 34,
+      "linked": 34,
+      "admitted": 0
+    }
+  },
+  "technical_closure": {
+    "status": "TECH_VERIFIED",
+    "scope": "fictional optimization and read-only documentary diagnostics; native historical descriptive only",
+    "next": "A5"
   }
 }

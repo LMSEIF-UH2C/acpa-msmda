@@ -1,32 +1,18 @@
 {
   "schema_version": 1,
-  "revision": 50,
+  "revision": 51,
   "branch": "research/ecosystem-mapping-pilot",
   "scientific_version": "0.1.58",
   "scientific_baseline_commit": "c7da29efe69974ebc365dbf0aa942f95ec5846df",
-  "lock": {
-    "actor": "interactive_assistant",
-    "intervention_id": "INT-APP-A4-0018",
-    "task_id": "A4",
-    "acquired_utc": "2026-11-28T17:42:00.259Z",
-    "base_head": "a3723cbab35b0302ff09343920315fe776a40b75",
-    "run_refs": [
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173330855",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173330951",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173330869",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173330858",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173324214"
-    ],
-    "resume_note": "A4 consolidation : CI précédente adaptateur 8/8 workflows terminaux réussis (5857b0f). Protocole prospectif pool commun enregistré au commit 2b58a20; nouveau commit applicatif b81690de34e135d5f5d23df66d9c5a7de9073706 uniquement tests : deux tests distincts, dix situations EPS fictives et 100 petits pools pseudo-aléatoires (graine 20261128, 1–6 candidats), comparaison des trois sorties individuel/≤2/écosystème avec oracle bitmask indépendant pour contraintes modélisées et vérification métriques/permutation. L'oracle couvre des entrées structurées valides, pas toute la validation de schéma. Sortie native historique reste séparée; aucune comparaison empirique ni admission réelle. Nouveau run A4 46173324214 et quatre régressions générales identifiés; résultats terminaux non encore vérifiés. A4 IN_PROGRESS, verrou conservé. Main et catalogue inchangés.\nDécision du porteur (28/11/2026, conversation de continuation) : ne pas refaire une consultation experte du cadre 10D/97P original, déjà validé dans l'Étude 3; la poursuite de l'opérationnalisation, des qualifications documentaires et du développement v0.3.0 relève du porteur assisté par IA. Pour le parcours applicatif, A6 devient recette interne documentée et acceptation explicite du porteur, sans nouveau panel obligatoire. Maintenir provenance des preuves, inconnues, contraintes critiques et distinction entre déclarations, tests et données empiriques; l'assistant ne constitue pas un juge humain indépendant. Les ancres, correspondances, instruments et algorithmes nouveaux ne sont pas assimilés à ceux évalués historiquement. Les gates confirmatoires du programme de recherche (accord inter-juges indépendant, droits, éthique, préenregistrement, collecte définitive et revendications de validité/efficacité externe) restent distinctes et non levées par cette décision; si le porteur choisit une étude exploratoire interne sans panel, limiter les revendications en conséquence et réviser le plan scientifique explicitement. A7 demeure conditionné à la recette interne, à la décision de diffusion et aux preuves/conditions applicables. Aucun changement main, catalogue ni admission automatique. Aucun nouveau résultat de validation revendiqué.\nGouvernance — clarification du porteur, 28/11/2026 : le porteur déclare prendre ses décisions après consultation de ses codirecteurs et collègues du laboratoire LMSEIF et demande que ses réponses soient considérées comme les orientations de l'équipe. Pour le pilotage du projet, les décisions explicites qu'il communique sont donc enregistrées comme orientations d'équipe transmises par le porteur, sans solliciter de nouveau la même approbation. L'assistant interactif et l'agent autonome appliquent ces orientations dans les limites du protocole, des preuves et du verrou de coordination; conserver les arbitrages, motifs, dates et limites. Attribution fondée sur la déclaration du porteur, non sur un procès-verbal, mandat institutionnel ou approbation éthique vérifié indépendamment. Une décision d'équipe ne remplace pas un résultat empirique, une mesure d'accord inter-juges, une autorisation de droits ou une approbation réglementaire requise. A6 : recette documentée et acceptation du porteur représentant les orientations de l'équipe; pas de nouvelle consultation experte systématique pour le développement expérimental. Les jalons scientifiques et applicatifs ne changent pas de statut par cette seule clarification."
-  },
+  "lock": null,
   "last_handoff": {
     "actor": "interactive_assistant",
-    "intervention_id": "INT-APP-A3-0017",
+    "intervention_id": "INT-APP-A4-0018",
     "completed": "2026-11-28",
-    "summary": "A3 10/10 CI, 18/18 browser and 6/6 expanded panel, artifact SHA/CRC readback, 42 screenshots. A4 READY.",
+    "summary": "Clôture technique A4 limitée au prototype isolé : 5/5 workflows du commit b81690de terminaux success, logs A4 Python 3.12 et 3.14 relus, 26 tests chacun (52/52), mêmes résultats 10 scénarios et 100 pools (graine 20261128), 34/34 liaisons documentaires et 0 admission. Couverture obligatoire complète I 2/10, P≤2 7/10, E 8/10; S01 seul gain E vs P, trois outils; S02 absence de configuration complète (budget), S10 exigence non modélisée; S04 et S06 un outil suffit. Ce sont des fixtures construites, non des effets empiriques. A4 TECH_VERIFIED pour périmètre expérimental uniquement, pas de comparaison réelle appariée, ni qualification opérationnelle des 34 pistes. A5 READY, verrou A4 libéré. A6 recette interne conformément à la décision du porteur; gates confirmatoires inchangées.",
     "next_task": null,
-    "next_application_task": "A4",
-    "evidence": "../AUDIT_APPLICATION_A3_V01.json"
+    "next_application_task": "A5",
+    "evidence": "../AUDIT_APPLICATION_A4_V01.json"
   },
   "priority_queue": [],
   "tasks": [
@@ -333,19 +319,21 @@
       },
       {
         "id": "A4",
-        "status": "IN_PROGRESS",
+        "status": "TECH_VERIFIED",
         "deps": [
           "A3"
         ],
-        "next": "Verify exact common-pool oracle run and general regressions, read scenario metrics and limitations, then assess A4 technical acceptance before A5.",
-        "evidence": "../AUDIT_APPLICATION_A4_V01.json"
+        "next": "A5",
+        "evidence": "../AUDIT_APPLICATION_A4_V01.json",
+        "scope": "Verified fictional solver, documentary read-only diagnostics and descriptive native historical comparator; no real paired comparison or admission."
       },
       {
         "id": "A5",
-        "status": "BLOCKED",
+        "status": "READY",
         "deps": [
           "A4"
-        ]
+        ],
+        "next": "Implement separate trilingual experimental UI with real documentary abstention and explicitly fictional simulation; preserve stable default."
       },
       {
         "id": "A6",
@@ -366,8 +354,8 @@
     ],
     "integration_commit": "b81690de34e135d5f5d23df66d9c5a7de9073706",
     "pr": 82,
-    "regression_status": "PENDING_A4_COMMON_POOL_ORACLE",
-    "next_task": "A4",
+    "regression_status": "SUCCESS_A4_COMMON_POOL_ORACLE",
+    "next_task": "A5",
     "dual_entry": {
       "stable": "v0.2.0 baseline, default",
       "experimental": "opt-in separate route; no automatic switch or promotion before documented owner acceptance and applicable evidence gates"

@@ -1,6 +1,6 @@
 # Rapport scientifique évolutif — Cartographie technologique écosystémique ACPA/MSMDA
 
-**Version 0.1.16 — 28 novembre 2026.** Dossier de recherche et base de rédaction d'un article méthodologique. Branche `research/ecosystem-mapping-pilot`, [PR 81](https://github.com/LMSEIF-UH2C/acpa-msmda/pull/81). État : exploration et développement méthodologique; collecte définitive et validation empirique non achevées. Ce rapport est rétrospectif pour les pilotes déjà réalisés, prospectif pour les étapes restantes. Il ne constitue pas un préenregistrement rétroactif. Auteur(s), contributions CRediT, financement, déclarations et choix de revue à confirmer par l'équipe scientifique. Code de production et version publiée v0.2.0 préservés.
+**Version 0.1.17 — 28 novembre 2026.** Dossier de recherche et base de rédaction d'un article méthodologique. Branche `research/ecosystem-mapping-pilot`, [PR 81](https://github.com/LMSEIF-UH2C/acpa-msmda/pull/81). État : exploration et développement méthodologique; collecte définitive et validation empirique non achevées. Ce rapport est rétrospectif pour les pilotes déjà réalisés, prospectif pour les étapes restantes. Il ne constitue pas un préenregistrement rétroactif. Auteur(s), contributions CRediT, financement, déclarations et choix de revue à confirmer par l'équipe scientifique. Code de production et version publiée v0.2.0 préservés.
 
 ## 1. Projet d'article
 Titre provisoire FR : **Vers une cartographie systématique, cumulative, adaptative et multidimensionnelle des technologies éducatives : développement et validation méthodologique en éducation physique et sportive.**
@@ -112,6 +112,9 @@ Annexe E3 relue intégralement (pp.1–6; 12 experts × 5 OTP, échelle 1–5). 
 ### Audit lexical et canaux complémentaires (V0.1.16)
 [Audit](AUDIT_LEXICAL_V01.md), 180 sondes trilingues pour 30 APS, 15 fonctions, 15 sous-besoins transversaux; 124 lignes sans correspondance exacte, 124 chaînes candidates distinctes à examiner (pas un nombre de requêtes à lancer). Comparaison au lexique historique et moderne de 398 termes. Absence exacte ≠ lacune sémantique, présence ≠ exécution. [Registre complémentaire](CANAUX_COMPLEMENTAIRES_V01.csv) : Wikidata, Flathub, Snap, Microsoft Store, éditeurs et littérature; accès/droits à documenter, aucun nouveau appel de collecte. Prochaine étape : revue sémantique et cas témoins, petit pilote documentaire Web/desktop autorisé.
 
+### Contrôle par technologies témoins (V0.1.17)
+[Protocole](KNOWN_ITEM_PROTOCOL.md), 12 références officielles choisies intentionnellement après pilotes et avant ce test, 5 Apple, 4 F-Droid, 3 dépôts GitHub. Certains témoins déjà connus : contrôle de récupération exploratoire, non estimation indépendante du rappel. Le porteur accepte les déséquilibres s'ils sont documentés et justifiés; aucune égalité numérique imposée. Statuts exacts par source, sans fusion de produit. Exécution hors ligne déclenchée; résultats à vérifier. Aucun nouveau score ni inclusion.
+
 ## 6. Chronologie et registre des décisions (UTC, 28 novembre 2026)
 | Heure | Commit / preuve | Décision, résultat et justification |
 |---|---|---|
@@ -154,6 +157,8 @@ Annexe E3 relue intégralement (pp.1–6; 12 experts × 5 OTP, échelle 1–5). 
 | 28 nov. | V0.1.15 : [couverture pédagogique](COUVERTURE_PEDAGOGIQUE_V01.md) | 24 APS préservées + 6 propositions, 15 fonctions, 12 contextes; sources curriculaires distinguées des propositions, pas de revendication de conformité. Contrôle structurel déclenché. |
 
 | 28 nov. | V0.1.16 : [audit lexical](AUDIT_LEXICAL_V01.md) | Contrôle pédagogique réussi, sondes comparées aux deux lexiques, canaux complémentaires documentés; aucune nouvelle collecte ni validation sémantique. |
+
+| 28 nov. | V0.1.17 : [témoins](KNOWN_ITEM_PROTOCOL.md) | Déséquilibres documentés et justifiés, 12 témoins officiels pour test de récupération sur archives; sélection post-pilote non indépendante. |
 
 ## 7. Validation prospective : plan de travail et critères de passage
 Le [plan directeur de finalisation](PLAN_FINALISATION.md) définit six phases avec livrables et critères de passage : consolidation, stabilisation (incluant calibration des juges et préenregistrement avant collecte), collecte définitive, qualification/validation, moteur écosystémique, valorisation et clôture. En cas d'archives historiques irrécupérables, distinguer nouvelle collecte et comparaison documentaire limitée, sans annoncer de gain net historique. Les paramètres de validation et les critères d'arrêt restent à approuver avant exécution confirmatoire. Quatre figures distinctes proposées : flux historique, architecture, flux quantitatif nouveau et modèle écosystémique.

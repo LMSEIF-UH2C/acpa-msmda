@@ -1,0 +1,317 @@
+{
+  "schema_version": 1,
+  "scope": "Existing project-authored minimal documentary pilot metadata only; no external raw data, no validated recommendation.",
+  "reference_commit": "e436886dcce2df8c1eaa628bdabc0e8ec56cc7c9",
+  "source_reports": [
+    "PROSPECTION_WEB_BUREAU_V01.json",
+    "PROSPECTION_MATERIEL_COMMERCIAL_V01.json"
+  ],
+  "records": [
+    {
+      "source": "doc_web",
+      "id": "WD01",
+      "name": "LINCE PLUS",
+      "category": "research",
+      "kind": "unknown",
+      "url": "https://lince-plus.com/",
+      "date": "2026-11-28"
+    },
+    {
+      "source": "doc_web",
+      "id": "WD02",
+      "name": "Kinovea",
+      "category": "video",
+      "kind": "unknown",
+      "url": "https://www.kinovea.org/?lang=fr",
+      "date": "2026-11-28"
+    },
+    {
+      "source": "doc_web",
+      "id": "WD03",
+      "name": "Tracker (Open Source Physics)",
+      "category": "video",
+      "kind": "unknown",
+      "url": "https://opensourcephysics.github.io/tracker-website/",
+      "date": "2026-11-28"
+    },
+    {
+      "source": "doc_web",
+      "id": "WD04",
+      "name": "jamovi",
+      "category": "research",
+      "kind": "unknown",
+      "url": "https://www.jamovi.org/",
+      "date": "2026-11-28"
+    },
+    {
+      "source": "doc_web",
+      "id": "WD05",
+      "name": "GNU PSPP",
+      "category": "research",
+      "kind": "unknown",
+      "url": "https://www.gnu.org/software/pspp/",
+      "date": "2026-11-28"
+    },
+    {
+      "source": "doc_web",
+      "id": "WD06",
+      "name": "JASP",
+      "category": "research",
+      "kind": "unknown",
+      "url": "https://jasp-stats.org/",
+      "date": "2026-11-28"
+    },
+    {
+      "source": "doc_web",
+      "id": "WD07",
+      "name": "LibreOffice Calc",
+      "category": "research",
+      "kind": "unknown",
+      "url": "https://books.libreoffice.org/en/CG262/CG26201-Introduction.html",
+      "date": "2026-11-28"
+    },
+    {
+      "source": "doc_web",
+      "id": "WD08",
+      "name": "Lumi Desktop Editor",
+      "category": "creation",
+      "kind": "unknown",
+      "url": "https://lumi.education/en/lumi-h5p-offline-desktop-editor/",
+      "date": "2026-11-28"
+    },
+    {
+      "source": "doc_web",
+      "id": "WD09",
+      "name": "H5P",
+      "category": "creation",
+      "kind": "unknown",
+      "url": "https://docs.moodle.org/502/en/H5P",
+      "date": "2026-11-28"
+    },
+    {
+      "source": "doc_web",
+      "id": "WD10",
+      "name": "OpenOrienteering Mapper",
+      "category": "orientation",
+      "kind": "unknown",
+      "url": "https://www.openorienteering.org/apps/mapper/",
+      "date": "2026-11-28"
+    },
+    {
+      "source": "doc_web",
+      "id": "WD11",
+      "name": "OpenBoard",
+      "category": "creation",
+      "kind": "unknown",
+      "url": "https://www.openboard.ch/en",
+      "date": "2026-11-28"
+    },
+    {
+      "source": "doc_web",
+      "id": "WD12",
+      "name": "ClassQuiz",
+      "category": "quiz",
+      "kind": "unknown",
+      "url": "https://classquiz.de/",
+      "date": "2026-11-28"
+    },
+    {
+      "source": "doc_web",
+      "id": "WD13",
+      "name": "Chamilo",
+      "category": "continuity",
+      "kind": "unknown",
+      "url": "https://chamilo.org/fr/",
+      "date": "2026-11-28"
+    },
+    {
+      "source": "doc_web",
+      "id": "WD14",
+      "name": "LongoMatch",
+      "category": "video",
+      "kind": "unknown",
+      "url": "https://support.longomatch.com/en/support/solutions/articles/103000427292-what-is-longomatch-",
+      "date": "2026-11-28"
+    },
+    {
+      "source": "doc_web",
+      "id": "WD15",
+      "name": "Dartfish",
+      "category": "video",
+      "kind": "unknown",
+      "url": "https://www.dartfish.com/fr/products/",
+      "date": "2026-11-28"
+    },
+    {
+      "source": "doc_web",
+      "id": "WD16",
+      "name": "BORIS",
+      "category": "research",
+      "kind": "unknown",
+      "url": "https://www.boris.unito.it/features/",
+      "date": "2026-11-28"
+    },
+    {
+      "source": "doc_web",
+      "id": "WD17",
+      "name": "Excalidraw",
+      "category": "collaboration",
+      "kind": "unknown",
+      "url": "https://github.com/excalidraw/excalidraw",
+      "date": "2026-11-28"
+    },
+    {
+      "source": "doc_target",
+      "id": "T01",
+      "name": "Polar GoFit",
+      "category": "mesure",
+      "kind": "systeme",
+      "url": "https://support.polar.com/fr/polar-gofit-presentation",
+      "date": "2026-11-28"
+    },
+    {
+      "source": "doc_target",
+      "id": "T02",
+      "name": "Polar H10",
+      "category": "mesure",
+      "kind": "materiel",
+      "url": "https://support.polar.com/e_manuals/Polar-GoFit/Polar-GoFit-user-manual-English/Content/sensors-in-polargofit.com.htm",
+      "date": "2026-11-28"
+    },
+    {
+      "source": "doc_target",
+      "id": "T03",
+      "name": "Vernier Go Direct Force and Acceleration",
+      "category": "mesure",
+      "kind": "materiel",
+      "url": "https://www.vernier.com/manuals/gdx-for/",
+      "date": "2026-11-28"
+    },
+    {
+      "source": "doc_target",
+      "id": "T04",
+      "name": "phyphox",
+      "category": "mesure",
+      "kind": "logiciel",
+      "url": "https://phyphox.org/",
+      "date": "2026-11-28"
+    },
+    {
+      "source": "doc_target",
+      "id": "T05",
+      "name": "Freelap",
+      "category": "chronometrage",
+      "kind": "systeme",
+      "url": "https://freelap.com/documentation-and-support/get-started/understanding-the-components/",
+      "date": "2026-11-28"
+    },
+    {
+      "source": "doc_target",
+      "id": "T06",
+      "name": "SmartSpeed",
+      "category": "chronometrage",
+      "kind": "systeme",
+      "url": "https://www.valdperformance.com/products/smartspeed",
+      "date": "2026-11-28"
+    },
+    {
+      "source": "doc_target",
+      "id": "T07",
+      "name": "ForceDecks",
+      "category": "mesure",
+      "kind": "systeme",
+      "url": "https://www.valdperformance.com/products/forcedecks",
+      "date": "2026-11-28"
+    },
+    {
+      "source": "doc_target",
+      "id": "T08",
+      "name": "ClassVR",
+      "category": "immersion",
+      "kind": "systeme",
+      "url": "https://www.classvr.com/us/how-classvr-works/",
+      "date": "2026-11-28"
+    },
+    {
+      "source": "doc_target",
+      "id": "T09",
+      "name": "Merge Cube / Merge 3D",
+      "category": "immersion",
+      "kind": "systeme",
+      "url": "https://support.mergeedu.com/hc/en-us/articles/46784890657293-Welcome-to-Merge-3D",
+      "date": "2026-11-28"
+    },
+    {
+      "source": "doc_target",
+      "id": "T10",
+      "name": "Open Brush",
+      "category": "immersion",
+      "kind": "logiciel",
+      "url": "https://docs.openbrush.app/user-guide/get-started-with-open-brush",
+      "date": "2026-11-28"
+    },
+    {
+      "source": "doc_target",
+      "id": "T11",
+      "name": "MagicSchool",
+      "category": "ia",
+      "kind": "plateforme",
+      "url": "https://www.magicschool.ai/magicschool",
+      "date": "2026-11-28"
+    },
+    {
+      "source": "doc_target",
+      "id": "T12",
+      "name": "MediaPipe Pose Landmarker",
+      "category": "ia",
+      "kind": "composant",
+      "url": "https://developers.google.com/edge/mediapipe/solutions/vision/pose_landmarker",
+      "date": "2026-11-28"
+    },
+    {
+      "source": "doc_target",
+      "id": "T13",
+      "name": "CoachNow Analyze",
+      "category": "commercial",
+      "kind": "logiciel",
+      "url": "https://coachnow.com/analyze",
+      "date": "2026-11-28"
+    },
+    {
+      "source": "doc_target",
+      "id": "T14",
+      "name": "Hudl Sportscode",
+      "category": "commercial",
+      "kind": "logiciel",
+      "url": "https://www.hudl.com/products/sportscode",
+      "date": "2026-11-28"
+    },
+    {
+      "source": "doc_target",
+      "id": "T15",
+      "name": "Tracker Online",
+      "category": "accessibilite",
+      "kind": "variante_logicielle",
+      "url": "https://opensourcephysics.github.io/tracker-online/",
+      "date": "2026-11-28"
+    },
+    {
+      "source": "doc_target",
+      "id": "T16",
+      "name": "Moodle App",
+      "category": "accessibilite",
+      "kind": "logiciel_client",
+      "url": "https://docs.moodle.org/403/en/Moodle_app_offline_features",
+      "date": "2026-11-28"
+    },
+    {
+      "source": "doc_target",
+      "id": "T17",
+      "name": "OpenSim",
+      "category": "recherche",
+      "kind": "logiciel",
+      "url": "https://opensim.stanford.edu/",
+      "date": "2026-11-28"
+    }
+  ]
+}

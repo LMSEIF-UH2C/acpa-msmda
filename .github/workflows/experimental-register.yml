@@ -1,0 +1,29 @@
+name: A2 isolated experimental technology register
+on:
+  push:
+    branches: [integration/ecosystem-v030]
+    paths:
+      - 'src/acpa_msmda/experimental_*.py'
+      - 'tests/test_experimental_registry.py'
+      - 'data/experimental_documentary_leads.json'
+      - 'scripts/build_experimental_register.py'
+      - 'app.py'
+      - '.github/workflows/experimental-register.yml'
+permissions:
+  contents: read
+jobs:
+  register:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ['3.12','3.14']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m unittest discover -s tests -p test_experimental_registry.py -v
+      - run: python scripts/build_experimental_register.py --db /tmp/acpa-experiment.sqlite --date 2026-11-28
+      - run: python scripts/build_experimental_register.py --db /tmp/acpa-experiment.sqlite --date 2026-11-28
+      - run: python -m unittest discover -s tests -p test_catalogue_bridge.py -v

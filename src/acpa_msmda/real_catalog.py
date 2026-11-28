@@ -7,11 +7,10 @@ from .context_engine import normalize_text,analyze_context,detect_language
 from .contracts import ContextRequest
 DEFAULT_PATH=Path(__file__).resolve().parents[2]/"data"/"real_tools_catalog.json"
 def load_real_tools(path=DEFAULT_PATH):
-    raw=json.loads(Path(path).read_text(encoding="utf-8"))
-    if raw.get("dataset_type")!="REAL_TOOLS_UNSCORED":raise ValueError("Catalogue incompatible")
-    items=raw.get("tools",[])
-    if not isinstance(items,list) or len({t["id"] for t in items})!=len(items):raise ValueError("Identifiants invalides")
-    return items
+    # Compatibility view: no migration, scoring or eligibility changes here.
+    from .catalogue_bridge import load_legacy_rows
+    return load_legacy_rows(path)
+
 def match_real_tools(context,path=DEFAULT_PATH):
     if not isinstance(context,str) or not context.strip():raise ValueError("Contexte requis")
     analysis=analyze_context(ContextRequest(context,detect_language(context)))

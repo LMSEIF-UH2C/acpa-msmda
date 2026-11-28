@@ -1,0 +1,52 @@
+name: A5 isolated BORIS runtime evidence
+on:
+  push:
+    branches: [integration/ecosystem-v030]
+    paths:
+      - '.github/workflows/experimental-boris-runtime.yml'
+      - 'scripts/check_boris_runtime.py'
+      - 'scripts/check_boris_native_export.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  boris-runtime:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Obtain pinned upstream source
+        shell: bash
+        run: |
+          mkdir -p boris-runtime-evidence
+          git clone --no-checkout https://github.com/olivierfriard/BORIS.git /tmp/boris-upstream
+          git -C /tmp/boris-upstream checkout --detach 01143a7bd3ba9375cda03539d76d3e56391e8084
+          git -C /tmp/boris-upstream rev-parse HEAD | tee boris-runtime-evidence/upstream-commit.txt
+          python --version | tee boris-runtime-evidence/python.txt
+          python -m pip install /tmp/boris-upstream 2>&1 | tee boris-runtime-evidence/install.log
+          python -m pip freeze > boris-runtime-evidence/dependencies.txt
+      - name: Install missing Qt system dependency and verify import
+        shell: bash
+        env:
+          QT_QPA_PLATFORM: offscreen
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends libegl1 libmpv2
+          dpkg-query -W libegl1 libgl1 libmpv2 | tee boris-runtime-evidence/system-dependencies.txt
+          python -c 'from PySide6 import QtWidgets; print("QT_WIDGETS_IMPORT_OK")' 2>&1 | tee boris-runtime-evidence/qt-import.txt
+          python -c 'import ctypes, ctypes.util; lib=ctypes.util.find_library("mpv"); assert lib, "MPV library not found"; ctypes.CDLL(lib); print("MPV_LOAD_OK", lib)' 2>&1 | tee boris-runtime-evidence/mpv-import.txt
+      - name: Execute unmodified native export and independent reconciliation
+        shell: bash
+        env:
+          QT_QPA_PLATFORM: offscreen
+          MPLBACKEND: Agg
+        run: |
+          python scripts/check_boris_native_export.py /tmp/boris-upstream boris-runtime-evidence
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: boris-runtime-evidence
+          path: boris-runtime-evidence/

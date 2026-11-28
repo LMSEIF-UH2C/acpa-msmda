@@ -1,0 +1,24 @@
+name: A4 isolated ecosystem solver
+on:
+  push:
+    branches: [integration/ecosystem-v030]
+    paths:
+      - 'src/acpa_msmda/experimental_ecosystem.py'
+      - 'src/acpa_msmda/experimental_real_admission.py'
+      - 'tests/test_experimental_ecosystem.py'
+      - '.github/workflows/experimental-ecosystem.yml'
+permissions:
+  contents: read
+jobs:
+  ecosystem:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ['3.12','3.14']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m unittest discover -s tests -p test_experimental_ecosystem.py -v

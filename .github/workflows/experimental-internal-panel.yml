@@ -1,0 +1,70 @@
+name: A5 internal review panel acceptance
+on:
+  push:
+    branches: [integration/ecosystem-v030]
+    paths:
+      - 'src/acpa_msmda/experimental_*.py'
+      - 'scripts/check_internal_review_panel.py'
+      - 'scripts/build_internal_positive_test.py'
+      - '.github/workflows/experimental-internal-panel.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  internal-panel:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: |
+          python -m pip install -r requirements.txt
+          python -m pip install playwright==1.52.0
+          python -m playwright install --with-deps chromium webkit
+      - name: Empty, invalid pin and positive synthetic test-only dossiers
+        shell: bash
+        run: |
+          python scripts/build_experimental_register.py --db /tmp/acpa-internal.sqlite --date 2026-11-28
+          python - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          manifest=Path("/tmp/acpa-test-empty.json")
+          manifest.write_text(json.dumps({"schema_version":1,"records":[],"pairs":[]}))
+          config={"schema_version":1,"context":{"required":["F06"],"optional":[],"budget_mad":0,"period":"session","devices":1,"offline":True,"unsupported_requirements":[]},"scenario":{"id":"TEST_ONLY_EMPTY","platform":"test","data_policy":"no personal data","setting":"test only"},"manifest_path":str(manifest),"manifest_sha256":hashlib.sha256(manifest.read_bytes()).hexdigest()}
+          Path("/tmp/acpa-test-config.json").write_text(json.dumps(config))
+          PY
+          PYTHONPATH=src python scripts/build_internal_positive_test.py /tmp/acpa-internal.sqlite /tmp/acpa-test-positive.json /tmp/acpa-test-positive-config.json
+          export ACPA_EXPERIMENTAL_ECOSYSTEM=1
+          export ACPA_EXPERIMENTAL_DB=/tmp/acpa-internal.sqlite
+          export ACPA_EXPERIMENTAL_INTERNAL_REVIEW=1
+          export ACPA_EXPERIMENTAL_REVIEW_CONFIG=/tmp/acpa-test-config.json
+          pin=$(sha256sum /tmp/acpa-test-config.json | cut -d ' ' -f1)
+          ACPA_EXPERIMENTAL_REVIEW_CONFIG_SHA256="$pin" python -m streamlit run app.py --server.headless=true --server.address=127.0.0.1 --server.port=8504 > internal-empty.log 2>&1 &
+          p1=$!
+          ACPA_EXPERIMENTAL_REVIEW_CONFIG_SHA256="$(printf '%064d' 0)" python -m streamlit run app.py --server.headless=true --server.address=127.0.0.1 --server.port=8505 > internal-invalid.log 2>&1 &
+          p2=$!
+          positive_pin=$(sha256sum /tmp/acpa-test-positive-config.json | cut -d ' ' -f1)
+          ACPA_EXPERIMENTAL_REVIEW_CONFIG=/tmp/acpa-test-positive-config.json ACPA_EXPERIMENTAL_REVIEW_CONFIG_SHA256="$positive_pin" python -m streamlit run app.py --server.headless=true --server.address=127.0.0.1 --server.port=8506 > internal-positive.log 2>&1 &
+          p3=$!
+          trap 'kill "$p1" "$p2" "$p3" 2>/dev/null || true' EXIT
+          for port in 8504 8505 8506; do
+            for i in {1..60}; do
+              if curl -fsS "http://127.0.0.1:$port/_stcore/health"; then break; fi
+              sleep 1
+            done
+            curl -fsS "http://127.0.0.1:$port/_stcore/health"
+          done
+          sha256sum /tmp/acpa-internal.sqlite /tmp/acpa-test-empty.json /tmp/acpa-test-config.json /tmp/acpa-test-positive.json /tmp/acpa-test-positive-config.json > /tmp/acpa-internal.sha
+          python scripts/check_internal_review_panel.py
+          sha256sum -c /tmp/acpa-internal.sha
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: internal-review-browser-evidence
+          path: |
+            internal-review-evidence/
+            internal-empty.log
+            internal-invalid.log
+            internal-positive.log

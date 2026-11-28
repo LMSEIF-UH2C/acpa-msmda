@@ -1,0 +1,56 @@
+name: A2 dual-entry browser acceptance
+on:
+  push:
+    branches: [integration/ecosystem-v030]
+    paths:
+      - 'scripts/check_experimental_entry.py'
+      - '.github/workflows/experimental-browser.yml'
+      - 'src/acpa_msmda/experimental_*.py'
+      - 'app.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  dual-entry:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: |
+          python -m pip install -r requirements.txt
+          python -m pip install playwright==1.52.0
+          python -m playwright install --with-deps chromium webkit
+      - name: Test stable and experimental routes
+        shell: bash
+        run: |
+          python scripts/build_experimental_register.py --db /tmp/acpa-dual.sqlite --date 2026-11-28
+          ACPA_EXPERIMENTAL_ECOSYSTEM=0 python -m streamlit run app.py --server.headless=true --server.address=127.0.0.1 --server.port=8501 > disabled.log 2>&1 &
+          p1=$!
+          ACPA_EXPERIMENTAL_ECOSYSTEM=1 ACPA_EXPERIMENTAL_DB=/tmp/acpa-dual.sqlite python -m streamlit run app.py --server.headless=true --server.address=127.0.0.1 --server.port=8502 > enabled.log 2>&1 &
+          p2=$!
+          ACPA_EXPERIMENTAL_ECOSYSTEM=1 ACPA_EXPERIMENTAL_DB=/tmp/acpa-missing.sqlite python -m streamlit run app.py --server.headless=true --server.address=127.0.0.1 --server.port=8503 > missing.log 2>&1 &
+          p3=$!
+          trap 'kill "$p1" "$p2" "$p3" 2>/dev/null || true' EXIT
+          for port in 8501 8502 8503; do
+            for i in {1..60}; do
+              if curl -fsS "http://127.0.0.1:$port/_stcore/health"; then break; fi
+              sleep 1
+            done
+            curl -fsS "http://127.0.0.1:$port/_stcore/health"
+          done
+          sha256sum /tmp/acpa-dual.sqlite > /tmp/acpa-dual.sha
+          python scripts/check_experimental_entry.py
+          sha256sum -c /tmp/acpa-dual.sha
+          test ! -e /tmp/acpa-missing.sqlite
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: dual-entry-browser-evidence
+          path: |
+            dual-entry-evidence/
+            disabled.log
+            enabled.log
+            missing.log

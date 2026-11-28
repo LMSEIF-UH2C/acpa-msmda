@@ -1,0 +1,27 @@
+name: A1 cumulative catalogue bridge
+on:
+  push:
+    branches: [integration/ecosystem-v030]
+    paths:
+      - 'src/acpa_msmda/catalogue_bridge.py'
+      - 'src/acpa_msmda/real_catalog.py'
+      - 'tests/test_catalogue_bridge.py'
+      - '.github/workflows/catalogue-bridge.yml'
+permissions:
+  contents: read
+jobs:
+  bridge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ['3.12', '3.14']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m unittest discover -s tests -p test_catalogue_bridge.py -v
+      - run: python -m unittest discover -s tests -p test_real_catalog.py -v
+      - run: python -m unittest discover -s tests -p test_catalogue_integrity.py -v

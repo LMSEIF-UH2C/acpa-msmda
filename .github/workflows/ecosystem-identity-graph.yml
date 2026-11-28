@@ -1,0 +1,23 @@
+name: Ecosystem identity graph pilot
+on:
+  push:
+    branches: [research/ecosystem-mapping-pilot]
+    paths: ['research/ecosystem-mapping/identity_graph.py','research/ecosystem-mapping/tests/test_identity_graph.py','.github/workflows/ecosystem-identity-graph.yml']
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s research/ecosystem-mapping/tests -p test_identity_graph.py -v
+      - run: python research/ecosystem-mapping/identity_graph.py --catalog data/real_tools_catalog.json --output identity-graph-output
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ecosystem-identity-graph-audit
+          path: identity-graph-output/
+          retention-days: 30

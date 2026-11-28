@@ -472,5 +472,75 @@
     "exact_strings": 130,
     "nonempty_types": 144,
     "real_admission": 0
+  },
+  "calc_f14": {
+    "audit": "AUDIT_CALC_F14_V01.json",
+    "status": "PASS_BOUNDED_FUNCTIONAL_TEST",
+    "admitted": 0
+  },
+  "positive_internal_ui": {
+    "commit": "a53cfb369304ef79147a7e12bcda9fee8084136b",
+    "workflows": [
+      {
+        "id": 46178401358,
+        "name": "Independent R validation",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46178401358"
+      },
+      {
+        "id": 46178401363,
+        "name": "Tests ACPA MSMDA",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46178401363"
+      },
+      {
+        "id": 46178401398,
+        "name": "Public web demo",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46178401398"
+      },
+      {
+        "id": 46178401357,
+        "name": "Mobile navigation REC-Y002",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46178401357"
+      },
+      {
+        "id": 46178396661,
+        "name": "A2 dual-entry browser acceptance",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46178396661"
+      },
+      {
+        "id": 46178396685,
+        "name": "A5 internal review panel acceptance",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46178396685"
+      },
+      {
+        "id": 46178396673,
+        "name": "A3 documentary qualification",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46178396673"
+      },
+      {
+        "id": 46178396672,
+        "name": "A2 isolated experimental technology register",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46178396672"
+      }
+    ],
+    "planned_cases": 18,
+    "positive_cases": 6,
+    "results_verified": false,
+    "test_only": true
   }
 }

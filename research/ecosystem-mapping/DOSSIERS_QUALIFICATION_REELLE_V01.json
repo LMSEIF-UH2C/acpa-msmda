@@ -114,6 +114,13 @@
             "AUDIT_TRANSFERT_BORIS_CALC_V01.json",
             "AUDIT_BORIS_REFERENCE_V01.json"
           ]
+        },
+        {
+          "kind": "ACTUAL_TEST",
+          "finding": "F14 after-class descriptive time analysis on constructed control data: 3 valid rows, 2 exclusions, 510/900 seconds, 56.6667% weighted ratio. F10 individual progression not demonstrated.",
+          "locators": [
+            "AUDIT_CALC_F14_V01.json"
+          ]
         }
       ],
       "sources": [
@@ -165,7 +172,24 @@
         "offline": "NOT_ESTABLISHED"
       },
       "review_status": "DRAFT_NOT_APPROVED",
-      "admitted": false
+      "admitted": false,
+      "additional_context_draft": {
+        "id": "REAL-S09-02_PROPOSED",
+        "required_functions": [
+          "F14"
+        ],
+        "optional_functions": [],
+        "scope": "One existing teacher computer; after-class analysis of aggregate anonymous counts and durations; no claim of individual evaluation or full S09; no transfer between applications required if manual data entry.",
+        "status": "DRAFT_NOT_APPROVED",
+        "unresolved": [
+          "school platform and availability",
+          "offline runtime",
+          "actual total mandatory cost and implementation load",
+          "accessibility and data governance",
+          "identity and current version applicability",
+          "explicit context review and owner decision"
+        ]
+      }
     },
     {
       "id": "doc_web:WD04",

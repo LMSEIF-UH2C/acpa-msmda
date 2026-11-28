@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": 66,
+  "revision": 67,
   "branch": "research/ecosystem-mapping-pilot",
   "scientific_version": "0.1.58",
   "scientific_baseline_commit": "c7da29efe69974ebc365dbf0aa942f95ec5846df",
@@ -11,13 +11,16 @@
     "acquired_utc": "2026-11-28T18:05:58.979Z",
     "base_head": "12f6b300aa2d853ae4f5d0412cc52015fcad984c",
     "run_refs": [
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46177389680",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46177389613",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46177389621",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46177389630",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46177384827"
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46178401358",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46178401363",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46178401398",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46178401357",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46178396661",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46178396685",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46178396673",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46178396672"
     ],
-    "resume_note": "A5 : BORIS natif 46177384827 PASS, 8/8 événements, 4/4 intervalles exacts, 16.875 et 7.675 s, source inchangée selon journal. Archive 15276680713 et CSV contrôlés localement, SHA256 concordants, 8×21 champs. CLI RET-018 reste en échec. Nouveau transfert effectif de ce CSV BORIS vers Calc 25.2.3.2 (XLSX puis CSV) : 130/168 chaînes exactes, 168/168 valeurs selon règle explicite Decimal pour numériques, 38 différences de présentation décimale. Contrôle initial standard : c numérique alors que source déclare une modalité d'ensemble; essai conservateur a/c texte, puis schéma projet a numérique/c modalité confirmé et troisième import typé : 144/144 types non vides attendus, 168/168 valeurs, durées exactes, input inchangé. Audit AUDIT_TRANSFERT_BORIS_CALC_V01.json ; trois modes conservés, portée limitée au fichier public, sans données élève. ASC-02 enrichi (valeur, type, représentation distincts). Jamovi non exécuté, contraintes contextuelles non établies, aucune admission réelle. CI 5/5 succès au contrôle, 0 non terminal. Aucun changement applicatif ou catalogue dans cette passe. Capitalisation ASC-03 dans le rapport maître : potentiel diagnostique et rétroaction vers technologies tierces, niveau exploratoire, distinction défaut/usage/environnement et diagnostic/correction amont. Aucun changement de périmètre ni de tâche; aucun signalement tiers."
+    "resume_note": "A5 reprise après ASC-03 (périmètre inchangé). CI b13e9cb 5/5 terminal success. Référentiel F01–F15 confronté à COUVERTURE_FONCTIONS_V01.csv : libellés UI globalement alignés, version fonctionnelle proposée non validée; Calc usage F14 après séance seulement, F10 non démontré par données agrégées, F06 observation pendant séance non déduite d'un export après séance. Test réel Calc AUDIT_CALC_F14_V01.json : 3 séances valides, 1 incomplète et 1 durée nulle exclues, 510/900 s, proportion 56.6667%, caches conformes; données de contrôle construites, pas d'élèves, source inchangée. Linux headless, test isolation réseau refusé, contraintes scolaires non établies. Nouveau commit a53cfb369304ef79147a7e12bcda9fee8084136b : ajout de 6 cas navigateur positifs synthétiques FR/AR/EN × Chromium/WebKit (18 cas totaux prévus), dossier temporaire TEST_ONLY, avertissement, noms et coût fictifs, aucun manifeste réel approuvé. Résultats CI à vérifier. ASC-01/02/03 conservés, aucune admission réelle ni changement main."
   },
   "last_handoff": {
     "actor": "interactive_assistant",
@@ -347,7 +350,7 @@
         "deps": [
           "A4"
         ],
-        "next": "Verify terminal mobile CI; prepare positive internal UI test and first simple Calc qualification context; retain actual BORIS-Calc transfer evidence and unknown gates; no real admission without evidence and owner decision.",
+        "next": "Verify all terminal CI including 18 internal panel cases; complete bounded Calc F14 contextual review, separate unknown gates and require explicit owner decision before real admission; no new expert panel; A6 and A7 unchanged.",
         "evidence": "../AUDIT_APPLICATION_A5_V01.json"
       },
       {
@@ -367,9 +370,9 @@
         ]
       }
     ],
-    "integration_commit": "b13e9cbd4cf4a375a7e653b02a93637f9704b783",
+    "integration_commit": "a53cfb369304ef79147a7e12bcda9fee8084136b",
     "pr": 82,
-    "regression_status": "SUCCESS_NATIVE_BORIS_CI",
+    "regression_status": "PENDING_POSITIVE_INTERNAL_PANEL_CI",
     "next_task": "A5",
     "dual_entry": {
       "stable": "v0.2.0 baseline, default",

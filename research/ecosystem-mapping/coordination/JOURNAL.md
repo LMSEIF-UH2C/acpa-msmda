@@ -84,3 +84,5 @@
 | 2026-11-28 | interactive_assistant | INT-APP-A5-0019 | Recette activée et RET-016 | 12/12 navigateur, BORIS installation OK/export bloqué libEGL, archive vérifiée | [BORIS](https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175483107) | Retest environnement |
 
 | 2026-11-28 | interactive_assistant | INT-APP-A5-0019 | RET-016 retest | 5/6 succès antérieurs; correctif EGL et diagnostic CLI | [Retest](https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175844527) | Lire preuves terminales |
+
+| 2026-11-28 | interactive_assistant | INT-APP-A5-0019 | RET-016/017 | QtWidgets OK; export arrêté par MPV, code 5; correctif libmpv2 | [Retest EGL](https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175844527) | Retest MPV |

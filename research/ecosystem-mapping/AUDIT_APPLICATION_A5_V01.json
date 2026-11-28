@@ -297,41 +297,84 @@
       {
         "id": 46175848651,
         "name": "Independent R validation",
-        "status": "in_progress",
-        "conclusion": null,
+        "status": "completed",
+        "conclusion": "success",
         "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175848651"
+      },
+      {
+        "id": 46175848648,
+        "name": "Tests ACPA MSMDA",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175848648"
       },
       {
         "id": 46175848654,
         "name": "Public web demo",
-        "status": "in_progress",
-        "conclusion": null,
+        "status": "completed",
+        "conclusion": "success",
         "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175848654"
       },
       {
         "id": 46175848656,
         "name": "Mobile navigation REC-Y002",
-        "status": "in_progress",
-        "conclusion": null,
+        "status": "completed",
+        "conclusion": "success",
         "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175848656"
-      },
-      {
-        "id": 46175848648,
-        "name": "Tests ACPA MSMDA",
-        "status": "in_progress",
-        "conclusion": null,
-        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175848648"
       },
       {
         "id": 46175844527,
         "name": "A5 isolated BORIS runtime evidence",
-        "status": "in_progress",
-        "conclusion": null,
+        "status": "completed",
+        "conclusion": "failure",
         "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175844527"
       }
     ],
-    "results_verified": false,
+    "results_verified": true,
     "change": "Install libegl1, verify QtWidgets import and expose CLI stdout/stderr",
+    "real_admission": 0,
+    "result": "QT_IMPORT_PASS_EXPORT_BLOCKED_MPV"
+  },
+  "boris_mpv_retest": {
+    "commit": "c272cafb88548655404a7bda3aba15f6a0872b98",
+    "workflows": [
+      {
+        "id": 46176977596,
+        "name": "Independent R validation",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46176977596"
+      },
+      {
+        "id": 46176977573,
+        "name": "Public web demo",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46176977573"
+      },
+      {
+        "id": 46176977608,
+        "name": "Tests ACPA MSMDA",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46176977608"
+      },
+      {
+        "id": 46176977581,
+        "name": "Mobile navigation REC-Y002",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46176977581"
+      },
+      {
+        "id": 46176972870,
+        "name": "A5 isolated BORIS runtime evidence",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46176972870"
+      }
+    ],
+    "results_verified": false,
     "real_admission": 0
   }
 }

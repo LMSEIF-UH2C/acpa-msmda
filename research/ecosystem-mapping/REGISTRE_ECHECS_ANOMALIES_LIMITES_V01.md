@@ -56,3 +56,9 @@ A5 recette activée 46175483084 : 12/12 cas réussis (FR/AR/EN × Chromium/WebKi
 Statut : OUVERT; retest nécessaire.
 
 RET-016 — correctif environnemental implémenté, retest lancé ; A5 RET-016 : tous les workflows du commit 422a3e9 sont terminaux (5 success, 1 failure BORIS conservé). Correction de l'environnement de test au commit 97e62c66d337f797327fbcfdbbc1b54aea86fb31 : installation libegl1, inventaire libegl1/libgl1, contrôle explicite import PySide6.QtWidgets, stdout/stderr de la commande export visibles dans les logs. Même source BORIS épinglée, projet et critères de comparaison inchangés. Retest déclenché 46175844527 ; résultat à vérifier sur ce SHA. Aucun changement du moteur ou de l'interface, aucun candidat réel admis, aucune publication. Les résultats antérieurs ne sont pas assimilés aux résultats du nouveau commit.
+
+RET-016 — import QtWidgets corrigé dans le retest; export toujours non validé.
+
+### RET-017 — Dépendance native MPV manquante
+A5 RET-016 retest 46175844527 : libegl1/libgl1 1.7.0-1build1 et import QtWidgets réussis; export BORIS arrêté ensuite par « MPV library not found », code 5, zéro CSV. Archive 15275671011, SHA256 déclaré par GitHub 5c6869f8b6d2979590ad60ccd5944553d7be974b40204367f6267d503776354e (non recalculé localement dans cette passe). RET-017 blocage environnemental distinct; 4/4 workflows de régression réussis. Le code amont mpv.py/mpv2.py confirme la recherche de libmpv par ctypes; paquet officiel Ubuntu 24.04 https://packages.ubuntu.com/noble/libmpv2. Nouveau commit c272cafb88548655404a7bda3aba15f6a0872b98 : ajout libmpv2 à l'environnement du test, inventaire et précontrôle find_library/CDLL, sans modifier BORIS, les données de référence ou le critère d'acceptation. Retest à vérifier sur SHA exact. Pas d'export réel validé, aucune admission, aucun changement moteur ou interface, main inchangée.
+Statut : OUVERT; retest à vérifier.

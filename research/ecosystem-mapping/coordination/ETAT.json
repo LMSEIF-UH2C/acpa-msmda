@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": 53,
+  "revision": 54,
   "branch": "research/ecosystem-mapping-pilot",
   "scientific_version": "0.1.58",
   "scientific_baseline_commit": "c7da29efe69974ebc365dbf0aa942f95ec5846df",
@@ -11,15 +11,15 @@
     "acquired_utc": "2026-11-28T18:05:58.979Z",
     "base_head": "12f6b300aa2d853ae4f5d0412cc52015fcad984c",
     "run_refs": [
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174068764",
       "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174068725",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174068764",
       "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174068726",
       "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174068718",
       "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174064072",
       "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174064076",
       "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174064042"
     ],
-    "resume_note": "A5 première implémentation PR82 d3bc403532a6bf775ea7b01b88db86d28246609c : interface FR/AR/EN dans l'entrée expérimentale existante, formulaire diagnostic documentaire réel sur besoins explicites, budget par séance, appareils, hors ligne et contrainte non modélisée; sortie abstention sans score ni JSON, simulation relais fictive séparée I/P/E et rôles. Script navigateur étendu pour les deux panneaux sur Chromium/WebKit ×3 langues; sept workflows identifiés, résultats non encore tous vérifiés. A5 IN_PROGRESS; stable/main et catalogue non modifiés. La simulation est fixe et non opérationnelle, aucune admission réelle; recette et captures à contrôler. À la demande du porteur, l'encadré scientifique permanent ASC-01 est enregistré dans le rapport maître et référencé dans le plan directeur et audit A4."
+    "resume_note": "Transition réelle demandée par le porteur : pilote exploratoire documenté PILOTE_ECOSYSTEMES_REELS_V01.md et AUDIT_PILOTE_ECOSYSTEMES_REELS_V01.json; quatre technologies existantes (Kinovea WD02, BORIS WD16, Calc WD07, jamovi WD04), sources officielles relues, fonctions proposées non adjudicées, scénario réel conditionnel d'analyse de pratique. Essai effectif Calc 25.2.3.2 CSV→XLSX→CSV sur trois lignes techniques, 9 valeurs numériques et 6 libellés préservés; autres logiciels non installés, chaîne réelle non exécutée, aucune admission. A5 CI 6/7 réussis au contrôle, pas de nouvelle modification applicative en cours de recette; main et catalogue inchangés. Poursuivre recette puis contrat de qualification réelle et tests manuels end-to-end. ASC-01 conservé."
   },
   "last_handoff": {
     "actor": "interactive_assistant",
@@ -349,7 +349,7 @@
         "deps": [
           "A4"
         ],
-        "next": "Read terminal CI and verify trilingual diagnostic and simulation browser evidence; retain ASC-01 and explicit limitations.",
+        "next": "Finish current CI, then implement reviewed real evidence path without fixture promotion; execute real tool transfer tests, preserve abstention.",
         "evidence": "../AUDIT_APPLICATION_A5_V01.json"
       },
       {

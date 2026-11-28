@@ -1,0 +1,129 @@
+{
+  "date": "2026-11-28",
+  "status": "EXPLORATORY_DOCUMENTARY_PILOT",
+  "source_records": [
+    {
+      "id": "doc_web:WD02",
+      "name": "Kinovea",
+      "variant": "desktop Windows; documentation 0.9.5, release page 2025.1",
+      "functions_proposed": [
+        "F06",
+        "F07"
+      ],
+      "documented": "Annotation vidéo, mesures et export CSV de séries; gratuit et open source; Windows uniquement.",
+      "sources": [
+        "https://www.kinovea.org/features",
+        "https://www.kinovea.org/help/en/export/data.html",
+        "https://www.kinovea.org/download/",
+        "https://kinovea.org/privacy.html"
+      ],
+      "limits": "Pas de test d'installation, hors réseau, précision, accessibilité ou données scolaires; contrôle de mise à jour et chemins locaux à examiner. Aucun enregistrement vidéo élève."
+    },
+    {
+      "id": "doc_web:WD16",
+      "name": "BORIS",
+      "variant": "desktop; manuel 9.15.0",
+      "functions_proposed": [
+        "F06",
+        "F14"
+      ],
+      "documented": "Codage vidéo/audio ou observation directe, export des événements agrégés en CSV avec durées pour événements STATE; gratuit et open source.",
+      "sources": [
+        "https://www.boris.unito.it/user_guide/",
+        "https://www.boris.unito.it/user_guide/export_events/",
+        "https://www.boris.unito.it/user_guide/create_project/",
+        "https://www.boris.unito.it/user_guide/preferences/"
+      ],
+      "limits": "Mises à jour pouvant utiliser Internet; test hors réseau et exécution non effectués; protocole de codage, durée, catégories et confidentialité à établir."
+    },
+    {
+      "id": "doc_web:WD07",
+      "name": "LibreOffice Calc",
+      "variant": "desktop; guide 26.2, binaire testé 25.2.3.2",
+      "functions_proposed": [
+        "F10",
+        "F14"
+      ],
+      "documented": "Tableur, import CSV et traitement local. Test effectif de conversion CSV vers XLSX puis CSV sur version installée.",
+      "sources": [
+        "https://books.libreoffice.org/en/CG262/CG26201-Introduction.html",
+        "https://www.libreoffice.org/system-requirements/",
+        "https://www.libreoffice.org/download/"
+      ],
+      "limits": "Essai sur trois lignes techniques sans personnes uniquement; fonctionnement réseau désactivé non vérifié par isolement; accès et version à vérifier au Maroc; aucune mesure pédagogique réelle."
+    },
+    {
+      "id": "doc_web:WD04",
+      "name": "jamovi",
+      "variant": "desktop, distinct du cloud",
+      "functions_proposed": [
+        "F10",
+        "F14"
+      ],
+      "documented": "Analyse statistique locale; application gratuite, import CSV, fonctionnement hors ligne annoncé.",
+      "sources": [
+        "https://www.jamovi.org/download.html",
+        "https://www.jamovi.org/user-manual.html",
+        "https://www.jamovi.org/troubleshooting.html",
+        "https://www.jamovi.org/privacy.html"
+      ],
+      "limits": "Pas de binaire disponible dans l'environnement d'essai; import effectif, version, modules, exactitude et paramètres statistiques non testés."
+    }
+  ],
+  "actual_binary_tests": [
+    {
+      "application": "LibreOffice Calc",
+      "version": "25.2.3.2 520(Build:2)",
+      "status": "PASS",
+      "input_csv": "Observation,Behavior,Start,Stop,Duration\nTEST01,MOTOR,0,12.5,12.5\nTEST01,WAIT,12.5,18,5.5\nTEST01,MOTOR,18,30,12\n",
+      "output_csv": "\"Observation\",\"Behavior\",\"Start\",\"Stop\",\"Duration\"\n\"TEST01\",\"MOTOR\",0,12.5,12.5\n\"TEST01\",\"WAIT\",12.5,18,5.5\n\"TEST01\",\"MOTOR\",18,30,12\n",
+      "input_sha256": "e3c621d9b5e3661f762aa11db1cafd6fa14d39f488a5f50e1109a774fbb9cb28",
+      "output_sha256": "62559302f0e86d8d70b3489dc9ea7b6be74d4819d5af452701966f34fc21c496",
+      "rows": 3,
+      "numeric_cells_verified": 9,
+      "labels_verified": 6,
+      "durations_seconds": {
+        "MOTOR": "24.5",
+        "WAIT": "5.5"
+      },
+      "commands": [
+        "libreoffice --version",
+        "libreoffice -env:UserInstallation=file://<tmp>/profile --headless --convert-to xlsx --outdir <tmp>/xlsx <tmp>/in/events.csv",
+        "libreoffice -env:UserInstallation=file://<tmp>/profile --headless --convert-to 'csv:Text - txt - csv (StarCalc):44,34,76,1' --outdir <tmp>/out <tmp>/xlsx/events.xlsx"
+      ],
+      "verification": "Python csv.DictReader and Decimal; compare each label and numeric field, totals by behavior; temporary files deleted.",
+      "limits": "Actual binary run; test CSV constructed, not BORIS output or student data; no execution of BORIS, Kinovea or jamovi; no test of network isolation; no automatic interoperability established."
+    }
+  ],
+  "candidate_scenario": {
+    "id": "REAL-S09-01",
+    "scope": "after-class analysis of teaching practice",
+    "derived_from": "S09; not identical to full S09",
+    "required_proposed": [
+      "F06",
+      "F14"
+    ],
+    "optional_proposed": [
+      "F10"
+    ],
+    "equipment_assumption": "one already available Windows computer; sequential use",
+    "candidate_chains": [
+      [
+        "doc_web:WD16"
+      ],
+      [
+        "doc_web:WD16",
+        "doc_web:WD04"
+      ],
+      [
+        "doc_web:WD16",
+        "doc_web:WD07",
+        "doc_web:WD04"
+      ]
+    ],
+    "manual_transfer": "CSV, documented endpoints; actual end-to-end not tested",
+    "admission": "NOT_ESTABLISHED",
+    "reason": "Context constraints, identity and function mapping not adjudicated; physical access, privacy, accessibility, network, total costs and end-to-end test incomplete"
+  },
+  "no_operational_recommendation": true
+}

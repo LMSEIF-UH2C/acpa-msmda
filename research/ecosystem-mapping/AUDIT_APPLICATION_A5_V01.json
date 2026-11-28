@@ -4,31 +4,31 @@
   "scope": "Opt-in trilingual read-only documentary diagnosis and isolated fictional relay simulation",
   "workflows": [
     {
-      "id": 46174068764,
-      "name": "Tests ACPA MSMDA",
-      "status": "in_progress",
-      "conclusion": null,
-      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174068764"
-    },
-    {
       "id": 46174068725,
       "name": "Independent R validation",
-      "status": "in_progress",
-      "conclusion": null,
+      "status": "completed",
+      "conclusion": "success",
       "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174068725"
+    },
+    {
+      "id": 46174068764,
+      "name": "Tests ACPA MSMDA",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174068764"
     },
     {
       "id": 46174068726,
       "name": "Public web demo",
-      "status": "in_progress",
-      "conclusion": null,
+      "status": "completed",
+      "conclusion": "success",
       "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174068726"
     },
     {
       "id": 46174068718,
       "name": "Mobile navigation REC-Y002",
-      "status": "in_progress",
-      "conclusion": null,
+      "status": "completed",
+      "conclusion": "success",
       "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174068718"
     },
     {
@@ -61,5 +61,12 @@
     "Browser evidence pending",
     "No new scientific validation"
   ],
-  "scientific_principle": "ASC-01"
+  "scientific_principle": "ASC-01",
+  "real_transition": {
+    "pilot": "PILOTE_ECOSYSTEMES_REELS_V01.md",
+    "evidence": "AUDIT_PILOTE_ECOSYSTEMES_REELS_V01.json",
+    "status": "EXPLORATORY_DOCUMENTARY_PILOT",
+    "actual_binary_test": "Calc roundtrip PASS",
+    "real_admission": 0
+  }
 }

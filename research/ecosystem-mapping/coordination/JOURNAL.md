@@ -68,3 +68,5 @@
 | 2026-11-28 | interactive_assistant | INT-APP-A5-0019 | A5 réservation | Interface expérimentale trilingue, abstention réelle et simulation fictive | ETAT.json | Implémenter et tester |
 
 | 2026-11-28 | interactive_assistant | INT-APP-A5-0019 | A5 implémentation et ASC-01 | Interface trilingue, recette en cours; encadré permanent abstention décisionnelle à la demande du porteur | [Code](https://github.com/LMSEIF-UH2C/acpa-msmda/commit/d3bc403532a6bf775ea7b01b88db86d28246609c) | Recette et preuves |
+
+| 2026-11-28 | interactive_assistant | INT-APP-A5-0019 | Pilote réel | 4 technologies documentées; Calc réel PASS; chaîne non testée | [PILOTE_ECOSYSTEMES_REELS_V01.md](../PILOTE_ECOSYSTEMES_REELS_V01.md) | Recette et qualification réelle |

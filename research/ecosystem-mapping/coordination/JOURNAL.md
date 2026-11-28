@@ -41,3 +41,4 @@
 | 2026-11-28 | interactive_assistant | INT-APP-A3-0017 | A3 | Réservation, A2 accepté | PR82 | Qualification documentaire |
 | 2026-11-28 | interactive_assistant | INT-APP-A3-0017 | A3 | 34 propositions documentaires, 30/30 ciblés; CI générale en cours | run 46171020031 | Liaison preuve et recette UI |
 | 2026-11-28 | interactive_assistant | INT-APP-A3-0017 | demande porteur | Création registre transversal de 12 entrées, règle permanente de conservation; A3 et verrou inchangés | [Registre](../REGISTRE_ECHECS_ANOMALIES_LIMITES_V01.md) | Reprendre recette A3 |
+| 2026-11-28 | interactive_assistant | INT-APP-A3-0017 | A3 renforcement | 10/10 CI précédente; liaison SHA locale, 34/34 tests, recette navigateur en cours | run 46171523523 | Vérifier recette avant A4 |

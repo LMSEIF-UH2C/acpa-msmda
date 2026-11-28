@@ -1,6 +1,6 @@
 {
   "phase": "A3 first documentary qualification batch",
-  "commit": "7ffd26ccac44c851284f2981a73b787dc0f8fa7d",
+  "commit": "651a3b2c0bdb61d7a49f5cad42daac2897a1aec9",
   "pr": 82,
   "records": 2500,
   "source_observations": 2500,
@@ -28,64 +28,64 @@
   },
   "checks": [
     {
-      "name": "tests (3.14)",
+      "name": "smoke-test",
       "status": "in_progress",
       "conclusion": null,
-      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171024771/job/141059241319"
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171528063/job/141060802508"
     },
     {
       "name": "tests (3.12)",
       "status": "in_progress",
       "conclusion": null,
-      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171024771/job/141059241056"
-    },
-    {
-      "name": "mobile-navigation",
-      "status": "in_progress",
-      "conclusion": null,
-      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171024719/job/141059240980"
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171528018/job/141060802493"
     },
     {
       "name": "reference",
       "status": "in_progress",
       "conclusion": null,
-      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171024722/job/141059240929"
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171528029/job/141060802410"
     },
     {
-      "name": "smoke-test",
+      "name": "tests (3.14)",
       "status": "in_progress",
       "conclusion": null,
-      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171024721/job/141059240869"
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171528018/job/141060802291"
     },
     {
-      "name": "qualification (3.14)",
-      "status": "completed",
-      "conclusion": "success",
-      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171020031/job/141059227253"
+      "name": "mobile-navigation",
+      "status": "in_progress",
+      "conclusion": null,
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171528008/job/141060802278"
     },
     {
       "name": "qualification (3.12)",
       "status": "completed",
       "conclusion": "success",
-      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171020031/job/141059226993"
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171523523/job/141060789095"
     },
     {
-      "name": "register (3.12)",
+      "name": "qualification (3.14)",
       "status": "completed",
       "conclusion": "success",
-      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171019965/job/141059226961"
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171523523/job/141060788855"
     },
     {
       "name": "register (3.14)",
       "status": "completed",
       "conclusion": "success",
-      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171019965/job/141059226862"
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171523402/job/141060788707"
     },
     {
       "name": "dual-entry",
       "status": "in_progress",
       "conclusion": null,
-      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171019952/job/141059226719"
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171523423/job/141060788403"
+    },
+    {
+      "name": "register (3.12)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171523402/job/141060788354"
     }
   ],
   "full_regression_status": "PENDING",
@@ -93,5 +93,36 @@
     "No new catalogue source records this pass, no bulk import of the 12956 research records, no external adjudication, no score, no confirmed compatibility or promotion.",
     "A3 proposal interface original documentation in French; translated status labels only. Browser regression and explicit expanded-proposal UI acceptance remain to be checked.",
     "Binding uses record ID, date and URL; same-date same-URL content revisions are not yet invalidated by source payload hash. Strengthen before allowing operational use."
+  ],
+  "prior_commit": "7ffd26ccac44c851284f2981a73b787dc0f8fa7d",
+  "prior_ci": "10/10 success",
+  "source_binding": {
+    "schema_version": 2,
+    "scope": "Canonical SHA256 of complete local documentary pointer row, not publisher HTTP body or independent verification",
+    "proposals": 34,
+    "stale_same_date_url_rejected": true,
+    "legacy_unbound_preserved_hidden": true,
+    "qualification_reimport": 0
+  },
+  "targeted_tests_v2": {
+    "run_id": 46171523523,
+    "distinct": 17,
+    "executions": 34,
+    "passed": 34,
+    "python": [
+      "3.12",
+      "3.14"
+    ]
+  },
+  "browser_expanded_panel": {
+    "planned": 6,
+    "verified": null,
+    "run_id": 46171523423
+  },
+  "limits_v2": [
+    "34 local documentary pointers, no publisher refresh, independent evaluation, verified context compatibility or score.",
+    "Local source row hash detects changes in admitted pointer fields, not changes to publisher website behind unchanged pointer.",
+    "Original documentary prose remains French; statuses translated.",
+    "Browser expanded panel results and full CI must be read before closure. No external validation, new bulk source import, deployment or merge."
   ]
 }

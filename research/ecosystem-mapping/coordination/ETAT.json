@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": 37,
+  "revision": 38,
   "branch": "research/ecosystem-mapping-pilot",
   "scientific_version": "0.1.58",
   "scientific_baseline_commit": "c7da29efe69974ebc365dbf0aa942f95ec5846df",
@@ -17,9 +17,16 @@
       "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171024771",
       "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171024719",
       "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171024722",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171024721"
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171024721",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171523523",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171523402",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171523423",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171528063",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171528018",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171528029",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171528008"
     ],
-    "resume_note": "A3 30/30 targeted test executions passed; general regression still active. Read terminal results, add source payload hash binding and explicit expanded UI tests before A3 closure.; register RET-001–012 added on owner request; A3 work and gate unchanged."
+    "resume_note": "A3 prior CI 10/10 success. Schema v2 binds proposal to full local pointer SHA256. 34/34 targeted executions passed, UI expanded acceptance run 46171523423 and general CI pending review. Keep lock until terminal results."
   },
   "last_handoff": {
     "actor": "interactive_assistant",
@@ -330,7 +337,7 @@
         "deps": [
           "A2"
         ],
-        "next": "Check terminal CI and specifically verify displayed proposal fields in browser, strengthen binding to full source payload hash; no A4 before closure.",
+        "next": "Read terminal CI at 651a3b2, verify 18 browser cases and 6 expanded qualification panels, artifact and DB SHA. Close A3 only if all succeed; retain RET-011 limits. Then A4.",
         "evidence": "../AUDIT_APPLICATION_A3_V01.json"
       },
       {
@@ -363,7 +370,7 @@
         ]
       }
     ],
-    "integration_commit": "7ffd26ccac44c851284f2981a73b787dc0f8fa7d",
+    "integration_commit": "651a3b2c0bdb61d7a49f5cad42daac2897a1aec9",
     "pr": 82,
     "regression_status": "PENDING",
     "next_task": "A3",

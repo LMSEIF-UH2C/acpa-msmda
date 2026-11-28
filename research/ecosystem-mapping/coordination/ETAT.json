@@ -1,10 +1,18 @@
 {
   "schema_version": 1,
-  "revision": 10,
+  "revision": 11,
   "branch": "research/ecosystem-mapping-pilot",
   "scientific_version": "0.1.46",
   "scientific_baseline_commit": "09ea4e24861931836d6bc44a49d957d160266ae6",
-  "lock": null,
+  "lock": {
+    "actor": "interactive_assistant",
+    "intervention_id": "INT-P2-10-0005",
+    "task_id": "P2-10",
+    "acquired_utc": "2026-11-28",
+    "base_head": "50b23624488871a3e830974ed0762302926cd5d1",
+    "run_refs": [],
+    "resume_note": "Inspecter moteur/checkpoint et préparer petit essai séquentiel réel entre jobs distincts."
+  },
   "last_handoff": {
     "actor": "interactive_assistant",
     "intervention_id": "INT-P2-08-0004",
@@ -163,7 +171,7 @@
       "id": "P2-10",
       "phase": 2,
       "title": "Essai réel séquentiel moteur et reprise entre runners",
-      "status": "READY",
+      "status": "IN_PROGRESS",
       "owner": "assistant",
       "deps": [],
       "evidence": "../CHECKPOINT_PROTOCOL.md",

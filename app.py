@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT / "src"))
 from acpa_msmda import session_context as ctx
 from acpa_msmda import i18n  # noqa: E402
+from acpa_msmda import experimental_entry  # noqa: E402
 from acpa_msmda.i18n import t  # noqa: E402
 from acpa_msmda.ui import (APP_NAME, HOME, MODULES, ALL_MODULES, TECH_EVAL, EPS_SPACE, SEARCH, STUDIO, PRIVACY_NOTE, configure_page,  # noqa: E402
                            language_buttons, page_header, tab_bar)
@@ -44,6 +45,9 @@ def home():
     with st.container(key="home_eps"):
         st.page_link(EPS_SPACE.path,label=t(EPS_SPACE.title),icon=EPS_SPACE.icon)
         st.caption(t(EPS_SPACE.summary))
+    if experimental_page is not None:
+        if st.button(experimental_entry.label(i18n.current()), key="experimental_entry", use_container_width=True):
+            st.switch_page(experimental_page)
     st.caption(t(PRIVACY_NOTE))
     with st.container(key="home_languages"):
         st.caption(t("Langue"))
@@ -52,8 +56,10 @@ def home():
 
 i18n.use(i18n.from_session(st.session_state, st.query_params) or i18n.DEFAULT)
 home_page = st.Page(home, title=t(HOME.title), icon=HOME.icon, default=True)
-pages = st.navigation([home_page] + [st.Page(m.path, title=t(m.title), icon=m.icon) for m in ALL_MODULES if m.path],
-                      position="hidden")
+experimental_page = (st.Page(experimental_entry.render, title=experimental_entry.label(i18n.current()),
+                             url_path="experimental-ecosystem") if experimental_entry.enabled() else None)
+pages = st.navigation([home_page] + [st.Page(m.path, title=t(m.title), icon=m.icon) for m in ALL_MODULES if m.path]
+                      + ([experimental_page] if experimental_page is not None else []), position="hidden")
 current = next((m.key for m in ALL_MODULES if t(m.title) == pages.title), HOME.key)
 if i18n.from_session(st.session_state, st.query_params) is not None or current != HOME.key:
     tab_bar(current, home_page)

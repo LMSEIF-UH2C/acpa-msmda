@@ -87,6 +87,8 @@ def run(browser,engine,lang,mode):
             centered_click(demo.get_by_role("button",name=labels[4],exact=True))
             expect(demo.get_by_text(labels[5],exact=True)).to_be_visible(timeout=60000)
             page.screenshot(path=str(OUT/f"{engine}-{lang}-a5-demo.png"))
+            internal_label={"fr":"Configuration réelle — revue interne","ar":"منظومة حقيقية — مراجعة داخلية","en":"Real configuration — internal review"}[lang]
+            expect(page.get_by_text(internal_label,exact=True)).to_have_count(0)
             print("A5_DECISION_PASS "+json.dumps({"engine":engine,"language":lang}),flush=True)
         else:
             expect(page.get_by_text(missing,exact=False)).to_be_visible()

@@ -101,3 +101,71 @@ def render_decision(path, lang):
             st.caption(msg("Résultat algorithmique, pas une preuve d'efficacité pédagogique.",
                            "نتيجة خوارزمية وليست دليلا على الفعالية التربوية.",
                            "Algorithmic result, not evidence of pedagogical effectiveness."))
+
+
+def render_internal_review(path, lang, leads):
+    """Separate restricted view; disabled in all existing deployments by default."""
+    import os
+    import streamlit as st
+    from sqlite3 import Error as SQLiteError
+    from .experimental_real_admission import load_operator_review_config, evaluate_operator_review
+    if os.environ.get("ACPA_EXPERIMENTAL_INTERNAL_REVIEW")!="1":
+        return
+    def msg(fr,ar,en):
+        return {"fr":fr,"ar":ar,"en":en}.get(lang,fr)
+    def fn(code):
+        return msg(*FUNCTION_LABELS[code])
+    with st.expander(msg("Configuration réelle — revue interne","منظومة حقيقية — مراجعة داخلية","Real configuration — internal review")):
+        st.warning(msg("Usage interne uniquement. Ne constitue pas une validation scientifique externe.",
+                       "للاستخدام الداخلي فقط. لا يمثل مصادقة علمية خارجية.",
+                       "Internal use only. Not external scientific validation."))
+        try:
+            config=load_operator_review_config()
+        except (OSError,ValueError,TypeError,KeyError):
+            st.warning(msg("Configuration interne absente ou non vérifiable.","التهيئة الداخلية غائبة أو غير قابلة للتحقق.","Internal configuration missing or unverifiable."))
+            return
+        if config is None:
+            return
+        scenario=config["scenario"]; context=config["context"]
+        for k,title in (("id",msg("Scénario","السيناريو","Scenario")),("platform",msg("Plateforme","المنصة","Platform")),
+                        ("setting",msg("Cadre","السياق","Setting")),("data_policy",msg("Politique de données","سياسة البيانات","Data policy"))):
+            st.text(title+": "+scenario[k])
+        st.text(msg("Besoins obligatoires","الحاجات الإلزامية","Required needs")+": "+", ".join(fn(x) for x in context["required"]))
+        st.text(msg("Besoins facultatifs","الحاجات الاختيارية","Optional needs")+": "+(", ".join(fn(x) for x in context["optional"]) or "—"))
+        st.text(msg("Budget (DH) / période","الميزانية (درهم) / الفترة","Budget (MAD) / period")+f": {context['budget_mad']} / {context['period']}")
+        st.text(msg("Appareils simultanés","الأجهزة المتزامنة","Simultaneous devices")+f": {context['devices']}")
+        st.text(msg("Hors ligne exigé","العمل دون إنترنت مطلوب","Offline required")+": "+(msg("Oui","نعم","Yes") if context["offline"] else msg("Non","لا","No")))
+        if context["unsupported_requirements"]:
+            st.text(msg("Exigences non modélisées","متطلبات غير ممثلة","Unmodelled requirements")+": "+", ".join(context["unsupported_requirements"]))
+        confirmed=st.checkbox(msg("Ce contexte correspond à la situation examinée","هذا السياق يطابق الحالة المدروسة","This context matches the situation under review"),key="a5_internal_context")
+        if not st.button(msg("Évaluer la configuration interne","تقييم المنظومة الداخلية","Evaluate internal configuration"),key="a5_internal_evaluate",disabled=not confirmed):
+            return
+        try:
+            result=evaluate_operator_review(path,config)
+        except (OSError,ValueError,RuntimeError,SQLiteError,KeyError,TypeError):
+            st.warning(msg("Abstention : dossier interne non vérifiable.","امتناع: الملف الداخلي غير قابل للتحقق.","Abstention: internal dossier unverifiable."))
+            return
+        st.write(msg("Technologies admises en interne","تقنيات مقبولة داخليا","Internally admitted technologies")+f" : {result['admitted']}")
+        selected=result["selected"]
+        if result["status"]!="COMPLETE_INTERNAL_CONFIGURATION" or selected is None:
+            st.warning(msg("Abstention : aucune configuration complète admise.","امتناع: لا توجد منظومة كاملة مقبولة.","Abstention: no complete admitted configuration."))
+            labels={
+                "NO_APPROVED_MANIFEST":msg("Dossier approuvé absent","الملف المعتمد غائب","No approved dossier"),
+                "APPROVED_DIGEST_MISMATCH":msg("Empreinte du dossier incorrecte","بصمة الملف غير مطابقة","Dossier digest mismatch"),
+                "NO_ADMISSIBLE_REAL_CANDIDATE":msg("Aucun candidat admissible","لا يوجد مرشح مقبول","No admissible candidate"),
+                "NO_COMPLETE_SET":msg("Couverture obligatoire incomplète","التغطية الإلزامية غير مكتملة","Required coverage incomplete"),
+                "UNSUPPORTED_REQUIREMENT":msg("Exigence non modélisée","متطلب غير ممثل","Unmodelled requirement"),
+                "INCOMPLETE_SEARCH":msg("Recherche incomplète","بحث غير مكتمل","Incomplete search"),
+            }
+            st.caption(labels.get(result["status"],msg("Décision non concluante","قرار غير حاسم","Inconclusive decision")))
+            return
+        st.success(msg("Configuration admise pour ce contexte interne","منظومة مقبولة لهذا السياق الداخلي","Configuration admitted for this internal context"))
+        names={r["id"]:r["name"] for r in leads}
+        for key in selected["ids"]:
+            st.text(names.get(key,key)+" ["+key+"] : "+", ".join(fn(x) for x in selected["roles"][key]))
+        st.text(msg("Couverture obligatoire","التغطية الإلزامية","Required coverage")+f" : {len(selected['covered_required'])}/{len(context['required'])}")
+        st.text(msg("Couverture facultative","التغطية الاختيارية","Optional coverage")+f" : {len(selected['covered_optional'])}/{len(context['optional'])}")
+        st.text(msg("Coût total documenté (DH)","الكلفة الإجمالية الموثقة (درهم)","Documented total cost (MAD)")+f" : {selected['cost_mad']}")
+        st.caption(msg("Validité limitée au dossier, aux variantes et au contexte approuvés. Aucun effet pédagogique démontré.",
+                       "الصلاحية محصورة في الملف والنسخ والسياق المعتمد. لم تثبت فعالية تربوية.",
+                       "Validity limited to the approved dossier, variants and context. No demonstrated pedagogical effect."))

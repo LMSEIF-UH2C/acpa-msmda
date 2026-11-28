@@ -332,6 +332,9 @@ class EcosystemTests(unittest.TestCase):
             manifest["pairs"]=[dict(ids=[x["id"] for x in rows],context_sha256=digest,decision_ref="TEST_ONLY",
                 review_status="OWNER_APPROVED_INTERNAL",reviewed_on="2026-11-28",valid_until="2026-12-01",
                 transfer="MANUAL_TRANSFER_TESTED",proofs={"pair_compatibility":claim,"transfer":claim})]
+            manifest["pairs"][0]["proofs"]["transfer"]=[{"kind":"OFFICIAL_DOCUMENTATION","locator":"TEST_ONLY","finding":"format declared only"}]
+            self.assertEqual(run()["recommended"],[])
+            manifest["pairs"][0]["proofs"]["transfer"]=claim
             r=run();self.assertEqual(r["status"],"COMPLETE_INTERNAL_CONFIGURATION")
             self.assertEqual(r["recommended"],sorted(x["id"] for x in rows))
             self.assertEqual(run(bound=1)["recommended"],[])
@@ -347,3 +350,28 @@ class EcosystemTests(unittest.TestCase):
             rows[0]["source_observation"]=diag[0]["source_observation"]
             rows[0]["candidate"]["mode"]="TEST_FIXTURE"
             self.assertEqual(run()["diagnostics"][rows[0]["id"]],"INVALID_REAL_CANDIDATE")
+
+
+    def test_operator_review_config_requires_opt_in_and_external_pin(self):
+        from acpa_msmda.experimental_real_admission import load_operator_review_config
+        with tempfile.TemporaryDirectory() as d:
+            base=Path(d)
+            manifest=base/"reviews.json"
+            manifest.write_text('{"schema_version":1,"records":[],"pairs":[]}',encoding="utf-8")
+            config={"schema_version":1,"context":ctx(),"scenario":{"id":"TEST_ONLY","platform":"test","data_policy":"no personal data","setting":"test"},
+                    "manifest_path":str(manifest),"manifest_sha256":hashlib.sha256(manifest.read_bytes()).hexdigest()}
+            path=base/"config.json"
+            path.write_text(json.dumps(config),encoding="utf-8")
+            env={"ACPA_EXPERIMENTAL_REVIEW_CONFIG":str(path),"ACPA_EXPERIMENTAL_REVIEW_CONFIG_SHA256":hashlib.sha256(path.read_bytes()).hexdigest()}
+            self.assertIsNone(load_operator_review_config(env))
+            env["ACPA_EXPERIMENTAL_INTERNAL_REVIEW"]="1"
+            self.assertEqual(load_operator_review_config(env),config)
+            wrong=dict(env,ACPA_EXPERIMENTAL_REVIEW_CONFIG_SHA256="0"*64)
+            with self.assertRaises(ValueError): load_operator_review_config(wrong)
+            path.write_text(json.dumps(dict(config,as_of="2026-11-28")),encoding="utf-8")
+            env["ACPA_EXPERIMENTAL_REVIEW_CONFIG_SHA256"]=hashlib.sha256(path.read_bytes()).hexdigest()
+            with self.assertRaises(ValueError): load_operator_review_config(env)
+            config["manifest_path"]="relative.json"
+            path.write_text(json.dumps(config),encoding="utf-8")
+            env["ACPA_EXPERIMENTAL_REVIEW_CONFIG_SHA256"]=hashlib.sha256(path.read_bytes()).hexdigest()
+            with self.assertRaises(ValueError): load_operator_review_config(env)

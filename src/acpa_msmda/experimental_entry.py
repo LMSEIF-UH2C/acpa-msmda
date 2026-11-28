@@ -36,8 +36,9 @@ def render():
     st.caption(msg("Enregistrements de source, pas de produits uniques.","سجلات المصادر وليست منتجات فريدة.","Source records, not unique products."))
     st.metric(msg("Pistes documentaires","موارد موثقة أولياً","Documentary leads"),result["documentary_leads"])
     st.metric(msg("Observations","الملاحظات","Observations"),result["observations"])
-    from .experimental_decision_ui import render_decision
+    from .experimental_decision_ui import render_decision, render_internal_review
     render_decision(path, lang)
+    render_internal_review(path, lang, result["leads"])
     for row in result["leads"]:
         with st.expander(row["name"]):
             st.text(row["kind"]+" · "+row["category"]+" · "+row["date"])

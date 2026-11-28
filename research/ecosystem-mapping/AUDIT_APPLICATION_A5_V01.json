@@ -1,0 +1,65 @@
+{
+  "status": "IN_PROGRESS",
+  "commit": "d3bc403532a6bf775ea7b01b88db86d28246609c",
+  "scope": "Opt-in trilingual read-only documentary diagnosis and isolated fictional relay simulation",
+  "workflows": [
+    {
+      "id": 46174068764,
+      "name": "Tests ACPA MSMDA",
+      "status": "in_progress",
+      "conclusion": null,
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174068764"
+    },
+    {
+      "id": 46174068725,
+      "name": "Independent R validation",
+      "status": "in_progress",
+      "conclusion": null,
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174068725"
+    },
+    {
+      "id": 46174068726,
+      "name": "Public web demo",
+      "status": "in_progress",
+      "conclusion": null,
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174068726"
+    },
+    {
+      "id": 46174068718,
+      "name": "Mobile navigation REC-Y002",
+      "status": "in_progress",
+      "conclusion": null,
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174068718"
+    },
+    {
+      "id": 46174064072,
+      "name": "A2 isolated experimental technology register",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174064072"
+    },
+    {
+      "id": 46174064076,
+      "name": "A2 dual-entry browser acceptance",
+      "status": "in_progress",
+      "conclusion": null,
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174064076"
+    },
+    {
+      "id": 46174064042,
+      "name": "A3 documentary qualification",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174064042"
+    }
+  ],
+  "browser_cases_planned": 6,
+  "results_verified": false,
+  "limitations": [
+    "Fixed fictional simulation",
+    "No real operational admission",
+    "Browser evidence pending",
+    "No new scientific validation"
+  ],
+  "scientific_principle": "ASC-01"
+}

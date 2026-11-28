@@ -283,5 +283,21 @@
     "status": "TECH_VERIFIED",
     "scope": "fictional optimization and read-only documentary diagnostics; native historical descriptive only",
     "next": "A5"
+  },
+  "scientific_highlight_ASC01": {
+    "owner_selected": true,
+    "principle": "Contextual decision abstention rather than inadequate recommendation",
+    "evidence": {
+      "S02": "NO_COMPLETE_SET",
+      "S10": "UNSUPPORTED_REQUIREMENT",
+      "RET013": "INCOMPLETE_SEARCH",
+      "documentary": {
+        "records": 34,
+        "linked": 34,
+        "admitted": 0
+      }
+    },
+    "scope": "technical behavior only; no empirical effect or absolute novelty claim",
+    "report": "RAPPORT_SCIENTIFIQUE_EVOLUTIF.md"
   }
 }

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": 52,
+  "revision": 53,
   "branch": "research/ecosystem-mapping-pilot",
   "scientific_version": "0.1.58",
   "scientific_baseline_commit": "c7da29efe69974ebc365dbf0aa942f95ec5846df",
@@ -10,8 +10,16 @@
     "task_id": "A5",
     "acquired_utc": "2026-11-28T18:05:58.979Z",
     "base_head": "12f6b300aa2d853ae4f5d0412cc52015fcad984c",
-    "run_refs": [],
-    "resume_note": "Réservation A5 : interface expérimentale FR/AR/EN séparée. Diagnostic documentaire réel (abstention explicite, besoins/contraintes et preuves), simulation clairement fictive, résultats explicables sans JSON par défaut; pas de recommandation opérationnelle, pas de modification du moteur historique ou catalogue, maintien du parcours stable par défaut."
+    "run_refs": [
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174068764",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174068725",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174068726",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174068718",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174064072",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174064076",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46174064042"
+    ],
+    "resume_note": "A5 première implémentation PR82 d3bc403532a6bf775ea7b01b88db86d28246609c : interface FR/AR/EN dans l'entrée expérimentale existante, formulaire diagnostic documentaire réel sur besoins explicites, budget par séance, appareils, hors ligne et contrainte non modélisée; sortie abstention sans score ni JSON, simulation relais fictive séparée I/P/E et rôles. Script navigateur étendu pour les deux panneaux sur Chromium/WebKit ×3 langues; sept workflows identifiés, résultats non encore tous vérifiés. A5 IN_PROGRESS; stable/main et catalogue non modifiés. La simulation est fixe et non opérationnelle, aucune admission réelle; recette et captures à contrôler. À la demande du porteur, l'encadré scientifique permanent ASC-01 est enregistré dans le rapport maître et référencé dans le plan directeur et audit A4."
   },
   "last_handoff": {
     "actor": "interactive_assistant",
@@ -341,7 +349,8 @@
         "deps": [
           "A4"
         ],
-        "next": "Implement separate trilingual experimental UI with real documentary abstention and explicitly fictional simulation; preserve stable default."
+        "next": "Read terminal CI and verify trilingual diagnostic and simulation browser evidence; retain ASC-01 and explicit limitations.",
+        "evidence": "../AUDIT_APPLICATION_A5_V01.json"
       },
       {
         "id": "A6",
@@ -360,9 +369,9 @@
         ]
       }
     ],
-    "integration_commit": "b81690de34e135d5f5d23df66d9c5a7de9073706",
+    "integration_commit": "d3bc403532a6bf775ea7b01b88db86d28246609c",
     "pr": 82,
-    "regression_status": "SUCCESS_A4_COMMON_POOL_ORACLE",
+    "regression_status": "PENDING_A5_BROWSER_AND_REGRESSION",
     "next_task": "A5",
     "dual_entry": {
       "stable": "v0.2.0 baseline, default",

@@ -141,30 +141,37 @@
       {
         "id": 46173022815,
         "name": "Independent R validation",
-        "status": "in_progress",
-        "conclusion": null,
+        "status": "completed",
+        "conclusion": "success",
         "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173022815"
       },
       {
         "id": 46173022907,
         "name": "Tests ACPA MSMDA",
-        "status": "in_progress",
-        "conclusion": null,
+        "status": "completed",
+        "conclusion": "success",
         "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173022907"
       },
       {
         "id": 46173022808,
         "name": "Public web demo",
-        "status": "in_progress",
-        "conclusion": null,
+        "status": "completed",
+        "conclusion": "success",
         "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173022808"
       },
       {
         "id": 46173022812,
         "name": "Mobile navigation REC-Y002",
-        "status": "in_progress",
-        "conclusion": null,
+        "status": "completed",
+        "conclusion": "success",
         "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173022812"
+      },
+      {
+        "id": 46173017975,
+        "name": "A2 isolated experimental technology register",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173017975"
       },
       {
         "id": 46173017967,
@@ -174,13 +181,6 @@
         "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173017967"
       },
       {
-        "id": 46173018008,
-        "name": "A2 dual-entry browser acceptance",
-        "status": "in_progress",
-        "conclusion": null,
-        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173018008"
-      },
-      {
         "id": 46173017986,
         "name": "A4 isolated ecosystem solver",
         "status": "completed",
@@ -188,18 +188,23 @@
         "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173017986"
       },
       {
-        "id": 46173017975,
-        "name": "A2 isolated experimental technology register",
+        "id": 46173018008,
+        "name": "A2 dual-entry browser acceptance",
         "status": "completed",
         "conclusion": "success",
-        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173017975"
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173018008"
       }
     ],
-    "results_verified": false,
+    "results_verified": true,
     "limitations": [
       "No operational admission or validated common function mapping",
       "Local record digest, not remote content or independent review",
       "No common-pool empirical comparison, no validated cost/coverage/violations/load metrics"
     ]
+  },
+  "common_pool_protocol": {
+    "path": "PLAN_APPLICATION_A4_COMMON_POOL_V01.md",
+    "status": "PROSPECTIVE_NOT_EXECUTED",
+    "scenarios": 10
   }
 }

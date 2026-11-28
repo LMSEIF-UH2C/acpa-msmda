@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": 46,
+  "revision": 47,
   "branch": "research/ecosystem-mapping-pilot",
   "scientific_version": "0.1.58",
   "scientific_baseline_commit": "c7da29efe69974ebc365dbf0aa942f95ec5846df",
@@ -20,7 +20,7 @@
       "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173017986",
       "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173017975"
     ],
-    "resume_note": "A4 reprise : huit workflows du commit RET-013 78771bb10eb721f014bcf0fd3a1c5cdffaa7a40f vérifiés terminaux success, dont mobile 46172421767 et double entrée 46172415360. Nouvelle implémentation PR82 5857b0f4bef45ee7c3709bae890c265aa099648f : lecture SQLite cohérente et seule, reconstruction SHA de la fiche locale courante, contrôle de l'ID et du hash d'observation source et qualification A3, diagnostics par fiche, distinction proposition liée/absente/incohérente; aucune conversion en candidat, aucun mapping F01–F15 ni couverture réelle établie, aucune recommandation. Comparateur historique descriptif appelle real_catalog.recommend sur copie temporaire des octets du catalogue dont SHA attendu est vérifié, votes neutres, classement natif et limite explicite, métriques communes nulles. Cinq nouveaux tests distincts (lien réel 34, modification locale, hash qualification corrompu, équivalence classement natif sur deux textes, garde empreinte/limite). Huit workflows du nouveau commit identifiés, résultats à vérifier. A4 IN_PROGRESS, verrou conservé, main et catalogue non modifiés; aucun gate scientifique levé. La comparaison sur pool commun, validation des fonctions et preuve externe restent absentes."
+    "resume_note": "A4 préparation de consolidation : 8/8 workflows du commit 5857b0f4bef45ee7c3709bae890c265aa099648f réussis au contrôle; en cours : aucun. Protocole prospectif [pool commun et oracle étendu](PLAN_APPLICATION_A4_COMMON_POOL_V01.md) enregistré avant implémentation : dix scénarios S01–S10, comparateurs I/P/E sur fixtures fictives et sortie historique H native séparée, oracle bitmask indépendant sur toutes contraintes modélisées, métriques communes réelles non disponibles. Les choix obligatoires/facultatifs sont conventions de test. Aucun nouveau test exécuté par cette préparation, aucune recommandation réelle ni gate scientifique modifié."
   },
   "last_handoff": {
     "actor": "interactive_assistant",
@@ -340,7 +340,7 @@
         "deps": [
           "A3"
         ],
-        "next": "Verify terminal CI and actual documentary lineage / historical native outputs; prepare common-pool comparison, independent oracle across constraints; no A5 until acceptance.",
+        "next": "Execute prospective common-pool fixture protocol and independent full-constraint oracle after terminal adapter CI; no historical paired empirical claim.",
         "evidence": "../AUDIT_APPLICATION_A4_V01.json"
       },
       {
@@ -368,7 +368,7 @@
     ],
     "integration_commit": "5857b0f4bef45ee7c3709bae890c265aa099648f",
     "pr": 82,
-    "regression_status": "PENDING_A4_ADAPTER_COMPARATOR",
+    "regression_status": "ADAPTER_CI_SUCCESS",
     "next_task": "A4",
     "dual_entry": {
       "stable": "v0.2.0 baseline, default",

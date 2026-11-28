@@ -1,10 +1,18 @@
 {
   "schema_version": 1,
-  "revision": 51,
+  "revision": 52,
   "branch": "research/ecosystem-mapping-pilot",
   "scientific_version": "0.1.58",
   "scientific_baseline_commit": "c7da29efe69974ebc365dbf0aa942f95ec5846df",
-  "lock": null,
+  "lock": {
+    "actor": "interactive_assistant",
+    "intervention_id": "INT-APP-A5-0019",
+    "task_id": "A5",
+    "acquired_utc": "2026-11-28T18:05:58.979Z",
+    "base_head": "12f6b300aa2d853ae4f5d0412cc52015fcad984c",
+    "run_refs": [],
+    "resume_note": "Réservation A5 : interface expérimentale FR/AR/EN séparée. Diagnostic documentaire réel (abstention explicite, besoins/contraintes et preuves), simulation clairement fictive, résultats explicables sans JSON par défaut; pas de recommandation opérationnelle, pas de modification du moteur historique ou catalogue, maintien du parcours stable par défaut."
+  },
   "last_handoff": {
     "actor": "interactive_assistant",
     "intervention_id": "INT-APP-A4-0018",
@@ -329,7 +337,7 @@
       },
       {
         "id": "A5",
-        "status": "READY",
+        "status": "IN_PROGRESS",
         "deps": [
           "A4"
         ],

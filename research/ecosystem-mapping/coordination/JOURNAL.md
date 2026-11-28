@@ -64,3 +64,5 @@
 | 2026-11-28 | interactive_assistant | INT-APP-A4-0018 | Gouvernance | Orientations d'équipe communiquées par le porteur après consultation, selon sa déclaration; éviter les approbations redondantes | ETAT.json et rapport maître | Appliquer aux prochaines décisions |
 
 | 2026-11-28 | interactive_assistant | INT-APP-A4-0018 | A4 clôture | 5/5 CI; 52/52 tests; I 2/10, P 7/10, E 8/10; verrou libéré | [Run](https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46173324214) | A5 READY |
+
+| 2026-11-28 | interactive_assistant | INT-APP-A5-0019 | A5 réservation | Interface expérimentale trilingue, abstention réelle et simulation fictive | ETAT.json | Implémenter et tester |

@@ -102,5 +102,13 @@
     "Incomplete search returns no selected set; partial comparator serialization and explicit scope on incomplete search need hardening before A5.",
     "Optional coverage reported, not optimized. No scientific weights, no external validation, no source enlargement, no UI or release."
   ],
-  "full_regression_status": "PENDING"
+  "full_regression_status": "PENDING",
+  "terminal_recheck": {
+    "commit": "01b83f778138a5c4a189ae8e85e5bd100566a15d",
+    "jobs_passed": 12,
+    "jobs_total": 12,
+    "all_eight_runs_terminal": true,
+    "verified_on": "2026-11-28",
+    "scope": "Initial A4 commit only; original pending snapshot preserved."
+  }
 }

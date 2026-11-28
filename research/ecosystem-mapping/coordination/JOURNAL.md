@@ -46,3 +46,5 @@
 | 2026-11-28 | interactive_assistant | INT-APP-A3-0017 | A3 clôture | 10/10 CI, 18/18 parcours, 6/6 panneaux, archive relue | [Audit](../AUDIT_APPLICATION_A3_V01.json) | A4 READY |
 | 2026-11-28 | interactive_assistant | INT-APP-A4-0018 | A4 réservation | A3 accepté, prototype de décision isolé | [Plan](../PLAN_APPLICATION_A4_V01.md) | Implémenter et tester |
 | 2026-11-28 | interactive_assistant | INT-APP-A4-0018 | A4 prototype | 36/36 ciblés; 34 pistes non admises; limites et CI à contrôler | [Audit](../AUDIT_APPLICATION_A4_V01.json) | Durcissement A4 |
+
+| 2026-11-28 | interactive_assistant | INT-APP-A4-0018 | A4 reprise | A4 reprise du 28/11/2026 : huit runs du commit applicatif 01b83f7 terminaux, 12/12 jobs réussis. Reprise par le même propriétaire logique INT-APP-A4-0018 après clôture du précédent échange et vérification des runs. RET-013, adaptateur de preuves et comparateur historique restent ouverts. Aucun gate scientifique levé. | [Audit A4](../AUDIT_APPLICATION_A4_V01.json) | RET-013 |

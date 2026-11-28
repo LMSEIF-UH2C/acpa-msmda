@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": 42,
+  "revision": 43,
   "branch": "research/ecosystem-mapping-pilot",
   "scientific_version": "0.1.58",
   "scientific_baseline_commit": "c7da29efe69974ebc365dbf0aa942f95ec5846df",
@@ -20,7 +20,7 @@
       "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171946844",
       "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46171946829"
     ],
-    "resume_note": "A4 initial fictional solver implemented, 36/36 targeted executions, actual 34 leads excluded from operational use. General CI pending. Incomplete search output comparator structure needs hardening; real evidence adapter and historical comparison remain absent. No A5 yet."
+    "resume_note": "A4 reprise du 28/11/2026 : huit runs du commit applicatif 01b83f7 terminaux, 12/12 jobs réussis. Reprise par le même propriétaire logique INT-APP-A4-0018 après clôture du précédent échange et vérification des runs. RET-013, adaptateur de preuves et comparateur historique restent ouverts. Aucun gate scientifique levé."
   },
   "last_handoff": {
     "actor": "interactive_assistant",
@@ -340,7 +340,7 @@
         "deps": [
           "A3"
         ],
-        "next": "Read all terminal checks; harden incomplete-search comparator output and evidence adapter contract; distinguish baseline and actual historical comparator; no A5 before A4 acceptance.",
+        "next": "Correct RET-013 with explicit tests, then evidence adapter and actual historical comparator; A5 blocked.",
         "evidence": "../AUDIT_APPLICATION_A4_V01.json"
       },
       {
@@ -368,7 +368,7 @@
     ],
     "integration_commit": "01b83f778138a5c4a189ae8e85e5bd100566a15d",
     "pr": 82,
-    "regression_status": "PENDING",
+    "regression_status": "SUCCESS_ON_01b83f7_ONLY",
     "next_task": "A4",
     "dual_entry": {
       "stable": "v0.2.0 baseline, default",

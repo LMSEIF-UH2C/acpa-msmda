@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": 32,
+  "revision": 33,
   "branch": "research/ecosystem-mapping-pilot",
   "scientific_version": "0.1.58",
   "scientific_baseline_commit": "c7da29efe69974ebc365dbf0aa942f95ec5846df",
@@ -15,9 +15,14 @@
       "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46169712076",
       "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46169712017",
       "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46169712028",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46169711976"
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46169711976",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46170522696",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46170527331",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46170527366",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46170527338",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46170527335"
     ],
-    "resume_note": "Browser acceptance run launched; inspect terminal result and artifact before release. No A3 until acceptance."
+    "resume_note": "First browser run failed with zero completed cases (pointer overlay after direct disabled URL); artifact independently downloaded and hash checked. Test-only correction pushed; retry run 46170522696. Inspect terminal evidence before release."
   },
   "last_handoff": {
     "actor": "interactive_assistant",
@@ -327,7 +332,7 @@
         ],
         "scope": "Persistence and optional entry implemented; 38/38 targeted tests",
         "evidence": "../AUDIT_APPLICATION_A2_BROWSER_V01.json",
-        "next": "Read terminal run 46169706644 and logs/artifact, verify all 18 cases and DB SHA; check general CI. Resume same intervention only once previous execution ended."
+        "next": "Read terminal run 46170522696 and logs/artifact. If 18/18 and SQLite read-only confirmed, check 5 general CI checks then close A2. Otherwise diagnose and correct; no A3 implementation before acceptance."
       },
       {
         "id": "A3",
@@ -366,7 +371,7 @@
         ]
       }
     ],
-    "integration_commit": "84eaf07310cf93e029d25c7493df9cbbb70cf55d",
+    "integration_commit": "984fd2e4c642ee12ad3f8d1b7cf549b83962a74e",
     "pr": 82,
     "regression_status": "PENDING",
     "next_task": "A2",

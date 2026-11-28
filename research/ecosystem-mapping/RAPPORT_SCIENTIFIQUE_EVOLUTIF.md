@@ -1,6 +1,6 @@
 # Rapport scientifique évolutif — Cartographie technologique écosystémique ACPA/MSMDA
 
-**Version 0.1.18 — 28 novembre 2026.** Dossier de recherche et base de rédaction d'un article méthodologique. Branche `research/ecosystem-mapping-pilot`, [PR 81](https://github.com/LMSEIF-UH2C/acpa-msmda/pull/81). État : exploration et développement méthodologique; collecte définitive et validation empirique non achevées. Ce rapport est rétrospectif pour les pilotes déjà réalisés, prospectif pour les étapes restantes. Il ne constitue pas un préenregistrement rétroactif. Auteur(s), contributions CRediT, financement, déclarations et choix de revue à confirmer par l'équipe scientifique. Code de production et version publiée v0.2.0 préservés.
+**Version 0.1.19 — 28 novembre 2026.** Dossier de recherche et base de rédaction d'un article méthodologique. Branche `research/ecosystem-mapping-pilot`, [PR 81](https://github.com/LMSEIF-UH2C/acpa-msmda/pull/81). État : exploration et développement méthodologique; collecte définitive et validation empirique non achevées. Ce rapport est rétrospectif pour les pilotes déjà réalisés, prospectif pour les étapes restantes. Il ne constitue pas un préenregistrement rétroactif. Auteur(s), contributions CRediT, financement, déclarations et choix de revue à confirmer par l'équipe scientifique. Code de production et version publiée v0.2.0 préservés.
 
 ## 1. Projet d'article
 Titre provisoire FR : **Vers une cartographie systématique, cumulative, adaptative et multidimensionnelle des technologies éducatives : développement et validation méthodologique en éducation physique et sportive.**
@@ -115,6 +115,9 @@ Annexe E3 relue intégralement (pp.1–6; 12 experts × 5 OTP, échelle 1–5). 
 ### Contrôle par technologies témoins (V0.1.17)
 [Protocole](KNOWN_ITEM_PROTOCOL.md), 12 références officielles choisies intentionnellement après pilotes et avant ce test, 5 Apple, 4 F-Droid, 3 dépôts GitHub. Certains témoins déjà connus : contrôle de récupération exploratoire, non estimation indépendante du rappel. Le porteur accepte les déséquilibres s'ils sont documentés et justifiés; aucune égalité numérique imposée. Statuts exacts par source, sans fusion de produit. Exécution hors ligne réussie : [run 46136684036](https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46136684036), 4 tests réussis, 9/12 témoins retrouvés (Apple 5/5, F-Droid 4/4, GitHub 0/3), 0 ambigu; Excel/Sheets seulement dans l'extension. [Audit des résultats](AUDIT_KNOWN_ITEMS_V01.md). Les trois dépôts non observés motivent une prospection Web/bureau distincte; aucune causalité démontrée, ni rappel estimable. Aucun nouveau score ni inclusion.
 
+### Prospection documentaire Web/bureau (V0.1.19)
+[Audit et traces](AUDIT_PROSPECTION_WEB_BUREAU_V01.md), 17 références documentaires choisies intentionnellement, comparaison nominale au catalogue de 2 466 fiches (blob 39b32ebbdf33b49a3fb0bb669f8a0809d0e72995) : 5 correspondances exactes de nom/alias, 1 signal partiel seul, 11 sans correspondance nominale. Pas de nouveaux produits confirmés, ni qualification. SILL identifié comme canal institutionnel d'export JSON sous Licence Ouverte 2.0; documentation Wikidata CC0 consultée; aucun export/WDQS réalisé. Limites : recherche exploratoire, biais libre et EN/FR, résultats web complets non archivés. Prochaine étape : export public SILL et pilote Wikidata borné et journalisé.
+
 ## 6. Chronologie et registre des décisions (UTC, 28 novembre 2026)
 | Heure | Commit / preuve | Décision, résultat et justification |
 |---|---|---|
@@ -161,6 +164,8 @@ Annexe E3 relue intégralement (pp.1–6; 12 experts × 5 OTP, échelle 1–5). 
 | 28 nov. | V0.1.17 : [témoins](KNOWN_ITEM_PROTOCOL.md) | Déséquilibres documentés et justifiés, 12 témoins officiels pour test de récupération sur archives; sélection post-pilote non indépendante. |
 
 | 28 nov. | V0.1.18 : [résultats témoins](AUDIT_KNOWN_ITEMS_V01.md) | 4 tests réussis; 9/12 retrouvés, trois dépôts absents du pilote; déséquilibre conservé et limites de sélection explicites; priorité Web/bureau. |
+
+| 28 nov. | V0.1.19 : [prospection Web/bureau](AUDIT_PROSPECTION_WEB_BUREAU_V01.md) | 17 références officielles, comparaison nominale et registre de preuves, SILL identifié, aucun produit ajouté. |
 
 ## 7. Validation prospective : plan de travail et critères de passage
 Le [plan directeur de finalisation](PLAN_FINALISATION.md) définit six phases avec livrables et critères de passage : consolidation, stabilisation (incluant calibration des juges et préenregistrement avant collecte), collecte définitive, qualification/validation, moteur écosystémique, valorisation et clôture. En cas d'archives historiques irrécupérables, distinguer nouvelle collecte et comparaison documentaire limitée, sans annoncer de gain net historique. Les paramètres de validation et les critères d'arrêt restent à approuver avant exécution confirmatoire. Quatre figures distinctes proposées : flux historique, architecture, flux quantitatif nouveau et modèle écosystémique.

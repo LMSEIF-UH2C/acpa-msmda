@@ -1,0 +1,342 @@
+{
+  "catalog_blob": "39b32ebbdf33b49a3fb0bb669f8a0809d0e72995",
+  "catalog_size": 2466,
+  "records": 17,
+  "counts": {
+    "NO_NAME_MATCH": 11,
+    "NAME_CANDIDATE_REVIEW": 5,
+    "AMBIGUOUS_NAME_REVIEW": 1
+  },
+  "selection": "purposive documentary pilot, not systematic or exhaustive",
+  "records_detail": [
+    {
+      "id": "WD01",
+      "name": "LINCE PLUS",
+      "family": "research",
+      "documented_function": "Codage observationnel et analyse",
+      "official_evidence_url": "https://lince-plus.com/",
+      "date": "2026-11-28",
+      "variant_scope": "desktop/web",
+      "alias_probes": [
+        "LINCE PLUS"
+      ],
+      "exact_name_matches": [],
+      "partial_name_match_count": 0,
+      "comparison_status": "NO_NAME_MATCH",
+      "eligibility": "NOT_ASSESSED",
+      "note": "No test, no 10D97P rating, no automatic identity or addition"
+    },
+    {
+      "id": "WD02",
+      "name": "Kinovea",
+      "family": "video",
+      "documented_function": "Annotation et mesure du mouvement",
+      "official_evidence_url": "https://www.kinovea.org/?lang=fr",
+      "date": "2026-11-28",
+      "variant_scope": "desktop",
+      "alias_probes": [
+        "Kinovea"
+      ],
+      "exact_name_matches": [
+        {
+          "id": "kinovea",
+          "name": "Kinovea",
+          "status": "FEATURES_VERIFIED_ON_OFFICIAL_SITE",
+          "source_url": "https://www.kinovea.org/features"
+        }
+      ],
+      "partial_name_match_count": 0,
+      "comparison_status": "NAME_CANDIDATE_REVIEW",
+      "eligibility": "NOT_ASSESSED",
+      "note": "No test, no 10D97P rating, no automatic identity or addition"
+    },
+    {
+      "id": "WD03",
+      "name": "Tracker (Open Source Physics)",
+      "family": "video",
+      "documented_function": "Analyse vidéo et modélisation",
+      "official_evidence_url": "https://opensourcephysics.github.io/tracker-website/",
+      "date": "2026-11-28",
+      "variant_scope": "desktop/web (variante à distinguer)",
+      "alias_probes": [
+        "Tracker"
+      ],
+      "exact_name_matches": [],
+      "partial_name_match_count": 145,
+      "comparison_status": "AMBIGUOUS_NAME_REVIEW",
+      "eligibility": "NOT_ASSESSED",
+      "note": "No test, no 10D97P rating, no automatic identity or addition"
+    },
+    {
+      "id": "WD04",
+      "name": "jamovi",
+      "family": "research",
+      "documented_function": "Analyse statistique",
+      "official_evidence_url": "https://www.jamovi.org/",
+      "date": "2026-11-28",
+      "variant_scope": "desktop/cloud",
+      "alias_probes": [
+        "jamovi"
+      ],
+      "exact_name_matches": [],
+      "partial_name_match_count": 0,
+      "comparison_status": "NO_NAME_MATCH",
+      "eligibility": "NOT_ASSESSED",
+      "note": "No test, no 10D97P rating, no automatic identity or addition"
+    },
+    {
+      "id": "WD05",
+      "name": "GNU PSPP",
+      "family": "research",
+      "documented_function": "Analyse statistique",
+      "official_evidence_url": "https://www.gnu.org/software/pspp/",
+      "date": "2026-11-28",
+      "variant_scope": "desktop",
+      "alias_probes": [
+        "PSPP",
+        "GNU PSPP"
+      ],
+      "exact_name_matches": [],
+      "partial_name_match_count": 0,
+      "comparison_status": "NO_NAME_MATCH",
+      "eligibility": "NOT_ASSESSED",
+      "note": "No test, no 10D97P rating, no automatic identity or addition"
+    },
+    {
+      "id": "WD06",
+      "name": "JASP",
+      "family": "research",
+      "documented_function": "Analyse statistique",
+      "official_evidence_url": "https://jasp-stats.org/",
+      "date": "2026-11-28",
+      "variant_scope": "desktop",
+      "alias_probes": [
+        "JASP"
+      ],
+      "exact_name_matches": [],
+      "partial_name_match_count": 0,
+      "comparison_status": "NO_NAME_MATCH",
+      "eligibility": "NOT_ASSESSED",
+      "note": "No test, no 10D97P rating, no automatic identity or addition"
+    },
+    {
+      "id": "WD07",
+      "name": "LibreOffice Calc",
+      "family": "research",
+      "documented_function": "Tableur, composant de suite",
+      "official_evidence_url": "https://books.libreoffice.org/en/CG262/CG26201-Introduction.html",
+      "date": "2026-11-28",
+      "variant_scope": "desktop",
+      "alias_probes": [
+        "LibreOffice Calc",
+        "LibreOffice"
+      ],
+      "exact_name_matches": [],
+      "partial_name_match_count": 0,
+      "comparison_status": "NO_NAME_MATCH",
+      "eligibility": "NOT_ASSESSED",
+      "note": "No test, no 10D97P rating, no automatic identity or addition"
+    },
+    {
+      "id": "WD08",
+      "name": "Lumi Desktop Editor",
+      "family": "creation",
+      "documented_function": "Création de contenus H5P hors ligne annoncée",
+      "official_evidence_url": "https://lumi.education/en/lumi-h5p-offline-desktop-editor/",
+      "date": "2026-11-28",
+      "variant_scope": "desktop",
+      "alias_probes": [
+        "Lumi",
+        "Lumi Education",
+        "Lumi Desktop Editor"
+      ],
+      "exact_name_matches": [
+        {
+          "id": "directory-0180",
+          "name": "Lumi Education",
+          "status": "PENDING_SOURCE_VERIFICATION",
+          "source_url": null
+        }
+      ],
+      "partial_name_match_count": 0,
+      "comparison_status": "NAME_CANDIDATE_REVIEW",
+      "eligibility": "NOT_ASSESSED",
+      "note": "No test, no 10D97P rating, no automatic identity or addition"
+    },
+    {
+      "id": "WD09",
+      "name": "H5P",
+      "family": "creation",
+      "documented_function": "Contenu interactif, technologie intégrable",
+      "official_evidence_url": "https://docs.moodle.org/502/en/H5P",
+      "date": "2026-11-28",
+      "variant_scope": "composant/technologie web",
+      "alias_probes": [
+        "H5P"
+      ],
+      "exact_name_matches": [
+        {
+          "id": "h5p",
+          "name": "H5P",
+          "status": "FEATURES_VERIFIED_ON_OFFICIAL_SITE",
+          "source_url": "https://h5p.org/"
+        }
+      ],
+      "partial_name_match_count": 0,
+      "comparison_status": "NAME_CANDIDATE_REVIEW",
+      "eligibility": "NOT_ASSESSED",
+      "note": "No test, no 10D97P rating, no automatic identity or addition"
+    },
+    {
+      "id": "WD10",
+      "name": "OpenOrienteering Mapper",
+      "family": "orientation",
+      "documented_function": "Création de cartes d'orientation",
+      "official_evidence_url": "https://www.openorienteering.org/apps/mapper/",
+      "date": "2026-11-28",
+      "variant_scope": "desktop/mobile",
+      "alias_probes": [
+        "OpenOrienteering Mapper",
+        "OpenOrienteering"
+      ],
+      "exact_name_matches": [],
+      "partial_name_match_count": 0,
+      "comparison_status": "NO_NAME_MATCH",
+      "eligibility": "NOT_ASSESSED",
+      "note": "No test, no 10D97P rating, no automatic identity or addition"
+    },
+    {
+      "id": "WD11",
+      "name": "OpenBoard",
+      "family": "creation",
+      "documented_function": "Tableau blanc interactif pédagogique",
+      "official_evidence_url": "https://www.openboard.ch/en",
+      "date": "2026-11-28",
+      "variant_scope": "desktop",
+      "alias_probes": [
+        "OpenBoard"
+      ],
+      "exact_name_matches": [],
+      "partial_name_match_count": 0,
+      "comparison_status": "NO_NAME_MATCH",
+      "eligibility": "NOT_ASSESSED",
+      "note": "No test, no 10D97P rating, no automatic identity or addition"
+    },
+    {
+      "id": "WD12",
+      "name": "ClassQuiz",
+      "family": "quiz",
+      "documented_function": "Plateforme de quiz",
+      "official_evidence_url": "https://classquiz.de/",
+      "date": "2026-11-28",
+      "variant_scope": "web",
+      "alias_probes": [
+        "ClassQuiz"
+      ],
+      "exact_name_matches": [],
+      "partial_name_match_count": 0,
+      "comparison_status": "NO_NAME_MATCH",
+      "eligibility": "NOT_ASSESSED",
+      "note": "No test, no 10D97P rating, no automatic identity or addition"
+    },
+    {
+      "id": "WD13",
+      "name": "Chamilo",
+      "family": "continuity",
+      "documented_function": "Plateforme de formation",
+      "official_evidence_url": "https://chamilo.org/fr/",
+      "date": "2026-11-28",
+      "variant_scope": "web",
+      "alias_probes": [
+        "Chamilo"
+      ],
+      "exact_name_matches": [],
+      "partial_name_match_count": 0,
+      "comparison_status": "NO_NAME_MATCH",
+      "eligibility": "NOT_ASSESSED",
+      "note": "No test, no 10D97P rating, no automatic identity or addition"
+    },
+    {
+      "id": "WD14",
+      "name": "LongoMatch",
+      "family": "video",
+      "documented_function": "Analyse vidéo sportive",
+      "official_evidence_url": "https://support.longomatch.com/en/support/solutions/articles/103000427292-what-is-longomatch-",
+      "date": "2026-11-28",
+      "variant_scope": "logiciel, variante à préciser",
+      "alias_probes": [
+        "LongoMatch"
+      ],
+      "exact_name_matches": [
+        {
+          "id": "directory-0162",
+          "name": "LongoMatch",
+          "status": "PENDING_SOURCE_VERIFICATION",
+          "source_url": null
+        }
+      ],
+      "partial_name_match_count": 0,
+      "comparison_status": "NAME_CANDIDATE_REVIEW",
+      "eligibility": "NOT_ASSESSED",
+      "note": "No test, no 10D97P rating, no automatic identity or addition"
+    },
+    {
+      "id": "WD15",
+      "name": "Dartfish",
+      "family": "video",
+      "documented_function": "Analyse vidéo sportive, gamme de produits",
+      "official_evidence_url": "https://www.dartfish.com/fr/products/",
+      "date": "2026-11-28",
+      "variant_scope": "gamme desktop/mobile/cloud",
+      "alias_probes": [
+        "Dartfish"
+      ],
+      "exact_name_matches": [
+        {
+          "id": "candidate-019",
+          "name": "Dartfish",
+          "status": "OFFICIAL_LINK_ADDED_PENDING_FEATURE_REVIEW",
+          "source_url": "https://www.dartfish.com/"
+        }
+      ],
+      "partial_name_match_count": 0,
+      "comparison_status": "NAME_CANDIDATE_REVIEW",
+      "eligibility": "NOT_ASSESSED",
+      "note": "No test, no 10D97P rating, no automatic identity or addition"
+    },
+    {
+      "id": "WD16",
+      "name": "BORIS",
+      "family": "research",
+      "documented_function": "Codage comportemental et observation",
+      "official_evidence_url": "https://www.boris.unito.it/features/",
+      "date": "2026-11-28",
+      "variant_scope": "logiciel, variante à préciser",
+      "alias_probes": [
+        "BORIS"
+      ],
+      "exact_name_matches": [],
+      "partial_name_match_count": 0,
+      "comparison_status": "NO_NAME_MATCH",
+      "eligibility": "NOT_ASSESSED",
+      "note": "No test, no 10D97P rating, no automatic identity or addition"
+    },
+    {
+      "id": "WD17",
+      "name": "Excalidraw",
+      "family": "collaboration",
+      "documented_function": "Tableau blanc pour schémas",
+      "official_evidence_url": "https://github.com/excalidraw/excalidraw",
+      "date": "2026-11-28",
+      "variant_scope": "web",
+      "alias_probes": [
+        "Excalidraw"
+      ],
+      "exact_name_matches": [],
+      "partial_name_match_count": 0,
+      "comparison_status": "NO_NAME_MATCH",
+      "eligibility": "NOT_ASSESSED",
+      "note": "No test, no 10D97P rating, no automatic identity or addition"
+    }
+  ]
+}

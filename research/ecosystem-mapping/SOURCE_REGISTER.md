@@ -18,3 +18,6 @@ Aptoide: API v7 apps/search documentée comme Public (https://ws75.aptoide.com/a
 
 ## Canaux complémentaires — 28 novembre
 Voir [registre Web/desktop et preuves](CANAUX_COMPLEMENTAIRES_V01.csv). Wikidata CC0 pour données structurées; Flathub/AppStream et Snap recherche documentée, droits à vérifier; Microsoft Store accès catalogue non confirmé. Aucun pilote réseau supplémentaire.
+
+## SILL / DINUM — 28 novembre 2026
+https://code.gouv.fr/sill/ ; https://code.gouv.fr/sill/terms : données JSON publiées sous Licence Ouverte 2.0; accès aux fiches complètes réservé, export public à identifier et tester. Biais institutionnel français et libre. Pas de collecte effectuée à ce stade.

@@ -80,6 +80,12 @@
   ],
   "runtime_plan": {
     "boris": "Pinned release v10.0.2; Python >=3.13,<3.14 from pyproject.toml. Separate environment from ACPA CI; fetch source from official tag, record commit SHA, dependencies and version. Run upstream test_export_observation.py in its intended tests directory; generate actual export in temporary folder; inspect output schema and reconcile against project. No fallback to reference file claimed as runtime output.",
-    "jamovi": "Desktop version and platform documented; import actual exported/normalized table; explicitly set identifiers to text, missing values, numeric columns and units, compare counts and independently calculated totals; R/jmv package tests are not desktop execution."
+    "jamovi": "Desktop version and platform documented; import actual exported/normalized table; explicitly set identifiers to text, missing values, numeric columns and units, compare counts and independently calculated totals; R/jmv package tests are not desktop execution.",
+    "implemented": {
+      "commit": "422a3e992e4897d591a4945c4eda99690bcebe60",
+      "workflow": ".github/workflows/experimental-boris-runtime.yml",
+      "script": "scripts/check_boris_runtime.py",
+      "status": "PENDING_TERMINAL_EVIDENCE"
+    }
   }
 }

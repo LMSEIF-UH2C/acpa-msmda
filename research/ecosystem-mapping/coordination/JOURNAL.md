@@ -78,3 +78,5 @@
 | 2026-11-28 | interactive_assistant | INT-APP-A5-0019 | Rejeu RET-014 et UI interne | 8/8 CI antérieure, mêmes SHA Calc, panneau conditionnel et contrôle transfert réel | [Commit](https://github.com/LMSEIF-UH2C/acpa-msmda/commit/65aab6dac578688e89ba3259e8fb48eb38c1fecc) | CI puis recette mode activé |
 
 | 2026-11-28 | interactive_assistant | INT-APP-A5-0019 | Références BORIS | 6/6 intervalles rapprochés, écart de structure documenté, aucun runtime | [AUDIT_BORIS_REFERENCE_V01.json](../AUDIT_BORIS_REFERENCE_V01.json) | Recette et essai isolé |
+
+| 2026-11-28 | interactive_assistant | INT-APP-A5-0019 | Recette activée et BORIS | CI précédente 8/8, deux nouveaux workflows implémentés | [Commit](https://github.com/LMSEIF-UH2C/acpa-msmda/commit/422a3e992e4897d591a4945c4eda99690bcebe60) | Lire résultats terminaux |

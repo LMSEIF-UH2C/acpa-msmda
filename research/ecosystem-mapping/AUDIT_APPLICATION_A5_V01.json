@@ -230,5 +230,57 @@
     "matched_intervals": 6,
     "total_intervals": 6,
     "runtime_executed": false
+  },
+  "enabled_panel_and_boris_runtime": {
+    "commit": "422a3e992e4897d591a4945c4eda99690bcebe60",
+    "workflows": [
+      {
+        "id": 46175486421,
+        "name": "Independent R validation",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175486421"
+      },
+      {
+        "id": 46175486394,
+        "name": "Public web demo",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175486394"
+      },
+      {
+        "id": 46175486520,
+        "name": "Tests ACPA MSMDA",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175486520"
+      },
+      {
+        "id": 46175486423,
+        "name": "Mobile navigation REC-Y002",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175486423"
+      },
+      {
+        "id": 46175483084,
+        "name": "A5 internal review panel acceptance",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175483084"
+      },
+      {
+        "id": 46175483107,
+        "name": "A5 isolated BORIS runtime evidence",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46175483107"
+      }
+    ],
+    "results_verified": false,
+    "planned_panel_cases": 12,
+    "upstream_boris_commit": "01143a7bd3ba9375cda03539d76d3e56391e8084",
+    "actual_runtime_status": "PENDING",
+    "admitted": 0
   }
 }

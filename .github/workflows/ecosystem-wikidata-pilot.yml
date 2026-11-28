@@ -1,0 +1,32 @@
+name: Ecosystem Wikidata structured pilot
+on:
+  push:
+    branches: [research/ecosystem-mapping-pilot]
+    paths: ['research/ecosystem-mapping/collect_wikidata.py','research/ecosystem-mapping/tests/test_collect_wikidata.py','research/ecosystem-mapping/WIKIDATA_PLAN_V01.json','.github/workflows/ecosystem-wikidata-pilot.yml']
+permissions:
+  contents: read
+  actions: read
+jobs:
+  pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s research/ecosystem-mapping/tests -p test_collect_wikidata.py -v
+      - uses: actions/download-artifact@v4
+        with:
+          name: ecosystem-sill-pilot-audit
+          run-id: 46139311316
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: sill-baseline
+      - run: python research/ecosystem-mapping/collect_wikidata.py --catalog data/real_tools_catalog.json --sill sill-baseline/sill_product_inventory.json --output wikidata-output
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ecosystem-wikidata-pilot-audit
+          path: wikidata-output/
+          retention-days: 30
+          if-no-files-found: warn

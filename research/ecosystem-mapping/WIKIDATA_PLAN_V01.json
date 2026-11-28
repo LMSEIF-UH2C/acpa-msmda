@@ -1,0 +1,72 @@
+[
+  {
+    "family": "education",
+    "qid": "Q1074158",
+    "limit": 101,
+    "relation": "P31 direct",
+    "class_url": "https://www.wikidata.org/wiki/Q1074158"
+  },
+  {
+    "family": "lms",
+    "qid": "Q694007",
+    "limit": 101,
+    "relation": "P31 direct",
+    "class_url": "https://www.wikidata.org/wiki/Q694007"
+  },
+  {
+    "family": "statistics",
+    "qid": "Q13199995",
+    "limit": 101,
+    "relation": "P31 direct",
+    "class_url": "https://www.wikidata.org/wiki/Q13199995"
+  },
+  {
+    "family": "mapping",
+    "qid": "Q483130",
+    "limit": 101,
+    "relation": "P31 direct",
+    "class_url": "https://www.wikidata.org/wiki/Q483130"
+  },
+  {
+    "family": "video",
+    "qid": "Q1373429",
+    "limit": 101,
+    "relation": "P31 direct",
+    "class_url": "https://www.wikidata.org/wiki/Q1373429"
+  },
+  {
+    "family": "bibliography",
+    "qid": "Q1403556",
+    "limit": 101,
+    "relation": "P31 direct",
+    "class_url": "https://www.wikidata.org/wiki/Q1403556"
+  },
+  {
+    "family": "office",
+    "qid": "Q207170",
+    "limit": 101,
+    "relation": "P31 direct",
+    "class_url": "https://www.wikidata.org/wiki/Q207170"
+  },
+  {
+    "family": "fitness",
+    "qid": "Q16001686",
+    "limit": 101,
+    "relation": "P31 direct",
+    "class_url": "https://www.wikidata.org/wiki/Q16001686"
+  },
+  {
+    "family": "vr_headset",
+    "qid": "Q19600329",
+    "limit": 101,
+    "relation": "P31 direct",
+    "class_url": "https://www.wikidata.org/wiki/Q19600329"
+  },
+  {
+    "family": "generative_chatbot",
+    "qid": "Q133284163",
+    "limit": 101,
+    "relation": "P31 direct",
+    "class_url": "https://www.wikidata.org/wiki/Q133284163"
+  }
+]

@@ -383,44 +383,94 @@
     "commit": "b13e9cbd4cf4a375a7e653b02a93637f9704b783",
     "workflows": [
       {
+        "id": 46177389680,
+        "name": "Tests ACPA MSMDA",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46177389680"
+      },
+      {
+        "id": 46177389613,
+        "name": "Public web demo",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46177389613"
+      },
+      {
         "id": 46177389621,
         "name": "Independent R validation",
-        "status": "in_progress",
-        "conclusion": null,
+        "status": "completed",
+        "conclusion": "success",
         "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46177389621"
       },
       {
         "id": 46177389630,
         "name": "Mobile navigation REC-Y002",
-        "status": "in_progress",
-        "conclusion": null,
+        "status": "completed",
+        "conclusion": "success",
         "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46177389630"
-      },
-      {
-        "id": 46177389613,
-        "name": "Public web demo",
-        "status": "in_progress",
-        "conclusion": null,
-        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46177389613"
-      },
-      {
-        "id": 46177389680,
-        "name": "Tests ACPA MSMDA",
-        "status": "in_progress",
-        "conclusion": null,
-        "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46177389680"
       },
       {
         "id": 46177384827,
         "name": "A5 isolated BORIS runtime evidence",
-        "status": "in_progress",
-        "conclusion": null,
+        "status": "completed",
+        "conclusion": "success",
         "url": "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46177384827"
       }
     ],
-    "results_verified": false,
+    "results_verified": true,
     "expected_events": 8,
     "expected_intervals": 4,
+    "real_admission": 0,
+    "actual_result": {
+      "status": "PASS_NATIVE_EXPORT_ONLY",
+      "run": 46177384827,
+      "artifact": 15276680713,
+      "archive_sha256": "34912786f7c81db84180491fa3bde5018f11855eab44adca98a1eeabf1eca164",
+      "archive_sha_verified_locally": true,
+      "export_sha256": "b2439eb7610866747aec64086fb8562b9b349a5678a8f32ae0d9de3f5b28e1ec",
+      "export_sha_verified_locally": true,
+      "project_sha256_reported": "b932d2f5c2e0063c465c6d80d9c33e6c3a9b3a899375ebc490a34edbe1404f45",
+      "source_unchanged_reported": true,
+      "version": "10.0.2",
+      "upstream_commit": "01143a7bd3ba9375cda03539d76d3e56391e8084",
+      "events": 8,
+      "columns": 21,
+      "intervals_ms": [
+        [
+          3300,
+          7750,
+          4450
+        ],
+        [
+          9900,
+          16200,
+          6300
+        ],
+        [
+          18350,
+          24475,
+          6125
+        ],
+        [
+          38425,
+          46100,
+          7675
+        ]
+      ],
+      "totals_ms": {
+        "subject1": 16875,
+        "subject2": 7675
+      },
+      "limitations": "Native function on public test project, not CLI or GUI; no school data or local Moroccan context confirmed."
+    }
+  },
+  "boris_calc_actual_transfer": {
+    "file": "AUDIT_TRANSFERT_BORIS_CALC_V01.json",
+    "status": "PASS_BOUNDED_TYPED_TRANSFER",
+    "semantic_values": 168,
+    "exact_strings": 130,
+    "nonempty_types": 144,
     "real_admission": 0
   }
 }

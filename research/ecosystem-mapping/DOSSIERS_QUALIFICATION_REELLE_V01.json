@@ -21,6 +21,14 @@
             "https://www.boris.unito.it/user_guide/analysis/",
             "https://www.boris.unito.it/user_guide/export_events/"
           ]
+        },
+        {
+          "kind": "ACTUAL_TEST",
+          "finding": "Native BORIS 10.0.2 export passed on public test project; actual output transferred through Calc. CLI failed.",
+          "locators": [
+            "AUDIT_TRANSFERT_BORIS_CALC_V01.json",
+            "AUDIT_BORIS_REFERENCE_V01.json"
+          ]
         }
       ],
       "sources": [
@@ -61,7 +69,7 @@
         },
         "transfer": {
           "status": "NOT_ESTABLISHED",
-          "reason": "No complete contextual chain tested; pair compatibility not established"
+          "reason": "Bounded actual BORIS-Calc manual file transfer tested under specified Linux environments; full target context and pair review not established."
         }
       },
       "resources": {
@@ -97,6 +105,14 @@
           "finding": "5x6 constructed CSV: default import changed five IDs; explicit text columns preserved 30/30 parsed fields.",
           "locators": [
             "AUDIT_TRANSFERT_CSV_REEL_V02.json"
+          ]
+        },
+        {
+          "kind": "ACTUAL_TEST",
+          "finding": "Actual BORIS native CSV imported and re-exported in Calc; 168/168 semantic values under explicit policy, 144/144 nonempty types; exact strings 130/168.",
+          "locators": [
+            "AUDIT_TRANSFERT_BORIS_CALC_V01.json",
+            "AUDIT_BORIS_REFERENCE_V01.json"
           ]
         }
       ],
@@ -138,7 +154,7 @@
         },
         "transfer": {
           "status": "NOT_ESTABLISHED",
-          "reason": "No complete contextual chain tested; pair compatibility not established"
+          "reason": "Bounded actual BORIS-Calc manual file transfer tested under specified Linux environments; full target context and pair review not established."
         }
       },
       "resources": {

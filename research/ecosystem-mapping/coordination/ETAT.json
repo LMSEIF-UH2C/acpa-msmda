@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": 64,
+  "revision": 65,
   "branch": "research/ecosystem-mapping-pilot",
   "scientific_version": "0.1.58",
   "scientific_baseline_commit": "c7da29efe69974ebc365dbf0aa942f95ec5846df",
@@ -11,13 +11,13 @@
     "acquired_utc": "2026-11-28T18:05:58.979Z",
     "base_head": "12f6b300aa2d853ae4f5d0412cc52015fcad984c",
     "run_refs": [
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46177389680",
+      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46177389613",
       "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46177389621",
       "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46177389630",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46177389613",
-      "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46177389680",
       "https://github.com/LMSEIF-UH2C/acpa-msmda/actions/runs/46177384827"
     ],
-    "resume_note": "A5 : workflows c272caf terminaux (4 régressions success, échec CLI BORIS RET-018 conservé). Accord du porteur de poursuivre avec l'outil officiel. Nouveau commit b13e9cbd4cf4a375a7e653b02a93637f9704b783 : exécution native séparée via export_tabular_events non modifiée, même version officielle v10.0.2 épinglée, même projet public, intervalle explicite 0–60 s. Contrôle prospectif des huit triplets temps/sujet/comportement et quatre intervalles START/STOP, totaux 16.875 et 7.675 s, empreintes CSV et projet et intégrité de la source. Aucun résultat présumé. Le précédent script CLI reste dans le dépôt; workflow retest natif distinct par commit. Aucun changement moteur/interface, aucun manifeste ni admission réelle, aucun changement main. En cas d'échec, diversification sans multiplier les retests BORIS."
+    "resume_note": "A5 : BORIS natif 46177384827 PASS, 8/8 événements, 4/4 intervalles exacts, 16.875 et 7.675 s, source inchangée selon journal. Archive 15276680713 et CSV contrôlés localement, SHA256 concordants, 8×21 champs. CLI RET-018 reste en échec. Nouveau transfert effectif de ce CSV BORIS vers Calc 25.2.3.2 (XLSX puis CSV) : 130/168 chaînes exactes, 168/168 valeurs selon règle explicite Decimal pour numériques, 38 différences de présentation décimale. Contrôle initial standard : c numérique alors que source déclare une modalité d'ensemble; essai conservateur a/c texte, puis schéma projet a numérique/c modalité confirmé et troisième import typé : 144/144 types non vides attendus, 168/168 valeurs, durées exactes, input inchangé. Audit AUDIT_TRANSFERT_BORIS_CALC_V01.json ; trois modes conservés, portée limitée au fichier public, sans données élève. ASC-02 enrichi (valeur, type, représentation distincts). Jamovi non exécuté, contraintes contextuelles non établies, aucune admission réelle. CI 5/5 succès au contrôle, 0 non terminal. Aucun changement applicatif ou catalogue dans cette passe."
   },
   "last_handoff": {
     "actor": "interactive_assistant",
@@ -347,7 +347,7 @@
         "deps": [
           "A4"
         ],
-        "next": "Read terminal native export evidence and archive; distinguish actual native result from CLI; diversify next to simpler qualified Calc context and positive internal UI test.",
+        "next": "Verify terminal mobile CI; prepare positive internal UI test and first simple Calc qualification context; retain actual BORIS-Calc transfer evidence and unknown gates; no real admission without evidence and owner decision.",
         "evidence": "../AUDIT_APPLICATION_A5_V01.json"
       },
       {
@@ -369,7 +369,7 @@
     ],
     "integration_commit": "b13e9cbd4cf4a375a7e653b02a93637f9704b783",
     "pr": 82,
-    "regression_status": "PENDING_NATIVE_BORIS_EXPORT",
+    "regression_status": "SUCCESS_NATIVE_BORIS_CI",
     "next_task": "A5",
     "dual_entry": {
       "stable": "v0.2.0 baseline, default",

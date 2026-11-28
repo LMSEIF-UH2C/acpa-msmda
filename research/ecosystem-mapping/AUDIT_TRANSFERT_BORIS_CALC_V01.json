@@ -1,0 +1,118 @@
+{
+  "date": "2026-11-28",
+  "status": "PASS_BOUNDED_TYPED_TRANSFER",
+  "scope": "Actual BORIS native CSV from upstream public test project imported into actual LibreOffice Calc Linux 25.2.3.2, XLSX then CSV; exploratory, not full qualification",
+  "native": {
+    "status": "PASS_NATIVE_EXPORT_ONLY",
+    "run": 46177384827,
+    "artifact": 15276680713,
+    "archive_sha256": "34912786f7c81db84180491fa3bde5018f11855eab44adca98a1eeabf1eca164",
+    "archive_sha_verified_locally": true,
+    "export_sha256": "b2439eb7610866747aec64086fb8562b9b349a5678a8f32ae0d9de3f5b28e1ec",
+    "export_sha_verified_locally": true,
+    "project_sha256_reported": "b932d2f5c2e0063c465c6d80d9c33e6c3a9b3a899375ebc490a34edbe1404f45",
+    "source_unchanged_reported": true,
+    "version": "10.0.2",
+    "upstream_commit": "01143a7bd3ba9375cda03539d76d3e56391e8084",
+    "events": 8,
+    "columns": 21,
+    "intervals_ms": [
+      [
+        3300,
+        7750,
+        4450
+      ],
+      [
+        9900,
+        16200,
+        6300
+      ],
+      [
+        18350,
+        24475,
+        6125
+      ],
+      [
+        38425,
+        46100,
+        7675
+      ]
+    ],
+    "totals_ms": {
+      "subject1": 16875,
+      "subject2": 7675
+    },
+    "limitations": "Native function on public test project, not CLI or GUI; no school data or local Moroccan context confirmed."
+  },
+  "source_schema_ref": "https://github.com/olivierfriard/BORIS/blob/01143a7bd3ba9375cda03539d76d3e56391e8084/tests/files/test.boris",
+  "source_independent_variables": {
+    "a": "numeric",
+    "b": "text",
+    "c": "value from set (111,222,333)"
+  },
+  "comparison": "Exact string equality or Decimal equality only for specified numeric columns. XLSX nonempty types checked against explicit policy. Blank fields not counted in type check. No inference about missing codes or universal correctness.",
+  "numeric_columns": [
+    "Observation duration",
+    "Time offset (s)",
+    "Media duration (s)",
+    "FPS",
+    "a",
+    "Time"
+  ],
+  "text_columns": "All other columns treated as text by conservative import policy, including date, c and NA; not a claim every future field has same type.",
+  "results": [
+    {
+      "mode": "default",
+      "exact": 130,
+      "semantic": 168,
+      "total": 168,
+      "output_sha256": "fa5b7a1bea9f479a6584815698eab57df7f92df7634f5d97d59cb9fc4674a5be",
+      "finding": "a and c parsed as numeric in first XLSX row; c is a categorical set value in original project."
+    },
+    {
+      "mode": "initial_conservative",
+      "exact": 130,
+      "semantic": 168,
+      "total": 168,
+      "output_sha256": "4aea2da557bcb8918b07f1ac71ae89f5c2e82885de3c288cdbd8ab34f18ace34",
+      "finding": "a and c parsed as text in first row; source later checked and a is numeric; this is not final policy."
+    },
+    {
+      "mode": "source_schema_typed",
+      "exact": 130,
+      "semantic": 168,
+      "total": 168,
+      "nonempty_type_matches": 144,
+      "nonempty_type_total": 144,
+      "output_sha256": "9671111c1c51dfe3a81997fbb0aa6c762bfa1ca59c52e80bd92ee5807f787923",
+      "totals_seconds": {
+        "subject1": "16.875",
+        "subject2": "7.675"
+      },
+      "input_unchanged": true,
+      "exit_codes": [
+        0,
+        0
+      ],
+      "differences_by_column": {
+        "Observation duration": 8,
+        "Time offset (s)": 8,
+        "Media duration (s)": 8,
+        "FPS": 8,
+        "Time": 6
+      },
+      "infilter": "Text - txt - csv (StarCalc):44,34,76,1,1/2/2/2/3/2/4/1/5/2/6/2/7/1/8/1/9/1/10/1/11/2/12/2/13/2/14/2/15/2/16/2/17/1/18/2/19/2/20/2/21/2,1033,true"
+    }
+  ],
+  "commands": [
+    "libreoffice -env:UserInstallation=file://<tmp>/profile --headless [--infilter=...] --convert-to xlsx --outdir <tmp>/xlsx actual-native-export.csv",
+    "libreoffice -env:UserInstallation=file://<tmp>/profile --headless --convert-to csv:Text - txt - csv (StarCalc):44,34,76,1 --outdir <tmp>/out actual-native-export.xlsx"
+  ],
+  "verification": "Python csv.reader, Decimal, openpyxl XLSX cell types, independently pair START/STOP and recompute durations. Archive downloaded, hashes recalculated. Local temporary outputs deleted; hashes and commands retained; no new actual output files stored in repo.",
+  "limitations": [
+    "38 textual differences due to decimal formatting; not byte equality.",
+    "Categorical c type inferred from project schema, retained as text in typed import; no universal guarantee.",
+    "Public test fixture only, no student data; native BORIS in Linux CI and Calc locally, not actual school Windows or offline isolation.",
+    "No jamovi runtime or end-to-end three-tool chain; no operational admission, no GUI or CLI pass."
+  ]
+}
